@@ -1,0 +1,168 @@
+{
+ "option_id": "DYL_DN1003",
+ "title": "DSR Helper Mapping",
+ "menu": {
+  "path": [
+   "Approval",
+   "Master Data Approval",
+   "DSR Helper Mapping"
+  ],
+  "group_id": "DYL_DN1003"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "DN1003",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "DN1003001",
+   "tab": "DSR",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "DN1003002",
+   "tab": "DSR",
+   "is_child": true,
+   "parent": "DN1003001",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "PAEE_SOURCE_CODE",
+   "id": "column7",
+   "widget": "allowable",
+   "data_field": "PAEE_SOURCE_CODE",
+   "db_description": "Source Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1003002"
+  },
+  "Description": {
+   "name": "EPP2_DESC",
+   "id": "column5",
+   "widget": "allowable",
+   "data_field": "EPP2_DESC",
+   "db_description": "Physical Business Entities Level 2 Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1003002"
+  },
+  "Business Entity Type Code": {
+   "name": "PBET_BUSENTITY_TYPE",
+   "id": "column3",
+   "widget": "allowable",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1003002"
+  },
+  "Organization/Company Code": {
+   "name": "porg_orgacode",
+   "id": "column9",
+   "widget": "allowable",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1003002"
+  },
+  "Allowable Type": {
+   "name": "PAEE_ALLOWABLE_TYPE",
+   "id": "column6",
+   "widget": "allowable",
+   "data_field": "PAEE_ALLOWABLE_TYPE",
+   "db_description": "Allowable Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1003002"
+  },
+  "Type": {
+   "name": "PAEE_SOURCE_TYPE",
+   "id": "column8",
+   "widget": "allowable",
+   "data_field": "PAEE_SOURCE_TYPE",
+   "db_description": "Source Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1003002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Name",
+    "Status",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

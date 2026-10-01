@@ -1,0 +1,100 @@
+{
+ "option_id": "SALESRETURN-STATUSCHANGE",
+ "title": "Sales Return Status Change",
+ "menu_path": [
+  "Transaction",
+  "Sales Return",
+  "Sales Return Status Change"
+ ],
+ "route": "/sales-return-statusChange",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/sales-return-statusChange",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "PJP Number",
+   "id": "pjpNo",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "PJP Number",
+   "id": "ginNumber",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Header",
+   "id": null,
+   "title": "Header",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": true
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No.",
+    "Principle Invoice",
+    "Document Date",
+    "Delivery Date",
+    "Outlet Code",
+    "Gross Amount",
+    "Markup",
+    "Discount Amount",
+    "Tax",
+    "Net Amount"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

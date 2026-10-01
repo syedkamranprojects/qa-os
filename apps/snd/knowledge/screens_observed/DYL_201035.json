@@ -1,0 +1,78 @@
+{
+ "option_id": "DYL_201035",
+ "title": "Outlet Price",
+ "menu_path": [
+  "Company setup",
+  "Price",
+  "Outlet Price"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201035",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201035",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__epp1_busent_code_phs_lvl1Parent",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select a value"
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add a row",
+   "id": null,
+   "title": "Add a row",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Sr #",
+    "Principle Code",
+    "Product Code",
+    "Batch",
+    "Unit Code",
+    "Price",
+    "Tax",
+    "GST %",
+    "Effective Date",
+    "Retail"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

@@ -1,0 +1,189 @@
+{
+ "option_id": "DYL_202046",
+ "title": "Section Creation HQ",
+ "menu_path": [
+  "Setup/Configuration",
+  "PJP",
+  "Section Creation HQ"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202046",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202046",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Code",
+   "id": "TXT__ENTITYCODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "TXT__EPL1DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Abbreviation",
+   "id": "TXT__EPL1ABRV",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "DDL__EPL1ACTIVE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Origin Date",
+   "id": "DT__EPL1ORIGINDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Default Delivery Days",
+   "id": "TXT__EPL1_REF_NUM_5",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "164",
+   "id": "pagination-element-164",
+   "title": "Page 164",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  },
+  {
+   "text": "Translation",
+   "id": "crossBtn",
+   "title": "Translation",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Distributor",
+    "Status"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

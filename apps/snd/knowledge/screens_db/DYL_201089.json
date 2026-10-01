@@ -1,0 +1,93 @@
+{
+ "option_id": "DYL_201089",
+ "title": "Analysis Classification - Chanel Hierarchy",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Analysis Classification",
+   "Analysis Classification - Chanel Hierarchy"
+  ],
+  "group_id": "DYL_201089"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201089",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201089001",
+   "tab": null,
+   "is_child": false,
+   "parent": "201089002",
+   "partial": "201089002",
+   "desc": null,
+   "table": "GLB_PR_ANT_ANLS_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089002",
+   "tab": "Classification A",
+   "is_child": true,
+   "parent": "201089001",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089003",
+   "tab": "Classification B",
+   "is_child": true,
+   "parent": "201089001",
+   "partial": null,
+   "desc": "Analysis Classification - Grid",
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089004",
+   "tab": "Classification C",
+   "is_child": true,
+   "parent": "201089001",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Analysis Category",
+    "Analysis Type",
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type",
+    "Organization Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

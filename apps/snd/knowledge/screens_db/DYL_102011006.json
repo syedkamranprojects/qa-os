@@ -1,0 +1,66 @@
+{
+ "option_id": "DYL_102011006",
+ "title": "PJP - Status",
+ "menu": {
+  "path": [
+   "Approval",
+   "Master Data Approval",
+   "PJP - Status"
+  ],
+  "group_id": "DYL_102011006"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102011006",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102011006",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "PJP Creation - Distributor Wise - Status",
+   "table": "SND_EN_PJP_PJPHEAD",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Business Entity Type 1 Code",
+    "Distributor",
+    "PJP Number",
+    "PJP Description",
+    "DSR Orga Code",
+    "Business Entity Type 2 Code",
+    "DSR",
+    "Bank",
+    "Branch",
+    "Working Days",
+    "Working Date",
+    "Closing Date",
+    "Warehouse",
+    "Distributor",
+    "Warehouse",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Process"
+ ]
+}

@@ -1,0 +1,300 @@
+{
+ "option_id": "0303",
+ "title": "Page Meta",
+ "menu_path": [
+  "Page Meta"
+ ],
+ "route": "/content-master/users-profile/page-meta",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/users-profile/page-meta",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Code",
+   "id": "pageCode",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "description",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Abbreviation",
+   "id": "abbreviation",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "active",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Level No",
+   "id": "levelNo",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Filter Clause",
+   "id": "filterClause",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Sorting",
+   "id": "sortingClause",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Parent Code",
+   "id": "parentCode",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Is Orga Based",
+   "id": "isOrgaBased",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Is Parameter Table",
+   "id": "isParameterTable",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "ParaControl Code",
+   "id": "paraCtrlCode",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Number Generation Code",
+   "id": "numGenCode",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Page Type",
+   "id": "pageType",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Table Name",
+   "id": "tableName",
+   "name": null,
+   "type": "textarea",
+   "widget": "textarea",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Sub Query",
+   "id": "subQuery",
+   "name": null,
+   "type": "textarea",
+   "widget": "textarea",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Micro Service Name",
+   "id": "msName",
+   "name": null,
+   "type": "textarea",
+   "widget": "textarea",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "121",
+   "id": "pagination-element-121",
+   "title": "Page 121",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  },
+  {
+   "text": "Translation",
+   "id": "crossBtn",
+   "title": "Translation",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "Table Name",
+    "Level Type",
+    "Status",
+    "Page Type"
+   ],
+   "rows": 10,
+   "pager": true
+  }
+ ]
+}

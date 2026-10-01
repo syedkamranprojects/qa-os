@@ -1,0 +1,103 @@
+{
+ "option_id": "DYL_202075",
+ "title": null,
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "DSR Profile",
+   "DYL_202075"
+  ],
+  "group_id": "DYL_202075"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202075",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202075001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 2,
+   "grids": []
+  },
+  {
+   "page": "202075002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202075001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Working Date": {
+   "name": "DT_epjpworkingdateParent",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "EPJP_WORKING_DATE",
+   "db_description": "Working Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202075001"
+  },
+  "PJP Number": {
+   "name": "TXT__PJP_NUMBER",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PJP_NUMBER",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJP_DFI",
+   "validations": null,
+   "regex": null,
+   "page": "202075001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "PJP No Daily",
+    "PJP No Daily",
+    "Serial No Daily",
+    "Status Code",
+    "Status Description",
+    "Create Date",
+    "Modified Date",
+    "Working Date",
+    "Working Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

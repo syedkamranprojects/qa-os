@@ -1,0 +1,212 @@
+{
+ "option_id": "DYL_201053",
+ "title": "Quota Type",
+ "menu": {
+  "path": [
+   "Asset Module",
+   "Quota Type"
+  ],
+  "group_id": "DYL_201053"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201053",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201053001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "AST_PR_QTP_QUOTA_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201053002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201053001",
+   "desc": null,
+   "table": "AST_PR_QTP_QUOTA_TYPE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__AQTP_QUOTA_TYPE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "AQTP_QUOTA_TYPE",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Long Description": {
+   "name": "TXT__AQTP_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "AQTP_DESC",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Short Description": {
+   "name": "TXT__AQTP_ABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "AQTP_ABRV",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Quota Type": {
+   "name": "TXT__AQTP_TYPE",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "AQTP_TYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 20,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Default": {
+   "name": "TXT__AQTP_DEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "AQTP_DEFAULT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Status": {
+   "name": "TXT__AQTP_STATUS",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "AQTP_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Level No": {
+   "name": "TXT__AQTP_LEVEL_NO",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "AQTP_LEVEL_NO",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  },
+  "Level Type": {
+   "name": "TXT__AQTP_LEVELTYPE",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "AQTP_LEVELTYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201053002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Long Description",
+    "Short Description",
+    "Quota Type",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

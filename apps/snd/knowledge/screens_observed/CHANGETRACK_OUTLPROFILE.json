@@ -1,0 +1,134 @@
+{
+ "option_id": "CHANGETRACK_OUTLPROFILE",
+ "title": "Change Track Outlet Profile",
+ "menu_path": [
+  "Distributor Setup",
+  "Outlet Profile",
+  "Change Track Outlet Profile"
+ ],
+ "route": "/change-management",
+ "param": "pageCodeGrid=102003001&fieldComb=PBET_BUSENTITY_TYPE&valueComb=OUTL&serialNoGrid=4&pageCodeForm=102003002&serialNoForm=2&label1=Outlet Modification Request List&label2=List of Outlets&label3=Outlet Modification attribute",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/change-management?pageCodeGrid=102003001&fieldComb=PBET_BUSENTITY_TYPE&valueComb=OUTL&serialNoGrid=4&pageCodeForm=102003002&serialNoForm=2&label1=Outlet%20Modification%20Request%20List&label2=List%20of%20Outlets&label3=Outlet%20Modification%20attribute",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "6",
+   "id": "pagination-element-6",
+   "title": "Page 6",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "1966",
+   "id": "pagination-element-1966",
+   "title": "Page 1966",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Request No",
+    "Description",
+    "Distributor",
+    "Status",
+    "Request Date"
+   ],
+   "rows": 5,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "Outlet Code",
+    "Outlet Name",
+    "Outlet Status",
+    "Approval Status",
+    "Distributor"
+   ],
+   "rows": 6,
+   "pager": true
+  }
+ ]
+}

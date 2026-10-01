@@ -1,0 +1,193 @@
+{
+ "option_id": "DYL_1079",
+ "title": "Vehicle Color",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Vehicle Color"
+  ],
+  "group_id": "DYL_1079"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1079",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101079001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Vehicle Color  - Grid",
+   "table": "SND_PR_VHC_VEHICLE_COLOR",
+   "n_fields": 0,
+   "grids": [
+    "Vehicle Color"
+   ]
+  },
+  {
+   "page": "101079002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101079001",
+   "desc": "Vehicle Color - Form",
+   "table": "SND_PR_VHC_VEHICLE_COLOR",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__pvhc_vech_color",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PVHC_VECH_COLOR",
+   "db_description": "Vehicle Color Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  },
+  "Description": {
+   "name": "TXT__pvhc_desc",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "PVHC_DESC",
+   "db_description": "Vehicle Color Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  },
+  "Abbreviation": {
+   "name": "TXT__pvhc_abrv",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PVHC_ABRV",
+   "db_description": "Vehicle Color Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  },
+  "Default": {
+   "name": "DDL__pvhc_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PVHC_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  },
+  "Status": {
+   "name": "DDL__pvhc_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PVHC_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  },
+  "Level Type": {
+   "name": "TXT__pvhc_leveltype",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PVHC_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  },
+  "Level No": {
+   "name": "TXT__pvhc_level_no",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PVHC_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101079002"
+  }
+ },
+ "grids": {
+  "Vehicle Color": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update"
+ ]
+}

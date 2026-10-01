@@ -1,0 +1,106 @@
+{
+ "_readme": "Buttons, tabs and grid columns that screens_observed does not have yet, seen live (replays 2026-09-29/30) or in the framework flows. Merged into step_labels.json by `python runtime/qaos_steps.py index`. Each entry: {\"buttons\": [], \"tabs\": [], \"columns\": [], \"source\": \"where seen\"}. Add entries after a recording; confirm with the QA lead.",
+ "Stock Inquiry": {
+  "buttons": [
+   "Show Inquiry",
+   "Generate Opening Balances"
+  ],
+  "tabs": [],
+  "columns": [
+   "Category",
+   "Brand",
+   "Product Name",
+   "Warehouse",
+   "Batch",
+   "Stock Type",
+   "Opening CS",
+   "Opening DZ",
+   "Opening PC",
+   "In CS",
+   "In DZ",
+   "In PC",
+   "Out CS",
+   "Out DZ",
+   "Out PC",
+   "Allocated CS",
+   "Allocated DZ",
+   "Allocated PC",
+   "Closing CS",
+   "Closing DZ",
+   "Closing PC"
+  ],
+  "source": "live harvest 2026-10-01 (app-cartographer, cnr1dev1, layout 201069): 21 single-level headers; row filter inputs only for Category, Brand, Product Name, Warehouse, Batch, Stock Type; Generate Opening Balances changes stock and must never be part of a validation flow; Closing = Opening + In - Out - Allocated; Product Name cell reads \"<code> - <description> - <price>\" (filter is contains)",
+  "button_risk": {
+   "Show Inquiry": "read-only",
+   "Generate Opening Balances": "changes-stock"
+  }
+ },
+ "Dispatch Advice": {
+  "buttons": [
+   "Add",
+   "Forward",
+   "Reject",
+   "Terminate",
+   "Save"
+  ],
+  "columns": [
+   "Document No",
+   "Status",
+   "Approval Status"
+  ],
+  "source": "live recording 2026-09-30 (TC01)",
+  "button_risk": {
+   "Forward": "one-way",
+   "Reject": "one-way",
+   "Terminate": "one-way",
+   "Save": "changes-data",
+   "Add": "read-only"
+  }
+ },
+ "Goods Issue Note": {
+  "buttons": [
+   "Add",
+   "Forward",
+   "Reject",
+   "Terminate",
+   "Save All"
+  ],
+  "tabs": [
+   "Header",
+   "Cash Memo Selection",
+   "Detail"
+  ],
+  "source": "live replay 2026-09-30",
+  "button_risk": {
+   "Save All": "changes-data",
+   "Forward": "one-way",
+   "Reject": "one-way",
+   "Terminate": "one-way",
+   "Add": "read-only"
+  }
+ },
+ "Delivery Date Change": {
+  "buttons": [
+   "Process"
+  ],
+  "source": "live replay 2026-09-30",
+  "button_risk": {
+   "Process": "changes-data"
+  }
+ },
+ "Order Stock Allocation": {
+  "buttons": [
+   "Allocation",
+   "Unallocate"
+  ],
+  "tabs": [
+   "Unallocated",
+   "Allocated"
+  ],
+  "source": "live replay 2026-09-30",
+  "button_risk": {
+   "Allocation": "changes-stock",
+   "Unallocate": "changes-stock"
+  }
+ }
+}

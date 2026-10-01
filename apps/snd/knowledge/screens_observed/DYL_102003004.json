@@ -1,0 +1,251 @@
+{
+ "option_id": "DYL_102003004",
+ "title": "Customer Profile",
+ "menu_path": [
+  "Setup/Configuration",
+  "Entity Profile",
+  "Customer Profile"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102003004",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102003004",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Customer Code",
+   "id": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Customer Code",
+   "id": "TXT__EPP1DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Preferred Name",
+   "id": "TXT__EPP1ABRV",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Preferred Name",
+   "id": "TXT__EPP1CORLATITUDE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Coordinates Longitude",
+   "id": "TXT__EPP1CORLONGITUDE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PLSMLIFESTYLECODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Identified On",
+   "id": "DT__EPP1REFDATE1",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Identified On",
+   "id": "TXT__EPP1REFERENCE1",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "DDL__EPP1ACTIVE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "DDl__epp1_ref_val_1",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date Of Birth",
+   "id": "DDt__epp1_ref_date_2",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Demographics",
+   "id": null,
+   "title": "Demographics",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "spindown",
+   "disabled": false
+  },
+  {
+   "text": "Documents",
+   "id": null,
+   "title": "Documents",
+   "disabled": true
+  },
+  {
+   "text": "Bank",
+   "id": null,
+   "title": "Bank",
+   "disabled": true
+  },
+  {
+   "text": "Contact Person Details",
+   "id": null,
+   "title": "Contact Person Details",
+   "disabled": true
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  },
+  {
+   "text": "Translation",
+   "id": "crossBtn",
+   "title": "Translation",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Customer Code",
+    "Full Name",
+    "Gender",
+    "Date Of Birth",
+    "Translatable"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

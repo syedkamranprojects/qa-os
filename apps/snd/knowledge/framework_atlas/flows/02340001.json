@@ -1,0 +1,1191 @@
+{
+ "src": "tf:02340001",
+ "flow_id": "02340001",
+ "description": "Non Unilever Products",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:02340001|0234|1",
+   "seq": 1,
+   "menu_group": "0234",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0234",
+   "menu_group": "0234",
+   "exists": true,
+   "description": "Non Unilever Products",
+   "search_text": "Non Unilever Products",
+   "navigation": "DYL_BG1001",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0234|023401|1",
+   "mgsm_seq": 1,
+   "screen_id": "023401",
+   "screen_name": "NUP_Product",
+   "sheet": "NUP_Product",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0234|023402|2",
+     "mgsm_seq": 2,
+     "screen_id": "023402",
+     "screen_name": "NUP_Product_Analysis",
+     "sheet": "NUP_Product_Analysis",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "023401",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_2",
+     "workbook": "NG_Dcode_QA_Setup",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": "Y"
+    },
+    {
+     "src": "mgsm:0234|023403|3",
+     "mgsm_seq": 3,
+     "screen_id": "023403",
+     "screen_name": "NUP_Batch",
+     "sheet": "NUP_Batch",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "023401",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_3",
+     "workbook": "NG_Dcode_QA_Setup",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": "Y"
+    },
+    {
+     "src": "mgsm:0234|023404|4",
+     "mgsm_seq": 4,
+     "screen_id": "023404",
+     "screen_name": "NUP_Product_Forward",
+     "sheet": "NUP_Product_Forward",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "023401",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_1",
+     "workbook": "NG_Dcode_QA_Setup",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": "Y"
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "023401",
+  "023402",
+  "023403",
+  "023404"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "NUP_Product",
+   "kind": "screen",
+   "screen_ids": [
+    "023401"
+   ]
+  },
+  {
+   "sheet": "NUP_Product_Analysis",
+   "kind": "screen",
+   "screen_ids": [
+    "023402"
+   ]
+  },
+  {
+   "sheet": "NUP_Batch",
+   "kind": "screen",
+   "screen_ids": [
+    "023403"
+   ]
+  },
+  {
+   "sheet": "NUP_Product_Forward",
+   "kind": "screen",
+   "screen_ids": [
+    "023404"
+   ]
+  },
+  {
+   "sheet": "NUP_Product_Fwd_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "023404"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 6,
+   "missing_sheets": [
+    "NUP_Product",
+    "NUP_Product_Analysis",
+    "NUP_Batch",
+    "NUP_Product_Forward",
+    "NUP_Product_Fwd_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 6,
+   "missing_sheets": [
+    "NUP_Product",
+    "NUP_Product_Analysis",
+    "NUP_Batch",
+    "NUP_Product_Forward",
+    "NUP_Product_Fwd_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 6,
+   "missing_sheets": [
+    "NUP_Product",
+    "NUP_Product_Analysis",
+    "NUP_Batch",
+    "NUP_Product_Forward",
+    "NUP_Product_Fwd_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 6,
+   "missing_sheets": [
+    "NUP_Product",
+    "NUP_Product_Analysis",
+    "NUP_Batch",
+    "NUP_Product_Forward",
+    "NUP_Product_Fwd_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 6,
+   "missing_sheets": [
+    "NUP_Product",
+    "NUP_Product_Analysis",
+    "NUP_Batch",
+    "NUP_Product_Forward",
+    "NUP_Product_Fwd_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [
+   {
+    "repo": "REPO_NUP_CODE",
+    "canon": "REPO_NUP_CODE",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "productCode",
+    "field_id": "TXT__pprd_prodcodePRNT",
+    "src": [
+     "sf:023401|TXT__pprd_prodcodePRNT|1.0|5|1",
+     "sef:023401|serial 7"
+    ],
+    "screen_id": "023401"
+   }
+  ],
+  "reads": [
+   {
+    "repo": "REPO_NUP_CODE",
+    "canon": "REPO_NUP_CODE",
+    "via": "field(REPO)",
+    "target": "productCode",
+    "src": [
+     "sf:023401|TXT__pprd_prodcodePRNT|1.0|5|1"
+    ],
+    "screen_id": "023401"
+   },
+   {
+    "repo": "REPO_NUP_CODE",
+    "canon": "REPO_NUP_CODE",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_TXT__pprd_prodcodePRNT",
+    "src": [
+     "sef:023401|serial 5"
+    ],
+    "screen_id": "023401"
+   }
+  ],
+  "writes_canon": [
+   "REPO_NUP_CODE"
+  ],
+  "reads_canon": [
+   "REPO_NUP_CODE"
+  ],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "023401",
+    "src": "sef:023401|serial 8"
+   },
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "023402",
+    "src": "sef:023402|serial 3"
+   },
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "023403",
+    "src": "sef:023403|serial 5"
+   }
+  ],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "NUP_Product_Fwd_ASSR",
+    "screen_id": "023404",
+    "src": "sef:023404|serial 4"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 4,
+  "fields": 10,
+  "fields_active": 9,
+  "events": 19,
+  "events_active": 18,
+  "events_by_kind": {
+   "load_data": 3,
+   "click": 7,
+   "assertion": 3,
+   "fill_repo": 1,
+   "fill_text": 2,
+   "alert_click": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_BG1001",
+  "menu_search_text": "Non Unilever Products"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "15",
+   "group_desc": "NG_Setup Flow_PH",
+   "seq": 36,
+   "active": true,
+   "user": "Auto_PH (serial 19)",
+   "login_status": "Y"
+  },
+  {
+   "group": "65",
+   "group_desc": "NG_Setup Flow_TH",
+   "seq": 42,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": "N"
+  },
+  {
+   "group": "73",
+   "group_desc": "NG_Setup Flow_UP",
+   "seq": 42,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": "N"
+  }
+ ],
+ "screens": {
+  "023401": {
+   "src": "sc:023401",
+   "screen_id": "023401",
+   "name": "NUP_Product",
+   "sheet": "NUP_Product",
+   "type": "Save",
+   "sheet_name_len": 11,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:023401|TXT__pprd_prodcodePRNT|1.0|1|1",
+     "seq": 1,
+     "field_id": "TXT__pprd_prodcodePRNT",
+     "locate_by": "id",
+     "label": "productCode",
+     "db_column": "productCode",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023401:f1"
+    },
+    {
+     "src": "sf:023401|txt__pprd_desc|1.0|2|1",
+     "seq": 2,
+     "field_id": "txt__pprd_desc",
+     "locate_by": "id",
+     "label": "description",
+     "db_column": "description",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023401:f2"
+    },
+    {
+     "src": "sf:023401|txt__pprd_abrv|1.0|3|1",
+     "seq": 3,
+     "field_id": "txt__pprd_abrv",
+     "locate_by": "id",
+     "label": "shortDescription",
+     "db_column": "shortDescription",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023401:f3"
+    },
+    {
+     "src": "sf:023401|dx-texteditor-input|1.0|4|1",
+     "seq": 4,
+     "field_id": "dx-texteditor-input",
+     "locate_by": "id",
+     "label": "marketReturn",
+     "db_column": "marketReturn",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "023401:f4"
+    },
+    {
+     "src": "sf:023401|TXT__pprd_prodcodePRNT|1.0|5|1",
+     "seq": 5,
+     "field_id": "TXT__pprd_prodcodePRNT",
+     "locate_by": "id",
+     "label": "productCode",
+     "db_column": "productCode",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "REPO",
+     "repo_id": "REPO_NUP_CODE",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023401:f5"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:023401|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Add Btn",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "addBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023401:e1"
+    },
+    {
+     "src": "sef:023401|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023401:e2"
+    },
+    {
+     "src": "sef:023401|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023401:e3"
+    },
+    {
+     "src": "sef:023401|serial 8",
+     "serial": 8,
+     "seq": 4,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023401:e8",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:023401|serial 4",
+     "serial": 4,
+     "seq": 5,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023401:e4"
+    },
+    {
+     "src": "sef:023401|serial 7",
+     "serial": 7,
+     "seq": 6,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "Fill Repo",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023401:e7"
+    },
+    {
+     "src": "sef:023401|serial 5",
+     "serial": 5,
+     "seq": 7,
+     "depth": 1,
+     "parent": 2,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__pprd_prodcodePRNT",
+     "fixed_value": "REPO_NUP_CODE",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023401:e5"
+    },
+    {
+     "src": "sef:023401|serial 6",
+     "serial": 6,
+     "seq": 8,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Selection",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_product_code",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023401:e6"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [
+    {
+     "repo": "REPO_NUP_CODE",
+     "canon": "REPO_NUP_CODE",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "productCode",
+     "field_id": "TXT__pprd_prodcodePRNT",
+     "src": [
+      "sf:023401|TXT__pprd_prodcodePRNT|1.0|5|1",
+      "sef:023401|serial 7"
+     ]
+    }
+   ],
+   "repo_reads": [
+    {
+     "repo": "REPO_NUP_CODE",
+     "canon": "REPO_NUP_CODE",
+     "via": "field(REPO)",
+     "target": "productCode",
+     "src": [
+      "sf:023401|TXT__pprd_prodcodePRNT|1.0|5|1"
+     ]
+    },
+    {
+     "repo": "REPO_NUP_CODE",
+     "canon": "REPO_NUP_CODE",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_TXT__pprd_prodcodePRNT",
+     "src": [
+      "sef:023401|serial 5"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 5,
+    "fields_active": 4,
+    "events": 8,
+    "events_active": 7
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "023402": {
+   "src": "sc:023402",
+   "screen_id": "023402",
+   "name": "NUP_Product_Analysis",
+   "sheet": "NUP_Product_Analysis",
+   "type": "Save",
+   "sheet_name_len": 20,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:023402|DDL__ppa2_prod_analysis|1.0|1|1",
+     "seq": 1,
+     "field_id": "DDL__ppa2_prod_analysis",
+     "locate_by": "id",
+     "label": "Analysis2",
+     "db_column": "Analysis2",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023402:f1"
+    },
+    {
+     "src": "sf:023402|DDL__ppa3_prod_analysis|1.0|2|1",
+     "seq": 2,
+     "field_id": "DDL__ppa3_prod_analysis",
+     "locate_by": "id",
+     "label": "Analysis3",
+     "db_column": "Analysis3",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023402:f2"
+    },
+    {
+     "src": "sf:023402|DDL__ppa4_prod_analysis|1.0|3|1",
+     "seq": 3,
+     "field_id": "DDL__ppa4_prod_analysis",
+     "locate_by": "id",
+     "label": "Analysis4",
+     "db_column": "Analysis4",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023402:f3"
+    },
+    {
+     "src": "sf:023402|DDL__ppa5_prod_analysis|1.0|4|1",
+     "seq": 4,
+     "field_id": "DDL__ppa5_prod_analysis",
+     "locate_by": "id",
+     "label": "Analysis5",
+     "db_column": "Analysis5",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023402:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:023402|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023402:e1"
+    },
+    {
+     "src": "sef:023402|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Update Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "updateBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023402:e2"
+    },
+    {
+     "src": "sef:023402|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023402:e3",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 3,
+    "events_active": 3
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "023403": {
+   "src": "sc:023403",
+   "screen_id": "023403",
+   "name": "NUP_Batch",
+   "sheet": "NUP_Batch",
+   "type": "Save",
+   "sheet_name_len": 9,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:023403|txt__pbth_reference_2|1.0|1|1",
+     "seq": 1,
+     "field_id": "txt__pbth_reference_2",
+     "locate_by": "id",
+     "label": "Reference 2",
+     "db_column": "Reference 2",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023403:f1"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:023403|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023403:e1"
+    },
+    {
+     "src": "sef:023403|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Process Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "notrefresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023403:e2"
+    },
+    {
+     "src": "sef:023403|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0005",
+     "event": "0002",
+     "kind": "alert_click",
+     "event_name": "Click Alert",
+     "in_ce_table": true,
+     "desc": "Alert",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": "accept",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023403:e4"
+    },
+    {
+     "src": "sef:023403|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023403:e5",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 1,
+    "fields_active": 1,
+    "events": 4,
+    "events_active": 4
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "023404": {
+   "src": "sc:023404",
+   "screen_id": "023404",
+   "name": "NUP_Product_Forward",
+   "sheet": "NUP_Product_Forward",
+   "type": "Save",
+   "sheet_name_len": 19,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:023404|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023404:e1"
+    },
+    {
+     "src": "sef:023404|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "comments",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023404:e2"
+    },
+    {
+     "src": "sef:023404|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023404:e3"
+    },
+    {
+     "src": "sef:023404|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Forward Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,NUP_Product_Fwd_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023404:e4",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "NUP_Product_Fwd_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 4,
+    "events_active": 4
+   },
+   "assertion_sheets": [
+    "NUP_Product_Fwd_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

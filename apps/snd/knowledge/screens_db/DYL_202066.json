@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_202066",
+ "title": "RCOA Report Setup",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "DSR Profile",
+   "RCOA Report Setup"
+  ],
+  "group_id": "DYL_202066"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202066",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202066001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "RCOA Report Setup",
+   "table": "FIN_PR_RCOA_REPORT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202066002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202066001",
+   "desc": "RCOA Report Setup",
+   "table": "FIN_PR_RCOA_REPORT",
+   "n_fields": 9,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Report ID": {
+   "name": "TXT__PRCA_REPORT_ID",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PRCA_REPORT_ID",
+   "db_description": "Report ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": "^[A-Za-z0-9 _-]+$",
+   "page": "202066002"
+  },
+  "Report Title": {
+   "name": "TXT__PRCA_REPORT_TITLE",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PRCA_REPORT_TITLE",
+   "db_description": "Report Title",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Report Long Description": {
+   "name": "TXT__PRCA_DESC",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "PRCA_DESC",
+   "db_description": "Chart of Account Code Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Report Short Description": {
+   "name": "TXT__PRCA_ABRV",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PRCA_ABRV",
+   "db_description": "Chart of Account Code Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Default": {
+   "name": "DDL__PRCA_DEFAULT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PRCA_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Active": {
+   "name": "DDL__PRCA_ACTIVE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PRCA_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Level Number": {
+   "name": "TXT__PRCA_LEVEL_NO",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PRCA_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Level Type": {
+   "name": "DDL__PRCA_LEVELTYPE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PRCA_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  },
+  "Order By": {
+   "name": "TXT__PRCA_ELEMENT_ORDER_BY",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "PRCA_ELEMENT_ORDER_BY",
+   "db_description": "Element Order By",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202066002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Report ID",
+    "Report Title",
+    "Report Long Description",
+    "Report Short Description",
+    "Default",
+    "Order By",
+    "Active",
+    "Level Number",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,577 @@
+{
+ "src": "tf:02590001",
+ "flow_id": "02590001",
+ "description": "cashmemo status_Astron",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:02590001|0259|1",
+   "seq": 1,
+   "menu_group": "0259",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0259",
+   "menu_group": "0259",
+   "exists": true,
+   "description": "Cashmemo Status_Astron",
+   "search_text": "Cashmemo Status",
+   "navigation": "CASHMEMO-STATUS",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0259|025901|1",
+   "mgsm_seq": 1,
+   "screen_id": "025901",
+   "screen_name": "Cashmemo Status_Astron",
+   "sheet": "Cashmemo Status_Astron",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "025901"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Cashmemo Status_Astron",
+   "kind": "screen",
+   "screen_ids": [
+    "025901"
+   ]
+  },
+  {
+   "sheet": "ORD_STATUS_SAVE_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "025901"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Cashmemo Status_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "ORD_STATUS_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Cashmemo Status_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "ORD_STATUS_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Cashmemo Status_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "ORD_STATUS_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Cashmemo Status_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "ORD_STATUS_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Cashmemo Status_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "ORD_STATUS_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC (Vietnam).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "REPO_GINNO",
+    "canon": "REPO_GINNO",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_ginNumber",
+    "src": [
+     "sef:025901|serial 3"
+    ],
+    "screen_id": "025901"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "REPO_GINNO"
+  ],
+  "reads_not_written_by_this_flow": [
+   "REPO_GINNO"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "ORD_STATUS_SAVE_ASSR",
+    "screen_id": "025901",
+    "src": "sef:025901|serial 16"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 4,
+  "fields_active": 1,
+  "events": 9,
+  "events_active": 7,
+  "events_by_kind": {
+   "load_data": 1,
+   "fill_dropdown": 1,
+   "click": 4,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Cashmemo"
+  ],
+  "market": "Astron",
+  "menu_option": "CASHMEMO-STATUS",
+  "menu_search_text": "Cashmemo Status"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "67",
+   "group_desc": "Daily Cycle Only Positive Flow_Astron",
+   "seq": 16,
+   "active": true,
+   "user": "? (serial None)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "025901": {
+   "src": "sc:025901",
+   "screen_id": "025901",
+   "name": "Cashmemo Status_Astron",
+   "sheet": "Cashmemo Status_Astron",
+   "type": "Save",
+   "sheet_name_len": 22,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:025901|dsrType|1.0|1|1",
+     "seq": 1,
+     "field_id": "dsrType",
+     "locate_by": "id",
+     "label": "PJP Number",
+     "db_column": "PJP Number",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "025901:f1"
+    },
+    {
+     "src": "sf:025901|row_1_gross_amount|1.0|3|1",
+     "seq": 3,
+     "field_id": "row_1_gross_amount",
+     "locate_by": "id",
+     "label": "Gross Amount",
+     "db_column": "Gross Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "025901:f3"
+    },
+    {
+     "src": "sf:025901|row_1_tax|1.0|4|1",
+     "seq": 4,
+     "field_id": "row_1_tax",
+     "locate_by": "id",
+     "label": "Tax",
+     "db_column": "Tax",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "025901:f4"
+    },
+    {
+     "src": "sf:025901|row_1_net_amount|1.0|5|1",
+     "seq": 5,
+     "field_id": "row_1_net_amount",
+     "locate_by": "id",
+     "label": "Net Amount",
+     "db_column": "Net Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "025901:f5"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:025901|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025901:e1"
+    },
+    {
+     "src": "sef:025901|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0002",
+     "event": "0001",
+     "kind": "fill_dropdown",
+     "event_name": "Fill Single Drop Down",
+     "in_ce_table": true,
+     "desc": "Fill Single Drop Down",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_ginNumber",
+     "fixed_value": "REPO_GINNO",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "025901:e3"
+    },
+    {
+     "src": "sef:025901|serial 10",
+     "serial": 10,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Select All Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "header_0_checkbox_1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "025901:e10"
+    },
+    {
+     "src": "sef:025901|serial 11",
+     "serial": 11,
+     "seq": 5,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveallBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "025901:e11"
+    },
+    {
+     "src": "sef:025901|serial 12",
+     "serial": 12,
+     "seq": 6,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "025901:e12",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:025901|serial 14",
+     "serial": 14,
+     "seq": 9,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "2nd time Select All Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "header_0_checkbox_1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "025901:e14"
+    },
+    {
+     "src": "sef:025901|serial 15",
+     "serial": 15,
+     "seq": 10,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveallBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "025901:e15"
+    },
+    {
+     "src": "sef:025901|serial 17",
+     "serial": 17,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "2",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025901:e17",
+     "wait_s": "2"
+    },
+    {
+     "src": "sef:025901|serial 16",
+     "serial": 16,
+     "seq": 11,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Group Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,ORD_STATUS_SAVE_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025901:e16",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "ORD_STATUS_SAVE_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "REPO_GINNO",
+     "canon": "REPO_GINNO",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_ginNumber",
+     "src": [
+      "sef:025901|serial 3"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 4,
+    "fields_active": 1,
+    "events": 9,
+    "events_active": 7
+   },
+   "assertion_sheets": [
+    "ORD_STATUS_SAVE_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

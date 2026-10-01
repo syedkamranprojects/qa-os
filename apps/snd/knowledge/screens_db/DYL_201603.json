@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_201603",
+ "title": "Paymeent Collection",
+ "menu": {
+  "path": [
+   "Transactions",
+   "Paymeent Collection"
+  ],
+  "group_id": "DYL_201603"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201603",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

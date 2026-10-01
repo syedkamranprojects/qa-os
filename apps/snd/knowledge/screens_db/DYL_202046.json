@@ -1,0 +1,189 @@
+{
+ "option_id": "DYL_202046",
+ "title": "Section Creation HQ - Layout",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "PJP",
+   "Section Creation HQ - Layout"
+  ],
+  "group_id": "DYL_202046"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202046",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202046001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202046002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202046001",
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__ENTITYCODE",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "EPL1_BUSENT_LOG_LVL1_CODE",
+   "db_description": "Logical Business Entities Level 1 (Selling Category) Table.",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 12,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": "^[a-zA-Z0-9]{12}$",
+   "page": "202046002"
+  },
+  "Description": {
+   "name": "TXT__EPL1DESC",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "EPL1_DESC",
+   "db_description": "Logical Business Entities Level 1 Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202046002"
+  },
+  "Abbreviation": {
+   "name": "TXT__EPL1ABRV",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "EPL1_ABRV",
+   "db_description": "Logical Business Entities Level 1 Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202046002"
+  },
+  "Status": {
+   "name": "DDL__EPL1ACTIVE",
+   "id": "selectbox7",
+   "widget": "select",
+   "data_field": "EPL1_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "N",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202046002"
+  },
+  "Origin Date": {
+   "name": "DT__EPL1ORIGINDATE",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "EPL1_ORIGIN_DATE",
+   "db_description": "Origin Date",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202046002"
+  },
+  "Default Delivery Days": {
+   "name": "TXT__EPL1_REF_NUM_5",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "EPL1_REF_NUM_5",
+   "db_description": "Reference Numeric Field 5",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": "0",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202046002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Distributor",
+    "Default",
+    "Status",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Origin Date",
+    "Type",
+    "Ranking",
+    "Org Ranking",
+    "Life Style (LSM) ",
+    "Line Per Call (LPC)",
+    "Entry Mode",
+    "Business Entity Type Code",
+    "Organization",
+    "Date",
+    "Default Delivery Days"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

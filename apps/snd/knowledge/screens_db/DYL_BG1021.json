@@ -1,0 +1,148 @@
+{
+ "option_id": "DYL_BG1021",
+ "title": "Claim Inquiry - BG",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "Claim Inquiry - BG"
+  ],
+  "group_id": "DYL_BG1021"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1021",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1021004",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "BG1021001",
+   "tab": null,
+   "is_child": true,
+   "parent": "BG1021004",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1021002",
+   "tab": "Claim Detail",
+   "is_child": true,
+   "parent": "BG1021001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLD_CLAIM_DETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1021003",
+   "tab": "Reference Info",
+   "is_child": true,
+   "parent": "BG1021002",
+   "partial": null,
+   "desc": null,
+   "table": "(",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document Type": {
+   "name": "DDL__PDOTDOCMTYPEPARENT",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "BG1021004"
+  },
+  "Document Date From": {
+   "name": "DT__TCMMDOCMDATEFROMPARENT",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TCLM_DOC_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1021004"
+  },
+  "Document Date To": {
+   "name": "DT__TCMMDOCMDATETOPARENT",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "TCLM_DOC_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1021004"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Distributor Code",
+    "Promo Code",
+    "Promo Description",
+    "Ref Promo Code",
+    "Reference Document Type",
+    "Reference Document No",
+    "Outlet Code",
+    "Outlet Description",
+    "Claim Amount"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

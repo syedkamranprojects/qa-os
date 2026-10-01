@@ -1,0 +1,27 @@
+{
+  "case": "DISCOVER-SDMS10351",
+  "title": "data-engineer discovery for SDMS-10351: read-only harvest of policies (two distributors), the download template, and channel hierarchy codes",
+  "app": "snd",
+  "env": "cnr2dev3",
+  "user": "KPO_ph",
+  "data": { "distributor": "15181887", "other_distributor": "50200411", "current_policy": "PL000000051" },
+  "steps": [
+    { "do": "login", "distributor": "{{data.distributor}}" },
+
+    { "do": "navigate", "menu": "Transaction > SKU Substitution Policy" },
+    { "do": "harvest_grid", "grid": "SKU Substitution Policy", "as": "policies" },
+    { "do": "select_row", "grid": "SKU Substitution Policy", "value": "{{data.current_policy}}" },
+    { "do": "download", "button": "Download Excel", "as": "template_current.xlsx" },
+    { "do": "screenshot", "note": "policy selected, download done" },
+
+    { "do": "navigate", "menu": "Company setup > Channel Hierarchy" },
+    { "do": "harvest_grid", "grid": "Channel Hierarchy", "as": "channel_hierarchy" },
+    { "do": "screenshot", "note": "channel hierarchy grid" },
+    { "do": "logout" },
+
+    { "do": "login", "distributor": "{{data.other_distributor}}" },
+    { "do": "navigate", "menu": "Transaction > SKU Substitution Policy" },
+    { "do": "harvest_grid", "grid": "SKU Substitution Policy", "as": "policies_other" },
+    { "do": "logout" }
+  ]
+}

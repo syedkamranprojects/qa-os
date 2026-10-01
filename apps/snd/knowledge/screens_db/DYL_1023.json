@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_1023",
+ "title": "Business Entity Types",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Business Entity Types"
+  ],
+  "group_id": "DYL_1023"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1023",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101023001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Business Entity - Type Grid",
+   "table": "GLB_PR_BET_BUSENTITY_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "Business Entity Type"
+   ]
+  },
+  {
+   "page": "101023002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101023001",
+   "desc": "Business Entity - Type Form",
+   "table": "GLB_PR_BET_BUSENTITY_TYPE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Business Entity - Type": {
+   "name": "txt__pbet_busentity_type",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Identifier": {
+   "name": "txt__pbet_identifier",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PBET_IDENTIFIER",
+   "db_description": "Business Entity Identifier",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Abbreviation": {
+   "name": "txt__pbet_abrv",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PBET_ABRV",
+   "db_description": "Business Entity Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Description": {
+   "name": "txt__pbet_desc",
+   "id": "textbox15",
+   "widget": "text",
+   "data_field": "PBET_DESC",
+   "db_description": "Business Entity Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Default": {
+   "name": "ddl__pbet_default",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PBET_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Status": {
+   "name": "ddl__pbet_active",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PBET_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Level Type": {
+   "name": "txt__pbet_leveltype",
+   "id": "textbox16",
+   "widget": "text",
+   "data_field": "PBET_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  },
+  "Level No": {
+   "name": "txt__pbet_level_no",
+   "id": "textbox17",
+   "widget": "text",
+   "data_field": "PBET_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101023002"
+  }
+ },
+ "grids": {
+  "Business Entity Type": {
+   "columns": [
+    "Business Entity - Type",
+    "Identifier",
+    "Abbreviation",
+    "Description",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

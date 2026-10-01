@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1008",
+ "title": "Daily Collection Pay Slip Wise Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Daily Collection Pay Slip Wise Report"
+  ],
+  "group_id": "DYL_JR1008"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1008",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

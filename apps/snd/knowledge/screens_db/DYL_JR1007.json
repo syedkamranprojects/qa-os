@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1007",
+ "title": "Cheque For Realization",
+ "menu": {
+  "path": [
+   "Reports",
+   "Cheque For Realization"
+  ],
+  "group_id": "DYL_JR1007"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1007",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

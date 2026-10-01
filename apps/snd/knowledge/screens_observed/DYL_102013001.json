@@ -1,0 +1,133 @@
+{
+ "option_id": "DYL_102013001",
+ "title": "Entity To Entity Mapping",
+ "menu_path": [
+  "Setup/Configuration",
+  "Entity To Entity Mapping"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102013001",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102013001",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [
+  "Outlet",
+  "DSR",
+  "Selling Category",
+  "Product",
+  "Warehouse",
+  "Vehicle"
+ ],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Distributor",
+   "id": null,
+   "title": "Distributor",
+   "disabled": false
+  },
+  {
+   "text": "Outlet",
+   "id": null,
+   "title": "Outlet",
+   "disabled": false
+  },
+  {
+   "text": "DSR",
+   "id": null,
+   "title": "DSR",
+   "disabled": false
+  },
+  {
+   "text": "Selling Category",
+   "id": null,
+   "title": "Selling Category",
+   "disabled": false
+  },
+  {
+   "text": "Section",
+   "id": null,
+   "title": "Section",
+   "disabled": false
+  },
+  {
+   "text": "MIS Type",
+   "id": null,
+   "title": "MIS Type",
+   "disabled": false
+  },
+  {
+   "text": "Visit Status",
+   "id": null,
+   "title": "Visit Status",
+   "disabled": false
+  },
+  {
+   "text": "Reason Type",
+   "id": null,
+   "title": "Reason Type",
+   "disabled": false
+  },
+  {
+   "text": "Location",
+   "id": null,
+   "title": "Location",
+   "disabled": false
+  },
+  {
+   "text": "Save changes",
+   "id": "BatchSaveBtn",
+   "title": "Save changes",
+   "disabled": true
+  },
+  {
+   "text": "Discard changes",
+   "id": "BatchRevertBtn",
+   "title": "Discard changes",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description"
+   ],
+   "rows": 1,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [
+    "Selected"
+   ],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

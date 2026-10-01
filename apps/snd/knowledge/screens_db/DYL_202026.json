@@ -1,0 +1,158 @@
+{
+ "option_id": "DYL_202026",
+ "title": "Loss Approval",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Loss Approval"
+  ],
+  "group_id": "DYL_202026"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202026",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202026001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_stm_stock_recvmaster",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202026002",
+   "tab": "Loss Approval Master",
+   "is_child": false,
+   "parent": "202026001",
+   "partial": "202026001",
+   "desc": null,
+   "table": "snd_tr_stm_stock_recvmaster",
+   "n_fields": 4,
+   "grids": []
+  },
+  {
+   "page": "202026003",
+   "tab": "Loss Approval Detail",
+   "is_child": true,
+   "parent": "202026001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_RECVDETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Serial No": {
+   "name": "TXT__tsrmsrno",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "TSRM_SRNO",
+   "db_description": "Serial Number for Loss Document",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202026002"
+  },
+  "Document No": {
+   "name": "TXT__tstmdocno",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "TSTM_DOCNO",
+   "db_description": "Stock Master Document Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202026002"
+  },
+  "Document Type": {
+   "name": "DDL__pdot_docmtype",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "202026002"
+  },
+  "Status": {
+   "name": "TXT__TSRMSTATUS",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "TSRM_STATUS",
+   "db_description": "Status - Approved/Un Approved",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202026002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Sub Serial No",
+    "Principle Code",
+    "Product",
+    "SKU Type",
+    "Document No",
+    "Document Type",
+    "Busentity Type",
+    "Dispatch CS",
+    "@Session(Orga Code)dispatch SH",
+    "Dispatch PC",
+    "Received CS",
+    "@Session(Orga Code)Received DZ",
+    "Received PC",
+    "Loss CS",
+    "@Session(Orga Code)loss SH",
+    "Loss PC",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

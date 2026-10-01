@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1081",
+ "title": "Location Type",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Location Type"
+  ],
+  "group_id": "DYL_1081"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1081",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101081001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Location Type - Grid",
+   "table": "GLB_PR_LOT_LOCATION_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "Glbprlotlocationtype"
+   ]
+  },
+  {
+   "page": "101081002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101081001",
+   "desc": "Location Type - Form",
+   "table": "GLB_PR_LOT_LOCATION_TYPE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__PLOTLOCATIONTYPE",
+   "id": "FTXT__PLOTLOCATIONTYPE",
+   "widget": "text",
+   "data_field": "PLOT_LOCATION_TYPE",
+   "db_description": "Location Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  },
+  "Description": {
+   "name": "TXT__PLOTDESC",
+   "id": "FTXT__PLOTDESC",
+   "widget": "text",
+   "data_field": "PLOT_DESC",
+   "db_description": "Location Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PLOTABRV",
+   "id": "FTXT__PLOTABRV",
+   "widget": "text",
+   "data_field": "PLOT_ABRV",
+   "db_description": "Location Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  },
+  "Default": {
+   "name": "DDL__PLOTDEFAULT",
+   "id": "FDDL__PLOTDEFAULT",
+   "widget": "select",
+   "data_field": "PLOT_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  },
+  "Status": {
+   "name": "DDL__PLOTACTIVE",
+   "id": "FDDL__PLOTACTIVE",
+   "widget": "select",
+   "data_field": "PLOT_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  },
+  "Level Type": {
+   "name": "TXT__PLOTLEVELTYPE",
+   "id": "FTXT__PLOTLEVELTYPE",
+   "widget": "text",
+   "data_field": "PLOT_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  },
+  "Level No": {
+   "name": "TXT__PLOTLEVELNO",
+   "id": "FTXT__PLOTLEVELNO",
+   "widget": "text",
+   "data_field": "PLOT_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101081002"
+  }
+ },
+ "grids": {
+  "Glbprlotlocationtype": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

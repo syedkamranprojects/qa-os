@@ -1,0 +1,91 @@
+{
+ "option_id": "DYL_201035",
+ "title": "Outlet Price",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Price",
+   "Outlet Price"
+  ],
+  "group_id": "DYL_201035"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201035",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201035002",
+   "tab": null,
+   "is_child": false,
+   "parent": "201035001",
+   "partial": "201035002",
+   "desc": null,
+   "table": "snd_en_pp1_prf_bsen_phs_lvl1",
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "201035001",
+   "tab": null,
+   "is_child": true,
+   "parent": "201035002",
+   "partial": null,
+   "desc": null,
+   "table": "SND_PR_PRM_MOB_PRICES",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Outlet Code": {
+   "name": "DDL__epp1_busent_code_phs_lvl1Parent",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1",
+   "db_description": "Physical Business Entity Code Level 1 (Outlet)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "OUTLCODEDESC",
+   "validations": null,
+   "regex": null,
+   "page": "201035002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Sr #",
+    "Principle Code",
+    "Product Code",
+    "Batch",
+    "Outlet Code",
+    "Unit Code",
+    "Price",
+    "Tax",
+    "Tax Price",
+    "Discount Type",
+    "Discount Value",
+    "GST %",
+    "Effective Date",
+    "Additional GST %",
+    "Retail",
+    "Tax%Breakup1",
+    "Tax%Breakup2"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

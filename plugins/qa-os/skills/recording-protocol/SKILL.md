@@ -1,0 +1,67 @@
+---
+name: recording-protocol
+description: How to record one flow through the browser MCP for QA OS - login hand-off, helper injection, one-step-at-a-time execution, toast capture, real clicks, stop rules, trace keys and the recording file. Use whenever a flow is executed live to capture ids, messages and locators.
+---
+
+# Recording protocol (browser MCP, one flow, one data row)
+
+A recording is a **one-time proof run**, not regression. It captures what the legacy engine needs: element ids, the order of actions, the exact messages, and the business result. The engine replays everything else, with no AI.
+
+## 0. Before you start
+1. Read the approved step sheet (`step_sheet.md` / `steps.json`) and the app pack (`apps/<app>/app.yaml`, `steps/library.yaml`, `knowledge/ui.md`). Every step comes from the sheet; **never invent a step.**
+2. Check authorization in `decisions.json`: data- or stock-changing steps run only when the environment is `non_production: true` and the action is allowed by the story's `allow:`. One-way actions (approve, forward, submit, delete, authorize) need naming. Anything not authorized is skipped and marked `unverified`, not asked mid-run.
+3. **One calendar day.** A cycle that creates stock, orders and a GIN must finish before midnight; the app keys stock balances by date (a run that crossed midnight failed with "No stock balance found"). If the run will span days, say so at the start.
+4. Read the app pack's settings with `python runtime/qaos_config.py app <app>`; roles and users come from there, never from memory.
+
+## 1. Login and switch points (the only routine human step)
+- **Never type a user id or password.** Open the environment URL, then ask the QA member once, in one short sentence: "Log in as <user> (<role>), company <company>, distributor <code>; tell me when you're in."
+- **Company and Distributor are not secrets: pick them yourself** from `apps/<app>/app.yaml` (`environments.<env>.company`, `users.<user>.distributor`). The QA member types only the user id and password and presses Login, then tells you.
+- After the QA member says they are in, **verify** who is logged in (the user name shown in the header) before any step. Mismatch: stop and say so.
+- A switch point is `Logout` then `Login as <role>`. Log out yourself (open the profile menu, click `li#logout`), then ask for the next login. Say what comes next in the same message.
+- A login clears the injected helper and localStorage. After every login: re-inject the helper (section 2).
+
+## 2. The helper (inject once per login)
+`plugins/qa-os/runtime/qaos_helpers.js` gives `window.qaos` with `open`, `pick`, `text`, `click`, `clickCapture`, `tab`, `options`, `read`, `rows`, `headers`, `crumb`, `session`, `note`. Install: set `localStorage.qaos_src` to the file text and `eval` it; after a page reload only `eval(localStorage.qaos_src)`. It logs every action to `qaos.log`, which the recorder turns into `flow_spec.json`.
+- Probe `qaos.session()` before each flow. Expired session: ask for one re-login and stop.
+
+## 3. Running steps
+- **One UI step at a time.** Never run UI actions in parallel; only reads may be batched.
+- **Wait for conditions, never fixed sleeps**: a header, "Data grid with N rows", a toast, a field value.
+- **The tool limit is about 30 s.** For anything longer, start an async function in the page, return "started", then poll a `window.__x` result in a second call.
+- **Async results.** After `qaos.pick`, `options` or `open`, read the outcome in a second call; the first call returns before the UI settles.
+- **Navigate** through the sidebar search box (`qaos.open('<Screen name>')`), not by URL; URL tricks fail on some environments.
+- **Toasts vanish in under a second.** Use `qaos.clickCapture(id)` for every Save / Forward / Process and record the text. Assert only messages you have observed; a message you did not see is `not observed`, never guessed.
+- **Alerts** ("Are you sure you want to proceed?") are browser dialogs: accept with the alert tool, then read the toast.
+- **Real clicks vs script clicks.** Use a real Selenium click for: tabs, grid checkboxes (the header select-all too), the `#forward` dx-button, Save in the Comments popup. A scripted `.click()` on those does nothing. Scripted clicks are fine for plain buttons.
+- **Typing.** Text and product type-ahead need key events (the Selenium send-keys tool, then Tab/Enter). Setting `value` in the DOM does not reach the app's model (a date typed that way was ignored). Do not use the tool's clear option: it causes stale elements; send the full text instead.
+- **Comments popups** need a blur (Tab) before Save, or the app answers "Please add comments".
+- **Visible only.** Ids repeat across hidden views (`saveBtn`, `Cancel`); scope to visible elements. Prefer visible text over an id when an id is duplicated.
+- **Screen state traps.** Switching Header/Detail before Save discards unsaved lines; "Add" resets the form. Follow the safe order in the app pack (header, then lines, then save).
+- **Dates.** Use today's date unless the sheet says otherwise; the framework's workbook dates are examples, not requirements.
+
+## 4. When something goes wrong
+- **One** targeted retry of a non-mutating step is fine. **Never retry a step that changes data or stock** more than once; a second failure is a finding, not a puzzle.
+- Diagnose from the app itself, read-only: the page's own API calls (`performance.getEntriesByType('resource')`) and read-only GETs with the page token show why a list is empty.
+- If a step is blocked, mark it `blocked` with the message and evidence, skip only the steps that depend on it, and continue the chain where the sheet allows. Report the block; do not improvise a workaround that changes data.
+- Every obstacle goes to `friction.md` as: what happened, cost, fix to build. Do not turn it into a question for the QA member unless it needs a business decision.
+
+## 5. What to record (per step)
+```
+{ "trace": "<group>:<seq>:<flow>:<screen>:e<event serial>",   // only when replaying a framework flow; else the step number
+  "actor": "Maker", "step": "Forward Dispatch Advice DA1 with comment \"Auto\"",
+  "result": "pass|fail|blocked|skipped|unverified",
+  "observed": {"toast": "Forwarded successfully", "status": "Pending for approval", "document": "1350"},
+  "evidence": "element ids used, screen, grid row" }
+```
+- Copy each step's text **exactly** as written in the sheet into the results (the Excel record attaches results by step number and leading verb). Inject the **full** helper file, not a trimmed copy: a trimmed helper does not log the real clicks and the recording cannot become framework rows.
+- Remember values (document numbers) under their sheet names (`DA1`) so later steps and the flow spec can refer to them.
+- Write `exec/results.json` and the helper log (`qaos.dump()`) into the run folder as you go, so a run can resume.
+- **Before every Logout (switch point), dump the action log**: call `qaos.dump()` and write it to `<run>/recording_<case>_<part>.json`. The log lives in page memory and is lost at logout and login (a recording had to be rebuilt by hand once).
+- Screenshots: save only into a folder that already exists (for example the run folder's `evidence/`); create it first.
+- Convert the log with `python framework/tools/qaos_record.py <recording.json> <flow_spec.json>` only after the flow passed. A failed or blocked step is never turned into framework rows.
+
+## 6. Never
+- Enter credentials, read the credentials file, or ask for a password in chat.
+- Click "Generate Opening Balances" or any other stock-creating admin button that is not in the sheet.
+- Delete or edit data you did not create in this run.
+- Mark a step `pass` because nothing visibly failed. A pass needs an observed message or state.

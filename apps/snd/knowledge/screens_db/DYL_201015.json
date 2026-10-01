@@ -1,0 +1,100 @@
+{
+ "option_id": "DYL_201015",
+ "title": "Screen Map",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Banner",
+   "Screen Map"
+  ],
+  "group_id": "DYL_201015"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201015",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201015001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Link Screen Map - Grid",
+   "table": "BNR_BR_LNS_LINK_SCREEN_MAPP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201015002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201015001",
+   "desc": "Link Screen Map - Form",
+   "table": "BNR_BR_LNS_LINK_SCREEN_MAPP",
+   "n_fields": 2,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Link Type": {
+   "name": "DDL__BLNTLINKTYPE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "BLNT_LINK_TYPE",
+   "db_description": "Link Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": "BLNT",
+   "validations": null,
+   "regex": null,
+   "page": "201015002"
+  },
+  "Screen ID": {
+   "name": "DDL__MMSSSCREENID",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "MMSS_SCREEN_ID",
+   "db_description": "Screen ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": "MMSS",
+   "validations": null,
+   "regex": null,
+   "page": "201015002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Link Type",
+    "Screen ID"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

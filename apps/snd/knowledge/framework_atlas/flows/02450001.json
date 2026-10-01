@@ -1,0 +1,232 @@
+{
+ "src": "tf:02450001",
+ "flow_id": "02450001",
+ "description": "Logout_Astron",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:02450001|0245|1",
+   "seq": 1,
+   "menu_group": "0245",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0245",
+   "menu_group": "0245",
+   "exists": true,
+   "description": "Logout_Astron",
+   "search_text": null,
+   "navigation": null,
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0245|024501|1",
+   "mgsm_seq": 1,
+   "screen_id": "024501",
+   "screen_name": "Logout_Astron",
+   "sheet": "Logout_Astron",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "024501"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Logout_Astron",
+   "kind": "screen",
+   "screen_ids": [
+    "024501"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Logout_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Logout_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Logout_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Logout_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Logout_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 2,
+  "events_active": 2,
+  "events_by_kind": {
+   "click": 2
+  }
+ },
+ "tags": {
+  "areas": [
+   "Other"
+  ],
+  "market": "Astron",
+  "menu_option": null,
+  "menu_search_text": null
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "024501": {
+   "src": "sc:024501",
+   "screen_id": "024501",
+   "name": "Logout_Astron",
+   "sheet": "Logout_Astron",
+   "type": "Save",
+   "sheet_name_len": 13,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:024501|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Drop down",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "user-name",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024501:e1"
+    },
+    {
+     "src": "sef:024501|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Logout",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "logout",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024501:e2"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 2,
+    "events_active": 2
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

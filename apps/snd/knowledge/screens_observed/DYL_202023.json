@@ -1,0 +1,227 @@
+{
+ "option_id": "DYL_202023",
+ "title": "Execution Status",
+ "menu_path": [
+  "Transaction",
+  "Process",
+  "Execution Status"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202023",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202023",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__pdot_docmtype",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Execution Status",
+   "id": "TXT__pexs_execution_status",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "TXT__pexs_desc",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Abbreviation",
+   "id": "TXT__pexs_abrv",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Default",
+   "id": "DDL__pexs_default",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Active",
+   "id": "TXT__pexs_active",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Level No",
+   "id": "TXT__pexs_level_no",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Level Type",
+   "id": "TXT__pexs_leveltype",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Execution Identifier",
+   "id": "DDL__pexs_identifier",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "6",
+   "id": "pagination-element-6",
+   "title": "Page 6",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document Type",
+    "Execution Status",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Execution Identifier"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

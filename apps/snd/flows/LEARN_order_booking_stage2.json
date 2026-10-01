@@ -1,0 +1,76 @@
+{
+  "case": "LEARN-ORDER-BOOKING-STAGE2",
+  "title": "cnr2dev3 / KPO_slv / distributor 50000451: walk the Order Booking header (PJP, category, section, outlet) and record what appears next. Read-only: no button is clicked, nothing is saved.",
+  "app": "snd",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "data": {
+    "distributor": "50000451"
+  },
+  "steps": [
+    {
+      "do": "login",
+      "distributor": "{{data.distributor}}"
+    },
+    {
+      "do": "navigate",
+      "menu": "Transaction > Order Booking"
+    },
+    {
+      "do": "wait",
+      "seconds": 3
+    },
+    {
+      "do": "choose",
+      "field": "PJP",
+      "value": "*",
+      "as": "pjp"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "choose",
+      "field": "Selling Category",
+      "value": "*",
+      "as": "selling_category"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "choose",
+      "field": "Section",
+      "value": "*",
+      "as": "section"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "choose",
+      "field": "Outlet Name",
+      "value": "*",
+      "as": "outlet"
+    },
+    {
+      "do": "wait",
+      "seconds": 3
+    },
+    {
+      "do": "screenshot",
+      "note": "header filled; what appears next?"
+    },
+    {
+      "do": "harvest_screen",
+      "as": "order_booking_filled",
+      "open_selects": false
+    },
+    {
+      "do": "logout"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+ "option_id": "OUTLET_SEGMENT_MAPPING",
+ "title": "Outlet Segment Mapping",
+ "menu_path": [
+  "Distributor Setup",
+  "Outlet Profile",
+  "Outlet Segment Mapping"
+ ],
+ "route": "/content-master/mobility/outlet-segment-mapping",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/mobility/outlet-segment-mapping",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": "downloadExcel",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Upload Excel",
+   "id": "fileInput",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Segment Code",
+    "Segment Description"
+   ],
+   "rows": 2,
+   "pager": false
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "option_id": "DYL_201201",
+ "title": "Auto Journey Inquiry",
+ "menu_path": [
+  "",
+  "Auto Journey Inquiry"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201201",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201201",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Section",
+   "id": null,
+   "title": "Section",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Distributor Code",
+    "Outlet Count",
+    "Working Time (In minutes)"
+   ],
+   "rows": 1,
+   "pager": false
+  }
+ ]
+}

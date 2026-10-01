@@ -1,0 +1,236 @@
+{
+ "option_id": "DYL_102003046",
+ "title": "Price Structure",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Price",
+   "Price Structure"
+  ],
+  "group_id": "DYL_102003046"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102003046",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003044",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Entity Profile 1 Product List ( Price structure / Policy / Batch)",
+   "table": "snd_pr_bth_prod_batch",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102003045",
+   "tab": null,
+   "is_child": true,
+   "parent": "102003044",
+   "partial": null,
+   "desc": "Entity Profile 1 Price Structure Grid",
+   "table": "snd_pr_prs_prod_pricestructure",
+   "n_fields": 0,
+   "grids": [
+    "Price Structure"
+   ]
+  },
+  {
+   "page": "102003046",
+   "tab": "Header Info",
+   "is_child": false,
+   "parent": "102003044",
+   "partial": "102003045",
+   "desc": "Entity Profile 1 Price Structure Form",
+   "table": "snd_pr_prs_prod_pricestructure",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Price Code": {
+   "name": "txt__pprs_price_code",
+   "id": "textbox20",
+   "widget": "text",
+   "data_field": "PPRS_PRICE_CODE",
+   "db_description": "Price Structure Code",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102003046"
+  },
+  "Event ID": {
+   "name": "DDL__PEVEVENTID",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PEV_EVENTID",
+   "db_description": "Event ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PEVT",
+   "validations": null,
+   "regex": null,
+   "page": "102003046"
+  },
+  "Description": {
+   "name": "TXT__PPRS_DESC",
+   "id": "textbox42",
+   "widget": "text",
+   "data_field": "PPRS_DESC",
+   "db_description": "Price Structure Long Description (Sale Price/Purchase Price)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102003046"
+  },
+  "Abbreviation": {
+   "name": "TXT__PPRS_ABRV",
+   "id": "textbox43",
+   "widget": "text",
+   "data_field": "PPRS_ABRV",
+   "db_description": "Price Structure Short Description (Sale Price/Purchase Price)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102003046"
+  },
+  "Price Type": {
+   "name": "ddl__pprt_price_type1",
+   "id": "selectbox7",
+   "widget": "select",
+   "data_field": "PPRT_PRICE_TYPE",
+   "db_description": "Price Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PPRT",
+   "validations": null,
+   "regex": null,
+   "page": "102003046"
+  },
+  "Effective From": {
+   "name": "dt__pprs_effective_date_from",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "PPRS_EFFECTIVE_DATE_FROM",
+   "db_description": "Price Effective Date From",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102003046"
+  },
+  "Effective To": {
+   "name": "dt__pprs_effective_date_to",
+   "id": "datebox4",
+   "widget": "date",
+   "data_field": "PPRS_EFFECTIVE_DATE_TO",
+   "db_description": "Price Effective Date To",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": [
+    {
+     "validationExpr": "@Date(@Model(dt__pprs_effective_date_from)) < @Date(@Model(dt__pprs_effective_date_to)) || !@Model(dt__pprs_effective_date_from) || !@Model(dt__pprs_effective_date_to)",
+     "validationMessage": "DYP.P.102003.G....DateValidation"
+    },
+    {
+     "validationExpr": "@Model(dt__pprs_effective_date_to) ? !!@Model(dt__pprs_effective_date_from) : !@Model(dt__pprs_effective_date_from)",
+     "validationMessage": "DYP.P.102003.G....DateValidation"
+    }
+   ],
+   "regex": null,
+   "page": "102003046"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Product ID",
+    "Description",
+    "Short Description",
+    "Principal",
+    "Batch",
+    "Selling Price Code",
+    "Purchase Price Code",
+    "Unit Factor",
+    "Batch Index",
+    "Manufacture Date",
+    "Expiry Date",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  },
+  "Price Structure": {
+   "columns": [
+    "Principle Code",
+    "Product Code",
+    "Price Code",
+    "Description",
+    "Abbreviation",
+    "Price Type",
+    "Event ID",
+    "Effective From",
+    "Effective To"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

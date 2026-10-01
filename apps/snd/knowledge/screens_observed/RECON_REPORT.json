@@ -1,0 +1,117 @@
+{
+ "option_id": "RECON_REPORT",
+ "title": "Jupiter Reconciliation Report",
+ "menu_path": [
+  "Reports",
+  "Jupiter Reconciliation Report"
+ ],
+ "route": "/jupiter-recon-report",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/jupiter-recon-report",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Region",
+   "id": "getGeoHierarchyCode",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Region",
+   "id": "area",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Territory",
+   "id": "Territory",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Territory",
+   "id": "dateFrom",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date To",
+   "id": "dateTo",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

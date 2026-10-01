@@ -1,0 +1,138 @@
+{
+ "option_id": "DYL_BG1005",
+ "title": "Warehouse Profile Approval",
+ "menu_path": [
+  "Distributor Setup",
+  "Warehouse",
+  "Warehouse Profile Approval"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=BG1005",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=BG1005",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Warehouse Code",
+   "id": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse Code",
+   "id": "TXT__EPP1DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PBEMBUSENTITYMISTYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Warehouse Type",
+   "id": "DDL__EPP1ACTIVE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Translation",
+   "id": "crossBtn",
+   "title": "Translation",
+   "disabled": false
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Warehouse Code",
+    "Warehouse Name",
+    "Warehouse Type",
+    "Status"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

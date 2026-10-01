@@ -1,0 +1,399 @@
+{
+ "option_id": "DYL_201046",
+ "title": "Return Advice",
+ "menu_path": [
+  "Transaction",
+  "Stock",
+  "Return Advice"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201046",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201046",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document",
+   "id": "documentNo",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Document",
+   "id": "DT__TSTMDOCDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "documentType",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__pdos_docmstatus",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PVNDVENDCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Vendor Code",
+   "id": "TXT__tstm_sales_order_no",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Deliver No",
+   "id": "TXT__tstm_delivery_no",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Deliver No",
+   "id": "DT__tstm_invoice_due_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Tax Invoice Number",
+   "id": "TXT__tstm_taxinvoice_no",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Tax Invoice Number",
+   "id": "TXT__TSTMRECEIVEDDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Tax",
+   "id": "TXT__tstm_tax_amt_bcy",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Tax",
+   "id": "TXT__tstm_dsc_amt_bcy",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Net Amount",
+   "id": "TXT__tstm_net_amt_bcy",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__epp1_busent_code_phs_lvl1_b",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__epp1_busent_code_phs_lvl1_d",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__epp1_busent_code_phs_lvl1_e",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Reference Date",
+   "id": "DDT__origin_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "TXT__tstm_ref_1",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Comments",
+   "id": "TXT__TSTMCOMMENTS",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Comments",
+   "id": "DDL__TSTM_STATUS",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Truck No",
+   "id": "TXT__pvch_vehicle_regno",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Truck No",
+   "id": "TXT__tstm_stock_arrival_datetime",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "VAT Challan Number",
+   "id": "TXT__tstm_vat_challan_no_1",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Return Advice",
+   "id": null,
+   "title": "Return Advice",
+   "disabled": false
+  },
+  {
+   "text": "Return Detail",
+   "id": null,
+   "title": "Return Detail",
+   "disabled": true
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "RA No",
+    "RA Date",
+    "RA Type",
+    "Vendor Code",
+    "SO Number",
+    "Shipment No",
+    "Deliver No",
+    "Invoice Due Date",
+    "Tax Invoice Number",
+    "Tax",
+    "Discount",
+    "Net Amount",
+    "Status",
+    "Distributor",
+    "Reference No"
+   ],
+   "rows": 1,
+   "pager": false
+  }
+ ]
+}

@@ -1,0 +1,241 @@
+{
+ "option_id": "DYL_1029",
+ "title": "STRATA",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "STRATA"
+  ],
+  "group_id": "DYL_1029"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1029",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101029001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "STRATA - Grid",
+   "table": "SND_PR_STR_STRATA",
+   "n_fields": 0,
+   "grids": [
+    "Strata"
+   ]
+  },
+  {
+   "page": "101029002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101029001",
+   "desc": "STRATA - Form",
+   "table": "SND_PR_STR_STRATA",
+   "n_fields": 9,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "code",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PSTR_STRATA_CODE",
+   "db_description": "Strata Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Description": {
+   "name": "description",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PSTR_DESC",
+   "db_description": "Strata Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Abbreviation": {
+   "name": "txt__pstr_abrv",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PSTR_ABRV",
+   "db_description": "Strata Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Default": {
+   "name": "ddl__pstr_default",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PSTR_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Status": {
+   "name": "ddl__pstr_active",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PSTR_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Level Type": {
+   "name": "txt__pstr_levelType",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PSTR_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Level No": {
+   "name": "txt__pstr_level_no",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PSTR_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Min Population": {
+   "name": "txt__pstr_min_population",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PSTR_MIN_POPULATION",
+   "db_description": "Minimum Population",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 13,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101029002"
+  },
+  "Max Population": {
+   "name": "txt__pstr_max_population",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PSTR_MAX_POPULATION",
+   "db_description": "Maximum Population",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 13,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": [
+    {
+     "validationExpr": "@Model(txt__pstr_min_population) <= @Model(txt__pstr_max_population)  || !@Model(txt__pstr_min_population) || !@Model(txt__pstr_max_population)",
+     "validationMessage": "DYP.P.101029.G....MaxMinreg"
+    },
+    {
+     "validationExpr": "@Model(txt__pstr_max_population) ? !!@Model(txt__pstr_min_population) : !@Model(txt__pstr_min_population)",
+     "validationMessage": "DYP.P.101029.G....MinMax2"
+    }
+   ],
+   "regex": null,
+   "page": "101029002"
+  }
+ },
+ "grids": {
+  "Strata": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Min Population",
+    "Max Population"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

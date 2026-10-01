@@ -1,0 +1,5916 @@
+{
+ "env": "cnr2dev3",
+ "user": "KPO_slv",
+ "harvested": "2026-09-25T16:42:48",
+ "source": "/menu-service/api/v1/optionGroup/allMenusByRoles",
+ "entries": [
+  {
+   "id": "0006",
+   "title": "",
+   "path": [
+    ""
+   ],
+   "top_id": "0006",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": null
+  },
+  {
+   "id": "NG16",
+   "title": "",
+   "path": [
+    ""
+   ],
+   "top_id": "NG16",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 14
+  },
+  {
+   "id": "DYL_201201",
+   "title": "Auto Journey Inquiry",
+   "path": [
+    "",
+    "Auto Journey Inquiry"
+   ],
+   "top_id": "0006",
+   "parent": "0006",
+   "app_option": "DYL_201201",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201201",
+   "level": null,
+   "seq": null
+  },
+  {
+   "id": "INCENTIVE_REWARD_APPROVAL",
+   "title": "Incentive Reward Approval",
+   "path": [
+    "",
+    "Incentive Reward Approval"
+   ],
+   "top_id": "NG16",
+   "parent": "NG16",
+   "app_option": "INCENTIVE_REWARD_APPROVAL",
+   "route": "/excel-upload/incentive-reward-approval",
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201098",
+   "title": "Target Achievement Inquiry",
+   "path": [
+    "",
+    "Target Achievement Inquiry"
+   ],
+   "top_id": "0006",
+   "parent": "0006",
+   "app_option": "DYL_201098",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201098",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_102014001",
+   "title": "Transaction View",
+   "path": [
+    "",
+    "Transaction View"
+   ],
+   "top_id": "0006",
+   "parent": "0006",
+   "app_option": "DYL_102014001",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102014001",
+   "level": 3,
+   "seq": 2
+  },
+  {
+   "id": "10",
+   "title": "AUDIT",
+   "path": [
+    "AUDIT"
+   ],
+   "top_id": "10",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "1001",
+   "title": "Audit Log",
+   "path": [
+    "AUDIT",
+    "Audit Log"
+   ],
+   "top_id": "10",
+   "parent": "10",
+   "app_option": "AUDIT_LOG",
+   "route": "/content-master/security/audit-log",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "NG19",
+   "title": "Application Configuration",
+   "path": [
+    "Application Configuration"
+   ],
+   "top_id": "NG19",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 18
+  },
+  {
+   "id": "DIST_FEATURE",
+   "title": "Distributor Feature",
+   "path": [
+    "Application Configuration",
+    "Distributor Feature"
+   ],
+   "top_id": "NG19",
+   "parent": "NG19",
+   "app_option": "DIST_FEATURE",
+   "route": "/feature/dist-feature",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "FEATURE_TYPES",
+   "title": "Feature Types",
+   "path": [
+    "Application Configuration",
+    "Feature Types"
+   ],
+   "top_id": "NG19",
+   "parent": "NG19",
+   "app_option": "FEATURE_TYPES",
+   "route": "/feature/feature-types",
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "ORG_FEATURE",
+   "title": "Organization Feature",
+   "path": [
+    "Application Configuration",
+    "Organization Feature"
+   ],
+   "top_id": "NG19",
+   "parent": "NG19",
+   "app_option": "ORG_FEATURE",
+   "route": "/feature/org-feature",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "NG01",
+   "title": "Approval",
+   "path": [
+    "Approval"
+   ],
+   "top_id": "NG01",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 1
+  },
+  {
+   "id": "NG0101",
+   "title": "Master Data Approval",
+   "path": [
+    "Approval",
+    "Master Data Approval"
+   ],
+   "top_id": "NG01",
+   "parent": "NG01",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "DYL_102003061",
+   "title": "DSR Approval",
+   "path": [
+    "Approval",
+    "Master Data Approval",
+    "DSR Approval"
+   ],
+   "top_id": "NG01",
+   "parent": "NG0101",
+   "app_option": "DYL_102003061",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003061",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_102003062",
+   "title": "Outlet Approval",
+   "path": [
+    "Approval",
+    "Master Data Approval",
+    "Outlet Approval"
+   ],
+   "top_id": "NG01",
+   "parent": "NG0101",
+   "app_option": "DYL_102003062",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003062",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_102003079",
+   "title": "Outlet Status",
+   "path": [
+    "Approval",
+    "Master Data Approval",
+    "Outlet Status"
+   ],
+   "top_id": "NG01",
+   "parent": "NG0101",
+   "app_option": "DYL_102003079",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003079",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_101032003",
+   "title": "Vehicle Approval",
+   "path": [
+    "Approval",
+    "Master Data Approval",
+    "Vehicle Approval"
+   ],
+   "top_id": "NG01",
+   "parent": "NG0101",
+   "app_option": "DYL_101032003",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101032003",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_202039",
+   "title": "Vehicle Profile Approval II",
+   "path": [
+    "Approval",
+    "Master Data Approval",
+    "Vehicle Profile Approval II"
+   ],
+   "top_id": "NG01",
+   "parent": "NG0101",
+   "app_option": "DYL_202039",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202039",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_BG1010",
+   "title": "Vehicle Profile II",
+   "path": [
+    "Approval",
+    "Master Data Approval",
+    "Vehicle Profile II"
+   ],
+   "top_id": "NG01",
+   "parent": "NG0101",
+   "app_option": "DYL_BG1010",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1010",
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "201048",
+   "title": "Asset Module",
+   "path": [
+    "Asset Module"
+   ],
+   "top_id": "201048",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 15
+  },
+  {
+   "id": "DYL_201059",
+   "title": "Asset Complaint",
+   "path": [
+    "Asset Module",
+    "Asset Complaint"
+   ],
+   "top_id": "201048",
+   "parent": "201048",
+   "app_option": "DYL_201059",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201059",
+   "level": 1,
+   "seq": 10
+  },
+  {
+   "id": "CHANGE_TRACK_PJP_CONFIGURATION",
+   "title": "Change Track PJP Configuration",
+   "path": [
+    "Change Track PJP Configuration"
+   ],
+   "top_id": "CHANGE_TRACK_PJP_CONFIGURATION",
+   "parent": "",
+   "app_option": "CHANGE_TRACK_PJP_CONFIGURATION",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 2,
+   "seq": 8
+  },
+  {
+   "id": "NG02",
+   "title": "Company setup",
+   "path": [
+    "Company setup"
+   ],
+   "top_id": "NG02",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 2
+  },
+  {
+   "id": "NG0201",
+   "title": "Analysis Classification",
+   "path": [
+    "Company setup",
+    "Analysis Classification"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "DYL_201089",
+   "title": "Analysis Classification - Channel Hierarchy",
+   "path": [
+    "Company setup",
+    "Analysis Classification",
+    "Analysis Classification - Channel Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0201",
+   "app_option": "DYL_201089",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201089",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_201089005",
+   "title": "Analysis Classification - Distributor",
+   "path": [
+    "Company setup",
+    "Analysis Classification",
+    "Analysis Classification - Distributor"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0201",
+   "app_option": "DYL_201089005",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201089005",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_201089009",
+   "title": "Analysis Classification - Geo Hierarchy",
+   "path": [
+    "Company setup",
+    "Analysis Classification",
+    "Analysis Classification - Geo Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0201",
+   "app_option": "DYL_201089009",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201089009",
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "DYL_201089006",
+   "title": "Analysis Classification - Outlet",
+   "path": [
+    "Company setup",
+    "Analysis Classification",
+    "Analysis Classification - Outlet"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0201",
+   "app_option": "DYL_201089006",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201089006",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201089008",
+   "title": "Analysis Classification - Sales Hierarchy",
+   "path": [
+    "Company setup",
+    "Analysis Classification",
+    "Analysis Classification - Sales Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0201",
+   "app_option": "DYL_201089008",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201089008",
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "DYL_201089007",
+   "title": "Analysis Classification - Warehouse",
+   "path": [
+    "Company setup",
+    "Analysis Classification",
+    "Analysis Classification - Warehouse"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0201",
+   "app_option": "DYL_201089007",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201089007",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_1038",
+   "title": "Channel Hierarchy",
+   "path": [
+    "Company setup",
+    "Channel Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": "DYL_1038",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1038",
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "NG0202",
+   "title": "Distributor Profile",
+   "path": [
+    "Company setup",
+    "Distributor Profile"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "DISTRIBUTOR_OUTLET_MAP",
+   "title": "Distributor Boundary",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Boundary"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DISTRIBUTOR_OUTLET_MAP",
+   "route": "/map/distributor-outlet-map",
+   "param": null,
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "DYL_BG1014",
+   "title": "Distributor Creation",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Creation"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DYL_BG1014",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1014",
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "DISTRIBUTOR_EXCEL_UPLOAD",
+   "title": "Distributor Excel Upload",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Excel Upload"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DISTRIBUTOR_EXCEL_UPLOAD",
+   "route": "/excel-upload/distributor-profile-bulk-excel-upload",
+   "param": null,
+   "level": 3,
+   "seq": 1
+  },
+  {
+   "id": "DISTRIBUTOR_PRODUCT_MAPPING",
+   "title": "Distributor Product Mapping",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Product Mapping"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DISTRIBUTOR_PRODUCT_MAPPING",
+   "route": "/excel-upload/distributor-product-mapping",
+   "param": null,
+   "level": 1,
+   "seq": 11
+  },
+  {
+   "id": "DYL_DT1001",
+   "title": "Distributor Profile DT",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Profile DT"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DYL_DT1001",
+   "route": "/dyl/layout",
+   "param": "layoutCode=DT1001",
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "DYL_L__BusinessEntityProfile",
+   "title": "Distributor Profile HQ",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Profile HQ"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DYL_L__BusinessEntityProfile",
+   "route": "/dyl/layout",
+   "param": "layoutCode=L__BusinessEntityProfile",
+   "level": 3,
+   "seq": 4
+  },
+  {
+   "id": "DISTRIBUTOR_SHUFFLING_UPLOAD",
+   "title": "Distributor Shuffling Upload",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Distributor Shuffling Upload"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DISTRIBUTOR_SHUFFLING_UPLOAD",
+   "route": "/excel-upload/distributor-shufflling-upload",
+   "param": null,
+   "level": 3,
+   "seq": 2
+  },
+  {
+   "id": "DYL_101002",
+   "title": "Location",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Location"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DYL_101002",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101002",
+   "level": 3,
+   "seq": 3
+  },
+  {
+   "id": "TRANSFER_DT",
+   "title": "Return To HO With Reference",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Return To HO With Reference"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "TRANSFER_DT",
+   "route": "/transfer-dt/dt",
+   "param": "pageParameter=RA-REF",
+   "level": 1,
+   "seq": 15
+  },
+  {
+   "id": "TTF",
+   "title": "Return To HO Without Reference",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Return To HO Without Reference"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "TTF",
+   "route": "/transfer-dt/dt",
+   "param": "pageParameter=TTF",
+   "level": 1,
+   "seq": 14
+  },
+  {
+   "id": "DISTRIBUTOR_PRODUCT_EXCLUSION_UPLOAD",
+   "title": "Upload DT Product Un‑map Exclusion",
+   "path": [
+    "Company setup",
+    "Distributor Profile",
+    "Upload DT Product Un‑map Exclusion"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0202",
+   "app_option": "DISTRIBUTOR_PRODUCT_EXCLUSION_UPLOAD",
+   "route": "/excel-upload/distributor-product-exclusion-upload",
+   "param": null,
+   "level": 1,
+   "seq": 12
+  },
+  {
+   "id": "NG0203",
+   "title": "General",
+   "path": [
+    "Company setup",
+    "General"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "DYL_1004",
+   "title": "Bank",
+   "path": [
+    "Company setup",
+    "General",
+    "Bank"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1004",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1004",
+   "level": 3,
+   "seq": 1
+  },
+  {
+   "id": "DYL_1006",
+   "title": "City",
+   "path": [
+    "Company setup",
+    "General",
+    "City"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1006",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1006",
+   "level": 3,
+   "seq": 2
+  },
+  {
+   "id": "DYL_202017",
+   "title": "Company Holidays",
+   "path": [
+    "Company setup",
+    "General",
+    "Company Holidays"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_202017",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202017",
+   "level": 3,
+   "seq": 32
+  },
+  {
+   "id": "DYL_1024",
+   "title": "Company Rank",
+   "path": [
+    "Company setup",
+    "General",
+    "Company Rank"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1024",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1024",
+   "level": 3,
+   "seq": 9
+  },
+  {
+   "id": "DYL_1008",
+   "title": "Currency",
+   "path": [
+    "Company setup",
+    "General",
+    "Currency"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1008",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1008",
+   "level": 3,
+   "seq": 3
+  },
+  {
+   "id": "CURRENCY_EXCHANGE_RATE",
+   "title": "Currency Exchange Rate",
+   "path": [
+    "Company setup",
+    "General",
+    "Currency Exchange Rate"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "CURRENCY_EXCHANGE_RATE",
+   "route": "/content-master/mobility/currency-exchange-rate",
+   "param": null,
+   "level": 3,
+   "seq": 37
+  },
+  {
+   "id": "DYL_1009",
+   "title": "Designation",
+   "path": [
+    "Company setup",
+    "General",
+    "Designation"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1009",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1009",
+   "level": 3,
+   "seq": 4
+  },
+  {
+   "id": "DYL_101049",
+   "title": "Local Validity",
+   "path": [
+    "Company setup",
+    "General",
+    "Local Validity"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_101049",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101049",
+   "level": 1,
+   "seq": 5
+  },
+  {
+   "id": "DYL_1074",
+   "title": "Locality",
+   "path": [
+    "Company setup",
+    "General",
+    "Locality"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1074",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1074",
+   "level": 3,
+   "seq": 15
+  },
+  {
+   "id": "DYL_1081",
+   "title": "Location Type",
+   "path": [
+    "Company setup",
+    "General",
+    "Location Type"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1081",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1081",
+   "level": 3,
+   "seq": 20
+  },
+  {
+   "id": "LOSS_REASON_TYPE",
+   "title": "Loss Reason Type",
+   "path": [
+    "Company setup",
+    "General",
+    "Loss Reason Type"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "LOSS_REASON_TYPE",
+   "route": "/content-master/mobility/loss-reason-type",
+   "param": null,
+   "level": 2,
+   "seq": 35
+  },
+  {
+   "id": "DYL_1088",
+   "title": "MIS Type",
+   "path": [
+    "Company setup",
+    "General",
+    "MIS Type"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1088",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1088",
+   "level": 3,
+   "seq": 23
+  },
+  {
+   "id": "DYL_101055",
+   "title": "Policy",
+   "path": [
+    "Company setup",
+    "General",
+    "Policy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_101055",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101055",
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "DYL_202011",
+   "title": "Promotion Type Group",
+   "path": [
+    "Company setup",
+    "General",
+    "Promotion Type Group"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_202011",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202011",
+   "level": 2,
+   "seq": 31
+  },
+  {
+   "id": "DYL_1022",
+   "title": "Qualification",
+   "path": [
+    "Company setup",
+    "General",
+    "Qualification"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1022",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1022",
+   "level": 3,
+   "seq": 8
+  },
+  {
+   "id": "DYL_1025",
+   "title": "Rank",
+   "path": [
+    "Company setup",
+    "General",
+    "Rank"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1025",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1025",
+   "level": 3,
+   "seq": 10
+  },
+  {
+   "id": "DYL_201073",
+   "title": "Reason Type",
+   "path": [
+    "Company setup",
+    "General",
+    "Reason Type"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_201073",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201073",
+   "level": 2,
+   "seq": 26
+  },
+  {
+   "id": "DYL_1077",
+   "title": "Region",
+   "path": [
+    "Company setup",
+    "General",
+    "Region"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1077",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1077",
+   "level": 3,
+   "seq": 17
+  },
+  {
+   "id": "DYL_1029",
+   "title": "STRATA",
+   "path": [
+    "Company setup",
+    "General",
+    "STRATA"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1029",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1029",
+   "level": 3,
+   "seq": 11
+  },
+  {
+   "id": "DYL_102005",
+   "title": "Selling Category",
+   "path": [
+    "Company setup",
+    "General",
+    "Selling Category"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_102005",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102005",
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "DYL_202055",
+   "title": "Selling Category - II",
+   "path": [
+    "Company setup",
+    "General",
+    "Selling Category - II"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_202055",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202055",
+   "level": 1,
+   "seq": 35
+  },
+  {
+   "id": "SELLING_PRODUCT_MAPPING",
+   "title": "Selling Category Product Mapping",
+   "path": [
+    "Company setup",
+    "General",
+    "Selling Category Product Mapping"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "SELLING_PRODUCT_MAPPING",
+   "route": "/excel-upload/selling-product-mapping",
+   "param": null,
+   "level": 1,
+   "seq": 34
+  },
+  {
+   "id": "DYL_1030",
+   "title": "Transport Company",
+   "path": [
+    "Company setup",
+    "General",
+    "Transport Company"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1030",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1030",
+   "level": 3,
+   "seq": 12
+  },
+  {
+   "id": "DYL_1031",
+   "title": "Transport Mode",
+   "path": [
+    "Company setup",
+    "General",
+    "Transport Mode"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1031",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1031",
+   "level": 3,
+   "seq": 13
+  },
+  {
+   "id": "DYL_1079",
+   "title": "Vehicle Color",
+   "path": [
+    "Company setup",
+    "General",
+    "Vehicle Color"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1079",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1079",
+   "level": 3,
+   "seq": 18
+  },
+  {
+   "id": "DYL_1080",
+   "title": "Vehicle Make",
+   "path": [
+    "Company setup",
+    "General",
+    "Vehicle Make"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1080",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1080",
+   "level": 3,
+   "seq": 19
+  },
+  {
+   "id": "DYL_202021",
+   "title": "Vehicle Type",
+   "path": [
+    "Company setup",
+    "General",
+    "Vehicle Type"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_202021",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202021",
+   "level": 3,
+   "seq": 33
+  },
+  {
+   "id": "DYL_1033",
+   "title": "Vendor Profile",
+   "path": [
+    "Company setup",
+    "General",
+    "Vendor Profile"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1033",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1033",
+   "level": 3,
+   "seq": 14
+  },
+  {
+   "id": "DYL_1082",
+   "title": "Visit Status",
+   "path": [
+    "Company setup",
+    "General",
+    "Visit Status"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0203",
+   "app_option": "DYL_1082",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1082",
+   "level": 3,
+   "seq": 21
+  },
+  {
+   "id": "DYL_1037",
+   "title": "Geo Hierarchy",
+   "path": [
+    "Company setup",
+    "Geo Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": "DYL_1037",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1037",
+   "level": 3,
+   "seq": 5
+  },
+  {
+   "id": "NG0205",
+   "title": "Price",
+   "path": [
+    "Company setup",
+    "Price"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "DYL_201035",
+   "title": "Outlet Price",
+   "path": [
+    "Company setup",
+    "Price",
+    "Outlet Price"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "DYL_201035",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201035",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "06020102",
+   "title": "Outlet Wise Price",
+   "path": [
+    "Company setup",
+    "Price",
+    "Outlet Wise Price"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "OUTLETMOBILEPRICE",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "DYL_102003046",
+   "title": "Price Structure",
+   "path": [
+    "Company setup",
+    "Price",
+    "Price Structure"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "DYL_102003046",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003046",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "PURCHASE_PRICE",
+   "title": "Purchase Price",
+   "path": [
+    "Company setup",
+    "Price",
+    "Purchase Price"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "PURCHASE_PRICE",
+   "route": "/prices/purchase-price",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "PURCHASE_PRICE_2",
+   "title": "Purchase Price 2",
+   "path": [
+    "Company setup",
+    "Price",
+    "Purchase Price 2"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "PURCHASE_PRICE_2",
+   "route": "/price-structure/purchase-price",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "SALE_PRICE",
+   "title": "Sale Price",
+   "path": [
+    "Company setup",
+    "Price",
+    "Sale Price"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "SALE_PRICE",
+   "route": "/prices/sale-price",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "SALE_PRICE_2",
+   "title": "Sale price 2",
+   "path": [
+    "Company setup",
+    "Price",
+    "Sale price 2"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "SALE_PRICE_2",
+   "route": "/price-structure/sale-price",
+   "param": null,
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "SECONDARY_SALE_PRICE",
+   "title": "Secondary Sale Price",
+   "path": [
+    "Company setup",
+    "Price",
+    "Secondary Sale Price"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0205",
+   "app_option": "SECONDARY_SALE_PRICE",
+   "route": "/excel-upload/secondary-sale-price",
+   "param": null,
+   "level": 2,
+   "seq": 10
+  },
+  {
+   "id": "NG0206",
+   "title": "Product Hierarchy",
+   "path": [
+    "Company setup",
+    "Product Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "DYL_101044",
+   "title": "Product Analysis 2",
+   "path": [
+    "Company setup",
+    "Product Hierarchy",
+    "Product Analysis 2"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0206",
+   "app_option": "DYL_101044",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101044",
+   "level": 3,
+   "seq": 2
+  },
+  {
+   "id": "DYL_101045",
+   "title": "Product Analysis 3",
+   "path": [
+    "Company setup",
+    "Product Hierarchy",
+    "Product Analysis 3"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0206",
+   "app_option": "DYL_101045",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101045",
+   "level": 3,
+   "seq": 3
+  },
+  {
+   "id": "DYL_101046",
+   "title": "Product Analysis 4",
+   "path": [
+    "Company setup",
+    "Product Hierarchy",
+    "Product Analysis 4"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0206",
+   "app_option": "DYL_101046",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101046",
+   "level": 3,
+   "seq": 4
+  },
+  {
+   "id": "DYL_101047",
+   "title": "Product Analysis 5",
+   "path": [
+    "Company setup",
+    "Product Hierarchy",
+    "Product Analysis 5"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0206",
+   "app_option": "DYL_101047",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101047",
+   "level": 3,
+   "seq": 5
+  },
+  {
+   "id": "DYL_101043",
+   "title": "Product Hierarchy",
+   "path": [
+    "Company setup",
+    "Product Hierarchy",
+    "Product Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0206",
+   "app_option": "DYL_101043",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101043",
+   "level": 3,
+   "seq": 1
+  },
+  {
+   "id": "NG0207",
+   "title": "Product Management",
+   "path": [
+    "Company setup",
+    "Product Management"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "DYL_101051",
+   "title": "Batch",
+   "path": [
+    "Company setup",
+    "Product Management",
+    "Batch"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0207",
+   "app_option": "DYL_101051",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101051",
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "DYL_BG1001",
+   "title": "Non Unilever Products",
+   "path": [
+    "Company setup",
+    "Product Management",
+    "Non Unilever Products"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0207",
+   "app_option": "DYL_BG1001",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1001",
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "DYL_102003024",
+   "title": "Product Configuration",
+   "path": [
+    "Company setup",
+    "Product Management",
+    "Product Configuration"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0207",
+   "app_option": "DYL_102003024",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003024",
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "PRODUCT_POLICY",
+   "title": "Product Exclusion Policy",
+   "path": [
+    "Company setup",
+    "Product Management",
+    "Product Exclusion Policy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0207",
+   "app_option": "PRODUCT_POLICY",
+   "route": "/content-master/mobility/product-policy",
+   "param": null,
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "SELLING_HIERARCHY_EXCEL_UPLOAD",
+   "title": "Selling category-Product hierarchy mapping",
+   "path": [
+    "Company setup",
+    "Product Management",
+    "Selling category-Product hierarchy mapping"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0207",
+   "app_option": "SELLING_HIERARCHY_EXCEL_UPLOAD",
+   "route": "/excel-upload/selling-hierarchy-excel-upload",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "NG0208",
+   "title": "Promotion",
+   "path": [
+    "Company setup",
+    "Promotion"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 10
+  },
+  {
+   "id": "ACTIVE_PROMOTIONS",
+   "title": "Active Promotions",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Active Promotions"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "ACTIVE_PROMOTIONS",
+   "route": "/scheme-builder/active-promotions",
+   "param": null,
+   "level": 2,
+   "seq": 14
+  },
+  {
+   "id": "DT_PROMOTION",
+   "title": "Current Promotion",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Current Promotion"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "DT_PROMOTION",
+   "route": "/dtPromotion/dt-promotion-list",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "CURRENT_PROMOTION_APPROVER",
+   "title": "Current Promotion Approver",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Current Promotion Approver"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "CURRENT_PROMOTION_APPROVER",
+   "route": "/dtPromotion/current-promotion-approver",
+   "param": null,
+   "level": 2,
+   "seq": 13
+  },
+  {
+   "id": "CUSTOMER_DISCOUNT",
+   "title": "Customer Discount",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Customer Discount"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "CUSTOMER_DISCOUNT",
+   "route": "/scheme-builder/customer-discount",
+   "param": null,
+   "level": 2,
+   "seq": 8
+  },
+  {
+   "id": "CUSTOMER_DISCOUNT_APPROVAL",
+   "title": "Customer Discount Approval",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Customer Discount Approval"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "CUSTOMER_DISCOUNT_APPROVAL",
+   "route": "/scheme-builder/customer-discount-approval",
+   "param": "pageParameter=FTA",
+   "level": 2,
+   "seq": 11
+  },
+  {
+   "id": "DISTRIBUTOR_MARKUP",
+   "title": "Distributor Markup",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Distributor Markup"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "DISTRIBUTOR_MARKUP",
+   "route": "/scheme-builder/distributor-markup",
+   "param": null,
+   "level": 2,
+   "seq": 10
+  },
+  {
+   "id": "DISTRIBUTOR_MARKUP_APPROVAL",
+   "title": "Distributor Markup Approval",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Distributor Markup Approval"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "DISTRIBUTOR_MARKUP_APPROVAL",
+   "route": "/scheme-builder/distributor-markup-approval",
+   "param": null,
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "INCENTIVE_SCHEME_BUILDER",
+   "title": "Promotion Layout",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Promotion Layout"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "INCENTIVE_SCHEME_BUILDER",
+   "route": "/scheme-builder/promotion-list",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "500",
+   "title": "Scheme Builder",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Scheme Builder"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "SCHEME_BUILDER",
+   "route": "/sheme-builder",
+   "param": null,
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "PRICE_DEDUCTION",
+   "title": "Temporary Price Reduction",
+   "path": [
+    "Company setup",
+    "Promotion",
+    "Temporary Price Reduction"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0208",
+   "app_option": "PRICE_DEDUCTION",
+   "route": "/scheme-builder/temporary-price-reduction",
+   "param": null,
+   "level": 2,
+   "seq": 9
+  },
+  {
+   "id": "NG0209",
+   "title": "Sales Hierarchy Setup",
+   "path": [
+    "Company setup",
+    "Sales Hierarchy Setup"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 11
+  },
+  {
+   "id": "DYL_1039",
+   "title": "Sales Hierarchy",
+   "path": [
+    "Company setup",
+    "Sales Hierarchy Setup",
+    "Sales Hierarchy"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0209",
+   "app_option": "DYL_1039",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1039",
+   "level": 3,
+   "seq": 39
+  },
+  {
+   "id": "NG0210",
+   "title": "Setup Mapping",
+   "path": [
+    "Company setup",
+    "Setup Mapping"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 12
+  },
+  {
+   "id": "DYL_102013003",
+   "title": "Company Mapping",
+   "path": [
+    "Company setup",
+    "Setup Mapping",
+    "Company Mapping"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0210",
+   "app_option": "DYL_102013003",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102013003",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_202077",
+   "title": "Stock Type Reason Mapping",
+   "path": [
+    "Company setup",
+    "Setup Mapping",
+    "Stock Type Reason Mapping"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0210",
+   "app_option": "DYL_202077",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202077",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "NG0211",
+   "title": "Users",
+   "path": [
+    "Company setup",
+    "Users"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 13
+  },
+  {
+   "id": "0208",
+   "title": "Change Password",
+   "path": [
+    "Company setup",
+    "Users",
+    "Change Password"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0211",
+   "app_option": "SSO_CHANGE_PASSWORD",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "0205",
+   "title": "User",
+   "path": [
+    "Company setup",
+    "Users",
+    "User"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0211",
+   "app_option": "SSO_USER_VIEW",
+   "route": "/content-master/security/user",
+   "param": null,
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "0201",
+   "title": "User Profile",
+   "path": [
+    "Company setup",
+    "Users",
+    "User Profile"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0211",
+   "app_option": "USER_HEADER",
+   "route": "/content-master/security/user-profile",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "0206",
+   "title": "User With Location",
+   "path": [
+    "Company setup",
+    "Users",
+    "User With Location"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0211",
+   "app_option": "SSO_USER_LOCATION_VIEW",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "NG0212",
+   "title": "Validation",
+   "path": [
+    "Company setup",
+    "Validation"
+   ],
+   "top_id": "NG02",
+   "parent": "NG02",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 14
+  },
+  {
+   "id": "VALIDATION_EXCEL_UPLOAD",
+   "title": "Validation Excel Upload",
+   "path": [
+    "Company setup",
+    "Validation",
+    "Validation Excel Upload"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0212",
+   "app_option": "VALIDATION_EXCEL_UPLOAD",
+   "route": "/excel-upload/validation-excel-upload",
+   "param": null,
+   "level": 3,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201018",
+   "title": "Validation Header",
+   "path": [
+    "Company setup",
+    "Validation",
+    "Validation Header"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0212",
+   "app_option": "DYL_201018",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201018",
+   "level": 3,
+   "seq": 2
+  },
+  {
+   "id": "DYL_201017",
+   "title": "Validation Setup",
+   "path": [
+    "Company setup",
+    "Validation",
+    "Validation Setup"
+   ],
+   "top_id": "NG02",
+   "parent": "NG0212",
+   "app_option": "DYL_201017",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201017",
+   "level": 3,
+   "seq": 1
+  },
+  {
+   "id": "NG03",
+   "title": "Configuration",
+   "path": [
+    "Configuration"
+   ],
+   "top_id": "NG03",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 3
+  },
+  {
+   "id": "NG0301",
+   "title": "Access Role",
+   "path": [
+    "Configuration",
+    "Access Role"
+   ],
+   "top_id": "NG03",
+   "parent": "NG03",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "0202",
+   "title": "Role",
+   "path": [
+    "Configuration",
+    "Access Role",
+    "Role"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0301",
+   "app_option": "ROLE",
+   "route": "/content-master/security/role",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_202029",
+   "title": "Role Option",
+   "path": [
+    "Configuration",
+    "Access Role",
+    "Role Option"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0301",
+   "app_option": "DYL_202029",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202029",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "0203",
+   "title": "Role Profile",
+   "path": [
+    "Configuration",
+    "Access Role",
+    "Role Profile"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0301",
+   "app_option": "ROLE_HEADER",
+   "route": "/content-master/security/role-profile",
+   "param": null,
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "NG0303",
+   "title": "Mobiz  Configuration",
+   "path": [
+    "Configuration",
+    "Mobiz  Configuration"
+   ],
+   "top_id": "NG03",
+   "parent": "NG03",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201021",
+   "title": "Alerts",
+   "path": [
+    "Configuration",
+    "Mobiz  Configuration",
+    "Alerts"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0303",
+   "app_option": "DYL_201021",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201021",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_201022",
+   "title": "Email Message",
+   "path": [
+    "Configuration",
+    "Mobiz  Configuration",
+    "Email Message"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0303",
+   "app_option": "DYL_201022",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201022",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201023",
+   "title": "Event",
+   "path": [
+    "Configuration",
+    "Mobiz  Configuration",
+    "Event"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0303",
+   "app_option": "DYL_201023",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201023",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_201025",
+   "title": "Parameter Repository",
+   "path": [
+    "Configuration",
+    "Mobiz  Configuration",
+    "Parameter Repository"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0303",
+   "app_option": "DYL_201025",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201025",
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "DYL_201024",
+   "title": "Sender Info",
+   "path": [
+    "Configuration",
+    "Mobiz  Configuration",
+    "Sender Info"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0303",
+   "app_option": "DYL_201024",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201024",
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "NG0304",
+   "title": "System Configuration",
+   "path": [
+    "Configuration",
+    "System Configuration"
+   ],
+   "top_id": "NG03",
+   "parent": "NG03",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "DYL_1017",
+   "title": "Address Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Address Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1017",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1017",
+   "level": 3,
+   "seq": 12
+  },
+  {
+   "id": "DYL_1023",
+   "title": "Business Entity Types",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Business Entity Types"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1023",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1023",
+   "level": 3,
+   "seq": 18
+  },
+  {
+   "id": "CASH_MEMO_PROMOTION_VIEWER",
+   "title": "Cash Memo Promotion Viewer",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Cash Memo Promotion Viewer"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "CASH_MEMO_PROMOTION_VIEWER",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 1,
+   "seq": 30
+  },
+  {
+   "id": "DYL_1035",
+   "title": "DSR Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "DSR Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1035",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1035",
+   "level": 3,
+   "seq": 22
+  },
+  {
+   "id": "DYL_1020",
+   "title": "Device Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Device Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1020",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1020",
+   "level": 3,
+   "seq": 13
+  },
+  {
+   "id": "DYL_1028",
+   "title": "Document",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Document"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1028",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1028",
+   "level": 3,
+   "seq": 20
+  },
+  {
+   "id": "DYL_102010",
+   "title": "Event Repository Mapping",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Event Repository Mapping"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_102010",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102010",
+   "level": 3,
+   "seq": 16
+  },
+  {
+   "id": "DYL_102008",
+   "title": "Events",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Events"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_102008",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102008",
+   "level": 3,
+   "seq": 14
+  },
+  {
+   "id": "DYL_1015",
+   "title": "Frequency",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Frequency"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1015",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1015",
+   "level": 3,
+   "seq": 11
+  },
+  {
+   "id": "060109",
+   "title": "Global Parameters",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Global Parameters"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "GLOBAL_PARAM_CONFIG",
+   "route": "/content-master/parameter/global-parameters-config",
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "DYL_1021",
+   "title": "Identifier Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Identifier Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1021",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1021",
+   "level": 3,
+   "seq": 17
+  },
+  {
+   "id": "DYL_1026",
+   "title": "Language",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Language"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1026",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1026",
+   "level": 3,
+   "seq": 19
+  },
+  {
+   "id": "DYL_1084",
+   "title": "Marital Status",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Marital Status"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1084",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1084",
+   "level": 3,
+   "seq": 25
+  },
+  {
+   "id": "0104",
+   "title": "Number Generation Config",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Number Generation Config"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "NUMBER_GENERATION_CONFIG",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "0103",
+   "title": "Number Generation Entity",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Number Generation Entity"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "NUMBER_GENERATION_ENTITY",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "0204",
+   "title": "Option Group",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Option Group"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "OPTION_GROUP",
+   "route": "/content-master/security/option-group",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_101001",
+   "title": "Organization",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Organization"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_101001",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101001",
+   "level": 3,
+   "seq": 6
+  },
+  {
+   "id": "DYL_1013",
+   "title": "Payment Mode",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Payment Mode"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1013",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1013",
+   "level": 3,
+   "seq": 9
+  },
+  {
+   "id": "DYL_1014",
+   "title": "Period Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Period Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1014",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1014",
+   "level": 3,
+   "seq": 10
+  },
+  {
+   "id": "DYL_1034",
+   "title": "Price Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Price Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1034",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1034",
+   "level": 3,
+   "seq": 21
+  },
+  {
+   "id": "DYL_1003",
+   "title": "Principal",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Principal"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1003",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1003",
+   "level": 3,
+   "seq": 5
+  },
+  {
+   "id": "DYL_101041",
+   "title": "Product Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Product Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_101041",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101041",
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "DYL_202014",
+   "title": "Profile Hierarchy Level",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Profile Hierarchy Level"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_202014",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202014",
+   "level": 2,
+   "seq": 27
+  },
+  {
+   "id": "DYL_102009",
+   "title": "Repository",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Repository"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_102009",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102009",
+   "level": 3,
+   "seq": 15
+  },
+  {
+   "id": "DYL_1078",
+   "title": "Stock Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Stock Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1078",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1078",
+   "level": 3,
+   "seq": 24
+  },
+  {
+   "id": "SUB_DOCUMENT_TYPE",
+   "title": "Sub Document Type",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Sub Document Type"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "SUB_DOCUMENT_TYPE",
+   "route": "/content-master/mobility/sub-document-type",
+   "param": null,
+   "level": 3,
+   "seq": 28
+  },
+  {
+   "id": "DYL_1040",
+   "title": "Transaction Nature",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Transaction Nature"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_1040",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1040",
+   "level": 3,
+   "seq": 23
+  },
+  {
+   "id": "DYL_101016",
+   "title": "Unit of Measurement",
+   "path": [
+    "Configuration",
+    "System Configuration",
+    "Unit of Measurement"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0304",
+   "app_option": "DYL_101016",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101016",
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "NG0305",
+   "title": "Workflow Configuration",
+   "path": [
+    "Configuration",
+    "Workflow Configuration"
+   ],
+   "top_id": "NG03",
+   "parent": "NG03",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 5
+  },
+  {
+   "id": "BPMN_UPLOADER",
+   "title": "BPMN Uploader",
+   "path": [
+    "Configuration",
+    "Workflow Configuration",
+    "BPMN Uploader"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0305",
+   "app_option": "BPMN_UPLOADER",
+   "route": "/camunda-modeler/uploader",
+   "param": null,
+   "level": 3,
+   "seq": 4
+  },
+  {
+   "id": "INCIDENT",
+   "title": "Incident",
+   "path": [
+    "Configuration",
+    "Workflow Configuration",
+    "Incident"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0305",
+   "app_option": "INCIDENT",
+   "route": "/workflow/incident",
+   "param": null,
+   "level": 3,
+   "seq": 5
+  },
+  {
+   "id": "0611",
+   "title": "Modeler",
+   "path": [
+    "Configuration",
+    "Workflow Configuration",
+    "Modeler"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0305",
+   "app_option": "WF_MODELER",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 3,
+   "seq": 1
+  },
+  {
+   "id": "0612",
+   "title": "Modeler List",
+   "path": [
+    "Configuration",
+    "Workflow Configuration",
+    "Modeler List"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0305",
+   "app_option": "WF_MODELER_LIST",
+   "route": "/camunda-modeler",
+   "param": null,
+   "level": 3,
+   "seq": 2
+  },
+  {
+   "id": "0621",
+   "title": "Workflow Uploader",
+   "path": [
+    "Configuration",
+    "Workflow Configuration",
+    "Workflow Uploader"
+   ],
+   "top_id": "NG03",
+   "parent": "NG0305",
+   "app_option": "WF_UPLOADER",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 3,
+   "seq": 3
+  },
+  {
+   "id": "0304",
+   "title": "Data Combo Config",
+   "path": [
+    "Data Combo Config"
+   ],
+   "top_id": "0304",
+   "parent": "03",
+   "app_option": "DATA_COMBO_CONFIG",
+   "route": "/content-master/users-profile/data-combo-config",
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "NG04",
+   "title": "Distributor Setup",
+   "path": [
+    "Distributor Setup"
+   ],
+   "top_id": "NG04",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 4
+  },
+  {
+   "id": "NG0401",
+   "title": "DSR Profile",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "CHANGETRACK_DSRPROFILE",
+   "title": "Change Track DSR Profile",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "Change Track DSR Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "CHANGETRACK_DSRPROFILE",
+   "route": "/change-management",
+   "param": "pageCodeGrid=102003019&fieldComb=pbet_busentity_type&valueComb=DSRS&serialNoGrid=4&pageCodeForm=102003020&serialNoForm=2&label1=DSR Modification Request List&label2=List of DSR&label3=DSR Modification attribute",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_202075",
+   "title": "DSR File Inquiry",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR File Inquiry"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DYL_202075",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202075",
+   "level": 2,
+   "seq": 9
+  },
+  {
+   "id": "DYL_102003019",
+   "title": "DSR Profile",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DYL_102003019",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003019",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_DT1002",
+   "title": "DSR Profile - DT",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR Profile - DT"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DYL_DT1002",
+   "route": "/dyl/layout",
+   "param": "layoutCode=DT1002",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DSR_PROFILE_DATA_APPROVAL",
+   "title": "DSR Profile Approval Bulk Upload",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR Profile Approval Bulk Upload"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DSR_PROFILE_DATA_APPROVAL",
+   "route": "excel-upload/dsr-profile-data-approval",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DSR_PROFILE_DATA",
+   "title": "DSR Profile Bulk Upload",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR Profile Bulk Upload"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DSR_PROFILE_DATA",
+   "route": "/excel-upload/dsr-profile-data",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_202044",
+   "title": "DSR Profile HQ",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR Profile HQ"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DYL_202044",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202044",
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "DYL_BG1017",
+   "title": "DSR Profile LA",
+   "path": [
+    "Distributor Setup",
+    "DSR Profile",
+    "DSR Profile LA"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0401",
+   "app_option": "DYL_BG1017",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1017",
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "NG0402",
+   "title": "General",
+   "path": [
+    "Distributor Setup",
+    "General"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "CHANGETRACK_DISTRIBUTOR_HOLIDAY_II",
+   "title": "Change Track Distributor Holiday II",
+   "path": [
+    "Distributor Setup",
+    "General",
+    "Change Track Distributor Holiday II"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0402",
+   "app_option": "CHANGETRACK_DISTRIBUTOR_HOLIDAY_II",
+   "route": "/change-management",
+   "param": "pageCodeGrid=BG1011001&fieldComb=&valueComb=&serialNoGrid=1&pageCodeForm=BG1011002&serialNoForm=1",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_BG1011",
+   "title": "Distributor Holiday II",
+   "path": [
+    "Distributor Setup",
+    "General",
+    "Distributor Holiday II"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0402",
+   "app_option": "DYL_BG1011",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1011",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_202018",
+   "title": "Distributor Holidays",
+   "path": [
+    "Distributor Setup",
+    "General",
+    "Distributor Holidays"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0402",
+   "app_option": "DYL_202018",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202018",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "NG0403",
+   "title": "Journey Plan",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "CHANGETRACK_PJP_CONFIG",
+   "title": "Change Track PJP Config",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "Change Track PJP Config"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "CHANGETRACK_PJP_CONFIG",
+   "route": "/change-management/pjp-config",
+   "param": "pageCodeGrid=202025001&fieldComb=&valueComb=&serialNoGrid=1&pageCodeForm=202025002&serialNoForm=1",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "CHANGETRACK_PJP",
+   "title": "PJP Change Request",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Change Request"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "CHANGETRACK_PJP",
+   "route": "/change-management",
+   "param": "pageCodeGrid=102011001&fieldComb=&valueComb=&serialNoGrid=1&pageCodeForm=102011002&serialNoForm=1",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "PJP_CONFIGURATION_BULK_CREATION",
+   "title": "PJP Configuration Bulk Creation",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Configuration Bulk Creation"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "PJP_CONFIGURATION_BULK_CREATION",
+   "route": "/excel-upload/pjp-configuration-bulk-creation",
+   "param": null,
+   "level": 2,
+   "seq": 13
+  },
+  {
+   "id": "DYL_102011",
+   "title": "PJP Creation",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Creation"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "DYL_102011",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102011",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_BG1018",
+   "title": "PJP Creation BG",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Creation BG"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "DYL_BG1018",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1018",
+   "level": 2,
+   "seq": 11
+  },
+  {
+   "id": "DYL_202045",
+   "title": "PJP Creation HQ",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Creation HQ"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "DYL_202045",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202045",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_202037",
+   "title": "PJP Daily Inquiry",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Daily Inquiry"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "DYL_202037",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202037",
+   "level": 2,
+   "seq": 8
+  },
+  {
+   "id": "DYL_BG1022",
+   "title": "PJP Daily Inquiry Update",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Daily Inquiry Update"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "DYL_BG1022",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1022",
+   "level": 2,
+   "seq": 9
+  },
+  {
+   "id": "PJP_HEADER_BULK_CREATION",
+   "title": "PJP Header Bulk Creation",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Header Bulk Creation"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "PJP_HEADER_BULK_CREATION",
+   "route": "/excel-upload/pjp-header-bulk-creation",
+   "param": null,
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "PJP-SETUP",
+   "title": "PJP Setup",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "PJP Setup"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "PJP-SETUP",
+   "route": "/dyl/layout",
+   "param": null,
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "SECTION_BULK_UPLOAD",
+   "title": "Section Bulk Upload",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "Section Bulk Upload"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "SECTION_BULK_UPLOAD",
+   "route": "/excel-upload/section-bulk",
+   "param": null,
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "SECTION-SETUP",
+   "title": "Section Setup",
+   "path": [
+    "Distributor Setup",
+    "Journey Plan",
+    "Section Setup"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0403",
+   "app_option": "SECTION-SETUP",
+   "route": "/sectionsetup",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "NG0404",
+   "title": "Outlet Profile",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "CHANGETRACK_DSR_DOC",
+   "title": "Change Track DSR Document",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Change Track DSR Document"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "CHANGETRACK_DSR_DOC",
+   "route": "/change-management/dsr-document",
+   "param": "pageCodeGrid=102003035&fieldComb=pbet_busentity_type&valueComb=DSRS&serialNoGrid=1&pageCodeForm=202044010&serialNoForm=1&label1=DSR-Doc Modification Request List&label2=List of DSR&label3=Document Modification attribute",
+   "level": 8,
+   "seq": 8
+  },
+  {
+   "id": "CHANGETRACK_OUTL_DOC",
+   "title": "Change Track Outlet Document",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Change Track Outlet Document"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "CHANGETRACK_OUTL_DOC",
+   "route": "/change-management/outlet-document",
+   "param": "pageCodeGrid=102003041&fieldComb=pbet_busentity_type&valueComb=OUTL&serialNoGrid=1&pageCodeForm=102003048&serialNoForm=1&label1=Outlet Modification Request List&label2=List of Outlets&label3=Outlet Modification attribute\n",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "CHANGETRACK_OUTL_OPINFO",
+   "title": "Change Track Outlet Operative Info",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Change Track Outlet Operative Info"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "CHANGETRACK_OUTL_OPINFO",
+   "route": "/change-management",
+   "param": "pageCodeGrid=202034001&fieldComb=pbet_busentity_type&valueComb=OUTL&serialNoGrid=1&pageCodeForm=102003010&serialNoForm=2&label1=Outlet Modification Request List&label2=List of Outlets&label3=Outlet Modification attribute",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "CHANGETRACK_OUTLPROFILE",
+   "title": "Change Track Outlet Profile",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Change Track Outlet Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "CHANGETRACK_OUTLPROFILE",
+   "route": "/change-management",
+   "param": "pageCodeGrid=102003001&fieldComb=PBET_BUSENTITY_TYPE&valueComb=OUTL&serialNoGrid=4&pageCodeForm=102003002&serialNoForm=2&label1=Outlet Modification Request List&label2=List of Outlets&label3=Outlet Modification attribute",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "EXCEL_UPLOAD",
+   "title": "Outlet Change Track Excel",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Change Track Excel"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "EXCEL_UPLOAD",
+   "route": "/content-master/mobility/outlet-excel-view",
+   "param": null,
+   "level": 3,
+   "seq": 14
+  },
+  {
+   "id": "OUTLET_CHANGE_TRACK_EXCEL2",
+   "title": "Outlet Change Track Excel II",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Change Track Excel II"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "OUTLET_CHANGE_TRACK_EXCEL2",
+   "route": "/excel-upload/outlet-change-track-excel2",
+   "param": null,
+   "level": 2,
+   "seq": 14
+  },
+  {
+   "id": "OUTLET_CREATION_UPLOAD",
+   "title": "Outlet Creation Upload",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Creation Upload"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "OUTLET_CREATION_UPLOAD",
+   "route": "/excel-upload/outlet-excel-upload",
+   "param": null,
+   "level": 2,
+   "seq": 16
+  },
+  {
+   "id": "DYL_202016",
+   "title": "Outlet Excel View - Filter",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Excel View - Filter"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "DYL_202016",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202016",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_202009001",
+   "title": "Outlet Profile",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "DYL_202009001",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202009001",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_BG1013",
+   "title": "Outlet Profile HQ",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Profile HQ"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "DYL_BG1013",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1013",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_102003090",
+   "title": "Outlet Profile View",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Profile View"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "DYL_102003090",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003090",
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "OUTLET_SEGMENT_MAPPING",
+   "title": "Outlet Segment Mapping",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Outlet Segment Mapping"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "OUTLET_SEGMENT_MAPPING",
+   "route": "/content-master/mobility/outlet-segment-mapping",
+   "param": null,
+   "level": 2,
+   "seq": 15
+  },
+  {
+   "id": "DYL_102003081",
+   "title": "Prospect Outlet",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Prospect Outlet"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "DYL_102003081",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003081",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_102003100",
+   "title": "Prospect Outlet Approval",
+   "path": [
+    "Distributor Setup",
+    "Outlet Profile",
+    "Prospect Outlet Approval"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0404",
+   "app_option": "DYL_102003100",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003100",
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "NG0406",
+   "title": "Setup Mapping",
+   "path": [
+    "Distributor Setup",
+    "Setup Mapping"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "DYL_102013002",
+   "title": "Distributor Mapping",
+   "path": [
+    "Distributor Setup",
+    "Setup Mapping",
+    "Distributor Mapping"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0406",
+   "app_option": "DYL_102013002",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102013002",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "NG0407",
+   "title": "Vehicle Profile",
+   "path": [
+    "Distributor Setup",
+    "Vehicle Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "DYL_1032",
+   "title": "Vehicle Profile",
+   "path": [
+    "Distributor Setup",
+    "Vehicle Profile",
+    "Vehicle Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0407",
+   "app_option": "DYL_1032",
+   "route": "/dyl/layout",
+   "param": "layoutCode=1032",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_202032",
+   "title": "Vehicle Profile View",
+   "path": [
+    "Distributor Setup",
+    "Vehicle Profile",
+    "Vehicle Profile View"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0407",
+   "app_option": "DYL_202032",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202032",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "NG0408",
+   "title": "Warehouse",
+   "path": [
+    "Distributor Setup",
+    "Warehouse"
+   ],
+   "top_id": "NG04",
+   "parent": "NG04",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "DYL_BG1006",
+   "title": "Warehouse Profile",
+   "path": [
+    "Distributor Setup",
+    "Warehouse",
+    "Warehouse Profile"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0408",
+   "app_option": "DYL_BG1006",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1006",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_BG1005",
+   "title": "Warehouse Profile Approval",
+   "path": [
+    "Distributor Setup",
+    "Warehouse",
+    "Warehouse Profile Approval"
+   ],
+   "top_id": "NG04",
+   "parent": "NG0408",
+   "app_option": "DYL_BG1005",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1005",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "0301",
+   "title": "Dynamic Page Studio",
+   "path": [
+    "Dynamic Page Studio"
+   ],
+   "top_id": "0301",
+   "parent": "03",
+   "app_option": "STUDIO",
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "NG13",
+   "title": "Incentive",
+   "path": [
+    "Incentive"
+   ],
+   "top_id": "NG13",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 14
+  },
+  {
+   "id": "INCENTIVE_REWARD",
+   "title": "Incentive Reward Upload",
+   "path": [
+    "Incentive",
+    "Incentive Reward Upload"
+   ],
+   "top_id": "NG13",
+   "parent": "NG13",
+   "app_option": "INCENTIVE_REWARD",
+   "route": "/excel-upload/incentive-reward",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "INCENTIVE_SETUP",
+   "title": "Incentive Setup",
+   "path": [
+    "Incentive",
+    "Incentive Setup"
+   ],
+   "top_id": "NG13",
+   "parent": "NG13",
+   "app_option": "INCENTIVE_SETUP",
+   "route": "/incentive-setup",
+   "param": null,
+   "level": 1,
+   "seq": 5
+  },
+  {
+   "id": "REWARD_PROCESS",
+   "title": "Process Reward",
+   "path": [
+    "Incentive",
+    "Process Reward"
+   ],
+   "top_id": "NG13",
+   "parent": "NG13",
+   "app_option": "REWARD_PROCESS",
+   "route": "/excel-upload/reward-process",
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "PROGRAM_SETUP",
+   "title": "Program Setup",
+   "path": [
+    "Incentive",
+    "Program Setup"
+   ],
+   "top_id": "NG13",
+   "parent": "NG13",
+   "app_option": "PROGRAM_SETUP",
+   "route": "/content-master/mobility/program-setup",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "NG12",
+   "title": "Integrator",
+   "path": [
+    "Integrator"
+   ],
+   "top_id": "NG12",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 13
+  },
+  {
+   "id": "NG1201",
+   "title": "In Out Bound Source",
+   "path": [
+    "Integrator",
+    "In Out Bound Source"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "DATA_BINDING_SOURCE",
+   "route": "/integrator/data-binding-source",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "NG1204",
+   "title": "Integration Group",
+   "path": [
+    "Integrator",
+    "Integration Group"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "GROUP_INTEGRATION",
+   "route": "/integrator/group-integration",
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "NG1202",
+   "title": "Integration Job",
+   "path": [
+    "Integrator",
+    "Integration Job"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "INTEGRATION_JOB_CONTAINER",
+   "route": "/integrator/integration-job-container",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "NG1205",
+   "title": "Integrator Scheduling",
+   "path": [
+    "Integrator",
+    "Integrator Scheduling"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "INTEGRATOR_SCHEDULING",
+   "route": "/integrator/trigger",
+   "param": null,
+   "level": 1,
+   "seq": 5
+  },
+  {
+   "id": "NODE_JOB_EXECUTOR",
+   "title": "Node Executor",
+   "path": [
+    "Integrator",
+    "Node Executor"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "NODE_JOB_EXECUTOR",
+   "route": "/integrator/node-job-executor",
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "INTEGRATOR_OPERATION",
+   "title": "Operation",
+   "path": [
+    "Integrator",
+    "Operation"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "INTEGRATOR_OPERATION",
+   "route": "/integrator/operation",
+   "param": null,
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "NG1203",
+   "title": "Organization Setup",
+   "path": [
+    "Integrator",
+    "Organization Setup"
+   ],
+   "top_id": "NG12",
+   "parent": "NG12",
+   "app_option": "TRANSMISSION_MAPPING",
+   "route": "/integrator/transmission-mapping",
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "0302",
+   "title": "Layout Designer Studio",
+   "path": [
+    "Layout Designer Studio"
+   ],
+   "top_id": "0302",
+   "parent": "03",
+   "app_option": "STUDIO_LAYOUT",
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "NG20",
+   "title": "MIS and Stock Type Mapping",
+   "path": [
+    "MIS and Stock Type Mapping"
+   ],
+   "top_id": "NG20",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 19
+  },
+  {
+   "id": "MIS_STOCK_TYPE",
+   "title": "Warehouse and Stock Type Mapping",
+   "path": [
+    "MIS and Stock Type Mapping",
+    "Warehouse and Stock Type Mapping"
+   ],
+   "top_id": "NG20",
+   "parent": "NG20",
+   "app_option": "MIS_STOCK_TYPE",
+   "route": "/content-master/mobility/mis-stock-type",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "NG11",
+   "title": "Master Data",
+   "path": [
+    "Master Data"
+   ],
+   "top_id": "NG11",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 12
+  },
+  {
+   "id": "NG1103",
+   "title": "Price Master Approval",
+   "path": [
+    "Master Data",
+    "Price Master Approval"
+   ],
+   "top_id": "NG11",
+   "parent": "NG11",
+   "app_option": "PRICE_MASTER_APPROVAL",
+   "route": "/excel-upload/price-master-approval",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "NG1101",
+   "title": "Price Structure Excel",
+   "path": [
+    "Master Data",
+    "Price Structure Excel"
+   ],
+   "top_id": "NG11",
+   "parent": "NG11",
+   "app_option": "PRICE_MASTER_EXCEL",
+   "route": "/excel-upload/price-master-excel",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "NG1104",
+   "title": "Product Enrichment Excel",
+   "path": [
+    "Master Data",
+    "Product Enrichment Excel"
+   ],
+   "top_id": "NG11",
+   "parent": "NG11",
+   "app_option": "PRODUCT_ENRICHMENT_APPROVAL",
+   "route": "/excel-upload/product-enrichment-approval",
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "NG1102",
+   "title": "Product Enrichment Excel Upload BG",
+   "path": [
+    "Master Data",
+    "Product Enrichment Excel Upload BG"
+   ],
+   "top_id": "NG11",
+   "parent": "NG11",
+   "app_option": "APP_PRODUCT_ENRICHMENT",
+   "route": "/excel-upload/product-enrichment",
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "NG1302",
+   "title": "Off invoice Budget Upload",
+   "path": [
+    "Off invoice Budget Upload"
+   ],
+   "top_id": "NG1302",
+   "parent": null,
+   "app_option": "BUDGET_UPLOAD",
+   "route": "/excel-upload/budget-upload",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "0306",
+   "title": "Page Config Control",
+   "path": [
+    "Page Config Control"
+   ],
+   "top_id": "0306",
+   "parent": "03",
+   "app_option": "PAGE_CONFIG_CONTROL",
+   "route": "/content-master/users-profile/page-config-control",
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "0303",
+   "title": "Page Meta",
+   "path": [
+    "Page Meta"
+   ],
+   "top_id": "0303",
+   "parent": "03",
+   "app_option": "PAGE_META",
+   "route": "/content-master/users-profile/page-meta",
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "NG14",
+   "title": "Print",
+   "path": [
+    "Print"
+   ],
+   "top_id": "NG14",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 15
+  },
+  {
+   "id": "CASHMEMO_PRINT_II",
+   "title": "Cashmemo  Print II",
+   "path": [
+    "Print",
+    "Cashmemo  Print II"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CASHMEMO_PRINT_II",
+   "route": "/print/cashmemo-print-II",
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "CASHMEMO",
+   "title": "Cashmemo Print",
+   "path": [
+    "Print",
+    "Cashmemo Print"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CASHMEMO",
+   "route": "/print/cashmemo",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "CASHMEMO_PRINT_III",
+   "title": "Cashmemo Print III",
+   "path": [
+    "Print",
+    "Cashmemo Print III"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CASHMEMO_PRINT_III",
+   "route": "/print/cashmemo-print-III",
+   "param": null,
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "CASHMEMO_PRINT_IV",
+   "title": "Cashmemo Print IV/Delivery Form",
+   "path": [
+    "Print",
+    "Cashmemo Print IV/Delivery Form"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CASHMEMO_PRINT_IV",
+   "route": "/print/zt-13",
+   "param": null,
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "CREDIT_NOTE_DISTRIBUTOR",
+   "title": "Credit Note Distributor Print",
+   "path": [
+    "Print",
+    "Credit Note Distributor Print"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CREDIT_NOTE_DISTRIBUTOR",
+   "route": "/print/credit-note-distributor",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "CREDIT_NOTE_PRINT",
+   "title": "Credit Note Print",
+   "path": [
+    "Print",
+    "Credit Note Print"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CREDIT_NOTE_PRINT",
+   "route": "/print/credit-note-distributor",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "CREDIT_NOTE_PRINT_II",
+   "title": "Credit Note Print II",
+   "path": [
+    "Print",
+    "Credit Note Print II"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "CREDIT_NOTE_PRINT_II",
+   "route": "/print/credit-note-print",
+   "param": null,
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "E_INVOICE",
+   "title": "E-Invoice",
+   "path": [
+    "Print",
+    "E-Invoice"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "E_INVOICE",
+   "route": "/excel-upload/e-invoice-extract",
+   "param": null,
+   "level": 1,
+   "seq": 11
+  },
+  {
+   "id": "SERVICE_MEMO_PRINT",
+   "title": "Service Memo Print",
+   "path": [
+    "Print",
+    "Service Memo Print"
+   ],
+   "top_id": "NG14",
+   "parent": "NG14",
+   "app_option": "SERVICE_MEMO_PRINT",
+   "route": "/print/service-memo-print",
+   "param": null,
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "0003",
+   "title": "Product",
+   "path": [
+    "Product"
+   ],
+   "top_id": "0003",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 18
+  },
+  {
+   "id": "DYL_101048",
+   "title": "ABC Classification",
+   "path": [
+    "Product",
+    "ABC Classification"
+   ],
+   "top_id": "0003",
+   "parent": "0003",
+   "app_option": "DYL_101048",
+   "route": "/dyl/layout",
+   "param": "layoutCode=101048",
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "06020101",
+   "title": "Mobile Price",
+   "path": [
+    "Product",
+    "Mobile Price"
+   ],
+   "top_id": "0003",
+   "parent": "0003",
+   "app_option": "MOBILEPRICE",
+   "route": "/content-master/mobility/mobile-prices",
+   "param": null,
+   "level": 1,
+   "seq": 5
+  },
+  {
+   "id": "PRODUCT_CUSTOMER_CODE",
+   "title": "Product Customer Code",
+   "path": [
+    "Product",
+    "Product Customer Code"
+   ],
+   "top_id": "0003",
+   "parent": "0003",
+   "app_option": "PRODUCT_CUSTOMER_CODE",
+   "route": "/excel-upload/product-customer-code",
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "NG05",
+   "title": "Reports",
+   "path": [
+    "Reports"
+   ],
+   "top_id": "NG05",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 5
+  },
+  {
+   "id": "0008",
+   "title": "Reports",
+   "path": [
+    "Reports"
+   ],
+   "top_id": "0008",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 20
+  },
+  {
+   "id": "BD_SKU_PICKED_QUANTITY",
+   "title": "BD SKU Picked List",
+   "path": [
+    "Reports",
+    "BD SKU Picked List"
+   ],
+   "top_id": "NG05",
+   "parent": "NG05",
+   "app_option": "BD_SKU_PICKED_QUANTITY",
+   "route": "/dt-report/bd-sku-picked-quantity",
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "DYL_201903",
+   "title": "Cashmemo Format",
+   "path": [
+    "Reports",
+    "Cashmemo Format"
+   ],
+   "top_id": "0008",
+   "parent": "0008",
+   "app_option": "DYL_201903",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201903",
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "RECON_REPORT",
+   "title": "Jupiter Reconciliation Report",
+   "path": [
+    "Reports",
+    "Jupiter Reconciliation Report"
+   ],
+   "top_id": "NG05",
+   "parent": "NG05",
+   "app_option": "RECON_REPORT",
+   "route": "/jupiter-recon-report",
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "POWER-BI",
+   "title": "Power BI Reports",
+   "path": [
+    "Reports",
+    "Power BI Reports"
+   ],
+   "top_id": "NG05",
+   "parent": "NG05",
+   "app_option": "POWER-BI",
+   "route": "/power-bi",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "SEGMENT_SETUP",
+   "title": "Segment Master",
+   "path": [
+    "Segment Master"
+   ],
+   "top_id": "SEGMENT_SETUP",
+   "parent": null,
+   "app_option": "SEGMENT_SETUP",
+   "route": "/content-master/mobility/segment-setup",
+   "param": null,
+   "level": 0,
+   "seq": 22
+  },
+  {
+   "id": "0002",
+   "title": "Setup/Configuration",
+   "path": [
+    "Setup/Configuration"
+   ],
+   "top_id": "0002",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 17
+  },
+  {
+   "id": "0602",
+   "title": "Entity Profile",
+   "path": [
+    "Setup/Configuration",
+    "Entity Profile"
+   ],
+   "top_id": "0002",
+   "parent": "0002",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 3
+  },
+  {
+   "id": "DYL_102003004",
+   "title": "Customer Profile",
+   "path": [
+    "Setup/Configuration",
+    "Entity Profile",
+    "Customer Profile"
+   ],
+   "top_id": "0002",
+   "parent": "0602",
+   "app_option": "DYL_102003004",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003004",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_102013001",
+   "title": "Entity To Entity Mapping",
+   "path": [
+    "Setup/Configuration",
+    "Entity To Entity Mapping"
+   ],
+   "top_id": "0002",
+   "parent": "0002",
+   "app_option": "DYL_102013001",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102013001",
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "DYL_102013",
+   "title": "Entity To Entity Mapping",
+   "path": [
+    "Setup/Configuration",
+    "Entity To Entity Mapping"
+   ],
+   "top_id": "0002",
+   "parent": "0002",
+   "app_option": "DYL_102013",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102013",
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "002",
+   "title": "PJP",
+   "path": [
+    "Setup/Configuration",
+    "PJP"
+   ],
+   "top_id": "0002",
+   "parent": "0002",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "DAILY_VISIT_PLAN",
+   "title": "Daily Visit Plan",
+   "path": [
+    "Setup/Configuration",
+    "PJP",
+    "Daily Visit Plan"
+   ],
+   "top_id": "0002",
+   "parent": "002",
+   "app_option": "DAILY_VISIT_PLAN",
+   "route": "/content-master/mobility/daily-visit-plan",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "DYL_102003015",
+   "title": "Section",
+   "path": [
+    "Setup/Configuration",
+    "PJP",
+    "Section"
+   ],
+   "top_id": "0002",
+   "parent": "002",
+   "app_option": "DYL_102003015",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003015",
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "DYL_BG1002",
+   "title": "Section Approval",
+   "path": [
+    "Setup/Configuration",
+    "PJP",
+    "Section Approval"
+   ],
+   "top_id": "0002",
+   "parent": "002",
+   "app_option": "DYL_BG1002",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1002",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_202046",
+   "title": "Section Creation HQ",
+   "path": [
+    "Setup/Configuration",
+    "PJP",
+    "Section Creation HQ"
+   ],
+   "top_id": "0002",
+   "parent": "002",
+   "app_option": "DYL_202046",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202046",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "NG17",
+   "title": "Studio Cache Eviction",
+   "path": [
+    "Studio Cache Eviction"
+   ],
+   "top_id": "NG17",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 16
+  },
+  {
+   "id": "CACHE_EVICTION",
+   "title": "Cache Eviction",
+   "path": [
+    "Studio Cache Eviction",
+    "Cache Eviction"
+   ],
+   "top_id": "NG17",
+   "parent": "NG17",
+   "app_option": "CACHE_EVICTION",
+   "route": "/content-master/mobility/cache-eviction",
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "NG07",
+   "title": "Support",
+   "path": [
+    "Support"
+   ],
+   "top_id": "NG07",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 6
+  },
+  {
+   "id": "NG0701",
+   "title": "Audit Log",
+   "path": [
+    "Support",
+    "Audit Log"
+   ],
+   "top_id": "NG07",
+   "parent": "NG07",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "AUDIT_LOG_BY_PERIOD",
+   "title": "Audit Log By Period",
+   "path": [
+    "Support",
+    "Audit Log",
+    "Audit Log By Period"
+   ],
+   "top_id": "NG07",
+   "parent": "NG0701",
+   "app_option": "AUDIT_LOG_BY_PERIOD",
+   "route": "/content-master/security/audit-log-by-period",
+   "param": null,
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "0207",
+   "title": "Audit Log View",
+   "path": [
+    "Support",
+    "Audit Log",
+    "Audit Log View"
+   ],
+   "top_id": "NG07",
+   "parent": "NG0701",
+   "app_option": "AUDIT_LOG",
+   "route": "/content-master/security/audit-log",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "NG08",
+   "title": "Target",
+   "path": [
+    "Target"
+   ],
+   "top_id": "NG08",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 7
+  },
+  {
+   "id": "NG0802",
+   "title": "Budget",
+   "path": [
+    "Target",
+    "Budget"
+   ],
+   "top_id": "NG08",
+   "parent": "NG08",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "BUDGET_USER_HIER",
+   "title": "Budget Role Hierarchy",
+   "path": [
+    "Target",
+    "Budget",
+    "Budget Role Hierarchy"
+   ],
+   "top_id": "NG08",
+   "parent": "NG0802",
+   "app_option": "BUDGET_USER_HIER",
+   "route": "/target/target-user-mapping",
+   "param": "?Module=BUD001",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "BUDGET_LAYOUT",
+   "title": "Budget Setup",
+   "path": [
+    "Target",
+    "Budget",
+    "Budget Setup"
+   ],
+   "top_id": "NG08",
+   "parent": "NG0802",
+   "app_option": "BUDGET_LAYOUT",
+   "route": "/target",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "NG0801",
+   "title": "Target",
+   "path": [
+    "Target",
+    "Target"
+   ],
+   "top_id": "NG08",
+   "parent": "NG08",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "BULK_PROMO_ALLOCATION",
+   "title": "Bulk Promo Allocation",
+   "path": [
+    "Target",
+    "Target",
+    "Bulk Promo Allocation"
+   ],
+   "top_id": "NG08",
+   "parent": "NG0801",
+   "app_option": "BULK_PROMO_ALLOCATION",
+   "route": "/target/promo-target-builder",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "FCS_TARGET_UPLOAD",
+   "title": "FCS Target Excel Upload",
+   "path": [
+    "Target",
+    "Target",
+    "FCS Target Excel Upload"
+   ],
+   "top_id": "NG08",
+   "parent": "NG0801",
+   "app_option": "FCS_TARGET_UPLOAD",
+   "route": "/excel-upload/fcs-target-upload",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "TARGET_USER_HIER",
+   "title": "Target Role Hierarchy",
+   "path": [
+    "Target",
+    "Target",
+    "Target Role Hierarchy"
+   ],
+   "top_id": "NG08",
+   "parent": "NG0801",
+   "app_option": "TARGET_USER_HIER",
+   "route": "/target/target-user-mapping",
+   "param": "?Module=TGT001",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "TARGET_LAYOUT",
+   "title": "Target Setup",
+   "path": [
+    "Target",
+    "Target",
+    "Target Setup"
+   ],
+   "top_id": "NG08",
+   "parent": "NG0801",
+   "app_option": "TARGET_LAYOUT",
+   "route": "/product-target",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "NG09",
+   "title": "Transaction",
+   "path": [
+    "Transaction"
+   ],
+   "top_id": "NG09",
+   "parent": null,
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 0,
+   "seq": 8
+  },
+  {
+   "id": "DYL_LMT_ORDER_CREATION",
+   "title": "Bulk Order Upload",
+   "path": [
+    "Transaction",
+    "Bulk Order Upload"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "DYL_LMT_ORDER_CREATION",
+   "route": "/dyl/layout",
+   "param": "layoutCode=LMT_ORDER_CREATION",
+   "level": 1,
+   "seq": 10
+  },
+  {
+   "id": "DYL_202040",
+   "title": "Change Execution Status",
+   "path": [
+    "Transaction",
+    "Change Execution Status"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "DYL_202040",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202040",
+   "level": 1,
+   "seq": 14
+  },
+  {
+   "id": "0006001",
+   "title": "Claim",
+   "path": [
+    "Transaction",
+    "Claim"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 9
+  },
+  {
+   "id": "CANCEL_CLAIM",
+   "title": "Cancel Claim",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Cancel Claim"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "CANCEL_CLAIM",
+   "route": "/content-master/mobility/cancel-claim",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "DYL__201097",
+   "title": "Claim",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_201097",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201097",
+   "level": 2,
+   "seq": 14
+  },
+  {
+   "id": "CLAIM_APPROVAL",
+   "title": "Claim Approval",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Approval"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "CLAIM_APPROVAL",
+   "route": "content-master/mobility/claim-approval",
+   "param": null,
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "CLAIM_APRDOC_WISE",
+   "title": "Claim Approval Doc Wise",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Approval Doc Wise"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "CLAIM_APRDOC_WISE",
+   "route": "/content-master/claim/claim-inquiry-doc-wise-approval",
+   "param": null,
+   "level": 2,
+   "seq": 20
+  },
+  {
+   "id": "DYL_201097005",
+   "title": "Claim Inquiry",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Inquiry"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_201097005",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201097005",
+   "level": 1,
+   "seq": 12
+  },
+  {
+   "id": "DYL_BG1021",
+   "title": "Claim Inquiry - BG",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Inquiry - BG"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_BG1021",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1021",
+   "level": 1,
+   "seq": 13
+  },
+  {
+   "id": "CLAIM_INQUIRY_DOC_WISE",
+   "title": "Claim Inquiry Doc Wise",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Inquiry Doc Wise"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "CLAIM_INQUIRY_DOC_WISE",
+   "route": "/content-master/claim/claim-inquiry-doc-wise",
+   "param": null,
+   "level": 1,
+   "seq": 16
+  },
+  {
+   "id": "DYL_BG1023",
+   "title": "Claim Inquiry Doc Wise 1",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Inquiry Doc Wise 1"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_BG1023",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1023",
+   "level": 1,
+   "seq": 17
+  },
+  {
+   "id": "DYL_BG1025",
+   "title": "Claim Inquiry Doc Wise 3",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Inquiry Doc Wise 3"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_BG1025",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1025",
+   "level": 1,
+   "seq": 19
+  },
+  {
+   "id": "DYL_BG1026",
+   "title": "Claim Inquiry Doc Wise 4",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Inquiry Doc Wise 4"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_BG1026",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1026",
+   "level": 1,
+   "seq": 20
+  },
+  {
+   "id": "CLAIM_PERIOD",
+   "title": "Claim Period Setup",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Period Setup"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "CLAIM_PERIOD",
+   "route": "/content-master/claim",
+   "param": null,
+   "level": 2,
+   "seq": 15
+  },
+  {
+   "id": "CLAIM_REVIEW_APP",
+   "title": "Claim Review And Approval",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Claim Review And Approval"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "CLAIM_REVIEW_APP",
+   "route": "/content-master/claim/claim-approval-hybrid",
+   "param": null,
+   "level": 2,
+   "seq": 21
+  },
+  {
+   "id": "DYL_202058",
+   "title": "IO Master",
+   "path": [
+    "Transaction",
+    "Claim",
+    "IO Master"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_202058",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202058",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_202033",
+   "title": "IQ Threshold",
+   "path": [
+    "Transaction",
+    "Claim",
+    "IQ Threshold"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "DYL_202033",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202033",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "INCENTIVE_REWARD_GENERATION",
+   "title": "Incentive Reward Generation",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Incentive Reward Generation"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "INCENTIVE_REWARD_GENERATION",
+   "route": "/excel-upload/incentive-reward-generation",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "ORGANIZATION_CLAIM_PERIOD",
+   "title": "Organization Claim Period",
+   "path": [
+    "Transaction",
+    "Claim",
+    "Organization Claim Period"
+   ],
+   "top_id": "NG09",
+   "parent": "0006001",
+   "app_option": "ORGANIZATION_CLAIM_PERIOD",
+   "route": "/content-master/claim/organization-claim-period",
+   "param": null,
+   "level": 2,
+   "seq": 14
+  },
+  {
+   "id": "DOCUMENT_COMPLETION_STATUS",
+   "title": "Document Completion Status",
+   "path": [
+    "Transaction",
+    "Document Completion Status"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "DOCUMENT_COMPLETION_STATUS",
+   "route": "/content-master/mobility/document-completion-status",
+   "param": null,
+   "level": 2,
+   "seq": 21
+  },
+  {
+   "id": "LOCUS_DOWNLOAD",
+   "title": "Locus Download",
+   "path": [
+    "Transaction",
+    "Locus Download"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "LOCUS_DOWNLOAD",
+   "route": "/excel-upload/locus-download",
+   "param": null,
+   "level": 1,
+   "seq": 12
+  },
+  {
+   "id": "LOCUS_UPLOAD",
+   "title": "Locus Upload",
+   "path": [
+    "Transaction",
+    "Locus Upload"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "LOCUS_UPLOAD",
+   "route": "/excel-upload/locus-upload",
+   "param": null,
+   "level": 1,
+   "seq": 11
+  },
+  {
+   "id": "NG0901",
+   "title": "Logs",
+   "path": [
+    "Transaction",
+    "Logs"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 1
+  },
+  {
+   "id": "DYL_201087",
+   "title": "Visit Status Log",
+   "path": [
+    "Transaction",
+    "Logs",
+    "Visit Status Log"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0901",
+   "app_option": "DYL_201087",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201087",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_202026",
+   "title": "Loss Approval",
+   "path": [
+    "Transaction",
+    "Loss Approval"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "DYL_202026",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202026",
+   "level": 1,
+   "seq": 17
+  },
+  {
+   "id": "NG0902",
+   "title": "Order",
+   "path": [
+    "Transaction",
+    "Order"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 2
+  },
+  {
+   "id": "CANCEL_RESCHEDULE_ORDER",
+   "title": "Cancel Reschedule Order",
+   "path": [
+    "Transaction",
+    "Order",
+    "Cancel Reschedule Order"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "CANCEL_RESCHEDULE_ORDER",
+   "route": "/order-booking/cancel-reschedule-order",
+   "param": null,
+   "level": 1,
+   "seq": 13
+  },
+  {
+   "id": "DYL_202053",
+   "title": "Cashmemo Reschedule",
+   "path": [
+    "Transaction",
+    "Order",
+    "Cashmemo Reschedule"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_202053",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202053",
+   "level": 2,
+   "seq": 13
+  },
+  {
+   "id": "CASHMEMO-STATUS",
+   "title": "Cashmemo Status",
+   "path": [
+    "Transaction",
+    "Order",
+    "Cashmemo Status"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "CASHMEMO-STATUS",
+   "route": "/order-booking/cashmemo-status",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DYL_202019",
+   "title": "Cashmemo Status Change",
+   "path": [
+    "Transaction",
+    "Order",
+    "Cashmemo Status Change"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_202019",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202019",
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "CASHMEMO-STATUS-VANSALES",
+   "title": "Cashmemo Status Van Sale",
+   "path": [
+    "Transaction",
+    "Order",
+    "Cashmemo Status Van Sale"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "CASHMEMO-STATUS-VANSALES",
+   "route": "/order-booking/cashmemo-status",
+   "param": "Config=VAN",
+   "level": 2,
+   "seq": 17
+  },
+  {
+   "id": "DYL_201080",
+   "title": "Delivery Date Change",
+   "path": [
+    "Transaction",
+    "Order",
+    "Delivery Date Change"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_201080",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201080",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DELIVERY_MAN_SHUFFLING",
+   "title": "Delivery Man Shuffling",
+   "path": [
+    "Transaction",
+    "Order",
+    "Delivery Man Shuffling"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DELIVERY_MAN_SHUFFLING",
+   "route": "/content-master/mobility/delivery-man-shuffling",
+   "param": null,
+   "level": 2,
+   "seq": 10
+  },
+  {
+   "id": "DYL_202022",
+   "title": "Order Cancellation",
+   "path": [
+    "Transaction",
+    "Order",
+    "Order Cancellation"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_202022",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202022",
+   "level": 2,
+   "seq": 8
+  },
+  {
+   "id": "DYL_202008",
+   "title": "Order Change Utility",
+   "path": [
+    "Transaction",
+    "Order",
+    "Order Change Utility"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_202008",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202008",
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "ORDER_EDITING",
+   "title": "Order Editing",
+   "path": [
+    "Transaction",
+    "Order",
+    "Order Editing"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "ORDER_EDITING",
+   "route": "/order-editing",
+   "param": null,
+   "level": 2,
+   "seq": 9
+  },
+  {
+   "id": "DYL_201904",
+   "title": "Stock Allocation",
+   "path": [
+    "Transaction",
+    "Order",
+    "Stock Allocation"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_201904",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201904",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_102014",
+   "title": "Transaction Inquiry",
+   "path": [
+    "Transaction",
+    "Order",
+    "Transaction Inquiry"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0902",
+   "app_option": "DYL_102014",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102014",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "ORDER_BOOKING",
+   "title": "Order Booking",
+   "path": [
+    "Transaction",
+    "Order Booking"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "ORDER_BOOKING",
+   "route": "/order-booking",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "PJP_CONFIGURATION_BULK_UPLOAD_2",
+   "title": "PJP Configuration Bulk Upload II",
+   "path": [
+    "Transaction",
+    "PJP Configuration Bulk Upload II"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "PJP_CONFIGURATION_BULK_UPLOAD_2",
+   "route": "/excel-upload/pjp-configuration-bulk-upload-2",
+   "param": null,
+   "level": 1,
+   "seq": 19
+  },
+  {
+   "id": "NG0903",
+   "title": "Primary Sale",
+   "path": [
+    "Transaction",
+    "Primary Sale"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 4
+  },
+  {
+   "id": "DYL_BG1004",
+   "title": "Dispatch Advice II",
+   "path": [
+    "Transaction",
+    "Primary Sale",
+    "Dispatch Advice II"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0903",
+   "app_option": "DYL_BG1004",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1004",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_BG1003",
+   "title": "Dispatch Advice NUP",
+   "path": [
+    "Transaction",
+    "Primary Sale",
+    "Dispatch Advice NUP"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0903",
+   "app_option": "DYL_BG1003",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1003",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "NG0904",
+   "title": "Process",
+   "path": [
+    "Transaction",
+    "Process"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 5
+  },
+  {
+   "id": "122",
+   "title": "Adhoc Executor",
+   "path": [
+    "Transaction",
+    "Process",
+    "Adhoc Executor"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0904",
+   "app_option": "ADHOC_JOB_EXECUTOR",
+   "route": "/content-master/mobility/adhoc-executor",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "ADHOC_JOB_EXECUTOR2",
+   "title": "Adhoc Job Executor",
+   "path": [
+    "Transaction",
+    "Process",
+    "Adhoc Job Executor"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0904",
+   "app_option": "ADHOC_JOB_EXECUTOR2",
+   "route": "/integrator/adhoc-job-executor",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_202023",
+   "title": "Execution Status",
+   "path": [
+    "Transaction",
+    "Process",
+    "Execution Status"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0904",
+   "app_option": "DYL_202023",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202023",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "NG0905",
+   "title": "Receivable",
+   "path": [
+    "Transaction",
+    "Receivable"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 6
+  },
+  {
+   "id": "DYL_202020",
+   "title": "Cheque Status",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Cheque Status"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DYL_202020",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202020",
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "CREDIT_NOTE_EDIT",
+   "title": "Credit Note Editing",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Credit Note Editing"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "CREDIT_NOTE_EDIT",
+   "route": "/credit-note/credit-note-edit",
+   "param": null,
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "CREDIT_NOTE_KNOCK_OFF",
+   "title": "Credit Note Knock Off",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Credit Note Knock Off"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "CREDIT_NOTE_KNOCK_OFF",
+   "route": "/credit-note/credit-note-knock-off",
+   "param": null,
+   "level": 2,
+   "seq": 13
+  },
+  {
+   "id": "DYL_201502",
+   "title": "Credit/Debit Note Inquiry",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Credit/Debit Note Inquiry"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DYL_201502",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201502",
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "DSR_ADJUSTMENT_AMOUNT",
+   "title": "DSR Adjustment Amount",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "DSR Adjustment Amount"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DSR_ADJUSTMENT_AMOUNT",
+   "route": "/content-master/mobility/dsr-adjustment-amount-wise",
+   "param": null,
+   "level": 2,
+   "seq": 8
+  },
+  {
+   "id": "DYL_201901",
+   "title": "Debit\\Credit Note",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Debit\\Credit Note"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DYL_201901",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201901",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201802",
+   "title": "Deposit Slip",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Deposit Slip"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DYL_201802",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201802",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "INVENTORY_UPLOAD",
+   "title": "Inventory Upload",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Inventory Upload"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "INVENTORY_UPLOAD",
+   "route": "/excel-upload/inventory-upload",
+   "param": null,
+   "level": 2,
+   "seq": 15
+  },
+  {
+   "id": "DYL_202010",
+   "title": "Manual Knockoff",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Manual Knockoff"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DYL_202010",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202010",
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "OFF_INVOICE_CREDIT",
+   "title": "Off-Invoice Credit Note",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Off-Invoice Credit Note"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "OFF_INVOICE_CREDIT",
+   "route": "/excel-upload/off-invoice-credit-excel-upload",
+   "param": null,
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "CREDIT_NOTE_APPROVAL",
+   "title": "Off-Invoice Credit Note Approval",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Off-Invoice Credit Note Approval"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "CREDIT_NOTE_APPROVAL",
+   "route": "/credit-note/credit-note-approval",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "ROUTE_SETTLEMENT",
+   "title": "Route Settlement",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Route Settlement"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "ROUTE_SETTLEMENT",
+   "route": "/content-master/route-settlement",
+   "param": null,
+   "level": 2,
+   "seq": 9
+  },
+  {
+   "id": "DYL_201202",
+   "title": "Service Memo",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Service Memo"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "DYL_201202",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201202",
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "VAT_ADJUSTMENT_REBATE_PAYABLE",
+   "title": "Vat Adjustment Rebate Payable",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Vat Adjustment Rebate Payable"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "VAT_ADJUSTMENT_REBATE_PAYABLE",
+   "route": "/content-master/mobility/vat-adjustment-rebate-payable",
+   "param": null,
+   "level": 2,
+   "seq": 10
+  },
+  {
+   "id": "VAT_TREASURY_DEPOSIT",
+   "title": "Vat Treasury Deposit",
+   "path": [
+    "Transaction",
+    "Receivable",
+    "Vat Treasury Deposit"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0905",
+   "app_option": "VAT_TREASURY_DEPOSIT",
+   "route": "/content-master/mobility/vat-treasury-deposit",
+   "param": null,
+   "level": 2,
+   "seq": 11
+  },
+  {
+   "id": "SKU_SUBSTITUTION_POLICY",
+   "title": "SKU Substitution Policy",
+   "path": [
+    "Transaction",
+    "SKU Substitution Policy"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "SKU_SUBSTITUTION_POLICY",
+   "route": "/content-master/mobility/sku-substitution-policy",
+   "param": null,
+   "level": 1,
+   "seq": 20
+  },
+  {
+   "id": "SKU_SUBSTITUTION_POLICY_VIEW",
+   "title": "SKU Substitution Policy View",
+   "path": [
+    "Transaction",
+    "SKU Substitution Policy View"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "SKU_SUBSTITUTION_POLICY_VIEW",
+   "route": "/content-master/mobility/sku-substitution-policy",
+   "param": "type=view",
+   "level": 1,
+   "seq": 20
+  },
+  {
+   "id": "SKU_SUBSTITUTION_UPLOAD",
+   "title": "SKU Substitution Upload",
+   "path": [
+    "Transaction",
+    "SKU Substitution Upload"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "SKU_SUBSTITUTION_UPLOAD",
+   "route": "/excel-upload/sku-substitution-upload",
+   "param": null,
+   "level": 1,
+   "seq": 18
+  },
+  {
+   "id": "NG0906",
+   "title": "Sales Return",
+   "path": [
+    "Transaction",
+    "Sales Return"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 7
+  },
+  {
+   "id": "FRESH_SALES_RETURN",
+   "title": "Fresh Sales Return",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Fresh Sales Return"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "FRESH_SALES_RETURN",
+   "route": "/sales-return-statusChange/fresh-sales-return",
+   "param": null,
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "INHOUSE_MARKET_RETURN",
+   "title": "In-House/Market Return Claim",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "In-House/Market Return Claim"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "INHOUSE_MARKET_RETURN",
+   "route": "/content-master/mobility/inhouse-market-return",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "SKU_WISE_PICKED_LIST",
+   "title": "RT SKU Picked List",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "RT SKU Picked List"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SKU_WISE_PICKED_LIST",
+   "route": "/dt-report/sku-wise-picked-list",
+   "param": null,
+   "level": 2,
+   "seq": 8
+  },
+  {
+   "id": "DYL_201801",
+   "title": "Sales Return",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Sales Return"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SALESRETURN",
+   "route": "/content-master/mobility/sales-return",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "SALESRETURN-STATUSCHANGE",
+   "title": "Sales Return Status Change",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Sales Return Status Change"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SALESRETURN-STATUSCHANGE",
+   "route": "/sales-return-statusChange",
+   "param": null,
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "SALESRETURNVIEW",
+   "title": "Sales Return View",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Sales Return View"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SALESRETURNVIEW",
+   "route": "/sales-return-statusChange/view",
+   "param": null,
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "SALES_RETURN_WITHOUT_REF_PICKED",
+   "title": "Sales Return W/O Reference Pick",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Sales Return W/O Reference Pick"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SALES_RETURN_WITHOUT_REF_PICKED",
+   "route": "/pqc/sales-return-without-ref-picked",
+   "param": null,
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "SALES_RETURN_WITHOUT_REF_VIEW",
+   "title": "Sales Return W/O Reference View",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Sales Return W/O Reference View"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SALES_RETURN_WITHOUT_REF_VIEW",
+   "route": "/pqc/sales-return-without-ref-view",
+   "param": null,
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "SALE_RETURN_WITHOUT_REFERENCE",
+   "title": "Sales Return Without Reference",
+   "path": [
+    "Transaction",
+    "Sales Return",
+    "Sales Return Without Reference"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0906",
+   "app_option": "SALE_RETURN_WITHOUT_REFERENCE",
+   "route": "/pqc/without-reference",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "NG0907",
+   "title": "Stock",
+   "path": [
+    "Transaction",
+    "Stock"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": null,
+   "route": null,
+   "param": null,
+   "level": 1,
+   "seq": 8
+  },
+  {
+   "id": "DYL_202015",
+   "title": "GIN/GRN Inquiry",
+   "path": [
+    "Transaction",
+    "Stock",
+    "GIN/GRN Inquiry"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "GIN_GRN_INQUIRY",
+   "route": "/content-master/mobility/gin-grn-inquiry",
+   "param": null,
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "GOOD_ISSUE_NODE",
+   "title": "Goods Issue Note",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Goods Issue Note"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "GOOD_ISSUE_NODE",
+   "route": "/good-issue-notes/GIN",
+   "param": null,
+   "level": 2,
+   "seq": 1
+  },
+  {
+   "id": "GOODS_RETURN_NOTES",
+   "title": "Goods Return Notes",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Goods Return Notes"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "GOODS_RETURN_NOTES",
+   "route": "/goods-return-notes/GRN",
+   "param": null,
+   "level": 2,
+   "seq": 4
+  },
+  {
+   "id": "DYL_201046",
+   "title": "Return Advice",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Return Advice"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "DYL_201046",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201046",
+   "level": 2,
+   "seq": 3
+  },
+  {
+   "id": "DYL_201045",
+   "title": "Stock Adjustment SAN",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Stock Adjustment SAN"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "DYL_201045",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201045",
+   "level": 2,
+   "seq": 2
+  },
+  {
+   "id": "DYL_BG1015",
+   "title": "Stock Inquiry II",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Stock Inquiry II"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "DYL_BG1015",
+   "route": "/dyl/layout",
+   "param": "layoutCode=BG1015",
+   "level": 2,
+   "seq": 7
+  },
+  {
+   "id": "DYL_201906",
+   "title": "Stock Master Inquiry",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Stock Master Inquiry"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "DYL_201906",
+   "route": "/dyl/layout",
+   "param": "layoutCode=201906",
+   "level": 2,
+   "seq": 5
+  },
+  {
+   "id": "PHYSICAL_STOCK_RECONCILIATION",
+   "title": "Stock Reconciliation",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Stock Reconciliation"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "PHYSICAL_STOCK_RECONCILIATION",
+   "route": "/excel-upload/physical-stock-reconciliation",
+   "param": null,
+   "level": 2,
+   "seq": 6
+  },
+  {
+   "id": "STOCK_REQUISITION",
+   "title": "Van Sale Stock Request",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Van Sale Stock Request"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "STOCK_REQUISITION",
+   "route": "/stock-requisition/SR",
+   "param": null,
+   "level": 2,
+   "seq": 12
+  },
+  {
+   "id": "DYL_202035",
+   "title": "Van Sale Stock Request Inquiry",
+   "path": [
+    "Transaction",
+    "Stock",
+    "Van Sale Stock Request Inquiry"
+   ],
+   "top_id": "NG09",
+   "parent": "NG0907",
+   "app_option": "DYL_202035",
+   "route": "/dyl/layout",
+   "param": "layoutCode=202035",
+   "level": 2,
+   "seq": 11
+  },
+  {
+   "id": "BASE_PACK_EXCEL",
+   "title": "Upload Base Pack Excel",
+   "path": [
+    "Transaction",
+    "Upload Base Pack Excel"
+   ],
+   "top_id": "NG09",
+   "parent": "NG09",
+   "app_option": "BASE_PACK_EXCEL",
+   "route": "/excel-upload/base-pack-excel",
+   "param": null,
+   "level": 1,
+   "seq": 15
+  },
+  {
+   "id": "DYL_102003003",
+   "title": "Warehouse Profile",
+   "path": [
+    "Warehouse Profile"
+   ],
+   "top_id": "DYL_102003003",
+   "parent": null,
+   "app_option": "DYL_102003003",
+   "route": "/dyl/layout",
+   "param": "layoutCode=102003003",
+   "level": 2,
+   "seq": 1
+  }
+ ]
+}

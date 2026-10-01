@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1009",
+ "title": "Credit Aging Analysis Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Credit Aging Analysis Report"
+  ],
+  "group_id": "DYL_JR1009"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1009",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

@@ -1,0 +1,126 @@
+{
+ "option_id": "DYL_202087",
+ "title": "RCOA Validation Exception Log",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Setup",
+   "RCOA Validation Exception Log"
+  ],
+  "group_id": "DYL_202087"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202087",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202087001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "202087002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202087001",
+   "partial": null,
+   "desc": null,
+   "table": "FIN_TR_RCOA_TRANS_EXCEPTION",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Distributor": {
+   "name": "DDL__EPP1_BUSENT_PHS_LVL1_CODE_PARENT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "db_description": "Physical Business Entities Level 1 (Distributor, Outlet, Warehouse etc)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "DISTRIBUTOR",
+   "validations": null,
+   "regex": null,
+   "page": "202087001"
+  },
+  "Period Type": {
+   "name": "DDL__PFQY_FREQUENCY_PARENT",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PFQY_FREQUENCY",
+   "db_description": "Frequency Code (Period Type)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PERIODTYPE",
+   "validations": null,
+   "regex": null,
+   "page": "202087001"
+  },
+  "Period #": {
+   "name": "TXT__TINP_PERIOD_NO_PARENT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "TINP_PERIOD_NO",
+   "db_description": "Period Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PERIODNO",
+   "validations": null,
+   "regex": null,
+   "page": "202087001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Account Type",
+    "Account Code & Description",
+    "Element ID",
+    "Organization Code",
+    "Business Entity Type",
+    "Distributor",
+    "Condition Expression",
+    "Condition Message",
+    "Exception Type",
+    "Exception ID",
+    "Condition Blocker",
+    "Approval Status",
+    "Period No",
+    "Type"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

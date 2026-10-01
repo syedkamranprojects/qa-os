@@ -1,0 +1,146 @@
+{
+ "option_id": "PHYSICAL_STOCK_RECONCILIATION",
+ "title": "Stock Reconciliation",
+ "menu_path": [
+  "Transaction",
+  "Stock",
+  "Stock Reconciliation"
+ ],
+ "route": "/excel-upload/physical-stock-reconciliation",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/excel-upload/physical-stock-reconciliation",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Distributor",
+   "id": "distributor",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Distributor",
+   "id": "warehouse",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "New/Existing",
+   "id": "NewExisting",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "New/Existing",
+   "id": "documentno",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Category",
+   "id": "category",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Category",
+   "id": "brand",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": "downloadExcel",
+   "title": null,
+   "disabled": true
+  },
+  {
+   "text": "Upload Excel",
+   "id": "fileInput",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

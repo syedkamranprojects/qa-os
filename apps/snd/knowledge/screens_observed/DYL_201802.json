@@ -1,0 +1,271 @@
+{
+ "option_id": "DYL_201802",
+ "title": "Deposit Slip",
+ "menu_path": [
+  "Transaction",
+  "Receivable",
+  "Deposit Slip"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201802",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201802",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [
+  "Outstanding Cash memos",
+  "Outstanding Outlet",
+  "Deposit Slip Detail"
+ ],
+ "fields": [
+  {
+   "label": "Deposit Slip",
+   "id": "TXT__TDSLDEPOSITSLIPSRNO",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__EPJPPJPNODAILY",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Date",
+   "id": "DT__TDSLDEPOSITSLIPDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Type",
+   "id": "DDL__TDSLINSTRUMENTTYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "DDL__tdsl_status",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PBNKBANKCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PBNBBNBRCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Deposit Amount",
+   "id": "TXT__TDSLAMOUNTFCY",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Header",
+   "id": null,
+   "title": "Header",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "21",
+   "id": "pagination-element-21",
+   "title": "Page 21",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  },
+  {
+   "text": "Save All",
+   "id": "saveallBtn",
+   "title": "Save All",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Deposit Slip",
+    "PJP-DSR",
+    "Deposit Date",
+    "Type",
+    "Bank",
+    "Bank Branch",
+    "Status",
+    "Deposit Amount",
+    "Adjusted Amount"
+   ],
+   "rows": 9,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "PJP",
+    "Order Number",
+    "Invoice Number",
+    "Document Type",
+    "Outlet Code",
+    "Outlet Desc",
+    "GIN",
+    "Sold To",
+    "Cheque No.",
+    "Cheque Date",
+    "Bank Name",
+    "Net Amount",
+    "Received Amount",
+    "Balance",
+    "Un Posted Amount",
+    "Deposit-Amount",
+    "Remarks"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

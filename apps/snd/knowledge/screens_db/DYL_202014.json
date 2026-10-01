@@ -1,0 +1,138 @@
+{
+ "option_id": "DYL_202014",
+ "title": "Profile Hierarchy Level",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Profile Hierarchy Level"
+  ],
+  "group_id": "DYL_202014"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202014",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202014001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_HLS_HIERARCHY_LVL_STP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202014002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202014001",
+   "desc": null,
+   "table": "GLB_PR_HLS_HIERARCHY_LVL_STP",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Hierarchy Type": {
+   "name": "TXT__PHLS_HIERARCHY_TYPE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PHLS_HIERARCHY_TYPE",
+   "db_description": "Hierarchy Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202014002"
+  },
+  "Distributor Level": {
+   "name": "TXT__PHLS_DISTRIBUTOR_LEVEL",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PHLS_DISTRIBUTOR_LEVEL",
+   "db_description": "Distributor Level",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202014002"
+  },
+  "Warehouse Level ": {
+   "name": "TXT__PHLS_WAREHOUSE_LEVEL",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PHLS_WAREHOUSE_LEVEL",
+   "db_description": "Warehouse Level",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202014002"
+  },
+  "Outlet Level": {
+   "name": "TXT__PHLS_OUTLET_LEVEL",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PHLS_OUTLET_LEVEL",
+   "db_description": "Outlet Level",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202014002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Hierarchy Type",
+    "Distributor Level",
+    "Warehouse Level ",
+    "Outlet Level"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

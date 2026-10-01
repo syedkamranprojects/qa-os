@@ -1,0 +1,132 @@
+{
+ "option_id": "DYL_BG1015",
+ "title": "Stock Inquiry II",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Stock Inquiry II"
+  ],
+  "group_id": "DYL_BG1015"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1015",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1015002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_ssb_salestock_balance",
+   "n_fields": 2,
+   "grids": []
+  },
+  {
+   "page": "BG1015001",
+   "tab": null,
+   "is_child": true,
+   "parent": "BG1015002",
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Period Type": {
+   "name": "DDL__pptp_period_type",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PPTP_PERIOD_TYPE",
+   "db_description": "Period Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PPTP",
+   "validations": null,
+   "regex": null,
+   "page": "BG1015002"
+  },
+  "Balance Date": {
+   "name": "DDT__tssb_balance_date",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TSSB_BALANCE_DATE",
+   "db_description": "Balance Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1015002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Balance Date",
+    "Principle Code",
+    "Category",
+    "Category",
+    "Brand",
+    "Brand",
+    "Product Code",
+    "Product Name",
+    "Warehouse",
+    "Warehouse",
+    "Batch",
+    "Stock Type",
+    "Stock Type",
+    "Moving Avg Price",
+    "Opening Stock Value",
+    "Closing Stock Value",
+    "Opening CS",
+    "@Session(Orga Code)~Opening DZ",
+    "Opening PC",
+    "In CS",
+    "@Session(Orga Code)~In DZ",
+    "In PC",
+    "Out CS",
+    "@Session(Orga Code)~Out DZ",
+    "Out PC",
+    "Allocated CS",
+    "@Session(Orga Code)~Allocated DZ",
+    "Allocated PC",
+    "Closing CS",
+    "@Session(Orga Code)~Closing Balance DZ",
+    "Closing PC",
+    "ATP CS",
+    "@Session(Orga Code)~ATPDZ",
+    "ATP PC",
+    "In Transit CS",
+    "@Session(Orga Code)~In Transit DZ",
+    "In Transit PC"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Generate Opening Balances"
+ ]
+}

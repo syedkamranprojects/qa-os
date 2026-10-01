@@ -1,0 +1,23 @@
+{
+  "case": "P0-OPEN-SKUSUB",
+  "title": "P0 exit test: login, harvest menu, open SKU Substitution Policy, verify layout, logout (no data changes)",
+  "app": "snd",
+  "env": "cnr2dev3",
+  "user": "KPO_ph",
+  "data": { "distributor": "15181887" },
+  "steps": [
+    { "do": "login", "distributor": "{{data.distributor}}" },
+    { "do": "harvest_menu", "note": "saves the role-filtered menu for this user/env into the app pack" },
+    { "do": "harvest_i18n", "note": "saves the app's label text (en) so DB-declared screen labels resolve to on-screen text" },
+    { "do": "navigate", "menu": "Transaction > SKU Substitution Policy" },
+    { "do": "verify_ui", "expect": { "url_contains": "/content-master/mobility/sku-substitution-policy" } },
+    { "do": "verify_ui", "expect": { "breadcrumb": ["Home", "Transaction", "SKU Substitution Policy"] } },
+    { "do": "verify_ui", "expect": { "grid": "SKU Substitution Policy", "columns": ["Policy code", "Description", "Type", "Start Date", "End Date", "Abbreviation", "Status"] } },
+    { "do": "verify_ui", "expect": { "fields_present": ["Policy code", "Description", "Type", "Start Date", "End Date", "Status", "Abbreviation"] } },
+    { "do": "verify_ui", "expect": { "field": "Policy code", "state": "readonly" } },
+    { "do": "verify_ui", "expect": { "button": "Save", "state": "enabled" } },
+    { "do": "verify_ui", "expect": { "button": "Update", "state": "disabled" } },
+    { "do": "screenshot", "note": "evidence of the opened screen" },
+    { "do": "logout" }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+ "option_id": "DYL_JR1003",
+ "title": "Customer Ledger and Balance Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Customer Ledger and Balance Report"
+  ],
+  "group_id": "DYL_JR1003"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1003",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "JR1003001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Geo Level": {
+   "name": "GeoLvl",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "GEOLVL",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1003001"
+  },
+  "Date From": {
+   "name": "FrmDt",
+   "id": "datebox4",
+   "widget": "date",
+   "data_field": "FRMDT",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1003001"
+  },
+  "Date To": {
+   "name": "ToDt",
+   "id": "datebox5",
+   "widget": "date",
+   "data_field": "TODT",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1003001"
+  },
+  "Distributor": {
+   "name": "Distribtr",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "DISTRIBTR",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "EPP1D",
+   "validations": null,
+   "regex": null,
+   "page": "JR1003001"
+  },
+  "Section": {
+   "name": "Section",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "SECTION",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "EPL",
+   "validations": null,
+   "regex": null,
+   "page": "JR1003001"
+  },
+  "PJP": {
+   "name": "Pjp",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PJP",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "DSRGRDCOMB",
+   "validations": null,
+   "regex": null,
+   "page": "JR1003001"
+  }
+ },
+ "grids": {},
+ "buttons": [
+  "Submit"
+ ]
+}

@@ -1,0 +1,84 @@
+{
+  "case": "LEARN-ORDER-BOOKING-STAGE3",
+  "title": "cnr2dev3 / KPO_slv / 50000451: header (PJP14, HPC, Section14, first outlet) then click Order Detail and record the order-lines stage. Nothing is saved: no Save/Submit button is clicked.",
+  "app": "snd",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "data": {
+    "distributor": "50000451"
+  },
+  "steps": [
+    {
+      "do": "login",
+      "distributor": "{{data.distributor}}"
+    },
+    {
+      "do": "navigate",
+      "menu": "Transaction > Order Booking"
+    },
+    {
+      "do": "wait",
+      "seconds": 3
+    },
+    {
+      "do": "choose",
+      "field": "PJP",
+      "value": "*",
+      "as": "pjp"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "choose",
+      "field": "Selling Category",
+      "value": "*",
+      "as": "selling_category"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "choose",
+      "field": "Section",
+      "value": "*",
+      "as": "section"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "choose",
+      "field": "Outlet Name",
+      "value": "*",
+      "as": "outlet"
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "click",
+      "button": "Order Detail"
+    },
+    {
+      "do": "wait",
+      "seconds": 5
+    },
+    {
+      "do": "screenshot",
+      "note": "order lines stage"
+    },
+    {
+      "do": "harvest_screen",
+      "as": "order_lines",
+      "open_selects": false
+    },
+    {
+      "do": "logout"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+ "option_id": "BPMN_UPLOADER",
+ "title": "BPMN Uploader",
+ "menu_path": [
+  "Configuration",
+  "Workflow Configuration",
+  "BPMN Uploader"
+ ],
+ "route": "/camunda-modeler/uploader",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/camunda-modeler/uploader",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "comments",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Upload",
+   "id": null,
+   "title": "Upload",
+   "disabled": false
+  },
+  {
+   "text": "Upload All",
+   "id": null,
+   "title": "Upload All",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

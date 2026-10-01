@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_1026",
+ "title": "Language",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Language"
+  ],
+  "group_id": "DYL_1026"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1026",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101026001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Language - Grid",
+   "table": "GLB_PR_LNG_LANGUAGE",
+   "n_fields": 0,
+   "grids": [
+    "Language"
+   ]
+  },
+  {
+   "page": "101026002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101026001",
+   "desc": "Language - Form",
+   "table": "GLB_PR_LNG_LANGUAGE",
+   "n_fields": 9,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__plng_langcode",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PLNG_LANGCODE",
+   "db_description": "Language Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Description": {
+   "name": "txt__plng_desc",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PLNG_DESC",
+   "db_description": "Language Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Abbreviation": {
+   "name": "txt__plng_abrv",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PLNG_ABRV",
+   "db_description": "Language Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Default": {
+   "name": "ddl__plng_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PLNG_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Status": {
+   "name": "ddl__plng_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PLNG_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Level Type": {
+   "name": "txt__plng_leveltype",
+   "id": "textbox15",
+   "widget": "text",
+   "data_field": "PLNG_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Level No": {
+   "name": "txt__plng_level_no",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PLNG_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Language Direction": {
+   "name": "txt__plng_langdirection",
+   "id": "textbox16",
+   "widget": "text",
+   "data_field": "PLNG_LANGDIRECTION",
+   "db_description": "Language Direction",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 3,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  },
+  "Language Tag": {
+   "name": "txt__plng_langtag",
+   "id": "textbox17",
+   "widget": "text",
+   "data_field": "PLNG_LANGTAG",
+   "db_description": "Language Tag",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101026002"
+  }
+ },
+ "grids": {
+  "Language": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Language Direction",
+    "Language Tag"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

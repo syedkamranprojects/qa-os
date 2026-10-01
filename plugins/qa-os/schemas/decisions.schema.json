@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qa-os/decisions.schema.json",
+  "title": "QA OS run decisions (intake block + answers + app-pack defaults)",
+  "type": "object",
+  "required": ["key", "app", "created", "intake", "env", "user", "scope", "authorization"],
+  "properties": {
+    "key": {"type": "string"},
+    "app": {"type": "string"},
+    "created": {"type": "string"},
+    "intake": {"type": "object", "required": ["found"], "properties": {"found": {"type": "boolean"}, "source": {"type": ["string", "null"]}}},
+    "env": {"$ref": "#/$defs/choice"},
+    "user": {"$ref": "#/$defs/choice"},
+    "distributor": {"type": ["string", "null"]},
+    "market": {"$ref": "#/$defs/choice"},
+    "scope": {"$ref": "#/$defs/choice"},
+    "screens": {"type": "array", "items": {"type": "string"}},
+    "terms": {"type": "array", "items": {"type": "object", "required": ["story", "app", "source"], "properties": {"story": {"type": "string"}, "app": {"type": "string"}, "source": {"type": "string"}}}},
+    "data_hints": {"type": "array", "items": {"type": "string"}},
+    "expected_variances": {"type": "array", "items": {"type": "object", "required": ["text", "source"], "properties": {"text": {"type": "string"}, "source": {"type": "string"}}}},
+    "authorization": {
+      "type": "object",
+      "required": ["env_non_production", "allowed", "never", "one_way_allowed", "policy"],
+      "properties": {
+        "env_non_production": {"type": ["boolean", "null"]},
+        "allowed": {"type": "array", "items": {"type": "string"}},
+        "never": {"type": "array", "items": {"type": "string"}},
+        "one_way_allowed": {"type": "array", "items": {"type": "string"}},
+        "policy": {"type": "string"}
+      }
+    },
+    "known": {"type": "object", "description": "app-pack decisions loaded as context (terms, variances, rules)"},
+    "answers": {"type": "array", "items": {"type": "object", "required": ["id", "kind", "key", "value"], "properties": {
+      "id": {"type": "string"}, "kind": {"enum": ["term", "variance", "rule", "other"]}, "key": {"type": "string"}, "value": {"type": "string"},
+      "ruling": {"type": ["string", "null"]}, "owner": {"type": ["string", "null"]}, "reusable": {"type": "boolean"}, "at": {"type": "string"}}}},
+    "assumed": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "choice": {"type": "object", "required": ["value", "source"], "properties": {
+      "value": {"type": ["string", "null"]},
+      "source": {"enum": ["intake", "plan-user", "app-pack", "default", "story-text", "pending"]},
+      "assumed": {"type": "boolean"}, "note": {"type": "string"}, "overridden_from": {"type": ["string", "null"]}}}
+  }
+}

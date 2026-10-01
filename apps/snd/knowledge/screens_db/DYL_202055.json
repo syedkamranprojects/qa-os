@@ -1,0 +1,137 @@
+{
+ "option_id": "DYL_202055",
+ "title": "Selling Category - II",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Selling Category - II"
+  ],
+  "group_id": "DYL_202055"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202055",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202055001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202055002",
+   "tab": "Detail",
+   "is_child": false,
+   "parent": null,
+   "partial": "202055001",
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__EPL1BUSENTLOGLVL1CODE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "EPL1_BUSENT_LOG_LVL1_CODE",
+   "db_description": "Logical Business Entities Level 1 (Selling Category) Table.",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202055002"
+  },
+  "Description": {
+   "name": "TXT__EPL1DESC",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "EPL1_DESC",
+   "db_description": "Logical Business Entities Level 1 Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202055002"
+  },
+  "Abbreviation": {
+   "name": "TXT__EPL1ABRV",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "EPL1_ABRV",
+   "db_description": "Logical Business Entities Level 1 Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202055002"
+  },
+  "Status": {
+   "name": "DDL__EPL1ACTIVE",
+   "id": "selectbox8",
+   "widget": "select",
+   "data_field": "EPL1_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202055002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Line Per Call (LPC)",
+    "Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update"
+ ]
+}

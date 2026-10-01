@@ -1,0 +1,67 @@
+{
+ "option_id": "DYL_102003079",
+ "title": "Outlet Status",
+ "menu": {
+  "path": [
+   "Approval",
+   "Master Data Approval",
+   "Outlet Status"
+  ],
+  "group_id": "DYL_102003079"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102003079",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003079",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "n_fields": 0,
+   "grids": [
+    "Outlet Profile"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "Outlet Profile": {
+   "columns": [
+    "Distributor Code",
+    "Distributor",
+    "Outlet Code",
+    "Outlet Short Name",
+    "Outlet Name",
+    "Outlet Type",
+    "Channel Hierarchy",
+    "Geographical Hierarchy",
+    "Outlet Rank",
+    "Company Rank",
+    "Coordinates Latitude",
+    "Coordinates Longitude",
+    "Area Type",
+    "Identified On",
+    "Identified by",
+    "Status",
+    "Status",
+    "Organization",
+    "Currency",
+    "Corporate Code",
+    "Bill to Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Process"
+ ]
+}

@@ -1,0 +1,258 @@
+{
+ "src": "tf:00740002",
+ "flow_id": "00740002",
+ "description": "Dispatch Advice Rejection",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00740002|007401|1",
+   "seq": 1,
+   "menu_group": "007401",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:007401",
+   "menu_group": "007401",
+   "exists": true,
+   "description": "Dispatch Advice Rejection",
+   "search_text": "Dispatch Advice",
+   "navigation": "DYL_201068",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:007401|007402|1",
+   "mgsm_seq": 1,
+   "screen_id": "007402",
+   "screen_name": "Dispatch Advice Reject",
+   "sheet": "Dispatch Advice Reject",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "007402"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Dispatch Advice Reject",
+   "kind": "screen",
+   "screen_ids": [
+    "007402"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Dispatch Advice Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Dispatch Advice Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Dispatch Advice Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Dispatch Advice Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Dispatch Advice Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 0,
+  "events_active": 0,
+  "events_by_kind": {}
+ },
+ "tags": {
+  "areas": [
+   "Dispatch Advice",
+   "Approval/Reject/Terminate",
+   "Negative test"
+  ],
+  "market": null,
+  "menu_option": "DYL_201068",
+  "menu_search_text": "Dispatch Advice"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 4,
+   "active": false,
+   "user": "Auto_Tssm",
+   "login_status": "Y"
+  },
+  {
+   "group": "11",
+   "group_desc": "Daily Cycle Only Positive Flow",
+   "seq": 4,
+   "active": false,
+   "user": "Auto_Tssm",
+   "login_status": "Y"
+  },
+  {
+   "group": "51",
+   "group_desc": "Daily Cycle Only Positive Flow_ITHD",
+   "seq": 5,
+   "active": false,
+   "user": "auto_thai_tssm",
+   "login_status": "Y"
+  },
+  {
+   "group": "52",
+   "group_desc": "Daily Cycle Negative with Positive Flow_ITHD",
+   "seq": 4,
+   "active": false,
+   "user": "auto_thai_tssm",
+   "login_status": "Y"
+  },
+  {
+   "group": "61",
+   "group_desc": "Daily Cycle Only Positive Flow_BD",
+   "seq": 4,
+   "active": false,
+   "user": null,
+   "login_status": null
+  },
+  {
+   "group": "63",
+   "group_desc": "Daily Cycle Only Positive Flow_PH",
+   "seq": 5,
+   "active": false,
+   "user": null,
+   "login_status": "N"
+  },
+  {
+   "group": "75",
+   "group_desc": "Daily Cycle Only Positive Flow_VN",
+   "seq": 5,
+   "active": false,
+   "user": null,
+   "login_status": "Y"
+  },
+  {
+   "group": "76",
+   "group_desc": "Daily Cycle Only Positive Flow_KH",
+   "seq": 5,
+   "active": false,
+   "user": null,
+   "login_status": "Y"
+  },
+  {
+   "group": "79",
+   "group_desc": "Daily Cycle Only Positive Flow_LA",
+   "seq": 5,
+   "active": false,
+   "user": null,
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "007402": {
+   "src": "sc:007402",
+   "screen_id": "007402",
+   "name": "Dispatch Advice Reject",
+   "sheet": "Dispatch Advice Reject",
+   "type": "Reject",
+   "sheet_name_len": 22,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 0,
+    "events_active": 0
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

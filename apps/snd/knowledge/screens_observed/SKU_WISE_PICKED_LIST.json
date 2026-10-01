@@ -1,0 +1,124 @@
+{
+ "option_id": "SKU_WISE_PICKED_LIST",
+ "title": "RT SKU Picked List",
+ "menu_path": [
+  "Transaction",
+  "Sales Return",
+  "RT SKU Picked List"
+ ],
+ "route": "/dt-report/sku-wise-picked-list",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dt-report/sku-wise-picked-list",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Distributors",
+   "id": "distributor",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Distributors",
+   "id": "pjpNo",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Date",
+   "id": "date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date",
+   "id": "docStatus",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "SKU Desc Language",
+   "id": "BSA",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Print Invoice",
+   "id": null,
+   "title": "Print Invoice",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

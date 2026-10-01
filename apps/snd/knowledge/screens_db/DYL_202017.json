@@ -1,0 +1,148 @@
+{
+ "option_id": "DYL_202017",
+ "title": "Company Holidays",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Company Holidays"
+  ],
+  "group_id": "DYL_202017"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202017",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202017001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "glb_pr_CHO_CompanyHolidays",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202017002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202017001",
+   "desc": null,
+   "table": "glb_pr_CHO_CompanyHolidays",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Serial No": {
+   "name": "TXT__pcho_serialno",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PCHO_SERIALNO",
+   "db_description": "Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202017002"
+  },
+  "Description": {
+   "name": "TXT__pcho_description",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PCHO_DESCRIPTION",
+   "db_description": "Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202017002"
+  },
+  "Date From": {
+   "name": "DT__pcho_fromdate",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "PCHO_FROMDATE",
+   "db_description": "From Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202017002"
+  },
+  "Date To": {
+   "name": "DT__pcho_todate",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "PCHO_TODATE",
+   "db_description": "Tod Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": [
+    {
+     "validationExpr": "@Date(@Model(DT__pcho_fromdate)) <= @Date(@Model(DT__pcho_todate)) || !@Model(DT__pcho_fromdate) || !@Model(DT__pcho_todate)",
+     "validationMessage": "DYP.G......TheExpiryDateshouldbegreaterthanIssueDate"
+    },
+    {
+     "validationExpr": "@Model(DT__pcho_todate) ? !!@Model(DT__pcho_fromdate) : !@Model(DT__pcho_todate)",
+     "validationMessage": "DYP.G......Insertbothdateinputs"
+    }
+   ],
+   "regex": null,
+   "page": "202017002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Serial No",
+    "Description",
+    "Date From",
+    "Date To"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete",
+  "Copy"
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "option_id": "DYL_201003",
+ "title": "Model",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Mobility",
+   "Application Flow",
+   "Model"
+  ],
+  "group_id": "DYL_201003"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201003",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201003001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Model Setup - Grid",
+   "table": "MOB_MB_MMS_MODEL_SETUP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201003002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201003001",
+   "desc": "Model Setup - Form",
+   "table": "MOB_MB_MMS_MODEL_SETUP",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Model ID": {
+   "name": "TXT__MMMSMODELID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "MMMS_MODEL_ID",
+   "db_description": "Model ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  },
+  "Description": {
+   "name": "TXT__MMMSDESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "MMMS_DESC",
+   "db_description": "Model Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  },
+  "Abbreviation": {
+   "name": "TXT__MMMSABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "MMMS_ABRV",
+   "db_description": "Model Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  },
+  "Default": {
+   "name": "DDL__MMMSDEFAULT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "MMMS_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  },
+  "Active": {
+   "name": "DDL__MMMSACTIVE",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "MMMS_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  },
+  "Level Number": {
+   "name": "TXT__MMMSLEVELNO",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "MMMS_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  },
+  "Level Type": {
+   "name": "TXT__MMMSLEVELTYPE",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "MMMS_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201003002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Model ID",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level Number",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

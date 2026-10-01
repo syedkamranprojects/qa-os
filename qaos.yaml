@@ -1,0 +1,60 @@
+# QA OS global settings (committed, shared by every QA member; no secrets, no machine-specific paths).
+# App-specific settings (URLs, users, roles, markets, framework groups) live in apps/<app-id>/app.yaml.
+# Secrets live only in the per-person credentials file (see `credentials` below and credentials.example.json).
+# Read these through runtime/qaos_config.py; do not hard-code the values in scripts.
+
+version: 1
+
+apps:
+  active: [snd]                    # app packs offered to the orchestrator; every entry needs apps/<id>/app.yaml
+  available: [snd, gias]           # packs that exist in this repo
+
+limits:
+  max_core_cases_per_story: 10     # rest goes to the backlog (QA lead rule)
+  one_data_row_per_case: true      # MCP recording uses a single row; bulk rows are for the legacy engine
+  subagent_depth: 1                # only the orchestrator spawns agents
+
+runs:
+  dir: runs                        # relative to qa-os/, gitignored; runs/<KEY>/<yyyymmdd-hhmm>/
+  keep_friction_log: true          # every obstacle goes to friction.md and gets a software fix
+
+browser:
+  default: chrome
+  headless: false
+  page_load_timeout_s: 60
+  wait_timeout_s: 30
+  tool_call_limit_s: 30            # MCP script calls time out near this; long steps run as background scripts + polling
+  profile_dir_env: QAOS_PROFILE_DIR   # optional: per-role persistent profiles live under this folder on the QA member's machine
+
+credentials:
+  file_env: QAOS_CREDENTIALS                    # env var that may point at the credentials file
+  default_file: "~/.qa-os/credentials.json"    # per person, outside the repo, never committed
+  claude_may_read: false                        # Claude never reads or types credentials; only the deterministic player does
+  encrypt: dpapi                                # planned: Windows DPAPI for the stored values (per user, per machine)
+
+safety:
+  write_only_on_non_production: true            # data-changing steps run only on environments marked non_production in app.yaml
+  one_way_actions: [approve, forward, submit, delete, authorize]   # need naming in the story's `allow:` field
+  never_apply_sql: true                         # generated SQL is reviewed and applied by a person, never by Claude
+
+gates:                                          # a stage never starts without explicit approval of the previous gate
+  - {id: G1, after: analyse,   who: BA/QA lead,      note: answer ambiguities (skipped when none)}
+  - {id: G2, after: cases,     who: QA member,       note: approve cases}
+  - {id: G3, after: step-sheet, who: QA member,      note: approve steps and answer needs-input items}
+  - {id: G4, after: verify,    who: framework owner, note: review and apply framework.sql}
+  - {id: G5, after: report,    who: QA member,       note: confirm the ticket before posting a Jira comment}
+approval_phrases: [approved, "go ahead", yes, lgtm, "looks good"]   # anything else counts as feedback and re-delegates with context
+
+connectors:                                     # MCP server names (configured per user in the Claude app, not in this repo)
+  jira: atlassian
+  browser: selenium
+  framework_db_read: selenium-framework-db
+  app_db_read: {snd: snd-schema, gias: gias-schema}
+
+authoring:
+  mode: assisted                   # assisted = Claude drafts and the QA member completes the steps in the dialogue (skills/step-authoring); auto = no dialogue, earned per business area
+  confirm_free_text: true          # a rephrased free-English step is confirmed by the QA member before it is added
+  max_options_per_question: 4
+  vocabulary: vocabulary/core.yaml
+  cheat_sheet: docs/QA_STEP_CHEAT_SHEET.md
+  auto_allowed_areas: []           # business areas that passed the competency check and may run unattended (see docs/FINAL_DESIGN.md)

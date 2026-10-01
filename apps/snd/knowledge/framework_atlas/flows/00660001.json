@@ -1,0 +1,587 @@
+{
+ "src": "tf:00660001",
+ "flow_id": "00660001",
+ "description": "Cheque Status",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00660001|0066|1",
+   "seq": 1,
+   "menu_group": "0066",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0066",
+   "menu_group": "0066",
+   "exists": true,
+   "description": "Cheque Status",
+   "search_text": "Cheque Status",
+   "navigation": "DYL_202020",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0066|006601|1",
+   "mgsm_seq": 1,
+   "screen_id": "006601",
+   "screen_name": "Cheque Status",
+   "sheet": "Cheque Status",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "006601"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Cheque Status",
+   "kind": "screen",
+   "screen_ids": [
+    "006601"
+   ]
+  },
+  {
+   "sheet": "Cheque_Status_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "006601"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Cheque Status": 1,
+    "Cheque_Status_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Cheque Status": 1,
+    "Cheque_Status_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Cheque Status": 1,
+    "Cheque_Status_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Cheque Status"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Cheque_Status_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Cheque Status": 1,
+    "Cheque_Status_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Cheque_Status_ASSR",
+    "screen_id": "006601",
+    "src": "sef:006601|serial 11"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 14,
+  "events_active": 12,
+  "events_by_kind": {
+   "click": 6,
+   "fill_text": 2,
+   "wait": 2,
+   "alert_click": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Cheque"
+  ],
+  "market": null,
+  "menu_option": "DYL_202020",
+  "menu_search_text": "Cheque Status"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 44,
+   "active": true,
+   "user": "AppUser (serial 4)",
+   "login_status": "Y"
+  },
+  {
+   "group": "11",
+   "group_desc": "Daily Cycle Only Positive Flow",
+   "seq": 55,
+   "active": true,
+   "user": "same session (Auto_Multi_Orga)",
+   "login_status": null
+  },
+  {
+   "group": "52",
+   "group_desc": "Daily Cycle Negative with Positive Flow_ITHD",
+   "seq": 47,
+   "active": true,
+   "user": "? (serial None)",
+   "login_status": "Y"
+  },
+  {
+   "group": "61",
+   "group_desc": "Daily Cycle Only Positive Flow_BD",
+   "seq": 49,
+   "active": true,
+   "user": "same session (Auto_Multi_Orga)",
+   "login_status": null
+  },
+  {
+   "group": "63",
+   "group_desc": "Daily Cycle Only Positive Flow_PH",
+   "seq": 68,
+   "active": true,
+   "user": "same session (Auto_PH)",
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "006601": {
+   "src": "sc:006601",
+   "screen_id": "006601",
+   "name": "Cheque Status",
+   "sheet": "Cheque Status",
+   "type": "Save",
+   "sheet_name_len": 13,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:006601|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e1"
+    },
+    {
+     "src": "sef:006601|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text Click",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "rowfilter_DDL__EPJPPJPNODAILY",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e2"
+    },
+    {
+     "src": "sef:006601|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_DT__TDSLDEPOSITSLIPDATE",
+     "fixed_value": "Auto1",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e3"
+    },
+    {
+     "src": "sef:006601|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "Header_0_deposit_slip",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e4"
+    },
+    {
+     "src": "sef:006601|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_deposit_slip",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e5"
+    },
+    {
+     "src": "sef:006601|serial 15",
+     "serial": 15,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait Here",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "15",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e15",
+     "wait_s": "15"
+    },
+    {
+     "src": "sef:006601|serial 6",
+     "serial": 6,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e6"
+    },
+    {
+     "src": "sef:006601|serial 7",
+     "serial": 7,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__TDSDINSTRUMENTNO",
+     "fixed_value": "Auto2",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e7"
+    },
+    {
+     "src": "sef:006601|serial 18",
+     "serial": 18,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait Here",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "5",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e18",
+     "wait_s": "5"
+    },
+    {
+     "src": "sef:006601|serial 8",
+     "serial": 8,
+     "seq": 10,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_cheque_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e8"
+    },
+    {
+     "src": "sef:006601|serial 17",
+     "serial": 17,
+     "seq": 11,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait Here",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "5",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e17",
+     "wait_s": "5"
+    },
+    {
+     "src": "sef:006601|serial 9",
+     "serial": 9,
+     "seq": 12,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Bounce",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "notrefresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e9"
+    },
+    {
+     "src": "sef:006601|serial 10",
+     "serial": 10,
+     "seq": 13,
+     "depth": 0,
+     "parent": null,
+     "type": "0005",
+     "event": "0002",
+     "kind": "alert_click",
+     "event_name": "Click Alert",
+     "in_ce_table": true,
+     "desc": "Click Alert",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "accept",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e10"
+    },
+    {
+     "src": "sef:006601|serial 11",
+     "serial": 11,
+     "seq": 14,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "ASSERTION",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Cheque_Status_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006601:e11",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Cheque_Status_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 14,
+    "events_active": 12
+   },
+   "assertion_sheets": [
+    "Cheque_Status_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

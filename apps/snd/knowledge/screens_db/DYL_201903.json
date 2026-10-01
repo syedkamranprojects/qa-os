@@ -1,0 +1,55 @@
+{
+ "option_id": "DYL_201903",
+ "title": "Cashmemo Format",
+ "menu": {
+  "path": [
+   "Reports",
+   "Cashmemo Format"
+  ],
+  "group_id": "DYL_201903"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201903",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201903001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 1,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Organization": {
+   "name": "OrgCode",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "@Session(OrgaCode)",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201903001"
+  }
+ },
+ "grids": {},
+ "buttons": [
+  "Submit"
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "option_id": "CHANGETRACK_DISTRIBUTOR_HOLIDAY_II",
+ "title": "Change Track Distributor Holiday II",
+ "menu_path": [
+  "Distributor Setup",
+  "General",
+  "Change Track Distributor Holiday II"
+ ],
+ "route": "/change-management",
+ "param": "pageCodeGrid=BG1011001&fieldComb=&valueComb=&serialNoGrid=1&pageCodeForm=BG1011002&serialNoForm=1",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/change-management?pageCodeGrid=BG1011001&fieldComb=&valueComb=&serialNoGrid=1&pageCodeForm=BG1011002&serialNoForm=1",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Request No",
+    "Description",
+    "Distributor",
+    "Status",
+    "Request Date"
+   ],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [
+    "Serial No",
+    "Description",
+    "DT  pplh fromdate",
+    "DT  pplh todate",
+    "Status"
+   ],
+   "rows": 4,
+   "pager": false
+  }
+ ]
+}

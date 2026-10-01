@@ -1,0 +1,7 @@
+{"option_id":"BG1022","title":"PJP Daily Inquiry Update","menu_path":["Home","Distributor Setup","Journey Plan","PJP Daily Inquiry Update"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=BG1022",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[{"name":"Header","note":"single tab label 'Header'; section title 'Filter'"}],
+"fields":[{"label":"Working Date","id":"DT_epjpworkingdateParent","type":"date","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"}],
+"buttons":[{"text":"Edit (row link)","id":"rowEditBtn_Edit_0..4","kind":"read-only (not clicked; opens inline edit whose Save would change Mark Status)"}],
+"grids":[{"headers":["PJP Number","DSR","Current Status","Mark Status","DSR Files Status","Working Date","Start Date","End Date","(row action)"],"rows":8,"columns":8,"grid_text":"Data grid with 8 rows and 8 columns","paged":true,"page_size":5,"pager_ids":"pagination-element-1, pagination-element-2","filter_inputs":{},"sample_rows":["02111 / ITB0190","7918624876 / 98718924092","AUTO021311 / AUTO151249","AUTO031026 / AUTO031016","AUTO061238 / AUTO151249"],"note":"Current Status, Mark Status, DSR Files Status, Start/End Date are blank for today's rows (day not started)"}],
+"messages":["Custom pager (div ids pagination-element-N) rather than DevExtreme pager; menu path is under Distributor Setup > Journey Plan, not Transaction."]}

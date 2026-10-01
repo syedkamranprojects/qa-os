@@ -1,0 +1,152 @@
+{
+ "option_id": "SKU_SUBSTITUTION_POLICY_VIEW",
+ "title": "SKU Substitution Policy View",
+ "menu_path": [
+  "Transaction",
+  "SKU Substitution Policy View"
+ ],
+ "route": "/content-master/mobility/sku-substitution-policy",
+ "param": "type=view",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/mobility/sku-substitution-policy?type=view",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Policy code",
+   "id": "code",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "name",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Type",
+   "id": "type",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Start Date",
+   "id": "fromDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "End Date",
+   "id": "dataTo",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "status",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Abbreviation",
+   "id": "abbreviation",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": null,
+   "title": null,
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Policy code",
+    "Description",
+    "Type",
+    "Start Date",
+    "End Date",
+    "Abbreviation",
+    "Status"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

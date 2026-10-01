@@ -1,0 +1,14 @@
+{"option_id":"/ngui/order-editing","title":"Order Editing","menu_path":["Home","Transaction","Order","Order Editing"],"route":"/ngui/order-editing","url_path":"/ngui/order-editing",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[],
+"fields":[
+{"label":"PJP","id":"pjpNumber","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"AUTO241602~Auto917248","options":["AUTO241602~Auto917248","AutoPromo1~Auto Promo PJP OB","7918624876~Aslam PJP OB","AutoPJGIN1~Auto GIN PJP OB","AUTO021311~Auto917248","AUTO061238~Auto917248","02111~AutomationOB1","AUTO031026~Auto_test"]},
+{"label":"Selling Category","id":"SELLCAT","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"001SC0000000-Selling Category 001","options":["001SC0000000-Selling Category 001"]},
+{"label":"Section","id":"section","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"101010101101-Automation_Testing_Section","options":["101010101101-Automation_Testing_Section"]},
+{"label":"Outlet Name","id":"outletCode","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":""},
+{"label":"Date From","id":"dateFrom","type":"date","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"},
+{"label":"Date To","id":"dateTo","type":"date","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"},
+{"label":"SKU","id":"sku","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":""}],
+"buttons":[],
+"grids":[{"headers":["Document No","Document Date","Delivery Date","Outlet","Gross Amount","Discount","Tax","Net Amount","Received Amount","Balance Amount","Demand Channel"],"rows":0,"columns":11,"grid_text":"Data grid with 0 rows and 11 columns","paged":false,"filter_inputs":{}}],
+"messages":["Header step is titled 'Order Editing Header'; no buttons are rendered in the header (hand-coded Angular screen); search presumably auto-loads on field change. Defaults PJP/Selling Category/Section are pre-filled, unlike Order Booking."]}

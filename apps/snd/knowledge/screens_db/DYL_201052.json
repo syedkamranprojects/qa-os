@@ -1,0 +1,193 @@
+{
+ "option_id": "DYL_201052",
+ "title": "Repair Items",
+ "menu": {
+  "path": [
+   "Asset Module",
+   "Repair Items"
+  ],
+  "group_id": "DYL_201052"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201052",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201052001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "AST_PR_RIT_REPAIR_ITEMS",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201052002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201052001",
+   "desc": null,
+   "table": "AST_PR_RIT_REPAIR_ITEMS",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__ARIT_REPAIR_ITEM",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "ARIT_REPAIR_ITEM",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  },
+  "Long Description": {
+   "name": "TXT__ARIT_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "ARIT_DESC",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  },
+  "Short Description": {
+   "name": "TXT__ARIT_ABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "ARIT_ABRV",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  },
+  "Default": {
+   "name": "DDL__ARIT_DEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "ARIT_DEFAULT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  },
+  "Status": {
+   "name": "DDL__ARIT_STATUS",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "ARIT_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  },
+  "Level No": {
+   "name": "TXT__ARIT_LEVEL_NO",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "ARIT_LEVEL_NO",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  },
+  "Level Type": {
+   "name": "TXT__ARIT_LEVELTYPE",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "ARIT_LEVELTYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201052002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Long Description",
+    "Short Description",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

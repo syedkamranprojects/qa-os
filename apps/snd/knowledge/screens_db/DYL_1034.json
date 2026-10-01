@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1034",
+ "title": "Price Type",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Price Type"
+  ],
+  "group_id": "DYL_1034"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1034",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101034001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Price Type - Grid",
+   "table": "SND_PR_PRT_PRICETYPE",
+   "n_fields": 0,
+   "grids": [
+    "Price Type"
+   ]
+  },
+  {
+   "page": "101034002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101034001",
+   "desc": "Price Type - Form",
+   "table": "SND_PR_PRT_PRICETYPE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__pprt_price_type",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PPRT_PRICE_TYPE",
+   "db_description": "Price Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  },
+  "Description": {
+   "name": "txt__pprt_desc",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PPRT_DESC",
+   "db_description": "Promotion Resultant Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  },
+  "Abbreviation": {
+   "name": "txt__pprt_abrv",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PPRT_ABRV",
+   "db_description": "Promotion Resultant Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  },
+  "Default": {
+   "name": "txt__pprt_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PPRT_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  },
+  "Status": {
+   "name": "txt__pprt_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PPRT_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  },
+  "Level Type": {
+   "name": "txt__pprt_leveltype",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PPRT_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  },
+  "Level No": {
+   "name": "txt__pprt_level_no",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PPRT_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101034002"
+  }
+ },
+ "grids": {
+  "Price Type": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

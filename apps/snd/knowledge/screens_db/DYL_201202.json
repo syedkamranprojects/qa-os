@@ -1,0 +1,64 @@
+{
+ "option_id": "DYL_201202",
+ "title": null,
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "DYL_201202"
+  ],
+  "group_id": "DYL_201202"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201202",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201202001",
+   "tab": "Header",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Distributor Code",
+    "Outlet Code",
+    "Document No",
+    "Document Type",
+    "Document Date",
+    "Outlet",
+    "Outlet Name",
+    "Status",
+    "Amount",
+    "Comments",
+    "Creator Approver",
+    "Creator Approver Date",
+    "Status Comments",
+    "DSR",
+    "Selling Category",
+    "Section",
+    "Currency Code",
+    "Document Status",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

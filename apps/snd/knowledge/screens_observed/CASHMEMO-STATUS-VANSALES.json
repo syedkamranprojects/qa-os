@@ -1,0 +1,70 @@
+{
+ "option_id": "CASHMEMO-STATUS-VANSALES",
+ "title": "Cashmemo Status Van Sale",
+ "menu_path": [
+  "Transaction",
+  "Order",
+  "Cashmemo Status Van Sale"
+ ],
+ "route": "/order-booking/cashmemo-status",
+ "param": "Config=VAN",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/order-booking/cashmemo-status?Config=VAN",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "PJP Number",
+   "id": "dsrType",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "PJP Number",
+   "id": "ginno",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

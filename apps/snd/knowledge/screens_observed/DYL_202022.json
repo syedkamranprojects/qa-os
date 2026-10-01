@@ -1,0 +1,145 @@
+{
+ "option_id": "DYL_202022",
+ "title": "Order Cancellation",
+ "menu_path": [
+  "Transaction",
+  "Order",
+  "Order Cancellation"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202022",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202022",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "PJPNO",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "SECTION",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "OUTLET",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Outlet Name",
+   "id": "datefrom",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date To",
+   "id": "dateto",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Cancel All",
+   "id": "cancelBtn",
+   "title": "Cancel All",
+   "disabled": false
+  },
+  {
+   "text": "Refresh",
+   "id": "refreshBtn",
+   "title": "Refresh",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No.",
+    "Document Date",
+    "Delivery Date",
+    "Net Amount",
+    "Outlet Name",
+    "Demand Channel",
+    "Cancellation Reason"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

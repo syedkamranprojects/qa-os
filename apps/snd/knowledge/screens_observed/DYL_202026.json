@@ -1,0 +1,115 @@
+{
+ "option_id": "DYL_202026",
+ "title": "Loss Approval",
+ "menu_path": [
+  "Transaction",
+  "Loss Approval"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202026",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202026",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Serial No",
+   "id": "TXT__tsrmsrno",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Serial No",
+   "id": "TXT__tstmdocno",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__pdot_docmtype",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Document Type",
+   "id": "TXT__TSRMSTATUS",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Loss Approval Master",
+   "id": null,
+   "title": "Loss Approval Master",
+   "disabled": false
+  },
+  {
+   "text": "Loss Approval Detail",
+   "id": null,
+   "title": "Loss Approval Detail",
+   "disabled": true
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Serial No",
+    "Document Type",
+    "Document No",
+    "Distributor Code",
+    "Distributor Name",
+    "Status"
+   ],
+   "rows": 4,
+   "pager": false
+  }
+ ]
+}

@@ -1,0 +1,437 @@
+{
+ "src": "tf:01010001",
+ "flow_id": "01010001",
+ "description": "Claim Approval",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:01010001|0101|1",
+   "seq": 1,
+   "menu_group": "0101",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0101",
+   "menu_group": "0101",
+   "exists": true,
+   "description": "Claim Approval",
+   "search_text": "Claim Approval",
+   "navigation": "CLAIM_APPROVAL",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0101|010101|1",
+   "mgsm_seq": 1,
+   "screen_id": "010101",
+   "screen_name": "Claim Approval",
+   "sheet": "Claim Approval",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "010101"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Claim Approval",
+   "kind": "screen",
+   "screen_ids": [
+    "010101"
+   ]
+  },
+  {
+   "sheet": "DA_APPROVALFRWD_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "010101"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Claim Approval"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "DA_APPROVALFRWD_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Claim Approval"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "DA_APPROVALFRWD_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Claim Approval"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "DA_APPROVALFRWD_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Claim Approval",
+    "DA_APPROVALFRWD_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Claim Approval"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "DA_APPROVALFRWD_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "REPO_DOCUMENTNO",
+    "canon": "REPO_DOCUMENTNO",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_documentNo",
+    "src": [
+     "sef:010101|serial 2"
+    ],
+    "screen_id": "010101"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "REPO_DOCUMENTNO"
+  ],
+  "reads_not_written_by_this_flow": [
+   "REPO_DOCUMENTNO"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "DA_APPROVALFRWD_ASSR",
+    "screen_id": "010101",
+    "src": "sef:010101|serial 8"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 8,
+  "events_active": 8,
+  "events_by_kind": {
+   "click": 4,
+   "fill_text": 3,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Claims",
+   "Approval/Reject/Terminate"
+  ],
+  "market": null,
+  "menu_option": "CLAIM_APPROVAL",
+  "menu_search_text": "Claim Approval"
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "010101": {
+   "src": "sc:010101",
+   "screen_id": "010101",
+   "name": "Claim Approval",
+   "sheet": "Claim Approval",
+   "type": "Save",
+   "sheet_name_len": 14,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:010101|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e1"
+    },
+    {
+     "src": "sef:010101|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_documentNo",
+     "fixed_value": "REPO_DOCUMENTNO",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e2"
+    },
+    {
+     "src": "sef:010101|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__tstm_sales_order_no",
+     "fixed_value": "Automation",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e3"
+    },
+    {
+     "src": "sef:010101|serial 4",
+     "serial": 4,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_document_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e4"
+    },
+    {
+     "src": "sef:010101|serial 5",
+     "serial": 5,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e5"
+    },
+    {
+     "src": "sef:010101|serial 6",
+     "serial": 6,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "comments",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e6"
+    },
+    {
+     "src": "sef:010101|serial 7",
+     "serial": 7,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e7"
+    },
+    {
+     "src": "sef:010101|serial 8",
+     "serial": 8,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion After Forward Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "",
+     "field_id": "",
+     "fixed_value": "TSTMSG,DA_APPROVALFRWD_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "010101:e8",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "DA_APPROVALFRWD_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "REPO_DOCUMENTNO",
+     "canon": "REPO_DOCUMENTNO",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_documentNo",
+     "src": [
+      "sef:010101|serial 2"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 8,
+    "events_active": 8
+   },
+   "assertion_sheets": [
+    "DA_APPROVALFRWD_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

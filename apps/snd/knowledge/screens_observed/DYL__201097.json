@@ -1,0 +1,219 @@
+{
+ "option_id": "DYL__201097",
+ "title": "Claim",
+ "menu_path": [
+  "Transaction",
+  "Claim",
+  "Claim"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201097",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201097",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document No",
+   "id": "TXT__TCLM_DOCNO",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PDOT_DOCMTYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Document Date",
+   "id": "DDT__TCLM_DOC_DATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Claim Amount",
+   "id": "TXT__TCLM_TOTAL_GRS_AMT_FCY",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Adjusted Claim Amount",
+   "id": "TXT__TCLM_TOT_ADJ_GRS_AMT_FCY",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Comments",
+   "id": "TXT__TCLM_COMMENTS",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Active",
+   "id": "DDL__TCLM_STATUS",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Header",
+   "id": null,
+   "title": "Header",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": true
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "28",
+   "id": "pagination-element-28",
+   "title": "Page 28",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Document Type",
+    "Document Date",
+    "Active",
+    "Claim Amount",
+    "Adjusted Claim Amount",
+    "Comments"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

@@ -1,0 +1,123 @@
+{
+ "option_id": "DSR_ADJUSTMENT_AMOUNT",
+ "title": "DSR Adjustment Amount",
+ "menu_path": [
+  "Transaction",
+  "Receivable",
+  "DSR Adjustment Amount"
+ ],
+ "route": "/content-master/mobility/dsr-adjustment-amount-wise",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/mobility/dsr-adjustment-amount-wise",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document Date",
+   "id": "documentDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Amount",
+   "id": "balanceAmt",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Comments",
+   "id": "Comments",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Header",
+   "id": null,
+   "title": "Header",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Save",
+   "id": "SavePopUp",
+   "title": "Save",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "PJP Code",
+    "PJP Description",
+    "Total Shortage Amount",
+    "Total Adjusted Amount",
+    "Balance Amount"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

@@ -1,0 +1,126 @@
+{
+ "option_id": "DYL_202016",
+ "title": "Outlet Excel View - Filter",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Outlet Profile",
+   "Outlet Excel View - Filter"
+  ],
+  "group_id": "DYL_202016"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202016",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202016001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Distributor": {
+   "name": "DISTRIBUTOR",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "DISTRIBUTOR",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "EPP1",
+   "validations": null,
+   "regex": null,
+   "page": "202016001"
+  },
+  "Outlet Channel": {
+   "name": "OULETCHANEL",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "OULETCHANEL",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "OUTLPCHH",
+   "validations": null,
+   "regex": null,
+   "page": "202016001"
+  },
+  "Outlet Geo Hierarchy": {
+   "name": "OUTLETGEOHIERARCHY",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "OUTLETGEOHIERARCHY",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "OUTLPGEO",
+   "validations": null,
+   "regex": null,
+   "page": "202016001"
+  },
+  "PJP Number": {
+   "name": "PJPNUMBER",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PJPNUMBER",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "OBPJPH",
+   "validations": null,
+   "regex": null,
+   "page": "202016001"
+  },
+  "Section": {
+   "name": "SECTION",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "SECTION",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJPDTSECT",
+   "validations": null,
+   "regex": null,
+   "page": "202016001"
+  }
+ },
+ "grids": {},
+ "buttons": []
+}

@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_1040",
+ "title": "Transaction Nature",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Transaction Nature"
+  ],
+  "group_id": "DYL_1040"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1040",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101040001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Transaction Nature - Grid",
+   "table": "SND_PR_TRN_TRANS_NATURE",
+   "n_fields": 0,
+   "grids": [
+    "Transaction Nature"
+   ]
+  },
+  {
+   "page": "101040002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101040001",
+   "desc": "Transaction Nature - Form",
+   "table": "SND_PR_TRN_TRANS_NATURE",
+   "n_fields": 9,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__ptrn_tran_nature",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PTRN_TRAN_NATURE",
+   "db_description": "Transaction Nature Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Description": {
+   "name": "txt__ptrn_desc",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PTRN_DESC",
+   "db_description": "Transaction Nature Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Abbreviation": {
+   "name": "txt__ptrn_abrv",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PTRN_ABRV",
+   "db_description": "Transaction Nature Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 15,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Default": {
+   "name": "txt__ptrn_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PTRN_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Status": {
+   "name": "txt__ptrn_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PTRN_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Level Type": {
+   "name": "txt__ptrn_leveltype",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PTRN_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Level No": {
+   "name": "txt__ptrn_level_no",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PTRN_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Nature": {
+   "name": "txt__ptrn_nature",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PTRN_NATURE",
+   "db_description": "Nature",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  },
+  "Document Type": {
+   "name": "txt__pdot_docmtype",
+   "id": "selectbox7",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "101040002"
+  }
+ },
+ "grids": {
+  "Transaction Nature": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Nature",
+    "Document Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

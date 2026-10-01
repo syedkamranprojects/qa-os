@@ -1,0 +1,123 @@
+{
+ "option_id": "DYL_102003019",
+ "title": "DSR Profile",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "DSR Profile",
+   "DSR Profile"
+  ],
+  "group_id": "DYL_102003019"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102003019",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003019_pbet_busentity_type_DSRS",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003020_pbet_busentity_type_DSRS",
+   "tab": "Demographics",
+   "is_child": false,
+   "parent": null,
+   "partial": "102003019_pbet_busentity_type_DSRS",
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003033_padt_address_type_COMP",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003033_padt_address_type_BUSI",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003033_padt_address_type_RESD",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003035_pbet_busentity_type_DSRS",
+   "tab": "Documents",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003036_pbet_busentity_type_DSRS",
+   "tab": "Qualification",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003034_pbet_busentity_type_DSRS",
+   "tab": "Previous Experience",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003037_pbet_busentity_type_DSRS",
+   "tab": "Device",
+   "is_child": true,
+   "parent": "102003019_pbet_busentity_type_DSRS",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  }
+ ],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

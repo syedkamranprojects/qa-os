@@ -1,0 +1,58 @@
+{
+ "option_id": "DYL_201098",
+ "title": "Target Achievement Inquiry",
+ "menu_path": [
+  "",
+  "Target Achievement Inquiry"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201098",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201098",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Entity Type",
+    "Code",
+    "Name",
+    "Program ID",
+    "Frequency",
+    "Year",
+    "Period No",
+    "Product Group ID",
+    "Group Code",
+    "Target Value",
+    "Target Unit",
+    "Achieved Value",
+    "Achieved Unit",
+    "Last Achievement Date"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

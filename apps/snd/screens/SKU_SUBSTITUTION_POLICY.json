@@ -1,0 +1,191 @@
+{
+ "option_id": "SKU_SUBSTITUTION_POLICY",
+ "title": "SKU Substitution Policy",
+ "menu": {
+  "path": [
+   "Transaction",
+   "SKU Substitution Policy"
+  ],
+  "top_id": "NG09",
+  "option_id": "SKU_SUBSTITUTION_POLICY",
+  "search_text": "SKU Substitution Policy"
+ },
+ "route": "/content-master/mobility/sku-substitution-policy",
+ "kind": "hand-coded",
+ "provenance": {
+  "source": "observed",
+  "env": "cnr2dev3",
+  "user": "KPO_ph",
+  "date": "2026-09-25"
+ },
+ "breadcrumb": [
+  "Home",
+  "Transaction",
+  "SKU Substitution Policy"
+ ],
+ "fields": {
+  "Policy code": {
+   "locator": {
+    "id": "code"
+   },
+   "widget": "text",
+   "required": false,
+   "readonly": "always",
+   "notes": "auto-generated PL0000000nn"
+  },
+  "Description": {
+   "locator": {
+    "id": "name"
+   },
+   "widget": "text",
+   "required": true,
+   "validation": {
+    "max_length": 100,
+    "special_characters": "not allowed (a hyphen was rejected)",
+    "message": "Maximum length 100 & Special Characters are also not allowed",
+    "provenance": "observed 2026-09-25, TC07"
+   }
+  },
+  "Type": {
+   "locator": {
+    "id": "type"
+   },
+   "widget": "select",
+   "required": true,
+   "options": [
+    "3 – Based on DT + Channel"
+   ],
+   "default": "3 – Based on DT + Channel"
+  },
+  "Start Date": {
+   "locator": {
+    "id": "fromDate"
+   },
+   "widget": "date",
+   "required": true,
+   "default": "today"
+  },
+  "End Date": {
+   "locator": {
+    "id": "dataTo"
+   },
+   "widget": "date",
+   "required": true,
+   "default": "today"
+  },
+  "Status": {
+   "locator": {
+    "id": "status"
+   },
+   "widget": "select",
+   "required": true,
+   "options": [
+    "Active",
+    "In-Active"
+   ],
+   "default": "Active"
+  },
+  "Abbreviation": {
+   "locator": {
+    "id": "abbreviation"
+   },
+   "widget": "text",
+   "required": true
+  }
+ },
+ "buttons": {
+  "Add": {
+   "locator": {
+    "id": "add"
+   }
+  },
+  "Save": {
+   "locator": {
+    "id": "save"
+   }
+  },
+  "Update": {
+   "locator": {
+    "id": "update"
+   }
+  },
+  "Download Excel": {
+   "locator": {
+    "xpath": "//button[normalize-space()='Download Excel']"
+   }
+  },
+  "Upload Excel": {
+   "locator": {
+    "xpath": "//button[normalize-space()='Upload Excel']"
+   }
+  }
+ },
+ "grids": {
+  "SKU Substitution Policy": {
+   "columns": [
+    "Policy code",
+    "Description",
+    "Type",
+    "Start Date",
+    "End Date",
+    "Abbreviation",
+    "Status"
+   ],
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[2]"
+  }
+ },
+ "modes": {
+  "new": {
+   "enabled": [
+    "Save"
+   ],
+   "disabled": [
+    "Add",
+    "Update",
+    "Download Excel",
+    "Upload Excel"
+   ]
+  },
+  "row_selected": {
+   "enabled": [
+    "Add",
+    "Update",
+    "Download Excel",
+    "Upload Excel"
+   ],
+   "disabled": [
+    "Save"
+   ]
+  },
+  "current_policy": {
+   "editable": [
+    "End Date",
+    "Type"
+   ],
+   "readonly": [
+    "Policy code",
+    "Description",
+    "Start Date",
+    "Status",
+    "Abbreviation"
+   ],
+   "notes": "Type editable is possibly a defect (story: only End Date); Type has a single option"
+  }
+ },
+ "observations": [
+  "Expired policy PL000000050 (end 2026-08-05) is still listed in the grid on 2026-09-25; story wording is ambiguous.",
+  "Selecting expired PL000000050 makes ALL fields editable and Update enabled (2026-09-25, SDMS-10351 TC41) — story R11 says only future policies can be updated; defect candidate.",
+  "Description rejects special characters (hyphen tested) and is limited to 100 chars; the message is shown on hover of the red field icon. Save is then blocked with no toast.",
+  "Creating a policy (Save) shows 'Saved successfully'; the new row appears in the grid without a page reload. Created by SDMS-10351 TC07 on 2026-09-25: description 'QAOS TC07 auto sub exclusion', abbreviation QAOS07, 2026-10-05 to 2026-10-15."
+ ],
+ "messages": {
+  "save_success": {
+   "text": "Saved successfully",
+   "provenance": "observed 2026-09-25, TC07 (Save of a new policy)"
+  },
+  "description_invalid": {
+   "text": "Maximum length 100 & Special Characters are also not allowed",
+   "provenance": "observed 2026-09-25, TC07/TC53"
+  }
+ }
+}

@@ -1,0 +1,303 @@
+{
+ "option_id": "DYL_102003024",
+ "title": "Product Configuration",
+ "menu_path": [
+  "Company setup",
+  "Product Management",
+  "Product Configuration"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102003024",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102003024",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Product ID",
+   "id": "TXT__pprd_prodcode",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__porp_princode",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Principle Code",
+   "id": "txt__pprd_desc",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Short Description",
+   "id": "txt__pprd_abrv",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__ppty_prod_type",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Status",
+   "id": "DDL__pprd_active",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "DDL__PPRDREFVAL1",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Product Indexing",
+   "id": "TXT__pprdrefnum5",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Product Indexing",
+   "id": "TXT__PPRDREFERENCE7",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Market Return",
+   "id": "DDL__PPRD_MARKET_RETURN",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Market Return",
+   "id": "TXT__PPRD_LEGACY_SYSTEM_CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Sellable",
+   "id": "DDL__pprd_sellable",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Sellable",
+   "id": "TXT__PPRDSALRETTAXPER",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PRNT_REASON_TYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Reason",
+   "id": "TXT__PPRD_BAR_CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "3216",
+   "id": "pagination-element-3216",
+   "title": "Page 3216",
+   "disabled": false
+  },
+  {
+   "text": "Product",
+   "id": null,
+   "title": "Product",
+   "disabled": false
+  },
+  {
+   "text": "Product Analysis",
+   "id": null,
+   "title": "Product Analysis",
+   "disabled": false
+  },
+  {
+   "text": "Product Hierarchy",
+   "id": null,
+   "title": "Product Hierarchy",
+   "disabled": true
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Translation",
+   "id": "crossBtn",
+   "title": "Translation",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Product ID",
+    "Long Description",
+    "Category Code",
+    "Category",
+    "Brand Code",
+    "Brand",
+    "Base Pack Code",
+    "Base Pack",
+    "Type",
+    "Status",
+    "Sellable"
+   ],
+   "rows": 8,
+   "pager": true
+  }
+ ]
+}

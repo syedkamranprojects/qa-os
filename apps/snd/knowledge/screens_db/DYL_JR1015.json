@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1015",
+ "title": "Distributor Statement Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Distributor Statement Report"
+  ],
+  "group_id": "DYL_JR1015"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1015",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

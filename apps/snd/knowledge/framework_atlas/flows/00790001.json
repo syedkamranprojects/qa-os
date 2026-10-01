@@ -1,0 +1,305 @@
+{
+ "src": "tf:00790001",
+ "flow_id": "00790001",
+ "description": "Outlet Profile Reject",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00790001|0079|1",
+   "seq": 1,
+   "menu_group": "0079",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0079",
+   "menu_group": "0079",
+   "exists": true,
+   "description": "Outlet Profile Reject",
+   "search_text": "Outlet Profile",
+   "navigation": "DYL_202009001",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0079|007901|1",
+   "mgsm_seq": 1,
+   "screen_id": "007901",
+   "screen_name": "Outlet Profile Reject",
+   "sheet": "Outlet Profile Reject",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": "id",
+   "tab_nav_path": "Dem-1",
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "007901"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Outlet Profile Reject",
+   "kind": "screen",
+   "screen_ids": [
+    "007901"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Profile Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Profile Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Profile Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Profile Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Profile Reject"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 1,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 5,
+  "events_active": 5,
+  "events_by_kind": {
+   "click": 3,
+   "fill_text": 1,
+   "toast_record": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Approval/Reject/Terminate",
+   "Master/Setup",
+   "Negative test"
+  ],
+  "market": null,
+  "menu_option": "DYL_202009001",
+  "menu_search_text": "Outlet Profile"
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "007901": {
+   "src": "sc:007901",
+   "screen_id": "007901",
+   "name": "Outlet Profile Reject",
+   "sheet": "Outlet Profile Reject",
+   "type": "Save",
+   "sheet_name_len": 21,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:007901|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007901:e1"
+    },
+    {
+     "src": "sef:007901|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__EPP1DESC",
+     "fixed_value": "C0001159456",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007901:e2"
+    },
+    {
+     "src": "sef:007901|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_outlet_name",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007901:e3"
+    },
+    {
+     "src": "sef:007901|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Reject Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "reject",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007901:e4"
+    },
+    {
+     "src": "sef:007901|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0004",
+     "kind": "toast_record",
+     "event_name": "Toast Message",
+     "in_ce_table": true,
+     "desc": "Toast Message",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007901:e5"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 5,
+    "events_active": 5
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

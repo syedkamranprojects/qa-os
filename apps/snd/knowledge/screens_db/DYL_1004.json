@@ -1,0 +1,240 @@
+{
+ "option_id": "DYL_1004",
+ "title": "Bank",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Bank"
+  ],
+  "group_id": "DYL_1004"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1004",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101004001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Bank - Grid",
+   "table": "GLB_PR_BNK_BANK",
+   "n_fields": 0,
+   "grids": [
+    "Bank"
+   ]
+  },
+  {
+   "page": "101004002",
+   "tab": "Detail",
+   "is_child": false,
+   "parent": null,
+   "partial": "101004001",
+   "desc": "Bank - Form",
+   "table": "GLB_PR_BNK_BANK",
+   "n_fields": 8,
+   "grids": []
+  },
+  {
+   "page": "101004003",
+   "tab": "Bank/Branch",
+   "is_child": true,
+   "parent": "101004001",
+   "partial": null,
+   "desc": "Bank/Branch - Grid",
+   "table": "GLB_PR_BNB_BANKBRANCH",
+   "n_fields": 0,
+   "grids": [
+    "Bank Branch"
+   ]
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "code",
+   "id": "textbox16",
+   "widget": "text",
+   "data_field": "PBNK_BANK_CODE",
+   "db_description": "Bank Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Description": {
+   "name": "description",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PBNK_DESC",
+   "db_description": "Bank Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Abbreviation": {
+   "name": "txt__pbnk_abrv",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PBNK_ABRV",
+   "db_description": "Bank Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Default": {
+   "name": "ddl__pbnk_default",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "PBNK_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Status": {
+   "name": "ddl__pbnk_active",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PBNK_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Level Type": {
+   "name": "txt__pbnk_leveltype",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PBNK_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Level No": {
+   "name": "txt__pbnk_level_no",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PBNK_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  },
+  "Identifier": {
+   "name": "DDL__PBNK_IDENTIFIER",
+   "id": "selectbox7",
+   "widget": "select",
+   "data_field": "PBNK_IDENTIFIER",
+   "db_description": "Identifier",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101004002"
+  }
+ },
+ "grids": {
+  "Bank": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Identifier",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  },
+  "Bank Branch": {
+   "columns": [
+    "Bank Code",
+    "Branch Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

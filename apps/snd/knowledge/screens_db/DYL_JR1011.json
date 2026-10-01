@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1011",
+ "title": "DA-RA Stock Detail Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "DA-RA Stock Detail Report"
+  ],
+  "group_id": "DYL_JR1011"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1011",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

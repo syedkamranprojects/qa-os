@@ -1,0 +1,249 @@
+{
+ "option_id": "DYL_201089006",
+ "title": "Analysis Classification - Outlet ",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Analysis Classification",
+   "Analysis Classification - Outlet "
+  ],
+  "group_id": "DYL_201089006"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201089006",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201089009",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANT_ANLS_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089010",
+   "tab": "Classification A",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089011",
+   "tab": "Classification B",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089012",
+   "tab": "Classification C",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089025",
+   "tab": "Banner",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089026",
+   "tab": "TradeFormat",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089027",
+   "tab": "SpiderWeb",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089028",
+   "tab": "PerfectStore",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089029",
+   "tab": "Perfect Store Compliance ",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089030",
+   "tab": "Other Info",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089031",
+   "tab": "Customer Class",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089032",
+   "tab": "Chain Outlets",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089033",
+   "tab": "Master Account Group",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089034",
+   "tab": "Outlet Programs",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089035",
+   "tab": "OutletClassification",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201089036",
+   "tab": "Outlet Range",
+   "is_child": true,
+   "parent": "201089009",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Analysis Category",
+    "Analysis Type",
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type",
+    "Organization Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

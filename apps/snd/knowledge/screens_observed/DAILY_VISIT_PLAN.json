@@ -1,0 +1,81 @@
+{
+ "option_id": "DAILY_VISIT_PLAN",
+ "title": "Daily Visit Plan",
+ "menu_path": [
+  "Setup/Configuration",
+  "PJP",
+  "Daily Visit Plan"
+ ],
+ "route": "/content-master/mobility/daily-visit-plan",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/mobility/daily-visit-plan",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "PJP",
+   "id": "pjp",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "PJP",
+   "id": "section",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Outlet",
+    "Description",
+    "Index"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

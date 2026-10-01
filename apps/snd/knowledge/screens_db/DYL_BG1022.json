@@ -1,0 +1,89 @@
+{
+ "option_id": "DYL_BG1022",
+ "title": "PJP Daily Inquiry Update",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Journey Plan",
+   "PJP Daily Inquiry Update"
+  ],
+  "group_id": "DYL_BG1022"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1022",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1022001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "BG1022002",
+   "tab": null,
+   "is_child": true,
+   "parent": "BG1022001",
+   "partial": "201089024",
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Working Date": {
+   "name": "DT_epjpworkingdateParent",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "EPJP_WORKING_DATE",
+   "db_description": "Working Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1022001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Type",
+    "PJP Number",
+    "Distributor Code",
+    "DSR",
+    "Serial No",
+    "Current Status",
+    "Mark Status",
+    "DSR Files Status",
+    "Working Date",
+    "Start Date",
+    "End Date",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

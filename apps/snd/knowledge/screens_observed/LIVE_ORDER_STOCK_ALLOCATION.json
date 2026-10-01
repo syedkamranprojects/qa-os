@@ -1,0 +1,9 @@
+{"option_id":"201904","title":"Order Stock Allocation","menu_path":["Home","Transaction","Order","Order Stock Allocation"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=201904",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[{"name":"Unallocated","note":"toggle shown as dx-button; not clicked (name resembles forbidden Unallocate action)"},{"name":"Allocated","note":"toggle shown as dx-button; not clicked"}],
+"fields":[
+{"label":"Order Date","id":"docDate","type":"date","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"},
+{"label":"PJP Number","id":"pjpNum","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"02111~AutomationOB1","options":["02111~AutomationOB1","7918624876~Aslam PJP OB","AUTO021311~Auto917248","AUTO031026~Auto_test","AUTO061238~Auto917248","AUTO241602~Auto917248","AutoPJGIN1~Auto GIN PJP OB","AutoPromo1~Auto Promo PJP OB"]}],
+"buttons":[{"text":"Unallocated","id":"","kind":"not clicked (tab-like toggle)"},{"text":"Allocated","id":"","kind":"not clicked (tab-like toggle)"},{"text":"Allocation","id":"DYP.P.201904.G....AllocationButton","kind":"ACTION - not clicked"}],
+"grids":[{"headers":["(row select checkbox)","Description","Document No","Outlet Code","Outlet Name","Document Date","Delivery Date","Net Amount","Section","Demand Channel"],"rows":0,"columns":9,"grid_text":"Data grid with 0 rows and 9 columns (today / PJP 02111)","paged":false,"filter_inputs":{}}],
+"messages":["PJP value format uses '~' separator here (code~name), unlike Transaction Inquiry ' - ' and Order Booking '-'."]}

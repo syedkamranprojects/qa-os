@@ -1,0 +1,241 @@
+{
+ "option_id": "DYL_102014",
+ "title": "Transaction Inquiry",
+ "menu_path": [
+  "Transaction",
+  "Order",
+  "Transaction Inquiry"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102014",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102014",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__PDOTDOCMTYPEPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PDOSDOCMSTATUSPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__EPJPPJPNODAILY",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Document Date From",
+   "id": "DT__TCMMDOCMDATEFROMPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Document Date From",
+   "id": "DT__TCMMDOCMDATETOPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL_PRODUCT",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Date Type",
+   "id": "DDL__DATETYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "Refresh",
+   "id": "DYP.G......Refresh",
+   "title": "Refresh",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": true
+  },
+  {
+   "text": "Product Wise Discount",
+   "id": null,
+   "title": "Product Wise Discount",
+   "disabled": true
+  },
+  {
+   "text": "Product Wise Free Quantity",
+   "id": null,
+   "title": "Product Wise Free Quantity",
+   "disabled": true
+  },
+  {
+   "text": "Total Offering",
+   "id": null,
+   "title": "Total Offering",
+   "disabled": true
+  },
+  {
+   "text": "Total Tax",
+   "id": null,
+   "title": "Total Tax",
+   "disabled": true
+  },
+  {
+   "text": "Credit Note Adjustments",
+   "id": null,
+   "title": "Credit Note Adjustments",
+   "disabled": true
+  },
+  {
+   "text": "Additional Charges",
+   "id": null,
+   "title": "Additional Charges",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Outlet Code",
+    "Outlet Long Name",
+    "OB PJP / DM PJP",
+    "Order Booker/Delivery Man",
+    "Section Code",
+    "Section Name",
+    "PJP Number",
+    "Order Time",
+    "Document Date",
+    "Delivery Date",
+    "Actual Delivery Date",
+    "Gross Amount",
+    "Markup",
+    "Discount Amount",
+    "NIV",
+    "Tax Amount",
+    "Received Amount",
+    "Net Amount",
+    "Document Status",
+    "Execution Status",
+    "Demand Channel",
+    "DDT Ref No",
+    "GIN No",
+    "Invoice Ref. No.",
+    "Invoice No",
+    "Invoice Date",
+    "Sold To",
+    "E-Invoice URL"
+   ],
+   "rows": 1,
+   "pager": false
+  }
+ ]
+}

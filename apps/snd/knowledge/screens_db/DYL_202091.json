@@ -1,0 +1,169 @@
+{
+ "option_id": "DYL_202091",
+ "title": "RCOA Status Control Button",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Setup",
+   "RCOA Status Control Button"
+  ],
+  "group_id": "DYL_202091"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202091",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202091001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "FIN_PR_STATUS_CONTROL_BUTTON",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202091002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202091001",
+   "desc": null,
+   "table": "FIN_PR_STATUS_CONTROL_BUTTON",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Organization Code": {
+   "name": "TXT__PORG_ORGACODE",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202091002"
+  },
+  "Identifier ID": {
+   "name": "TXT__PRCA_IDENTIFIER_ID",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PRCA_IDENTIFIER_ID",
+   "db_description": "Identifier ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202091002"
+  },
+  "Event ID": {
+   "name": "TXT__PRCA_EVENT_ID",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PRCA_EVENT_ID",
+   "db_description": "Event ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202091002"
+  },
+  "Option": {
+   "name": "TXT__PRCA_OPTION",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PRCA_OPTION",
+   "db_description": "Option Name",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202091002"
+  },
+  "Button": {
+   "name": "TXT__PRCA_BUTTON",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PRCA_BUTTON",
+   "db_description": "Button Name",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202091002"
+  },
+  "Query": {
+   "name": "TXT__PRCA_QUERYTEXT",
+   "id": "textarea1",
+   "widget": "text",
+   "data_field": "PRCA_QUERYTEXT",
+   "db_description": "Query Text",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202091002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Identifier ID",
+    "Event ID",
+    "Option",
+    "Button"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

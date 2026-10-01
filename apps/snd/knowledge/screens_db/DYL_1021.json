@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1021",
+ "title": "Identifier Type",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Identifier Type"
+  ],
+  "group_id": "DYL_1021"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1021",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101021001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Identifier Type - Grid",
+   "table": "GLB_PR_IDN_IDENTIFIERTYPE",
+   "n_fields": 0,
+   "grids": [
+    "Identifier Type"
+   ]
+  },
+  {
+   "page": "101021002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101021001",
+   "desc": "Identifier Type - Forms",
+   "table": "GLB_PR_IDN_IDENTIFIERTYPE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__pidn_identifier_type",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PIDN_IDENTIFIER_TYPE",
+   "db_description": "Identifier Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  },
+  "Description": {
+   "name": "txt__pidn_desc",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PIDN_DESC",
+   "db_description": "Identifier Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  },
+  "Abbreviation": {
+   "name": "txt__pidn_abrv",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PIDN_ABRV",
+   "db_description": "Identifier Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  },
+  "Default": {
+   "name": "ddl__pidn_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PIDN_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  },
+  "Status": {
+   "name": "ddl__pidn_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PIDN_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  },
+  "Level Type": {
+   "name": "txt__pidn_leveltype",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PIDN_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  },
+  "Level No": {
+   "name": "txt__pidn_level_no",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PIDN_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101021002"
+  }
+ },
+ "grids": {
+  "Identifier Type": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

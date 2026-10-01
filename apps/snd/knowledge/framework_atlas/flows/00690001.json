@@ -1,0 +1,373 @@
+{
+ "src": "tf:00690001",
+ "flow_id": "00690001",
+ "description": "Outlet Approval II",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00690001|0069|1",
+   "seq": 1,
+   "menu_group": "0069",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0069",
+   "menu_group": "0069",
+   "exists": true,
+   "description": "Outlet Approval II",
+   "search_text": "Outlet Approval II",
+   "navigation": "DYL_102003081",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0069|006901|1",
+   "mgsm_seq": 1,
+   "screen_id": "006901",
+   "screen_name": "Outlet Approval II",
+   "sheet": "Outlet Approval II",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "006901"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Outlet Approval II",
+   "kind": "screen",
+   "screen_ids": [
+    "006901"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Approval II"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Approval II"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Approval II"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Approval II"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Outlet Approval II"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 1,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 8,
+  "events_active": 8,
+  "events_by_kind": {
+   "click": 5,
+   "fill_text": 2,
+   "toast_record": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Approval/Reject/Terminate",
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_102003081",
+  "menu_search_text": "Outlet Approval II"
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "006901": {
+   "src": "sc:006901",
+   "screen_id": "006901",
+   "name": "Outlet Approval II",
+   "sheet": "Outlet Approval II",
+   "type": "Save",
+   "sheet_name_len": 18,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:006901|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e1"
+    },
+    {
+     "src": "sef:006901|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__EPP1ABRV",
+     "fixed_value": "Auto",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e2"
+    },
+    {
+     "src": "sef:006901|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Column Document No",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "dx-col-1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e3"
+    },
+    {
+     "src": "sef:006901|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_outlet_name",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e4"
+    },
+    {
+     "src": "sef:006901|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e5"
+    },
+    {
+     "src": "sef:006901|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "test",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e6"
+    },
+    {
+     "src": "sef:006901|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e7"
+    },
+    {
+     "src": "sef:006901|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0004",
+     "kind": "toast_record",
+     "event_name": "Toast Message",
+     "in_ce_table": true,
+     "desc": "Toast Message/ScreenShot",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "006901:e8"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 8,
+    "events_active": 8
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

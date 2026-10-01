@@ -1,0 +1,154 @@
+{
+ "option_id": "DYL_202068",
+ "title": "Manual Input By Unilever Approval",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Approval",
+   "Manual Input By Unilever Approval"
+  ],
+  "group_id": "DYL_202068"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202068",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202068001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "FIN_TR_RCOA_TRANSACTIONS_INPUT",
+   "n_fields": 4,
+   "grids": []
+  },
+  {
+   "page": "202068002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202068001",
+   "partial": null,
+   "desc": null,
+   "table": "FIN_TR_RCOA_TRANSACTIONS_INPUT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Distributor": {
+   "name": "DDL__EPP1_BUSENT_PHS_LVL1_CODE_PARENT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "db_description": "Physical Business Entities Level 1 (Distributor, Outlet, Warehouse etc)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "DISTRIBUTOR",
+   "validations": null,
+   "regex": null,
+   "page": "202068001"
+  },
+  "Period Type": {
+   "name": "DDL__PFQY_FREQUENCY_PARENT",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PFQY_FREQUENCY",
+   "db_description": "Frequency Code (Period Type)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PERIODTYPE",
+   "validations": null,
+   "regex": null,
+   "page": "202068001"
+  },
+  "Period #": {
+   "name": "TXT__TINP_PERIOD_NO_PARENT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "TINP_PERIOD_NO",
+   "db_description": "Period Number",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PERIODNO",
+   "validations": null,
+   "regex": null,
+   "page": "202068001"
+  },
+  "Approval Status": {
+   "name": "DDL_APROVED_STATUS",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "APROVED_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "ACSTATUS",
+   "validations": null,
+   "regex": null,
+   "page": "202068001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Account Type",
+    "Account Type",
+    "Account Code & Description",
+    "Account Code & Description",
+    "Organization Code",
+    "Business Entity Type",
+    "Distributor",
+    "Input Type",
+    "UoM",
+    "UoM",
+    "Quantity",
+    "Rate",
+    "Value",
+    "Period No",
+    "Type",
+    "Status",
+    "Status",
+    "Modify",
+    "UOM Field Control",
+    "Reason",
+    "Approval Status",
+    "Approval Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Approved",
+  "Reject",
+  "Refresh"
+ ]
+}

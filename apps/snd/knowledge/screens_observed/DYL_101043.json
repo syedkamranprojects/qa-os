@@ -1,0 +1,173 @@
+{
+ "option_id": "DYL_101043",
+ "title": "Product Hierarchy",
+ "menu_path": [
+  "Company setup",
+  "Product Hierarchy",
+  "Product Hierarchy"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=101043",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=101043",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Code",
+   "id": "txt__ppa1_prod_analysis",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "txt__ppa1_desc",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Abbreviation",
+   "id": "txt__ppa1_abrv",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "ddl__ppa1_active",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Reference 1",
+   "id": "xtx__ppa1_reference_1",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Reference 2",
+   "id": "txt__ppa1_reference_2",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Reference 3",
+   "id": "txt__ppa1_reference_3",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Origin Date",
+   "id": "DT__origin_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "1107",
+   "id": "pagination-element-1107",
+   "title": "Page 1107",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Status",
+    "Level No"
+   ],
+   "rows": 15,
+   "pager": true
+  }
+ ]
+}

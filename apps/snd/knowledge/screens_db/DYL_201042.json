@@ -1,0 +1,157 @@
+{
+ "option_id": "DYL_201042",
+ "title": "Group",
+ "menu": {
+  "path": [
+   "Parameter",
+   "General Parameter",
+   "Management",
+   "Group"
+  ],
+  "group_id": "DYL_201042"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201042",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201042001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_PR_SPH_PROD_SUGPRDHR",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201042002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201042001",
+   "desc": null,
+   "table": "SND_PR_SPH_PROD_SUGPRDHR",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Group ID": {
+   "name": "TXT__PSPHPRODGROUPID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PSPH_PROD_GROUP_ID",
+   "db_description": "Suggested Product Group Header Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201042002"
+  },
+  "Description": {
+   "name": "TXT__PSPHDESC",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PSPH_DESC",
+   "db_description": "Suggested Product Group Header Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201042002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PSPHABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PSPH_ABRV",
+   "db_description": "Suggested Product Group Header Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201042002"
+  },
+  "Default": {
+   "name": "DDL__PSPHDEFAULT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PSPH_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201042002"
+  },
+  "Active": {
+   "name": "DDL__PSPHACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PSPH_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201042002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Group ID",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

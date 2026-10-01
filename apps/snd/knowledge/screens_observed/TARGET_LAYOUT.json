@@ -1,0 +1,111 @@
+{
+ "option_id": "TARGET_LAYOUT",
+ "title": "Target Setup",
+ "menu_path": [
+  "Target",
+  "Target",
+  "Target Setup"
+ ],
+ "route": "/product-target",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/product-target",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "Historical Data",
+   "id": null,
+   "title": "Historical Data",
+   "disabled": false
+  },
+  {
+   "text": "New Target",
+   "id": null,
+   "title": "New Target",
+   "disabled": false
+  },
+  {
+   "text": "Edit Target",
+   "id": null,
+   "title": "Edit Target",
+   "disabled": false
+  },
+  {
+   "text": "Target Upload Bulk",
+   "id": null,
+   "title": "Target Upload Bulk",
+   "disabled": false
+  },
+  {
+   "text": "Target Shuffling",
+   "id": null,
+   "title": "Target Shuffling",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Period Start Date",
+    "Period End Date",
+    "Definition",
+    "Status",
+    "State"
+   ],
+   "rows": 10,
+   "pager": true
+  }
+ ]
+}

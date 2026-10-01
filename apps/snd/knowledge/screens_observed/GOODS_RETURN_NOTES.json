@@ -1,0 +1,224 @@
+{
+ "option_id": "GOODS_RETURN_NOTES",
+ "title": "Goods Return Notes",
+ "menu_path": [
+  "Transaction",
+  "Stock",
+  "Goods Return Notes"
+ ],
+ "route": "/goods-return-notes/GRN",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/goods-return-notes/GRN",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "GRN No.",
+   "id": "grnNum",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "GRN No.",
+   "id": "grnDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Delivery Man PJP",
+   "id": "deliveryManPjp",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Delivery Man PJP",
+   "id": "deliveryManDsr",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse",
+   "id": "warehouse",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse",
+   "id": "vehicle",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "status",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "workingDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "GIN Number",
+   "id": "ginNos",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "GIN Number",
+   "id": "appStatus",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "GRN",
+   "id": null,
+   "title": "GRN",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": true
+  },
+  {
+   "text": "View Approval Log",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "View Approval Log",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "View Approval Log",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "View Approval Log",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "View Approval Log",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "Add",
+   "title": "Add",
+   "disabled": false
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  },
+  {
+   "text": "Terminate",
+   "id": "terminate",
+   "title": "Terminate",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "GRN No.",
+    "GRN Date",
+    "Delivery Man PJP",
+    "Warehouse",
+    "Approval Status",
+    "Status"
+   ],
+   "rows": 5,
+   "pager": false
+  }
+ ]
+}

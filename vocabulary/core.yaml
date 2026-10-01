@@ -1,0 +1,211 @@
+# QA OS core step vocabulary (app-agnostic). The predefined words QA members use, and the strict forms Claude checks.
+# Human-readable version: docs/STEP_VOCABULARY.md and docs/QA_STEP_CHEAT_SHEET.md (generated: `python runtime/qaos_steps.py cheatsheet`).
+# Per-app expansions, messages and gotchas live in apps/<app>/steps/library.yaml.
+#
+# Each verb:  form     the canonical wording (what a step must look like after rephrasing)
+#             pattern  strict regex for the canonical form (named groups = slots)
+#             says     plain-English ways QA members phrase it (used to rephrase; not matched by the checker)
+#             slots    Field/Button/Column/Screen/Tab slots are checked against the screen's real labels
+#             risk     read-only | changes-data | one-way   (one-way needs naming in the story's allow: list)
+#             expect   true = the step should be followed by a check (Verify message / status)
+#             next     typical next verbs, used to suggest the next step
+version: 1
+
+verbs:
+  login:
+    form: 'Login as <Role>'
+    pattern: '^Login as (?P<role>.+)$'
+    says: [log in as, sign in as, login with the user of, log in]
+    slots: {role: Role}
+    risk: read-only
+    next: [navigate]
+    note: The QA member types the credentials; Claude only checks who is logged in.
+  select_distributor:
+    form: 'Select distributor <name or code>'
+    pattern: '^Select distributor (?P<distributor>.+)$'
+    says: [choose distributor, pick distributor, distributor is]
+    risk: read-only
+    next: [navigate]
+  switch_user:
+    form: 'Switch user to <Role>'
+    pattern: '^Switch user to (?P<role>.+)$'
+    says: [change user to, logout and login as, log in as a different user]
+    slots: {role: Role}
+    risk: read-only
+    next: [navigate]
+    note: A switch point. The run stops until the QA member has logged in as that role.
+  logout:
+    form: 'Logout'
+    pattern: '^Logout$'
+    says: [log out, sign out, exit]
+    risk: read-only
+    next: [login]
+
+  navigate:
+    form: 'Navigate to <Screen>[ > <Tab>]'
+    pattern: '^Navigate to (?P<screen>[^>]+?)(?: > (?P<tab>.+))?$'
+    says: [go to, open screen, open menu, open the screen]
+    slots: {screen: Screen, tab: Tab}
+    risk: read-only
+    next: [create_doc, open_doc, filter, select_all, enter]
+  go_to_tab:
+    form: 'Go to tab <Tab>'
+    pattern: '^Go to tab (?P<tab>.+)$'
+    says: [switch to tab, open tab, click tab, move to tab]
+    slots: {tab: Tab}
+    risk: read-only
+    next: [enter, select_all, click]
+  open_doc:
+    form: 'Open <Document> <number or NAME>'
+    pattern: '^Open (?P<doc>.+?) (?P<ref>[A-Za-z0-9_\-\.]+)$'
+    says: [open the record, find and open, search and open, edit]
+    risk: read-only
+    next: [forward, approve, verify_status, enter]
+  filter:
+    form: 'Filter <Column> = <value>'
+    pattern: '^Filter (?P<column>.+?) = (?P<value>.+)$'
+    says: [search by, filter by, find rows where]
+    slots: {column: Column}
+    risk: read-only
+    next: [select_rows_where, select_all, open_doc]
+
+  enter:
+    form: 'Enter <Field> = <value>'
+    pattern: '^Enter (?P<field>.+?) = (?P<value>.+)$'
+    says: [type, fill, put, set, write, input]
+    slots: {field: Field}
+    risk: read-only
+    next: [enter, choose, save, click]
+  choose:
+    form: 'Choose <Field> = <value>'
+    pattern: '^Choose (?P<field>.+?) = (?P<value>.+)$'
+    says: [select, pick, dropdown, set dropdown]
+    slots: {field: Field}
+    risk: read-only
+    next: [enter, choose, save, click]
+  create_doc:
+    form: 'Create <Document> with <Field> = <value>, <Field> = <value>'
+    pattern: '^Create (?P<doc>.+?) with (?P<pairs>.+)$'
+    says: [add new, new, create a new, make a]
+    slots: {pairs: Field}
+    risk: changes-data
+    expect: true
+    next: [remember, add_line, forward]
+  add_line:
+    form: 'Add line to <Document>: <Field> = <value>, <Field> = <value>'
+    pattern: '^Add line to (?P<doc>.+?): (?P<pairs>.+)$'
+    says: [add product, add item, add row, add detail line]
+    slots: {pairs: Field}
+    risk: changes-data
+    expect: true
+    next: [add_line, add_loss, forward]
+  add_loss:
+    form: 'Add loss to line <n>: <Field> = <value>, <Field> = <value>'
+    pattern: '^Add loss to line (?P<line>\d+): (?P<pairs>.+)$'
+    says: [add damage, add lost quantity, record loss]
+    slots: {pairs: Field}
+    risk: changes-data
+    next: [add_line, forward]
+  remember:
+    form: 'Remember <Field> as <NAME>'
+    pattern: '^Remember (?P<field>.+?) as (?P<name>[A-Za-z][A-Za-z0-9_]*)$'
+    says: [note down, keep, store, save the number as, copy]
+    slots: {field: Field}
+    risk: read-only
+    next: [add_line, forward]
+
+  save:
+    form: 'Save <Document>'
+    pattern: '^(?P<verb>Save|Update) (?P<doc>.+)$'
+    says: [store, click save, update]
+    risk: changes-data
+    expect: true
+    next: [verify_message]
+  delete:
+    form: 'Delete <Document>'
+    pattern: '^Delete (?P<doc>.+)$'
+    says: [remove, cancel the record]
+    risk: one-way
+    expect: true
+    next: [verify_message]
+  forward:
+    form: 'Forward <Document> with comment "<text>"'
+    pattern: '^Forward (?P<doc>.+?) with comment "(?P<comment>.*)"$'
+    says: [send for approval, submit, send to next level, push]
+    risk: one-way
+    expect: true
+    next: [verify_message, verify_status, logout]
+  approve:
+    form: 'Approve <Document>[ with comment "<text>"]'
+    pattern: '^(?P<verb>Approve|Authorize) (?P<doc>.+?)(?: with comment "(?P<comment>.*)")?$'
+    says: [authorize, accept, ok the, sign off]
+    risk: one-way
+    expect: true
+    next: [verify_message, verify_status, logout]
+    note: Done by a different user than the maker, on the same option.
+  reject:
+    form: 'Reject <Document> with comment "<text>"'
+    pattern: '^Reject (?P<doc>.+?) with comment "(?P<comment>.*)"$'
+    says: [send back, decline, refuse]
+    risk: one-way
+    expect: true
+    next: [verify_message, verify_status]
+
+  select_all:
+    form: 'Select all rows'
+    pattern: '^Select all rows$'
+    says: [tick all, select everything, check all, tick the header box]
+    risk: read-only
+    next: [click]
+  select_rows_where:
+    form: 'Select rows where <Column> = <value>'
+    pattern: '^Select rows where (?P<column>.+?) = (?P<value>.+)$'
+    says: [tick the rows with, select the row with]
+    slots: {column: Column}
+    risk: read-only
+    next: [click]
+  click:
+    form: 'Click <Button>'
+    pattern: '^Click (?P<button>.+)$'
+    says: [press, hit, push the button, process, run]
+    slots: {button: Button}
+    risk: changes-data
+    expect: true
+    next: [verify_message]
+    note: Use only when no lifecycle verb (Save, Forward, Approve ...) fits. The button label must exist on the screen.
+
+  verify_message:
+    form: 'Verify message "<text>"'
+    pattern: '^Verify message (?:"(?P<text>.*)"|\(text to be recorded\))$'
+    says: [check the message, message should be, toast shows, expect message]
+    risk: read-only
+    next: [verify_status, remember, add_line]
+    note: The exact text is recorded the first time it appears; write "(text to be recorded)" if unknown.
+  verify_listed:
+    form: 'Verify <Document> is [not ]listed'
+    pattern: '^Verify (?P<doc>.+?) is (?P<neg>not )?listed$'
+    says: [check it is in the list, should appear in the grid, should not be in the grid]
+    risk: read-only
+    next: [open_doc]
+  verify_status:
+    form: 'Verify status of <Document> is <status>'
+    pattern: '^Verify status of (?P<doc>.+?) is (?P<status>.+)$'
+    says: [check status, status should be, approval status is]
+    risk: read-only
+    next: [logout, verify_field]
+  verify_field:
+    form: 'Verify <Field> is <value>'
+    pattern: '^Verify (?P<field>.+?) is (?P<value>.+)$'
+    says: [check, field should show, value should be, make sure]
+    slots: {field: Field}
+    risk: read-only
+    next: [verify_field, logout]
+
+  manual:
+    form: 'Do: <plain sentence>'
+    pattern: '^Do: (?P<text>.+)$'
+    says: [anything else]
+    risk: read-only
+    note: Not in the vocabulary. Treated as MANUAL until a person adds it to the library.
+
+# Order matters: the checker tries verbs from top to bottom, first match wins (verify_listed and verify_status come before verify_field).

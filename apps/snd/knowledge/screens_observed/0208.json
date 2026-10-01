@@ -1,0 +1,37 @@
+{
+ "option_id": "0208",
+ "title": "Change Password",
+ "menu_path": [
+  "Company setup",
+  "Users",
+  "Change Password"
+ ],
+ "route": "/dyl/layout",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

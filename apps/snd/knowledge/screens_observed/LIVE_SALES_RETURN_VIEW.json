@@ -1,0 +1,10 @@
+{"option_id":"/ngui/sales-return-statusChange/view","title":"Sales Return View","menu_path":["Home","Transaction","Sales Return","Sales Return View"],"route":"/ngui/sales-return-statusChange/view","url_path":"/ngui/sales-return-statusChange/view",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[{"name":"Header","fields":[
+{"label":"PJP Number","id":"pjpNo","widget":"dropdown","required":false,"readonly":false,"default":"AutoPJGIN2-Auto GIN PJP DM","options":["AutoPJGIN2-Auto GIN PJP DM","AUTO241602-Auto917248","AutoPromo1-Auto Promo PJP OB","AUTO301301-Auto_test","02112-AutomationDSR","7918624876-Aslam PJP OB","AutoPromo2-Auto Promo PJP DM","AutoPJGIN1-Auto GIN PJP OB","AUTO021311-Auto917248","8197298470-Aslam PJP DM","AUTO061238-Auto917248","02111-AutomationOB1","AUTO031026-Auto_test"],"note":"13 PJPs here (both order-booker and delivery-man); other SR screens list DM PJPs only"},
+{"label":"Date From","id":"dateFrom","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"},
+{"label":"Date To","id":"dateTo","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"}],
+"buttons":[{"text":"Forward","id":"Forward","kind":"ACTION - not clicked (enabled even with no row selected)"}],
+"grids":[{"headers":["(row select checkbox)","Document No.","Principle Invoice","Document Date","Delivery Date","Outlet Code","Gross Amount","Discount Amount","Tax","Net Amount"],"rows":0,"columns":9,"grid_text":"Data grid with 0 rows and 9 columns","paged":false,"filter_inputs":{}}]},
+{"name":"Detail","note":"disabled until a document is selected"}],
+"fields":[],"buttons":[],"grids":[],"messages":[]}

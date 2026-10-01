@@ -1,0 +1,57 @@
+{
+  "case": "LEARN-ORDER-BOOKING",
+  "title": "app-cartographer live pass on cnr1dev1 as KPO_mp (no distributor): read-only learning of Order Booking and Transaction Inquiry. No Save, no order is created.",
+  "app": "snd",
+  "env": "cnr1dev1",
+  "user": "KPO_mp",
+  "data": {},
+  "steps": [
+    {
+      "do": "login"
+    },
+    {
+      "do": "harvest_menu",
+      "note": "KPO_mp/cnr1dev1 menu; needed to resolve menu paths for this user"
+    },
+    {
+      "do": "harvest_i18n"
+    },
+    {
+      "do": "navigate",
+      "menu": "Transaction > Order Booking"
+    },
+    {
+      "do": "wait",
+      "seconds": 4
+    },
+    {
+      "do": "screenshot",
+      "note": "Order Booking landing state"
+    },
+    {
+      "do": "harvest_screen",
+      "as": "order_booking",
+      "open_selects": true
+    },
+    {
+      "do": "navigate",
+      "menu": "Transaction > Order > Transaction Inquiry"
+    },
+    {
+      "do": "wait",
+      "seconds": 4
+    },
+    {
+      "do": "screenshot",
+      "note": "Transaction Inquiry landing state"
+    },
+    {
+      "do": "harvest_screen",
+      "as": "transaction_inquiry",
+      "open_selects": true
+    },
+    {
+      "do": "logout"
+    }
+  ]
+}

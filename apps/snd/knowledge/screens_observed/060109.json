@@ -1,0 +1,71 @@
+{
+ "option_id": "060109",
+ "title": "Global Parameters",
+ "menu_path": [
+  "Configuration",
+  "System Configuration",
+  "Global Parameters"
+ ],
+ "route": "/content-master/parameter/global-parameters-config",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/parameter/global-parameters-config",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Save changes",
+   "id": "BatchSaveBtn",
+   "title": "Save changes",
+   "disabled": true
+  },
+  {
+   "text": "Discard changes",
+   "id": "BatchRevertBtn",
+   "title": "Discard changes",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description"
+   ],
+   "rows": 8,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

@@ -1,0 +1,384 @@
+{
+ "src": "tf:00370001",
+ "flow_id": "00370001",
+ "description": "Product Hierarchy ",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00370001|0037|1",
+   "seq": 1,
+   "menu_group": "0037",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0037",
+   "menu_group": "0037",
+   "exists": true,
+   "description": "Product Hierarchy ",
+   "search_text": "Product Hierarchy ",
+   "navigation": "DYL_101043",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0037|003701|1",
+   "mgsm_seq": 1,
+   "screen_id": "003701",
+   "screen_name": "Product Hierarchy ",
+   "sheet": "Product Hierarchy ",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "003701"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Product Hierarchy ",
+   "kind": "screen",
+   "screen_ids": [
+    "003701"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Product Hierarchy "
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Product Hierarchy "
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Product Hierarchy "
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Product Hierarchy "
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Product Hierarchy "
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 8,
+  "fields_active": 8,
+  "events": 0,
+  "events_active": 0,
+  "events_by_kind": {}
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_101043",
+  "menu_search_text": "Product Hierarchy "
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "003701": {
+   "src": "sc:003701",
+   "screen_id": "003701",
+   "name": "Product Hierarchy ",
+   "sheet": "Product Hierarchy ",
+   "type": "Save",
+   "sheet_name_len": 18,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:003701|txt__ppa1_prod_analysis|1.0|1|1",
+     "seq": 1,
+     "field_id": "txt__ppa1_prod_analysis",
+     "locate_by": "id",
+     "label": "Code",
+     "db_column": "Code",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f1"
+    },
+    {
+     "src": "sf:003701|txt__ppa1_desc|1.0|2|1",
+     "seq": 2,
+     "field_id": "txt__ppa1_desc",
+     "locate_by": "id",
+     "label": "Description",
+     "db_column": "Description",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f2"
+    },
+    {
+     "src": "sf:003701|txt__ppa1_abrv|1.0|3|1",
+     "seq": 3,
+     "field_id": "txt__ppa1_abrv",
+     "locate_by": "id",
+     "label": "Abbreviation",
+     "db_column": "Abbreviation",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f3"
+    },
+    {
+     "src": "sf:003701|ddl__ppa1_active|1.0|4|1",
+     "seq": 4,
+     "field_id": "ddl__ppa1_active",
+     "locate_by": "id",
+     "label": "Status",
+     "db_column": "Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f4"
+    },
+    {
+     "src": "sf:003701|xtx__ppa1_reference_1|1.0|5|1",
+     "seq": 5,
+     "field_id": "xtx__ppa1_reference_1",
+     "locate_by": "id",
+     "label": "Reference 1",
+     "db_column": "Reference 1",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f5"
+    },
+    {
+     "src": "sf:003701|txt__ppa1_reference_2|1.0|6|1",
+     "seq": 6,
+     "field_id": "txt__ppa1_reference_2",
+     "locate_by": "id",
+     "label": "Reference 2",
+     "db_column": "Reference 2",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f6"
+    },
+    {
+     "src": "sf:003701|txt__ppa1_reference_3|1.0|7|1",
+     "seq": 7,
+     "field_id": "txt__ppa1_reference_3",
+     "locate_by": "id",
+     "label": "Reference 3",
+     "db_column": "Reference 3",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f7"
+    },
+    {
+     "src": "sf:003701|DT__origin_date|1.0|8|1",
+     "seq": 8,
+     "field_id": "DT__origin_date",
+     "locate_by": "id",
+     "label": "Origin Date",
+     "db_column": "Origin Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "003701:f8"
+    }
+   ],
+   "events": [],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 8,
+    "fields_active": 8,
+    "events": 0,
+    "events_active": 0
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

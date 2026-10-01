@@ -1,0 +1,193 @@
+{
+ "option_id": "DYL_101048",
+ "title": "ABC Classification",
+ "menu": {
+  "path": [
+   "Product",
+   "ABC Classification"
+  ],
+  "group_id": "DYL_101048"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "101048",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101048001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Product - ABC Classification - Grid",
+   "table": "SND_PR_PAB_PROD_ABCCLSFICATION",
+   "n_fields": 0,
+   "grids": [
+    "ABC Classification"
+   ]
+  },
+  {
+   "page": "101048002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101048001",
+   "desc": "Product - ABC Classification - Form",
+   "table": "SND_PR_PAB_PROD_ABCCLSFICATION",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__ppab_prod_abcclasif",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PPAB_PROD_ABCCLASIF",
+   "db_description": "Product ABC Classification Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  },
+  "Description": {
+   "name": "txt__ppab_desc",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PPAB_DESC",
+   "db_description": "Product ABC Classification Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  },
+  "Abbreviation": {
+   "name": "txt__ppab_abrv",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PPAB_ABRV",
+   "db_description": "Product ABC Classification Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  },
+  "Default": {
+   "name": "ddl__ppab_default",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PPAB_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  },
+  "Status": {
+   "name": "txt__ppab_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PPAB_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  },
+  "Level Type": {
+   "name": "txt__ppab_leveltype",
+   "id": "textbox16",
+   "widget": "text",
+   "data_field": "PPAB_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  },
+  "Level No": {
+   "name": "txt__ppab_level_no",
+   "id": "textbox15",
+   "widget": "text",
+   "data_field": "PPAB_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101048002"
+  }
+ },
+ "grids": {
+  "ABC Classification": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,6 @@
+{
+  "_readme": "Captions QA members see and use on screen, mapped to the label the knowledge (framework atlas / observed screens) holds. Per screen, or under \"*\" for every screen. Added when a QA member's natural wording is rejected by qaos_steps.py check. Promote only after the QA lead confirms.",
+  "*": {
+    "Document No": "DOCUMENTNO"
+  }
+}

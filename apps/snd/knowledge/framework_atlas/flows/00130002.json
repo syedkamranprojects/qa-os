@@ -1,0 +1,630 @@
+{
+ "src": "tf:00130002",
+ "flow_id": "00130002",
+ "description": "Stock Unallocation",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00130002|001301|1",
+   "seq": 1,
+   "menu_group": "001301",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:001301",
+   "menu_group": "001301",
+   "exists": true,
+   "description": "Stock Unallocation",
+   "search_text": "Stock Allocation",
+   "navigation": "DYL_201904",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:001301|001302|1",
+   "mgsm_seq": 1,
+   "screen_id": "001302",
+   "screen_name": "Stock Unallocation",
+   "sheet": "Stock Unallocation",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "001302"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Stock Unallocation",
+   "kind": "screen",
+   "screen_ids": [
+    "001302"
+   ]
+  },
+  {
+   "sheet": "Unallocated_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "001302"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Stock Unallocation"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Unallocated_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Stock Unallocation": 1,
+    "Unallocated_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Stock Unallocation": 1,
+    "Unallocated_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Stock Unallocation": 1,
+    "Unallocated_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Stock Unallocation": 1,
+    "Unallocated_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC (Vietnam).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Unallocated_ASSR",
+    "screen_id": "001302",
+    "src": "sef:001302|serial 14"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 3,
+  "fields_active": 2,
+  "events": 12,
+  "events_active": 6,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 3,
+   "alert_click": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Stock Allocation"
+  ],
+  "market": null,
+  "menu_option": "DYL_201904",
+  "menu_search_text": "Stock Allocation"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 15,
+   "active": true,
+   "user": "same session (AppUser)",
+   "login_status": null
+  },
+  {
+   "group": "11",
+   "group_desc": "Daily Cycle Only Positive Flow",
+   "seq": 18,
+   "active": true,
+   "user": "same session (Auto_Multi_Orga)",
+   "login_status": null
+  },
+  {
+   "group": "51",
+   "group_desc": "Daily Cycle Only Positive Flow_ITHD",
+   "seq": 20,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": null
+  },
+  {
+   "group": "52",
+   "group_desc": "Daily Cycle Negative with Positive Flow_ITHD",
+   "seq": 16,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": null
+  },
+  {
+   "group": "75",
+   "group_desc": "Daily Cycle Only Positive Flow_VN",
+   "seq": 20,
+   "active": true,
+   "user": "same session (AUTO_VAT)",
+   "login_status": null
+  },
+  {
+   "group": "76",
+   "group_desc": "Daily Cycle Only Positive Flow_KH",
+   "seq": 20,
+   "active": true,
+   "user": "same session (runner default login)",
+   "login_status": null
+  },
+  {
+   "group": "79",
+   "group_desc": "Daily Cycle Only Positive Flow_LA",
+   "seq": 20,
+   "active": true,
+   "user": "same session (runner default login)",
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "001302": {
+   "src": "sc:001302",
+   "screen_id": "001302",
+   "name": "Stock Unallocation",
+   "sheet": "Stock Unallocation",
+   "type": "Save",
+   "sheet_name_len": 18,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:001302|docDate|1.0|1|1",
+     "seq": 1,
+     "field_id": "docDate",
+     "locate_by": "id",
+     "label": "Order Date",
+     "db_column": "Order Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "001302:f1"
+    },
+    {
+     "src": "sf:001302|pjpNum|1.0|2|1",
+     "seq": 2,
+     "field_id": "pjpNum",
+     "locate_by": "id",
+     "label": "PJP Number",
+     "db_column": "PJP Number",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "001302:f2"
+    },
+    {
+     "src": "sf:001302|sectBox|1.0|3|1",
+     "seq": 3,
+     "field_id": "sectBox",
+     "locate_by": "id",
+     "label": "Section",
+     "db_column": "Section",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "001302:f3"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:001302|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e1"
+    },
+    {
+     "src": "sef:001302|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Chek Box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "tab_1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e2"
+    },
+    {
+     "src": "sef:001302|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "refresh",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "DYP.G......Refresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e3"
+    },
+    {
+     "src": "sef:001302|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e4"
+    },
+    {
+     "src": "sef:001302|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "rowfilter_OUTLDESC",
+     "fixed_value": "Aautomation",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e5"
+    },
+    {
+     "src": "sef:001302|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Chek Box",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "Header_0_document_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e8"
+    },
+    {
+     "src": "sef:001302|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Chek Box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e9"
+    },
+    {
+     "src": "sef:001302|serial 10",
+     "serial": 10,
+     "seq": 10,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Chek Box",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "row_2_checkbox_1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e10"
+    },
+    {
+     "src": "sef:001302|serial 11",
+     "serial": 11,
+     "seq": 11,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Allocation",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "notrefresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e11"
+    },
+    {
+     "src": "sef:001302|serial 12",
+     "serial": 12,
+     "seq": 12,
+     "depth": 0,
+     "parent": null,
+     "type": "0005",
+     "event": "0002",
+     "kind": "alert_click",
+     "event_name": "Click Alert",
+     "in_ce_table": true,
+     "desc": "Allocation",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "accept",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e12"
+    },
+    {
+     "src": "sef:001302|serial 13",
+     "serial": 13,
+     "seq": 13,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "10",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e13",
+     "wait_s": "10"
+    },
+    {
+     "src": "sef:001302|serial 14",
+     "serial": 14,
+     "seq": 14,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Unallocated_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "001302:e14",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Unallocated_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 3,
+    "fields_active": 2,
+    "events": 12,
+    "events_active": 6
+   },
+   "assertion_sheets": [
+    "Unallocated_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

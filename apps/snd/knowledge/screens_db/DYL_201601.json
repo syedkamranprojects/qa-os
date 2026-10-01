@@ -1,0 +1,117 @@
+{
+ "option_id": "DYL_201601",
+ "title": "Event Custom",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Promotion",
+   "Event Custom"
+  ],
+  "group_id": "DYL_201601"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201601",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201601001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "clc_pr_ecm_eventcusttagmapping",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201601002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201601001",
+   "desc": null,
+   "table": "clc_pr_ecm_eventcusttagmapping",
+   "n_fields": 3,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Organization": {
+   "name": "TXT__PORORGACODE",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "POR_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": "@Session(OrgaCode)",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201601002"
+  },
+  "Event ID": {
+   "name": "DDL__pev_eventid",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PEV_EVENTID",
+   "db_description": "Event ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PEVT",
+   "validations": null,
+   "regex": null,
+   "page": "201601002"
+  },
+  "Tag Name": {
+   "name": "DDL__gfc_tagname",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "GFC_TAGNAME",
+   "db_description": "Custom Tag Name",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PRTG",
+   "validations": null,
+   "regex": null,
+   "page": "201601002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Event ID",
+    "Tag Name"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Delete"
+ ]
+}

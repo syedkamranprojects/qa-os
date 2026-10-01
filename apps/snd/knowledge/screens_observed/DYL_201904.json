@@ -1,0 +1,105 @@
+{
+ "option_id": "DYL_201904",
+ "title": "Stock Allocation",
+ "menu_path": [
+  "Transaction",
+  "Order",
+  "Stock Allocation"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201904",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201904",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Order Date",
+   "id": "docDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "pjpNum",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Unallocated",
+   "id": null,
+   "title": "Unallocated",
+   "disabled": false
+  },
+  {
+   "text": "Allocated",
+   "id": null,
+   "title": "Allocated",
+   "disabled": false
+  },
+  {
+   "text": "Allocation",
+   "id": "DYP.P.201904.G....AllocationButton",
+   "title": "Allocation",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Description",
+    "Document No",
+    "Outlet Code",
+    "Outlet Name",
+    "Document Date",
+    "Delivery Date",
+    "Net Amount",
+    "Section",
+    "Demand Channel"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

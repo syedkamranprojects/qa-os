@@ -1,0 +1,7 @@
+{"option_id":"JR1007","title":"Cheque For Realization","menu_path":["Home","Reports","Cheque For Realization"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=JR1007",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[],"fields":[],
+"buttons":[{"text":"Bounce","id":"DYP.G......Bounce","kind":"ACTION - not clicked"}],
+"grids":[{"headers":["Deposit Slip","PJP-DSR","Current Date","Bank","Bank Branch","Status","Amount"],"rows":328,"columns":7,"grid_text":"Data grid with 328 rows and 7 columns","page_size":9},
+{"headers":["Cheque No","Cheque Date","Amount","Cheque Status","Cheque Status Date"],"rows":0,"columns":5}],
+"messages":["Menu item sits under Reports (layout JR1007) but the rendered content is identical to Receivable > Cheque Status (layout 202020), including the Bounce button: either the same layout is reused or the SPA did not re-render after the in-app route change. Treat as unconfirmed."]}

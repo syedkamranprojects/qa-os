@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_101016",
+ "title": "Unit of Measurement",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Unit of Measurement"
+  ],
+  "group_id": "DYL_101016"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "101016",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101016001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Unit of Measurement - Grid",
+   "table": "GLB_PR_UOM_UNITOFMEASURE",
+   "n_fields": 0,
+   "grids": [
+    "Unit of Measure"
+   ]
+  },
+  {
+   "page": "101016002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101016001",
+   "desc": "Unit of Measurement - Form",
+   "table": "GLB_PR_UOM_UNITOFMEASURE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "Code",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PUOM_UNITCODE",
+   "db_description": "Unit Of Measurement Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Description": {
+   "name": "Description",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PUOM_DESC",
+   "db_description": "Unit Of Measurement Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Abbreviation": {
+   "name": "txt__puom_abrv",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PUOM_ABRV",
+   "db_description": "Unit Of Measurement Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Identifier": {
+   "name": "DDL__puom_unit_identifier",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "PUOM_UNIT_IDENTIFIER",
+   "db_description": "Unit Identifier",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Default": {
+   "name": "ddl__puom_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PUOM_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Status": {
+   "name": "ddl__puom_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PUOM_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Level Type": {
+   "name": "txt__puom_leveltype",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PUOM_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  },
+  "Level No": {
+   "name": "txt__puom_level_no",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PUOM_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101016002"
+  }
+ },
+ "grids": {
+  "Unit of Measure": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Identifier",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

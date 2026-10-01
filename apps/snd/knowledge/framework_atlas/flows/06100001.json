@@ -1,0 +1,791 @@
+{
+ "src": "tf:06100001",
+ "flow_id": "06100001",
+ "description": "Stock Inq Validation BD CL SDMS",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:06100001|0610|1",
+   "seq": 1,
+   "menu_group": "0610",
+   "filename": "NG_Dcode_QA_SDMS-10080"
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0610",
+   "menu_group": "0610",
+   "exists": true,
+   "description": "Stock Inq Validation SDMS",
+   "search_text": "Stock Inquiry II",
+   "navigation": "DYL_BG1015",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0610|061001|1",
+   "mgsm_seq": 1,
+   "screen_id": "061001",
+   "screen_name": "Stock Inq SDMS",
+   "sheet": "Stock Inq SDMS",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_SDMS-10080",
+   "workbook_source": "tfd.ptfd_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0610|061002|2",
+     "mgsm_seq": 2,
+     "screen_id": "061002",
+     "screen_name": "Stock Inq Val 2 SDMS",
+     "sheet": "Stock Inq Val 2 SDMS",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "061001",
+     "tab_nav_type": null,
+     "tab_nav_path": null,
+     "workbook": "NG_Dcode_QA_SDMS-10080",
+     "workbook_source": "tfd.ptfd_filename",
+     "workbook_filename_status": null
+    },
+    {
+     "src": "mgsm:0610|061003|3",
+     "mgsm_seq": 3,
+     "screen_id": "061003",
+     "screen_name": "Stock Inq Val 3 SDMS",
+     "sheet": "Stock Inq Val 3 SDMS",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "061001",
+     "tab_nav_type": null,
+     "tab_nav_path": null,
+     "workbook": "NG_Dcode_QA_SDMS-10080",
+     "workbook_source": "tfd.ptfd_filename",
+     "workbook_filename_status": null
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "061001",
+  "061002",
+  "061003"
+ ],
+ "workbook": {
+  "flow_level_filename": "NG_Dcode_QA_SDMS-10080",
+  "effective_files": [
+   "NG_Dcode_QA_SDMS-10080"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Stock Inq SDMS",
+   "kind": "screen",
+   "screen_ids": [
+    "061001"
+   ]
+  },
+  {
+   "sheet": "Stock Inq Val 2 SDMS",
+   "kind": "screen",
+   "screen_ids": [
+    "061002"
+   ]
+  },
+  {
+   "sheet": "Stock Inq Val 3 SDMS",
+   "kind": "screen",
+   "screen_ids": [
+    "061003"
+   ]
+  },
+  {
+   "sheet": "Stock_ValafterGIN3_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "061003"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Stock Inq SDMS",
+    "Stock Inq Val 2 SDMS",
+    "Stock Inq Val 3 SDMS",
+    "Stock_ValafterGIN3_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Stock Inq SDMS",
+    "Stock Inq Val 2 SDMS",
+    "Stock Inq Val 3 SDMS"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Stock_ValafterGIN3_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.25
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Stock Inq SDMS",
+    "Stock Inq Val 2 SDMS",
+    "Stock Inq Val 3 SDMS",
+    "Stock_ValafterGIN3_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Stock Inq SDMS",
+    "Stock Inq Val 2 SDMS",
+    "Stock Inq Val 3 SDMS",
+    "Stock_ValafterGIN3_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Stock Inq SDMS",
+    "Stock Inq Val 2 SDMS",
+    "Stock Inq Val 3 SDMS",
+    "Stock_ValafterGIN3_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (PHP).xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Stock_ValafterGIN3_ASSR",
+    "screen_id": "061003",
+    "src": "sef:061003|serial 4"
+   }
+  ],
+  "validations_0007": 1,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 3,
+  "fields": 11,
+  "fields_active": 11,
+  "events": 8,
+  "events_active": 8,
+  "events_by_kind": {
+   "load_data": 3,
+   "click": 3,
+   "screen_validation": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Stock Validation/Inquiry"
+  ],
+  "market": "BD",
+  "menu_option": "DYL_BG1015",
+  "menu_search_text": "Stock Inquiry II"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "83",
+   "group_desc": "Positive SDMS-10080 BD (R1, independent ids)",
+   "seq": 38,
+   "active": true,
+   "user": "Auto_Bangla (serial 10)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "061001": {
+   "src": "sc:061001",
+   "screen_id": "061001",
+   "name": "Stock Inq SDMS",
+   "sheet": "Stock Inq SDMS",
+   "type": "Save",
+   "sheet_name_len": 14,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:061001|DDL__pptp_period_type|1.0|1|1",
+     "seq": 1,
+     "field_id": "DDL__pptp_period_type",
+     "locate_by": "id",
+     "label": "Period Type",
+     "db_column": "Period Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061001:f1"
+    },
+    {
+     "src": "sf:061001|DDT__tssb_balance_date|1.0|2|1",
+     "seq": 2,
+     "field_id": "DDT__tssb_balance_date",
+     "locate_by": "id",
+     "label": "Balance Date",
+     "db_column": "Balance Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061001:f2"
+    },
+    {
+     "src": "sf:061001|categoryFilter|1.0|3|1",
+     "seq": 3,
+     "field_id": "categoryFilter",
+     "locate_by": "id",
+     "label": "Category",
+     "db_column": "Category",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061001:f3"
+    },
+    {
+     "src": "sf:061001|brandFilter|1.0|4|1",
+     "seq": 4,
+     "field_id": "brandFilter",
+     "locate_by": "id",
+     "label": "Brand",
+     "db_column": "Brand",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061001:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:061001|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "061001:e1"
+    },
+    {
+     "src": "sef:061001|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click on Show Inquiry Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "showInquiryRefresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "061001:e2"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 2,
+    "events_active": 2
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "061002": {
+   "src": "sc:061002",
+   "screen_id": "061002",
+   "name": "Stock Inq Val 2 SDMS",
+   "sheet": "Stock Inq Val 2 SDMS",
+   "type": "Save",
+   "sheet_name_len": 20,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:061002|rowfilter_asyd|1.0|1|1",
+     "seq": 1,
+     "field_id": "rowfilter_asyd",
+     "locate_by": "id",
+     "label": "Auto",
+     "db_column": "Auto",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061002:f1"
+    },
+    {
+     "src": "sf:061002|rowfilter_warehousedesc|1.0|3|1",
+     "seq": 3,
+     "field_id": "rowfilter_warehousedesc",
+     "locate_by": "id",
+     "label": "Auto1",
+     "db_column": "Auto1",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061002:f3"
+    },
+    {
+     "src": "sf:061002|rowfilter_TXT__STOCKTYPEDESC|1.0|4|1",
+     "seq": 4,
+     "field_id": "rowfilter_TXT__STOCKTYPEDESC",
+     "locate_by": "id",
+     "label": "Auto2",
+     "db_column": "Auto2",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061002:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:061002|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "061002:e1"
+    },
+    {
+     "src": "sef:061002|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "061002:e2"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 3,
+    "fields_active": 3,
+    "events": 2,
+    "events_active": 2
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "061003": {
+   "src": "sc:061003",
+   "screen_id": "061003",
+   "name": "Stock Inq Val 3 SDMS",
+   "sheet": "Stock Inq Val 3 SDMS",
+   "type": "Save",
+   "sheet_name_len": 20,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:061003|row_1_in_cs|1.0|1|1",
+     "seq": 1,
+     "field_id": "row_1_in_cs",
+     "locate_by": "id",
+     "label": "In CS",
+     "db_column": "In CS",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061003:f1"
+    },
+    {
+     "src": "sf:061003|row_1_out_cs|1.0|2|1",
+     "seq": 2,
+     "field_id": "row_1_out_cs",
+     "locate_by": "id",
+     "label": "Out CS",
+     "db_column": "Out CS",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061003:f2"
+    },
+    {
+     "src": "sf:061003|row_1_in_pc|1.0|3|1",
+     "seq": 3,
+     "field_id": "row_1_in_pc",
+     "locate_by": "id",
+     "label": "In PC",
+     "db_column": "In PC",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061003:f3"
+    },
+    {
+     "src": "sf:061003|row_1_out_pc|1.0|4|1",
+     "seq": 4,
+     "field_id": "row_1_out_pc",
+     "locate_by": "id",
+     "label": "Out PC",
+     "db_column": "Out PC",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "061003:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:061003|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "061003:e1"
+    },
+    {
+     "src": "sef:061003|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click to slide",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_atp_cs",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "061003:e2"
+    },
+    {
+     "src": "sef:061003|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0007",
+     "kind": "screen_validation",
+     "event_name": "Screen Excel DB Screen Validation",
+     "in_ce_table": true,
+     "desc": "Data Validation",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "061003:e3"
+    },
+    {
+     "src": "sef:061003|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Screenshot/Attachment",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Stock_ValafterGIN3_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "061003:e4",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Stock_ValafterGIN3_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 4,
+    "events_active": 4
+   },
+   "assertion_sheets": [
+    "Stock_ValafterGIN3_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

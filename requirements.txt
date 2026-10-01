@@ -1,0 +1,5 @@
+# QA OS runtime (player, run manifest, workbook, knowledge builders). Python 3.10+.
+selenium>=4.20
+pyyaml>=6.0
+jsonschema>=4.20
+openpyxl>=3.1

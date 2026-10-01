@@ -1,0 +1,165 @@
+# QA OS — status at end of session (Friday 2026-09-25) — resume on Monday
+
+## 1. The goal (unchanged)
+A QA user gives Claude a Jira story. Claude turns it into test cases and steps, **runs the flow itself through the Selenium/Vibium MCP**,
+records screens, menu paths, element ids and messages, and generates the **`CTA_CONFIG_ASSERTION` SQL** (+ case-data workbook) for the
+**legacy Regress framework**. A person reviews and applies the SQL; the QA team then runs the flow in the legacy framework. QA users write no code.
+
+**Working rules agreed:**
+- The QA user logs in **once** in the browser Claude opens. Claude **never types passwords**, so login is always a human step.
+- Claude executes through the **MCP**, not by asking people to run Python commands. (The Python player was an interim workaround.)
+- No user guide exists for any app: knowledge comes from DB metadata + the live app + Jira stories.
+- One data row per case while Claude executes; bulk data is generated only for the legacy engine.
+- SQL is **never auto-applied**: always a reviewed file.
+- The platform must work in other QA members' Claude environments (plugin, no machine-specific paths).
+
+## 2. Phase status
+| Phase | Status |
+|---|---|
+| P0 Foundation | Done |
+| P1 Story → cases → steps | Done (SDMS-10351: 53 cases with steps) |
+| P2 Execution and test data | **Closed** (see §4); order/business-effect cases wait for QA fixtures, uploads deferred |
+| P3 Framework scripts + bulk data | **Started**: first SQL draft + case data generated, not yet validated in the framework |
+| P4 Handover to QA team | Not started |
+
+## 3. What exists (all under `C:\MyWork\gias-qa-workspace\qa-os`)
+| Path | Content |
+|---|---|
+| `docs/ARCHITECTURE.md` | Full design (agents, app packs, tiers, hooks, bulk data §13A) |
+| `plugins/qa-os/` | Agents (app-cartographer, story-analyst, test-designer, step-author, data-engineer), skills (qa-orchestrator, step-dsl), commands, schemas |
+| `apps/snd/` | S&D app pack: `app.yaml`, observed screens, knowledge (menu, i18n, data dictionary, **sweep of 314 screens**), flows, tools |
+| `apps/snd/knowledge/sweep/cnr2dev3.KPO_slv.json` | Whole-app read-only sweep: 314/314 screens, 3,300 fields, ids, buttons, grids |
+| `apps/snd/knowledge/screens_observed/` | One file per swept screen |
+| `framework/cta_config_assertion.md` | Legacy framework schema map + case-data contract (verified with real workbooks) |
+| `framework/tools/gen_framework_sql.py` | Flow spec → SQL + rollback + case-data workbook + review sheet |
+| `runs/SDMS-10351/20260925-1214/` | The pilot run: requirement, cases, steps, workbook, exec results, `framework/` SQL draft |
+| `runtime/` | Interim Python helpers: player, run manifest, workbook renderer, data resolver, doctor |
+
+## 4. SDMS-10351 pilot outcome
+- 53 cases: **12 Passed, 6 Failed, 35 Not Executed** (22 upload cases deferred by decision; TC44/47/48/50 stay manual; TC43/45/46/49/51/52 need QA fixtures).
+- **Two real app defects found** (raise with the BA/dev): (1) an **expired policy (PL000000050) is fully editable** with Update enabled;
+  (2) **Type stays editable on a current policy** (story says only End Date).
+- **Story questions for the BA** (in the workbook's Notes sheet, AMB1–AMB14): expired policies listed in the grid (AMB1); Type editable (AMB3);
+  policy grid not per distributor (AMB10); download's Entity Code is the earlier uploaded DT, not the login DT (AMB11); Status shown Yes/No (AMB12);
+  headers-only upload accepted (AMB13); generic upload error message (AMB14); template has a code column, no description (AMB4).
+- Rules **R10, R13 and the R14 overlap rule have no automated case** while uploads are deferred: QA must cover them by hand.
+
+## 5. Framework SQL draft (the main deliverable so far)
+`runs/SDMS-10351/20260925-1214/framework/`: `framework.sql` (14 INSERTs, one transaction, pre-flight id check, rows tagged `QAOS-SDMS-10351`),
+`framework_rollback.sql`, `NG_Dcode_QA_SDMS-10351.xlsx`, `framework_review.md`, `flow_spec.json`.
+Ids: menu group **0611**, screen **061101**, flow **06110001**; master_app_id **1**. Covers **create policy** only.
+**Not validated yet**: needs a Framework admin to apply it to a *test copy* of `CTA_CONFIG_ASSERTION`, place the workbook in `<BASE_PATH>\casedata\`
+(BASEPATH_1 config; the DB has no base path for app 1), and run flow `06110001` once.
+
+## 6. Environments and users (passwords only in the gitignored `.claude/settings.local.json`)
+| Env | URL | User | Notes |
+|---|---|---|---|
+| cnr2dev3 | https://dcodecnr2dev3.unilever.com/ngui | **KPO_slv**, distributor **50000451** | Has SKU Substitution screens **and** working Order Booking. Best default. Offered distributors: 50000451, 50000598, 50000599 |
+| cnr2dev3 | same | KPO_ph (15181887, 50200411, 50200779) | SKU screens present; Order Booking dropdowns empty |
+| cnr1dev1 | https://dcodecnr1dev1.unilever.com/ngui | KPO_mp (no distributor) | Order Booking works; **no SKU Substitution screens**; 437 openable screens |
+Password keys: `SD_TEST_USER/SD_TEST_PASSWORD` (KPO_ph), `SD_PASSWORD_KPO_MP`, `SD_PASSWORD_KPO_SLV`.
+Test data left on cnr2dev3: policies PL000000052 ("QAOS TC07 auto sub exclusion", 2026-10-05..15). The base DB `snd-schema` (ng_astrone) has **no PH data** and no SKU Substitution tables.
+
+## 7. Open items
+**Waiting on you**
+- Review `framework.sql`; find someone to apply it to a test framework DB and run flow 06110001.
+- A **second story** to run as a QA user (the plan for Monday).
+- **Jira SDMS access** (the Atlassian account authenticates but can't see the project; pasted exports used meanwhile).
+- **QA fixtures** for the order cases (`runs/SDMS-10351/20260925-1214/QA_FIXTURES.md` + `fixtures.json`).
+- BA answers to the story questions (§4).
+**On my side**
+- Build the **recorder**: Claude executes steps through the MCP and produces `flow_spec.json` (then SQL) automatically. Today the spec is written by hand.
+- Sweep KPO_mp/cnr1dev1 and KPO_ph; a **tab pass** for tabbed screens (Outlet Profile shows ~30 of 83 fields on the first tab); dropdown options.
+- SQL for the remaining SKU flows (update-policy TC36–42) and order flows once fixtures exist.
+- Bulk-data-factory for the legacy case-data workbooks (contract is verified in `framework/cta_config_assertion.md` §5.1).
+- Wrap the MCP-driven execution into the plugin agents/skills (P4) and retire the Python player.
+
+## 8. Plan for Monday
+1. You paste the **second story**; we run it the way a QA member would: story → questions → cases/steps → you log in once → I execute via MCP →
+   recorder → SQL + case data → review note. Measure friction (rounds, manual fixes, SQL shape vs existing flows).
+2. In parallel, the framework owner validates the SKU draft.
+3. Pick up fixtures / BA answers / Jira access as they arrive.
+
+## 9. Gotchas learned (details in `apps/snd/knowledge/ui.md` and `sweep/README.md`)
+- DevExtreme: `dx-selectbox` has a hidden input first; off-screen grid headers need `textContent`; text boxes commit on blur (press Tab); grids can be paged without a next arrow.
+- Sidebar clicking is fragile; **navigate directly by route** (`history.pushState` + `popstate`) inside the page.
+- Description validation: max 100, **no special characters**; the message shows only on hover of the field's error icon.
+- Order Booking date is read-only = today. Order flow: PJP → Selling Category → Section → Outlet → `Order Detail` → lines (`New Order`, `Add a row`); Save not yet seen.
+- Legacy rows use button ids `saveBtn/updateBtn`; the current app uses `save/update`.
+- Windows: Git-Bash `/tmp` paths are not visible to Windows Python; use the Windows Python at `C:\Users\syed.kamran\AppData\Local\Python\bin\python.exe`.
+- The Selenium MCP browser is closed; the user logs in again when needed (the logout menu isn't reachable from the distributor page).
+
+---
+# Update: Monday 2026-09-28 (Van Sales run) — resume here
+
+## Decisions made today
+- **Cap: at most 10 core test cases per story**; the rest go to a backlog (kept in cases.json, promoted later). Design change to the test-designer: emit <=10 core cases, each adding a new flow/screen/rule.
+- **MCP execution is a one-time recording per flow** (one data row), not a regression run. The legacy engine runs all cases and data variations. Only run an MCP recording when the script needs an id, path or real message we do not have yet.
+- **Minimise user intervention**: only login (and stock-changing / BA decisions) need the user. Every obstacle goes to `friction.md` with the software fix.
+- Environment for Van Sales: **cnr1dev1 as KPO_mp** (Unilever). Navigation there = sidebar search box + click (pushState does not work).
+
+## Van Sales run: `runs/VAN-SALES-E2E/20260928-1012/`
+Stages done: analyse (39 rules, 13 ambiguities), cases (42 = 10 core proposed + backlog), steps, execute (recording), scripts. Not done: data, bulk.
+Files: `requirement.json`, `cases.json`, `steps.json`, `exec/results.json` (7 ready cases: 4 passed, 2 failed, 1 blocked), `live_findings.md`, `friction.md`, `framework/` (`recording_create_request.json`, `flow_spec.json`, `framework.sql` 13 INSERTs, `framework_rollback.sql`, `NG_Dcode_QA_VAN-SALES-E2E.xlsx` 3 rows, `framework_review.md`). **Nothing applied.**
+Test data left on cnr1dev1: Van Sale Stock Requests **20260000000570** (PJP FARSSPJP01, LUX 2 CS + SURF EXCEL 1 CS) and **20260000000571** (PJP HBVANPJP01, LUX 1 CS), both Drafts (grid says "New"). Fixture: PJP FARSSPJP01 / HBVANPJP01, warehouse C0000000001 M&P Main; products with stock LUX 67648757, SURF EXCEL 68383414.
+
+## Story variances to send to the BA (live app vs story)
+"Van Seller" DSR type is "Van Sales"; no Reference PJP field on PJP Creation HQ; grid columns lack PJP Code/DSR Code/GIN No; buttons are Add/Submit/Cancel (no New/Delete/Forward); status shows "New" (Draft); no request-level Delete (lines only Edit); no Picklist Reference on the GIN; only one Draft per PJP.
+
+## What was built today
+- `plugins/qa-os/runtime/qaos_helpers.js` (injectable page helper + action log; tested live) and `framework/tools/qaos_record.py` (log + meta -> flow_spec.json).
+- Rule saved to memory: minimise user intervention.
+
+## Next (in order)
+1. Framework owner reviews `framework.sql` (Van Sales) and the earlier SKU one; applies to a test copy; runs flows 06120001 / 06110001.
+2. Reduce cases.json to 10 core + backlog; record the missing small flows (DSR Type option, Reference PJP absence, Route Settlement PJP list) with the helper.
+3. Build fixture discovery (read APIs with the page token) and the known-variance / app-rules registry in the app pack; session probe + one re-login.
+4. Stock-changing flows (Forward/Submit, GIN approval): author, mark unverified, record only with the user's explicit OK.
+5. Query snd-schema for stock-request status codes (Draft vs New) and document status table when the tool is available.
+6. Wrap the helper + recorder into plugin skills/agents; retire the Python player.
+Gotchas: sessions expire after a long idle gap (re-login); UI steps must run one at a time; toasts vanish in <1 s (use clickCapture); duplicate ids (`Cancel` is also the Submit id); switching Header/Detail before Save discards lines.
+
+---
+# Update: Tuesday 2026-09-29 (knowledge layer)
+- Ran a read-only inspection of snd-schema: `apps/snd/knowledge/db_inspection_2026-09-29.md`. Key facts: orgs = markets (010104 Unilever Pakistan, 010105 Bangladesh, 0101/0102 Danone Indonesia, 99 Global); KPO_MP = Pakistan; DB has no Van Sales tables; per-role button permissions are not in the DB (screen-level only).
+- Built the **access knowledge layer** `apps/snd/knowledge/access/` (screens, menu tree, role->screens, users (e-mail codes masked), per-org feature flags) + tools `access_lookup.py` (screen / user / who / features / diff-features / validate-live) and `build_access.py`. DB covers 83% of KPO_MP's live menu; 73 live screens are newer than the DB (incl. Van Sales).
+- Also this session: `cases.json` cut to 10 core + 32 backlog; read-only recordings of TC02/TC05/TC26; `BA_NOTE.md` written; `docs/QUESTION_BANK.md` (question checkpoints + story intake block).
+Next: wire access_lookup into the orchestrator (pick the user for a story automatically, C0/Q-ENV-2); add non_production flag + intake-block parser; get a newer data dictionary for Van Sales; extract data-authority scope.
+- **Orchestrator wired to the access layer (v0.3):** skill `plugins/qa-os/skills/qa-orchestrator/SKILL.md` now has Stage 0 (read intake block, `access_lookup.py plan-user ... --org` picks env/user from live menus + DB + `account_notes.json`, authorization only on `non_production` envs). New: `plan-user` command, `knowledge/access/account_notes.json`, `app.yaml` (`org`, `non_production`, `access:` block). Not built yet: an automatic intake-block parser (Claude reads it), decisions.md promotion, per-role button permissions.
+- **Intake parser + promotion built (2026-09-29):** `runtime/qaos_intake.py` (parse / answer / show -> `decisions.json`, schema `plugins/qa-os/schemas/decisions.schema.json`), `runtime/qaos_promote.py` (dry run by default, `--apply`, conflicts kept for review, status observed < stated < ruled, provenance), app-pack file `apps/snd/knowledge/decisions.json` (seeded with 1 observed term and 2 observed rules). `qaos_run.py validate` now checks `decisions.json` and the 10-core-case cap. Tested on 3 scratch stories (full block / no block / block naming an account that lacks the screens) and on promotion (add, upgrade, duplicate, idempotent second apply); the real app pack and the real Van Sales run were not modified. Not yet run on the real Van Sales run (no intake block was written for it). Next: try the flow on the next real story; extract data-authority scope; per-role button permissions need the live app.
+- **Van Sales intake run (2026-09-29):** intake block appended to `runs/VAN-SALES-E2E/20260928-1012/inputs/story.md` (written by Claude at the QA lead's request; review before reuse); real `qaos_intake.py parse` OK (`decisions.json`; KPO_mp verified against 6/6 screens; allow create+save, never forward/approve/delete); `validate` all OK. Promotion **applied**: term "Van Seller = Van Sales" now `stated` in `apps/snd/knowledge/decisions.json` (+ `decisions.md`). Intake `expected-variance` lines are no longer promotable (release-specific): only a reusable BA ruling promotes a variance.
+
+## What is needed from the user next (priority)
+1. A framework owner to apply `framework.sql` (Van Sales flow 06120001, SKU flow 06110001) to a test copy of CTA_CONFIG_ASSERTION and run the flows: nothing is validated in the legacy engine yet (critical path).
+2. Send `runs/VAN-SALES-E2E/20260928-1012/BA_NOTE.md` to the BA; record answers with `qaos_intake.py answer ... --owner BA --reusable`, then `qaos_promote.py --apply`.
+3. A second real story with an intake block: first true end-to-end test (target: login only).
+Optional: OK to record Forward / GIN approval (stock-changing); a newer data dictionary that includes Van Sales tables; Jira SDMS access; change the KPO_mp password (it was pasted in chat).
+
+---
+# Update: 2026-09-29 (Dispatch Advice replay + step vocabulary)
+- **Framework replay started (Dispatch Advice, flow group 11 "Daily Cycle Only Positive Flow")**: read the framework tables (`apps/snd/knowledge/framework_flows/DISPATCH_ADVICE.md`), ran the DA slice live on cnr1dev1: DA **570** created (M&P Main Warehouse, as KPO_mp; Automation login was invalid), 4 lines, 1 loss row, forwarded, approved by the same user (deviation). Then found the automation data lives under distributor 15108843 (login Auto_Tssm, which is approve-only: "Current user is not authorized to save this record!"). The DA slice is NOT yet run as designed (maker + separate checker, Auto Main Warehouse, workbook quantities): needs a maker login (Auto_Multi_Orga or Automation).
+- Framework drift found: rowEditBtn_Save_0 assumes row 0; loss modal save has no toast; `forwardBtn` wrapper needs inner-button click; comment needs blur; gridFilterCheckbox is a toggle.
+- **Standard step vocabulary** (`docs/STEP_VOCABULARY.md`), **S&D step library** (`apps/snd/steps/library.yaml`: 21 business steps (17 verified live), actors Maker/Checker/StockController/HeadOffice, DA screen ids, real messages, `verified` flags) and **QA guide** (`docs/QA_GUIDE.md`) created; skills updated. Rules from the QA lead: maker-checker with an explicit switch point (Logout, Login as <role>); approval = same Dispatch Advice option, different user, just approve.
+- Not built yet: parser/compiler from business steps to DSL/player (the library is the specification; Claude executes it by hand for now); `switch_user` and `filter_grid` primitives; steps.schema.json still lists DSL v1 verbs only.
+- **DA slice complete (2026-09-29):** DA 1350 created+forwarded by Maker (Auto_Multi_Orga), approved by Checker (Auto_Tssm), stock validated by Stock Controller (Auto_Multi_Orga): `apps/snd/knowledge/framework_flows/TC-DA-01_executed.md` (TC-DA-01 pass, TC-DA-02 partial: framework assumes a clean day; loss stock needs the skipped Loss Approval). Chain continues with Order Booking (0001), Stock Allocation (0013) ... as Auto_Multi_Orga.
+- **Order Booking executed (2026-09-29):** order COL26000001995 via framework flow 00010001, totals equal the workbook (gross 143,109.13, net 134,999.00): `apps/snd/knowledge/framework_flows/TC-OB-01_executed.md`. Chain progress: DA (created/forwarded/approved/loss-approved) -> stock validation -> Order Booking done; next Stock Allocation (0013) as Auto_Multi_Orga.
+
+---
+# Update: end of 2026-09-29 (Dispatch Advice cycle replay) — RESUME HERE TOMORROW
+## What happened today (details in `apps/snd/knowledge/framework_flows/`)
+- Built: access knowledge layer, intake parser + promotion, question bank, step vocabulary + S&D step library + QA guide, orchestrator v0.3 (see earlier sections).
+- **Replayed the framework's Pakistan "Daily Cycle" (group 11) on cnr1dev1 through the browser**, reading `fct_pr_gtfd_group_test_flow_detail` (semantics: plu_serial_no = user, login_status Y = log out and log in as that user; 10 switch points in the cycle). Done: DA create/forward (Auto_Multi_Orga) -> DA approval (Auto_Tssm) -> DA loss approval (Auto_Tssm) -> stock validation -> Order Booking (8 orders COL26000001995-2002, all totals = workbook) -> Stock Allocation -> Transaction Inquiry check. Executed test cases: `TC-DA-01_executed.md` (TC-DA-01..03), `TC-OB-01_executed.md` (TC-OB-01..03). Full log: `DISPATCH_ADVICE.md` (parts 1-9), session plan for the whole cycle inside it.
+- **Blocked at chain seq 15 Order Editing**: Outlet Name list is empty ("No data to display") for the automation PJP with today's dates. Draft step sheet with all open questions: `STEP_SHEET_DRAFT_next.md`.
+## Decisions from the QA lead
+- Standard step vocabulary; maker/checker with explicit switch points (Logout, Login as <role>); approval = same option, different user.
+- Claude never types credentials (user id or password); it logs the window out and the QA lead logs in at each switch.
+- **QA should provide/approve the test steps (a step sheet) before execution to avoid back-and-forth**; Claude drafts it from the framework tables and marks steps "clear" / "needs input".
+## Data left on cnr1dev1
+DA 570 (M&P, KPO_mp; approved by the same user, deviation), DA 1350 (Auto KARACHI, Auto Main Warehouse; approved), loss record 637 approved, orders COL26000001995-2002 (8, Confirmed, allocated; delivery date 2026-10-05), order COL26000001988 allocated by the allocation step. Van Sale Stock Requests 20260000000570/571 (Drafts, KPO_mp) from Monday.
+## Findings for the framework owner (collected; each in the TC files)
+Loss modal save has no message; `rowEditBtn_Save_<row>` index; `forwardBtn` wrapper vs inner `forward`; comment needs blur; `gridFilterCheckbox` toggle state; workbook Reference Number 100 collides on rerun (field inactive in framework); stock validation assumes a clean day and loss stock (Damaged/Lost) not seen in Stock Inquiry after loss approval (open question); auto-allocation at order save vs manual allocation flow; Order Editing/Cancellation outlet list empty (suspected delivery-date range); `Automation` login rejected; maker user not named in the tables.
+## Tomorrow
+1. QA answers the 4 questions in `STEP_SHEET_DRAFT_next.md` (esp. Order Editing/Cancellation, unallocation, delivery date).
+2. Continue the cycle from seq 15 as Auto_Multi_Orga (browser must be logged in again; the session was closed), then GIN, then the switch to Auto_Tssm (seq 23).
+3. Still open from before: framework owner validates the SKU and Van Sales SQL drafts; BA note for Van Sales; loss-stock location question; the maker default user.
+Tools/gotchas: in-page order booking routine (type-ahead via key events, run in background and poll, tool call limit ~30 s); helper is lost on every new login (re-inject); real clicks needed for tabs and the filter checkbox; browser alerts (Allocation) are accepted with the alert tool.

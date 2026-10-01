@@ -1,0 +1,129 @@
+{
+ "option_id": "DYL_LMT_ORDER_CREATION",
+ "title": "Bulk Order Upload",
+ "menu": {
+  "path": [
+   "Integrator",
+   "Bulk Order Upload"
+  ],
+  "group_id": "NG1212"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "LMT_ORDER_CREATION",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202030001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_ORI_ORDER_INTEGRATION",
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "202030002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202030001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_ORI_ORDER_INTEGRATION",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202030003",
+   "tab": null,
+   "is_child": true,
+   "parent": "202030002",
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_OID_ORDR_INTGRTON_DTL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Date From": {
+   "name": "datebox1Parent",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "EORI_FILE_UPLOAD_DATE",
+   "db_description": "File Upload Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202030001"
+  },
+  "Date To": {
+   "name": "datebox2Parent",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "EORI_FILE_UPLOAD_DATE",
+   "db_description": "File Upload Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202030001"
+  },
+  "Status": {
+   "name": "DDL__EORI_ERROR_STATUSPARENT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EORI_ERROR_STATUS",
+   "db_description": "Error Status",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "P",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202030001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "PO No",
+    "Cashmemo No ",
+    "Status",
+    "Message"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

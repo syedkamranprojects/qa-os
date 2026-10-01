@@ -1,0 +1,17 @@
+{"option_id":"/ngui/content-master/mobility/vat-treasury-deposit","title":"Vat Treasury Deposit","menu_path":["Home","Transaction","Receivable","Vat Treasury Deposit"],"route":"/ngui/content-master/mobility/vat-treasury-deposit","url_path":"/ngui/content-master/mobility/vat-treasury-deposit",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[],
+"fields":[
+{"label":"Document Number","id":"documentNo","widget":"readonly","required":false,"readonly":true,"default":""},
+{"label":"Document Date","id":"documentDate","widget":"date","required":false,"readonly":true,"default":"today (2026-10-01)"},
+{"label":"Treasury Deposit Date","id":"treasuryDepositDate","widget":"date","required":false,"readonly":false,"default":"today"},
+{"label":"mobility.vat_treasury_deposit.treasury_challan_date","id":"treasuryChallanDate","widget":"date","required":false,"readonly":false,"default":"today","note":"label is an UNTRANSLATED i18n key shown raw on screen"},
+{"label":"Treasury Deposit Number","id":"treasuryDepositNo","widget":"masked text","required":false,"readonly":false,"default":"____-___________"},
+{"label":"Treasury Deposit Amount","id":"treasuryDepositAmt","widget":"text","required":false,"readonly":false,"default":""},
+{"label":"Tax Deposited Account Number","id":"taxDepositAccountNo","widget":"masked text","required":false,"readonly":false,"default":"_-____-____-____"},
+{"label":"Bank Name","id":"brachname","widget":"dropdown","required":false,"readonly":false,"default":""},
+{"label":"Bank Branch","id":"BankBranch","widget":"dropdown","required":false,"readonly":false,"default":""},
+{"label":"Remarks","id":"Remarks","widget":"text","required":false,"readonly":false,"default":""}],
+"buttons":[{"text":"Add","id":"add_btn","kind":"read-only (disabled)"},{"text":"Save","id":"save_btn","kind":"ACTION - not clicked"}],
+"grids":[{"headers":["Document No","Document Type","Document Date","mobility.vat_treasury_deposit.treasury_challan_date","Deposit Amount","Treasury Deposit Date","Treasury Deposit Number"],"rows":0,"columns":7,"grid_text":"Data grid with 0 rows and 7 columns","paged":false,"filter_inputs":{}}],
+"messages":["Raw i18n key mobility.vat_treasury_deposit.treasury_challan_date appears as both field label and grid header (missing translation)."]}

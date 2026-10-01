@@ -1,0 +1,83 @@
+{
+ "option_id": "DYL_102014001",
+ "title": "Transaction View",
+ "menu_path": [
+  "",
+  "Transaction View"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102014001",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102014001",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__PDOSDOCMSTATUSPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": true
+  },
+  {
+   "text": "Offering",
+   "id": null,
+   "title": "Offering",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Seller",
+    "Purchaser",
+    "Order Booker/Delivery Man",
+    "Currency",
+    "Document Reference No",
+    "Document Date",
+    "Delivery Date",
+    "Order Cancel Reason",
+    "Delivery Mode"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

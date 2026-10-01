@@ -1,0 +1,175 @@
+{
+ "option_id": "DYL_202036",
+ "title": "Re Attempt FBR Invoice",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Re Attempt FBR Invoice"
+  ],
+  "group_id": "DYL_202036"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202036",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202036001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_pr_dos_documentstatus",
+   "n_fields": 6,
+   "grids": []
+  },
+  {
+   "page": "202036002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202036001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CMM_CASHMEMO_MASTER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document Type": {
+   "name": "DDL__DOCUMENTTYPE_PARENT",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "202036001"
+  },
+  "Status": {
+   "name": "DDL__STATUS_PARENT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "STATUS",
+   "db_description": "Status",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "F",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202036001"
+  },
+  "PJP Number": {
+   "name": "DDL__EPJPPJPNODAILY_PARENT",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "EPJP_PJPNO_DAILY",
+   "db_description": "PJP Number Daily",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJPDM",
+   "validations": null,
+   "regex": null,
+   "page": "202036001"
+  },
+  "Date Type": {
+   "name": "DDL__DATETYPE",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "DATE_TYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "DD",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202036001"
+  },
+  "Date From": {
+   "name": "DT__DATEFROM_PARENT",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TCMM_DOCM_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202036001"
+  },
+  "Date To": {
+   "name": "DT__DATETO_PARENT",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "TCMM_DOCM_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202036001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Document Type",
+    "Document No",
+    "Document Date",
+    "Delivery Date",
+    " PJP",
+    "Section",
+    "Status",
+    "Error Message"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Resend",
+  "Refresh"
+ ]
+}

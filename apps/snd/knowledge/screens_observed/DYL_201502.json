@@ -1,0 +1,116 @@
+{
+ "option_id": "DYL_201502",
+ "title": "Credit/Debit Note Inquiry",
+ "menu_path": [
+  "Transaction",
+  "Receivable",
+  "Credit/Debit Note Inquiry"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201502",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201502",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [
+  "Detail"
+ ],
+ "fields": [
+  {
+   "label": "Date From",
+   "id": "DateFrom",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date From",
+   "id": "DateTo",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Distributor",
+    "IO Code",
+    "Document No",
+    "Document Type",
+    "Sub Document Type",
+    "Document Date",
+    "Status",
+    "Document Status",
+    "Outlet Name",
+    "Amount",
+    "Adjustment Amount",
+    "Adjusted Date",
+    "Comments",
+    "Creator/Approval",
+    "Creator/Approval date",
+    "Expiry Date",
+    "DYP.......CNnumber",
+    "Invoice Date"
+   ],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [
+    "Serial No",
+    "Document Reference No",
+    "Document Type",
+    "Adjustment Amount",
+    "Adjusted Date"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

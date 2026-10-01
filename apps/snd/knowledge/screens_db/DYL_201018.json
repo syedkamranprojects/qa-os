@@ -1,0 +1,235 @@
+{
+ "option_id": "DYL_201018",
+ "title": "Validation Header",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Validation",
+   "Validation Header"
+  ],
+  "group_id": "DYL_201018"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201018",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201018001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Validation Header - Grid",
+   "table": "VLD_VL_VDH_VALIDATION_HEADER",
+   "n_fields": 0,
+   "grids": [
+    "grid2"
+   ]
+  },
+  {
+   "page": "201018002",
+   "tab": "Validation Form",
+   "is_child": false,
+   "parent": null,
+   "partial": "201018001",
+   "desc": "Validation Header - Form",
+   "table": "VLD_VL_VDH_VALIDATION_HEADER",
+   "n_fields": 7,
+   "grids": []
+  },
+  {
+   "page": "201018003",
+   "tab": "Detail Form",
+   "is_child": true,
+   "parent": "201018001",
+   "partial": null,
+   "desc": "Validation Details - Grid",
+   "table": "VLD_VL_VDD_VALIDATION_DETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Serial No": {
+   "name": "TXT__VVDHSERIALNO",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "VVDH_SERIAL_NO",
+   "db_description": "Validation Header Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  },
+  "Event ID": {
+   "name": "ddl__peveventid1",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PEV_EVENTID",
+   "db_description": "Event ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PEVT",
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  },
+  "Validation Code": {
+   "name": "ddl__vvdsvalidationcode1",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "VVDS_VALIDATION_CODE",
+   "db_description": "Validation Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "VVDS",
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  },
+  "Type": {
+   "name": "DDL__PBETBUSENTITYTYPE",
+   "id": "selectbox13",
+   "widget": "select",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PBET",
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  },
+  "Code": {
+   "name": "TXT__VVDHBUSENTITYCODE",
+   "id": "selectbox15",
+   "widget": "select",
+   "data_field": "VVDH_BUSENTITY_CODE",
+   "db_description": "Business Entity Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "UNIONALL",
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  },
+  "Active": {
+   "name": "TXT__VVDHACTIVE",
+   "id": "selectbox14",
+   "widget": "select",
+   "data_field": "VVDH_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  },
+  "Document Type": {
+   "name": "DDL__pdot_docmtype",
+   "id": "selectbox16",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "201018002"
+  }
+ },
+ "grids": {
+  "grid2": {
+   "columns": [
+    "Serial No",
+    "Organization",
+    "Type",
+    "Code",
+    "Document Type",
+    "Event ID",
+    "Validation Code",
+    "Active",
+    "Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  },
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Event ID",
+    "Validation Code",
+    "Serial Num",
+    "Serial No",
+    "Repository Code",
+    "Value",
+    "Sign",
+    "Validation Value From",
+    "Validation Value To",
+    "Interval",
+    "Interval Value",
+    "Interval Date",
+    "Interval String",
+    "Active",
+    "Message",
+    "Validation Type",
+    "SKU Must Have",
+    "Date From",
+    "Date To"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

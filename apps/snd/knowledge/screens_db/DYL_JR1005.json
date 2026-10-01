@@ -1,0 +1,127 @@
+{
+ "option_id": "DYL_JR1005",
+ "title": "DSR Statement DM - SS Based",
+ "menu": {
+  "path": [
+   "Reports",
+   "DSR Statement DM - SS Based"
+  ],
+  "group_id": "DYL_JR1005"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1005",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "JR1005001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Date From": {
+   "name": "FrmDt",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "FRMDT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1005001"
+  },
+  "Delivery Man": {
+   "name": "DelvMan",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "DELVMAN",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "DSRPRT",
+   "validations": null,
+   "regex": null,
+   "page": "JR1005001"
+  },
+  "Report Status": {
+   "name": "RptStatus",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "RPTSTATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1005001"
+  },
+  "Order Booker": {
+   "name": "OdrBokr",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "ODRBOKR",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "DSRPRT",
+   "validations": null,
+   "regex": null,
+   "page": "JR1005001"
+  },
+  "Route": {
+   "name": "Route",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "ROUTE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1005001"
+  }
+ },
+ "grids": {},
+ "buttons": [
+  "Submit"
+ ]
+}

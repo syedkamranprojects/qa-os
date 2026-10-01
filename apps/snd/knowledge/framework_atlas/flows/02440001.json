@@ -1,0 +1,574 @@
+{
+ "src": "tf:02440001",
+ "flow_id": "02440001",
+ "description": "Login_Astron",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "3",
+ "tfd": [
+  {
+   "src": "tfd:02440001|0244|1",
+   "seq": 1,
+   "menu_group": "0244",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0244",
+   "menu_group": "0244",
+   "exists": true,
+   "description": "Login_Astron",
+   "search_text": null,
+   "navigation": null,
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0244|024401|1",
+   "mgsm_seq": 1,
+   "screen_id": "024401",
+   "screen_name": "Login_Astron",
+   "sheet": "Login_Astron",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  },
+  {
+   "src": "mgsm:0244|024402|2",
+   "mgsm_seq": 2,
+   "screen_id": "024402",
+   "screen_name": "Distributor Selection",
+   "sheet": "Distributor Selection",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 2,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "024401",
+  "024402"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Login_Astron",
+   "kind": "screen",
+   "screen_ids": [
+    "024401"
+   ]
+  },
+  {
+   "sheet": "Distributor Selection",
+   "kind": "screen",
+   "screen_ids": [
+    "024402"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Login_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Distributor Selection": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Login_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Distributor Selection": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Login_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Distributor Selection": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Login_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Distributor Selection": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Login_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "Distributor Selection": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC (Vietnam).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "LOGIN_USERNAME",
+    "canon": "LOGIN_USERNAME",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "a3",
+    "src": [
+     "sef:024401|serial 1"
+    ],
+    "screen_id": "024401"
+   },
+   {
+    "repo": "LOGIN_PASSWORD",
+    "canon": "LOGIN_PASSWORD",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "password",
+    "src": [
+     "sef:024401|serial 2"
+    ],
+    "screen_id": "024401"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "LOGIN_PASSWORD",
+   "LOGIN_USERNAME"
+  ],
+  "reads_not_written_by_this_flow": [
+   "LOGIN_PASSWORD",
+   "LOGIN_USERNAME"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 2
+ },
+ "counts": {
+  "screens": 2,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 11,
+  "events_active": 11,
+  "events_by_kind": {
+   "fill_text": 2,
+   "click": 4,
+   "flow_control": 2,
+   "fill_dropdown": 3
+  }
+ },
+ "tags": {
+  "areas": [
+   "Other"
+  ],
+  "market": "Astron",
+  "menu_option": null,
+  "menu_search_text": null
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "67",
+   "group_desc": "Daily Cycle Only Positive Flow_Astron",
+   "seq": 1,
+   "active": true,
+   "user": "same session (runner default login)",
+   "login_status": "N"
+  },
+  {
+   "group": "68",
+   "group_desc": "Primary Group Astron",
+   "seq": 1,
+   "active": true,
+   "user": "Auto_Astron_QA (serial 31)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "024401": {
+   "src": "sc:024401",
+   "screen_id": "024401",
+   "name": "Login_Astron",
+   "sheet": "Login_Astron",
+   "type": "Save",
+   "sheet_name_len": 12,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:024401|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "User",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "a3",
+     "fixed_value": "LOGIN_USERNAME",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024401:e1"
+    },
+    {
+     "src": "sef:024401|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Passward",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "password",
+     "fixed_value": "LOGIN_PASSWORD",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024401:e2"
+    },
+    {
+     "src": "sef:024401|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Login",
+     "status": "Y",
+     "active": true,
+     "locate_by": "xpath",
+     "field_id": "/html/body/div/div/div[2]/div/form/div[2]/div/div[6]/button",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024401:e3"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "LOGIN_USERNAME",
+     "canon": "LOGIN_USERNAME",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "a3",
+     "src": [
+      "sef:024401|serial 1"
+     ]
+    },
+    {
+     "repo": "LOGIN_PASSWORD",
+     "canon": "LOGIN_PASSWORD",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "password",
+     "src": [
+      "sef:024401|serial 2"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 3,
+    "events_active": 3
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "024402": {
+   "src": "sc:024402",
+   "screen_id": "024402",
+   "name": "Distributor Selection",
+   "sheet": "Distributor Selection",
+   "type": "Save",
+   "sheet_name_len": 21,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:024402|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0023",
+     "kind": "flow_control",
+     "event_name": "Flow Control Assertion",
+     "in_ce_table": true,
+     "desc": "Check for Companyr screen",
+     "status": "Y",
+     "active": true,
+     "locate_by": "text",
+     "field_id": " Company",
+     "fixed_value": "3",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024402:e1"
+    },
+    {
+     "src": "sef:024402|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0023",
+     "kind": "flow_control",
+     "event_name": "Flow Control Assertion",
+     "in_ce_table": true,
+     "desc": "Check for Distributor screen",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "selectBox1",
+     "fixed_value": "2",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "flow_control_child",
+     "trace_key": "024402:e7"
+    },
+    {
+     "src": "sef:024402|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 1,
+     "parent": 1,
+     "type": "0002",
+     "event": "0001",
+     "kind": "fill_dropdown",
+     "event_name": "Fill Single Drop Down",
+     "in_ce_table": true,
+     "desc": "Select distributor",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "selectBox1",
+     "fixed_value": "Distributor",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "flow_control_child",
+     "trace_key": "024402:e8"
+    },
+    {
+     "src": "sef:024402|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Proceed Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "proceedBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "flow_control_child",
+     "trace_key": "024402:e9"
+    },
+    {
+     "src": "sef:024402|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0002",
+     "event": "0001",
+     "kind": "fill_dropdown",
+     "event_name": "Fill Single Drop Down",
+     "in_ce_table": true,
+     "desc": "Select Company",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "selectBox1",
+     "fixed_value": "Company",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024402:e2"
+    },
+    {
+     "src": "sef:024402|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Proceed Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "proceedBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024402:e3"
+    },
+    {
+     "src": "sef:024402|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0002",
+     "event": "0001",
+     "kind": "fill_dropdown",
+     "event_name": "Fill Single Drop Down",
+     "in_ce_table": true,
+     "desc": "Select distributor",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "selectBox1",
+     "fixed_value": "Distributor",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024402:e5"
+    },
+    {
+     "src": "sef:024402|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Proceed Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "proceedBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "024402:e6"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 8,
+    "events_active": 8
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

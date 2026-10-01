@@ -1,0 +1,297 @@
+# S&D Test Automation (Legacy Regress Master)
+
+AI-assisted QA automation against the Sales & Distribution application (DCODE).
+Three goals:
+
+1. **Story → test cases → execution (primary QA workflow).** Generate a test
+   case workbook from a Jira user story, QA fills in the test steps, then
+   Claude runs those steps live through Selenium MCP and writes the results
+   back.
+2. **Execute an existing Regress Master test flow** that is already configured
+   in the `CTA_CONFIG` database.
+3. **Author a new Regress Master test flow** from a plain-English description
+   (or a passing Goal 1 run) and generate the SQL to add it.
+
+## Required MCP connectors
+
+- **selenium** — browser automation (`npx @angiejones/mcp-selenium`, or
+  equivalent). Headed by team preference; see "Headed vs headless" below.
+- **selenium-framework-db** — READ-ONLY access to the `CTA_CONFIG` Postgres
+  database (host/port: <fill in>). This is the live config store the legacy
+  app itself reads at runtime, so treat it with the same care as production.
+  Confirm on connect: `SELECT current_database()` should return `CTA_CONFIG`,
+  not a `_DEV`/`_QA`/clone variant, before trusting any query result.
+  Only Goals 2 and 3 need this connector.
+- **Atlassian (Jira)** — optional, used only to *read* stories for Goal 1.
+  Without it, QA pastes the Jira export (HTML/Word) into chat instead. Never
+  comment on, transition, or edit a Jira issue unless QA explicitly asks.
+- **Excel handling** — Python + `openpyxl` to read and write `.xlsx` workbooks.
+
+## Registered application
+
+| app | menu-group band | base URL | source |
+|---|---|---|---|
+| Sales & Distribution | `00xx` | <CONFIRM — placeholder found in old scratch test code was `http://103.104.192.247:1158/BACKOFFICE-ULP/`, unverified> | (deployed app, no local source tree — legacy test framework itself is at `C:\git-projects\NGSelenium-Testing`, useful as a *reference* for navigation mechanics, read-only) |
+
+## Folder layout
+
+```
+templates/TestCase_Template.xlsx          # the team's standard format (layout only)
+test-cases/<JIRA-KEY>/
+    <JIRA-KEY>_TestCases.xlsx             # Goal 1 output of Phase A. QA fills in the Test Steps column
+    <JIRA-KEY>_Results_<yyyymmdd-hhmm>.xlsx   # Goal 1 output of Phase C. Never overwrites the input
+    evidence/<yyyymmdd-hhmm>/TC<nn>_<step>.png
+sql/authoring/                            # Goal 3 scripts awaiting human review
+```
+
+---
+
+## Goal 1 — Story → test cases → execution
+
+### Phase A: generate the test case workbook (Claude)
+
+Trigger: QA gives a Jira key (e.g. "generate test cases for SDMS-10351") or
+pastes the story export.
+
+1. **Read the story**: summary, description (As a / I want / Given / When /
+   Then), acceptance criteria, **comments** (comments often change the scope,
+   e.g. "remove the previous SKU exclusion logic"), and the titles of linked
+   issues (useful for the real screen name). Don't follow links beyond that.
+2. **Derive test cases from the story only.** The template workbook provides
+   the *format*, never the content. Cover these, where the story supports
+   them:
+   - positive flows for each "When" item
+   - one negative case per validation rule (mandatory field blank,
+     invalid/inactive code, wrong owner/entity, altered pre-filled values)
+   - boundaries (start/end dates inclusive, same-day overlap vs next-day)
+   - update rules (future vs current vs expired records)
+   - each acceptance criterion from every entry point it names (e.g. an order
+     created in BackOffice *and* one synced from Mobility)
+   - the negative side of each criterion (behaviour still applies outside the
+     scope/dates, or for other distributors)
+   - regressions implied by comments
+3. **Write the workbook** by loading `templates/TestCase_Template.xlsx`,
+   clearing its sample rows, and writing into its layout. This keeps fonts,
+   fills and widths identical. Rules:
+
+   | Column | Content |
+   |---|---|
+   | TestCase # | Sequential number |
+   | Test Case Description | Starts with "Verify…". Negative/alternate cases are prefixed **`ALT-`** |
+   | Pre- Requisite | Numbered list: user/role, URL access, screen access, master data, and the specific records the case needs (e.g. "a current policy with Outlet Subtype X") |
+   | Test Steps | **Blank.** QA fills this in (Phase B) |
+   | Actual Result | **Blank.** Claude fills this in (Phase C) |
+   | Expected Result | **Filled.** The case-level outcome, specific enough to judge pass/fail (exact message text if the story gives one) |
+   | Test Status | `Not Executed`, with a dropdown: Passed/Failed/Blocked/Not Executed |
+   | Test Case Evidence | Blank |
+   | Version | Jira key |
+
+   - Use one row per test case, grouped under yellow section bands (Grid,
+     Download, Upload validation, Overlap, Update, Business effect, …).
+   - Size row heights to fit the pre-requisite text, and freeze the header row.
+   - Test Screen / Test Scenario block: use the real screen name, taken from
+     the story or from linked issue titles, not from the template.
+4. **Add a `Notes` sheet** listing:
+   - each assumption made where the story is ambiguous or contradictory,
+     quoting the story line involved
+   - every case that tests behaviour the story does not state (e.g. a screen
+     field known only from the existing screen). Mark these cases so a BA
+     can confirm or delete them.
+5. Report back: the case count per section, the assumptions, and the file
+   path.
+
+### Phase B: QA writes the test steps (human)
+
+QA fills in **only** the Test Steps column (and may add pre-requisite test
+data). Claude executes these steps literally, so write them to the
+convention below.
+
+- One action per line, numbered: `1) …`, `2) …` (Alt+Enter for a new line in
+  the cell).
+- Start each line with one of these verbs:
+
+  | Verb | Example |
+  |---|---|
+  | Login | `1) Login` (credentials come from env vars; never put them in the sheet) |
+  | Select | `2) Select Distributor = "DT-0012"` |
+  | Navigate | `3) Navigate to SKU Substitution Policy` (menu path, or text for menu search) |
+  | Enter | `4) Enter Description = "Auto sub excl test"` |
+  | Choose | `5) Choose Type = "3 – Based on DT + Channel"` |
+  | Set date | `6) Set Date From = {TODAY+1}`, `7) Set Date To = {TODAY+30}` |
+  | Click | `8) Click Save` |
+  | Download / Upload | `9) Download Excel for policy "P-001"`, `10) Upload file "SDMS-10351_valid.xlsx"` |
+  | Edit Excel | `11) In downloaded Excel set Entity Type = "OST", Channel Hierarchy = "0101"` |
+  | Verify | `12) Verify message "Policy saved Successfully"`, `Verify grid contains "P-001"` |
+  | Logout | `13) Logout` |
+
+- Put values in quotes. Use date tokens (`{TODAY}`, `{TODAY+n}`,
+  `{TODAY-n}`, format `dd/MM/yyyy` unless the screen needs another format) so
+  sheets don't go stale.
+- Name fields by their **on-screen label**, not by id.
+- Upload files live in `test-cases/<JIRA-KEY>/data/`.
+- Intermediate `Verify` lines are optional. The Expected Result column is
+  always checked at the end of the case.
+- Leave Test Steps blank for any case that shouldn't run yet. Claude skips
+  it and keeps its status `Not Executed`.
+
+### Phase C: execute the workbook (Claude)
+
+Trigger: QA provides the filled workbook, optionally with a filter ("run
+TC 1–8", "run the Upload section").
+
+1. **Pre-flight, before opening a browser**:
+   - Check that the header row matches the template.
+   - Parse every step line and resolve the date tokens.
+   - List the cases that will run, the cases skipped (no steps), and any step
+     line that doesn't fit the convention or is ambiguous (missing value,
+     unknown verb, unclear target).
+   - Show this summary to QA. Ask about ambiguous lines; don't guess them.
+2. **Confirm the environment**: the base URL must be a test/QA environment,
+   never production. Steps create real records (policies, uploads, orders).
+3. **Run each test case in a fresh session**: open the browser, log in, run
+   the steps in order, check the Expected Result, log out, close the
+   browser. Never reuse a session or state from a previous case.
+4. **Execute each step literally** using Selenium MCP. Find elements through
+   the accessibility snapshot using the step's on-screen label; see the
+   DevExtreme locator caution under Goal 3. Take a screenshot after every
+   `Verify` step, and on failure.
+5. **Set the status** for each case:
+   - **Passed**: all steps succeeded and the Expected Result was observed.
+   - **Failed**: the app behaved differently from a Verify line or the
+     Expected Result. Record exactly what was observed.
+   - **Blocked**: the case couldn't be evaluated. Causes include a missing
+     pre-requisite record, a step that couldn't be performed as written
+     (element not found, ambiguous), or the environment being down. Record
+     the step number and reason, plus a suggested rewrite of the step when
+     relevant.
+   - Never change, add to, or "fix" QA's steps to make a case pass. Report
+     the problem as Blocked.
+6. **Write results to a copy** (`<JIRA-KEY>_Results_<timestamp>.xlsx`).
+   Keep the original workbook untouched. In the copy:
+   - Actual Result: a short summary of what was observed, and the failing
+     step number if any.
+   - Test Status: the status from step 5.
+   - Test Case Evidence: hyperlinks to the screenshots.
+7. **Report back**: counts of Passed/Failed/Blocked/Not Executed, a
+   one-line reason for each Failed/Blocked case, and the results file path.
+8. **Optional bridge to Goal 3**: when a case passes, its proven steps and
+   locators can seed a Regress Master flow. Do this only if QA asks, and
+   still as reviewed SQL.
+
+---
+
+## Goal 2 — Execute an existing Regress Master test flow
+
+Trigger: QA names a flow (id or description, e.g. "run Dispatch Advice").
+
+1. Query `selenium-framework-db` for the flow: `fct_pr_tf_test_flow` →
+   `fct_pr_tfd_test_flow_details` (ordered menu groups) → `fct_pr_mg_menu_group`
+   (`pmg_searchtext` + `pmg_navigation`/`pmg_navigation_type` = how to reach
+   it) → `fct_pr_sc_screens` per group → `fct_pr_sf_screen_field` (fields to
+   fill) + `fct_pr_sef_screen_events_flow` (ordered steps to run).
+2. **Only include event-flow rows where `psef_status = 'Y'`** — confirmed
+   against the legacy engine's own code
+   (`DBExecution.initialiseScreenEventsCache()`): it filters
+   `WHERE PSEF_Status in ('Y','A')`, and `A` is unused in practice (0 rows
+   live) — so `N` rows are genuinely inactive, not just annotated. Don't
+   execute steps whose status isn't `Y`.
+3. Launch Selenium MCP, log in, replay the config live: menu-rollin → type
+   search text → click the target, per group; then per screen, fill fields
+   and run active events in `psef_sequenceno` order.
+4. Report pass/fail per screen/step. Log out, close the session.
+
+## Goal 3 — Author a new Regress Master test flow
+
+Trigger: QA describes a scenario in plain English (menu path, what to fill,
+what "success" looks like) because no flow id exists yet, or asks to convert
+a passing Goal 1 test case.
+
+1. Drive Selenium MCP live through exactly what was described, discovering
+   real locators as you go (accessibility snapshot, not guesswork).
+2. **Locator caution specific to this app**: S&D uses DevExtreme grids whose
+   ids are regenerated per render (`dx-<hex-guid>` pattern, or similar
+   auto-generated ids like `dx-col-285` seen in existing config). NEVER
+   author a script around one of these — build the locator from a stable
+   attribute instead (`aria-label`, column header text, role). A cached GUID
+   id is guaranteed to break on the next page load. The same rule applies to
+   Goal 1 execution.
+3. Record what actually happened as you go — element locators discovered,
+   and the exact sequence executed — so the eventual SQL is traceable back to
+   something that was actually proven live, not inferred.
+4. Generate the SQL script (`fct_pr_mg_menu_group` / `fct_pr_sc_screens` /
+   `fct_pr_sf_screen_field` / `fct_pr_sef_screen_events_flow` /
+   `fct_pr_tf_test_flow` / `fct_pr_tfd_test_flow_details`, matching this
+   schema's actual columns — verify with `get_table_schema` first, it
+   differs slightly from any newer/parallel framework you may also have
+   docs for). Every field/event row must trace to a locator actually
+   exercised in step 1-3, not an invented one.
+5. **Hand the script to a human for review. Do not apply it.** This is
+   non-negotiable — same rule as reading the DB read-only.
+6. Log out, close the session.
+
+## Conventions
+
+- **Read-only against `CTA_CONFIG`** — the DB connector should only ever run
+  SELECTs; if it accepts writes, that's a misconfiguration to fix before
+  using it for this work.
+- **Never auto-apply generated SQL** — always a reviewed file, always a human
+  runs it.
+- **Never overwrite QA's workbook** — results always go to a timestamped copy.
+- **Template is format, not content** — never copy test cases from
+  `TestCase_Template.xlsx` or older workbooks into a new story's workbook.
+- **Don't invent test steps or test data at execution time** — ask during
+  pre-flight, or mark the case Blocked.
+- **Test environments only** — Goal 1 execution creates real records; never
+  point it at production.
+- **Jira is read-only** unless QA explicitly asks for a comment/transition.
+- **Never commit or echo real credentials** — S&D login creds, DB creds, etc.
+  go in a gitignored local secrets file / env vars, never in a script,
+  workbook, or chat output.
+- **Verify schema before assuming column names** — this legacy schema and
+  any newer rewrite of it can drift; call `get_table_schema` rather than
+  assuming a column exists.
+- Before trusting any DB query result, confirm which literal database you're
+  connected to (`SELECT current_database()`) — there are several
+  similarly-named sibling databases on the same server
+  (`CTA_CONFIG_DEV`, `CTA_QA`, `CTA_CONFIG_ASSERTION`, personal dev clones,
+  etc.) and querying the wrong one silently returns plausible-looking but
+  wrong data.
+
+## Headed vs headless
+
+**Headed for all goals**, by team preference. QA wants to watch the
+automation run live, not just get a pass/fail report. This also has a real
+technical benefit: watching the browser is how you catch a bad locator guess
+before it becomes a wrong result or a wrong SQL script, especially around the
+DevExtreme grids called out above.
+
+## Environment variables (fill in before use)
+
+- `SD_BASE_URL` — S&D start URL (confirm the real one; do not trust the
+  placeholder above). Must be a test/QA environment.
+- `SD_TEST_USER` / `SD_TEST_PASSWORD` — login credentials (secrets file, not
+  committed). Used by the `Login` step.
+- `SD_DEFAULT_DISTRIBUTOR` — used when a `Select Distributor` step has no
+  value (optional; otherwise the case is Blocked).
+- Any other per-flow warehouse/vendor defaults your team wants as fallbacks,
+  mirroring how a sibling project keys `GIAS_DEFAULT_BRANCH` etc.
+
+## Open items before this is fully usable
+
+- [ ] Confirm `CTA_CONFIG` is the correct live config DB (not a dev/QA/clone
+      variant) with whoever owns it
+- [ ] Confirm the real S&D base URL and environment
+- [ ] Decide where login credentials come from
+- [ ] Decide where generated SQL scripts get written/reviewed (a
+      `sql/authoring/`-style folder, PR review, etc.)
+- [ ] Decide element-locator cache location/format if you want the
+      self-healing/reuse benefit this pattern gives elsewhere
+- [ ] Commit the team's standard test case workbook as
+      `templates/TestCase_Template.xlsx`
+- [ ] Agree the Test Steps verb list and date-token format with QA (Phase B)
+- [ ] Decide whether Jira is read through the Atlassian connector or via
+      pasted exports
+- [ ] Decide who owns test data setup for pre-requisites (QA manually, or
+      extra setup steps inside each case)
+- [ ] Decide where screenshots/evidence are kept long-term (local folder,
+      Jira attachment, shared drive)

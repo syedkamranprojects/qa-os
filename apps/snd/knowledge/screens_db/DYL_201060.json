@@ -1,0 +1,132 @@
+{
+ "option_id": "DYL_201060",
+ "title": "Review Inquiry",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Mobiz",
+   "Review Inquiry"
+  ],
+  "group_id": "DYL_201060"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201060",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201060001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mob_pr_rev_review",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201060002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201060001",
+   "desc": null,
+   "table": "mob_pr_rev_review",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Review FeedBack": {
+   "name": "TXT__mrev_review_feedback",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "MREV_REVIEW_FEEDBACK",
+   "db_description": "Review Feedback",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 200,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201060002"
+  },
+  "Customer Name": {
+   "name": "DDL__mrev_source_entity_code",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "MREV_SOURCE_ENTITY_CODE",
+   "db_description": "Source Business Entity Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PHSBUSENT",
+   "validations": null,
+   "regex": null,
+   "page": "201060002"
+  },
+  "Outlet Name": {
+   "name": "DDL__mrev_target_entity_code",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "MREV_TARGET_ENTITY_CODE",
+   "db_description": "Target Business Entity Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PHSBUSENT",
+   "validations": null,
+   "regex": null,
+   "page": "201060002"
+  },
+  "Customer Rating": {
+   "name": "TXT__mrev_rating",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "MREV_RATING",
+   "db_description": "Rating",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201060002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Review FeedBack",
+    "Customer Name",
+    "Outlet Name",
+    "Customer Rating"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

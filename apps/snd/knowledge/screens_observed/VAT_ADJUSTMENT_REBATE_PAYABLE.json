@@ -1,0 +1,144 @@
+{
+ "option_id": "VAT_ADJUSTMENT_REBATE_PAYABLE",
+ "title": "Vat Adjustment Rebate Payable",
+ "menu_path": [
+  "Transaction",
+  "Receivable",
+  "Vat Adjustment Rebate Payable"
+ ],
+ "route": "/content-master/mobility/vat-adjustment-rebate-payable",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/mobility/vat-adjustment-rebate-payable",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document Number",
+   "id": "documentNo",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Document Date",
+   "id": "documentDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Adjustment Type (Rebate/Payable)",
+   "id": "documentType",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Adjustment Date",
+   "id": "adjustmentDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Adjustment Amount",
+   "id": "adjustmentAmount",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Adjustment Number",
+   "id": "adjustmentNumber",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Remarks",
+   "id": "Comment",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add_btn",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save_btn",
+   "title": "Save",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Document Type",
+    "Document Date",
+    "Deposit Amount"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

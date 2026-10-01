@@ -1,0 +1,81 @@
+{
+ "option_id": "INCENTIVE_REWARD",
+ "title": "Incentive Reward Upload",
+ "menu_path": [
+  "Incentive",
+  "Incentive Reward Upload"
+ ],
+ "route": "/excel-upload/incentive-reward",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/excel-upload/incentive-reward",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Incentive Type",
+   "id": "incentiveCode",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Incentive Type",
+   "id": "IncentiveType",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Upload Excel",
+   "id": null,
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

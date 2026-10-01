@@ -1,0 +1,687 @@
+{
+ "src": "tf:02380001",
+ "flow_id": "02380001",
+ "description": "Warehouse Profile BG R2",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:02380001|0238|1",
+   "seq": 1,
+   "menu_group": "0238",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0238",
+   "menu_group": "0238",
+   "exists": true,
+   "description": "Warehouse Profile BG R2",
+   "search_text": "Warehouse Profile BG",
+   "navigation": "DYL_BG1006",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0238|023801|1",
+   "mgsm_seq": 1,
+   "screen_id": "023801",
+   "screen_name": "Warehouse Profile BG R2",
+   "sheet": "Warehouse Profile BG R2",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "023801"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Warehouse Profile BG R2",
+   "kind": "screen",
+   "screen_ids": [
+    "023801"
+   ]
+  },
+  {
+   "sheet": "Forward_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "023801"
+   ]
+  },
+  {
+   "sheet": "Save_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "023801"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Warehouse Profile BG R2",
+    "Forward_ASSR",
+    "Save_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Warehouse Profile BG R2",
+    "Forward_ASSR",
+    "Save_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Warehouse Profile BG R2",
+    "Forward_ASSR",
+    "Save_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Warehouse Profile BG R2",
+    "Forward_ASSR",
+    "Save_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Warehouse Profile BG R2",
+    "Forward_ASSR",
+    "Save_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [
+   {
+    "repo": "REPO_WAREHOUSE",
+    "canon": "REPO_WAREHOUSE",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "WHCode",
+    "field_id": "TXT__EPP1BUSENTPHSLVL1CODE",
+    "src": [
+     "sf:023801|TXT__EPP1BUSENTPHSLVL1CODE|1.0|4|1",
+     "sef:023801|serial 16"
+    ],
+    "screen_id": "023801"
+   }
+  ],
+  "reads": [
+   {
+    "repo": "REPO_WAREHOUSE",
+    "canon": "REPO_WAREHOUSE",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_TXT__EPP1BUSENTPHSLVL1CODE",
+    "src": [
+     "sef:023801|serial 6"
+    ],
+    "screen_id": "023801"
+   }
+  ],
+  "writes_canon": [
+   "REPO_WAREHOUSE"
+  ],
+  "reads_canon": [
+   "REPO_WAREHOUSE"
+  ],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Save_ASSR",
+    "screen_id": "023801",
+    "src": "sef:023801|serial 15"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "Forward_ASSR",
+    "screen_id": "023801",
+    "src": "sef:023801|serial 17"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 4,
+  "fields_active": 4,
+  "events": 12,
+  "events_active": 11,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 5,
+   "group_assertion": 2,
+   "fill_repo": 1,
+   "fill_text": 2
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": "BD",
+  "menu_option": "DYL_BG1006",
+  "menu_search_text": "Warehouse Profile BG"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "65",
+   "group_desc": "NG_Setup Flow_TH",
+   "seq": 4,
+   "active": true,
+   "user": "same session (runner default login)",
+   "login_status": "N"
+  },
+  {
+   "group": "73",
+   "group_desc": "NG_Setup Flow_UP",
+   "seq": 4,
+   "active": true,
+   "user": "same session (runner default login)",
+   "login_status": "N"
+  }
+ ],
+ "screens": {
+  "023801": {
+   "src": "sc:023801",
+   "screen_id": "023801",
+   "name": "Warehouse Profile BG R2",
+   "sheet": "Warehouse Profile BG R2",
+   "type": "Save",
+   "sheet_name_len": 23,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:023801|TXT__EPP1DESC|1.0|1|1",
+     "seq": 1,
+     "field_id": "TXT__EPP1DESC",
+     "locate_by": "id",
+     "label": "Warehouse Name",
+     "db_column": "Warehouse Name",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023801:f1"
+    },
+    {
+     "src": "sf:023801|DDL__PBEMBUSENTITYMISTYPE|1.0|2|1",
+     "seq": 2,
+     "field_id": "DDL__PBEMBUSENTITYMISTYPE",
+     "locate_by": "id",
+     "label": "Warehouse Type",
+     "db_column": "Warehouse Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023801:f2"
+    },
+    {
+     "src": "sf:023801|DDL__epp1_default|1.0|3|1",
+     "seq": 3,
+     "field_id": "DDL__epp1_default",
+     "locate_by": "id",
+     "label": "Default",
+     "db_column": "Default",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023801:f3"
+    },
+    {
+     "src": "sf:023801|TXT__EPP1BUSENTPHSLVL1CODE|1.0|4|1",
+     "seq": 4,
+     "field_id": "TXT__EPP1BUSENTPHSLVL1CODE",
+     "locate_by": "id",
+     "label": "WHCode",
+     "db_column": "WHCode",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": "REPO_WAREHOUSE",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "023801:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:023801|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Add button",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "addBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023801:e1"
+    },
+    {
+     "src": "sef:023801|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "load data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "023801:e2"
+    },
+    {
+     "src": "sef:023801|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e3"
+    },
+    {
+     "src": "sef:023801|serial 15",
+     "serial": 15,
+     "seq": 5,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Save Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Save_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e15",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Save_ASSR"
+     }
+    },
+    {
+     "src": "sef:023801|serial 5",
+     "serial": 5,
+     "seq": 6,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter butoon",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e5"
+    },
+    {
+     "src": "sef:023801|serial 16",
+     "serial": 16,
+     "seq": 7,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "Fill Repo",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e16"
+    },
+    {
+     "src": "sef:023801|serial 6",
+     "serial": 6,
+     "seq": 8,
+     "depth": 1,
+     "parent": 2,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__EPP1BUSENTPHSLVL1CODE",
+     "fixed_value": "REPO_WAREHOUSE",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e6"
+    },
+    {
+     "src": "sef:023801|serial 7",
+     "serial": 7,
+     "seq": 9,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Gride Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_warehouse_code",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e7"
+    },
+    {
+     "src": "sef:023801|serial 10",
+     "serial": 10,
+     "seq": 12,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forward",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e10"
+    },
+    {
+     "src": "sef:023801|serial 12",
+     "serial": 12,
+     "seq": 13,
+     "depth": 1,
+     "parent": 2,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "Auto1",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e12"
+    },
+    {
+     "src": "sef:023801|serial 13",
+     "serial": 13,
+     "seq": 14,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e13"
+    },
+    {
+     "src": "sef:023801|serial 17",
+     "serial": 17,
+     "seq": 15,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Forward Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Forward_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "023801:e17",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Forward_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [
+    {
+     "repo": "REPO_WAREHOUSE",
+     "canon": "REPO_WAREHOUSE",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "WHCode",
+     "field_id": "TXT__EPP1BUSENTPHSLVL1CODE",
+     "src": [
+      "sf:023801|TXT__EPP1BUSENTPHSLVL1CODE|1.0|4|1",
+      "sef:023801|serial 16"
+     ]
+    }
+   ],
+   "repo_reads": [
+    {
+     "repo": "REPO_WAREHOUSE",
+     "canon": "REPO_WAREHOUSE",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_TXT__EPP1BUSENTPHSLVL1CODE",
+     "src": [
+      "sef:023801|serial 6"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 12,
+    "events_active": 11
+   },
+   "assertion_sheets": [
+    "Forward_ASSR",
+    "Save_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

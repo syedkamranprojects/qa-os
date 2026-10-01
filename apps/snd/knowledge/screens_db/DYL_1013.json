@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_1013",
+ "title": "Payment Mode",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Payment Mode"
+  ],
+  "group_id": "DYL_1013"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1013",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101013001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Payment Mode - Grid",
+   "table": "GLB_PR_PYM_PAYMENTMODE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "101013002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101013001",
+   "desc": "Payment Mode  - Form",
+   "table": "GLB_PR_PYM_PAYMENTMODE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code ": {
+   "name": "code",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PPYM_PAYMMODE",
+   "db_description": "Payment Mode Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Description": {
+   "name": "description",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PPYM_DESC",
+   "db_description": "Payment Mode Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Abbreviation": {
+   "name": "txt__ppym_abrv",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PPYM_ABRV",
+   "db_description": "Payment Mode Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Default": {
+   "name": "ddl__ppym_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PPYM_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Status": {
+   "name": "ddl__ppym_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PPYM_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Identifier": {
+   "name": "DDL__ppym_identifier",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PPYM_IDENTIFIER",
+   "db_description": "Identifier Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Level Type": {
+   "name": "txt__ppym_leveltype",
+   "id": "textbox15",
+   "widget": "text",
+   "data_field": "PPYM_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  },
+  "Level No": {
+   "name": "txt__ppym_level_no",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PPYM_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101013002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code ",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Identifier",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

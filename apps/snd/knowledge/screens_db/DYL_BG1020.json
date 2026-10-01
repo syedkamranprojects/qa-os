@@ -1,0 +1,99 @@
+{
+ "option_id": "DYL_BG1020",
+ "title": "User HQ",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Users",
+   "User HQ"
+  ],
+  "group_id": "DYL_BG1020"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1020",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1020001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SMM_PR_SUS_USER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1020002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "BG1020001",
+   "desc": null,
+   "table": "SMM_PR_SUS_USER",
+   "n_fields": 2,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__SSUS_USERCODE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "SSUS_USERCODE",
+   "db_description": "User ID",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1020002"
+  },
+  "Status": {
+   "name": "DDL__SSUS_STATUS",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "SSUS_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1020002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Name",
+    "Status",
+    "Date",
+    "Organization Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Update"
+ ]
+}

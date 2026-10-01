@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1010",
+ "title": "Daily Time Stamping Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Daily Time Stamping Report"
+  ],
+  "group_id": "DYL_JR1010"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1010",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

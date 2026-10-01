@@ -1,0 +1,59 @@
+{
+ "option_id": "DYL_201201",
+ "title": "Auto Journey Inquiry",
+ "menu": {
+  "path": [
+   "Transactions",
+   "Auto Journey Inquiry"
+  ],
+  "group_id": "DYL_201201"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201201",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201201001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201201002",
+   "tab": null,
+   "is_child": true,
+   "parent": "201201001",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "MIS Type",
+    "Outlet Code",
+    "Spending Time (In minutes)"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

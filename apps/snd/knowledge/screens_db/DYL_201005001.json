@@ -1,0 +1,214 @@
+{
+ "option_id": "DYL_201005001",
+ "title": "Screen Associate",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Mobility",
+   "Application Flow",
+   "Screen Associate"
+  ],
+  "group_id": "DYL_201005001"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201005001",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201005001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Screen Associate - Grid",
+   "table": "MOB_MB_MSA_SCREEN_ASSOCIATE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201005002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201005001",
+   "desc": "Screen Associate - Form",
+   "table": "MOB_MB_MSA_SCREEN_ASSOCIATE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Model ID": {
+   "name": "DDL__MMMSMODELID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "MMMS_MODEL_ID",
+   "db_description": "Model ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "MMMS",
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Screen ID": {
+   "name": "DDL__MMSSSCREENID",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "MMSS_SCREEN_ID",
+   "db_description": "Screen ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "MMSS",
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Serial No": {
+   "name": "TXT__MMSA_SERIAL_NO",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "MMSA_SERIAL_NO",
+   "db_description": "Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": 10,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Sequence": {
+   "name": "TXT__MMSA_SEQUENCE_ID",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "MMSA_SEQUENCE_ID",
+   "db_description": "Sequence ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Description": {
+   "name": "TXT__MMSADESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "MMSA_DESC",
+   "db_description": "Model and Screen Association Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Abbreviation": {
+   "name": "TXT__MMSAABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "MMSA_ABRV",
+   "db_description": "Model and Screen Association Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Default": {
+   "name": "DDL__MMSADEFAULT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "MMSA_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  },
+  "Active": {
+   "name": "DDL__MMSAACTIVE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "MMSA_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201005002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Model ID",
+    "Screen ID",
+    "Serial No",
+    "Sequence",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

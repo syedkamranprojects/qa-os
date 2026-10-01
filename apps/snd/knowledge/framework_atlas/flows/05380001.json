@@ -1,0 +1,507 @@
+{
+ "src": "tf:05380001",
+ "flow_id": "05380001",
+ "description": "Sales Return View Approval SDMS",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:05380001|0538|1",
+   "seq": 1,
+   "menu_group": "0538",
+   "filename": "NG_Dcode_QA_SDMS-10080"
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0538",
+   "menu_group": "0538",
+   "exists": true,
+   "description": "Sales Return View Approval SDMS",
+   "search_text": "Sales Return View",
+   "navigation": "SALESRETURNVIEW",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0538|053801|1",
+   "mgsm_seq": 1,
+   "screen_id": "053801",
+   "screen_name": "Sales Return V Appro SDMS",
+   "sheet": "Sales Return V Appro SDMS",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_SDMS-10080",
+   "workbook_source": "tfd.ptfd_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "053801"
+ ],
+ "workbook": {
+  "flow_level_filename": "NG_Dcode_QA_SDMS-10080",
+  "effective_files": [
+   "NG_Dcode_QA_SDMS-10080"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Sales Return V Appro SDMS",
+   "kind": "screen",
+   "screen_ids": [
+    "053801"
+   ]
+  },
+  {
+   "sheet": "SalesR_ViewForwdPromo_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "053801"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Sales Return V Appro SDMS",
+    "SalesR_ViewForwdPromo_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Sales Return V Appro SDMS",
+    "SalesR_ViewForwdPromo_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Sales Return V Appro SDMS",
+    "SalesR_ViewForwdPromo_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Sales Return V Appro SDMS",
+    "SalesR_ViewForwdPromo_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Sales Return V Appro SDMS",
+    "SalesR_ViewForwdPromo_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "ELEVAL",
+    "sheet": "SalesR_ViewForwdPromo_ASSR",
+    "screen_id": "053801",
+    "src": "sef:053801|serial 8"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 3,
+  "fields_active": 3,
+  "events": 9,
+  "events_active": 7,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 4,
+   "fill_text": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Sales Return",
+   "Approval/Reject/Terminate"
+  ],
+  "market": null,
+  "menu_option": "SALESRETURNVIEW",
+  "menu_search_text": "Sales Return View"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "80",
+   "group_desc": "Positive SDMS-10080 PH",
+   "seq": 29,
+   "active": true,
+   "user": "Auto_PH_TSSM (serial 20)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "053801": {
+   "src": "sc:053801",
+   "screen_id": "053801",
+   "name": "Sales Return V Appro SDMS",
+   "sheet": "Sales Return V Appro SDMS",
+   "type": "Save",
+   "sheet_name_len": 25,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:053801|pjpNo|1.0|1|1",
+     "seq": 1,
+     "field_id": "pjpNo",
+     "locate_by": "id",
+     "label": "PJP Number",
+     "db_column": "PJP Number",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "053801:f1"
+    },
+    {
+     "src": "sf:053801|dateFrom|1.0|2|1",
+     "seq": 2,
+     "field_id": "dateFrom",
+     "locate_by": "id",
+     "label": "Date From",
+     "db_column": "Date From",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "053801:f2"
+    },
+    {
+     "src": "sf:053801|dateTo|1.0|3|1",
+     "seq": 3,
+     "field_id": "dateTo",
+     "locate_by": "id",
+     "label": "Date To",
+     "db_column": "Date To",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "053801:f3"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:053801|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "053801:e1"
+    },
+    {
+     "src": "sef:053801|serial 3",
+     "serial": 3,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "rowfilter_outletcode",
+     "fixed_value": "Outlet Code",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e3"
+    },
+    {
+     "src": "sef:053801|serial 4",
+     "serial": 4,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Header Aerow Click",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "Header_0_document_no.",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e4"
+    },
+    {
+     "src": "sef:053801|serial 6",
+     "serial": 6,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Row Selection",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e6"
+    },
+    {
+     "src": "sef:053801|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "Forward",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e5"
+    },
+    {
+     "src": "sef:053801|serial 12",
+     "serial": 12,
+     "seq": 6,
+     "depth": 1,
+     "parent": 1,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "comments",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e12"
+    },
+    {
+     "src": "sef:053801|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "save_button",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e7"
+    },
+    {
+     "src": "sef:053801|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_status",
+     "fixed_value": "ELEVAL,SalesR_ViewForwdPromo_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e8",
+     "assertion": {
+      "kind": "ELEVAL",
+      "sheet": "SalesR_ViewForwdPromo_ASSR"
+     }
+    },
+    {
+     "src": "sef:053801|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Close Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "closeBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "053801:e9"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 3,
+    "fields_active": 3,
+    "events": 9,
+    "events_active": 7
+   },
+   "assertion_sheets": [
+    "SalesR_ViewForwdPromo_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

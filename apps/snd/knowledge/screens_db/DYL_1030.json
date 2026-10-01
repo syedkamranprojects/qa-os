@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1030",
+ "title": "Transport Company",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Transport Company"
+  ],
+  "group_id": "DYL_1030"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1030",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101030001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Transport Company - Grid",
+   "table": "SND_PR_TCM_TRANSPORT_COMP",
+   "n_fields": 0,
+   "grids": [
+    "Transport Company"
+   ]
+  },
+  {
+   "page": "101030002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101030001",
+   "desc": "Transport Company - Form",
+   "table": "SND_PR_TCM_TRANSPORT_COMP",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__ptcm_trans_comp",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PTCM_TRANS_COMP",
+   "db_description": "Transport Company Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  },
+  "Description": {
+   "name": "txt__ptcm_desc",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PTCM_DESC",
+   "db_description": "Transport Company Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  },
+  "Abbreviation": {
+   "name": "txt__ptcm_abrv",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PTCM_ABRV",
+   "db_description": "Transport Company Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  },
+  "Default": {
+   "name": "ddl__ptcm_default",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PTCM_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  },
+  "Status": {
+   "name": "ddl__ptcm_active",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PTCM_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  },
+  "Level Type": {
+   "name": "txt__ptcm_leveltype",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PTCM_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  },
+  "Level No": {
+   "name": "txt__ptcm_level_no",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PTCM_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101030002"
+  }
+ },
+ "grids": {
+  "Transport Company": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

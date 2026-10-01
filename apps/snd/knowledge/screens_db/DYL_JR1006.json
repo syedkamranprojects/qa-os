@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1006",
+ "title": "Customer Wise Sale Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Customer Wise Sale Report"
+  ],
+  "group_id": "DYL_JR1006"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1006",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

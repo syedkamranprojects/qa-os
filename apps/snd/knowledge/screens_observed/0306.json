@@ -1,0 +1,54 @@
+{
+ "option_id": "0306",
+ "title": "Page Config Control",
+ "menu_path": [
+  "Page Config Control"
+ ],
+ "route": "/content-master/users-profile/page-config-control",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/users-profile/page-config-control",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Locked",
+   "id": "Locked",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "UnLocked",
+   "id": "UnLocked",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

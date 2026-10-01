@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_201029",
+ "title": "Questions Setup",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Questionnaire",
+   "Questions Setup"
+  ],
+  "group_id": "DYL_201029"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201029",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201029001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "CLC_PR_QUE_QUESTIONS",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201029002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201029001",
+   "desc": null,
+   "table": "CLC_PR_QUE_QUESTIONS",
+   "n_fields": 9,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__CQUEQUESTIONID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "CQUE_QUESTION_ID",
+   "db_description": "Question ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Description": {
+   "name": "TXT__CQUEQUESTIONDESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "CQUE_QUESTION_DESC",
+   "db_description": "Question Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 4000,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Abbreviation": {
+   "name": "TXT__CQUEQUESTIONABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "CQUE_QUESTION_ABRV",
+   "db_description": "Question Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Type": {
+   "name": "DDL__CQUEQUESTIONTYPE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "CQUE_QUESTION_TYPE",
+   "db_description": "Question Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Event ID": {
+   "name": "DDL__PEVEVENTID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PEV_EVENTID",
+   "db_description": "Event ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PEVT",
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Default": {
+   "name": "DDL__CQUEDEFAULT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "CQUE_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Status": {
+   "name": "DDL__CQUEACTIVE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "CQUE_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Level No": {
+   "name": "TXT__CQUELEVELNO",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "CQUE_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  },
+  "Level Type": {
+   "name": "TXT__CQUELEVELTYPE",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "CQUE_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201029002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Type",
+    "Event ID",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

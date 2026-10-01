@@ -1,0 +1,158 @@
+{
+ "option_id": "DYL_201008",
+ "title": "Model Group Association",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Mobility",
+   "Application Flow",
+   "Model Group Association"
+  ],
+  "group_id": "DYL_201008"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201008",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201008001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Model Group Association - Grid",
+   "table": "MOB_MB_MGA_MODLGRP_ASSOCTION",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201008002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201008001",
+   "desc": "Model Group Association - Form",
+   "table": "MOB_MB_MGA_MODLGRP_ASSOCTION",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "User Group": {
+   "name": "DDL__MMUGUSERGROUPID",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "MMUG_USER_GROUP_ID",
+   "db_description": "User Group ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": "MMUG",
+   "validations": null,
+   "regex": null,
+   "page": "201008002"
+  },
+  "Model ID": {
+   "name": "DDL__MMMSMODELID",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "MMMS_MODEL_ID",
+   "db_description": "Model ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": "MMMS",
+   "validations": null,
+   "regex": null,
+   "page": "201008002"
+  },
+  "Sequence Number": {
+   "name": "TXT__MMGASEQUENCENO",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "MMGA_SEQUENCE_NO",
+   "db_description": "Sequence Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201008002"
+  },
+  "Default": {
+   "name": "DDL__MMGADEFAULT",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "MMGA_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201008002"
+  },
+  "Active": {
+   "name": "DDL__MMGAACTIVE",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "MMGA_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201008002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization/Company Code",
+    "User Group",
+    "Model ID",
+    "Sequence Number",
+    "Default",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

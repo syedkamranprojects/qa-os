@@ -1,0 +1,53 @@
+# Glossary for QA members (S&D / DCODE)
+
+Updated: 2026-10-01 (live blocks 1-3b)
+
+Only terms that appear in the business pages or the DB. Tag = confidence of the explanation; page = where it is explained.
+
+| Term | Meaning | Tag | Page |
+|---|---|---|---|
+| PJP | Journey plan: a route; each working day has a "daily" PJP record. Two kinds: Order Booker PJP (e.g. 02111-AutomationOB1) and Delivery Man PJP (e.g. 02112-AutomationDSR); columns `epjp_pjpno_daily` vs `epjp_pjpno_daily_delivery`. Dropdown format differs per screen (`code-name`, `code~name`, `code - name`). | db/observed (expansion "permanent journey plan" inferred) | settlement_and_finance/pjp_daily_inquiry_update.md, order_to_delivery_planning/order_lifecycle_and_statuses.md |
+| DSR | The delivery man/salesman who carries the goods and collects money; identified by his Delivery Man PJP; GIN fills DSR, Warehouse, Vehicle from the PJP. | observed/inferred | delivery_and_returns/goods_issue_note.md |
+| CS / DZ / PC | Quantity units shown in three columns: cases, dozens, pieces. PC beyond the pack size converts to cases (5 CS + 4 PC became 7 CS at 2 PC per case). DZ was always 0 in observed rows. | observed (units inferred from columns) | inbound_stock/stock_inquiry_and_balances.md, order_to_delivery_planning/order_booking.md |
+| Cash memo (CM-01 "Sales") | The order and the sale are the same record in `snd_tr_cmm_cashmemo_master`; number format COL + 2-digit year + 9 digits (COL26000001995). | db/observed | order_to_delivery_planning/order_lifecycle_and_statuses.md |
+| Order Number | Number shown on the Order Booking summary after save. ORDERNUMBER / ORDERNUMBEREDIT are the framework repos carrying it. | observed | order_to_delivery_planning/order_booking.md |
+| DA (Dispatch Advice) | Distributor's record that the vendor dispatched goods to its warehouse; approval turns received quantity into Sound stock. Types DA-01, DA, DA-05 "Dispatch Advice Auto". | observed/db | inbound_stock/dispatch_advice.md |
+| DA Loss / Loss Approval | Loss (damaged, expired, lost) recorded on a DA line (modal, then Calculate); the loss record (Serial No) is created when the checker approves the DA, not at Forward, and is confirmed by a separate "DALossApproval" workflow. Received = dispatched - loss. | observed | inbound_stock/da_loss_approval.md |
+| SO Number | Optional header field on the Dispatch Advice (with Shipment No, Deliver No, Tax Invoice Number ...). Optional and NOT unique: two DAs saved with the same SO Number (live 2026-10-01). Business meaning not shown. | observed | inbound_stock/dispatch_advice.md |
+| GIN (Goods Issue Note) | Document issuing stock from the warehouse to a DSR for the cash memos he delivers; type GN-01; number e.g. 505; repo REPO_GINNO. Workflow for org 010104 is "StockUpdateGIN" v53 (Verify then Approve, both role 0005); "StockUpdateGIN4Level" belongs to the parent orgs 0101/0102. | observed/db | delivery_and_returns/goods_issue_note.md |
+| GRN (Goods Return Note) | Document returning goods to warehouse stock after delivery; type GR-01; shares tables with GIN (suggested vs actual qty); repo REPO_GRNNO. | db/inferred | inbound_stock/goods_return_note.md |
+| SAN (Stock Adjustment Note) | Stock change without an order (e.g. OTC stock out); maker creates, checker approves; screen Stock Adjustment SAN (DYL_201045). | db | settlement_and_finance/otc_stock_out_and_san.md |
+| OTC Stock Out | Framework name of a SAN stock-out flow; no menu entry named so was found live. | observed (absence)/inferred | settlement_and_finance/otc_stock_out_and_san.md |
+| Section | Order header dropdown (e.g. Automation_Testing_Section); fills itself after PJP. | observed | order_to_delivery_planning/order_booking.md |
+| Selling Category | Order header dropdown (Selling Category 001, later shown 201-Selling Category 001); fills itself after PJP. | observed | order_to_delivery_planning/order_booking.md |
+| Outlet | The retail customer of an order (e.g. 1000000001-Aautomation_Outlet_01); tax treatment differs per outlet. | observed | order_to_delivery_planning/order_booking.md |
+| Demand Channel | Grid column on order screens; type `2` "Demand Captured from Tele order" is a different document type (default in Transaction Inquiry). | db/inferred | order_to_delivery_planning/order_lifecycle_and_statuses.md |
+| Stock types | 01 Sound, 02 Damaged, 03 Expired, 04 Lost, 11 Variance Warehouse (05 Dummy inactive) for org 010104. Stock Inquiry 2026-09-30 showed 01 Sound (36 rows), 11 Variance (2), 02 Damaged (1); no 03/04. | db/observed | inbound_stock/da_loss_approval.md |
+| Balance Date / Period Type | Stock Inquiry criteria: day (yyyy-MM-dd, default today) and DAILY. Balances are keyed by date; the DA approval creates the row of a received product on its Received Date (Opening 0), a new day has no rows for products without a movement and previous closings are not carried automatically. | observed | inbound_stock/stock_inquiry_and_balances.md |
+| Opening / In / Out / Allocated / Closing | Stock Inquiry column groups per warehouse, product, batch, stock type. Identity verified on 39 of 39 rows on 2026-09-30: Closing = Opening + In - Out - Allocated (80+80-0-63 = 97 CS); assert in base PC units (pack factor from the product name) because PC-to-CS carry makes two rows differ per column. Closing is available stock (ATP). | observed | inbound_stock/stock_inquiry_and_balances.md |
+| Allocated | Stock reserved to orders; orders are auto-allocated at save (Allocation Status FULL). | observed | order_to_delivery_planning/stock_allocation.md |
+| ATP | Available-to-promise per product shown on Order Booking (Current Stock); equals Stock Inquiry closing of the current day (62740537: 4 CS = Closing 4 CS on 2026-10-01); a product with no stock row for the day answers "Stock not available.". | observed | order_to_delivery_planning/order_booking.md |
+| Generate Opening Balances | Stock Inquiry button; never clicked; stock-changing; not authorised. NOT needed to start the day for a received product (the DA approval creates its row); whether it serves products not received that day or carries previous closings is unknown. | observed (existence) / unknown | inbound_stock/stock_inquiry_and_balances.md |
+| Maker / Checker | Maker creates and forwards (Auto_Multi_Orga); checker approves (Auto_Tssm). Different users is a QA/framework rule; app did not stop a self-approval on a DA and the GIN workflow declares Verify and Approve for the same role 0005. | observed/db | inbound_stock/dispatch_advice.md |
+| Forward | Button used both by the maker (Draft -> Pending for approval; enabled only on Drafts) and by the checker (Pending -> Approved; enabled only on Pending); opens a Comments popup, comment mandatory. | observed | document_lifecycle.md |
+| Reject / Terminate | Workflow alternatives (statuses 04 Rejected, 05 Terminated); buttons exist, disabled for the Maker on Draft and Pending GINs; enabled for the Checker (Auto_Tssm) only on Pending GINs (Terminate too). | db/observed | delivery_and_returns/goods_issue_note.md |
+| Document status vs execution status vs completion status | Cash memo has three status dimensions: document status (04 Ordered, 01 Delivered, 03 Cancelled...), execution status (01 Ordered, 02 Confirmed = its own status, 03 Planning completed = on a GIN; the Transaction Inquiry Document Status column shows this one; 13 Ready to dispatch, 10 Delivered, 19 CM Reschedule...), completion status (01 Completed, 02 DN Pending, 03 Z3). | db | delivery_and_returns/delivery_lifecycle.md |
+| Workflow status | Draft 01, Pending for approval 02, Approved 03, Rejected 04, Terminated 05 (DA, GIN, GRN, SAN). | db | document_lifecycle.md |
+| Active / In-Active | DA/GIN grid status: In-Active while Draft/Pending, Active once approved (DA 1356: Active, Approved, Received Date set). | observed | inbound_stock/dispatch_advice.md |
+| Cash Memo Selection | GIN tab listing eligible cash memos (9 on 2026-09-30); header checkbox selects all. | observed | delivery_and_returns/goods_issue_note.md |
+| Suggest / Actual | GIN and GRN quantities: suggested by the system, actual entered; actual must not exceed suggested. | atlas toast/db | delivery_and_returns/goods_issue_note.md |
+| Reschedule | Moving an undelivered cash memo to another delivery date with a reason (execution status 19). | inferred | delivery_and_returns/cashmemo_reschedule_and_status.md |
+| Picked | Final status (04) of an authorised Sales Return (CM-02) after Status Change. | inferred/db | delivery_and_returns/sales_return.md |
+| Sales Return (CM-02), Fresh Sales Return (CM-04), CRN-02 | Return documents and credit note types. | db | delivery_and_returns/sales_return.md |
+| Deposit Slip | Record of cash/cheque a DSR banks against cash memos; header status I, A after complete; instrument types Cash/Cheque. | db | settlement_and_finance/deposit_slips.md |
+| Unposted Amount | Slip money not yet allocated to cash memos. | inferred | settlement_and_finance/deposit_slips.md |
+| Instrument status | Cheque states: P Presented, L Collected, R Realized, B Bounced, C Cancelled, A Amendment. | db | settlement_and_finance/cheque_status.md |
+| Route Settlement | End-of-day reconciliation of one PJP and date; fields payable, received, stock shortage, cash shortage. | db/inferred | settlement_and_finance/route_settlement.md |
+| Offset Amount / Received Amount | Transaction Inquiry/slip fields read after settlement; offset = part of the invoice netted by returns/credit notes. | inferred | settlement_and_finance/route_settlement.md |
+| Cash shortage | Payable minus received at settlement. | inferred | settlement_and_finance/route_settlement.md |
+| DSR Adjustment (AD-07) | Manual amount against a DSR/PJP with comment. | db | settlement_and_finance/dsr_adjustment.md |
+| Gross / Discount / Tax / Net | Order amounts: Net = Gross + Discount (negative) + Tax. | observed | order_to_delivery_planning/order_booking.md |
+| Repos (REPO_*) | Framework variables carrying numbers between flows: REPO_DOCUMENTNO (DA), REPO_GINNO, REPO_GRNNO, ORDERNUMBER, REPO_Deposit_Slip. | atlas | INDEX.md |
+| Trace key | group:seq:flow, e.g. 11:5:00740001. | atlas | _TEMPLATE.md |
+| Org 0101 vs 010104 | 0101 holds the transactional rows in the base DB; 010104 is the live environment organisation (same master tables, overlay data). | db | order_to_delivery_planning/README.md |
+| Vendor Code (UPL WH) | Supply point on the DA header. | observed | inbound_stock/dispatch_advice.md |

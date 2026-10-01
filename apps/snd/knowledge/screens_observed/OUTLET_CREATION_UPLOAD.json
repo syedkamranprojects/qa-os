@@ -1,0 +1,49 @@
+{
+ "option_id": "OUTLET_CREATION_UPLOAD",
+ "title": "Outlet Creation Upload",
+ "menu_path": [
+  "Distributor Setup",
+  "Outlet Profile",
+  "Outlet Creation Upload"
+ ],
+ "route": "/excel-upload/outlet-excel-upload",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/excel-upload/outlet-excel-upload",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Upload Excel",
+   "id": null,
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

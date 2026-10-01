@@ -1,0 +1,131 @@
+{
+ "option_id": "DYL_201906",
+ "title": "Stock Master Inquiry",
+ "menu_path": [
+  "Transaction",
+  "Stock",
+  "Stock Master Inquiry"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201906",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201906",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__pdotdocmtype",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Document Type",
+   "id": "datebox1",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Document Type",
+   "id": "datebox2",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Sender Distributor",
+    "Receiver Distributor",
+    "Sender Warehouse",
+    "Receiver Warehouse",
+    "Document Type",
+    "Currency",
+    "Received Date",
+    "Document Status",
+    "Approval Status",
+    "Comments",
+    "Tax",
+    "Discount Amount",
+    "Net Amount"
+   ],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [
+    "Product",
+    "Batch",
+    "Stock Type",
+    "Requested CTN",
+    "Requested DZN",
+    "Requested UNIT",
+    "Process CTN",
+    "Process DZN",
+    "Process UNIT",
+    "Finalized CTN",
+    "Finalized DZN",
+    "Finalized UNIT",
+    "Gross Amount",
+    "Tax",
+    "Discount Amount",
+    "Net Amount"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

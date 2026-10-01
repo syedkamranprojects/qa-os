@@ -1,0 +1,216 @@
+{
+ "option_id": "DYL_1024",
+ "title": "Company Rank",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Company Rank"
+  ],
+  "group_id": "DYL_1024"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1024",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101024001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Business Entity - Org. Ranking Grid",
+   "table": "GLB_PR_BEO_BUSENTITY_ORGRANK",
+   "n_fields": 0,
+   "grids": [
+    "Business Entity Orga Ranking"
+   ]
+  },
+  {
+   "page": "101024002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101024001",
+   "desc": "Business Entity - Org. Ranking Form",
+   "table": "GLB_PR_BEO_BUSENTITY_ORGRANK",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__pbeo_busentity_orgranking",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PBEO_BUSENTITY_ORGRANKING",
+   "db_description": "Business Entity Organizational Ranking Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Description": {
+   "name": "txt__pbeo_desc",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PBEO_DESC",
+   "db_description": "Business Entity Organizational Ranking Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Abbreviation": {
+   "name": "txt__pbeo_abrv",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PBEO_ABRV",
+   "db_description": "Business Entity Organizational Ranking Short Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Default": {
+   "name": "ddl__pbeo_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PBEO_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Status": {
+   "name": "ddl__pbeo_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PBEO_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Level Type": {
+   "name": "txt__pbeo_leveltype",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PBEO_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Level No": {
+   "name": "txt__pbeo_level_no",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PBEO_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  },
+  "Orga Ranking": {
+   "name": "txt__pbeo_busentity_orgranking",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PBEO_BUSENTITY_ORGRANKING",
+   "db_description": "Business Entity Organizational Ranking Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101024002"
+  }
+ },
+ "grids": {
+  "Business Entity Orga Ranking": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete",
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

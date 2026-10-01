@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1084",
+ "title": "Marital Status",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Marital Status"
+  ],
+  "group_id": "DYL_1084"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1084",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101084001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Marital Status - Grid",
+   "table": "GLB_PR_MRT_MARITALSTATUS",
+   "n_fields": 0,
+   "grids": [
+    "GLBPRMRTMARITALSTATUS"
+   ]
+  },
+  {
+   "page": "101084002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101084001",
+   "desc": "Marital Status - Form",
+   "table": "GLB_PR_MRT_MARITALSTATUS",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__PMRTMARITALSTATUS",
+   "id": "FTXT__PMRTMARITALSTATUS",
+   "widget": "text",
+   "data_field": "PMRT_MARITALSTATUS",
+   "db_description": "Marital Status Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  },
+  "Description": {
+   "name": "TXT__PMRTDESC",
+   "id": "FTXT__PMRTDESC",
+   "widget": "text",
+   "data_field": "PMRT_DESC",
+   "db_description": "Marital Status Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PMRTABRV",
+   "id": "FTXT__PMRTABRV",
+   "widget": "text",
+   "data_field": "PMRT_ABRV",
+   "db_description": "Marital Status Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  },
+  "Default": {
+   "name": "DDL__PMRTDEFAULT",
+   "id": "FDDL__PMRTDEFAULT",
+   "widget": "select",
+   "data_field": "PMRT_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  },
+  "Status": {
+   "name": "DDL__PMRTACTIVE",
+   "id": "DDL__PMRTACTIVE",
+   "widget": "select",
+   "data_field": "PMRT_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  },
+  "Level Type": {
+   "name": "TXT__PMRTLEVELTYPE",
+   "id": "FTXT__PMRTLEVELTYPE",
+   "widget": "text",
+   "data_field": "PMRT_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  },
+  "Level No": {
+   "name": "TXT__PMRTLEVELNO",
+   "id": "FTXT__PMRTLEVELNO",
+   "widget": "text",
+   "data_field": "PMRT_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101084002"
+  }
+ },
+ "grids": {
+  "GLBPRMRTMARITALSTATUS": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,138 @@
+{
+ "option_id": "DYL_DN1002",
+ "title": "Document Check List",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "General",
+   "Document Check List"
+  ],
+  "group_id": "DYL_DN1002"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "DN1002",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "DN1002001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_PR_DFM_DOC_FILE_MAPPING",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "DN1002002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "DN1002001",
+   "desc": null,
+   "table": "SND_PR_DFM_DOC_FILE_MAPPING",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Channel Hierarchy": {
+   "name": "DDL__PCHH_CHNLHIER_CODE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PCHH_CHNLHIER_CODE",
+   "db_description": "Channel Hierarchy Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PCHH",
+   "validations": null,
+   "regex": null,
+   "page": "DN1002002"
+  },
+  "Cashmemo Type": {
+   "name": "DDL__PCMT_CASHMEMO_TYPE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PCMT_CASHMEMO_TYPE",
+   "db_description": "Cashmemo Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "CASHMEMO_TYPE",
+   "validations": null,
+   "regex": null,
+   "page": "DN1002002"
+  },
+  "File Upload Type": {
+   "name": "DDL__FFUT_UPLOAD_ENTITY_TYPE",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "FFUT_UPLOAD_ENTITY_TYPE",
+   "db_description": "Upload Entity Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "FUT_FILE_UPLOAD_TYPE",
+   "validations": null,
+   "regex": null,
+   "page": "DN1002002"
+  },
+  "Mandatory": {
+   "name": "DDL__PDFM_IS_MANDATORY",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "PDFM_IS_MANDATORY",
+   "db_description": "Mandatory to upload files",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "N",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1002002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "File Upload Type",
+    "Channel Hierarchy",
+    "Cashmemo Type",
+    "Mandatory",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Delete"
+ ]
+}

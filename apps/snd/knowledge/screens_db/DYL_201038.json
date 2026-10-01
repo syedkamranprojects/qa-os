@@ -1,0 +1,54 @@
+{
+ "option_id": "DYL_201038",
+ "title": "Product Image Master",
+ "menu": {
+  "path": [
+   "Image Beautifier",
+   "Product Image Master"
+  ],
+  "group_id": "DYL_201038"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201038",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201038001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mob_pr_pim_prod_image_master",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Bar Code",
+    "Description",
+    "Dimension",
+    "Measurement Unit",
+    "Measurement Value",
+    "Final Product",
+    "Selling Category",
+    "Sub Category",
+    "Alternat",
+    "Comments"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

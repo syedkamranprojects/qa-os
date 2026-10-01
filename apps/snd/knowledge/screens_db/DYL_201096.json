@@ -1,0 +1,107 @@
+{
+ "option_id": "DYL_201096",
+ "title": "Calendar Setup",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Calendar Setup"
+  ],
+  "group_id": "DYL_201096"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201096",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201096001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "glb_pr_cls_calendar_setup",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201096002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201096001",
+   "desc": null,
+   "table": "glb_pr_cls_calendar_setup",
+   "n_fields": 2,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Date": {
+   "name": "DDT__pcls_date",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "PCLS_DATE",
+   "db_description": "Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201096002"
+  },
+  "Holiday": {
+   "name": "DDL__pcls_is_holiday",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PCLS_IS_HOLIDAY",
+   "db_description": "Is Holiday?",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201096002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Date",
+    "Year",
+    "Quarter",
+    "Month",
+    "Month Name",
+    "Week",
+    "Day",
+    "Day Name",
+    "Holiday",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

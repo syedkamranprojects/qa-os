@@ -1,0 +1,124 @@
+{
+ "option_id": "DYL_DT1005",
+ "title": "Trip Status Inquiry",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Distributor Profile",
+   "Trip Status Inquiry"
+  ],
+  "group_id": "DYL_DT1005"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "DT1005",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "DT1005001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "DT1005002",
+   "tab": null,
+   "is_child": true,
+   "parent": "DT1005001",
+   "partial": null,
+   "desc": null,
+   "table": "(",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Depo": {
+   "name": "DDL__epp1_busent_phs_lvl1_codePRNT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "db_description": "Physical Business Entities Level 1 (Distributor, Outlet, Warehouse etc)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "00",
+   "data_list_id": "DEPOCODE",
+   "validations": null,
+   "regex": null,
+   "page": "DT1005001"
+  },
+  "Driver": {
+   "name": "DDL__epjp_pjpnoPRNT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "EPJP_PJPNO",
+   "db_description": "PJP Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "00",
+   "data_list_id": "DRIVER",
+   "validations": null,
+   "regex": null,
+   "page": "DT1005001"
+  },
+  "Tripstatus": {
+   "name": "DDL__ptrs_trip_statusPRNT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PTRS_TRIP_STATUS",
+   "db_description": "Trip Status Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "00",
+   "data_list_id": "TRTUS",
+   "validations": null,
+   "regex": null,
+   "page": "DT1005001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Depocode",
+    "Depocode",
+    "Deponame",
+    "Drivercode",
+    "Drivercode",
+    "Drivername",
+    "Tripno",
+    "Tripno",
+    "Tripstatus",
+    "GINNumber",
+    "Start Time",
+    "End Time"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

@@ -1,0 +1,92 @@
+{
+ "option_id": "NG1204",
+ "title": "Integration Group",
+ "menu_path": [
+  "Integrator",
+  "Integration Group"
+ ],
+ "route": "/integrator/group-integration",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/integrator/group-integration",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Add a row",
+   "id": null,
+   "title": "Add a row",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "59",
+   "id": "pagination-element-59",
+   "title": "Page 59",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "In/Out Bound",
+    "Status",
+    "Priority",
+    "Transaction"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

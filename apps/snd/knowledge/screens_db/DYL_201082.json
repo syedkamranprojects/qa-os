@@ -1,0 +1,195 @@
+{
+ "option_id": "DYL_201082",
+ "title": "Business Type",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Business Type"
+  ],
+  "group_id": "DYL_201082"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201082",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201082001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_BST_BUSINESSTYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201082002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201082001",
+   "desc": null,
+   "table": "GLB_PR_BST_BUSINESSTYPE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Type": {
+   "name": "TXT__PBSTBUSINESSTYPE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PBST_BUSINESS_TYPE",
+   "db_description": "Business Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  },
+  "Description": {
+   "name": "TXT__PBSTDESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PBST_DESC",
+   "db_description": "Business Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PBSTABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PBST_ABRV",
+   "db_description": "Business Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  },
+  "Default": {
+   "name": "DDL__PBSTDEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PBST_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  },
+  "Active": {
+   "name": "DDL__PBSTACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PBST_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  },
+  "Level No": {
+   "name": "TXT__PBSTLEVELNO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PBST_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  },
+  "Level Type": {
+   "name": "TXT__PBSTLEVELTYPE",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PBST_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201082002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Type",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

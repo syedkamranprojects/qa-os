@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1031",
+ "title": "Transport Mode",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Transport Mode"
+  ],
+  "group_id": "DYL_1031"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1031",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101031001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Transport Mode - Grid",
+   "table": "SND_PR_TMD_TRANSPORT_MODE",
+   "n_fields": 0,
+   "grids": [
+    "Transport Mode"
+   ]
+  },
+  {
+   "page": "101031002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101031001",
+   "desc": "Transport Mode - Forms",
+   "table": "SND_PR_TMD_TRANSPORT_MODE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__PTMDTRANSMODE",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PTMD_TRANS_MODE",
+   "db_description": "Tranport Mode Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  },
+  "Description": {
+   "name": "TXT__PTMDDESC",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "PTMD_DESC",
+   "db_description": "Tranport Mode Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PTMDABRV",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PTMD_ABRV",
+   "db_description": "Tranport Mode Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  },
+  "Default": {
+   "name": "DDL__PTMDDEFAULT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PTMD_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  },
+  "Status": {
+   "name": "DDL__PTMDACTIVE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PTMD_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  },
+  "Level Type": {
+   "name": "TXT__PTMDLEVELTYPE",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PTMD_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  },
+  "Level No": {
+   "name": "TXT__PTMDLEVELNO",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PTMD_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101031002"
+  }
+ },
+ "grids": {
+  "Transport Mode": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

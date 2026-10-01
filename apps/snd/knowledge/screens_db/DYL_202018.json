@@ -1,0 +1,137 @@
+{
+ "option_id": "DYL_202018",
+ "title": "Distributor Holidays",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "General",
+   "Distributor Holidays"
+  ],
+  "group_id": "DYL_202018"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202018",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202018001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "glb_pr_PLH_phs_lvl1_Holidays",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202018002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202018001",
+   "desc": null,
+   "table": "glb_pr_PLH_phs_lvl1_Holidays",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Serial No": {
+   "name": "TXT__PPLH_SERIALNO",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PPLH_SERIALNO",
+   "db_description": "Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202018002"
+  },
+  "Description": {
+   "name": "TXT__PPLH_Description",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PPLH_DESCRIPTION",
+   "db_description": "Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202018002"
+  },
+  "Date From": {
+   "name": "DT__pplh_fromdate",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "PPLH_FROMDATE",
+   "db_description": "From Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202018002"
+  },
+  "Date To": {
+   "name": "DT__pplh_todate",
+   "id": "datebox4",
+   "widget": "date",
+   "data_field": "PPLH_TODATE",
+   "db_description": "To Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202018002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Description",
+    "Date From",
+    "Date To"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

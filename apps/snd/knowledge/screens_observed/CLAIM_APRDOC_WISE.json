@@ -1,0 +1,37 @@
+{
+ "option_id": "CLAIM_APRDOC_WISE",
+ "title": "Claim Approval Doc Wise",
+ "menu_path": [
+  "Transaction",
+  "Claim",
+  "Claim Approval Doc Wise"
+ ],
+ "route": "/content-master/claim/claim-inquiry-doc-wise-approval",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/claim/claim-inquiry-doc-wise-approval",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

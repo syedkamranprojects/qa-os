@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1020",
+ "title": "Device Type",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Device Type"
+  ],
+  "group_id": "DYL_1020"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1020",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101020001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Device Type - Grid",
+   "table": "GLB_PR_DVT_DEVICETYPE",
+   "n_fields": 0,
+   "grids": [
+    "Device Type"
+   ]
+  },
+  {
+   "page": "101020002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101020001",
+   "desc": "Device Type - Form",
+   "table": "GLB_PR_DVT_DEVICETYPE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Device Type": {
+   "name": "txt__pdvt_devicetype",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PDVT_DEVICETYPE",
+   "db_description": "Device Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  },
+  "Description": {
+   "name": "txt__pdvt_desc",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PDVT_DESC",
+   "db_description": "Device Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  },
+  "Abbreviation": {
+   "name": "txt__pdvt_abrv",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PDVT_ABRV",
+   "db_description": "Device Type Short Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  },
+  "Default": {
+   "name": "ddl__pdvt_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PDVT_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  },
+  "Status": {
+   "name": "ddl__pdvt_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PDVT_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  },
+  "Level Type": {
+   "name": "txt__pdvt_leveltype",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PDVT_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  },
+  "Level No": {
+   "name": "txt__pdvt_level_no",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PDVT_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101020002"
+  }
+ },
+ "grids": {
+  "Device Type": {
+   "columns": [
+    "Device Type",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

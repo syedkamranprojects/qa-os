@@ -1,0 +1,155 @@
+{
+ "option_id": "DYL_202092",
+ "title": "RCOA Distributor Profile",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Setup",
+   "RCOA Distributor Profile"
+  ],
+  "group_id": "DYL_202092"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202092",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202092001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202092002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202092001",
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Distributor Code": {
+   "name": "TXT__epp1_busent_phs_lvl1_code",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "db_description": "Physical Business Entities Level 1 (Distributor, Outlet, Warehouse etc)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202092002"
+  },
+  "Distributor Name": {
+   "name": "TXT__epp1_desc",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "EPP1_DESC",
+   "db_description": "Physical Business Entities Level 1 Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202092002"
+  },
+  "DTP Profitability Enabled": {
+   "name": "DDL__EPP1_ENABLED_DTPROFITABILITY",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EPP1_ENABLED_DTPROFITABILITY",
+   "db_description": "DT Profitability Enable (Yes/No)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "SUGPRDSELLCAT",
+   "validations": null,
+   "regex": null,
+   "page": "202092002"
+  },
+  "DTP Frequency": {
+   "name": "DDL__PFQY_FREQUENCY_DTP",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PFQY_FREQUENCY_DTP",
+   "db_description": "Frequency Code – DTP Distributor",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "FREQUENCY_PT",
+   "validations": null,
+   "regex": null,
+   "page": "202092002"
+  },
+  "DTP Frequency Fixed": {
+   "name": "DDL__PFQY_FREQUENCY_DTP_FIXED",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PFQY_FREQUENCY_DTP_FIXED",
+   "db_description": "Frequency Code – DTP Distributor (Fixed)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "FREQUENCY_PT",
+   "validations": null,
+   "regex": null,
+   "page": "202092002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Entity Code",
+    "Distributor",
+    "Distributor Name",
+    "DTP Profitability Enabled",
+    "DTP Frequency",
+    "DTP Frequency Fixed"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Update"
+ ]
+}

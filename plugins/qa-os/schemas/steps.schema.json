@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qa-os/steps.schema.json",
+  "title": "QA OS step DSL v1 — a single case, or a bundle of cases (steps.json)",
+  "oneOf": [ { "$ref": "#/$defs/case" }, { "$ref": "#/$defs/bundle" } ],
+  "$defs": {
+    "bundle": {
+      "type": "object",
+      "required": ["key", "app", "cases"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "type": "string" },
+        "app": { "type": "string" }, "env": { "type": "string" }, "user": { "type": "string" },
+        "defaults": { "type": "object", "properties": { "data": { "type": "object" } }, "description": "data merged under each case's data" },
+        "cases": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/case_in_bundle" } }
+      }
+    },
+    "case": {
+      "allOf": [ { "$ref": "#/$defs/case_in_bundle" }, { "required": ["app"] } ]
+    },
+    "case_in_bundle": {
+      "type": "object",
+      "required": ["case", "steps"],
+      "additionalProperties": false,
+      "properties": {
+        "case":  { "type": "string" },
+        "title": { "type": "string" },
+        "app":   { "type": "string" },
+        "env":   { "type": "string" },
+        "user":  { "type": "string" },
+        "readiness": { "enum": ["ready", "needs-data", "needs-learning", "needs-verb", "manual", "deferred"],
+                       "description": "ready = player can run it now; deferred = intentionally not automated for now (e.g. file upload); otherwise see blocked_by" },
+        "blocked_by": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" },
+        "mutates_data": { "type": "boolean", "description": "true if the case saves/updates/uploads (dev env only)" },
+        "data":  { "type": "object", "description": "The ONE data row for this case (principle 6). Referenced as {{data.x}}" },
+        "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/step" } }
+      }
+    },
+    "step": {
+      "type": "object",
+      "required": ["do"],
+      "properties": {
+        "do": { "enum": ["login", "logout", "harvest_menu", "harvest_i18n", "navigate", "enter", "choose", "set_date", "click",
+                         "select_row", "verify_ui", "verify_db", "capture", "screenshot", "wait",
+                         "download", "upload", "edit_excel", "harvest_grid", "capture_message", "harvest_screen", "manual"] },
+        "note": { "type": "string" }
+      },
+      "allOf": [
+        { "if": { "properties": { "do": { "const": "login" } } },      "then": { "properties": { "distributor": { "type": "string" } } } },
+        { "if": { "properties": { "do": { "const": "navigate" } } },   "then": { "required": ["menu"], "properties": { "menu": { "type": "string" } } } },
+        { "if": { "properties": { "do": { "enum": ["enter", "choose", "set_date"] } } }, "then": { "required": ["field", "value"] } },
+        { "if": { "properties": { "do": { "const": "click" } } },      "then": { "required": ["button"] } },
+        { "if": { "properties": { "do": { "const": "select_row" } } }, "then": { "required": ["grid", "value"] } },
+        { "if": { "properties": { "do": { "const": "verify_ui" } } },  "then": { "required": ["expect"] } },
+        { "if": { "properties": { "do": { "const": "verify_db" } } },  "then": { "required": ["recipe", "expect"] } },
+        { "if": { "properties": { "do": { "const": "capture" } } },    "then": { "required": ["field", "as"] } },
+        { "if": { "properties": { "do": { "const": "wait" } } },       "then": { "required": ["seconds"] } },
+        { "if": { "properties": { "do": { "const": "download" } } },   "then": { "required": ["button", "as"] } },
+        { "if": { "properties": { "do": { "const": "upload" } } },     "then": { "required": ["button", "file"] } },
+        { "if": { "properties": { "do": { "const": "edit_excel" } } }, "then": { "required": ["file", "rows"] } },
+        { "if": { "properties": { "do": { "const": "harvest_grid" } } },    "then": { "required": ["as"] } },
+        { "if": { "properties": { "do": { "const": "capture_message" } } }, "then": { "required": ["as"] } },
+        { "if": { "properties": { "do": { "const": "harvest_screen" } } },  "then": { "required": ["as"] } },
+        { "if": { "properties": { "do": { "const": "manual" } } },     "then": { "required": ["note"] } }
+      ]
+    }
+  }
+}

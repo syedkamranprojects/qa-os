@@ -1,0 +1,119 @@
+{
+ "option_id": "DYL_201077",
+ "title": "Redemption Limit",
+ "menu": {
+  "path": [
+   "Promotion Setup",
+   "Redemption Limit"
+  ],
+  "group_id": "DYL_201077"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201077",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201077001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "prm_pm_erc_ent_redmption_cap",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201077002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201077001",
+   "desc": null,
+   "table": "prm_pm_erc_ent_redmption_cap",
+   "n_fields": 3,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Customer": {
+   "name": "DDL__PERCENTITYCODE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PERC_ENTITY_CODE",
+   "db_description": "Entity Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "CUSTREDLMT",
+   "validations": null,
+   "regex": null,
+   "page": "201077002"
+  },
+  "Max Value": {
+   "name": "TXT__perc_max_value",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PERC_MAX_VALUE",
+   "db_description": "Maximum Value",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201077002"
+  },
+  "Default": {
+   "name": "DDL__perc_default",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PERC_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201077002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Customer",
+    "Max Value",
+    "Default",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

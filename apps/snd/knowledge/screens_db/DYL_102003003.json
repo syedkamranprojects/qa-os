@@ -1,0 +1,44 @@
+{
+ "option_id": "DYL_102003003",
+ "title": "Warehouse Profile",
+ "menu": {
+  "path": [
+   "Warehouse Profile"
+  ],
+  "group_id": "DYL_102003003"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102003003",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003001_PBET_BUSENTITY_TYPE_WRHS",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003002_PBET_BUSENTITY_TYPE_WRHS",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "102003001_PBET_BUSENTITY_TYPE_WRHS",
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  }
+ ],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

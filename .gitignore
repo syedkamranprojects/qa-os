@@ -1,0 +1,19 @@
+runs/
+__pycache__/
+*.pyc
+~$*
+.secrets/
+*.local.json
+
+# Real credentials files (never commit)
+credentials.json
+.qa-os/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# scratch imports used only during Excel round-trip testing
+_test_edit_*.xlsx
+.import_*.json

@@ -1,0 +1,134 @@
+{
+ "option_id": "DYL_BG1005",
+ "title": "Warehouse Profile Approval",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Warehouse",
+   "Warehouse Profile Approval"
+  ],
+  "group_id": "DYL_BG1005"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1005",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1005001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "n_fields": 0,
+   "grids": [
+    "Outlet Profile"
+   ]
+  },
+  {
+   "page": "BG1005002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "BG1005001",
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Warehouse Code": {
+   "name": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "id": "FTXT__EPP1BUSENTPHSLVL1CODE",
+   "widget": "text",
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "db_description": "Physical Business Entities Level 1 (Distributor, Outlet, Warehouse etc)",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1005002"
+  },
+  "Warehouse Name": {
+   "name": "TXT__EPP1DESC",
+   "id": "FTXT__EPP1DESC",
+   "widget": "text",
+   "data_field": "EPP1_DESC",
+   "db_description": "Physical Business Entities Level 1 Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1005002"
+  },
+  "Warehouse Type": {
+   "name": "DDL__PBEMBUSENTITYMISTYPE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PBEM_BUSENTITY_MISTYPE",
+   "db_description": "Business Entity MIS Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PBEM",
+   "validations": null,
+   "regex": null,
+   "page": "BG1005002"
+  },
+  "Status": {
+   "name": "DDL__EPP1ACTIVE",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "EPP1_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1005002"
+  }
+ },
+ "grids": {
+  "Outlet Profile": {
+   "columns": [
+    "Warehouse Code",
+    "Warehouse Name",
+    "Warehouse Type",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

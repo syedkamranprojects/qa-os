@@ -1,0 +1,376 @@
+{
+ "option_id": "DYL_102014",
+ "title": "Transaction Inquiry",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Transaction Inquiry"
+  ],
+  "group_id": "DYL_102014"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102014",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102014004",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_pr_dos_documentstatus",
+   "n_fields": 7,
+   "grids": []
+  },
+  {
+   "page": "102014001",
+   "tab": null,
+   "is_child": true,
+   "parent": "102014004",
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014002",
+   "tab": "Detail",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014003",
+   "tab": "Product Wise Discount",
+   "is_child": true,
+   "parent": "102014002",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CMM_CASHMEMO_OFFRITEM",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014010",
+   "tab": "Product Wise Free Quantity",
+   "is_child": true,
+   "parent": "102014002",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014007",
+   "tab": "Total Offering",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014008",
+   "tab": "Total Tax",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014009",
+   "tab": "Credit Note Adjustments",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_payment",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014012",
+   "tab": "Additional Charges",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": "Additional Charges",
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014011",
+   "tab": "Cashmemo Additional Info",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CAI_CMM_ADITIONL_INFO",
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "102015001",
+   "tab": "Emptybottle",
+   "is_child": true,
+   "parent": "102014001",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_master",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document Type": {
+   "name": "DDL__PDOTDOCMTYPEPARENT",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": false,
+   "editable": false,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "",
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "Document Status": {
+   "name": "DDL__PDOSDOCMSTATUSPARENT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PEXS_EXECUTION_STATUS",
+   "db_description": "Execution Status Code",
+   "required": false,
+   "editable": false,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "",
+   "data_list_id": "PEXS",
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "PJP Number": {
+   "name": "DDL__EPJPPJPNODAILY",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "EPJP_PJPNO_DAILY",
+   "db_description": "PJP Number Daily",
+   "required": false,
+   "editable": false,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "",
+   "data_list_id": "PJPDM",
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "Document Date From": {
+   "name": "DT__TCMMDOCMDATEFROMPARENT",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TCMM_DOCM_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": "",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "Document Date To": {
+   "name": "DT__TCMMDOCMDATETOPARENT",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "TCMM_DOCM_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": "",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "SKU": {
+   "name": "DDL_PRODUCT",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "PPRD_PRODCODE",
+   "db_description": "Product Code",
+   "required": false,
+   "editable": false,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "",
+   "data_list_id": "CMTI",
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "Date Type": {
+   "name": "DDL__DATETYPE",
+   "id": "selectbox7",
+   "widget": "select",
+   "data_field": "DATE_TYPE",
+   "db_description": null,
+   "required": false,
+   "editable": false,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "OD",
+   "data_list_id": "",
+   "validations": null,
+   "regex": null,
+   "page": "102014004"
+  },
+  "Name": {
+   "name": "name",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "MAX(CASE WHEN TCAI_FIELD_COMB = 'CUSTOMERNAME' THEN TCAI_VALUE_COMB ELSE NULL END)",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102014011"
+  },
+  "Address": {
+   "name": "address",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "MAX(CASE WHEN TCAI_FIELD_COMB = 'ADDRESS' THEN TCAI_VALUE_COMB ELSE NULL END)",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102014011"
+  },
+  "Mobile Number": {
+   "name": "mobile_number",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "MAX(CASE WHEN TCAI_FIELD_COMB = 'MOBILENUMBER' THEN TCAI_VALUE_COMB ELSE NULL END)",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102014011"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Product Code",
+    "Product Description",
+    "Batch",
+    "Stock Type",
+    "Trade Price / Unit",
+    "Delivered CS",
+    "Delivered DZ",
+    "Delivered PC",
+    "Gross Amount",
+    "Discount",
+    "Tax",
+    "Net Amount",
+    "Allocated CS",
+    "Allocated DZ",
+    "Allocated PC",
+    "Ordered CS",
+    "Ordered DZ",
+    "Ordered PC",
+    "Organization",
+    "Document Type",
+    "Document No",
+    "Comments"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

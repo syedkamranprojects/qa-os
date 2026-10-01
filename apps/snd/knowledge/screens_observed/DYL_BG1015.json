@@ -1,0 +1,162 @@
+{
+ "option_id": "DYL_BG1015",
+ "title": "Stock Inquiry II",
+ "menu_path": [
+  "Transaction",
+  "Stock",
+  "Stock Inquiry II"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=BG1015",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=BG1015",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__pptp_period_type",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Period Type",
+   "id": "DDT__tssb_balance_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "categoryFilter",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "brandFilter",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Stock Inquiry",
+   "id": "showInquiryRefresh",
+   "title": "Stock Inquiry",
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "Generate Opening Balances",
+   "id": "DYP.......GenerateOpeningBalances",
+   "title": "Generate Opening Balances",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Category",
+    "Brand",
+    "Product Code",
+    "Product Name",
+    "Warehouse",
+    "Batch",
+    "Stock Type",
+    "Moving Avg Price",
+    "Opening Stock Value",
+    "Closing Stock Value",
+    "Opening CS",
+    "Opening SH",
+    "Opening PC",
+    "In CS",
+    "In SH",
+    "In PC",
+    "Out CS",
+    "Out SH",
+    "Out PC",
+    "Allocated CS",
+    "Allocated SH",
+    "Allocated PC",
+    "Closing CS",
+    "Closing SH",
+    "Closing PC",
+    "ATP CS",
+    "ATP SH",
+    "ATP PC",
+    "In Transit CS",
+    "In Transit SH",
+    "In Transit PC",
+    "Re Attempt CS",
+    "Re Attempt SH",
+    "Re Attempt PC"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

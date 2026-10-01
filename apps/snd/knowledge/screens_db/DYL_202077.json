@@ -1,0 +1,192 @@
+{
+ "option_id": "DYL_202077",
+ "title": "Stock Type Reason Mapping",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Setup Mapping",
+   "Stock Type Reason Mapping"
+  ],
+  "group_id": "DYL_202077"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202077",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202077001",
+   "tab": "Stock Type",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_pr_stt_sku_stocktype",
+   "n_fields": 0,
+   "grids": [
+    "Stock Type"
+   ]
+  },
+  {
+   "page": "202077002",
+   "tab": "Stock Type",
+   "is_child": true,
+   "parent": "202077001",
+   "partial": null,
+   "desc": null,
+   "table": "glb_pr_aee_allow_enttoentity",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "paee_allowable_code",
+   "id": "column3",
+   "widget": "allowable",
+   "data_field": "PAEE_ALLOWABLE_CODE",
+   "db_description": "Allowable Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  },
+  "Index #": {
+   "name": "PAEE_INDEX_NUMBER",
+   "id": "column9",
+   "widget": "allowable",
+   "data_field": "PAEE_INDEX_NUMBER",
+   "db_description": "Index Number Purpose: It will be used to sort the products or the records by index number.",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  },
+  "Description": {
+   "name": "prnt_desc",
+   "id": "column4",
+   "widget": "allowable",
+   "data_field": "PRNT_DESC",
+   "db_description": "Reason Type Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  },
+  "Organization/Company Code": {
+   "name": "TXT__porg_orgacode",
+   "id": "column4",
+   "widget": "allowable",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  },
+  "Allowable Type": {
+   "name": "paee_allowable_type",
+   "id": "column5",
+   "widget": "allowable",
+   "data_field": "PAEE_ALLOWABLE_TYPE",
+   "db_description": "Allowable Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  },
+  "Source Code": {
+   "name": "paee_source_code",
+   "id": "column6",
+   "widget": "allowable",
+   "data_field": "PAEE_SOURCE_CODE",
+   "db_description": "Source Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  },
+  "Source Type": {
+   "name": "paee_source_type",
+   "id": "column7",
+   "widget": "allowable",
+   "data_field": "PAEE_SOURCE_TYPE",
+   "db_description": "Source Type",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202077002"
+  }
+ },
+ "grids": {
+  "Stock Type": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Stock Type Group",
+    "Calculation",
+    "Identifier",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

@@ -1,0 +1,214 @@
+{
+ "option_id": "DYL_201009",
+ "title": "Banner Type",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Banner",
+   "Banner Type"
+  ],
+  "group_id": "DYL_201009"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201009",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201009001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Banner Type - Grid",
+   "table": "BNR_BR_BNT_BANNER_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201009002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201009001",
+   "desc": "Banner Type - Form",
+   "table": "BNR_BR_BNT_BANNER_TYPE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Banner Type": {
+   "name": "TXT__BBNTBANNERTYPE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "BBNT_BANNER_TYPE",
+   "db_description": "Banner Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Description": {
+   "name": "TXT__BBNTDESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "BBNT_DESC",
+   "db_description": "Banner Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Abbreviation": {
+   "name": "TXT__BBNTABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "BBNT_ABRV",
+   "db_description": "Banner Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Other Fields": {
+   "name": "TXT__BBNTOTHERFIELDS",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "BBNT_OTHER_FIELDS",
+   "db_description": "Other Fields",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Default": {
+   "name": "DDL__BBNTDEFAULT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "BBNT_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Active": {
+   "name": "DDL__BBNTACTIVE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "BBNT_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Level Type": {
+   "name": "TXT__BBNTLEVELTYPE",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "BBNT_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  },
+  "Level Number": {
+   "name": "TXT__BBNTLEVELNO",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "BBNT_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201009002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization/Company Code",
+    "Banner Type",
+    "Description",
+    "Abbreviation",
+    "Other Fields",
+    "Default",
+    "Active",
+    "Level Type",
+    "Level Number"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

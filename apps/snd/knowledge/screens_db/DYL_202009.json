@@ -1,0 +1,110 @@
+{
+ "option_id": "DYL_202009",
+ "title": "Back Order",
+ "menu": {
+  "path": [
+   "Transactions",
+   "Back Order"
+  ],
+  "group_id": "DYL_202009"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202009",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202009001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_master",
+   "n_fields": 2,
+   "grids": []
+  },
+  {
+   "page": "202009002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202009001",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Order Date From": {
+   "name": "DOCMDATE",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "DOCMDATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202009001"
+  },
+  "Order Date to": {
+   "name": "DOCMDATE2",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "DOCMDATE2",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202009001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Seller",
+    "Distributor",
+    "Document No",
+    "Document Type",
+    "Document Status",
+    "Currency",
+    "Purchaser",
+    "Outlet Name",
+    "Document Date",
+    "Delivery Date",
+    "Document Reference No",
+    "Document Type Identifier",
+    "Document Status Identifier",
+    "Entity Type",
+    "PJP Number",
+    "DSR Code",
+    "Section"
+   ],
+   "edit_mode": "row",
+   "selection": "multiple"
+  }
+ },
+ "buttons": [
+  "Process"
+ ]
+}

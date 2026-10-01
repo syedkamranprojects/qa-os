@@ -1,0 +1,187 @@
+{
+ "option_id": "DYL_DN1001",
+ "title": null,
+ "menu": {
+  "path": [
+   "Approval",
+   "Master Data Approval",
+   "DYL_DN1001"
+  ],
+  "group_id": "DYL_DN1001"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "DN1001",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "DN1001002",
+   "tab": "Vehicle",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_PR_VCH_VEHICLE",
+   "n_fields": 0,
+   "grids": [
+    "Distributor Code"
+   ]
+  },
+  {
+   "page": "DN1001001",
+   "tab": "Vehicle",
+   "is_child": true,
+   "parent": "DN1001002",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "PAEE_ALLOWABLE_CODE",
+   "id": "column4",
+   "widget": "allowable",
+   "data_field": "PAEE_ALLOWABLE_CODE",
+   "db_description": "Allowable Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  },
+  "Description": {
+   "name": "EPL1_DESC",
+   "id": "column5",
+   "widget": "allowable",
+   "data_field": "EPL1_DESC",
+   "db_description": "Logical Business Entities Level 1 Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  },
+  "Business Entity Type Code": {
+   "name": "PBET_BUSENTITY_TYPE",
+   "id": "GTXT_ALL__PBETBUSENTITYTYPE",
+   "widget": "allowable",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  },
+  "Organization/Company Code": {
+   "name": "porg_orgacode",
+   "id": "column10",
+   "widget": "allowable",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  },
+  "Allowable Type": {
+   "name": "PAEE_ALLOWABLE_TYPE",
+   "id": "GTXT__PAEE_ALLOWABLE_TYPE",
+   "widget": "allowable",
+   "data_field": "PAEE_ALLOWABLE_TYPE",
+   "db_description": "Allowable Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  },
+  "Type": {
+   "name": "PAEE_SOURCE_TYPE",
+   "id": "column8",
+   "widget": "allowable",
+   "data_field": "PAEE_SOURCE_TYPE",
+   "db_description": "Source Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  },
+  "Source Code": {
+   "name": "PAEE_SOURCE_CODE",
+   "id": "column13",
+   "widget": "allowable",
+   "data_field": "PAEE_SOURCE_CODE",
+   "db_description": "Source Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1001001"
+  }
+ },
+ "grids": {
+  "Distributor Code": {
+   "columns": [
+    "Code",
+    "Description",
+    "Level Type",
+    "Level No",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

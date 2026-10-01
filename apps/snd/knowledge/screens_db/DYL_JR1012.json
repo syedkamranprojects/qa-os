@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1012",
+ "title": "Purchase Detail Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Purchase Detail Report"
+  ],
+  "group_id": "DYL_JR1012"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1012",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

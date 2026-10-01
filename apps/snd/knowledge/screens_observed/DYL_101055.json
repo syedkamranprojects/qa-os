@@ -1,0 +1,222 @@
+{
+ "option_id": "DYL_101055",
+ "title": "Policy",
+ "menu_path": [
+  "Company setup",
+  "General",
+  "Policy"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=101055",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=101055",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Policy Number",
+   "id": "txt__ppro_policy_verno",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "TXT__PPRO_DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "TXT__PPRO_ABRV",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Min Quantity",
+   "id": "txt__ppro_min_qty",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Min Quantity",
+   "id": "txt__ppro_max_qty",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Starting Date",
+   "id": "dt__ppro_starting_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Starting Date",
+   "id": "dt__ppro_end_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "2384",
+   "id": "pagination-element-2384",
+   "title": "Page 2384",
+   "disabled": false
+  },
+  {
+   "text": "Header Info",
+   "id": null,
+   "title": "Header Info",
+   "disabled": false
+  },
+  {
+   "text": "Policy",
+   "id": null,
+   "title": "Policy",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Product ID",
+    "Description",
+    "Batch",
+    "Selling Price Code",
+    "Purchase Price Code",
+    "Batch Index",
+    "Manufacture Date",
+    "Expiry Date"
+   ],
+   "rows": 10,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "Policy Number",
+    "Description",
+    "Abbreviation",
+    "Starting Date",
+    "End Date",
+    "Min Quantity",
+    "Max Quantity"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

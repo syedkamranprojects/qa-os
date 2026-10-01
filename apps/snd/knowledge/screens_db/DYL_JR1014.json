@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1014",
+ "title": "Daily Sale Return Sheet Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Daily Sale Return Sheet Report"
+  ],
+  "group_id": "DYL_JR1014"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1014",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

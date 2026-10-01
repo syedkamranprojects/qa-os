@@ -1,0 +1,10 @@
+{"option_id":"/ngui/sales-return-statusChange","title":"Sales Return Status Change","menu_path":["Home","Transaction","Sales Return","Sales Return Status Change"],"route":"/ngui/sales-return-statusChange","url_path":"/ngui/sales-return-statusChange",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[{"name":"Header","fields":[
+{"label":"PJP Number","id":"pjpNo","widget":"dropdown","required":false,"readonly":false,"default":"AutoPJGIN2-Auto GIN PJP DM","options":["AutoPJGIN2-Auto GIN PJP DM","AUTO301301-Auto_test","02112-AutomationDSR","AutoPromo2-Auto Promo PJP DM","8197298470-Aslam PJP DM"]},
+{"label":"Gin Number","id":"ginNumber","widget":"dropdown","required":false,"readonly":false,"default":""}],
+"buttons":[],
+"grids":[{"headers":["Document No.","Principle Invoice","Document Date","Delivery Date","Outlet Code","Gross Amount","Discount Amount","Tax","Net Amount"],"rows":0,"columns":9,"grid_text":"Data grid with 0 rows and 9 columns","paged":false,"filter_inputs":{}}]},
+{"name":"Detail","note":"disabled until a document is selected"}],
+"fields":[],"buttons":[],"grids":[],
+"messages":["Gin Number list not expanded (depends on PJP/GIN availability). No Save/Forward button visible at header stage."]}

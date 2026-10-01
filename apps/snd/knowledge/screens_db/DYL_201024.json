@@ -1,0 +1,175 @@
+{
+ "option_id": "DYL_201024",
+ "title": "Sender Info",
+ "menu": {
+  "path": [
+   "Configuration",
+   "Mobiz  Configuration",
+   "Sender Info"
+  ],
+  "group_id": "DYL_201024"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201024",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201024001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mbz_senderinfo",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201024002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201024001",
+   "desc": null,
+   "table": "mbz_senderinfo",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "ACCOUNTID": {
+   "name": "DDL__ACCOUNTID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "ACCOUNT_ID",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "MBZACC",
+   "validations": null,
+   "regex": null,
+   "page": "201024002"
+  },
+  "Sender ID": {
+   "name": "TXT__SNDSENDERID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "SND_SENDERID",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201024002"
+  },
+  "Name": {
+   "name": "TXT__SNDNAME",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "SND_NAME",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 50,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201024002"
+  },
+  "Email": {
+   "name": "TXT__SNDEMAIL",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "SND_EMAIL",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 200,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201024002"
+  },
+  "Password": {
+   "name": "TXT__SNDPASSWORD",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "SND_PASSWORD",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201024002"
+  },
+  "Status": {
+   "name": "DDL__SNDACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "SND_ACTIVE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201024002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "ACCOUNTID",
+    "Sender ID",
+    "Name",
+    "Email",
+    "Password",
+    "Status"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,14 @@
+{"option_id":"202026","title":"Loss Approval","menu_path":["Home","Transaction","Loss Approval","Loss Approval"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=202026",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[
+{"name":"Loss Approval Master","fields":[
+{"label":"Serial No","id":"TXT__tsrmsrno","widget":"text","required":true,"readonly":true,"default":""},
+{"label":"Document No","id":"TXT__tstmdocno","widget":"text","required":false,"readonly":true,"default":""},
+{"label":"Document Type","id":"DDL__pdot_docmtype","widget":"readonly","required":false,"readonly":true,"default":"NTN"},
+{"label":"Status","id":"TXT__TSRMSTATUS","widget":"text","required":false,"readonly":true,"default":""}],
+"buttons":[{"text":"Forward","id":"forward","disabled":true,"kind":"ACTION - not clicked"},{"text":"Reject","id":"reject","disabled":true,"kind":"ACTION - not clicked"}],
+"grids":[{"headers":["Serial No","Document Type","Document No","Distributor Code","Distributor Name","Status"],"grid_text":"Data grid with 364 rows and 6 columns","rows":364,"columns":6,"paged":true,"page_size":5}]},
+{"name":"Loss Approval Detail","note":"disabled until a master row is selected (selecting a row is read-only and enables it)","fields":[],"buttons":[],
+"grids":[{"headers":["Product","SKU Type","Dispatch CS","Dispatch DZ","Dispatch PC","Received CS","Received DZ","Received PC","Loss CS","Loss DZ","Loss PC"],"grid_text":"Data grid with 3 rows and 11 columns (first row selected)","rows":3,"columns":11}]}],
+"fields":[],"buttons":[],"grids":[],
+"messages":["Maker (Auto_Multi_Orga) can open this screen and see 364 loss documents; Forward/Reject are disabled until a row is selected (not tested)."]}

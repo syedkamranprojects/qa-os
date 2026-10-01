@@ -1,0 +1,193 @@
+{
+ "option_id": "DYL_201051",
+ "title": "Complaint Type",
+ "menu": {
+  "path": [
+   "Asset Module",
+   "Complaint Type"
+  ],
+  "group_id": "DYL_201051"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201051",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201051001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "AST_PR_CTP_COMPLAINT_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201051002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201051001",
+   "desc": null,
+   "table": "AST_PR_CTP_COMPLAINT_TYPE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__ACTP_COMPLAINT_TYPE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "ACTP_COMPLAINT_TYPE",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  },
+  "Long Description": {
+   "name": "TXT__ACTP_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "ACTP_DESC",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  },
+  "Short Description": {
+   "name": "TXT__ACTP_ABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "ACTP_ABRV",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  },
+  "Default": {
+   "name": "DDL__ACTP_DEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "ACTP_DEFAULT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  },
+  "Status": {
+   "name": "DDL__ACTP_STATUS",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "ACTP_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  },
+  "Level No": {
+   "name": "TXT__ACTP_LEVEL_NO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "ACTP_LEVEL_NO",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  },
+  "Level Type": {
+   "name": "TXT__ACTP_LEVELTYPE",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "ACTP_LEVELTYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201051002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Long Description",
+    "Short Description",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

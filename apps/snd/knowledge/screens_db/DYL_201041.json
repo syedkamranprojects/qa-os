@@ -1,0 +1,37 @@
+{
+ "option_id": "DYL_201041",
+ "title": "Route Scheduling",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Entity Profile",
+   "Route Scheduling"
+  ],
+  "group_id": "DYL_201041"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201041",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201041001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  }
+ ],
+ "fields": {},
+ "grids": {},
+ "buttons": [
+  "Process"
+ ]
+}

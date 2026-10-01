@@ -1,0 +1,261 @@
+{
+ "option_id": "DYL_201011",
+ "title": "Banner Header",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Banner",
+   "Banner Header"
+  ],
+  "group_id": "DYL_201011"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201011",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201011001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Banner Header - Grid",
+   "table": "BNR_BR_BNH_BANNER_HEADER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201011002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201011001",
+   "desc": "Banner Header - Form",
+   "table": "BNR_BR_BNH_BANNER_HEADER",
+   "n_fields": 10,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Serial Number": {
+   "name": "TXT__BBNHSRNO",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "BBNH_SRNO",
+   "db_description": "Banner Header Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Entity Type": {
+   "name": "DDL__pbet_busentity_type",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PBET",
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Entity Code": {
+   "name": "TXT__bbnh_bus_entity_code",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "BBNH_BUS_ENTITY_CODE",
+   "db_description": "Business Entity Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Description": {
+   "name": "TXT__BBNHSHOWDESC",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "BBNH_SHOW_DESC",
+   "db_description": "Show Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Banner Type": {
+   "name": "DDL__BBNTBANNERTYPE",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "BBNT_BANNER_TYPE",
+   "db_description": "Banner Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "BBNT",
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Image Based?": {
+   "name": "DDL__BBNHIMAGEBASED",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "BBNH_IMAGE_BASED",
+   "db_description": "Is Image Based?",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Image URL": {
+   "name": "TXT__BBNHIMAGEURL",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "BBNH_IMAGE_URL",
+   "db_description": "Image URL",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Effective From": {
+   "name": "DT__BBNHEFFECTIVEFROM",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "BBNH_EFFECTIVE_FROM",
+   "db_description": "Effective From",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  },
+  "Effective To": {
+   "name": "DT__BBNHEFFECTIVETO",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "BBNH_EFFECTIVE_TO",
+   "db_description": "Effective To (Expiry)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": [
+    {
+     "validationExpr": "@Date(@Model(DT__BBNHEFFECTIVEFROM)) < @Date(@Model(DT__BBNHEFFECTIVETO)) || !@Model(DT__BBNHEFFECTIVEFROM) || !@Model(DT__BBNHEFFECTIVETO)",
+     "validationMessage": "DYP.G......InvalidDateEntry"
+    },
+    {
+     "validationExpr": "@Model(DT__BBNHEFFECTIVETO) ? !!@Model(DT__BBNHEFFECTIVEFROM) : !@Model(DT__BBNHEFFECTIVEFROM)",
+     "validationMessage": "DYP.G......InvalidDateEntry"
+    }
+   ],
+   "regex": null,
+   "page": "201011002"
+  },
+  "Active": {
+   "name": "DDL__BBNHACTIVE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "BBNH_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201011002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization/Company Code",
+    "Serial Number",
+    "Entity Type",
+    "Entity Code",
+    "Description",
+    "Banner Type",
+    "Image Based?",
+    "Image URL",
+    "Effective From",
+    "Effective To",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

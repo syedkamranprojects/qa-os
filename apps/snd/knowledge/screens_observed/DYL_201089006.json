@@ -1,0 +1,146 @@
+{
+ "option_id": "DYL_201089006",
+ "title": "Analysis Classification - Outlet",
+ "menu_path": [
+  "Company setup",
+  "Analysis Classification",
+  "Analysis Classification - Outlet"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201089006",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201089006",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Add a row",
+   "id": null,
+   "title": "Add a row",
+   "disabled": false
+  },
+  {
+   "text": "Classification A",
+   "id": null,
+   "title": "Classification A",
+   "disabled": true
+  },
+  {
+   "text": "Classification B",
+   "id": null,
+   "title": "Classification B",
+   "disabled": true
+  },
+  {
+   "text": "Classification C",
+   "id": null,
+   "title": "Classification C",
+   "disabled": true
+  },
+  {
+   "text": "Banner",
+   "id": null,
+   "title": "Banner",
+   "disabled": true
+  },
+  {
+   "text": "TradeFormat",
+   "id": null,
+   "title": "TradeFormat",
+   "disabled": true
+  },
+  {
+   "text": "SpiderWeb",
+   "id": null,
+   "title": "SpiderWeb",
+   "disabled": true
+  },
+  {
+   "text": "PerfectStore",
+   "id": null,
+   "title": "PerfectStore",
+   "disabled": true
+  },
+  {
+   "text": "Perfect Store Compliance",
+   "id": null,
+   "title": "Perfect Store Compliance ",
+   "disabled": true
+  },
+  {
+   "text": "Other Info",
+   "id": null,
+   "title": "Other Info",
+   "disabled": true
+  },
+  {
+   "text": "Customer Class",
+   "id": null,
+   "title": "Customer Class",
+   "disabled": true
+  },
+  {
+   "text": "Chain Outlets",
+   "id": null,
+   "title": "Chain Outlets",
+   "disabled": true
+  },
+  {
+   "text": "Master Account Group",
+   "id": null,
+   "title": "Master Account Group",
+   "disabled": true
+  },
+  {
+   "text": "Outlet Programs",
+   "id": null,
+   "title": "Outlet Programs",
+   "disabled": true
+  },
+  {
+   "text": "OutletClassification",
+   "id": null,
+   "title": "OutletClassification",
+   "disabled": true
+  },
+  {
+   "text": "Outlet Range",
+   "id": null,
+   "title": "Outlet Range",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Analysis Type",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active"
+   ],
+   "rows": 15,
+   "pager": false
+  }
+ ]
+}

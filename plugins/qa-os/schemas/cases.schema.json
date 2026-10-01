@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qa-os/cases.schema.json",
+  "title": "QA OS test cases (test-designer output)",
+  "type": "object",
+  "required": ["key", "app", "sections"],
+  "properties": {
+    "key": { "type": "string" },
+    "app": { "type": "string" },
+    "screen_name": { "type": "string" },
+    "scenario": { "type": "string" },
+    "sections": { "type": "array", "items": { "type": "object", "required": ["title", "cases"], "properties": {
+      "title": { "type": "string" },
+      "cases": { "type": "array", "items": { "$ref": "#/$defs/case" } } } } }
+  },
+  "$defs": {
+    "case": {
+      "type": "object",
+      "required": ["id", "title", "kind", "traces", "preconditions", "expected"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^TC\\d{2,3}$" },
+        "title": { "type": "string", "description": "Starts with 'Verify'; negative/alternate cases are prefixed 'ALT-' in the workbook" },
+        "kind": { "enum": ["positive", "negative", "boundary", "regression", "business-effect"] },
+        "traces": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "requirement item ids (R*, AC*, SC*, AMB*)" },
+        "preconditions": { "type": "array", "items": { "type": "string" } },
+        "data_needs": { "type": "array", "items": { "type": "string" }, "description": "what ONE data row must satisfy" },
+        "expected": { "type": "string" },
+        "beyond_story": { "type": "boolean", "description": "tests behaviour the story does not state" },
+        "priority": { "enum": ["P1", "P2", "P3"] }
+      }
+    }
+  }
+}

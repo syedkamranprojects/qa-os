@@ -1,0 +1,56 @@
+# GIAS (General Insurance Administration System) app pack: identity, environments, defaults and pointers.
+# Same shape as apps/snd/app.yaml so the shared tools (runtime/qaos_config.py, intake, promotion) work for both.
+# GIAS is a JSP/frames application (not a single-page app): its login and navigation recipes are structured flows
+# recorded through the Selenium MCP (see `assets.flows`), not the S&D DevExtreme recipe. The player for GIAS is phase 2.
+id: gias
+name: GIAS (General Insurance Administration System)
+kind: jsp-frames
+
+connectors:
+  app_db_read: gias-schema           # MCP server name; only system 02 / application 88 is active (memory: gias schema queries)
+  framework_db_read: null            # GIAS has no selenium-framework-db rows yet
+
+environments:
+  local:
+    url_env: GIAS_BASE_URL           # start URL comes from the QA member's own settings (.claude/settings.json "env" holds the team default)
+    non_production: true
+    users:
+      administrator: {}              # the default test user; password only in the per-person credentials file / GIAS_TEST_PASSWORD
+    roles: {}                        # none defined yet: add role -> user here when GIAS gets maker/checker users
+    defaults:                        # used when a request does not name them; each value is read from an environment variable
+      branch_env: GIAS_DEFAULT_BRANCH             # login branch dropdown = PR_GN_LC_LOCATION.PLC_LOCACODE
+      application_env: GIAS_DEFAULT_APPLICATION   # "88" (DB-confirmed)
+      department_env: GIAS_DEFAULT_DEPARTMENT     # e.g. MOTOR
+    branch_notes:
+      "0010010001": GIS Setup branch, needed for the Parameter Setup menu items
+
+default_env: local
+allowed_hosts: [localhost]
+
+credentials:
+  user_env: GIAS_TEST_USER
+  password_env: GIAS_TEST_PASSWORD
+  password_env_prefix: GIAS_PASSWORD_             # per-user override key, e.g. GIAS_PASSWORD_ADMINISTRATOR
+
+# Where the GIAS source lives. Read-only for QA OS: the guardrail hook blocks writes under it. The path is machine-specific,
+# so it is never stored here: each QA member points this variable at their own checkout (workspace CLAUDE.md lists the team default).
+source_repo_env: GIAS_SOURCE_REPO
+
+markets: {}                          # GIAS is not market-configured the way S&D is; add entries if that changes
+
+# Existing GIAS assets (built before QA OS). Paths are relative to the workspace root, i.e. the folder that contains qa-os/.
+assets:
+  element_cache: .claude/element-cache/gias          # per-JSP locator caches (shsm/, genins/)
+  flows:                                             # structured flows a dumb player can execute
+    - .claude/element-cache/gias/flows/login_to_document_selection.json
+    - .claude/element-cache/gias/flows/login_to_endorsement_entry_add.json
+  menu:                                              # the full app-88 menu catalog extracted from SH_SM_AM_APPMENU
+    tree: .claude/element-cache/gias/menu/gias_menu_tree.json
+    paths: .claude/element-cache/gias/menu/gias_menu_paths.json
+    outline: .claude/element-cache/gias/menu/gias_menu_outline.txt
+  orchestrator_skill: .claude/skills/test-orchestrator/SKILL.md   # phase-1 live testing behaviour
+
+# Next steps to make GIAS a full QA OS pack (none of this needs agent or core changes):
+#   1. move or link the element cache under apps/gias/locators/ and the menu catalog under apps/gias/knowledge/
+#   2. write the GIAS login recipe and step vocabulary (apps/gias/steps/library.yaml) from the flows above
+#   3. add a GIAS player adapter (frames) or a Selenium-Java generator for phase 2

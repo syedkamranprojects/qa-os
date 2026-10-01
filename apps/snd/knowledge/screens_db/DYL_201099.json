@@ -1,0 +1,79 @@
+{
+ "option_id": "DYL_201099",
+ "title": "Loyalty Points Inquiry",
+ "menu": {
+  "path": [
+   "Transactions",
+   "Loyalty Points Inquiry"
+  ],
+  "group_id": "DYL_201099"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201099",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201099002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "201099001",
+   "tab": null,
+   "is_child": true,
+   "parent": "201099002",
+   "partial": null,
+   "desc": null,
+   "table": "prm_pm_dhr_data_holder",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Scheme ID": {
+   "name": "SCHEMEID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "SCHEMEID",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDHRSCHID",
+   "validations": null,
+   "regex": null,
+   "page": "201099002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Entity Code",
+    "Outlet Name",
+    "Scheme ID",
+    "Period No",
+    "Loyalty Amount"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

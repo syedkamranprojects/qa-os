@@ -1,0 +1,511 @@
+{
+ "src": "tf:01250001",
+ "flow_id": "01250001",
+ "description": "Section Creation HQ",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:01250001|0125|1",
+   "seq": 1,
+   "menu_group": "0125",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0125",
+   "menu_group": "0125",
+   "exists": true,
+   "description": "Section Creation HQ",
+   "search_text": "Section Creation HQ",
+   "navigation": "DYL_202046",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0125|012501|1",
+   "mgsm_seq": 1,
+   "screen_id": "012501",
+   "screen_name": "Section Creation HQ",
+   "sheet": "Section Creation HQ",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "012501"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Section Creation HQ",
+   "kind": "screen",
+   "screen_ids": [
+    "012501"
+   ]
+  },
+  {
+   "sheet": "Save_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "012501"
+   ]
+  },
+  {
+   "sheet": "Update_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "012501"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Section Creation HQ",
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Section Creation HQ",
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Section Creation HQ",
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Section Creation HQ",
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Section Creation HQ",
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Save_assertion",
+    "screen_id": "012501",
+    "src": "sef:012501|serial 3"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "Update_assertion",
+    "screen_id": "012501",
+    "src": "sef:012501|serial 5"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 6,
+  "fields_active": 5,
+  "events": 5,
+  "events_active": 5,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 2,
+   "group_assertion": 2
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_202046",
+  "menu_search_text": "Section Creation HQ"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "66",
+   "group_desc": "NG_Setup Flow_PK",
+   "seq": 32,
+   "active": true,
+   "user": "headquarter (serial 30)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "012501": {
+   "src": "sc:012501",
+   "screen_id": "012501",
+   "name": "Section Creation HQ",
+   "sheet": "Section Creation HQ",
+   "type": "Save",
+   "sheet_name_len": 19,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:012501|TXT__ENTITYCODE|1.0|1|1",
+     "seq": 1,
+     "field_id": "TXT__ENTITYCODE",
+     "locate_by": "id",
+     "label": "Code",
+     "db_column": "Code",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "012501:f1"
+    },
+    {
+     "src": "sf:012501|TXT__EPL1DESC|1.0|2|1",
+     "seq": 2,
+     "field_id": "TXT__EPL1DESC",
+     "locate_by": "id",
+     "label": "Description",
+     "db_column": "Description",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "012501:f2"
+    },
+    {
+     "src": "sf:012501|TXT__EPL1ABRV|1.0|3|1",
+     "seq": 3,
+     "field_id": "TXT__EPL1ABRV",
+     "locate_by": "id",
+     "label": "Abbreviation",
+     "db_column": "Abbreviation",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "012501:f3"
+    },
+    {
+     "src": "sf:012501|DDL__EPL1ACTIVE|1.0|4|1",
+     "seq": 4,
+     "field_id": "DDL__EPL1ACTIVE",
+     "locate_by": "id",
+     "label": "Status",
+     "db_column": "Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "012501:f4"
+    },
+    {
+     "src": "sf:012501|TXT__EPL1_REF_NUM_5|1.0|5|1",
+     "seq": 5,
+     "field_id": "TXT__EPL1_REF_NUM_5",
+     "locate_by": "id",
+     "label": "Default Delivery Days",
+     "db_column": "Default Delivery Days",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "012501:f5"
+    },
+    {
+     "src": "sf:012501|TXT__ENTITYCODE|1.0|6|1",
+     "seq": 6,
+     "field_id": "TXT__ENTITYCODE",
+     "locate_by": "id",
+     "label": "Code",
+     "db_column": "Code",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": "REPO_SECTIONCODE",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "012501:f6"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:012501|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "012501:e1"
+    },
+    {
+     "src": "sef:012501|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "012501:e2"
+    },
+    {
+     "src": "sef:012501|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Save assert",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Save_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "012501:e3",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Save_assertion"
+     }
+    },
+    {
+     "src": "sef:012501|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click Update Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "updateBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "012501:e4"
+    },
+    {
+     "src": "sef:012501|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Update assert",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Update_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "012501:e5",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Update_assertion"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 6,
+    "fields_active": 5,
+    "events": 5,
+    "events_active": 5
+   },
+   "assertion_sheets": [
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

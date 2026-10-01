@@ -1,0 +1,134 @@
+# S&D (DCODE) business-step library. One entry per step in docs/STEP_VOCABULARY.md.
+# expands_to: executable primitives (step DSL v1 + the helper in plugins/qa-os/runtime/qaos_helpers.js).
+# verified: true = executed live in a run (evidence given); false = defined but not yet executed.
+# Screen-specific ids come from the framework tables / sweep and are listed per screen under `screens`.
+app: snd
+updated: 2026-09-29
+
+actors:                     # roles used in test cases -> users, per environment. No passwords here.
+  cnr1dev1:
+    Maker:      { users: [Automation, Auto_Multi_Orga], note: "creates documents; 'Automation' login was rejected on 2026-09-29; confirm who is the maker" }
+    Checker:    { users: [Auto_Tssm], note: "approves; cannot create a DA ('Current user is not authorized to save this record!')" }
+    StockController: { users: [Auto_Multi_Orga], note: "framework runs stock validation flows as this user" }
+    HeadOffice: { users: [KPO_mp], note: "Pakistan HQ user; no distributor unless the environment assigns one (M&P 50250327 was assigned on 2026-09-29)" }
+  distributor_for_automation: "15108843"    # 'Auto KARACHI' / IBRAHIM TRADERS; framework case-data sheet 'Distributor selection'
+
+steps:
+  Login:
+    form: "Login as <role>"
+    expands_to: [ask_human_login, verify_user_name, install_helper]
+    notes: >
+      The QA lead types the credentials. Claude checks the profile name (top right) equals the role's user, installs the page
+      helper (a new login clears localStorage) and probes the session. Framework flow: 7777 (screens 777701 login, 777702 distributor selection).
+    verified: true          # runs 2026-09-29 (KPO_mp, Auto_Tssm)
+  SelectDistributor:
+    form: "Select distributor <name|code>"
+    expands_to: [choose "Distributor" = <value>, click "Proceed"]
+    notes: "framework screen 777702; KPO_mp had no distributor step on cnr1dev1; case-data value 15108843 for automation"
+    verified: false
+  Logout:
+    form: "Logout"
+    expands_to: [click_profile_menu, click "Logout"]
+    notes: "Profile menu is the user name at the top right; Logout is the item inside. Session token disappears (no local page state survives)."
+    verified: true
+  SwitchUser:
+    form: "Switch user to <role>"
+    expands_to: [Logout, "Login as <role>"]
+    notes: "SWITCH POINT: run stops until the QA lead has logged in as the next user; identity is verified before continuing."
+    verified: true
+
+  Navigate:
+    form: "Navigate to <Screen>[ > <Tab>]"
+    expands_to: [open_sidebar_search, type <Screen>, click_result, wait_for_screen]
+    notes: >
+      Works on every environment; direct routes (pushState) do not work on cnr1dev1. Wait for the grid/tab to render, never a fixed sleep.
+      Layout screens can take 15 s. Tabs are the clickable labels under the title (e.g. Header Info / Dispatch Detail).
+    verified: true
+  Open:
+    form: "Open <Document> <no|NAME>"
+    expands_to: [tick "Show filter row" (toggle: check state first), enter row filter "Document No" = <no>, wait_for_grid, click first row]
+    notes: "Filter is a 'contains' match: 570 also matches 4857072001; check row 1's number. Framework ids: gridFilterCheckbox, rowfilter_documentNo, row_1_document_no."
+    verified: true
+
+  Enter:
+    form: "Enter <Field> = <value>"
+    expands_to: [enter <Field> <value>, commit_on_blur]
+    notes: "DevExtreme commits on blur: press Tab (or blur) after typing, otherwise the app keeps the old value (seen as 'Please add comments')."
+    verified: true
+  Choose:
+    form: "Choose <Field> = <value>"
+    expands_to: [open_dropdown <Field>, pick_option <value>]
+    notes: "Option text may be 'code-name' (e.g. C0000000055-Auto Main Warehouse); match by exact text, else prefix."
+    verified: true
+  Remember:
+    form: "Remember <Field> as <NAME>"
+    expands_to: [capture <Field> as NAME]
+    notes: "Framework equivalent: event 0012 'Fill Repos' (REPO_DOCUMENTNO)."
+    verified: true
+
+  Create:
+    form: "Create <Document> with <Field> = <value>, ..."
+    expands_to: [Enter/Choose each field, "Save <Document>", verify_message "Saved successfully", "Remember Document No as <DocName>"]
+    verified: true          # Dispatch Advice: Document No 570 (KPO_mp, M&P Main Warehouse), toast 'Saved successfully'
+  AddLine:
+    form: "Add line to <Document>: <Field> = <value>, ..."
+    expands_to: [click "+" (Add row), type product code then click the suggestion (type-ahead), quantity, click row Save, verify_message "Saved Successfully!"]
+    notes: "Product is a type-ahead: real keystrokes, then click the suggestion. Stock type Sound and batch 1-1 fill by themselves. Row Save id is rowEditBtn_Save_<row index>, not always _0."
+    verified: true
+  AddLoss:
+    form: "Add loss to line <n>: Stock = <s>, Loss Reason = <r>, Quantity CS = <q>"
+    expands_to: [click the '+' in the line's Loss column (id Anchor), click Add, choose Stock, choose Loss Reason, enter CS, click row Save, click Calculate, click line Save]
+    notes: "The loss modal gives no toast; the loss shows in the line as 'Loss 1-0-0' and Received reduces. Loss cannot exceed the dispatched quantity."
+    verified: true
+
+  Save:    { form: "Save <Document>",   expands_to: [click "Save", capture_toast], verified: true }
+  Update:  { form: "Update <Document>", expands_to: [click "Update", capture_toast], verified: false }
+  Delete:  { form: "Delete <Document>", expands_to: ['click "Delete"', 'confirm dialog (if shown)', capture_toast], verified: false }
+
+  Forward:
+    form: "Forward <Document> with comment \"<text>\""
+    expands_to: [scroll to buttons, click the inner 'Forward' button, enter "Comments" = <text>, blur, click popup "Save", capture_toast]
+    notes: >
+      Click the inner dx-button `forward`; a scripted click on the wrapper `forwardBtn` does nothing. The comment is mandatory and needs a blur
+      first. Toast 'Forwarded successfully'. Grid then shows Approval Status 'Pending for approval'.
+    verified: true
+  Approve:
+    aliases: [Authorize]
+    form: "Approve <Document>"
+    expands_to: [Open <Document>, "Forward <Document> with comment \"Auto\""]
+    notes: >
+      In S&D the approval of a forwarded document is the same Forward action, done by the checker (framework flow 00740001 as user 8;
+      assertion DA_APPROVALFRWD_ASSR). Result: Status Active, Approval Status Approved, Received Date set. The app did not block the maker
+      from approving (DA 570 was approved by KPO_mp itself): the vocabulary requires a different user; the separation is a test rule, not an app rule.
+    verified: true
+  Reject:
+    form: "Reject <Document> with comment \"<text>\""
+    expands_to: [Open <Document>, click "Reject", enter "Comments", blur, click popup "Save", capture_toast]
+    verified: false
+
+  VerifyMessage:
+    form: "Verify message \"<text>\""
+    expands_to: [assert toast contains <text>]
+    notes: "Toasts vanish within about a second: capture while clicking. Record the exact text the first time."
+    verified: true
+  VerifyStatus:
+    form: "Verify status of <Document> is <status>"
+    expands_to: [Open <Document> (or read the grid row), assert columns Status / Approval Status]
+    notes: "The form keeps stale values after an action: reload the screen (Navigate again) before reading."
+    verified: true
+  VerifyField:
+    form: "Verify <Field> is <value>"
+    expands_to: [verify_ui field <Field> value <value>]
+    verified: true
+
+screens:                    # ids used by the steps above (source: selenium-framework-db + live check 2026-09-29)
+  Dispatch Advice:
+    option: DYL_201068
+    menu: "Transaction > Primary Sale > Dispatch Advice"
+    tabs: [Header Info, Dispatch Detail]
+    header_fields: { Warehouse: DDL__epp1_busent_code_phs_lvl1_b, "Vendor Code": DDL__PVNDVENDCODE, "SO Number": TXT__tstm_sales_order_no, "Shipment No": TXT__tstm_shipment_no, "Deliver No": TXT__tstm_delivery_no, "Invoice Due Date": DT__tstm_invoice_due_date, "Tax Invoice Number": TXT__tstm_taxinvoice_no, Comments: TXT__TSTMCOMMENTS, "Reference Date": DDT__origin_date, "Reference No": TXT__tstm_ref_1, "DA Type": documentType, "Truck No": TXT__pvch_vehicle_regno, "VAT Challan Number": TXT__tstm_vat_challan_no_1, "Invoice Number": TXT__tstm_invoice_no, "Document No": documentNo }
+    line_fields: { Product: prodCode_0, "Stock Type": stockType_0, Batch: batch_0, "Quantity CS": quantity1_0 }
+    loss_fields: { Stock: pstt_stock_type_0, "Loss Reason": reasontype_0, "Quantity CS": loss_qty1_0 }
+    buttons: { add: add, save: save, update: update, delete: delete, forward: forward, reject: reject, add_row: cashMemoSelectionGrid, row_save: "rowEditBtn_Save_<n>", loss_link: Anchor }
+    statuses: { Status: [In-Active, Active], "Approval Status": [Draft, Pending for approval, Approved], "Document Status": [Un-Authorized] }
+    messages: { save: "Saved successfully", line_save: "Saved Successfully!", forward: "Forwarded successfully", missing_comment: "Please add comments", not_allowed: "Current user is not authorized to save this record!" }

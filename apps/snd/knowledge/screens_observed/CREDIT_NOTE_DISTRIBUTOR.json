@@ -1,0 +1,75 @@
+{
+ "option_id": "CREDIT_NOTE_DISTRIBUTOR",
+ "title": "Credit Note Distributor Print",
+ "menu_path": [
+  "Print",
+  "Credit Note Distributor Print"
+ ],
+ "route": "/print/credit-note-distributor",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/print/credit-note-distributor",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Date From",
+   "id": "dateFrom",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date From",
+   "id": "dateTo",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Print",
+   "id": null,
+   "title": "Print",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

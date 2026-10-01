@@ -1,0 +1,73 @@
+{
+ "option_id": "DYL_201903",
+ "title": "Cashmemo Format",
+ "menu_path": [
+  "Reports",
+  "Cashmemo Format"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201903",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201903",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Organization",
+   "id": "OrgCode",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Bill No from",
+   "id": "BillNoFrm",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Bill No from",
+   "id": "BillNoTo",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Submit",
+   "id": "DYP.G......Submitbutton",
+   "title": "Submit",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

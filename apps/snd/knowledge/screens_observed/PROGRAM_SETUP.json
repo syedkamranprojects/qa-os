@@ -1,0 +1,168 @@
+{
+ "option_id": "PROGRAM_SETUP",
+ "title": "Program Setup",
+ "menu_path": [
+  "Incentive",
+  "Program Setup"
+ ],
+ "route": "/content-master/mobility/program-setup",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/mobility/program-setup",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Program ID",
+   "id": "programId",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Program description",
+   "id": "longDescription",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date From",
+   "id": "fromDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Date To",
+   "id": "toDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Program type",
+   "id": "programType",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Maximum Processing Date",
+   "id": "incentiveProcessDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": false
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": true
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": false
+  },
+  {
+   "text": "Save All",
+   "id": "saveClaim",
+   "title": "Save All",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Program ID",
+    "Program description",
+    "Date From",
+    "Date To",
+    "Program type"
+   ],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [
+    "Principal description",
+    "Project Code",
+    "Claim Percentage"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

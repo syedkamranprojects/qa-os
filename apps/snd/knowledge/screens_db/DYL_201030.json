@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_201030",
+ "title": "Questionnaire Setup",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Questionnaire",
+   "Questionnaire Setup"
+  ],
+  "group_id": "DYL_201030"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201030",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201030001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "CLC_PR_QSR_QUESTIONNAIRE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201030002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201030001",
+   "desc": null,
+   "table": "CLC_PR_QSR_QUESTIONNAIRE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__CQSRQUESTIONNAIREID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "CQSR_QUESTIONNAIRE_ID",
+   "db_description": "Questionnaire ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Description": {
+   "name": "TXT__CQSRDESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "CQSR_DESC",
+   "db_description": "Questionnaire Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Abbreviation": {
+   "name": "TXT__CQSRABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "CQSR_ABRV",
+   "db_description": "Questionnaire Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Event ID": {
+   "name": "DDL__PEVEVENTID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PEV_EVENTID",
+   "db_description": "Event ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PEVT",
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Default": {
+   "name": "DDL__CQSRDEFAULT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "CQSR_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Active": {
+   "name": "DDL__CQSRACTIVE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "CQSR_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Level No": {
+   "name": "TXT__CQSRLEVELNO",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "CQSR_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  },
+  "Level Type": {
+   "name": "TXT__CQSRLEVELTYPE",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "CQSR_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Event ID",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

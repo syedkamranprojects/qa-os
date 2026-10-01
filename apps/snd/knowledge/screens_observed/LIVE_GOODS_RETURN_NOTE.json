@@ -1,0 +1,21 @@
+{"option_id":"/ngui/goods-return-notes/GRN","title":"Goods Return Note","menu_path":["Home","Transaction","Stock","Goods Return Notes"],"route":"/ngui/goods-return-notes/GRN","url_path":"/ngui/goods-return-notes/GRN",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[
+{"name":"GRN","fields":[
+{"label":"GRN No.","id":"grnNum","widget":"readonly","readonly":true,"default":""},
+{"label":"GRN Date","id":"grnDate","widget":"date","readonly":true,"default":"today (2026-10-01)"},
+{"label":"Delivery Man PJP","id":"deliveryManPjp","widget":"dropdown","readonly":false,"default":"","options":["AutoPJGIN2-Auto GIN PJP DM","AUTO301301-Auto_test","02112-AutomationDSR","AUTO301258-Auto_test","AutoPromo2-Auto Promo PJP DM","8197298470-Aslam PJP DM"]},
+{"label":"Delivery Man DSR","id":"deliveryManDsr","widget":"readonly","readonly":true,"default":"","note":"derived from PJP"},
+{"label":"Warehouse","id":"warehouse","widget":"readonly","readonly":true,"default":"","note":"format code~name"},
+{"label":"Vehicle","id":"vehicle","widget":"readonly","readonly":true,"default":""},
+{"label":"Status","id":"status","widget":"readonly","readonly":true,"default":""},
+{"label":"Working Date","id":"workingDate","widget":"date","readonly":true,"default":"today"},
+{"label":"GIN Number","id":"ginNos","widget":"readonly","readonly":true,"default":"","note":"comma list of linked GINs (e.g. 487,488)"},
+{"label":"Approval Status","id":"appStatus","widget":"readonly","readonly":true,"default":""}],
+"buttons":[{"text":"Add","id":"Add","kind":"read-only (not clicked)"},{"text":"Forward","id":"forward","kind":"ACTION - not clicked (disabled)"},{"text":"Reject","id":"reject","kind":"ACTION - not clicked (disabled)"}],
+"grids":[{"headers":["GRN No.","GRN Date","Delivery Man PJP","Warehouse","Approval Status","Status"],"rows":6,"columns":6,"grid_text":"Data grid with 6 rows and 6 columns","paged":true,"page_size":5,"filter_inputs":{}}],
+"note":"Selected row example GRN 232 (2026-08-21): all readonly, Status In-Active, Approval Status Pending for approval, GIN Number 487,488; Forward/Reject stay disabled."},
+{"name":"Detail","note":"disabled until a row is selected","fields":[],
+"buttons":[{"text":"Save All","id":"saveAll","kind":"ACTION - not clicked (disabled)"}],
+"grids":[{"headers":[["Product Description","Batch","Stock Type","Suggested","Actual","Rate"],["CS","DZ","PC","CS","DZ","PC"]],"grid_text":"Data grid with 5 rows and 12 columns (GRN 232)","rows":5,"columns":12,"note":"sub-header CS/DZ/PC under Suggested and Actual"}]}],
+"fields":[],"buttons":[],"grids":[],"messages":[]}

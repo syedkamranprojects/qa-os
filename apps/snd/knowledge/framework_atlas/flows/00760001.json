@@ -1,0 +1,498 @@
+{
+ "src": "tf:00760001",
+ "flow_id": "00760001",
+ "description": "Dispatch Advice Loss Approval",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00760001|0076|1",
+   "seq": 1,
+   "menu_group": "0076",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0076",
+   "menu_group": "0076",
+   "exists": true,
+   "description": "Loss Approval",
+   "search_text": "Loss Approval",
+   "navigation": "DYL_202026",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0076|007601|1",
+   "mgsm_seq": 1,
+   "screen_id": "007601",
+   "screen_name": "Dispatch Advice Loss Approval",
+   "sheet": "Dispatch Advice Loss Approval",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "007601"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Dispatch Advice Loss Approval",
+   "kind": "screen",
+   "screen_ids": [
+    "007601"
+   ]
+  },
+  {
+   "sheet": "DA_LOSS_APPROVALFRWD_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "007601"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Dispatch Advice Loss Approval": 1,
+    "DA_LOSS_APPROVALFRWD_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Dispatch Advice Loss Approval": 1,
+    "DA_LOSS_APPROVALFRWD_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Dispatch Advice Loss Approval": 1,
+    "DA_LOSS_APPROVALFRWD_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Dispatch Advice Loss Approval"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "DA_LOSS_APPROVALFRWD_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 2,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Dispatch Advice Loss Approval": 1,
+    "DA_LOSS_APPROVALFRWD_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "DA_LOSS_APPROVALFRWD_ASSR",
+    "screen_id": "007601",
+    "src": "sef:007601|serial 10"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 8,
+  "events_active": 8,
+  "events_by_kind": {
+   "click": 6,
+   "fill_text": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Dispatch Advice",
+   "Approval/Reject/Terminate"
+  ],
+  "market": null,
+  "menu_option": "DYL_202026",
+  "menu_search_text": "Loss Approval"
+ },
+ "live_notes": [
+  {
+   "src": "DISPATCH_ADVICE.md:23",
+   "text": "- **Approval (mg 0074, screen 007401, user 8)**: same option `DYL_201068`; **Loss approval (0076/007601)**: option `DYL_202026`."
+  },
+  {
+   "src": "DISPATCH_ADVICE.md:66",
+   "text": "- The QA lead asked for the approval to be done with a different login user (the framework does it as user 8); the window was logged out at this point so the loss approval can be done by that user. Not yet done: Loss Approval (flow 00760001, screen 007601, option DYL_202026, 108 rows in the master grid, filter ids `rowfilter_TXT__tstmdocno` etc.; framework clicks `Header_0_serial_no`, `row_1_docum"
+  },
+  {
+   "src": "DISPATCH_ADVICE.md:94",
+   "text": "| 6 | Loss approval (screen 007601): find the record, tabs, Forward | checker (framework: same session) | no |"
+  },
+  {
+   "src": "TC-DA-01_executed.md:60",
+   "text": "2. **Loss quantities are not in Damaged/Lost stock yet**: for the products with loss (20050310, 62690363) there are no `02 - Damaged` or Lost rows in Auto Main Warehouse for today. The loss appears to need the **Loss Approval** step (framework flow 00760001, option DYL_202026) before it moves stock; that step was skipped on the QA lead's instruction (\"just approve the DA\")."
+  },
+  {
+   "src": "TC-DA-01_executed.md:66",
+   "text": "# TC-DA-03 DA Loss Approval: EXECUTED 2026-09-29 (framework flow 00760001, chain seq 7)"
+  }
+ ],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 7,
+   "active": true,
+   "user": "same session (Auto_Tssm)",
+   "login_status": null
+  },
+  {
+   "group": "11",
+   "group_desc": "Daily Cycle Only Positive Flow",
+   "seq": 7,
+   "active": true,
+   "user": "same session (Auto_Tssm)",
+   "login_status": null
+  },
+  {
+   "group": "12",
+   "group_desc": "Order Booking Promotion Testing Only Positive Flow",
+   "seq": 6,
+   "active": false,
+   "user": null,
+   "login_status": null
+  },
+  {
+   "group": "14",
+   "group_desc": "For GIN Testing",
+   "seq": 7,
+   "active": true,
+   "user": "same session (Auto_Tssm)",
+   "login_status": null
+  },
+  {
+   "group": "51",
+   "group_desc": "Daily Cycle Only Positive Flow_ITHD",
+   "seq": 9,
+   "active": false,
+   "user": null,
+   "login_status": null
+  },
+  {
+   "group": "52",
+   "group_desc": "Daily Cycle Negative with Positive Flow_ITHD",
+   "seq": 7,
+   "active": true,
+   "user": "same session (auto_thai_tssm)",
+   "login_status": null
+  },
+  {
+   "group": "63",
+   "group_desc": "Daily Cycle Only Positive Flow_PH",
+   "seq": 10,
+   "active": false,
+   "user": null,
+   "login_status": null
+  },
+  {
+   "group": "76",
+   "group_desc": "Daily Cycle Only Positive Flow_KH",
+   "seq": 9,
+   "active": false,
+   "user": null,
+   "login_status": null
+  },
+  {
+   "group": "79",
+   "group_desc": "Daily Cycle Only Positive Flow_LA",
+   "seq": 9,
+   "active": false,
+   "user": null,
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "007601": {
+   "src": "sc:007601",
+   "screen_id": "007601",
+   "name": "Dispatch Advice Loss Approval",
+   "sheet": "Dispatch Advice Loss Approval",
+   "type": "Save",
+   "sheet_name_len": 29,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:007601|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "Header_0_serial_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e1"
+    },
+    {
+     "src": "sef:007601|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_document_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e4"
+    },
+    {
+     "src": "sef:007601|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Loss Detail",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "tab_2",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e5"
+    },
+    {
+     "src": "sef:007601|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Screen 1",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "tab_1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e6"
+    },
+    {
+     "src": "sef:007601|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e7"
+    },
+    {
+     "src": "sef:007601|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "comments",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e8"
+    },
+    {
+     "src": "sef:007601|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e9"
+    },
+    {
+     "src": "sef:007601|serial 10",
+     "serial": 10,
+     "seq": 10,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion After Forward Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "",
+     "field_id": "",
+     "fixed_value": "TSTMSG,DA_LOSS_APPROVALFRWD_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "007601:e10",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "DA_LOSS_APPROVALFRWD_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 8,
+    "events_active": 8
+   },
+   "assertion_sheets": [
+    "DA_LOSS_APPROVALFRWD_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

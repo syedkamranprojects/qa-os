@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_201081",
+ "title": "Finance Entity",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Finance Entity"
+  ],
+  "group_id": "snd_pr_fet_finance_entity"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201081",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201081001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_pr_fet_finance_entity",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201081002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201081001",
+   "desc": null,
+   "table": "snd_pr_fet_finance_entity",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__pfet_finent_code",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PFET_FINENT_CODE",
+   "db_description": "Finance Entity Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  },
+  "Description": {
+   "name": "TXT__pfet_finent_desc",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PFET_FINENT_DESC",
+   "db_description": "Finance Entity Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  },
+  "Abbreviation": {
+   "name": "TXT__pfet_abrv",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PFET_ABRV",
+   "db_description": "Finance Entity Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  },
+  "Default": {
+   "name": "DDL__pfet_default",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PFET_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  },
+  "Active": {
+   "name": "DDL__pfet_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PFET_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  },
+  "Level Type": {
+   "name": "TXT__pfet_leveltype",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PFET_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  },
+  "Level No": {
+   "name": "TXT__pfet_level_no",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PFET_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201081002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

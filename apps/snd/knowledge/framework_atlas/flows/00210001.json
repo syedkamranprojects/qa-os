@@ -1,0 +1,451 @@
+{
+ "src": "tf:00210001",
+ "flow_id": "00210001",
+ "description": "GIN/GRN Inquiry",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00210001|0021|1",
+   "seq": 1,
+   "menu_group": "0021",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0021",
+   "menu_group": "0021",
+   "exists": true,
+   "description": "GIN/GRN Inquiry",
+   "search_text": "GIN/GRN Inquiry",
+   "navigation": "DYL_202015",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0021|002101|1",
+   "mgsm_seq": 1,
+   "screen_id": "002101",
+   "screen_name": "GIN GRN Inquiry",
+   "sheet": "GIN GRN Inquiry",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "002101"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "GIN GRN Inquiry",
+   "kind": "screen",
+   "screen_ids": [
+    "002101"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "GIN GRN Inquiry"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "GIN GRN Inquiry"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "GIN GRN Inquiry"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "GIN GRN Inquiry"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "GIN GRN Inquiry"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 4,
+  "fields_active": 4,
+  "events": 7,
+  "events_active": 7,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 5,
+   "fill_text": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "GIN (Goods Issue Note)",
+   "GRN (Goods Return Note)"
+  ],
+  "market": null,
+  "menu_option": "DYL_202015",
+  "menu_search_text": "GIN/GRN Inquiry"
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "002101": {
+   "src": "sc:002101",
+   "screen_id": "002101",
+   "name": "GIN GRN Inquiry",
+   "sheet": "GIN GRN Inquiry",
+   "type": "Save",
+   "sheet_name_len": 15,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:002101|docType|1.0|1|1",
+     "seq": 1,
+     "field_id": "docType",
+     "locate_by": "id",
+     "label": "Document Type",
+     "db_column": "Document Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "002101:f1"
+    },
+    {
+     "src": "sf:002101|docStatus|1.0|2|1",
+     "seq": 2,
+     "field_id": "docStatus",
+     "locate_by": "id",
+     "label": "Document Status",
+     "db_column": "Document Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "002101:f2"
+    },
+    {
+     "src": "sf:002101|dateFrom|1.0|3|1",
+     "seq": 3,
+     "field_id": "dateFrom",
+     "locate_by": "id",
+     "label": "Date From",
+     "db_column": "Date From",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "002101:f3"
+    },
+    {
+     "src": "sf:002101|dateTo|1.0|4|1",
+     "seq": 4,
+     "field_id": "dateTo",
+     "locate_by": "id",
+     "label": "Date To",
+     "db_column": "Date To",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "002101:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:002101|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e1"
+    },
+    {
+     "src": "sef:002101|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e2"
+    },
+    {
+     "src": "sef:002101|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__EPP1DESC",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e3"
+    },
+    {
+     "src": "sef:002101|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_document_no.",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e4"
+    },
+    {
+     "src": "sef:002101|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_product_description",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e5"
+    },
+    {
+     "src": "sef:002101|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "TAB",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "tab_2",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e6"
+    },
+    {
+     "src": "sef:002101|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_document_type",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "002101:e7"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 7,
+    "events_active": 7
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

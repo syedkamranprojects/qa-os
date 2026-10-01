@@ -1,0 +1,793 @@
+{
+ "src": "tf:05820001",
+ "flow_id": "05820001",
+ "description": "Trans Section Validate Promotion apply SDMS CL",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:05820001|0582|1",
+   "seq": 1,
+   "menu_group": "0582",
+   "filename": "NG_Dcode_QA_SDMS-10080"
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0582",
+   "menu_group": "0582",
+   "exists": true,
+   "description": "Transaction Inquiry_VAL_After_SDMS",
+   "search_text": "BG - Transaction Inquiry",
+   "navigation": "DYL_BG1016",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0582|058201|1",
+   "mgsm_seq": 1,
+   "screen_id": "058201",
+   "screen_name": "T Section Promotion SDMS 10080",
+   "sheet": "T Section Promotion SDMS 10080",
+   "runs": true,
+   "mgsm_status": null,
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_SDMS-10080",
+   "workbook_source": "tfd.ptfd_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0582|058202|2",
+     "mgsm_seq": 2,
+     "screen_id": "058202",
+     "screen_name": "T S Promotion Offer SDMS 10080",
+     "sheet": "T S Promotion Offer SDMS 10080",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "058201",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_4",
+     "workbook": "NG_Dcode_QA_SDMS-10080",
+     "workbook_source": "tfd.ptfd_filename",
+     "workbook_filename_status": null
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "058201",
+  "058202"
+ ],
+ "workbook": {
+  "flow_level_filename": "NG_Dcode_QA_SDMS-10080",
+  "effective_files": [
+   "NG_Dcode_QA_SDMS-10080"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "T Section Promotion SDMS 10080",
+   "kind": "screen",
+   "screen_ids": [
+    "058201"
+   ]
+  },
+  {
+   "sheet": "T S Promotion Offer SDMS 10080",
+   "kind": "screen",
+   "screen_ids": [
+    "058202"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "T Section Promotion SDMS 10080",
+    "T S Promotion Offer SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "T Section Promotion SDMS 10080",
+    "T S Promotion Offer SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "T Section Promotion SDMS 10080",
+    "T S Promotion Offer SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "T Section Promotion SDMS 10080",
+    "T S Promotion Offer SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "T Section Promotion SDMS 10080",
+    "T S Promotion Offer SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_TXT__TCMMDOCNO",
+    "src": [
+     "sef:058201|serial 4"
+    ],
+    "screen_id": "058201"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "ORDERNUMBER"
+  ],
+  "reads_not_written_by_this_flow": [
+   "ORDERNUMBER"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "058202",
+    "src": "sef:058202|serial 6"
+   }
+  ],
+  "group_assertions_0014": [],
+  "validations_0007": 1,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 2,
+  "fields": 6,
+  "fields_active": 6,
+  "events": 15,
+  "events_active": 13,
+  "events_by_kind": {
+   "load_data": 2,
+   "click": 6,
+   "fill_text": 2,
+   "wait": 1,
+   "screen_validation": 1,
+   "assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Transaction Inquiry",
+   "Promotion",
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_BG1016",
+  "menu_search_text": "BG - Transaction Inquiry"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "83",
+   "group_desc": "Positive SDMS-10080 BD (R1, independent ids)",
+   "seq": 7,
+   "active": true,
+   "user": "same session (Auto_Bangla)",
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "058201": {
+   "src": "sc:058201",
+   "screen_id": "058201",
+   "name": "T Section Promotion SDMS 10080",
+   "sheet": "T Section Promotion SDMS 10080",
+   "type": "Save",
+   "sheet_name_len": 30,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:058201|DDL__PDOTDOCMTYPEPARENT|1.0|1|1",
+     "seq": 1,
+     "field_id": "DDL__PDOTDOCMTYPEPARENT",
+     "locate_by": "id",
+     "label": "Document Type",
+     "db_column": "Document Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "058201:f1"
+    },
+    {
+     "src": "sf:058201|DDL__PDOSDOCMSTATUSPARENT|1.0|2|1",
+     "seq": 2,
+     "field_id": "DDL__PDOSDOCMSTATUSPARENT",
+     "locate_by": "id",
+     "label": "Document Status",
+     "db_column": "Document Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "058201:f2"
+    },
+    {
+     "src": "sf:058201|DT__TCMMDOCMDATEFROMPARENT|1.0|3|1",
+     "seq": 3,
+     "field_id": "DT__TCMMDOCMDATEFROMPARENT",
+     "locate_by": "id",
+     "label": "Document Date From",
+     "db_column": "Document Date From",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "058201:f3"
+    },
+    {
+     "src": "sf:058201|DT__TCMMDOCMDATETOPARENT|1.0|4|1",
+     "seq": 4,
+     "field_id": "DT__TCMMDOCMDATETOPARENT",
+     "locate_by": "id",
+     "label": "Document Date To",
+     "db_column": "Document Date To",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "058201:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:058201|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "058201:e1"
+    },
+    {
+     "src": "sef:058201|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Refresh",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "DYP.G......Refresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e2"
+    },
+    {
+     "src": "sef:058201|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row 1",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e3"
+    },
+    {
+     "src": "sef:058201|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__TCMMDOCNO",
+     "fixed_value": "ORDERNUMBER",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e4"
+    },
+    {
+     "src": "sef:058201|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": null,
+     "fixed_value": "3",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e5",
+     "wait_s": "3"
+    },
+    {
+     "src": "sef:058201|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_outlet_code",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e6"
+    },
+    {
+     "src": "sef:058201|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row 2",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e7"
+    },
+    {
+     "src": "sef:058201|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row 1",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058201:e8"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_TXT__TCMMDOCNO",
+     "src": [
+      "sef:058201|serial 4"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 8,
+    "events_active": 6
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "058202": {
+   "src": "sc:058202",
+   "screen_id": "058202",
+   "name": "T S Promotion Offer SDMS 10080",
+   "sheet": "T S Promotion Offer SDMS 10080",
+   "type": "Save",
+   "sheet_name_len": 30,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:058202|row_1_free_quantity|1.0|1|1",
+     "seq": 1,
+     "field_id": "row_1_free_quantity",
+     "locate_by": "id",
+     "label": "Free Quantity",
+     "db_column": "Free Quantity",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "058202:f1"
+    },
+    {
+     "src": "sf:058202|row_1_allocated_quantity|1.0|2|1",
+     "seq": 2,
+     "field_id": "row_1_allocated_quantity",
+     "locate_by": "id",
+     "label": "Allocated Quantity",
+     "db_column": "Allocated Quantity",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "058202:f2"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:058202|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "filter_2",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "058202:e1"
+    },
+    {
+     "src": "sef:058202|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__psch_schme_id",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "058202:e2"
+    },
+    {
+     "src": "sef:058202|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_promotion_description",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "058202:e3"
+    },
+    {
+     "src": "sef:058202|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "058202:e4"
+    },
+    {
+     "src": "sef:058202|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 4,
+     "type": "0000",
+     "event": "0007",
+     "kind": "screen_validation",
+     "event_name": "Screen Excel DB Screen Validation",
+     "in_ce_table": true,
+     "desc": "Validation",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058202:e5"
+    },
+    {
+     "src": "sef:058202|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 1,
+     "parent": 4,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058202:e6",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:058202|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 1,
+     "parent": 4,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Refresh BTN",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "DYP.G......Refresh",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "058202:e7"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 2,
+    "fields_active": 2,
+    "events": 7,
+    "events_active": 7
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

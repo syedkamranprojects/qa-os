@@ -1,0 +1,120 @@
+{
+ "option_id": "DYL_BG1021",
+ "title": "Claim Inquiry - BG",
+ "menu_path": [
+  "Transaction",
+  "Claim",
+  "Claim Inquiry - BG"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=BG1021",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=BG1021",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__PDOTDOCMTYPEPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Document Date From",
+   "id": "DT__TCMMDOCMDATEFROMPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Document Date From",
+   "id": "DT__TCMMDOCMDATETOPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "Claim Detail",
+   "id": null,
+   "title": "Claim Detail",
+   "disabled": true
+  },
+  {
+   "text": "Reference Info",
+   "id": null,
+   "title": "Reference Info",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Document Type",
+    "Claim Amount",
+    "Claim Start Date",
+    "Claim End Date",
+    "Document Date",
+    "Status",
+    "Project Code"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

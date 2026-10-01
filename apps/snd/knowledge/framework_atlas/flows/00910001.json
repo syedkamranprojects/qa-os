@@ -1,0 +1,2507 @@
+{
+ "src": "tf:00910001",
+ "flow_id": "00910001",
+ "description": "Order Booking Promotion",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00910001|0091|1",
+   "seq": 1,
+   "menu_group": "0091",
+   "filename": "NG_Dcode_QA_Promotion"
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0091",
+   "menu_group": "0091",
+   "exists": true,
+   "description": "Order Booking Promotion Testing",
+   "search_text": "Order Booking",
+   "navigation": "ORDER_BOOKING",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0091|000101|1",
+   "mgsm_seq": 1,
+   "screen_id": "000101",
+   "screen_name": "Order Booking",
+   "sheet": "Order Booking",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": "ORDER_BOOKING",
+   "workbook": "NG_Dcode_QA_Promotion",
+   "workbook_source": "tfd.ptfd_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0091|000102|2",
+     "mgsm_seq": 2,
+     "screen_id": "000102",
+     "screen_name": "Order Booking Detail",
+     "sheet": "Order Booking Detail",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "000101",
+     "tab_nav_type": null,
+     "tab_nav_path": "ORDER_BOOKING",
+     "workbook": "NG_Dcode_QA_Promotion",
+     "workbook_source": "tfd.ptfd_filename",
+     "workbook_filename_status": null
+    },
+    {
+     "src": "mgsm:0091|000103|3",
+     "mgsm_seq": 3,
+     "screen_id": "000103",
+     "screen_name": "Order Booking Detail2",
+     "sheet": "Order Booking Detail2",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "000101",
+     "tab_nav_type": null,
+     "tab_nav_path": "ORDER_BOOKING",
+     "workbook": "NG_Dcode_QA_Promotion",
+     "workbook_source": "tfd.ptfd_filename",
+     "workbook_filename_status": null
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "000101",
+  "000102",
+  "000103"
+ ],
+ "workbook": {
+  "flow_level_filename": "NG_Dcode_QA_Promotion",
+  "effective_files": [
+   "NG_Dcode_QA_Promotion"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Order Booking",
+   "kind": "screen",
+   "screen_ids": [
+    "000101"
+   ]
+  },
+  {
+   "sheet": "Order Booking Detail",
+   "kind": "screen",
+   "screen_ids": [
+    "000102"
+   ]
+  },
+  {
+   "sheet": "Order Booking Detail2",
+   "kind": "screen",
+   "screen_ids": [
+    "000103"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Order Booking",
+    "Order Booking Detail",
+    "Order Booking Detail2"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Order Booking",
+    "Order Booking Detail",
+    "Order Booking Detail2"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 3,
+   "sheets_total": 4,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "Order Booking": 8,
+    "Order Booking Detail": 36,
+    "Order Booking Detail2": 8
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Order Booking",
+    "Order Booking Detail",
+    "Order Booking Detail2"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 4,
+   "missing_sheets": [
+    "Order Booking",
+    "Order Booking Detail",
+    "Order Booking Detail2"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Pak).xlsx"
+ ],
+ "repos": {
+  "writes": [
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "Order Number",
+    "field_id": "documentNo",
+    "src": [
+     "sf:000103|documentNo|1.0|6|1",
+     "sef:000103|serial 6"
+    ],
+    "screen_id": "000103"
+   }
+  ],
+  "reads": [
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "Amount Verifications",
+    "src": [
+     "sq:000103|1.0|2"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "Amount Verifications",
+    "src": [
+     "sq:000103|1.0|2"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "Amount Verifications",
+    "src": [
+     "sq:000103|1.0|2"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "Amount Verifications",
+    "src": [
+     "sq:000103|1.0|2"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "Amount Verifications",
+    "src": [
+     "sq:000103|1.0|2"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "REPO_REF_ORDER_NO",
+    "canon": "REPO_REF_ORDER_NO",
+    "via": "sq_param(Q2Q)",
+    "target": "Amount Verifications",
+    "src": [
+     "sq:000103|1.0|2"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+    "src": [
+     "sq:000103|1.0|6"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+    "src": [
+     "sq:000103|1.0|5"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Tax/Charges Wise",
+    "src": [
+     "sq:000103|1.0|4"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Tax/Charges Wise",
+    "src": [
+     "sq:000103|1.0|4"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Tax/Charges Wise",
+    "src": [
+     "sq:000103|1.0|4"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Tax/Charges Wise",
+    "src": [
+     "sq:000103|1.0|4"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Tax/Charges Wise",
+    "src": [
+     "sq:000103|1.0|4"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "REPO_REF_ORDER_NO",
+    "canon": "REPO_REF_ORDER_NO",
+    "via": "sq_param(Q2Q)",
+    "target": "For Tax/Charges Wise",
+    "src": [
+     "sq:000103|1.0|4"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Discount Promotion Wise",
+    "src": [
+     "sq:000103|1.0|3"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Discount Promotion Wise",
+    "src": [
+     "sq:000103|1.0|3"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Discount Promotion Wise",
+    "src": [
+     "sq:000103|1.0|3"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Discount Promotion Wise",
+    "src": [
+     "sq:000103|1.0|3"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Discount Promotion Wise",
+    "src": [
+     "sq:000103|1.0|3"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "REPO_REF_ORDER_NO",
+    "canon": "REPO_REF_ORDER_NO",
+    "via": "sq_param(Q2Q)",
+    "target": "For Discount Promotion Wise",
+    "src": [
+     "sq:000103|1.0|3"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_ORGA",
+    "canon": "REPO_ORGA",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_CMDOCTYPE",
+    "canon": "REPO_CMDOCTYPE",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   },
+   {
+    "repo": "ORDERNUMBER",
+    "canon": "ORDERNUMBER",
+    "via": "sq_param(Q2Q)",
+    "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+    "src": [
+     "sq:000103|1.0|7"
+    ],
+    "screen_id": "000103"
+   }
+  ],
+  "writes_canon": [
+   "ORDERNUMBER"
+  ],
+  "reads_canon": [
+   "ORDERNUMBER",
+   "REPO_CMDOCTYPE",
+   "REPO_DISTRIBUTOR",
+   "REPO_ORGA",
+   "REPO_REF_ORDER_NO"
+  ],
+  "reads_not_written_by_this_flow": [
+   "REPO_CMDOCTYPE",
+   "REPO_DISTRIBUTOR",
+   "REPO_ORGA",
+   "REPO_REF_ORDER_NO"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "000102",
+    "src": "sef:000102|serial 6"
+   },
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "000103",
+    "src": "sef:000103|serial 5"
+   }
+  ],
+  "group_assertions_0014": [],
+  "validations_0007": 3,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 3,
+  "fields": 18,
+  "fields_active": 16,
+  "events": 30,
+  "events_active": 21,
+  "events_by_kind": {
+   "load_data": 3,
+   "screen_validation": 3,
+   "click": 11,
+   "wait": 1,
+   "assertion": 2,
+   "fill_repo": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Order Booking",
+   "Promotion"
+  ],
+  "market": null,
+  "menu_option": "ORDER_BOOKING",
+  "menu_search_text": "Order Booking"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "12",
+   "group_desc": "Order Booking Promotion Testing Only Positive Flow",
+   "seq": 8,
+   "active": true,
+   "user": "AppUser (serial 4)",
+   "login_status": "Y"
+  },
+  {
+   "group": "74",
+   "group_desc": "Pak All Promotion Charges",
+   "seq": 7,
+   "active": true,
+   "user": "? (serial None)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "000101": {
+   "src": "sc:000101",
+   "screen_id": "000101",
+   "name": "Order Booking",
+   "sheet": "Order Booking",
+   "type": "Save",
+   "sheet_name_len": 13,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:000101|dsrType|1.0|1|1",
+     "seq": 1,
+     "field_id": "dsrType",
+     "locate_by": "id",
+     "label": "Order Booker/Spot Seller",
+     "db_column": "Order Booker/Spot Seller",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000101:f1"
+    },
+    {
+     "src": "sf:000101|PJPNO|1.0|2|1",
+     "seq": 2,
+     "field_id": "PJPNO",
+     "locate_by": "id",
+     "label": "PJP",
+     "db_column": "PJP",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000101:f2"
+    },
+    {
+     "src": "sf:000101|SELLCAT|1.0|3|1",
+     "seq": 3,
+     "field_id": "SELLCAT",
+     "locate_by": "id",
+     "label": "Selling Category",
+     "db_column": "Selling Category",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000101:f3"
+    },
+    {
+     "src": "sf:000101|SECTION|1.0|4|1",
+     "seq": 4,
+     "field_id": "SECTION",
+     "locate_by": "id",
+     "label": "Section",
+     "db_column": "Section",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000101:f4"
+    },
+    {
+     "src": "sf:000101|OUTLET|1.0|5|1",
+     "seq": 5,
+     "field_id": "OUTLET",
+     "locate_by": "id",
+     "label": "Outlet Name",
+     "db_column": "Outlet Name",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000101:f5"
+    },
+    {
+     "src": "sf:000101|commentInput|1.0|6|1",
+     "seq": 6,
+     "field_id": "commentInput",
+     "locate_by": "id",
+     "label": "Comments",
+     "db_column": "Comments",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000101:f6"
+    },
+    {
+     "src": "sf:000101|refNumberInput|1.0|7|1",
+     "seq": 7,
+     "field_id": "refNumberInput",
+     "locate_by": "id",
+     "label": "Reference Number",
+     "db_column": "Reference Number",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000101:f7"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:000101|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000101:e1"
+    },
+    {
+     "src": "sef:000101|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0007",
+     "kind": "screen_validation",
+     "event_name": "Screen Excel DB Screen Validation",
+     "in_ce_table": true,
+     "desc": "Data Validation",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000101:e2"
+    },
+    {
+     "src": "sef:000101|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "orderDetail",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000101:e3"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 7,
+    "fields_active": 6,
+    "events": 3,
+    "events_active": 3
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "000102": {
+   "src": "sc:000102",
+   "screen_id": "000102",
+   "name": "Order Booking Detail",
+   "sheet": "Order Booking Detail",
+   "type": "Save",
+   "sheet_name_len": 20,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:000102|product|1.0|1|1",
+     "seq": 1,
+     "field_id": "product",
+     "locate_by": "id",
+     "label": "ProductDesc",
+     "db_column": "ProductDesc",
+     "component_type": "0006",
+     "component_name": "AutoSelect",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": true,
+     "assertion_type": "TSTMSG",
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000102:f1"
+    },
+    {
+     "src": "sf:000102|quantity1_0|1.0|2|1",
+     "seq": 2,
+     "field_id": "quantity1_0",
+     "locate_by": "id",
+     "label": "OrderCS",
+     "db_column": "OrderCS",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000102:f2"
+    },
+    {
+     "src": "sf:000102|quantity3_0|1.0|3|1",
+     "seq": 3,
+     "field_id": "quantity3_0",
+     "locate_by": "id",
+     "label": "OrderPC",
+     "db_column": "OrderPC",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000102:f3"
+    },
+    {
+     "src": "sf:000102|row_(#+2)_trade_price_/_unit|1.0|4|1",
+     "seq": 4,
+     "field_id": "row_(#+2)_trade_price_/_unit",
+     "locate_by": "id",
+     "label": "Trade Price",
+     "db_column": "Trade Price",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000102:f4"
+    },
+    {
+     "src": "sf:000102|row_(#+2)_gross_amount|1.0|5|1",
+     "seq": 5,
+     "field_id": "row_(#+2)_gross_amount",
+     "locate_by": "id",
+     "label": "Gross Amount",
+     "db_column": "Gross Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000102:f5"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:000102|serial 24",
+     "serial": 24,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e24",
+     "wait_s": "1"
+    },
+    {
+     "src": "sef:000102|serial 1",
+     "serial": 1,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row Add Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "addBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e1"
+    },
+    {
+     "src": "sef:000102|serial 2",
+     "serial": 2,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e2"
+    },
+    {
+     "src": "sef:000102|serial 3",
+     "serial": 3,
+     "seq": 4,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Row Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowEditBtn_Save_0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000102:e3"
+    },
+    {
+     "src": "sef:000102|serial 4",
+     "serial": 4,
+     "seq": 5,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000102:e4",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:000102|serial 5",
+     "serial": 5,
+     "seq": 6,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0007",
+     "kind": "screen_validation",
+     "event_name": "Screen Excel DB Screen Validation",
+     "in_ce_table": true,
+     "desc": "Backend Validation",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000102:e5"
+    },
+    {
+     "src": "sef:000102|serial 14",
+     "serial": 14,
+     "seq": 8,
+     "depth": 2,
+     "parent": 5,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Click on New Order Button if Toast Message Matches - TP",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "newOrder",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "NEVER_RUNS_parent_is_screen_validation",
+     "trace_key": "000102:e14"
+    },
+    {
+     "src": "sef:000102|serial 8",
+     "serial": 8,
+     "seq": 9,
+     "depth": 2,
+     "parent": 5,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Cancel if Toast Message Matches - TP",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowEditBtn_Cancel_0",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "NEVER_RUNS_parent_is_screen_validation",
+     "trace_key": "000102:e8"
+    },
+    {
+     "src": "sef:000102|serial 15",
+     "serial": 15,
+     "seq": 10,
+     "depth": 2,
+     "parent": 5,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Click on Yes Button to create new Order",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "continue",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "NEVER_RUNS_parent_is_screen_validation",
+     "trace_key": "000102:e15"
+    },
+    {
+     "src": "sef:000102|serial 6",
+     "serial": 6,
+     "seq": 7,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000102:e6",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:000102|serial 7",
+     "serial": 7,
+     "seq": 8,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "5",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000102:e7",
+     "wait_s": "5"
+    },
+    {
+     "src": "sef:000102|serial 10",
+     "serial": 10,
+     "seq": 11,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Validate Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "validateBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e10"
+    },
+    {
+     "src": "sef:000102|serial 11",
+     "serial": 11,
+     "seq": 12,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Order Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e11"
+    },
+    {
+     "src": "sef:000102|serial 16",
+     "serial": 16,
+     "seq": 13,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion After Validate Button",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,ORD_BOOK_SAVE_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e16",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "ORD_BOOK_SAVE_ASSR"
+     }
+    },
+    {
+     "src": "sef:000102|serial 9",
+     "serial": 9,
+     "seq": 14,
+     "depth": 1,
+     "parent": 16,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Click On Save Button to Save Order",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "assertion_branch",
+     "trace_key": "000102:e9"
+    },
+    {
+     "src": "sef:000102|serial 18",
+     "serial": 18,
+     "seq": 14,
+     "depth": 1,
+     "parent": 16,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Click on New Order Button if Toast Message Matches - TP",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "newOrder",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "assertion_branch",
+     "trace_key": "000102:e18"
+    },
+    {
+     "src": "sef:000102|serial 19",
+     "serial": 19,
+     "seq": 15,
+     "depth": 1,
+     "parent": 16,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Click on Yes Button to create new Order",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "continue",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "assertion_branch",
+     "trace_key": "000102:e19"
+    },
+    {
+     "src": "sef:000102|serial 20",
+     "serial": 20,
+     "seq": 16,
+     "depth": 1,
+     "parent": 16,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "After Assertion Click on Yes Button to create new Order",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "continue",
+     "fixed_value": "TP",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "assertion_branch",
+     "trace_key": "000102:e20"
+    },
+    {
+     "src": "sef:000102|serial 21",
+     "serial": 21,
+     "seq": 17,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Delete Button",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "deleteBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000102:e21"
+    },
+    {
+     "src": "sef:000102|serial 22",
+     "serial": 22,
+     "seq": 18,
+     "depth": 1,
+     "parent": 21,
+     "type": "0005",
+     "event": "0002",
+     "kind": "alert_click",
+     "event_name": "Click Alert",
+     "in_ce_table": true,
+     "desc": "Accept Delete Success Message",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "NEVER_RUNS_parent_is_click",
+     "trace_key": "000102:e22"
+    },
+    {
+     "src": "sef:000102|serial 23",
+     "serial": 23,
+     "seq": 19,
+     "depth": 2,
+     "parent": 22,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Reload Data After Delete",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "NEVER_RUNS_parent_is_alert_click",
+     "trace_key": "000102:e23"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 5,
+    "fields_active": 5,
+    "events": 21,
+    "events_active": 13
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": [
+    {
+     "message": "Order Save successfully",
+     "count": 417
+    },
+    {
+     "message": "Validation successfully",
+     "count": 362
+    },
+    {
+     "message": "",
+     "count": 8
+    },
+    {
+     "message": "Cashmemo Document Reference Number: 01 already exist.",
+     "count": 8
+    },
+    {
+     "message": "Action cannot be performed, something went wrong!",
+     "count": 4
+    },
+    {
+     "message": "Ut can not be null or in negative",
+     "count": 3
+    },
+    {
+     "message": "Gross Amount should not be zero null",
+     "count": 2
+    },
+    {
+     "message": "There is no batch against the Product",
+     "count": 1
+    }
+   ]
+  },
+  "000103": {
+   "src": "sc:000103",
+   "screen_id": "000103",
+   "name": "Order Booking Detail2",
+   "sheet": "Order Booking Detail2",
+   "type": "Save",
+   "sheet_name_len": 21,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:000103|row_1_trade_price_/_unit|1.0|1|1",
+     "seq": 1,
+     "field_id": "row_1_trade_price_/_unit",
+     "locate_by": "id",
+     "label": "Trade Price",
+     "db_column": "Trade Price",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000103:f1"
+    },
+    {
+     "src": "sf:000103|GrossAmount|1.0|2|1",
+     "seq": 2,
+     "field_id": "GrossAmount",
+     "locate_by": "id",
+     "label": "Gross Amount",
+     "db_column": "Gross Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000103:f2"
+    },
+    {
+     "src": "sf:000103|Discount|1.0|3|1",
+     "seq": 3,
+     "field_id": "Discount",
+     "locate_by": "id",
+     "label": "Discount",
+     "db_column": "Discount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000103:f3"
+    },
+    {
+     "src": "sf:000103|Tax|1.0|4|1",
+     "seq": 4,
+     "field_id": "Tax",
+     "locate_by": "id",
+     "label": "Tax",
+     "db_column": "Tax",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000103:f4"
+    },
+    {
+     "src": "sf:000103|NetAmount|1.0|5|1",
+     "seq": 5,
+     "field_id": "NetAmount",
+     "locate_by": "id",
+     "label": "Net Amount",
+     "db_column": "Net Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000103:f5"
+    },
+    {
+     "src": "sf:000103|documentNo|1.0|6|1",
+     "seq": 6,
+     "field_id": "documentNo",
+     "locate_by": "id",
+     "label": "Order Number",
+     "db_column": "Order Number",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": "ORDERNUMBER",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000103:f6"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:000103|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000103:e2"
+    },
+    {
+     "src": "sef:000103|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0007",
+     "kind": "screen_validation",
+     "event_name": "Screen Excel DB Screen Validation",
+     "in_ce_table": true,
+     "desc": "Validate Summary Fields With Excel And Screen",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": "EXCEL",
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000103:e3"
+    },
+    {
+     "src": "sef:000103|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000103:e5",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:000103|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "Fill Repo",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000103:e6"
+    },
+    {
+     "src": "sef:000103|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0005",
+     "kind": "q2q_verification",
+     "event_name": "Q2Q Data Verification",
+     "in_ce_table": true,
+     "desc": "Validate Summary Fields With QueryToQuery",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": "Q2Q",
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000103:e7"
+    },
+    {
+     "src": "sef:000103|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "newOrder",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000103:e8"
+    }
+   ],
+   "queries": [
+    {
+     "src": "sq:000103|1.0|2",
+     "type": "Q2Q",
+     "is_verification": "N",
+     "description": "Amount Verifications",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "ORDERNUMBER",
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "REPO_REF_ORDER_NO"
+     ],
+     "params_target": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "REPO_REF_ORDER_NO"
+     ],
+     "has_target_query": true
+    },
+    {
+     "src": "sq:000103|1.0|6",
+     "type": "Q2Q",
+     "is_verification": "N",
+     "description": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER",
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER"
+     ],
+     "params_target": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER"
+     ],
+     "has_target_query": true
+    },
+    {
+     "src": "sq:000103|1.0|5",
+     "type": "Q2Q",
+     "is_verification": "N",
+     "description": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER",
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER"
+     ],
+     "params_target": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER"
+     ],
+     "has_target_query": true
+    },
+    {
+     "src": "sq:000103|1.0|4",
+     "type": "Q2Q",
+     "is_verification": "N",
+     "description": "For Tax/Charges Wise",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "ORDERNUMBER",
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "REPO_REF_ORDER_NO"
+     ],
+     "params_target": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "REPO_REF_ORDER_NO"
+     ],
+     "has_target_query": true
+    },
+    {
+     "src": "sq:000103|1.0|3",
+     "type": "Q2Q",
+     "is_verification": "N",
+     "description": "For Discount Promotion Wise",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "ORDERNUMBER",
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "REPO_REF_ORDER_NO"
+     ],
+     "params_target": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "REPO_REF_ORDER_NO"
+     ],
+     "has_target_query": true
+    },
+    {
+     "src": "sq:000103|1.0|1",
+     "type": "SCREEN",
+     "is_verification": "N",
+     "description": "Amount Verification Screen Column with Query",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "ORDERNUMBER"
+     ],
+     "params_target": [],
+     "has_target_query": false
+    },
+    {
+     "src": "sq:000103|1.0|7",
+     "type": "Q2Q",
+     "is_verification": "N",
+     "description": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "params": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER",
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER"
+     ],
+     "params_target": [
+      "g_REPO_ORGA",
+      "g_REPO_CMDOCTYPE",
+      "g_REPO_DISTRIBUTOR",
+      "ORDERNUMBER"
+     ],
+     "has_target_query": true
+    }
+   ],
+   "repo_writes": [
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "Order Number",
+     "field_id": "documentNo",
+     "src": [
+      "sf:000103|documentNo|1.0|6|1",
+      "sef:000103|serial 6"
+     ]
+    }
+   ],
+   "repo_reads": [
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "Amount Verifications",
+     "src": [
+      "sq:000103|1.0|2"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "Amount Verifications",
+     "src": [
+      "sq:000103|1.0|2"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "Amount Verifications",
+     "src": [
+      "sq:000103|1.0|2"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "Amount Verifications",
+     "src": [
+      "sq:000103|1.0|2"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "Amount Verifications",
+     "src": [
+      "sq:000103|1.0|2"
+     ]
+    },
+    {
+     "repo": "REPO_REF_ORDER_NO",
+     "canon": "REPO_REF_ORDER_NO",
+     "via": "sq_param(Q2Q)",
+     "target": "Amount Verifications",
+     "src": [
+      "sq:000103|1.0|2"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Discount Amount (CD Detail - Offeritem)",
+     "src": [
+      "sq:000103|1.0|6"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Product Wise Tax/Charges (CD_Dtl - Chrg_Dtl)",
+     "src": [
+      "sq:000103|1.0|5"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Tax/Charges Wise",
+     "src": [
+      "sq:000103|1.0|4"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Tax/Charges Wise",
+     "src": [
+      "sq:000103|1.0|4"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Tax/Charges Wise",
+     "src": [
+      "sq:000103|1.0|4"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Tax/Charges Wise",
+     "src": [
+      "sq:000103|1.0|4"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Tax/Charges Wise",
+     "src": [
+      "sq:000103|1.0|4"
+     ]
+    },
+    {
+     "repo": "REPO_REF_ORDER_NO",
+     "canon": "REPO_REF_ORDER_NO",
+     "via": "sq_param(Q2Q)",
+     "target": "For Tax/Charges Wise",
+     "src": [
+      "sq:000103|1.0|4"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Discount Promotion Wise",
+     "src": [
+      "sq:000103|1.0|3"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Discount Promotion Wise",
+     "src": [
+      "sq:000103|1.0|3"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Discount Promotion Wise",
+     "src": [
+      "sq:000103|1.0|3"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Discount Promotion Wise",
+     "src": [
+      "sq:000103|1.0|3"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Discount Promotion Wise",
+     "src": [
+      "sq:000103|1.0|3"
+     ]
+    },
+    {
+     "repo": "REPO_REF_ORDER_NO",
+     "canon": "REPO_REF_ORDER_NO",
+     "via": "sq_param(Q2Q)",
+     "target": "For Discount Promotion Wise",
+     "src": [
+      "sq:000103|1.0|3"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "g_REPO_ORGA",
+     "canon": "REPO_ORGA",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "g_REPO_CMDOCTYPE",
+     "canon": "REPO_CMDOCTYPE",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    },
+    {
+     "repo": "ORDERNUMBER",
+     "canon": "ORDERNUMBER",
+     "via": "sq_param(Q2Q)",
+     "target": "For Sr No Wise Tax/Charges (Chrg Master - Chrg Dtl)",
+     "src": [
+      "sq:000103|1.0|7"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 6,
+    "fields_active": 5,
+    "events": 6,
+    "events_active": 5
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

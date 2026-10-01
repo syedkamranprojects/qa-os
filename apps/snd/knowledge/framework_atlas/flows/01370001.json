@@ -1,0 +1,740 @@
+{
+ "src": "tf:01370001",
+ "flow_id": "01370001",
+ "description": "Segment Setup",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:01370001|0137|1",
+   "seq": 1,
+   "menu_group": "0137",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0137",
+   "menu_group": "0137",
+   "exists": true,
+   "description": "Segment setup",
+   "search_text": "Segment setup",
+   "navigation": "SEGMENT_SETUP",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0137|013701|1",
+   "mgsm_seq": 1,
+   "screen_id": "013701",
+   "screen_name": "Segment setup",
+   "sheet": "Segment setup",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "013701"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Segment setup",
+   "kind": "screen",
+   "screen_ids": [
+    "013701"
+   ]
+  },
+  {
+   "sheet": "Update_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "013701"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Segment setup",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Segment setup",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Segment setup",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Segment setup",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Segment setup",
+    "Update_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [
+   {
+    "repo": "REPO_SegmentSetup",
+    "canon": "REPO_SEGMENTSETUP",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "Segment Code",
+    "field_id": "code",
+    "src": [
+     "sf:013701|code|1.0|6|1",
+     "sef:013701|serial 6"
+    ],
+    "screen_id": "013701"
+   }
+  ],
+  "reads": [
+   {
+    "repo": "REPO_SegmentSetup",
+    "canon": "REPO_SEGMENTSETUP",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_segmentCode",
+    "src": [
+     "sef:013701|serial 9"
+    ],
+    "screen_id": "013701"
+   }
+  ],
+  "writes_canon": [
+   "REPO_SEGMENTSETUP"
+  ],
+  "reads_canon": [
+   "REPO_SEGMENTSETUP"
+  ],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "013701",
+    "src": "sef:013701|serial 4"
+   }
+  ],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Update_assertion",
+    "screen_id": "013701",
+    "src": "sef:013701|serial 13"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 6,
+  "fields_active": 6,
+  "events": 12,
+  "events_active": 10,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 4,
+   "assertion": 1,
+   "fill_repo": 1,
+   "fill_text": 1,
+   "group_assertion": 1,
+   "wait": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "SEGMENT_SETUP",
+  "menu_search_text": "Segment setup"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "15",
+   "group_desc": "NG_Setup Flow_PH",
+   "seq": 26,
+   "active": true,
+   "user": "same session (Auto_PH)",
+   "login_status": "N"
+  },
+  {
+   "group": "65",
+   "group_desc": "NG_Setup Flow_TH",
+   "seq": 40,
+   "active": true,
+   "user": "Auto_Th (serial 12)",
+   "login_status": "Y"
+  },
+  {
+   "group": "73",
+   "group_desc": "NG_Setup Flow_UP",
+   "seq": 40,
+   "active": true,
+   "user": "Auto_Th (serial 12)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "013701": {
+   "src": "sc:013701",
+   "screen_id": "013701",
+   "name": "Segment setup",
+   "sheet": "Segment setup",
+   "type": "Save",
+   "sheet_name_len": 13,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:013701|name|1.0|1|1",
+     "seq": 1,
+     "field_id": "name",
+     "locate_by": "id",
+     "label": "Segment Description",
+     "db_column": "Segment Description",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "013701:f1"
+    },
+    {
+     "src": "sf:013701|segmentType|1.0|2|1",
+     "seq": 2,
+     "field_id": "segmentType",
+     "locate_by": "id",
+     "label": "Segment Type",
+     "db_column": "Segment Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "013701:f2"
+    },
+    {
+     "src": "sf:013701|status|1.0|3|1",
+     "seq": 3,
+     "field_id": "status",
+     "locate_by": "id",
+     "label": "Status",
+     "db_column": "Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "013701:f3"
+    },
+    {
+     "src": "sf:013701|fromDate|1.0|4|1",
+     "seq": 4,
+     "field_id": "fromDate",
+     "locate_by": "id",
+     "label": "Start Date",
+     "db_column": "Start Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "013701:f4"
+    },
+    {
+     "src": "sf:013701|dataTo|1.0|5|1",
+     "seq": 5,
+     "field_id": "dataTo",
+     "locate_by": "id",
+     "label": "End Date",
+     "db_column": "End Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "013701:f5"
+    },
+    {
+     "src": "sf:013701|code|1.0|6|1",
+     "seq": 6,
+     "field_id": "code",
+     "locate_by": "id",
+     "label": "Segment Code",
+     "db_column": "Segment Code",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": "REPO_SegmentSetup",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "013701:f6"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:013701|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "013701:e1"
+    },
+    {
+     "src": "sef:013701|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e2"
+    },
+    {
+     "src": "sef:013701|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "ELEVLD",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e3",
+     "assertion": {
+      "kind": "ELEVLD",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:013701|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e4",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:013701|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e5"
+    },
+    {
+     "src": "sef:013701|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "Fill Repo",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e6"
+    },
+    {
+     "src": "sef:013701|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 1,
+     "parent": 1,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_segmentCode",
+     "fixed_value": "REPO_SegmentSetup",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e9"
+    },
+    {
+     "src": "sef:013701|serial 10",
+     "serial": 10,
+     "seq": 10,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_segment_code",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e10"
+    },
+    {
+     "src": "sef:013701|serial 11",
+     "serial": 11,
+     "seq": 11,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Update Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "updateBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e11"
+    },
+    {
+     "src": "sef:013701|serial 12",
+     "serial": 12,
+     "seq": 12,
+     "depth": 1,
+     "parent": 1,
+     "type": "0005",
+     "event": "0002",
+     "kind": "alert_click",
+     "event_name": "Click Alert",
+     "in_ce_table": true,
+     "desc": "accept Msg",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": "accept",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "013701:e12"
+    },
+    {
+     "src": "sef:013701|serial 13",
+     "serial": 13,
+     "seq": 13,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Update_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "013701:e13",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Update_assertion"
+     }
+    },
+    {
+     "src": "sef:013701|serial 14",
+     "serial": 14,
+     "seq": 14,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "1",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "013701:e14",
+     "wait_s": "1"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [
+    {
+     "repo": "REPO_SegmentSetup",
+     "canon": "REPO_SEGMENTSETUP",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "Segment Code",
+     "field_id": "code",
+     "src": [
+      "sf:013701|code|1.0|6|1",
+      "sef:013701|serial 6"
+     ]
+    }
+   ],
+   "repo_reads": [
+    {
+     "repo": "REPO_SegmentSetup",
+     "canon": "REPO_SEGMENTSETUP",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_segmentCode",
+     "src": [
+      "sef:013701|serial 9"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 6,
+    "fields_active": 6,
+    "events": 12,
+    "events_active": 10
+   },
+   "assertion_sheets": [
+    "Update_assertion"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

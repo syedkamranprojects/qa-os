@@ -1,0 +1,216 @@
+{
+ "option_id": "DYL_202061",
+ "title": "RCOA Type",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Setup",
+   "RCOA Type"
+  ],
+  "group_id": "DYL_202061"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202061",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202061001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "RCOA Type",
+   "table": "FIN_PR_RCOA_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202061002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202061001",
+   "desc": "RCOA Type",
+   "table": "FIN_PR_RCOA_TYPE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Account Type": {
+   "name": "TXT__PRCA_TYPE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PRCA_TYPE",
+   "db_description": "Chart of Account Type (TRND/INVS/INCM/EXPN)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Description": {
+   "name": "TXT__PRCA_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PRCA_DESC",
+   "db_description": "Chart of Account Code Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Short Description": {
+   "name": "TXT__PRCA_ABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PRCA_ABRV",
+   "db_description": "Chart of Account Code Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Default": {
+   "name": "DDL__PRCA_DEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PRCA_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Active": {
+   "name": "DDL__PRCA_ACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PRCA_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Level No": {
+   "name": "TXT__PRCA_LEVEL_NO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PRCA_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Level Type": {
+   "name": "DDL__PRCA_LEVELTYPE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PRCA_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  },
+  "Order By": {
+   "name": "TXT__PRCA_ELEMENT_ORDER_BY",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PRCA_ELEMENT_ORDER_BY",
+   "db_description": "Element Order By",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202061002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Account Type",
+    "Description",
+    "Level No",
+    "Order By",
+    "Active",
+    "Short Description",
+    "Default",
+    "Order",
+    "Organization Code",
+    "Level Type",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

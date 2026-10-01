@@ -1,0 +1,97 @@
+{
+ "option_id": "DYL_DN1004",
+ "title": "PJP Daily Inquiry Update DN",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Journey Plan",
+   "PJP Daily Inquiry Update DN"
+  ],
+  "group_id": "DYL_DN1004"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "DN1004",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "DN1004001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "DN1004002",
+   "tab": null,
+   "is_child": true,
+   "parent": "DN1004001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "DN1004003",
+   "tab": null,
+   "is_child": true,
+   "parent": "DN1004002",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CET_CASHMEMO_EXE_TOUR",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Working Date": {
+   "name": "DT_epjpworkingdateParent",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "EPJP_WORKING_DATE",
+   "db_description": "Working Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "DN1004001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Type",
+    "Code",
+    "PJP Number",
+    "Tourid",
+    "Tripid",
+    "Tourtype",
+    "Tripstatus"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

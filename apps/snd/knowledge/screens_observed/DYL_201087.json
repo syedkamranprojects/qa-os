@@ -1,0 +1,85 @@
+{
+ "option_id": "DYL_201087",
+ "title": "Visit Status Log",
+ "menu_path": [
+  "Transaction",
+  "Logs",
+  "Visit Status Log"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201087",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201087",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Date",
+   "id": "DDT__lvsl_visit_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__epp2_busent_code_phs_lvl2_f",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Distributor",
+    "Warehouse",
+    "DSR",
+    "Outlet",
+    "Visit Status",
+    "Date",
+    "PJP Number"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

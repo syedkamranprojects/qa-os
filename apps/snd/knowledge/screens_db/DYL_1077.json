@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1077",
+ "title": "Region",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Region"
+  ],
+  "group_id": "DYL_1077"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1077",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101077001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Region - Grid",
+   "table": "GLB_PR_RGN_REGION",
+   "n_fields": 0,
+   "grids": [
+    "GLBPRRGNREGION"
+   ]
+  },
+  {
+   "page": "101077002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101077001",
+   "desc": "Region - Form",
+   "table": "GLB_PR_RGN_REGION",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__PRGNREGIONCODE",
+   "id": "FTXT__PRGNREGIONCODE",
+   "widget": "text",
+   "data_field": "PRGN_REGION_CODE",
+   "db_description": "Region Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  },
+  "Description": {
+   "name": "TXT__PRGNDESC",
+   "id": "FTXT__PRGNDESC",
+   "widget": "text",
+   "data_field": "PRGN_DESC",
+   "db_description": "Region Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PRGNABRV",
+   "id": "FTXT__PRGNABRV",
+   "widget": "text",
+   "data_field": "PRGN_ABRV",
+   "db_description": "Region Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  },
+  "Default": {
+   "name": "DDL__PRGNDEFAULT",
+   "id": "FDDL__PRGNDEFAULT",
+   "widget": "select",
+   "data_field": "PRGN_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  },
+  "Status": {
+   "name": "DDL__PRGNACTIVE",
+   "id": "FDDL__PRGNACTIVE",
+   "widget": "select",
+   "data_field": "PRGN_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  },
+  "Level Type": {
+   "name": "TXT__PRGNLEVELTYPE",
+   "id": "FTXT__PRGNLEVELTYPE",
+   "widget": "text",
+   "data_field": "PRGN_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  },
+  "Level No": {
+   "name": "TXT__PRGNLEVELNO",
+   "id": "FTXT__PRGNLEVELNO",
+   "widget": "text",
+   "data_field": "PRGN_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101077002"
+  }
+ },
+ "grids": {
+  "GLBPRRGNREGION": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

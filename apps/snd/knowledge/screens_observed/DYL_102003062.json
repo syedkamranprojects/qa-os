@@ -1,0 +1,482 @@
+{
+ "option_id": "DYL_102003062",
+ "title": "Outlet Approval",
+ "menu_path": [
+  "Approval",
+  "Master Data Approval",
+  "Outlet Approval"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102003062",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102003062",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Outlet Code",
+   "id": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Outlet Code",
+   "id": "TXT__EPP1ABRV",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Outlet Long Name",
+   "id": "TXT__EPP1DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PBEMBUSENTITYMISTYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PCHHCHNLHIERCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PGEOGEOGHIERCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PBERBUSENTITYRANKING",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PBEOBUSENTITYORGRANKING",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Coordinates Latitude",
+   "id": "TXT__EPP1CORLATITUDE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Coordinates Latitude",
+   "id": "TXT__EPP1CORLONGITUDE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PLSMLIFESTYLECODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Area Type",
+   "id": "DT__EPP1REFDATE1",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Identified by",
+   "id": "TXT__EPP1REFERENCE1",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Identified by",
+   "id": "DDL__EPP1ACTIVE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__epp1_corp_code",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select a value"
+  },
+  {
+   "label": null,
+   "id": "DDL__epp1_outlet_billto",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select a value"
+  },
+  {
+   "label": null,
+   "id": "DDL__PANCANALYSISEPP1A",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PANCANALYSISEPP1B",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PANCANALYSISEPP1C",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Is B2B",
+   "id": "TXT__EPP1REFVAL3",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Is B2B",
+   "id": "TXT__EPP1REFDATE2",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Sub Distributor",
+   "id": "TXT__EPP1SUBDISTRIBUTOR",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "TXT__EPP1REPORTTO",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Manual Order Creation",
+   "id": "DDL__EPP1_MANUAL_ORDER",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Manual Order Creation",
+   "id": "DDL__EPP1_CANCEL_STATUS",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Cancellation Comments",
+   "id": "TXT__EPP1_CANCEL_COMMENTS",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__EPL1_BUSENT_LOG_LVL1_CODE_REQ",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Completion Date",
+   "id": "DT__wf_completion_date",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "6",
+   "id": "pagination-element-6",
+   "title": "Page 6",
+   "disabled": false
+  },
+  {
+   "text": "7",
+   "id": "pagination-element-7",
+   "title": "Page 7",
+   "disabled": false
+  },
+  {
+   "text": "Demographics",
+   "id": null,
+   "title": "Demographics",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "spindown",
+   "disabled": false
+  },
+  {
+   "text": "Document",
+   "id": null,
+   "title": "Document",
+   "disabled": true
+  },
+  {
+   "text": "Bank",
+   "id": null,
+   "title": "Bank",
+   "disabled": true
+  },
+  {
+   "text": "Contact Person Details",
+   "id": null,
+   "title": "Contact Person Details",
+   "disabled": true
+  },
+  {
+   "text": "Credit Limit",
+   "id": null,
+   "title": "Credit Limit",
+   "disabled": true
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Translation",
+   "id": "crossBtn",
+   "title": "Translation",
+   "disabled": false
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Distributor Code",
+    "Distributor",
+    "Outlet Code",
+    "Outlet Name",
+    "Outlet Short Name",
+    "Outlet Status"
+   ],
+   "rows": 16,
+   "pager": true
+  }
+ ]
+}

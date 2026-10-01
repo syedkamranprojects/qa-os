@@ -1,0 +1,183 @@
+{
+ "option_id": "DYL_BG1002",
+ "title": "Section Approval",
+ "menu_path": [
+  "Setup/Configuration",
+  "PJP",
+  "Section Approval"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=BG1002",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=BG1002",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Code",
+   "id": "TXT__ENTITYCODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Description",
+   "id": "TXT__EPL1DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Abbreviation",
+   "id": "TXT__EPL1ABRV",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Status",
+   "id": "DDL__EPL1ACTIVE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Origin Date",
+   "id": "DT__EPL1ORIGINDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Default Delivery Days",
+   "id": "TXT__EPL1_REF_NUM_5",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "6",
+   "id": "pagination-element-6",
+   "title": "Page 6",
+   "disabled": false
+  },
+  {
+   "text": "7",
+   "id": "pagination-element-7",
+   "title": "Page 7",
+   "disabled": false
+  },
+  {
+   "text": "8",
+   "id": "pagination-element-8",
+   "title": "Page 8",
+   "disabled": false
+  },
+  {
+   "text": "9",
+   "id": "pagination-element-9",
+   "title": "Page 9",
+   "disabled": false
+  },
+  {
+   "text": "10",
+   "id": "pagination-element-10",
+   "title": "Page 10",
+   "disabled": false
+  },
+  {
+   "text": "Forward",
+   "id": "forward",
+   "title": "Forward",
+   "disabled": true
+  },
+  {
+   "text": "Reject",
+   "id": "reject",
+   "title": "Reject",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Distributor",
+    "Status"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

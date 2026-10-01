@@ -1,0 +1,14 @@
+{"option_id":"/ngui/content-master/route-settlement","title":"Route Settlement","menu_path":["Home","Transaction","Receivable","Route Settlement"],"route":"/ngui/content-master/route-settlement","url_path":"/ngui/content-master/route-settlement",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[],
+"fields":[
+{"label":"Date","id":"Date","type":"date","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"},
+{"label":"PJP Number","id":"pjpno","type":"dropdown","widget":"dropdown (multi, readonly-looking)","required":false,"readonly":true,"default":"","options":[],"note":"no option list opened; behaves as a multi-select tag box"},
+{"label":"Select All","id":"selectAll","type":"checkbox","widget":"checkbox","required":false,"readonly":false,"default":"unchecked"},
+{"label":"Route Status","id":"filterType","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"All","options":["All","Complete","Incomplete"]},
+{"label":"Total Payable Amount","id":"Total_Payable_Amount","type":"text","widget":"readonly","readonly":true,"default":"0"},
+{"label":"Total Received Amount","id":"Total_Received_Amount","type":"text","widget":"readonly","readonly":true,"default":"0"},
+{"label":"Total Cash Shortage","id":"Total_Cash_Shortage","type":"text","widget":"readonly","readonly":true,"default":"0"}],
+"buttons":[{"text":"Edit (row link, one per row)","id":"rowEditBtn_Edit_0..4","kind":"read-only (not clicked; opens inline row edit where Settle/Save would apply)"}],
+"grids":[{"headers":[["PJP Delivery Man Code","Delivery Man","Total Order","Delivered Orders","Undelivered Orders","Sale Value","Adjusted Credit Note Amount","Fresh Return Value","Total Cash Collected","Total Cheque Collect","Collection Type","Payable Amount","Received Amount","Cash Shortage"],["Previous","Today","Total","Previous","Today","Total"]],"rows":5,"columns":20,"grid_text":"Data grid with 5 rows and 20 columns (one row per delivery-man PJP: 8197298470-Aslam PJP DM, AutoPJGIN2-Auto GIN PJP DM, 02112-AutomationDSR, AutoPromo2-Auto Promo PJP DM, AUTO301301-Auto_test; names Aslam DSR DM, Auto GIN DM, AutomationQADSR, Auto Promo DM, DMS_DM)","paged":true,"page_size":10,"filter_inputs":{},"note":"Previous/Today/Total sub-headers sit under Total Order, Delivered Orders, Undelivered Orders pairs in two groups; all values 0 for today."}],
+"messages":["Page auto-loads with today's date; no Save/Settle button is visible until a row is put in edit mode."]}

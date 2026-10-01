@@ -1,0 +1,94 @@
+{
+ "option_id": "CREDIT_NOTE_APPROVAL",
+ "title": "Off-Invoice Credit Note Approval",
+ "menu_path": [
+  "Transaction",
+  "Receivable",
+  "Off-Invoice Credit Note Approval"
+ ],
+ "route": "/credit-note/credit-note-approval",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/credit-note/credit-note-approval",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Start Date",
+   "id": "startName",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Start Date",
+   "id": "endDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Forward All",
+   "id": "approveAll",
+   "title": "Forward All",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No.",
+    "IO Number",
+    "IO Description",
+    "Payout Month",
+    "Payout Year",
+    "Distributor",
+    "Customer",
+    "PJP code",
+    "Credit Note Amount",
+    "Credit Note Expiry Date"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

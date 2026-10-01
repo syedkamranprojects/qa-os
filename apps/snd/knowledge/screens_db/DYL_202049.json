@@ -1,0 +1,108 @@
+{
+ "option_id": "DYL_202049",
+ "title": "Order Cancellation DT",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Order Cancellation DT"
+  ],
+  "group_id": "DYL_202049"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202049",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202049001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Order Cancellation DT - Filter",
+   "table": null,
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "PJP": {
+   "name": "PJPNO",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PJPNO",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "OBPJP",
+   "validations": null,
+   "regex": null,
+   "page": "202049001"
+  },
+  "Section": {
+   "name": "SECTION",
+   "id": "selectbox9",
+   "widget": "select",
+   "data_field": "SECTION",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJPDTSECT",
+   "validations": null,
+   "regex": null,
+   "page": "202049001"
+  },
+  "Date From": {
+   "name": "datefrom",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "DATEFROM",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202049001"
+  },
+  "Date To": {
+   "name": "dateto",
+   "id": "datebox4",
+   "widget": "date",
+   "data_field": "DATEFROM",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202049001"
+  }
+ },
+ "grids": {},
+ "buttons": []
+}

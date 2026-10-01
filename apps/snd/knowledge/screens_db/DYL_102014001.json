@@ -1,0 +1,119 @@
+{
+ "option_id": "DYL_102014001",
+ "title": "Transaction View",
+ "menu": {
+  "path": [
+   "Transactions",
+   "Transaction View"
+  ],
+  "group_id": "DYL_102014001"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102014001",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102014006",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "102014005",
+   "tab": null,
+   "is_child": true,
+   "parent": "102014006",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CMM_CASHMEMO_MASTER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014002",
+   "tab": "Detail",
+   "is_child": true,
+   "parent": "102014005",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102014003",
+   "tab": "Offering",
+   "is_child": true,
+   "parent": "102014005",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CMM_CASHMEMO_OFFRITEM",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document Status": {
+   "name": "DDL__PDOSDOCMSTATUSPARENT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PDOS_DOCMSTATUS",
+   "db_description": "Document Status Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOSDESC",
+   "validations": null,
+   "regex": null,
+   "page": "102014006"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Product Code",
+    "Product Description",
+    "Promotion ID",
+    "Promotion Description",
+    "Promotion",
+    "Batch",
+    "@Session(Orga Code)~CS",
+    "@Session(Orga Code)~SU",
+    "@Session(Orga Code)~PC",
+    "@Session(Orga Code)~Delievered CS",
+    "@Session(Orga Code)~Delievered SU",
+    "Free Quantity",
+    "Rate",
+    "Discount Amount",
+    "Tax Amount",
+    "Document No",
+    "Document Type"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

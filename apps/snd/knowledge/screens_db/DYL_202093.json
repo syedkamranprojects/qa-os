@@ -1,0 +1,169 @@
+{
+ "option_id": "DYL_202093",
+ "title": "RCOA Transactions Inquiry After Approval",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Inquiry",
+   "RCOA Transactions Inquiry After Approval"
+  ],
+  "group_id": "DYL_202093"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202093",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202093001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "RCOA Transactions Inquiry After Approval - Filter",
+   "table": null,
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "202093002",
+   "tab": "Manual Input Finance",
+   "is_child": true,
+   "parent": "202093001",
+   "partial": null,
+   "desc": "RCOA Transactions Inquiry After Approval - Manual Input Finance - GRID",
+   "table": "FIN_TR_RCOA_TRANSACTIONS_INPUT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202093003",
+   "tab": "Manual Input Other",
+   "is_child": true,
+   "parent": "202093001",
+   "partial": null,
+   "desc": "RCOA Transactions Inquiry After Approval - Mannual Input Other - GRID",
+   "table": "FIN_TR_RCOA_TRANSACTIONS_INPUT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202093004",
+   "tab": "DMS Extract Approval",
+   "is_child": true,
+   "parent": "202093001",
+   "partial": null,
+   "desc": "RCOA Transactions Inquiry After Approval - DMS Extract Approval - GRID",
+   "table": "FIN_TR_RCOA_TRANSACTIONS_INTG",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202093005",
+   "tab": "File Upload Approval",
+   "is_child": true,
+   "parent": "202093001",
+   "partial": null,
+   "desc": "RCOA Transactions Inquiry After Approval - File Upload Approval - GRID",
+   "table": "FIN_TR_RCOA_TRANSACTIONS_FILE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Distributor": {
+   "name": "DDL__EPP1_BUSENT_PHS_LVL1_CODE_PARENT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "db_description": "Physical Business Entities Level 1 (Distributor, Outlet, Warehouse etc)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "DISTRIBUTOR",
+   "validations": null,
+   "regex": null,
+   "page": "202093001"
+  },
+  "Period Type": {
+   "name": "DDL__PFQY_FREQUENCY_PARENT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PFQY_FREQUENCY",
+   "db_description": "Frequency Code (Period Type)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PERIODTYPE",
+   "validations": null,
+   "regex": null,
+   "page": "202093001"
+  },
+  "Period #": {
+   "name": "TXT__TINP_PERIOD_NO_PARENT",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "TINP_PERIOD_NO",
+   "db_description": "Period Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PERIODNO",
+   "validations": null,
+   "regex": null,
+   "page": "202093001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Account Type",
+    "Account Type",
+    "Account Code & Description",
+    "Account Code & Description",
+    "Organization Code",
+    "Business Entity Type",
+    "Distributor",
+    "UoM",
+    "UoM",
+    "Quantity",
+    "Rate",
+    "Value",
+    "Period No",
+    "Type",
+    "Status",
+    "Status",
+    "Modify",
+    "UOM Field Control"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

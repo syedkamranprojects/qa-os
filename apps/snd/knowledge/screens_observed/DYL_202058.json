@@ -1,0 +1,125 @@
+{
+ "option_id": "DYL_202058",
+ "title": "IO Master",
+ "menu_path": [
+  "Transaction",
+  "Claim",
+  "IO Master"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202058",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202058",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "446",
+   "id": "pagination-element-446",
+   "title": "Page 446",
+   "disabled": false
+  },
+  {
+   "text": "Process",
+   "id": "DYP.......process",
+   "title": "Process",
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "Refresh",
+   "id": "DYP.G......Refresh",
+   "title": "Refresh",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "IO Number",
+    "IO Description",
+    "IO Abbreviation",
+    "Spent Type",
+    "Promotion Type",
+    "IO Start Date",
+    "IO End Date",
+    "Claim Entry"
+   ],
+   "rows": 5,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "IO Serial Number",
+    "IO Number",
+    "Claim Start Date",
+    "Claim End Date",
+    "Claim Generation Date"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

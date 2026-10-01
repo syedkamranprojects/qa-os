@@ -1,0 +1,54 @@
+{
+ "option_id": "INTEGRATOR_OPERATION",
+ "title": "Operation",
+ "menu_path": [
+  "Integrator",
+  "Operation"
+ ],
+ "route": "/integrator/operation",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/integrator/operation",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Reload",
+   "id": "reload",
+   "title": "Reload",
+   "disabled": false
+  },
+  {
+   "text": "Generate",
+   "id": "generate",
+   "title": "Generate",
+   "disabled": false
+  },
+  {
+   "text": "Restart",
+   "id": "restart",
+   "title": "Restart",
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

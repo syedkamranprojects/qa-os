@@ -1,0 +1,11 @@
+{
+ "group": "11",
+ "checked_against": "raw/_validation_group11_sql.json (2026-09-30 via mcp selenium-framework-db)",
+ "ok": true,
+ "atlas_rows": 46,
+ "sql_rows": 46,
+ "chain_equal": true,
+ "switch_points_equal": true,
+ "switch_points_atlas": "5,9,23,24,37,38,49,50,59,60",
+ "note": "the task text said 44 rows; the live DB has 46 active rows for group 11 (the same 46 the DISPATCH_ADVICE.md session plan lists)"
+}

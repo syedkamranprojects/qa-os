@@ -1,0 +1,66 @@
+{
+ "option_id": "DIST_FEATURE",
+ "title": "Distributor Feature",
+ "menu_path": [
+  "Application Configuration",
+  "Distributor Feature"
+ ],
+ "route": "/feature/dist-feature",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/feature/dist-feature",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "outletName",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select a value"
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Option Type",
+    "Feature Type",
+    "Description",
+    "Current Value",
+    "Current Value In Cache"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

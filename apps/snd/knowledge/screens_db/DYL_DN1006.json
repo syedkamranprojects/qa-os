@@ -1,0 +1,107 @@
+{
+ "option_id": "DYL_DN1006",
+ "title": "API Monitoring",
+ "menu": {
+  "path": [
+   "Transaction",
+   "API Monitoring"
+  ],
+  "group_id": "DYL_DN1006"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "DN1006",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "DN1006004",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "DN1006001",
+   "tab": "Soacknowledgement",
+   "is_child": true,
+   "parent": "DN1006004",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "DN1006002",
+   "tab": "Dnacknowledgement",
+   "is_child": true,
+   "parent": "DN1006004",
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "DN1006003",
+   "tab": "Socreation",
+   "is_child": true,
+   "parent": "DN1006004",
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Saporderno",
+    "Integrationtimestamp",
+    "User ID",
+    "Gindocumentno",
+    "Grndocumentnumber",
+    "Ordertype",
+    "Ordertypezpp",
+    "Ordertype ZPR",
+    "Ordertype ZPIB",
+    "Ordertype SOupdate",
+    "Plant",
+    "Type",
+    "Type",
+    "Createddate",
+    "Reference Global",
+    "Code",
+    "Document Type",
+    "Createddate",
+    "Orderno",
+    "Deliveryno",
+    "Plant",
+    "Deliverynote",
+    "Haserror",
+    "Errormsg",
+    "Ponumber"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

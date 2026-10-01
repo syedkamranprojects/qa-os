@@ -1,0 +1,218 @@
+{
+ "option_id": "DYL_101045",
+ "title": "Analysis 3",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Product Hierarchy",
+   "Analysis 3"
+  ],
+  "group_id": "DYL_101045"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "101045",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101045001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Product -  Analysis 3 - Grid",
+   "table": "SND_PR_PA3_PROD_ANALYSIS_3",
+   "n_fields": 0,
+   "grids": [
+    "Prod analysis"
+   ]
+  },
+  {
+   "page": "101045002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101045001",
+   "desc": "Product -  Analysis 3 - Form",
+   "table": "SND_PR_PA3_PROD_ANALYSIS_3",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__ppa3_prod_analysis",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PPA3_PROD_ANALYSIS",
+   "db_description": "Product - Analysis-3 (Func/SubFunc) Code (Master SKU)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Description": {
+   "name": "txt__ppa3_desc",
+   "id": "textbox15",
+   "widget": "text",
+   "data_field": "PPA3_DESC",
+   "db_description": "Product - Analysis-3 (Func/SubFunc) Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Abbreviation": {
+   "name": "txt__ppa3_abrv",
+   "id": "textbox16",
+   "widget": "text",
+   "data_field": "PPA3_ABRV",
+   "db_description": "Product - Analysis-3 (Func/SubFunc) Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Status": {
+   "name": "ddl__ppa3_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PPA3_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Reference 1": {
+   "name": "txt__ppa3_reference_1",
+   "id": "textbox21",
+   "widget": "text",
+   "data_field": "PPA3_REFERENCE_1",
+   "db_description": "Reference Field 1",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Reference 2": {
+   "name": "txt__ppa3_reference_2",
+   "id": "textbox22",
+   "widget": "text",
+   "data_field": "PPA3_REFERENCE_2",
+   "db_description": "Reference Field 2",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Reference 3": {
+   "name": "txt__ppa3_reference_3",
+   "id": "textbox23",
+   "widget": "text",
+   "data_field": "PPA3_REFERENCE_3",
+   "db_description": "Reference Field 3",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  },
+  "Origin Date": {
+   "name": "DT__origin_date",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "ORIGIN_DATE",
+   "db_description": "Origin Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101045002"
+  }
+ },
+ "grids": {
+  "Prod analysis": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Reference 1",
+    "Reference 2",
+    "Reference 3",
+    "Origin Date",
+    "Origin Date",
+    "Image Path"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

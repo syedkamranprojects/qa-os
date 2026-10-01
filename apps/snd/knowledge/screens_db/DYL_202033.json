@@ -1,0 +1,131 @@
+{
+ "option_id": "DYL_202033",
+ "title": "IQ Threshold",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "IQ Threshold"
+  ],
+  "group_id": "DYL_202033"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202033",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202033001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_ITS_IQ_ENT_THRESHOLD",
+   "n_fields": 2,
+   "grids": []
+  },
+  {
+   "page": "202033002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202033001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_ITS_IQ_ENT_THRESHOLD",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Year": {
+   "name": "DDL__YEARParent",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EITS_YEAR",
+   "db_description": "Year",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "YEAR",
+   "validations": null,
+   "regex": null,
+   "page": "202033001"
+  },
+  "Month": {
+   "name": "DDL__MONTHParent",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "EITS_MONTH",
+   "db_description": "Month",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "MONTH",
+   "validations": null,
+   "regex": null,
+   "page": "202033001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Business Entity Type Code",
+    "Serial No",
+    "Distributor",
+    "Month",
+    "Year",
+    "Assortment TH Outlet",
+    "Assortment TH Salesman",
+    "RL TH Outlet",
+    "RL TH Salesman",
+    "EB TH Outlet",
+    "EB TH Salesman",
+    "WP TH Outlet",
+    "WP TH Salesman",
+    "NPD TH Outlet",
+    "NP DTH Salesman",
+    " PS TH Salesman",
+    "Brand ECO Salesman",
+    "ETE TH Outlet",
+    "ETE TH Salesman",
+    "ETS TH Outlet",
+    "ETS TH Salesman",
+    "COTC TH Outlet",
+    "COTC TH Salesman",
+    "ECO TH Salesman",
+    " BP TH Salesman",
+    "LPPC TH Salesman",
+    "Strike Rate TH Salesman",
+    "B2B ECO TH Salesman",
+    "Geo Compliance",
+    "PJP Compliance",
+    "Working Start Time",
+    "Working End Time",
+    "Max Time Per Outlet",
+    "Fixed Time Per Outlet",
+    "Target Productive Time in Day",
+    "Target Total Time Spent"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

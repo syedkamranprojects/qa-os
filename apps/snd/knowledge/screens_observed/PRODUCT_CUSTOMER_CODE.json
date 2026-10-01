@@ -1,0 +1,91 @@
+{
+ "option_id": "PRODUCT_CUSTOMER_CODE",
+ "title": "Product Customer Code",
+ "menu_path": [
+  "Product",
+  "Product Customer Code"
+ ],
+ "route": "/excel-upload/product-customer-code",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/excel-upload/product-customer-code",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Channel Hierarchy",
+   "id": "channelHierarchy",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Channel Hierarchy",
+   "id": "brand",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Status",
+   "id": "status",
+   "name": null,
+   "type": "text",
+   "widget": "tagbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": "downloadExcel",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Upload Excel",
+   "id": "fileInput",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

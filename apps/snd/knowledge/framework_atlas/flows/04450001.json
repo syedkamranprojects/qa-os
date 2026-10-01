@@ -1,0 +1,892 @@
+{
+ "src": "tf:04450001",
+ "flow_id": "04450001",
+ "description": "FRESH_SALES_RETURN Full PH",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:04450001|0445|1",
+   "seq": 1,
+   "menu_group": "0445",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0445",
+   "menu_group": "0445",
+   "exists": true,
+   "description": "FRESH_SALES_RETURN Full PH",
+   "search_text": "Fresh Sales Return",
+   "navigation": "FRESH_SALES_RETURN",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0445|044501|1",
+   "mgsm_seq": 1,
+   "screen_id": "044501",
+   "screen_name": "FRESH SALES RETURN Full PH",
+   "sheet": "FRESH SALES RETURN Full PH",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  },
+  {
+   "src": "mgsm:0445|044502|2",
+   "mgsm_seq": 2,
+   "screen_id": "044502",
+   "screen_name": "F_SALES_RETURN DTL_Full PH",
+   "sheet": "F_SALES_RETURN DTL_Full PH",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": "id",
+   "tab_nav_path": "tab_9",
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 2,
+   "children": []
+  },
+  {
+   "src": "mgsm:0445|044503|3",
+   "mgsm_seq": 3,
+   "screen_id": "044503",
+   "screen_name": "F SALES_RETURN Val Full PH",
+   "sheet": "F SALES_RETURN Val Full PH",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 3,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "044501",
+  "044502",
+  "044503"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "FRESH SALES RETURN Full PH",
+   "kind": "screen",
+   "screen_ids": [
+    "044501"
+   ]
+  },
+  {
+   "sheet": "FRESH_SALES_RETURN_Full_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "044501"
+   ]
+  },
+  {
+   "sheet": "F_SALES_RETURN DTL_Full PH",
+   "kind": "screen",
+   "screen_ids": [
+    "044502"
+   ]
+  },
+  {
+   "sheet": "F SALES_RETURN Val Full PH",
+   "kind": "screen",
+   "screen_ids": [
+    "044503"
+   ]
+  },
+  {
+   "sheet": "FRESH_SAL_RETURN_Val_Full_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "044503"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "FRESH SALES RETURN Full PH",
+    "F_SALES_RETURN DTL_Full PH",
+    "F SALES_RETURN Val Full PH",
+    "FRESH_SAL_RETURN_Val_Full_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "FRESH_SALES_RETURN_Full_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.2
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 4,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "FRESH_SAL_RETURN_Val_Full_ASSR"
+   ],
+   "missing_columns": {
+    "FRESH SALES RETURN Full PH": [
+     "SKU"
+    ]
+   },
+   "rows": {
+    "FRESH SALES RETURN Full PH": 1,
+    "FRESH_SALES_RETURN_Full_ASSR": 1,
+    "F_SALES_RETURN DTL_Full PH": 1,
+    "F SALES_RETURN Val Full PH": 1
+   },
+   "complete": false,
+   "ratio": 0.8
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "FRESH SALES RETURN Full PH",
+    "FRESH_SALES_RETURN_Full_ASSR",
+    "F_SALES_RETURN DTL_Full PH",
+    "F SALES_RETURN Val Full PH",
+    "FRESH_SAL_RETURN_Val_Full_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "FRESH SALES RETURN Full PH",
+    "F_SALES_RETURN DTL_Full PH",
+    "F SALES_RETURN Val Full PH",
+    "FRESH_SAL_RETURN_Val_Full_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "FRESH_SALES_RETURN_Full_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.2
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "FRESH SALES RETURN Full PH",
+    "F_SALES_RETURN DTL_Full PH",
+    "F SALES_RETURN Val Full PH",
+    "FRESH_SAL_RETURN_Val_Full_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "FRESH_SALES_RETURN_Full_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.2
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (PHP).xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "FRESH_SALES_RETURN_Full_ASSR",
+    "screen_id": "044501",
+    "src": "sef:044501|serial 5"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "FRESH_SAL_RETURN_Val_Full_ASSR",
+    "screen_id": "044503",
+    "src": "sef:044503|serial 3"
+   }
+  ],
+  "validations_0007": 1,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 3,
+  "fields": 10,
+  "fields_active": 10,
+  "events": 12,
+  "events_active": 12,
+  "events_by_kind": {
+   "load_data": 2,
+   "click": 6,
+   "group_assertion": 2,
+   "fill_dropdown": 1,
+   "screen_validation": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Sales Return"
+  ],
+  "market": "PH",
+  "menu_option": "FRESH_SALES_RETURN",
+  "menu_search_text": "Fresh Sales Return"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "63",
+   "group_desc": "Daily Cycle Only Positive Flow_PH",
+   "seq": 43,
+   "active": true,
+   "user": "same session (Auto_PH)",
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "044501": {
+   "src": "sc:044501",
+   "screen_id": "044501",
+   "name": "FRESH SALES RETURN Full PH",
+   "sheet": "FRESH SALES RETURN Full PH",
+   "type": "Save",
+   "sheet_name_len": 26,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:044501|pjpNo|1.0|1|1",
+     "seq": 1,
+     "field_id": "pjpNo",
+     "locate_by": "id",
+     "label": "PJP Number",
+     "db_column": "PJP Number",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044501:f1"
+    },
+    {
+     "src": "sf:044501|dateFrom|1.0|2|1",
+     "seq": 2,
+     "field_id": "dateFrom",
+     "locate_by": "id",
+     "label": "Date From",
+     "db_column": "Date From",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044501:f2"
+    },
+    {
+     "src": "sf:044501|dateTo|1.0|3|1",
+     "seq": 3,
+     "field_id": "dateTo",
+     "locate_by": "id",
+     "label": "Date To",
+     "db_column": "Date To",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044501:f3"
+    },
+    {
+     "src": "sf:044501|outletCode|1.0|4|1",
+     "seq": 4,
+     "field_id": "outletCode",
+     "locate_by": "id",
+     "label": "Outlet Name",
+     "db_column": "Outlet Name",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044501:f4"
+    },
+    {
+     "src": "sf:044501|SKU|1.0|5|1",
+     "seq": 5,
+     "field_id": "SKU",
+     "locate_by": "id",
+     "label": "SKU",
+     "db_column": "SKU",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044501:f5"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:044501|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "044501:e1"
+    },
+    {
+     "src": "sef:044501|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "row select",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "Header_0_document_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "044501:e2"
+    },
+    {
+     "src": "sef:044501|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Row Selection",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_document_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "044501:e3"
+    },
+    {
+     "src": "sef:044501|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save BTN",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "044501:e4"
+    },
+    {
+     "src": "sef:044501|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion For Message",
+     "status": "Y",
+     "active": true,
+     "locate_by": "",
+     "field_id": "",
+     "fixed_value": "TSTMSG,FRESH_SALES_RETURN_Full_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "044501:e5",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "FRESH_SALES_RETURN_Full_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 5,
+    "fields_active": 5,
+    "events": 5,
+    "events_active": 5
+   },
+   "assertion_sheets": [
+    "FRESH_SALES_RETURN_Full_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  },
+  "044502": {
+   "src": "sc:044502",
+   "screen_id": "044502",
+   "name": "F_SALES_RETURN DTL_Full PH",
+   "sheet": "F_SALES_RETURN DTL_Full PH",
+   "type": "Save",
+   "sheet_name_len": 26,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:044502|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Switch Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "switchBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "044502:e1"
+    },
+    {
+     "src": "sef:044502|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0002",
+     "event": "0001",
+     "kind": "fill_dropdown",
+     "event_name": "Fill Single Drop Down",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "selectBox,inputSelectbox",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "044502:e2"
+    },
+    {
+     "src": "sef:044502|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Validation Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "validationBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "044502:e3"
+    },
+    {
+     "src": "sef:044502|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click on Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "044502:e4"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 4,
+    "events_active": 4
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "044503": {
+   "src": "sc:044503",
+   "screen_id": "044503",
+   "name": "F SALES_RETURN Val Full PH",
+   "sheet": "F SALES_RETURN Val Full PH",
+   "type": "Save",
+   "sheet_name_len": 26,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:044503|GrossAmount|1.0|1|1",
+     "seq": 1,
+     "field_id": "GrossAmount",
+     "locate_by": "id",
+     "label": "Gross Amount",
+     "db_column": "Gross Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044503:f1"
+    },
+    {
+     "src": "sf:044503|markup|1.0|2|1",
+     "seq": 2,
+     "field_id": "markup",
+     "locate_by": "id",
+     "label": "Markup",
+     "db_column": "Markup",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044503:f2"
+    },
+    {
+     "src": "sf:044503|Discount|1.0|3|1",
+     "seq": 3,
+     "field_id": "Discount",
+     "locate_by": "id",
+     "label": "Discount",
+     "db_column": "Discount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044503:f3"
+    },
+    {
+     "src": "sf:044503|Tax|1.0|4|1",
+     "seq": 4,
+     "field_id": "Tax",
+     "locate_by": "id",
+     "label": "Tax",
+     "db_column": "Tax",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044503:f4"
+    },
+    {
+     "src": "sf:044503|NetAmount|1.0|5|1",
+     "seq": 5,
+     "field_id": "NetAmount",
+     "locate_by": "id",
+     "label": "Net Amount",
+     "db_column": "Net Amount",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "044503:f5"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:044503|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "044503:e1"
+    },
+    {
+     "src": "sef:044503|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0007",
+     "kind": "screen_validation",
+     "event_name": "Screen Excel DB Screen Validation",
+     "in_ce_table": true,
+     "desc": "Validate Summary",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "044503:e2"
+    },
+    {
+     "src": "sef:044503|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,FRESH_SAL_RETURN_Val_Full_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "044503:e3",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "FRESH_SAL_RETURN_Val_Full_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 5,
+    "fields_active": 5,
+    "events": 3,
+    "events_active": 3
+   },
+   "assertion_sheets": [
+    "FRESH_SAL_RETURN_Val_Full_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

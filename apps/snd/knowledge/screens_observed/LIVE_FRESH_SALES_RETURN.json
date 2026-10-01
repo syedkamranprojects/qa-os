@@ -1,0 +1,15 @@
+{"option_id":"/ngui/sales-return-statusChange/fresh-sales-return","title":"Fresh Sales Return","menu_path":["Home","Transaction","Sales Return","Fresh Sales Return"],"route":"/ngui/sales-return-statusChange/fresh-sales-return","url_path":"/ngui/sales-return-statusChange/fresh-sales-return",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[{"name":"Header","fields":[
+{"label":"Document No","id":"documentNo","widget":"readonly","required":false,"readonly":true,"default":""},
+{"label":"Document Date","id":"documentDate","widget":"date","required":false,"readonly":true,"default":"today (2026-10-01)"},
+{"label":"PJP Number","id":"pjpNo","widget":"dropdown","required":false,"readonly":false,"default":"AutoPJGIN2-Auto GIN PJP DM","options":["AutoPJGIN2-Auto GIN PJP DM","AUTO301301-Auto_test","02112-AutomationDSR","AutoPromo2-Auto Promo PJP DM","8197298470-Aslam PJP DM"]},
+{"label":"Date From","id":"dateFrom","widget":"date","required":false,"readonly":false,"default":"today"},
+{"label":"Date To","id":"dateTo","widget":"date","required":false,"readonly":false,"default":"today"},
+{"label":"Outlet Name","id":"outletCode","widget":"dropdown","required":false,"readonly":false,"default":""},
+{"label":"SKU","id":"SKU","widget":"dropdown","required":false,"readonly":false,"default":""}],
+"buttons":[{"text":"Add","id":"addBtn","kind":"read-only (not clicked)"},{"text":"Save","id":"saveBtn","kind":"ACTION - not clicked (disabled)"}],
+"grids":[{"headers":["Document No","Document Date","Delivery Date","Outlet Code","Gross Amount","Discount Amount","Tax","Net Amount","Received Amount","Balance Amount","Demand Channel"],"rows":0,"columns":11,"grid_text":"Data grid with 0 rows and 11 columns","paged":false,"filter_inputs":{}}]},
+{"name":"Detail","note":"disabled until Add/row selected"},{"name":"Cashmemo","note":"tab label present in page text; not visited"}],
+"fields":[],"buttons":[],"grids":[],
+"messages":["Reached by accident while trying to open 'Sales Return' via sidebar search (search matches 'Sales Return' folder children). Hand-coded screen under module sales-return-statusChange."]}

@@ -1,0 +1,160 @@
+{
+ "option_id": "DYL_BG1011",
+ "title": "Distributor Holiday II",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "General",
+   "Distributor Holiday II"
+  ],
+  "group_id": "DYL_BG1011"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1011",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1011001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "glb_pr_PLH_phs_lvl1_Holidays",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1011002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "BG1011001",
+   "desc": null,
+   "table": "glb_pr_PLH_phs_lvl1_Holidays",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Serial No": {
+   "name": "TXT__PPLH_SERIALNO",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PPLH_SERIALNO",
+   "db_description": "Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1011002"
+  },
+  "Description": {
+   "name": "TXT__PPLH_Description",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PPLH_DESCRIPTION",
+   "db_description": "Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1011002"
+  },
+  "Date From": {
+   "name": "DT__pplh_fromdate",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "PPLH_FROMDATE",
+   "db_description": "From Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1011002"
+  },
+  "Date To": {
+   "name": "DT__pplh_todate",
+   "id": "datebox4",
+   "widget": "date",
+   "data_field": "PPLH_TODATE",
+   "db_description": "To Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1011002"
+  },
+  "Status": {
+   "name": "DDL__PPLH_ACTIVE",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PPLH_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "I",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1011002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Description",
+    "Date From",
+    "Date To",
+    "Status",
+    "Status",
+    "Work Flow Status",
+    "Next Role",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

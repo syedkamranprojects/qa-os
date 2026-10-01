@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_201079",
+ "title": "Instrument Status",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Instrument Status"
+  ],
+  "group_id": "glb_pr_ins_instrument_status"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201079",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201079001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "glb_pr_ins_instrument_status",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201079002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201079001",
+   "desc": null,
+   "table": "glb_pr_ins_instrument_status",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__pins_instrument_status",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PINS_INSTRUMENT_STATUS",
+   "db_description": "Instrument Status Code (Cheque, Deposit Slip, Pay Order etc)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  },
+  "Description": {
+   "name": "TXT__pins_desc",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PINS_DESC",
+   "db_description": "Instrument Status Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  },
+  "Abbreviation": {
+   "name": "TXT__pins_abrv",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PINS_ABRV",
+   "db_description": "Instrument Status Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  },
+  "Default": {
+   "name": "DDL__pins_default",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PINS_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  },
+  "Active": {
+   "name": "DDL__pins_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PINS_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  },
+  "Level No": {
+   "name": "TXT__pins_level_no",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PINS_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  },
+  "Level Type": {
+   "name": "TXT__pins_leveltype",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PINS_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201079002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

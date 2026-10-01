@@ -1,0 +1,66 @@
+{
+ "option_id": "DYL_202058",
+ "title": "IO Master",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "IO Master"
+  ],
+  "group_id": "DYL_202058"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202058",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202058001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_IOM_IO_MASTER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202058002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202058001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_IOD_IO_DETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "IO Serial Number",
+    "IO Number",
+    "Claim Start Date",
+    "Claim End Date",
+    "Claim Generation Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Process",
+  "Refresh"
+ ]
+}

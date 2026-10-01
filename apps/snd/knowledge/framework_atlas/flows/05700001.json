@@ -1,0 +1,675 @@
+{
+ "src": "tf:05700001",
+ "flow_id": "05700001",
+ "description": "San Approval BD SDMS-10080",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:05700001|0570|1",
+   "seq": 1,
+   "menu_group": "0570",
+   "filename": "NG_Dcode_QA_SDMS-10080"
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0570",
+   "menu_group": "0570",
+   "exists": true,
+   "description": "SAN Approval BD SDMS-10080",
+   "search_text": "Stock Adjustment SAN",
+   "navigation": "DYL_201045",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0570|057001|1",
+   "mgsm_seq": 1,
+   "screen_id": "057001",
+   "screen_name": "SAN APP BD SDMS 10080",
+   "sheet": "SAN APP BD SDMS 10080",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_SDMS-10080",
+   "workbook_source": "tfd.ptfd_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "057001"
+ ],
+ "workbook": {
+  "flow_level_filename": "NG_Dcode_QA_SDMS-10080",
+  "effective_files": [
+   "NG_Dcode_QA_SDMS-10080"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "SAN APP BD SDMS 10080",
+   "kind": "screen",
+   "screen_ids": [
+    "057001"
+   ]
+  },
+  {
+   "sheet": "SAN_APP_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "057001"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "SAN APP BD SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "SAN_APP_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "SAN APP BD SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "SAN_APP_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "SAN APP BD SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "SAN_APP_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "SAN APP BD SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "SAN_APP_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "SAN APP BD SDMS 10080"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "SAN_APP_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.5
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (PHP).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC (Vietnam).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "REPO_DocumentNo",
+    "canon": "REPO_DOCUMENTNO",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_documentNo",
+    "src": [
+     "sef:057001|serial 2"
+    ],
+    "screen_id": "057001"
+   },
+   {
+    "repo": "REPO_DocumentType",
+    "canon": "REPO_DOCUMENTTYPE",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_pdot_desc",
+    "src": [
+     "sef:057001|serial 13"
+    ],
+    "screen_id": "057001"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "REPO_DOCUMENTNO",
+   "REPO_DOCUMENTTYPE"
+  ],
+  "reads_not_written_by_this_flow": [
+   "REPO_DOCUMENTNO",
+   "REPO_DOCUMENTTYPE"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "SAN_APP_ASSR",
+    "screen_id": "057001",
+    "src": "sef:057001|serial 7"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "SAN_APP_ASSR",
+    "screen_id": "057001",
+    "src": "sef:057001|serial 20"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 16,
+  "events_active": 16,
+  "events_by_kind": {
+   "click": 7,
+   "fill_text": 4,
+   "wait": 3,
+   "group_assertion": 2
+  }
+ },
+ "tags": {
+  "areas": [
+   "Stock Adjustment (SAN)",
+   "Approval/Reject/Terminate"
+  ],
+  "market": "BD",
+  "menu_option": "DYL_201045",
+  "menu_search_text": "Stock Adjustment SAN"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "81",
+   "group_desc": "SDMS-10080 BD",
+   "seq": 6,
+   "active": true,
+   "user": "autoBD_Tssm (serial 11)",
+   "login_status": "Y"
+  },
+  {
+   "group": "81",
+   "group_desc": "SDMS-10080 BD",
+   "seq": 13,
+   "active": true,
+   "user": "autoBD_Tssm (serial 11)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "057001": {
+   "src": "sc:057001",
+   "screen_id": "057001",
+   "name": "SAN APP BD SDMS 10080",
+   "sheet": "SAN APP BD SDMS 10080",
+   "type": "Save",
+   "sheet_name_len": 21,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:057001|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e1"
+    },
+    {
+     "src": "sef:057001|serial 3",
+     "serial": 3,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Header Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "Header_0_document_date",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e3"
+    },
+    {
+     "src": "sef:057001|serial 2",
+     "serial": 2,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_documentNo",
+     "fixed_value": "REPO_DocumentNo",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e2"
+    },
+    {
+     "src": "sef:057001|serial 13",
+     "serial": 13,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_pdot_desc",
+     "fixed_value": "REPO_DocumentType",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e13"
+    },
+    {
+     "src": "sef:057001|serial 21",
+     "serial": 21,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "3",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e21",
+     "wait_s": "3"
+    },
+    {
+     "src": "sef:057001|serial 4",
+     "serial": 4,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_document_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e4"
+    },
+    {
+     "src": "sef:057001|serial 5",
+     "serial": 5,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e5"
+    },
+    {
+     "src": "sef:057001|serial 6",
+     "serial": 6,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e6"
+    },
+    {
+     "src": "sef:057001|serial 15",
+     "serial": 15,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "3",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e15",
+     "wait_s": "3"
+    },
+    {
+     "src": "sef:057001|serial 8",
+     "serial": 8,
+     "seq": 10,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e8"
+    },
+    {
+     "src": "sef:057001|serial 7",
+     "serial": 7,
+     "seq": 11,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,SAN_APP_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e7",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "SAN_APP_ASSR"
+     }
+    },
+    {
+     "src": "sef:057001|serial 16",
+     "serial": 16,
+     "seq": 12,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "2nd Forward",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e16"
+    },
+    {
+     "src": "sef:057001|serial 17",
+     "serial": 17,
+     "seq": 13,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "2nd Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "Auto1",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e17"
+    },
+    {
+     "src": "sef:057001|serial 18",
+     "serial": 18,
+     "seq": 14,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "3",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e18",
+     "wait_s": "3"
+    },
+    {
+     "src": "sef:057001|serial 19",
+     "serial": 19,
+     "seq": 15,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e19"
+    },
+    {
+     "src": "sef:057001|serial 20",
+     "serial": 20,
+     "seq": 16,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,SAN_APP_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "057001:e20",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "SAN_APP_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "REPO_DocumentNo",
+     "canon": "REPO_DOCUMENTNO",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_documentNo",
+     "src": [
+      "sef:057001|serial 2"
+     ]
+    },
+    {
+     "repo": "REPO_DocumentType",
+     "canon": "REPO_DOCUMENTTYPE",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_pdot_desc",
+     "src": [
+      "sef:057001|serial 13"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 16,
+    "events_active": 16
+   },
+   "assertion_sheets": [
+    "SAN_APP_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

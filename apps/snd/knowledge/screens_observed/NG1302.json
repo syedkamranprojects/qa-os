@@ -1,0 +1,80 @@
+{
+ "option_id": "NG1302",
+ "title": "Off invoice Budget Upload",
+ "menu_path": [
+  "Off invoice Budget Upload"
+ ],
+ "route": "/excel-upload/budget-upload",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/excel-upload/budget-upload",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document Type",
+   "id": "documenttype",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Document Type",
+   "id": "ionumber",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": null,
+   "title": "Select IO Number to Enable",
+   "disabled": true
+  },
+  {
+   "text": "Upload Excel",
+   "id": null,
+   "title": "Select IO Number to Enable",
+   "disabled": true
+  }
+ ],
+ "grids": []
+}

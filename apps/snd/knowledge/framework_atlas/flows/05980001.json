@@ -1,0 +1,112 @@
+{
+ "src": "tf:05980001",
+ "flow_id": "05980001",
+ "description": "Current Promotion Positive (5)SDMS-460",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [],
+ "menus": [],
+ "screens_exec": [],
+ "screen_ids": [],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 0,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 0,
+  "events_active": 0,
+  "events_by_kind": {}
+ },
+ "tags": {
+  "areas": [
+   "Promotion"
+  ],
+  "market": null,
+  "menu_option": null,
+  "menu_search_text": null
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "83",
+   "group_desc": "Positive SDMS-10080 BD (R1, independent ids)",
+   "seq": 24,
+   "active": false,
+   "user": null,
+   "login_status": null
+  }
+ ],
+ "screens": {}
+}

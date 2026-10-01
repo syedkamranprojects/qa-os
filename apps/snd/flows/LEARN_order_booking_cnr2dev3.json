@@ -1,0 +1,37 @@
+{
+  "case": "LEARN-ORDER-BOOKING-CNR2",
+  "title": "cnr2dev3 as KPO_slv, first offered distributor: does Order Booking show data here? Records every distributor the user can pick. Read-only; nothing is saved.",
+  "app": "snd",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "data": {},
+  "steps": [
+    {
+      "do": "login",
+      "distributor": "*"
+    },
+    {
+      "do": "harvest_menu"
+    },
+    {
+      "do": "navigate",
+      "menu": "Transaction > Order Booking"
+    },
+    {
+      "do": "wait",
+      "seconds": 4
+    },
+    {
+      "do": "screenshot",
+      "note": "Order Booking on cnr2dev3 as KPO_slv"
+    },
+    {
+      "do": "harvest_screen",
+      "as": "order_booking",
+      "open_selects": true
+    },
+    {
+      "do": "logout"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+ "option_id": "POWER-BI",
+ "title": "Power BI Reports",
+ "menu_path": [
+  "Reports",
+  "Power BI Reports"
+ ],
+ "route": "/power-bi",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/power-bi",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [
+  "Main Menu"
+ ],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": null,
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Search"
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "toggleButton",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

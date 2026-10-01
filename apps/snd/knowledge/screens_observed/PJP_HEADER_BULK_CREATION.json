@@ -1,0 +1,49 @@
+{
+ "option_id": "PJP_HEADER_BULK_CREATION",
+ "title": "PJP Header Bulk Creation",
+ "menu_path": [
+  "Distributor Setup",
+  "Journey Plan",
+  "PJP Header Bulk Creation"
+ ],
+ "route": "/excel-upload/pjp-header-bulk-creation",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/excel-upload/pjp-header-bulk-creation",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Download Excel",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Upload Excel",
+   "id": null,
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

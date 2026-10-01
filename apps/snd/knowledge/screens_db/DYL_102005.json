@@ -1,0 +1,46 @@
+{
+ "option_id": "DYL_102005",
+ "title": "Selling Category",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Selling Category"
+  ],
+  "group_id": "DYL_102005"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102005",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003016_pbet_busentity_type_SCTG",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003017_pbet_busentity_type_SCTG",
+   "tab": "Detail",
+   "is_child": false,
+   "parent": null,
+   "partial": "102003016_pbet_busentity_type_SCTG",
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  }
+ ],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

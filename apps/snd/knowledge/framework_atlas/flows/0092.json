@@ -1,0 +1,103 @@
+{
+ "src": "tf:0092",
+ "flow_id": "0092",
+ "description": "Distributor Creation 3",
+ "exists_in_tf": true,
+ "status": "N",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [],
+ "menus": [],
+ "screens_exec": [],
+ "screen_ids": [],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 0,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 0,
+  "events_active": 0,
+  "events_by_kind": {}
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": null,
+  "menu_search_text": null
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {}
+}

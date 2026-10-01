@@ -1,0 +1,135 @@
+{
+ "option_id": "DYL_202059",
+ "title": "Order File",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order File"
+  ],
+  "group_id": "DYL_202059"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202059",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202059001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "202059002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202059001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_OFH_ORDER_FILE_HEADER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202059003",
+   "tab": null,
+   "is_child": true,
+   "parent": "202059002",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_OFD_ORDER_FILE_DETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "File Status": {
+   "name": "DDL__FILE_STATUS",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "FILE_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "I",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202059001"
+  },
+  "Date From": {
+   "name": "DT__FROMDATE",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "TOFH_RECEIVING_DATE",
+   "db_description": "Receiving Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202059001"
+  },
+  "Date To": {
+   "name": "DT__TODATE",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TOFH_RECEIVING_DATE",
+   "db_description": "Receiving Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202059001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Guide",
+    "Order Id",
+    "Po Number",
+    "Reference No",
+    "Order Type",
+    "Delivery Date",
+    "Delivery Man",
+    "Customer Code",
+    "Has Error",
+    "Error Message"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

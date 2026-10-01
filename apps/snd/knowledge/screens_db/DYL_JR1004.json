@@ -1,0 +1,73 @@
+{
+ "option_id": "DYL_JR1004",
+ "title": "DSR Sale Summary",
+ "menu": {
+  "path": [
+   "Reports",
+   "DSR Sale Summary"
+  ],
+  "group_id": "DYL_JR1004"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1004",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "JR1004001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 2,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Date From": {
+   "name": "FrmDt",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "FRMDT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1004001"
+  },
+  "Date To": {
+   "name": "ToDt",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TODT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "JR1004001"
+  }
+ },
+ "grids": {},
+ "buttons": [
+  "Submit"
+ ]
+}

@@ -1,0 +1,841 @@
+{
+ "src": "tf:00550001",
+ "flow_id": "00550001",
+ "description": "Location",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00550001|0055|1",
+   "seq": 1,
+   "menu_group": "0055",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0055",
+   "menu_group": "0055",
+   "exists": true,
+   "description": "Location",
+   "search_text": "Location",
+   "navigation": "DYL_101002",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0055|005501|1",
+   "mgsm_seq": 1,
+   "screen_id": "005501",
+   "screen_name": "Location",
+   "sheet": "Location",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "005501"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Location",
+   "kind": "screen",
+   "screen_ids": [
+    "005501"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Location"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Location"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Location"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Location"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Location"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "Entity Code",
+    "field_id": "TXT__PENTENTITYCODE",
+    "src": [
+     "sf:005501|TXT__PENTENTITYCODE|1.0|11|1",
+     "sef:005501|serial 6"
+    ],
+    "screen_id": "005501"
+   },
+   {
+    "repo": "REPO_LOCATIONCODE",
+    "canon": "REPO_LOCATIONCODE",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "Code",
+    "field_id": "Code",
+    "src": [
+     "sf:005501|Code|1.0|12|1",
+     "sef:005501|serial 6"
+    ],
+    "screen_id": "005501"
+   }
+  ],
+  "reads": [
+   {
+    "repo": "g_REPO_DISTRIBUTOR",
+    "canon": "REPO_DISTRIBUTOR",
+    "via": "field(REPO)",
+    "target": "Entity Code",
+    "src": [
+     "sf:005501|TXT__PENTENTITYCODE|1.0|11|1"
+    ],
+    "screen_id": "005501"
+   },
+   {
+    "repo": "REPO_LOCATIONCODE",
+    "canon": "REPO_LOCATIONCODE",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_Code",
+    "src": [
+     "sef:005501|serial 9"
+    ],
+    "screen_id": "005501"
+   }
+  ],
+  "writes_canon": [
+   "REPO_DISTRIBUTOR",
+   "REPO_LOCATIONCODE"
+  ],
+  "reads_canon": [
+   "REPO_DISTRIBUTOR",
+   "REPO_LOCATIONCODE"
+  ],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [
+   {
+    "kind": "ELEVLD",
+    "target_element": null,
+    "screen_id": "005501",
+    "src": "sef:005501|serial 4"
+   },
+   {
+    "kind": "TSTMSG",
+    "target_element": null,
+    "screen_id": "005501",
+    "src": "sef:005501|serial 5"
+   }
+  ],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 12,
+  "fields_active": 11,
+  "events": 10,
+  "events_active": 9,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 4,
+   "assertion": 2,
+   "fill_repo": 1,
+   "fill_text": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_101002",
+  "menu_search_text": "Location"
+ },
+ "live_notes": [],
+ "groups": [],
+ "screens": {
+  "005501": {
+   "src": "sc:005501",
+   "screen_id": "005501",
+   "name": "Location",
+   "sheet": "Location",
+   "type": "Save",
+   "sheet_name_len": 8,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:005501|Code|1.0|1|1",
+     "seq": 1,
+     "field_id": "Code",
+     "locate_by": "id",
+     "label": "Code",
+     "db_column": "Code",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f1"
+    },
+    {
+     "src": "sf:005501|Description|1.0|2|1",
+     "seq": 2,
+     "field_id": "Description",
+     "locate_by": "id",
+     "label": "Description",
+     "db_column": "Description",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f2"
+    },
+    {
+     "src": "sf:005501|TXT__PLOCABRV|1.0|3|1",
+     "seq": 3,
+     "field_id": "TXT__PLOCABRV",
+     "locate_by": "id",
+     "label": "Abbreviation",
+     "db_column": "Abbreviation",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f3"
+    },
+    {
+     "src": "sf:005501|DDL__PLOCDEFAULT|1.0|4|1",
+     "seq": 4,
+     "field_id": "DDL__PLOCDEFAULT",
+     "locate_by": "id",
+     "label": "Default",
+     "db_column": "Default",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f4"
+    },
+    {
+     "src": "sf:005501|DDL__PLOCACTIVE|1.0|5|1",
+     "seq": 5,
+     "field_id": "DDL__PLOCACTIVE",
+     "locate_by": "id",
+     "label": "Status",
+     "db_column": "Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f5"
+    },
+    {
+     "src": "sf:005501|DDL__PLOTLOCATIONTYPE|1.0|6|1",
+     "seq": 6,
+     "field_id": "DDL__PLOTLOCATIONTYPE",
+     "locate_by": "id",
+     "label": "Location Type",
+     "db_column": "Location Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f6"
+    },
+    {
+     "src": "sf:005501|DDL__PGEOGEOGHIERCODE|1.0|7|1",
+     "seq": 7,
+     "field_id": "DDL__PGEOGEOGHIERCODE",
+     "locate_by": "id",
+     "label": "Geographical Hierarchy",
+     "db_column": "Geographical Hierarchy",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f7"
+    },
+    {
+     "src": "sf:005501|DDL__PCURCURRCODE|1.0|8|1",
+     "seq": 8,
+     "field_id": "DDL__PCURCURRCODE",
+     "locate_by": "id",
+     "label": "Currency",
+     "db_column": "Currency",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f8"
+    },
+    {
+     "src": "sf:005501|DDL__PFETFINENTCODE|1.0|9|1",
+     "seq": 9,
+     "field_id": "DDL__PFETFINENTCODE",
+     "locate_by": "id",
+     "label": "Finanical Entity",
+     "db_column": "Finanical Entity",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "005501:f9"
+    },
+    {
+     "src": "sf:005501|DDL__PENTENTITYTYPE|1.0|10|1",
+     "seq": 10,
+     "field_id": "DDL__PENTENTITYTYPE",
+     "locate_by": "id",
+     "label": "Entity Type",
+     "db_column": "Entity Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f10"
+    },
+    {
+     "src": "sf:005501|TXT__PENTENTITYCODE|1.0|11|1",
+     "seq": 11,
+     "field_id": "TXT__PENTENTITYCODE",
+     "locate_by": "id",
+     "label": "Entity Code",
+     "db_column": "Entity Code",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "REPO",
+     "repo_id": "g_REPO_DISTRIBUTOR",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f11"
+    },
+    {
+     "src": "sf:005501|Code|1.0|12|1",
+     "seq": 12,
+     "field_id": "Code",
+     "locate_by": "id",
+     "label": "Code",
+     "db_column": "Code",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": "REPO_LOCATIONCODE",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "005501:f12"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:005501|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Add button",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "addBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "005501:e1"
+    },
+    {
+     "src": "sef:005501|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "load data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "005501:e2"
+    },
+    {
+     "src": "sef:005501|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e3"
+    },
+    {
+     "src": "sef:005501|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion After Save Button For Required Field",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "ELEVLD",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e4",
+     "assertion": {
+      "kind": "ELEVLD",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:005501|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e5",
+     "assertion": {
+      "kind": "TSTMSG",
+      "target_element": null
+     }
+    },
+    {
+     "src": "sef:005501|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "Fill Repo",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e6"
+    },
+    {
+     "src": "sef:005501|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e8"
+    },
+    {
+     "src": "sef:005501|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 1,
+     "parent": 2,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_Code",
+     "fixed_value": "REPO_LOCATIONCODE",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e9"
+    },
+    {
+     "src": "sef:005501|serial 10",
+     "serial": 10,
+     "seq": 10,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_description",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "005501:e10"
+    },
+    {
+     "src": "sef:005501|serial 11",
+     "serial": 11,
+     "seq": 11,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Update Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "updateBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "005501:e11"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "Entity Code",
+     "field_id": "TXT__PENTENTITYCODE",
+     "src": [
+      "sf:005501|TXT__PENTENTITYCODE|1.0|11|1",
+      "sef:005501|serial 6"
+     ]
+    },
+    {
+     "repo": "REPO_LOCATIONCODE",
+     "canon": "REPO_LOCATIONCODE",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "Code",
+     "field_id": "Code",
+     "src": [
+      "sf:005501|Code|1.0|12|1",
+      "sef:005501|serial 6"
+     ]
+    }
+   ],
+   "repo_reads": [
+    {
+     "repo": "g_REPO_DISTRIBUTOR",
+     "canon": "REPO_DISTRIBUTOR",
+     "via": "field(REPO)",
+     "target": "Entity Code",
+     "src": [
+      "sf:005501|TXT__PENTENTITYCODE|1.0|11|1"
+     ]
+    },
+    {
+     "repo": "REPO_LOCATIONCODE",
+     "canon": "REPO_LOCATIONCODE",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_Code",
+     "src": [
+      "sef:005501|serial 9"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 12,
+    "fields_active": 11,
+    "events": 10,
+    "events_active": 9
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

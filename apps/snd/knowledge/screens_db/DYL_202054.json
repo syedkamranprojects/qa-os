@@ -1,0 +1,91 @@
+{
+ "option_id": "DYL_202054",
+ "title": "Split Manual Order",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Split Manual Order"
+  ],
+  "group_id": "DYL_202054"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202054",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202054001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "202054002",
+   "tab": "Header",
+   "is_child": true,
+   "parent": "202054001",
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "PJP Number": {
+   "name": "DDL__EPJPPJPNODAILY",
+   "id": "selectbox9",
+   "widget": "select",
+   "data_field": "EPJP_PJPNO_DAILY",
+   "db_description": "PJP Number Daily",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJPNUMORDCHNG3",
+   "validations": null,
+   "regex": null,
+   "page": "202054001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Cashmemo No ",
+    "Outlet Name",
+    "Document Status",
+    "Document Status",
+    "Status",
+    "Document Date",
+    "Document Date",
+    "Amount FCY",
+    "Section",
+    "PJP Number",
+    "PJP Number",
+    "PJP Delivery No",
+    "Originaldeliverydate",
+    "Actualdeliverydate",
+    "Demand Channel"
+   ],
+   "edit_mode": "batch",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

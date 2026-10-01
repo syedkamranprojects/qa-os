@@ -1,0 +1,156 @@
+{
+ "option_id": "DYL_201020",
+ "title": "LookUps",
+ "menu": {
+  "path": [
+   "Configuration",
+   "Mobiz  Configuration",
+   "LookUps"
+  ],
+  "group_id": "DYL_201020"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201020",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201020001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mbz_lookups",
+   "n_fields": 0,
+   "grids": [
+    "grid2"
+   ]
+  },
+  {
+   "page": "201020002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201020001",
+   "desc": null,
+   "table": "mbz_lookups",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "ACCOUNTID": {
+   "name": "DDL__ACCOUNTID",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "ACCOUNT_ID",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": "MBZACC",
+   "validations": null,
+   "regex": null,
+   "page": "201020002"
+  },
+  "Lookup ID": {
+   "name": "TXT__LKPLOOKUPID",
+   "id": "textbox25",
+   "widget": "text",
+   "data_field": "LKP_LOOKUPID",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201020002"
+  },
+  "Title": {
+   "name": "TXT__LKPTITLE",
+   "id": "textbox26",
+   "widget": "text",
+   "data_field": "LKP_TITLE",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 50,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201020002"
+  },
+  "Private": {
+   "name": "DDL__LKPPRIVATE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "LKP_PRIVATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201020002"
+  },
+  "Detail": {
+   "name": "TXT__LKPDETAIL",
+   "id": "textarea1",
+   "widget": "text",
+   "data_field": "LKP_DETAIL",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201020002"
+  }
+ },
+ "grids": {
+  "grid2": {
+   "columns": [
+    "ACCOUNTID",
+    "Lookup ID",
+    "Title",
+    "Detail",
+    "Private"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_201802",
+ "title": "Deposit Slip",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "Deposit Slip"
+  ],
+  "group_id": "DYL_201802"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201802",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201801004",
+   "tab": "Header",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201801005",
+   "tab": "Header",
+   "is_child": false,
+   "parent": null,
+   "partial": "201801004",
+   "desc": null,
+   "table": "snd_tr_dsl_deposit_slip",
+   "n_fields": 8,
+   "grids": []
+  },
+  {
+   "page": "201801002",
+   "tab": "Header",
+   "is_child": true,
+   "parent": "201801004",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_DSD_DEPOSIT_SLIP_DTL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Deposit Slip": {
+   "name": "TXT__TDSLDEPOSITSLIPSRNO",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "TDSL_DEPOSIT_SLIP_SRNO",
+   "db_description": "Deposit Slip Serial Number (Auto Generated)",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "PJP-DSR": {
+   "name": "DDL__EPJPPJPNODAILY",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "EPJP_PJPNO_DAILY",
+   "db_description": "PJP Number Daily",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJPDD",
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "Date": {
+   "name": "DT__TDSLDEPOSITSLIPDATE",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TDSL_DEPOSIT_SLIP_DATE",
+   "db_description": "Deposit Slip Date",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "Type": {
+   "name": "DDL__TDSLINSTRUMENTTYPE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "TDSL_INSTRUMENT_TYPE",
+   "db_description": "Instrument Type (Cash/Cheque)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PPYM",
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "Status": {
+   "name": "DDL__tdsl_status",
+   "id": "selectbox8",
+   "widget": "select",
+   "data_field": "TDSL_STATUS",
+   "db_description": "Status",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "I",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "Bank": {
+   "name": "DDL__PBNKBANKCODE",
+   "id": "selectbox5",
+   "widget": "select",
+   "data_field": "PBNK_BANK_CODE",
+   "db_description": "Bank Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PBNK",
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "Bank Branch": {
+   "name": "DDL__PBNBBNBRCODE",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "PBNB_BNBR_CODE",
+   "db_description": "Branch Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PBNB",
+   "validations": null,
+   "regex": null,
+   "page": "201801005"
+  },
+  "Deposit Amount": {
+   "name": "TXT__TDSLAMOUNTFCY",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "TDSL_AMOUNT_FCY",
+   "db_description": "Amount In Foreign Currency",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": "^(?!0+(\\.0+)?$)\\d+(\\.\\d+)?$",
+   "page": "201801005"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Document Type",
+    "Order Number",
+    "Deposit Amount",
+    "Currency",
+    "Organization",
+    "Cheque No",
+    "Cheque Date",
+    "Cheque Status",
+    "Cheque Status",
+    "Cheque Status Date",
+    "Invoice Number",
+    "Remarks"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh",
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

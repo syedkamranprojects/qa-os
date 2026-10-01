@@ -1,0 +1,127 @@
+{
+ "option_id": "DYL_202053",
+ "title": "Cashmemo Reschedule",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Cashmemo Reschedule"
+  ],
+  "group_id": "DYL_202053"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202053",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202053001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 3,
+   "grids": []
+  },
+  {
+   "page": "202053002",
+   "tab": null,
+   "is_child": true,
+   "parent": "202053001",
+   "partial": null,
+   "desc": null,
+   "table": "(select",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Order Date": {
+   "name": "DT__ORDERDATE",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "DT__ORDERDATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202053001"
+  },
+  "Delivery Date": {
+   "name": "DELIVERYDATE",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "DELIVERYDATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202053001"
+  },
+  "PJP Number": {
+   "name": "DDL__EPJPPJPNODAILY",
+   "id": "selectbox9",
+   "widget": "select",
+   "data_field": "EPJP_PJPNO_DAILY",
+   "db_description": "PJP Number Daily",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PJPNUMORDCHNG3",
+   "validations": null,
+   "regex": null,
+   "page": "202053001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Cashmemo No ",
+    "Outlet Name",
+    "Document Status",
+    "Document Status",
+    "Status",
+    "Document Date",
+    "Amount FCY",
+    "Section",
+    "PJP Number",
+    "PJP Delivery No",
+    "Delivery Date",
+    "Demand Channel",
+    "GIN No",
+    "Reschedule Reason"
+   ],
+   "edit_mode": "batch",
+   "selection": "multiple"
+  }
+ },
+ "buttons": [
+  "Process",
+  "Refresh"
+ ]
+}

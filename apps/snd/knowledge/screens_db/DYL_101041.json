@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_101041",
+ "title": "Product Type",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Product Type"
+  ],
+  "group_id": "DYL_101041"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "101041",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101041001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Product Type - Grid",
+   "table": "SND_PR_PTY_PROD_TYPE",
+   "n_fields": 0,
+   "grids": [
+    "Product Type"
+   ]
+  },
+  {
+   "page": "101041002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101041001",
+   "desc": "Product Type - Form",
+   "table": "SND_PR_PTY_PROD_TYPE",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__ppty_prod_type",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PPTY_PROD_TYPE",
+   "db_description": "Product Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Description": {
+   "name": "txt__ppty_desc",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PPTY_DESC",
+   "db_description": "Product Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Abbreviation": {
+   "name": "txt__ppty_abrv",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PPTY_ABRV",
+   "db_description": "Product Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Default": {
+   "name": "ddl__ppty_default",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PPTY_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Status": {
+   "name": "ddl__ppty_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PPTY_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Level Type": {
+   "name": "txt__ppty_leveltype",
+   "id": "textbox17",
+   "widget": "text",
+   "data_field": "PPTY_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Level No": {
+   "name": "txt__ppty_level_no",
+   "id": "textbox16",
+   "widget": "text",
+   "data_field": "PPTY_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  },
+  "Is FG": {
+   "name": "txt__ppty_is_fg",
+   "id": "textbox18",
+   "widget": "text",
+   "data_field": "PPTY_IS_FG",
+   "db_description": "Finished Good Yes / No",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 2,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101041002"
+  }
+ },
+ "grids": {
+  "Product Type": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Is FG"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

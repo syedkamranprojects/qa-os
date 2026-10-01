@@ -1,0 +1,172 @@
+{
+ "option_id": "DYL_201030003",
+ "title": "Questionnaire Mapping",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Questionnaire",
+   "Questionnaire Mapping"
+  ],
+  "group_id": "DYL_201030003"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201030003",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201030001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "CLC_PR_QSR_QUESTIONNAIRE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201030003",
+   "tab": null,
+   "is_child": true,
+   "parent": "201030001",
+   "partial": null,
+   "desc": null,
+   "table": "CLC_PR_QQM_QNAIRE_QUSTON_MAP",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "cque_question_id",
+   "id": "column4",
+   "widget": "allowable",
+   "data_field": "CQUE_QUESTION_ID",
+   "db_description": "Question ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030003"
+  },
+  "Description": {
+   "name": "cque_question_desc",
+   "id": "column5",
+   "widget": "allowable",
+   "data_field": "CQUE_QUESTION_DESC",
+   "db_description": "Question Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030003"
+  },
+  "Question ID": {
+   "name": "cque_question_id1",
+   "id": "column6",
+   "widget": "allowable",
+   "data_field": "CQUE_QUESTION_ID",
+   "db_description": "Question ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030003"
+  },
+  "Questionnaire ID": {
+   "name": "TXT__CQSRQUESTIONNAIREID",
+   "id": "column7",
+   "widget": "allowable",
+   "data_field": "CQSR_QUESTIONNAIRE_ID",
+   "db_description": "Questionnaire ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030003"
+  },
+  "Serial Number": {
+   "name": "cqqm_serial_no",
+   "id": "column8",
+   "widget": "allowable",
+   "data_field": "CQQM_SERIAL_NO",
+   "db_description": "Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030003"
+  },
+  "Organization/Company Code": {
+   "name": "TXT__PORGORGACODE",
+   "id": "column10",
+   "widget": "allowable",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201030003"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Event ID",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

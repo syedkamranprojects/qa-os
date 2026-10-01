@@ -1,0 +1,51 @@
+{
+ "option_id": "DYL_201036",
+ "title": "Business Repository Mapping",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Business Repository Mapping"
+  ],
+  "group_id": "DYL_201036"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201036",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201036001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201036001",
+   "desc": null,
+   "table": "glb_pr_brm_business_repo_map",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Event ID",
+    "Setup Type",
+    "Group Code",
+    "Column Name",
+    "Repository Reserved Word",
+    "Property Name",
+    "Query"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

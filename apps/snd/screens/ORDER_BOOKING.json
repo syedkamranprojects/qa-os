@@ -1,0 +1,118 @@
+{
+ "option_id": "ORDER_BOOKING",
+ "title": "Order Booking",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order Booking"
+  ],
+  "top_id": "NG09",
+  "option_id": "ORDER_BOOKING",
+  "search_text": "Order Booking"
+ },
+ "route": "/order-booking",
+ "kind": "hand-coded",
+ "provenance": {
+  "source": "observed",
+  "env": "cnr1dev1",
+  "user": "KPO_mp",
+  "date": "2026-09-25",
+  "note": "landing state only (header stage); later stages not yet learned",
+  "also_observed": "cnr2dev3 as KPO_slv, distributor 50000451, 2026-09-25: same fields; dsrType offers only Order Booker and Spot Seller; document date shown as dd-MM-yyyy"
+ },
+ "breadcrumb": [
+  "Home",
+  "Transaction",
+  "Order Booking"
+ ],
+ "stage": "Order Booking - Header",
+ "fields": {
+  "Order Booker/Spot Seller": {
+   "locator": {
+    "id": "dsrType"
+   },
+   "widget": "select",
+   "required": false,
+   "options": [
+    "Spot Seller",
+    "Order Booker",
+    "Van Sales"
+   ],
+   "default": "Order Booker"
+  },
+  "PJP": {
+   "locator": {
+    "id": "PJPNO"
+   },
+   "widget": "select",
+   "options_note": "PJP codes of the environment, formatted '<code>-<name>'"
+  },
+  "Selling Category": {
+   "locator": {
+    "id": "SELLCAT"
+   },
+   "widget": "select",
+   "depends_on": "PJP",
+   "note": "empty until a PJP is chosen"
+  },
+  "Section": {
+   "locator": {
+    "id": "SECTION"
+   },
+   "widget": "select",
+   "depends_on": "PJP",
+   "note": "empty until a PJP is chosen"
+  },
+  "Outlet Name": {
+   "locator": {
+    "id": "OUTLET"
+   },
+   "widget": "select",
+   "depends_on": "PJP",
+   "note": "empty until a PJP is chosen"
+  },
+  "Document Date": {
+   "locator": {
+    "id": "docDate"
+   },
+   "widget": "date",
+   "readonly": "always",
+   "default": "today",
+   "format": "yyyy-MM-dd"
+  },
+  "Comments": {
+   "locator": {
+    "id": "commentInput"
+   },
+   "widget": "text"
+  },
+  "Reference Number": {
+   "locator": {
+    "id": "refNumberInput"
+   },
+   "widget": "text"
+  }
+ },
+ "buttons": {
+  "Order Detail": {
+   "locator": {
+    "id": "orderDetail"
+   },
+   "note": "appears only after an outlet is chosen; leads to the order lines stage"
+  }
+ },
+ "observations": [
+  "The header stage shows no visible Next/Save button at landing; five icon buttons have no text (learn after choosing an outlet).",
+  "Document Date is read-only and fixed to today, so orders cannot be dated before/after a policy period from this screen (matters for TC46-48).",
+  "On cnr2dev3 as KPO_ph the dropdown data does not appear; on cnr1dev1 as KPO_mp it does.",
+  "cnr2dev3/KPO_slv: distributors offered 50000451-SATHENSOPIN, 50000598-SUPAMITR LV, 50000599-SUPAMITR LV. With 50000451 the PJP dropdown is populated (e.g. PJP14, RiazOB, 200311, 99999, RizwanOB, 110002), so Order Booking works there; with KPO_ph's distributors it does not.",
+  "cnr2dev3/KPO_slv/50000451 (2026-09-25 run 165111): PJP14-PJP14 -> Selling Category HPC -> Section14 -> Outlet 'C0000012520-ป้าA1' works; then the 'Order Detail' button (id orderDetail) appears. Document Date shows 25-09-2026 (dd-MM-yyyy) and is read-only."
+ ],
+ "flow": [
+  "choose PJP",
+  "choose Selling Category",
+  "choose Section",
+  "choose Outlet Name",
+  "click Order Detail  (lines stage: to be learned)"
+ ]
+}

@@ -1,0 +1,251 @@
+{
+ "option_id": "CUSTOMER_DISCOUNT_APPROVAL",
+ "title": "Customer Discount Approval",
+ "menu_path": [
+  "Company setup",
+  "Promotion",
+  "Customer Discount Approval"
+ ],
+ "route": "/scheme-builder/customer-discount-approval",
+ "param": "pageParameter=FTA",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/scheme-builder/customer-discount-approval?pageParameter=FTA",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-0",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-1",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-2",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-3",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-4",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-5",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-6",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-7",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-8",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-9",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-10",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-11",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-12",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-13",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-14",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-15",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-16",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-17",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-18",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-19",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-20",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-21",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-22",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-23",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Slab Details",
+   "id": "grid-button-24",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "Approve",
+   "id": null,
+   "title": "Approve",
+   "disabled": false
+  },
+  {
+   "text": "Reject",
+   "id": null,
+   "title": "Reject",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Distributer",
+    "Discount Code",
+    "Outlet Code",
+    "Product Hierarchy level",
+    "Product Hierarchy value",
+    "Minimum Buy",
+    "Get Type",
+    "Get Value",
+    "Product Code",
+    "UOM",
+    "Start Date",
+    "End Date",
+    "Status",
+    "Slab Details"
+   ],
+   "rows": 25,
+   "pager": true
+  }
+ ]
+}

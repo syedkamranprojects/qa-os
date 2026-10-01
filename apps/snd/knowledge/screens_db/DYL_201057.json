@@ -1,0 +1,226 @@
+{
+ "option_id": "DYL_201057",
+ "title": "Asset Maintenance Contract",
+ "menu": {
+  "path": [
+   "Asset Module",
+   "Asset Maintenance Contract"
+  ],
+  "group_id": "DYL_201057"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201057",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201057001",
+   "tab": "Header Info",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "AST_PR_AMC_AST_MAINT_CONTRCT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201057002",
+   "tab": "Header Info",
+   "is_child": false,
+   "parent": null,
+   "partial": "201057001",
+   "desc": null,
+   "table": "AST_PR_AMC_AST_MAINT_CONTRCT",
+   "n_fields": 8,
+   "grids": []
+  },
+  {
+   "page": "201058001",
+   "tab": "Detail Info",
+   "is_child": true,
+   "parent": "201057001",
+   "partial": null,
+   "desc": null,
+   "table": "AST_PR_AMD_AST_MAIN_CONT_DTL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__AAMC_CONTRACT_SETUP",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "AAMC_CONTRACT_SETUP",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Long Description": {
+   "name": "TXT__AAMC_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "AAMC_DESC",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Short Description": {
+   "name": "TXT__AAMC_ABRV",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "AAMC_ABRV",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Contract Year": {
+   "name": "TXT__AAMC_CONTARCT_YEAR",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "AAMC_CONTARCT_YEAR",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 4,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Contract Date": {
+   "name": "DT__AAMC_CONTRACT_DATE",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "AAMC_CONTRACT_DATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Contract Number": {
+   "name": "TXT__AAMC_CONTRACT_NO",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "AAMC_CONTRACT_NO",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 50,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Contract Commencement Date": {
+   "name": "DT__AAMC_COMMENCEMENT_DATE",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "AAMC_COMMENCEMENT_DATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  },
+  "Contract Expiry Date": {
+   "name": "DT__AAMC_CONTRACT_EXPIRY",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "AAMC_CONTRACT_EXPIRY",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201057002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Serial Number",
+    "Asset Type Code",
+    "Asset Master Code",
+    "Bar Code",
+    "First Date of Maintenance Schedule",
+    "First Description of Maintenance Schedule",
+    "Second Date of Maintenance Schedule",
+    "Second Description of Maintenance Schedule"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

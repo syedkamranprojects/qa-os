@@ -1,0 +1,1705 @@
+{
+ "flow_inactive_in_tf": {
+  "count": 5,
+  "examples": [
+   {
+    "src": "tf:00230002",
+    "in_group": false
+   },
+   {
+    "src": "tf:00850002",
+    "in_group": false
+   },
+   {
+    "src": "tf:0092",
+    "in_group": false
+   },
+   {
+    "src": "tf:02750001",
+    "in_group": false
+   },
+   {
+    "src": "tf:02790001",
+    "in_group": false
+   }
+  ]
+ },
+ "flow_without_tfd(not runnable)": {
+  "count": 20,
+  "examples": [
+   {
+    "src": "tf:00010002",
+    "desc": "Order Booking Promotion Testing",
+    "in_group": false
+   },
+   {
+    "src": "tf:00020002",
+    "desc": "Order Editing After GIN",
+    "in_group": false
+   },
+   {
+    "src": "tf:00040002",
+    "desc": "Order Cancellation After GIN",
+    "in_group": false
+   },
+   {
+    "src": "tf:00850002",
+    "desc": "Distributor Creation 2",
+    "in_group": false
+   },
+   {
+    "src": "tf:0092",
+    "desc": "Distributor Creation 3",
+    "in_group": false
+   },
+   {
+    "src": "tf:01040002",
+    "desc": "Cashmemo Reschedule sss",
+    "in_group": false
+   },
+   {
+    "src": "tf:01110001",
+    "desc": "Goods Issue Note_BD",
+    "in_group": false
+   },
+   {
+    "src": "tf:021100001",
+    "desc": "Transection After OB Charges",
+    "in_group": false
+   },
+   {
+    "src": "tf:02770001",
+    "desc": "Transfer_To_Factory_Astron",
+    "in_group": true
+   },
+   {
+    "src": "tf:02790001",
+    "desc": "Transfer To Factory",
+    "in_group": false
+   },
+   {
+    "src": "tf:02900001",
+    "desc": "Sale Return_Val_After_GRN",
+    "in_group": false
+   },
+   {
+    "src": "tf:02920001",
+    "desc": "Cashmemo Status",
+    "in_group": false
+   },
+   {
+    "src": "tf:03350001",
+    "desc": "Stock Allocation_Up_Coming",
+    "in_group": false
+   },
+   {
+    "src": "tf:03580001",
+    "desc": "Goods Issue Note Terminat Grid",
+    "in_group": false
+   },
+   {
+    "src": "tf:04480001",
+    "desc": "Stock Validation after SAN (Entry) VN",
+    "in_group": true
+   },
+   {
+    "src": "tf:04700001",
+    "desc": "Order Booking R2 KH",
+    "in_group": true
+   },
+   {
+    "src": "tf:05450001",
+    "desc": "Ignore",
+    "in_group": false
+   },
+   {
+    "src": "tf:05910001",
+    "desc": "Current Promotion Positive (4)SDMS-460",
+    "in_group": true
+   },
+   {
+    "src": "tf:05980001",
+    "desc": "Current Promotion Positive (5)SDMS-460",
+    "in_group": true
+   },
+   {
+    "src": "tf:06010001",
+    "desc": "Current Promotion Positive (6)SDMS-460",
+    "in_group": true
+   }
+  ]
+ },
+ "group_does_not_start_with_an_app_login_flow": {
+  "count": 6,
+  "examples": [
+   {
+    "src": "gtf:1",
+    "first_flow": "00830001"
+   },
+   {
+    "src": "gtf:12",
+    "first_flow": "00910001"
+   },
+   {
+    "src": "gtf:14",
+    "first_flow": "00100003"
+   },
+   {
+    "src": "gtf:52",
+    "first_flow": "00830001"
+   },
+   {
+    "src": "gtf:64",
+    "first_flow": "02090001"
+   },
+   {
+    "src": "gtf:77",
+    "first_flow": "03660001"
+   }
+  ]
+ },
+ "group_flow_repo_unresolved_in_chain": {
+  "count": 74,
+  "examples": [
+   {
+    "src": "gtfd:1|9|00010001",
+    "repo": "g_REPO_ORGA"
+   },
+   {
+    "src": "gtfd:1|9|00010001",
+    "repo": "g_REPO_CMDOCTYPE"
+   },
+   {
+    "src": "gtfd:1|9|00010001",
+    "repo": "REPO_REF_ORDER_NO"
+   },
+   {
+    "src": "gtfd:1|9|00010001",
+    "repo": "g_REPO_DISTRIBUTOR"
+   },
+   {
+    "src": "gtfd:1|11|00870001",
+    "repo": "g_REPO_ORGA"
+   },
+   {
+    "src": "gtfd:1|11|00870001",
+    "repo": "g_REPO_CMDOCTYPE"
+   },
+   {
+    "src": "gtfd:1|11|00870001",
+    "repo": "REPO_REF_ORDER_EDITNO"
+   },
+   {
+    "src": "gtfd:1|11|00870001",
+    "repo": "g_REPO_DISTRIBUTOR"
+   },
+   {
+    "src": "gtfd:1|12|00020001",
+    "repo": "g_REPO_ORGA"
+   },
+   {
+    "src": "gtfd:1|12|00020001",
+    "repo": "g_REPO_CMDOCTYPE"
+   },
+   {
+    "src": "gtfd:1|12|00020001",
+    "repo": "REPO_REF_ORDER_EDITNO"
+   },
+   {
+    "src": "gtfd:1|12|00020001",
+    "repo": "g_REPO_DISTRIBUTOR"
+   },
+   {
+    "src": "gtfd:1|23|00840001",
+    "repo": "g_REPO_ORGA"
+   },
+   {
+    "src": "gtfd:1|23|00840001",
+    "repo": "g_REPO_CMDOCTYPE"
+   },
+   {
+    "src": "gtfd:1|23|00840001",
+    "repo": "REPO_REF_ORDER_EDITNO"
+   },
+   {
+    "src": "gtfd:1|23|00840001",
+    "repo": "g_REPO_DISTRIBUTOR"
+   },
+   {
+    "src": "gtfd:1|42|00090001",
+    "repo": "REPO_GRN No."
+   },
+   {
+    "src": "gtfd:11|10|00010001",
+    "repo": "g_REPO_ORGA"
+   },
+   {
+    "src": "gtfd:11|10|00010001",
+    "repo": "g_REPO_CMDOCTYPE"
+   },
+   {
+    "src": "gtfd:11|10|00010001",
+    "repo": "REPO_REF_ORDER_NO"
+   },
+   {
+    "src": "gtfd:11|10|00010001",
+    "repo": "g_REPO_DISTRIBUTOR"
+   },
+   {
+    "src": "gtfd:11|15|00020001",
+    "repo": "g_REPO_ORGA"
+   },
+   {
+    "src": "gtfd:11|15|00020001",
+    "repo": "g_REPO_CMDOCTYPE"
+   },
+   {
+    "src": "gtfd:11|15|00020001",
+    "repo": "REPO_REF_ORDER_EDITNO"
+   },
+   {
+    "src": "gtfd:11|15|00020001",
+    "repo": "g_REPO_DISTRIBUTOR"
+   }
+  ]
+ },
+ "group_without_allowable_app(alg)": {
+  "count": 1,
+  "examples": [
+   {
+    "src": "gtf:52"
+   }
+  ]
+ },
+ "gtfd_login_N_with_user_ignored": {
+  "count": 65,
+  "examples": [
+   {
+    "src": "gtfd:11|10|00010001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:11|19|00160001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:11|29|00840001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:11|51|00680001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:13|2|00560001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|1|021400000",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|2|00940001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|3|02280001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|11|00380002",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|20|00960001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|21|00950001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|22|00250001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|27|01310001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:16|28|02110001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:63|34|00780003",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:63|36|00780002",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:64|1|02080001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|1|021400000",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|2|00360001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|3|00350001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|4|02380001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|9|00590001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|14|02400001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|20|00950001",
+    "note": "user ignored by engine: same session"
+   },
+   {
+    "src": "gtfd:65|21|02680001",
+    "note": "user ignored by engine: same session"
+   }
+  ]
+ },
+ "gtfd_login_Y_without_user": {
+  "count": 109,
+  "examples": [
+   {
+    "src": "gtfd:51|3|01210001"
+   },
+   {
+    "src": "gtfd:51|14|03280001"
+   },
+   {
+    "src": "gtfd:51|18|03330001"
+   },
+   {
+    "src": "gtfd:51|32|01040001"
+   },
+   {
+    "src": "gtfd:51|34|03600001"
+   },
+   {
+    "src": "gtfd:51|37|03590001"
+   },
+   {
+    "src": "gtfd:51|43|03360001"
+   },
+   {
+    "src": "gtfd:51|66|03490001"
+   },
+   {
+    "src": "gtfd:51|67|02870001"
+   },
+   {
+    "src": "gtfd:52|9|00860001"
+   },
+   {
+    "src": "gtfd:52|28|01020003"
+   },
+   {
+    "src": "gtfd:52|47|00660001"
+   },
+   {
+    "src": "gtfd:61|8|01050001"
+   },
+   {
+    "src": "gtfd:61|25|00130001"
+   },
+   {
+    "src": "gtfd:61|27|00840001"
+   },
+   {
+    "src": "gtfd:61|31|01020001"
+   },
+   {
+    "src": "gtfd:61|48|00680001"
+   },
+   {
+    "src": "gtfd:61|52|02950001"
+   },
+   {
+    "src": "gtfd:61|55|02930001"
+   },
+   {
+    "src": "gtfd:63|23|05440001"
+   },
+   {
+    "src": "gtfd:67|4|02480001"
+   },
+   {
+    "src": "gtfd:67|5|02980001"
+   },
+   {
+    "src": "gtfd:67|9|02560001"
+   },
+   {
+    "src": "gtfd:67|10|02650001"
+   },
+   {
+    "src": "gtfd:67|16|02590001"
+   }
+  ]
+ },
+ "menu_group_not_used_by_any_flow": {
+  "count": 65,
+  "examples": [
+   {
+    "src": "mg:001403",
+    "desc": "Deposit Slip Negative"
+   },
+   {
+    "src": "mg:0063",
+    "desc": "Analysis 2"
+   },
+   {
+    "src": "mg:0111",
+    "desc": "Goods Issue Note_BD"
+   },
+   {
+    "src": "mg:0212",
+    "desc": "Distributor Creation"
+   },
+   {
+    "src": "mg:0275",
+    "desc": "Dispatch Advice_Detail_Astron 2"
+   },
+   {
+    "src": "mg:0279",
+    "desc": "Transfer To Factory"
+   },
+   {
+    "src": "mg:0292",
+    "desc": "Cashmemo Status PAK"
+   },
+   {
+    "src": "mg:0310",
+    "desc": "Validate Orders Charges Tax In Transaction Inquiry"
+   },
+   {
+    "src": "mg:0335",
+    "desc": "Stock Allocation_Up_Coming"
+   },
+   {
+    "src": "mg:0358",
+    "desc": "Charges Validation after Fresh Sales Return Full R2"
+   },
+   {
+    "src": "mg:0448",
+    "desc": "Stock Validation after SAN (Entry) VN"
+   },
+   {
+    "src": "mg:0470",
+    "desc": "Order Booking R2 KH"
+   },
+   {
+    "src": "mg:0545",
+    "desc": "Ignore"
+   },
+   {
+    "src": "mg:0578",
+    "desc": "Login_Dcode"
+   },
+   {
+    "src": "mg:0591",
+    "desc": "Current Promotion (4)Positive SDMS-4605"
+   },
+   {
+    "src": "mg:0598",
+    "desc": "Current Promotion (5)Positive SDMS 4605"
+   },
+   {
+    "src": "mg:0601",
+    "desc": "Current Promotion (6)Positive SDMS 4605"
+   },
+   {
+    "src": "mg:1",
+    "desc": "DSR Profile"
+   },
+   {
+    "src": "mg:10",
+    "desc": "Vehicle Profile"
+   },
+   {
+    "src": "mg:1001",
+    "desc": "Distributor Creation"
+   },
+   {
+    "src": "mg:11",
+    "desc": "Outlet Profile"
+   },
+   {
+    "src": "mg:12",
+    "desc": "Type"
+   },
+   {
+    "src": "mg:13",
+    "desc": "Analysis 2"
+   },
+   {
+    "src": "mg:14",
+    "desc": "Analysis 3"
+   },
+   {
+    "src": "mg:15",
+    "desc": "Warehouse Profile"
+   }
+  ]
+ },
+ "mgsm_child_parent_not_top_level": {
+  "count": 14,
+  "examples": [
+   {
+    "src": "mgsm:0010|parent 001002",
+    "flow": "00100001"
+   },
+   {
+    "src": "mgsm:001001|parent 001002",
+    "flow": "00100002"
+   },
+   {
+    "src": "mgsm:0098|parent 009802",
+    "flow": "00980001"
+   },
+   {
+    "src": "mgsm:009801|parent 009802",
+    "flow": "00980002"
+   },
+   {
+    "src": "mgsm:0121|parent 012102",
+    "flow": "01210001"
+   },
+   {
+    "src": "mgsm:0135|parent 013501",
+    "flow": "01350001"
+   },
+   {
+    "src": "mgsm:0242|parent 024202",
+    "flow": "02420001"
+   },
+   {
+    "src": "mgsm:0332|parent 033202",
+    "flow": "03320001"
+   },
+   {
+    "src": "mgsm:0361|parent 036102",
+    "flow": "03610001"
+   },
+   {
+    "src": "mgsm:0384|parent 038701",
+    "flow": "03840001"
+   },
+   {
+    "src": "mgsm:0395|parent 039502",
+    "flow": "03950001"
+   },
+   {
+    "src": "mgsm:0422|parent 042204",
+    "flow": "04220001"
+   },
+   {
+    "src": "mgsm:0458|parent 045801",
+    "flow": "04580001"
+   },
+   {
+    "src": "mgsm:0467|parent 046702",
+    "flow": "04670001"
+   }
+  ]
+ },
+ "mgsm_inactive_rows": {
+  "count": 19,
+  "examples": [
+   {
+    "src": "mgsm:0053|005310|12"
+   },
+   {
+    "src": "mgsm:0053|005303|13"
+   },
+   {
+    "src": "mgsm:0068|006806|6"
+   },
+   {
+    "src": "mgsm:0103|010302|2"
+   },
+   {
+    "src": "mgsm:0103|010303|3"
+   },
+   {
+    "src": "mgsm:0103|010304|4"
+   },
+   {
+    "src": "mgsm:0124|012404|4"
+   },
+   {
+    "src": "mgsm:0209|020912|15"
+   },
+   {
+    "src": "mgsm:0296|029605|5"
+   },
+   {
+    "src": "mgsm:0310|031004|4"
+   },
+   {
+    "src": "mgsm:0310|031005|5"
+   },
+   {
+    "src": "mgsm:0328|032805|6"
+   },
+   {
+    "src": "mgsm:0354|035403|6"
+   },
+   {
+    "src": "mgsm:0365|036503|3"
+   },
+   {
+    "src": "mgsm:0439|043902|2"
+   },
+   {
+    "src": "mgsm:0451|045102|2"
+   },
+   {
+    "src": "mgsm:0457|045702|2"
+   },
+   {
+    "src": "mgsm:0539|053904|3"
+   },
+   {
+    "src": "mgsm:0607|060704|4"
+   }
+  ]
+ },
+ "mgsm_same_screen_twice_in_menu_group(valid: e.g. re-search)": {
+  "count": 17,
+  "examples": [
+   {
+    "menu_group": "0010",
+    "screen": "001004",
+    "n": 2
+   },
+   {
+    "menu_group": "001001",
+    "screen": "001004",
+    "n": 2
+   },
+   {
+    "menu_group": "001003",
+    "screen": "001004",
+    "n": 2
+   },
+   {
+    "menu_group": "0092",
+    "screen": "001004",
+    "n": 2
+   },
+   {
+    "menu_group": "0098",
+    "screen": "009804",
+    "n": 2
+   },
+   {
+    "menu_group": "009801",
+    "screen": "009804",
+    "n": 2
+   },
+   {
+    "menu_group": "009801",
+    "screen": "009806",
+    "n": 2
+   },
+   {
+    "menu_group": "009801",
+    "screen": "009803",
+    "n": 2
+   },
+   {
+    "menu_group": "0121",
+    "screen": "012104",
+    "n": 2
+   },
+   {
+    "menu_group": "0242",
+    "screen": "024204",
+    "n": 2
+   },
+   {
+    "menu_group": "0332",
+    "screen": "033204",
+    "n": 2
+   },
+   {
+    "menu_group": "0354",
+    "screen": "035403",
+    "n": 2
+   },
+   {
+    "menu_group": "0361",
+    "screen": "036104",
+    "n": 2
+   },
+   {
+    "menu_group": "0395",
+    "screen": "039504",
+    "n": 2
+   },
+   {
+    "menu_group": "0422",
+    "screen": "042202",
+    "n": 2
+   },
+   {
+    "menu_group": "0467",
+    "screen": "046704",
+    "n": 2
+   },
+   {
+    "menu_group": "48",
+    "screen": "63",
+    "n": 2
+   }
+  ]
+ },
+ "repo_id_spelling_variants(same key, different case/prefix)": {
+  "count": 3,
+  "examples": [
+   {
+    "canon": "REPO_DISTRIBUTOR",
+    "spellings": [
+     "REPO_DISTRIBUTOR",
+     "g_REPO_DISTRIBUTOR"
+    ]
+   },
+   {
+    "canon": "REPO_DOCUMENTNO",
+    "spellings": [
+     "REPO_DOCUMENTNO",
+     "REPO_DocumentNo"
+    ]
+   },
+   {
+    "canon": "REPO_CODE",
+    "spellings": [
+     "REPO_CODE",
+     "REPO_Code"
+    ]
+   }
+  ]
+ },
+ "repo_read_but_never_written_by_any_flow(workbook/global/engine supplied)": {
+  "count": 7,
+  "examples": [
+   {
+    "repo": "REPO_ORGA",
+    "readers": [
+     "00010001",
+     "00020001",
+     "00840001",
+     "00870001",
+     "00910001"
+    ],
+    "n_readers": 5
+   },
+   {
+    "repo": "REPO_CMDOCTYPE",
+    "readers": [
+     "00010001",
+     "00020001",
+     "00840001",
+     "00870001",
+     "00910001"
+    ],
+    "n_readers": 5
+   },
+   {
+    "repo": "REPO_REF_ORDER_NO",
+    "readers": [
+     "00010001",
+     "00910001"
+    ],
+    "n_readers": 2
+   },
+   {
+    "repo": "REPO_REF_ORDER_EDITNO",
+    "readers": [
+     "00020001",
+     "00840001",
+     "00870001"
+    ],
+    "n_readers": 3
+   },
+   {
+    "repo": "REPO_GRN NO.",
+    "readers": [
+     "00090001",
+     "03930001",
+     "04170001",
+     "04940001",
+     "05390001",
+     "06070001"
+    ],
+    "n_readers": 6
+   },
+   {
+    "repo": "LOGIN_USERNAME",
+    "readers": [
+     "021400000",
+     "02440001"
+    ],
+    "n_readers": 2
+   },
+   {
+    "repo": "LOGIN_PASSWORD",
+    "readers": [
+     "021400000",
+     "02440001"
+    ],
+    "n_readers": 2
+   }
+  ]
+ },
+ "repo_written_but_never_read": {
+  "count": 2,
+  "examples": [
+   {
+    "repo": "REPO_DESCRIPTION",
+    "writers": [
+     "00580001"
+    ]
+   },
+   {
+    "repo": "REPO_SELLING_CATEGORY_CODE",
+    "writers": [
+     "00940001",
+     "02170001"
+    ]
+   }
+  ]
+ },
+ "screen_name_over_31_chars(excel sheet limit)": {
+  "count": 22,
+  "examples": [
+   {
+    "src": "sc:004603",
+    "name": "Order Editing Aft Charg Header Promo"
+   },
+   {
+    "src": "sc:009807",
+    "name": "Dispatch Advice Detail ll Row Save"
+   },
+   {
+    "src": "sc:010001",
+    "name": "Dispatch Advice II Forward Negative"
+   },
+   {
+    "src": "sc:011102",
+    "name": "Goods Issue Note CM Selection_BD"
+   },
+   {
+    "src": "sc:024207",
+    "name": "Dispatch Advice detail row save Astron"
+   },
+   {
+    "src": "sc:025302",
+    "name": "Order Editing Detail_After_GIN_Ast"
+   },
+   {
+    "src": "sc:025303",
+    "name": "OrderEditng Detail3_AfterGIN_Ast"
+   },
+   {
+    "src": "sc:025403",
+    "name": "Order Cancellation Detail2_Astron"
+   },
+   {
+    "src": "sc:032501",
+    "name": "Deposit slip after order removal"
+   },
+   {
+    "src": "sc:033003",
+    "name": "Trans InqVal AfterOB Head Tax promo"
+   },
+   {
+    "src": "sc:033207",
+    "name": "Dispatch Advice Detail Row Save UP"
+   },
+   {
+    "src": "sc:034702",
+    "name": "G Issue Note CM Select Pormotion"
+   },
+   {
+    "src": "sc:035405",
+    "name": "G Issue N CM Select Pormo D Link"
+   },
+   {
+    "src": "sc:036107",
+    "name": "Dis Advice Detail Row Save promo"
+   },
+   {
+    "src": "sc:039507",
+    "name": "Dispatch Advice Detail Row Save VN"
+   },
+   {
+    "src": "sc:042207",
+    "name": "Dispatch Advice Detail Row Save PH"
+   },
+   {
+    "src": "sc:046707",
+    "name": "Dispatch Advice Detail Row Save KH"
+   },
+   {
+    "src": "sc:17",
+    "name": "OutletProfile,Operative Info old"
+   },
+   {
+    "src": "sc:19",
+    "name": "OutletProfile-Address,Delivery old"
+   },
+   {
+    "src": "sc:20",
+    "name": "OutletProfile-Address,Business old"
+   },
+   {
+    "src": "sc:21",
+    "name": "OutletProfile-Address,Residence old"
+   },
+   {
+    "src": "sc:69",
+    "name": "Orders Product Quantity Change old"
+   }
+  ]
+ },
+ "screen_name_shared_by_several_screens(shared sheet)": {
+  "count": 60,
+  "examples": [
+   {
+    "name": "goods issue note",
+    "screens": [
+     "000501",
+     "046601"
+    ]
+   },
+   {
+    "name": "goods issue note cm selection",
+    "screens": [
+     "000502",
+     "046602"
+    ]
+   },
+   {
+    "name": "goods issue note detail",
+    "screens": [
+     "000503",
+     "008903",
+     "046603"
+    ]
+   },
+   {
+    "name": "goods issue note forward",
+    "screens": [
+     "000504",
+     "046604"
+    ]
+   },
+   {
+    "name": "dispatch advice",
+    "screens": [
+     "001001",
+     "001004"
+    ]
+   },
+   {
+    "name": "delivery date change",
+    "screens": [
+     "001601",
+     "046501"
+    ]
+   },
+   {
+    "name": "change track pjp config",
+    "screens": [
+     "002301",
+     "021001"
+    ]
+   },
+   {
+    "name": "product hierarchy",
+    "screens": [
+     "003701",
+     "004104"
+    ]
+   },
+   {
+    "name": "outlet approval ii",
+    "screens": [
+     "003802",
+     "006901"
+    ]
+   },
+   {
+    "name": "charges",
+    "screens": [
+     "004701",
+     "020813"
+    ]
+   },
+   {
+    "name": "distributor demographics",
+    "screens": [
+     "005201",
+     "009201",
+     "100101"
+    ]
+   },
+   {
+    "name": "goods issue n terminat approval",
+    "screens": [
+     "007803",
+     "035701"
+    ]
+   },
+   {
+    "name": "dispatch advice ii",
+    "screens": [
+     "009801",
+     "009804"
+    ]
+   },
+   {
+    "name": "fresh sales return val partial",
+    "screens": [
+     "010205",
+     "031403"
+    ]
+   },
+   {
+    "name": "fresh sales return val full",
+    "screens": [
+     "010206",
+     "031303"
+    ]
+   },
+   {
+    "name": "stock unallocation bd",
+    "screens": [
+     "010901",
+     "059201"
+    ]
+   },
+   {
+    "name": "dispatch advice ii thi",
+    "screens": [
+     "012101",
+     "012104"
+    ]
+   },
+   {
+    "name": "dsr profile documents hq r2",
+    "screens": [
+     "012303",
+     "021305"
+    ]
+   },
+   {
+    "name": "dispatch advice detail astron",
+    "screens": [
+     "024202",
+     "027402"
+    ]
+   },
+   {
+    "name": "distributor selection",
+    "screens": [
+     "024402",
+     "777702"
+    ]
+   },
+   {
+    "name": "stock val after san admin",
+    "screens": [
+     "028501",
+     "032701"
+    ]
+   },
+   {
+    "name": "stock val after san admin2",
+    "screens": [
+     "028502",
+     "032702"
+    ]
+   },
+   {
+    "name": "stock val after san admin3",
+    "screens": [
+     "028503",
+     "032703"
+    ]
+   },
+   {
+    "name": "amount val after order edit r2",
+    "screens": [
+     "033301",
+     "051001"
+    ]
+   },
+   {
+    "name": "amt val after edit tot tax r2",
+    "screens": [
+     "033302",
+     "051006"
+    ]
+   }
+  ]
+ },
+ "screen_without_mgsm_row(orphan)": {
+  "count": 51,
+  "examples": [
+   {
+    "src": "sc:000302",
+    "name": "Cashmemo Status2"
+   },
+   {
+    "src": "sc:001008",
+    "name": "Dispatch Advice Detail Row Add"
+   },
+   {
+    "src": "sc:001403",
+    "name": "Deposit Slip,Forward"
+   },
+   {
+    "src": "sc:003802",
+    "name": "Outlet Approval II"
+   },
+   {
+    "src": "sc:00410301",
+    "name": "Product Description, UOM Detail"
+   },
+   {
+    "src": "sc:004601",
+    "name": "Analaysis 4"
+   },
+   {
+    "src": "sc:004602",
+    "name": "Order Editing After Charges Tax"
+   },
+   {
+    "src": "sc:004603",
+    "name": "Order Editing Aft Charg Header Promo"
+   },
+   {
+    "src": "sc:005502",
+    "name": "Location_Classification"
+   },
+   {
+    "src": "sc:005503",
+    "name": "Location Other Info"
+   },
+   {
+    "src": "sc:006301",
+    "name": "Analysis 2"
+   },
+   {
+    "src": "sc:009201",
+    "name": "Distributor,Demographics"
+   },
+   {
+    "src": "sc:021308",
+    "name": "HQDistributorR2"
+   },
+   {
+    "src": "sc:023301",
+    "name": "PJP Daily Inquiry_BG"
+   },
+   {
+    "src": "sc:023508",
+    "name": "OutletProfile,DemoForward_R2"
+   },
+   {
+    "src": "sc:024003",
+    "name": "Prospect-Outlet-Address_R2"
+   },
+   {
+    "src": "sc:024004",
+    "name": "Prospect-Outlet,Documents_R2"
+   },
+   {
+    "src": "sc:025301",
+    "name": "Order Editing_After_GIN_Ast"
+   },
+   {
+    "src": "sc:025302",
+    "name": "Order Editing Detail_After_GIN_Ast"
+   },
+   {
+    "src": "sc:025303",
+    "name": "OrderEditng Detail3_AfterGIN_Ast"
+   },
+   {
+    "src": "sc:025403",
+    "name": "Order Cancellation Detail2_Astron"
+   },
+   {
+    "src": "sc:027401",
+    "name": "DispatchAdviceDetailAstron2"
+   },
+   {
+    "src": "sc:027701",
+    "name": "Stock InquiryAstron"
+   },
+   {
+    "src": "sc:033904",
+    "name": "Order Editing Detail3 Teasting"
+   },
+   {
+    "src": "sc:035407",
+    "name": "G Issue Note CM Select Pormo R"
+   }
+  ]
+ },
+ "sef_active_event_parent_is_not_a_container(never runs)": {
+  "count": 41,
+  "examples": [
+   {
+    "src": "sef:000102|serial 14",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:000102|serial 8",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:000102|serial 15",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:001009|serial 6",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:005604|serial 4",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:005604|serial 5",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:005604|serial 6",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:005605|serial 4",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:005605|serial 5",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:005605|serial 6",
+    "role": "NEVER_RUNS_parent_is_click"
+   },
+   {
+    "src": "sef:012108|serial 3",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:031102|serial 8",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:031102|serial 14",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:031102|serial 15",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:033402|serial 8",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:033402|serial 14",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:033402|serial 15",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:039602|serial 14",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:039602|serial 8",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:039602|serial 15",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:043002|serial 8",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:043002|serial 14",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:043002|serial 15",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:047902|serial 14",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   },
+   {
+    "src": "sef:047902|serial 8",
+    "role": "NEVER_RUNS_parent_is_screen_validation"
+   }
+  ]
+ },
+ "sef_status_unusual": {
+  "count": 1,
+  "examples": [
+   {
+    "src": "sef:005310|serial 1",
+    "status": null
+   }
+  ]
+ },
+ "sf_active_but_addition_not_plus(engine removes field)": {
+  "count": 23,
+  "examples": [
+   {
+    "src": "sf:001401|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:004201|DDL__pant_active_0"
+   },
+   {
+    "src": "sf:004201|DDL__pant_analysis_type_0"
+   },
+   {
+    "src": "sf:004201|DDL__pant_default_0"
+   },
+   {
+    "src": "sf:004201|TXT__pant_abrv_0"
+   },
+   {
+    "src": "sf:004201|TXT__pant_desc_0"
+   },
+   {
+    "src": "sf:004301|DDL__pant_active_0"
+   },
+   {
+    "src": "sf:004301|DDL__pant_analysis_type_0"
+   },
+   {
+    "src": "sf:004301|DDL__pant_default_0"
+   },
+   {
+    "src": "sf:004301|TXT__pant_abrv_0"
+   },
+   {
+    "src": "sf:004301|TXT__pant_desc_0"
+   },
+   {
+    "src": "sf:032401|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:034101|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:041201|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:041301|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:041601|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:045701|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:048901|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:049001|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:049301|DDL__PBNBBNBRCODE"
+   },
+   {
+    "src": "sf:1|(//dx-text-box)[4]"
+   },
+   {
+    "src": "sf:27|DT__origin_date"
+   },
+   {
+    "src": "sf:62|(//input[@role='spinbutton'])[2]"
+   }
+  ]
+ },
+ "sf_component_type_unknown": {
+  "count": 3,
+  "examples": [
+   {
+    "src": "sf:17|dt__eop1_ref_date_1",
+    "type": null
+   },
+   {
+    "src": "sf:17|TXT__EOP1_REF_VAL_7",
+    "type": null
+   },
+   {
+    "src": "sf:17|TXT__EOP1_REF_VAL_9",
+    "type": null
+   }
+  ]
+ },
+ "switch_user_belongs_to_app_not_allowed_for_group": {
+  "count": 53,
+  "examples": [
+   {
+    "src": "gtfd:1|8",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "5",
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:1|23",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "5",
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:1|34",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "5",
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:1|44",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "5",
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:12|8",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "5",
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|1",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|4",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|12",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|14",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|17",
+    "user": "ULP_GLOBAL",
+    "user_app": "3",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|19",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:13|21",
+    "user": "AppUser",
+    "user_app": "13",
+    "group_apps": [
+     "8"
+    ]
+   },
+   {
+    "src": "gtfd:73|5",
+    "user": "auto_thai_tssm",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|6",
+    "user": "Auto_Th",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|7",
+    "user": "auto_thai_tssm",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|8",
+    "user": "Auto_Th",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|10",
+    "user": "auto_thai_tssm",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|11",
+    "user": "Auto_Th",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|12",
+    "user": "auto_thai_tssm",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|13",
+    "user": "Auto_Th",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|15",
+    "user": "auto_thai_tssm",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|17",
+    "user": "headquarter",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|18",
+    "user": "Auto_Th",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|19",
+    "user": "auto_thai_tssm",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   },
+   {
+    "src": "gtfd:73|22",
+    "user": "Auto_Th",
+    "user_app": "12",
+    "group_apps": [
+     "14"
+    ]
+   }
+  ]
+ },
+ "tfd_menugroup_without_screens": {
+  "count": 4,
+  "examples": [
+   {
+    "src": "tfd:02330001|0233"
+   },
+   {
+    "src": "tfd:04760001|0476"
+   },
+   {
+    "src": "tfd:05170001|0517"
+   },
+   {
+    "src": "tfd:05500001|0550"
+   }
+  ]
+ }
+}

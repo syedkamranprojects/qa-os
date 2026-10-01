@@ -1,0 +1,250 @@
+{
+ "option_id": "DYL_201501",
+ "title": "Promotion Eligible",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Promotion",
+   "Promotion Eligible"
+  ],
+  "group_id": "DYL_201501"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201501",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201501001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "PRM_PM_PEH_PROM_ELGBL_HEADER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201501002",
+   "tab": "Promotion Eligible Detail",
+   "is_child": false,
+   "parent": null,
+   "partial": "201501001",
+   "desc": null,
+   "table": "PRM_PM_PEH_PROM_ELGBL_HEADER",
+   "n_fields": 8,
+   "grids": []
+  },
+  {
+   "page": "201501003",
+   "tab": "Promotion Slabs Detail",
+   "is_child": true,
+   "parent": "201501001",
+   "partial": null,
+   "desc": null,
+   "table": "PRM_PM_PSL_PROMOTION_SLABS",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201501004",
+   "tab": "Promotion Eligible Product Detail",
+   "is_child": true,
+   "parent": "201501001",
+   "partial": null,
+   "desc": null,
+   "table": "PRM_PM_PEP_PROM_ELGBL_PROD",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201501005",
+   "tab": "Promotion Eligible Entity Detail",
+   "is_child": true,
+   "parent": "201501001",
+   "partial": null,
+   "desc": null,
+   "table": "PRM_PM_PEE_PROM_ELGBL_ENTITY",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Promotion ID": {
+   "name": "TXT__ppeh_promotion_id",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PPEH_PROMOTION_ID",
+   "db_description": "Promotion ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Principle Code": {
+   "name": "DDL__porp_princode",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PORP_PRINCODE",
+   "db_description": "Principle Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PORP",
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Description": {
+   "name": "TXT__ppeh_desc",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PPEH_DESC",
+   "db_description": "Promotion Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 200,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Abbreviation": {
+   "name": "TXT__ppeh_abrv",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PPEH_ABRV",
+   "db_description": "Promotion Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Alternate Description": {
+   "name": "TXT__ppeh_alternate_desc",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PPEH_ALTERNATE_DESC",
+   "db_description": "Promotion Alternate Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 200,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Period From": {
+   "name": "DDT__ppeh_period_from",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "PPEH_PERIOD_FROM",
+   "db_description": "Period From",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Period To": {
+   "name": "DDT__ppeh_period_to",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "PPEH_PERIOD_TO",
+   "db_description": "Period To",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  },
+  "Active": {
+   "name": "DDL__ppeh_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PPEH_ACTIVE",
+   "db_description": "Is Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201501002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Principle Code",
+    "Promotion ID",
+    "Busentity Type",
+    "Physical Level 1",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

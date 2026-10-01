@@ -1,0 +1,46 @@
+{
+ "option_id": "DYL_102003015",
+ "title": "Section",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "PJP",
+   "Section"
+  ],
+  "group_id": "DYL_102003015"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102003015",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003016_pbet_busentity_type_SECT",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003017_pbet_busentity_type_SECT",
+   "tab": "Detail",
+   "is_child": false,
+   "parent": null,
+   "partial": "102003016_pbet_busentity_type_SECT",
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  }
+ ],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

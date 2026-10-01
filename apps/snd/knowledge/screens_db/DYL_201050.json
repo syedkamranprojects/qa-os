@@ -1,0 +1,193 @@
+{
+ "option_id": "DYL_201050",
+ "title": "Asset State",
+ "menu": {
+  "path": [
+   "Asset Module",
+   "Asset State"
+  ],
+  "group_id": "DYL_201050"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201050",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201050001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "AST_PR_AST_ASSET_STATE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201050002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201050001",
+   "desc": null,
+   "table": "AST_PR_AST_ASSET_STATE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__AAST_ASSET_STATE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "AAST_ASSET_STATE",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  },
+  "Long Description": {
+   "name": "TXT__AAST_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "AAST_DESC",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  },
+  "Short Description": {
+   "name": "TXT__AAST_ABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "AAST_ABRV",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  },
+  "Default": {
+   "name": "DDL__AAST_DEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "AAST_DEFAULT",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  },
+  "Status": {
+   "name": "DDL__AAST_STATUS",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "AAST_STATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  },
+  "Level No": {
+   "name": "TXT__AAST_LEVEL_NO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "AAST_LEVEL_NO",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  },
+  "Level Type": {
+   "name": "TXT__AAST_LEVELTYPE",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "AAST_LEVELTYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201050002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Long Description",
+    "Short Description",
+    "Default",
+    "Status",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,214 @@
+{
+ "option_id": "DYL_201017",
+ "title": "Validation Setup",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Validation",
+   "Validation Setup"
+  ],
+  "group_id": "DYL_201017"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201017",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201017001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Validation Setup - Grid",
+   "table": "VLD_VL_VDS_VALIDATION_SETUP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201017002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201017001",
+   "desc": "Validation Setup - Form",
+   "table": "VLD_VL_VDS_VALIDATION_SETUP",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Validation Code": {
+   "name": "Code",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "VVDS_VALIDATION_CODE",
+   "db_description": "Validation Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Description": {
+   "name": "Description",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "VVDS_DESC",
+   "db_description": "Validation Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Abbreviation": {
+   "name": "TXT__VVDSABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "VVDS_ABRV",
+   "db_description": "Validation Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Default": {
+   "name": "DDL__VVDSDEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "VVDS_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Active": {
+   "name": "DDL__VVDSACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "VVDS_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Identifier": {
+   "name": "DDL__vvds_identifier",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "VVDS_IDENTIFIER",
+   "db_description": "Identifier Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": "Y",
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Level No": {
+   "name": "TXT__VVDSLEVELNO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "VVDS_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  },
+  "Level Type": {
+   "name": "TXT__VVDSLEVELTYPE",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "VVDS_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201017002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Validation Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Identifier",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

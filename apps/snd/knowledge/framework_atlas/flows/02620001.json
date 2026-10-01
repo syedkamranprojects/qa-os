@@ -1,0 +1,401 @@
+{
+ "src": "tf:02620001",
+ "flow_id": "02620001",
+ "description": "Route Settlement_Astron",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:02620001|0262|1",
+   "seq": 1,
+   "menu_group": "0262",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0262",
+   "menu_group": "0262",
+   "exists": true,
+   "description": "Route Settlement_Astron",
+   "search_text": "Route Settlement",
+   "navigation": "ROUTE_SETTLEMENT",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0262|026201|1",
+   "mgsm_seq": 1,
+   "screen_id": "026201",
+   "screen_name": "Route Settlement_Astron",
+   "sheet": "Route Settlement_Astron",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "026201"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Route Settlement_Astron",
+   "kind": "screen",
+   "screen_ids": [
+    "026201"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Route Settlement_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Route Settlement_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Route Settlement_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Route Settlement_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 1,
+   "missing_sheets": [
+    "Route Settlement_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [
+   {
+    "kind": "ELEVLD",
+    "target_element": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/dx-data-grid[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[7]",
+    "screen_id": "026201",
+    "src": "sef:026201|serial 11"
+   }
+  ],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 2,
+  "fields_active": 2,
+  "events": 6,
+  "events_active": 5,
+  "events_by_kind": {
+   "click": 3,
+   "load_data": 1,
+   "assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Route Settlement"
+  ],
+  "market": "Astron",
+  "menu_option": "ROUTE_SETTLEMENT",
+  "menu_search_text": "Route Settlement"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "67",
+   "group_desc": "Daily Cycle Only Positive Flow_Astron",
+   "seq": 21,
+   "active": false,
+   "user": null,
+   "login_status": "N"
+  }
+ ],
+ "screens": {
+  "026201": {
+   "src": "sc:026201",
+   "screen_id": "026201",
+   "name": "Route Settlement_Astron",
+   "sheet": "Route Settlement_Astron",
+   "type": "Save",
+   "sheet_name_len": 23,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:026201|Date|1.0|1|1",
+     "seq": 1,
+     "field_id": "Date",
+     "locate_by": "id",
+     "label": "Date",
+     "db_column": "Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "026201:f1"
+    },
+    {
+     "src": "sf:026201|pjpno|1.0|2|1",
+     "seq": 2,
+     "field_id": "pjpno",
+     "locate_by": "id",
+     "label": "PJP Number",
+     "db_column": "PJP Number",
+     "component_type": "0006",
+     "component_name": "AutoSelect",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "026201:f2"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:026201|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Check box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "selectAll",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "026201:e1"
+    },
+    {
+     "src": "sef:026201|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "026201:e2"
+    },
+    {
+     "src": "sef:026201|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Check Box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox_0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "026201:e8"
+    },
+    {
+     "src": "sef:026201|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 1,
+     "parent": 2,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Validate btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "validate",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "026201:e9"
+    },
+    {
+     "src": "sef:026201|serial 11",
+     "serial": 11,
+     "seq": 10,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0013",
+     "kind": "assertion",
+     "event_name": "Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": "xpath",
+     "field_id": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/dx-data-grid[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[7]",
+     "fixed_value": "ELEVLD",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "026201:e11",
+     "assertion": {
+      "kind": "ELEVLD",
+      "target_element": "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/dx-data-grid[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[7]"
+     }
+    },
+    {
+     "src": "sef:026201|serial 10",
+     "serial": 10,
+     "seq": 11,
+     "depth": 1,
+     "parent": 2,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,route_settlement_capture",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "026201:e10",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "route_settlement_capture"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 2,
+    "fields_active": 2,
+    "events": 6,
+    "events_active": 5
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

@@ -1,0 +1,7 @@
+{"option_id":"202020","title":"Cheque Status","menu_path":["Home","Transaction","Receivable","Cheque Status"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=202020",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[],"fields":[],
+"buttons":[{"text":"Bounce","id":"DYP.G......Bounce","kind":"ACTION - not clicked (changes cheque status)"}],
+"grids":[{"title":"master: deposit slips","headers":["Deposit Slip","PJP-DSR","Current Date","Bank","Bank Branch","Status","Amount"],"rows":328,"columns":7,"grid_text":"Data grid with 328 rows and 7 columns","paged":true,"page_size":9,"filter_inputs":{}},
+{"title":"detail: cheques of selected slip","headers":["Cheque No","Cheque Date","Amount","Cheque Status","Cheque Status Date"],"rows":0,"columns":5,"grid_text":"Data grid with 0 rows and 5 columns (until a slip is selected)"}],
+"messages":["No filter fields; master-detail layout. Bounce is enabled with no row selected."]}

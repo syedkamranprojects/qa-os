@@ -1,0 +1,139 @@
+# S&D (DCODE) app pack — identity, environments, login and navigation recipes.
+# Knowledge sources: snd-schema DB (base layer) + live environments (overlay). See docs/ARCHITECTURE.md §7A.
+id: snd
+name: Sales & Distribution (DCODE)
+framework_app_ids: ["6"]            # legacy default (PH); the per-market values are under `markets:` below
+kind: web-spa                       # DevExtreme single-page app behind SSO; login recipe below, player = runtime/qaos_player.py
+
+connectors:
+  app_db_read: snd-schema            # MCP server name; PostgreSQL ng_astrone (base layer)
+  framework_db_read: selenium-framework-db   # CTA_CONFIG_ASSERTION
+
+environments:
+  cnr2dev3:
+    url: https://dcodecnr2dev3.unilever.com/ngui
+    region: PH
+    non_production: true           # authorizes `allow:` actions from a story intake block (docs/QUESTION_BANK.md); one-way actions still need naming
+    users:
+      KPO_ph: { distributor: "15181887" }
+      KPO_slv: { distributor: "50000451" }   # offered: 50000451-SATHENSOPIN, 50000598-SUPAMITR LV, 50000599-SUPAMITR LV; Order Booking data works with 50000451
+  cnr1dev1:
+    url: https://dcodecnr1dev1.unilever.com/ngui
+    org: "010104"                  # Unilever Pakistan (snd-schema)
+    non_production: true
+    framework_app_id: "8"          # fct_pr_app_application: PK_Centegy QA 2 (group 11 is allowed for apps 5 and 8)
+    company: Unilever Pakistan Limited     # first login step (Company), then the Distributor dropdown
+    users:
+      KPO_mp: {}                   # HQ user: no distributor selection after login; password key SD_PASSWORD_KPO_MP
+      Auto_Multi_Orga: { distributor: "15108843" }   # 15108843-IBRAHIM TRADERS ("Auto KARACHI"); framework login serial 35
+      Auto_Tssm: { distributor: "15108843" }         # approve-only; cannot create documents; framework login serial 8
+    roles:                         # role names used in business steps (docs/STEP_VOCABULARY.md) -> user
+      Maker: Auto_Multi_Orga
+      Stock Controller: Auto_Multi_Orga
+      Order User: Auto_Multi_Orga
+      Checker: Auto_Tssm
+      HQ: KPO_mp
+    role_notes:
+      Maker: creates documents (Dispatch Advice, orders, GIN, sales return, GRN ...)
+      Checker: approves only, on the same option as the maker ("Forward" with a comment); has no Stock Inquiry screen
+      HQ: has data on the M&P distributor; approving own documents is possible for this user (no maker/checker control)
+
+# Access knowledge layer (roles, screens, users, feature flags per market): apps/snd/knowledge/access/README.md
+access:
+  lookup: apps/snd/tools/access_lookup.py
+  data: apps/snd/knowledge/access
+  account_notes: apps/snd/knowledge/access/account_notes.json   # data-level facts that break ties between accounts
+  orgs: { "010104": Unilever Pakistan, "010105": Unilever Bangladesh, "99": GLOBAL }
+  market_of_story: { PK: "010104", PKBD: "010104", BD: "010105" }   # story region tag -> org, for `plan-user --org`
+
+# Markets: business is the same for every client; markets differ by configuration, so each has its own framework
+# group (the "Daily Cycle Only Positive Flow" for that market) and framework application row.
+# Source: fct_pr_gtf_group_test_flow + fct_pr_alg_app_allowable_groups + fct_pr_app_application, read 2026-09-30
+# (see apps/snd/knowledge/framework_atlas/). `casedata` is the workbook variant in framework/casedata-samples;
+# the file name per market is NOT stored in the framework DB.
+# Confirmed: PK (org 010104), BD (org 010105). The other market names are inferred from the group-name suffix; confirm before relying on them.
+markets:
+  PK:
+    name: Unilever Pakistan
+    org: "010104"
+    env: cnr1dev1
+    framework_app_id: "8"          # app 5 also allows group 11
+    group: "11"                    # Daily Cycle Only Positive Flow
+    group_negative_and_positive: "1"
+    casedata: NG_Dcode_QA_OTC (Pak)
+    login_flow: "021400000"        # ptf_testflowid_login of app 8; logout flow 021500000
+  BD:
+    name: Unilever Bangladesh
+    org: "010105"
+    env: cnr1dev1
+    framework_app_id: "7"
+    group: "61"
+    casedata: NG_Dcode_QA_OTC (Bangla)
+  PH:
+    name: Unilever Philippines
+    env: cnr2dev3
+    framework_app_id: "6"
+    group: "63"
+    casedata: NG_Dcode_QA_OTC (PHP)
+  VN:
+    name: Unilever Vietnam
+    env: cnr2dev3
+    framework_app_id: "16"
+    group: "75"
+    casedata: NG_Dcode_QA_OTC (Vietnam)
+  KH: { name: Cambodia, env: cnr2dev3, framework_app_id: "17", group: "76" }
+  LA: { name: Laos,     env: cnr2dev3, framework_app_id: "18", group: "79" }
+  ITHD:
+    name: ITHD
+    env: cnr2dev3
+    framework_app_id: "12"         # app 14 (Up_Coming) also allows group 51
+    group: "51"
+    group_negative_and_positive: "52"
+  ASTRON:
+    name: Astron (Danone)
+    env: astron                    # not defined in this pack: https://danonengqa.centegyapps.com/ngui (framework app 13)
+    framework_app_id: "13"
+    group: "67"
+
+default_env: cnr2dev3
+allowed_hosts: [dcodecnr2dev3.unilever.com, dcodecnr1dev1.unilever.com]
+
+# Credentials: env vars SD_TEST_USER / SD_TEST_PASSWORD (or the same keys in .claude/settings.local.json "env").
+# They are never written to flows, runs or logs.
+credentials:
+  user_env: SD_TEST_USER
+  password_env: SD_TEST_PASSWORD
+
+login:                               # verified live 2026-09-25
+  username: { css: "input[name=username]" }
+  password: { css: "input[name=password]" }
+  submit:   { css: "button[type=submit]" }
+  company:                           # verified live 2026-09-30 (cnr1dev1): the FIRST page after the credentials, /ngui/multiple-organization
+    # One dx-select-box (input#selectBox1). Real-click the dropdown button, real-click the option, then #proceedBtn.
+    # The Distributor page that follows has the identical layout. Company and distributor are not secrets: pick them from environments.<env>.company / users.<user>.distributor.
+    button:  { css: ".dx-dropdowneditor-button" }
+    option:  { xpath: "//div[@role='option' and normalize-space(.)='{company}']" }
+    proceed: { css: "#proceedBtn" }
+  distributor:                       # /ngui/multiple-organization page (DevExtreme select with search)
+    # A dx-selectbox holds a hidden <input> first; target the visible editor input, never plain //input.
+    input:  { xpath: "//div[contains(@class,'dx-selectbox')]//input[contains(@class,'dx-texteditor-input')]" }
+    button: { xpath: "//div[contains(@class,'dx-selectbox')]//div[contains(@class,'dx-dropdowneditor-button')]" }
+    option: { xpath: "//div[@role='option' and starts-with(normalize-space(.),'{code}-')]" }
+    proceed: { xpath: "//*[self::button or @role='button'][contains(normalize-space(.),'Proceed')]" }
+  landed_url_contains: /content-master/menu
+  logout:
+    open: { xpath: "//*[normalize-space(text())='{user_upper}']" }
+    click: { css: "li#logout" }
+
+menu:
+  api: /menu-service/api/v1/optionGroup/allMenusByRoles   # role-filtered; Authorization: Bearer localStorage.accessToken
+  top_item: { css: "li#{top_id}" }                        # top-level sidebar items; id = optionGroupId
+  search:   { css: "input[name=filterText]" }             # flyout "Search Here"
+  item:     { css: "li#{option_id}" }                     # menu-child-node loadPage
+
+widgets:                             # how DSL verbs act on this app's widgets (DevExtreme)
+  text:   { set: type_clear }
+  select: { set: open_then_pick, option: "//div[contains(@class,'dx-list-item') and normalize-space(.)='{value}']" }
+  date:   { set: type_clear_enter, format: "%Y-%m-%d" }
+  grid:   { row: "//tr[contains(@class,'dx-data-row')]", header: ".dx-datagrid-headers td[role=columnheader]" }
+  busy:   { css: ".dx-loadpanel-content:not(.dx-state-invisible), .dx-loadindicator" }

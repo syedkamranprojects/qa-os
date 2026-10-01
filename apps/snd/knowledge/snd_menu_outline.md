@@ -1,0 +1,918 @@
+# S&D menu outline
+
+From `smm_pr_opg_optiongroups` + `smm_pr_apo_appoption` (db ng_astrone). `option_id` = screen option, `→` = route (Angular path or legacy page).
+This is the **configured** menu; what a user sees depends on role (`smm_pr_rop_roleoption`).
+
+- AUDIT
+  - Audit Log  `AUDIT_LOG`  → /content-master/security/audit-log
+- Approval
+  - Master Data Approval
+    - Vehical Profile Approval  `DYL_101032003`  → /dyl/layout
+    - DSR Approval  `DYL_102003061`  → /dyl/layout
+    - Vehicle Profile Approval II  `DYL_202039`  → /dyl/layout
+    - Outlet Approval  `DYL_102003062`  → /dyl/layout
+    - Outlet Status  `DYL_102003079`  → /dyl/layout
+    - PJP Approval  `DYL_102011004`  → /dyl/layout
+    - PJP - Status  `DYL_102011006`  → /dyl/layout
+    - Vehicle Profile II  `DYL_BG1010`  → /dyl/layout
+    - None  `DYL_DN1001`  → /dyl/layout
+    - DSR Helper Mapping  `DYL_DN1003`  → /dyl/layout
+- Studio Cache Eviction
+- Warehouse Profile  `DYL_102003003`  → /dyl/layout
+- Budget Upload  `BUDGET_UPLOAD`  → /excel-upload/budget-upload
+- Company setup
+  - Analysis Classification
+    - Analysis Classification - Chanel Hierarchy  `DYL_201089`  → /dyl/layout
+    - Analysis Classification - Distributor   `DYL_201089005`  → /dyl/layout
+    - Analysis Classification - Outlet   `DYL_201089006`  → /dyl/layout
+    - Analysis Classification - Warehouse   `DYL_201089007`  → /dyl/layout
+    - Analysis Classification - Sales Hierarchy  `DYL_201089008`  → /dyl/layout
+    - Analysis Classification - Geo Hierarchy  `DYL_201089009`  → /dyl/layout
+  - Channel Hierarchy  `DYL_1038`  → /dyl/layout
+  - Distributor Profile
+    - Distributor Excel Upload  `DISTRIBUTOR_EXCEL_UPLOAD`  → /excel-upload/distributor-profile-bulk-excel-upload
+    - Distributor Shuffling Upload  `DISTRIBUTOR_SHUFFLING_UPLOAD`  → /excel-upload/distributor-shufflling-upload
+    - Location  `DYL_101002`  → /dyl/layout
+    - Distributor Profile HQ  `DYL_L__BusinessEntityProfile`  → /dyl/layout
+    - Distributor Boundary  `DISTRIBUTOR_OUTLET_MAP`  → /map/distributor-outlet-map
+    - Distributor Profile View  `DYL_BG1008`  → /dyl/layout
+    - Distributor DT  `DYL_DT1001`  → /dyl/layout
+    - Distributor Creation  `DYL_BG1014`  → /dyl/layout
+    - Distributor TM  `DYL_TM1001`  → /dyl/layout
+    - Distributor Product Mapping  `DISTRIBUTOR_PRODUCT_MAPPING`  → /excel-upload/distributor-product-mapping
+    - RCOA Account  `DYL_202060`  → /dyl/layout
+    - Trip Status Inquiry  `DYL_DT1005`  → /dyl/layout
+  - General
+    - Bank  `DYL_1004`  → /dyl/layout
+    - Country  `DYL_1006`  → /dyl/layout
+    - Currency  `DYL_1008`  → /dyl/layout
+    - Designation  `DYL_1009`  → /dyl/layout
+    - Local Validity  `DYL_101049`  → /dyl/layout
+    - Policy  `DYL_101055`  → /dyl/layout
+    - Selling Category  `DYL_102005`  → /dyl/layout
+    - Qualification  `DYL_1022`  → /dyl/layout
+    - Company Rank  `DYL_1024`  → /dyl/layout
+    - Rank  `DYL_1025`  → /dyl/layout
+    - STRATA  `DYL_1029`  → /dyl/layout
+    - Transport Company  `DYL_1030`  → /dyl/layout
+    - Transport Mode  `DYL_1031`  → /dyl/layout
+    - Vendor Profile  `DYL_1033`  → /dyl/layout
+    - Locality  `DYL_1074`  → /dyl/layout
+    - Province  `DYL_1075`  → /dyl/layout
+    - Region  `DYL_1077`  → /dyl/layout
+    - Vehicle Color  `DYL_1079`  → /dyl/layout
+    - Vehicle Make  `DYL_1080`  → /dyl/layout
+    - Location Type  `DYL_1081`  → /dyl/layout
+    - Visit Status  `DYL_1082`  → /dyl/layout
+    - Life Style Measurement  `DYL_1083`  → /dyl/layout
+    - MIS Type  `DYL_1088`  → /dyl/layout
+    - Charges  `DYL_201043`  → /dyl/layout
+    - Delivery Mode  `DYL_201072`  → /dyl/layout
+    - Reason Type  `DYL_201073`  → /dyl/layout
+    - Promotion User Group  `DYL_201076`  → /dyl/layout
+    - Business Type  `DYL_201082`  → /dyl/layout
+    - Calendar Setup  `DYL_201096`  → /dyl/layout
+    - Expense Setup  `DYL_201301`  → /dyl/layout
+    - Promotion Type Group  `DYL_202011`  → /dyl/layout
+    - Company Holidays  `DYL_202017`  → /dyl/layout
+    - Vehicle Type  `DYL_202021`  → /dyl/layout
+    - Selling Category Product Mapping  `SELLING_PRODUCT_MAPPING`  → /excel-upload/selling-product-mapping
+    - Loss Reason Type  `LOSS_REASON_TYPE`  → /content-master/mobility/loss-reason-type
+    - Sales Office  `DYL_DN1005`  → /dyl/layout
+    - Selling Category - II  `DYL_202055`  → /dyl/layout
+    - Currency Exchange Rate  `CURRENCY_EXCHANGE_RATE`  → currency-exchange-rate
+  - Geo Hierarchy  `DYL_1037`  → /dyl/layout
+  - Price
+    - OutletWise Price  `OUTLETMOBILEPRICE`  → /dyl/layout
+    - Price Structure  `DYL_102003046`  → /dyl/layout
+    - Outlet Price  `DYL_201035`  → /dyl/layout
+    - Purchase Price  `PURCHASE_PRICE`  → /prices/purchase-price
+    - Sale Price  `SALE_PRICE`  → /prices/sale-price
+    - Sale price 2  `SALE_PRICE_2`  → /price-structure/sale-price
+    - Purchase Price 2  `PURCHASE_PRICE_2`  → /price-structure/purchase-price
+    - Purchase Price BG  `PURCHASE_PRICE_BG`  → /prices/purchase-price-bg
+    - Sale Price BG  `SALE_PRICE_BG`  → /prices/sale-price-bg
+    - Secondary Sale Price  `SECONDARY_SALE_PRICE`  → /excel-upload/secondary-sale-price
+  - Product Hierarchy
+    - Analysis 1  `DYL_101043`  → /dyl/layout
+    - Analysis 2  `DYL_101044`  → /dyl/layout
+    - Analysis 3  `DYL_101045`  → /dyl/layout
+    - Analysis 4  `DYL_101046`  → /dyl/layout
+    - Analysis 5  `DYL_101047`  → /dyl/layout
+  - Product Management
+    - Batch  `DYL_101051`  → /dyl/layout
+    - Product Configuration  `DYL_102003024`  → /dyl/layout
+    - Non Unilever Products  `DYL_BG1001`  → /dyl/layout
+    - Selling category-Product hierarchy mapping  `SELLING_HIERARCHY_EXCEL_UPLOAD`  → /excel-upload/selling-hierarchy-excel-upload
+    - Product Exclusion Policy  `PRODUCT_POLICY`  → /content-master/mobility/product-policy
+    - Product Reference Mapping  `PRODUCT_REFERENCE_MAPPING`  → /excel-upload/product-reference-mapping
+  - Promotion
+    - Current Promotion  `DT_PROMOTION`  → /dtPromotion/dt-promotion-list
+    - Custom Tags  `DYL_201401`  → /dyl/layout
+    - Promotion Eligible  `DYL_201501`  → /dyl/layout
+    - Scheme Builder  `SCHEME_BUILDER`  → /sheme-builder
+    - Event Custom  `DYL_201601`  → /dyl/layout
+    - Promotion Layout  `INCENTIVE_SCHEME_BUILDER`  → /scheme-builder/promotion-list
+    - Customer discount  `CUSTOMER_DISCOUNT`  → /scheme-builder/customer-discount
+    - Temporary Price Reduction  `PRICE_DEDUCTION`  → /scheme-builder/temporary-price-reduction
+    - Distributor Markup  `DISTRIBUTOR_MARKUP`  → /scheme-builder/distributor-markup
+    - Customer Discount Approval  `CUSTOMER_DISCOUNT_APPROVAL`  → /scheme-builder/customer-discount-approval
+    - Distributor Markup Approval  `DISTRIBUTOR_MARKUP_APPROVAL`  → /scheme-builder/distributor-markup-approval
+    - Current Promotion Approver  `CURRENT_PROMOTION_APPROVER`  → /dtPromotion/current-promotion-approver
+    - Active Promotions  `ACTIVE_PROMOTIONS`  → /scheme-builder/active-promotions
+  - Sales Hierarchy Setup
+    - Sales Hierarchy  `DYL_1039`  → /dyl/layout
+  - Setup Mapping
+    - Company Mapping  `DYL_102013003`  → /dyl/layout
+    - Stock Type Reason Mapping  `DYL_202077`  → /dyl/layout
+  - Users
+    - User Profile  `USER_HEADER`  → /content-master/security/user-profile
+    - User  `SSO_USER_VIEW`  → /content-master/security/user
+    - User With Location  `SSO_USER_LOCATION_VIEW`  → /dyl/layout
+    - Change Password  `SSO_CHANGE_PASSWORD`  → /dyl/layout
+    - User HQ  `DYL_BG1020`  → /dyl/layout
+  - Validation
+    - Validation Setup  `DYL_201017`  → /dyl/layout
+    - Validation Header  `DYL_201018`  → /dyl/layout
+    - Validation Excel Upload  `VALIDATION_EXCEL_UPLOAD`  → /excel-upload/validation-excel-upload
+- Configuration
+  - Access Role
+    - Role  `ROLE`  → /content-master/security/role
+    - Role Profile  `ROLE_HEADER`  → /content-master/security/role-profile
+    - Role Option  `DYL_202029`  → /dyl/layout
+  - Device Configuration
+    - Dynamic Filter  `DYL_201019`  → /dyl/layout
+    - Indicator  `DYL_201084`  → /dyl/layout
+  - Mobiz  Configuration
+    - LookUps  `DYL_201020`  → /dyl/layout
+    - Alerts  `DYL_201021`  → /dyl/layout
+    - Email Message  `DYL_201022`  → /dyl/layout
+    - Event  `DYL_201023`  → /dyl/layout
+    - Sender Info  `DYL_201024`  → /dyl/layout
+    - Parameter Repository  `DYL_201025`  → /dyl/layout
+    - Event Parameter  `DYL_201034`  → /dyl/layout
+    - Template  `DYL_201031`  → /dyl/layout
+  - System Configuration
+    - Number Generation Entity  `NUMBER_GENERATION_ENTITY`  → /dyl/layout
+    - Number Generation Config  `NUMBER_GENERATION_CONFIG`  → /dyl/layout
+    - Option Group  `OPTION_GROUP`  → /content-master/security/option-group
+    - Global Parameters  `GLOBAL_PARAM_CONFIG`  → /content-master/parameter/global-parameters-config
+    - Principal  `DYL_1003`  → /dyl/layout
+    - Organization  `DYL_101001`  → /dyl/layout
+    - Unit of Measurement  `DYL_101016`  → /dyl/layout
+    - Product Type  `DYL_101041`  → /dyl/layout
+    - Payment Mode  `DYL_1013`  → /dyl/layout
+    - Period Type  `DYL_1014`  → /dyl/layout
+    - Frequency  `DYL_1015`  → /dyl/layout
+    - Address Type  `DYL_1017`  → /dyl/layout
+    - Device Type  `DYL_1020`  → /dyl/layout
+    - Events  `DYL_102008`  → /dyl/layout
+    - Repository  `DYL_102009`  → /dyl/layout
+    - Event Repository Mapping  `DYL_102010`  → /dyl/layout
+    - Identifier Type  `DYL_1021`  → /dyl/layout
+    - Business Entity Types  `DYL_1023`  → /dyl/layout
+    - Language  `DYL_1026`  → /dyl/layout
+    - Document  `DYL_1028`  → /dyl/layout
+    - Price Type  `DYL_1034`  → /dyl/layout
+    - DSR Type  `DYL_1035`  → /dyl/layout
+    - Transaction Nature  `DYL_1040`  → /dyl/layout
+    - Stock Type  `DYL_1078`  → /dyl/layout
+    - Marital Status  `DYL_1084`  → /dyl/layout
+    - Business Repository Mapping  `DYL_201036`  → /dyl/layout
+    - Profile Hierarchy Level  `DYL_202014`  → /dyl/layout
+    - Instrument Status  `DYL_201079`  → /dyl/layout
+    - Sub Document Type  `SUB_DOCUMENT_TYPE`  → /content-master/mobility/sub-document-type
+    - Finance Entity  `DYL_201081`  → /dyl/layout
+    - Cash Memo Promotion Viewer  `CASH_MEMO_PROMOTION_VIEWER`  → /dyl/layout
+  - Workflow Configuration
+    - Modeler  `WF_MODELER`  → /dyl/layout
+    - Modeler List  `WF_MODELER_LIST`  → /camunda-modeler
+    - Workflow Uploader  `WF_UPLOADER`  → /dyl/layout
+    - BPMN Uploader  `BPMN_UPLOADER`  → /camunda-modeler/uploader
+    - Incident  `INCIDENT`  → /workflow/incident
+- Distributor Setup
+  - DSR Profile
+    - DSR Profile  `DYL_102003019`  → /dyl/layout
+    - Change Track DSR Profile  `CHANGETRACK_DSRPROFILE`  → /change-management
+    - DSR Profile - DT  `DYL_DT1002`  → /dyl/layout
+    - DSR Profile Bulk Upload  `DSR_PROFILE_DATA`  → /excel-upload/dsr-profile-data
+    - DSR Profile TM - Layout  `DYL_TM1002`  → /dyl/layout
+    - DSR Profile Approval Bulk Upload  `DSR_PROFILE_DATA_APPROVAL`  → excel-upload/dsr-profile-data-approval
+    - DSR Profile HQ  `DYL_202044`  → /dyl/layout
+    - DSR Profile BG  `DYL_BG1017`  → /dyl/layout
+    - None  `DYL_202052`  → /dyl/layout
+    - None  `DYL_202075`  → /dyl/layout
+    - RCOA Report Setup  `DYL_202066`  → /dyl/layout
+  - General
+    - Distributor Holidays  `DYL_202018`  → /dyl/layout
+    - Document Check List  `DYL_DN1002`  → /dyl/layout
+    - Distributor Holiday Approval  `DYL_BG1009`  → /dyl/layout
+    - Distributor Holiday II  `DYL_BG1011`  → /dyl/layout
+    - Change Track Distributor Holiday II  `CHANGETRACK_DISTRIBUTOR_HOLIDAY_II`  → /change-management
+  - Journey Plan
+    - PJP Change Request  `CHANGETRACK_PJP`  → /change-management
+    - Change Track PJP Config  `CHANGETRACK_PJP_CONFIG`  → /change-management/pjp-config
+    - PJP Creation  `DYL_102011`  → /dyl/layout
+    - PJP Creation HQ  `DYL_202045`  → /dyl/layout
+    - PJP Setup  `PJP-SETUP`  → /dyl/layout
+    - Section Bulk Upload  `SECTION_BULK_UPLOAD`  → /excel-upload/section-bulk
+    - Section Setup  `SECTION-SETUP`  → /sectionsetup
+    - PJP Daily Inquiry  `DYL_202037`  → /dyl/layout
+    - PJP Creation DT  `DYL_DT1003`  → /dyl/layout
+    - PJP Daily Inquiry Update  `DYL_BG1022`  → /dyl/layout
+    - PJP Creation TM  `DYL_TM1003`  → /dyl/layout
+    - PJP Daily Inquiry Update DN  `DYL_DN1004`  → /dyl/layout
+    - PJP Creation BG  `DYL_BG1018`  → /dyl/layout
+    - PJP Header Bulk Creation  `PJP_HEADER_BULK_CREATION`  → /excel-upload/pjp-header-bulk-creation
+    - PJP Configuration Bulk Creation  `PJP_CONFIGURATION_BULK_CREATION`  → /excel-upload/pjp-configuration-bulk-creation
+  - Outlet Profile
+    - Outlet Approval II  `DYL_102003081`  → /dyl/layout
+    - Change Track Outlet Document  `CHANGETRACK_OUTL_DOC`  → /change-management/outlet-document
+    - Change Track Outlet Operative Info  `CHANGETRACK_OUTL_OPINFO`  → /change-management
+    - Change Track Outlet Profile  `CHANGETRACK_OUTLPROFILE`  → /change-management
+    - Outlet Profile   `DYL_202009001`  → /dyl/layout
+    - Outlet Excel View - Filter  `DYL_202016`  → /dyl/layout
+    - Outlet Profile HQ  `DYL_BG1013`  → /dyl/layout
+    - Outlet Profile View  `DYL_102003090`  → /dyl/layout
+    - Change Track DSR Document  `CHANGETRACK_DSR_DOC`  → /change-management/dsr-document
+    - Outlet Profile TM  `DYL_TM1004`  → /dyl/layout
+    - Prospect Outlet Approval  `DYL_102003100`  → /dyl/layout
+    - Outlet Change Track Excel  `EXCEL_UPLOAD`  → /content-master/mobility/outlet-excel-view
+    - Outlet Change Track Excel II  `OUTLET_CHANGE_TRACK_EXCEL2`  → /excel-upload/outlet-change-track-excel2
+    - Outlet Segment Mapping  `OUTLET_SEGMENT_MAPPING`  → /content-master/mobility/outlet-segment-mapping
+    - Outlet Creation Upload  `OUTLET_CREATION_UPLOAD`  → /excel-upload/outlet-excel-upload
+  - Setup Mapping
+    - Distributor Mapping  `DYL_102013002`  → /dyl/layout
+  - Vehicle Profile
+    - Vehicle Profile  `DYL_1032`  → /dyl/layout
+    - Vehicle Profile View  `DYL_202032`  → /dyl/layout
+  - Warehouse
+    - Warehouse Profile Approval  `DYL_BG1005`  → /dyl/layout
+    - Warehouse Profile  `DYL_BG1006`  → /dyl/layout
+- Reports
+  - Power BI Reports  `POWER-BI`  → /power-bi
+  - Jupiter Reconciliation Report  `RECON_REPORT`  → /jupiter-recon-report
+  - UL - Pakistan
+    - Cheque Detail  `PBIR_PAK_Cheque Detail`  → openPowerBI
+    - Claim Summary  `PBIR_PAK_Claim Summary`  → openPowerBI
+    - DSR Statement  `PBIR_PAK_DSR Statement`  → openPowerBI
+    - Debit Note  `PBIR_PAK_Debit Note`  → openPowerBI
+    - Debit Note  `PBIR_PAK_RT_Debit Note`  → openPowerBI
+    - Distributor Statement  `PBIR_PAK_Distributor Statement`  → openPowerBI
+    - EFOS Route View  `PBIR_PAK_EFOS_DataSetDQ`  → openPowerBI
+    - IQ  `PBIR_PAK_IQ`  → openPowerBI
+    - Inventory Summary Listing  `PBIR_PAK_Inventory Summary Listing`  → openPowerBI
+    - Main Invoice  `PBIR_PAK_RT_MainInvoice`  → openPowerBI
+    - MainInvoice  `PBIR_PAK_MainInvoice`  → openPowerBI
+    - Order Booking vs Execution  `PBIR_PAK_OrderBookingVsExecution_DataSetDQ`  → openPowerBI
+    - Outlet  `PBIR_PAK_Outlet`  → NULL
+    - PG-942-PK_HPC_Outlet_Master  `PBIR_PAK_PG-942-PK_HPC_Outlet_Master`  → openPowerBI
+    - PG-943_PK _Product_Master  `PBIR_PAK_PG-943_PK _Product_Master`  → openPowerBI
+    - PG-945_PK _Customer_Master  `PBIR_PAK_PG-945_PK _Customer_Master`  → openPowerBI
+    - PG-PSI Detail  `PBIR_PAK_PG-PSI Detail`  → openPowerBI
+    - PG-Time Stamping  `PBIR_PAK_PG-Time Stamping`  → openPowerBI
+    - PSI  `PBIR_PAK_PSI`  → openPowerBI
+    - PSI Detail  `PBIR_PAK_PSI Detail`  → openPowerBI
+    - PSI Report  `PBIR_PAK_PSI Report`  → openPowerBI
+    - Primary Sales  `PBIR_PAK_PrimarySales`  → NULL
+    - SKUPickedQuantity  `PBIR_PAK_SKUPickedQuantity`  → openPowerBI
+    - Sale & Stock Report  `PBIR_PAK_Sale & Stock Report`  → openPowerBI
+    - Sale / Financial  `PBIR_PAK_SaleFinancial`  → NULL
+    - Sales  `PBIR_PAK_Sales`  → NULL
+    - Sales (Real Time)  `PBIR_PAK_Sales_DQ`  → NULL
+    - Sales DashBoard  `PBIR_PAK_SalesDashBoard`  → openPowerBI
+    - Scheme  `PBIR_PAK_Scheme`  → NULL
+    - Scheme (Real Time)  `PBIR_PAK_Scheme_DQ`  → NULL
+    - Stock  `PBIR_PAK_Stock`  → NULL
+    - Target  `PBIR_PAK_Target`  → openPowerBI
+    - Visit  `PBIR_PAK_Visit`  → NULL
+    - Account Receivable
+      - Account Receivable Aging Detail  `PBIR_PAK_Account Receivable Aging Detail`  → openPowerBI
+      - Cheque Details  `PBIR_PAK_Cheque Details`  → openPowerBI
+      - Outlet Account Receivable Aging Summary  `PBIR_PAK_Outlet Account Receivable Aging Summary`  → openPowerBI
+      - Route wise Collection & Variance  `PBIR_PAK_Route wise Collection & Variance`  → openPowerBI
+    - Controls
+      - EFOS Route View  `PBIR_PAK_EFOS Route View`  → openPowerBI
+      - Invoice Analysis – Distributor  `PBIR_PAK_Invoice Analysis – Distributor`  → openPowerBI
+      - Invoice Analysis – Product BrandLead Pack  `PBIR_PAK_Invoice Analysis – Product BrandLead Pack`  → openPowerBI
+      - Time Stamping  `PBIR_PAK_TimeStamping`  → openPowerBI
+      - Un-Productive Customers  `PBIR_PAK_Un-Productive Customers`  → openPowerBI
+    - IQ
+      - IQ Compliance by Customer  `PBIR_PAK_IQ Compliance by Customer`  → openPowerBI
+      - IQ Compliance by Lead Base Pack  `PBIR_PAK_IQ Compliance by Lead Base Pack`  → openPowerBI
+      - IQ Compliance by Route  `PBIR_PAK_IQ Compliance by Route`  → openPowerBI
+      - IQ Dashboard  `PBIR_PAK_IQ Dashboard`  → openPowerBI
+    - Others
+      - Claim Consolidated  `PBIR_PAK_Claim Consolidated`  → openPowerBI
+      - Claim Summary  `PBIR_PAK_ClaimSummary`  → openPowerBI
+      - Credit Note Adjustment Report  `PBIR_PAK_Credit Note Adjustment Report`  → openPowerBI
+      - Customer Listing  `PBIR_PAK_Customer Listing`  → openPowerBI
+      - Customer Master  `PBIR_PAK_Customer Master`  → openPowerBI
+      - DSR Statement  `PBIR_PAK_DSRStatement`  → openPowerBI
+      - Damage Stock Summary - By Customer  `PBIR_PAK_Damage Stock Summary - By Customer`  → openPowerBI
+      - Distributor Statement  `PBIR_PAK_DistributorStatement`  → openPowerBI
+      - Outlet Master  `PBIR_PAK_Outlet Master`  → openPowerBI
+      - Price Structure  `PBIR_PAK_Price Structure`  → openPowerBI
+      - Product Master  `PBIR_PAK_Product Master`  → openPowerBI
+    - Performance
+      - Brand and Subbrand wise Lead Base Pack Productivity  `PBIR_PAK_BrandSubbrandWiseLeadBaseProductivity`  → openPowerBI
+      - Brand wise Lead Base Pack Productivity  `PBIR_PAK_Brand wise Lead Base Pack Productivity`  → openPowerBI
+      - Channel wise Lead Base Pack Productivity  `PBIR_PAK_Channel wise Lead Base Pack Productivity`  → openPowerBI
+      - Channel-wise Brand Productivity  `PBIR_PAK_ChannelWiseBrandProductivity`  → openPowerBI
+      - Dashboard Salesman Lead Base Pack Productivity Brand  `PBIR_PAK_DashbodSalemanLedBasProductivtyBrand`  → openPowerBI
+      - Dashboard Salesman Lead Base Pack Productivity Lead Base Pack  `PBIR_PAK_DashbodSalemanLedBasProductivtyLedBasPck`  → openPowerBI
+      - Dashboard Salesman Lead Base Pack Productivity Sub Brand  `PBIR_PAK_DashbodSalemanLedBasProductivtySubBrand`  → openPowerBI
+      - Distributor Productivity  `PBIR_PAK_Distributor Productivity`  → openPowerBI
+      - Lead Base Pack Penetration  `PBIR_PAK_Lead Base Pack Penetration`  → openPowerBI
+      - Lead Base Pack Productivity  `PBIR_PAK_Lead Base Pack Productivity`  → openPowerBI
+      - SKU Productivity  `PBIR_PAK_SKU Productivity`  → openPowerBI
+      - Salesman Lead Base Pack Productivity  `PBIR_PAK_Salesman Lead Base Pack Productivity`  → openPowerBI
+      - Salesman Productivity  `PBIR_PAK_Salesman Productivity`  → openPowerBI
+    - Promotion
+      - Customer Scheme Cap Report  `PBIR_PAK_Customer Scheme Cap Report`  → openPowerBI
+      - Promotion Budget Utilization  `PBIR_PAK_Promotion Budget Utilization`  → openPowerBI
+      - Promotion Details  `PBIR_PAK_Promotion Details`  → openPowerBI
+      - Promotion Summary  `PBIR_PAK_Promotion Summary`  → openPowerBI
+    - Purchase & Inventory
+      - Debit Note  `PBIR_PAK_Debit_Note`  → openPowerBI
+      - Inventory Summary Listing  `PBIR_PAK_Inventory_Summary_Listing`  → openPowerBI
+      - PG-PSI Detail  `PBIR_PAK_PG-PSI_Detail`  → openPowerBI
+      - PSI Report  `PBIR_PAK_PSI_Report`  → openPowerBI
+      - Purchase Details  `PBIR_PAK_Purchase Details`  → openPowerBI
+      - SKU Picked Quantity  `PBIR_PAK_SKU_Picked_Quantity`  → openPowerBI
+      - Sale & Stock Report  `PBIR_PAK_Sale_&_Stock_Report`  → openPowerBI
+    - Real Time Reports
+      - Debit Note  `PBIR_PAK_RT_Debit Note`  → openPowerBI
+      - EFOS Route View  `PBIR_PAK_EFOS_DataSetDQ`  → openPowerBI
+      - Main Invoice  `PBIR_PAK_RT_MainInvoice`  → openPowerBI
+      - Order Booking vs Execution  `PBIR_PAK_OrderBookingVsExecution_DataSetDQ`  → openPowerBI
+    - Sales
+      - Main Invoice  `PBIR_PAK_Main_Invoice`  → openPowerBI
+      - Order Booking vs Execution Report  `PBIR_PAK_Order Booking vs Execution Report`  → openPowerBI
+      - Sales Analysis (Order)  `PBIR_PAK_Sales Analysis (Order)`  → openPowerBI
+      - Sales Summary  `PBIR_PAK_Sales Summary`  → openPowerBI
+    - Target Achievement
+      - Distributor Target Achievement  `PBIR_PAK_Distributor Target Achievement`  → openPowerBI
+      - Salesman Brand Target Achievement  `PBIR_PAK_Salesman Brand Target Achievement`  → openPowerBI
+      - Salesman Target Achievement Report  `PBIR_PAK_Salesman Target Achievement Report`  → openPowerBI
+  - UL-Bangladesh
+    -  DSR Statement  `PBIR_DCODE–BD-SDMS-1416-PGNT`  → openPowerBI
+    -  DSR Statement  `PBIR_DCODE–BD-SDMS-1416`  → openPowerBI
+    -  Purchase Details  `PBIR_DCODE–BD-SDMS-1439`  → openPowerBI
+    -  Reports- eVAT- M6.10_PurchaseM610  `PBIR_DCODE–BD-SDMS-2398-PGNT`  → openPowerBI
+    -  Reports- eVAT- M6.10_SalesM610  `PBIR_DCODE–BD-SDMS-2399-PGNT`  → openPowerBI
+    - Account Receivable Aging Detail Report  `PBIR_DCODE–BD-SDMS-1477`  → openPowerBI
+    - Brand, Sub Brand, Lead Base Pack Productivity Report  `PBIR_DCODE–BD-SDMS-1422`  → openPowerBI
+    - Channel Wise Brand Channel Wise Lead Base Pack Productivity Report  `PBIR_DCODE–BD-SDMS-1421`  → openPowerBI
+    - Cheque Details  `PBIR_DCODE–BD-SDMS-1474`  → openPowerBI
+    - Claim Summary Report  `PBIR_DCODE–BD-SDMS-1425`  → openPowerBI
+    - Claims Report  `PBIR_DCODE–BD-SDMS-1415`  → openPowerBI
+    - Credit Note Adjustment Report  `PBIR_DCODE–BD-SDMS-1457`  → openPowerBI
+    - Customer Listing Report  `PBIR_DCODE–BD-SDMS-1473`  → openPowerBI
+    - Customer Scheme Cap Report  `PBIR_DCODE–BD-SDMS-1472`  → openPowerBI
+    - Damage Stock Summary – By Customer Report  `PBIR_DCODE–BD-SDMS-1456`  → openPowerBI
+    - Distributor Productivity  `PBIR_DCODE–BD-SDMS-1448`  → openPowerBI
+    - Distributor Statement Report  `PBIR_DCODE–BD-SDMS-1455`  → openPowerBI
+    - Distributor Statement Report  `PBIR_DCODE–BD-SDMS-1455-PGNT`  → openPowerBI
+    - Distributor Target Achievement Report  `PBIR_DCODE–BD-SDMS-1447`  → openPowerBI
+    - EFOS PJP View report  `PBIR_DCODE–BD-SDMS-1470`  → openPowerBI
+    - Free Goods Detail Report  `PBIR_DCODE–BD-SDMS-4070`  → openPowerBI
+    - IQ Assortment Complaince  `PBIR_DCODE–BD-SDMS-1414`  → openPowerBI
+    - IQ Compliance By Lead Base Pack  `PBIR_DCODE–BD-SDMS-1460`  → openPowerBI
+    - IQ Dashboard  `PBIR_DCODE–BD-SDMS-1424`  → openPowerBI
+    - Inventory Summary Listing  `PBIR_DCODE–BD-SDMS-1465`  → openPowerBI
+    - Invoice Analysis-Distributor  `PBIR_DCODE–BD-SDMS-1468`  → openPowerBI
+    - Lead Base Pack Penetration Report  `PBIR_DCODE–BD-SDMS-1446`  → openPowerBI
+    - Master Data
+      - Outlet  `PBIR_DCODE-SDMS-1343`  → openPowerBI
+      - Product  `PBIR_DCODE-SDMS-1342`  → openPowerBI
+    - Non-UBL Stock Report  `PBIR_DCODE–BD-SDMS-2656`  → openPowerBI
+    - Order Booking VS Execution (History) Report  `PBIR_DCODE–BD-SDMS-1438`  → openPowerBI
+    - Order Booking VS Execution (Real Time) Report  `PBIR_DCODE–BD-SDMS-1437`  → openPowerBI
+    - Outlet Wise Account Receivable Aging Summary Report  `PBIR_DCODE–BD-SDMS-1476`  → openPowerBI
+    - PJP Wise Collection & Variance Report  `PBIR_DCODE–BD-SDMS-1475`  → openPowerBI
+    - PSI Details  `PBIR_DCODE–BD-SDMS-1426`  → openPowerBI
+    - PSI Details  `PBIR_DCODE–BD-SDMS-1426-PGNT`  → openPowerBI
+    - PSI Report  `PBIR_DCODE–BD-SDMS-1407`  → openPowerBI
+    - PSI Report  `PBIR_DCODE–BD-SDMS-1407-PGNT`  → openPowerBI
+    - Physical Stock vs System Stock Report  `PBIR_DCODE–BD-SDMS-1464`  → openPowerBI
+    - Physical Stock vs System Stock Report  `PBIR_DCODE–BD-SDMS-1464-PGNT`  → openPowerBI
+    - Promotion Detail Report  `PBIR_DCODE–BD-SDMS-1452`  → openPowerBI
+    - Promotion Summary Report  `PBIR_DCODE–BD-SDMS-1451`  → openPowerBI
+    - Proof of Delivery  `PBIR_DCODE–BD-SDMS-2553`  → openPowerBI
+    - Route Settlement Statement Report  `PBIR_DCODE–BD-SDMS-4314`  → openPowerBI
+    - SKU Productivity  `PBIR_DCODE–BD-SDMS-1441`  → openPowerBI
+    - SKU Wise Picked Quantity report  `PBIR_DCODE–BD-SDMS-1462`  → openPowerBI
+    - Sales Analysis (order) Report  `PBIR_DCODE–BD-SDMS-1436`  → openPowerBI
+    - Sales Summary  `PBIR_DCODE–BD-SDMS-1435`  → openPowerBI
+    - Sales and Stock Report  `PBIR_DCODE–BD-SDMS-1463`  → openPowerBI
+    - Salesman Brand Productivity  `PBIR_DCODE–BD-SDMS-1420`  → openPowerBI
+    - Salesman Brand Target Achievement Report  `PBIR_DCODE–BD-SDMS-1445`  → openPowerBI
+    - Salesman Lead Base Pack Productivity Report  `PBIR_DCODE–BD-SDMS-1444`  → openPowerBI
+    - Salesman Productivity Report  `PBIR_DCODE–BD-SDMS-1443`  → openPowerBI
+    - Salesman Target Achievement Report  `PBIR_DCODE–BD-SDMS-1442`  → openPowerBI
+    - Time Stamping Control Report  `PBIR_DCODE–BD-SDMS-1467`  → openPowerBI
+    - Un-Productive Customers  `PBIR_DCODE–BD-SDMS-1466`  → openPowerBI
+    - VAT Reports
+      - BD  `PBIR_DCODE-BD`  → openPowerBI
+      - Monthly VAT Return-Detail  `PBIR_DCODE-PG-2396-BD-MonthlyVATReturn-Detail`  → openPowerBI
+      - Purchase and Sales Register Detail  `PBIR_DCODE-BDPG-2400-Purchase&SalesRegisterDetail`  → openPowerBI
+      - VAT Ledger Detail  `PBIR_DCODE-TB-2395-VATLedger_Detail`  → openPowerBI
+      - VAT Ledger Detail  `PBIR_DCODE-TB-2395-VATLedger_Summary`  → openPowerBI
+    - VATLedger_Summary  `PBIR_DCODE–BD-SDMS-2395`  → openPowerBI
+  - LTIM
+    - LTIM-LandingPage-DistributorDashboard  `PBIR_PAK_LTIM-LandingPage-DistributorDashboard`  → openPowerBI
+    - LTIM-MasterReport  `PBIR_PAK_LTIM-MasterReport`  → openPowerBI
+  - UL - Thailand
+    - Account Receivable  `PBIR_TH_Account Receivable`  → NULL
+      - Account Receivable Aging Detail Report  `PBIR_THPH-Account_Receivable_Aging_DTL_RPT`  → openPowerBI
+      - Cheque Details  `PBIR_THPH-Cheque_Details`  → openPowerBI
+      - Outlet Wise Account Receivable Aging Summary Report  `PBIR_THPH-Outlet_Account_Receivable_Aging_DTL_RPT`  → openPowerBI
+      - PJP Wise Collection & Variance Report  `PBIR_THPH-Outlet_PJP_Wise_Collection_Variance RPT`  → openPowerBI
+    - Controls  `PBIR_TH_Controls`  → NULL
+      - EFOS PJP View report  `PBIR_THPH-EFOS_PJP_View_Report`  → openPowerBI
+      - Invoice Analysis - Distributor  `PBIR_THPH-Invoice_Analysis_Distributor`  → openPowerBI
+      - Time Stamping Report  `PBIR_THPH-Time_Stamping_Report`  → openPowerBI
+      - Un-productive Customers  `PBIR_THPH-Unproductive_Customers`  → openPowerBI
+    - IQ  `PBIR_TH_IQ`  → NULL
+      - IQ Assortment Compliance  `PBIR_THPH-IQ_Assortment_Compliance`  → openPowerBI
+      - IQ Compliance By Lead Base Pack Report  `PBIR_THPH-IQ_Compliance_By_LeadBase_Pack_Report`  → openPowerBI
+      - IQ Compliance by Customer  `PBIR_THPH-IQ_Compliance_by_Customer`  → openPowerBI
+      - IQ Dashboard  `PBIR_THPH-IQ_Dashboard`  → openPowerBI
+    - Others  `PBIR_TH_Others`  → NULL
+      - Claim Summary report  `PBIR_THPH-Claim_Summary_Report`  → openPowerBI
+      - Claims Report  `PBIR_THPH-Claims_Report`  → openPowerBI
+      - Credit note Adjustment Report  `PBIR_THPH-Credit_Note_Adjustment_Report`  → openPowerBI
+      - Customer Listing  `PBIR_THPH-Customer_Listing`  → openPowerBI
+      - DSR Statement  `PBIR_THPH-DSR_Statement_Report`  → openPowerBI
+      - DSR Statement (Paginated)  `PBIR_THPH-DSR_Statement_PGNT_Report`  → openPowerBI
+      - Damage Stock Summary – By Customer Report  `PBIR_THPH-Damage_Stock_Summary_RPT`  → openPowerBI
+      - Distributor Master  `PBIR_THPH-Distributor_Master`  → openPowerBI
+      - Distributor Statement Report  `PBIR_THPH-Distributor_Statement_Report`  → openPowerBI
+      - Distributor Statement Report (Paginated)  `PBIR_THPH-Distributor_Statement_PGNT_Report`  → openPowerBI
+      - Free Goods Detail Report  `PBIR_THPH-Free_GoodsDetail_Report`  → openPowerBI
+      - Goods Receipt Note  `PBIR_THPH-Goods_Receipt_Note`  → openPowerBI
+      - Non-UBL Items delivery  `PBIR_THPH-Non-UBL_Items_delivery`  → openPowerBI
+      - Physical Stock vs System Stock Report (Paginated)  `PBIR_THPH-Physical_Stock_vs_System Stock_RPT_PGNT`  → openPowerBI
+      - Physical Stock vs System Stock report  `PBIR_THPH-Physical Stock_vs_System Stock report`  → openPowerBI
+      - Route Settlement Statement Report  `PBIR_THPH-Route_Settlement_Statement_Report`  → openPowerBI
+    - Performance  `PBIR_TH_Performance`  → NULL
+      - Brand Sub Brand Lead Base Pack Productivity Report  `PBIR_THPH-BrandSubBrandLeadBasePack_Prdy_RPT`  → openPowerBI
+      - Channel Wise Brand Channel Wise Lead Base Pack Productivity Report  `PBIR_THPH-ChannelWise_BrandLeadBasePack_Prdy_RPT`  → openPowerBI
+      - Distributor Productivity  `PBIR_THPH-Distributor_Productivity_Report`  → openPowerBI
+      - Lead Base Pack Penetration  `PBIR_THPH-Lead_BasePack_Penetration`  → openPowerBI
+      - SKU Productivity  `PBIR_THPH-SKU_Productivity_Report`  → openPowerBI
+      - Salesman Brand Productivity  `PBIR_THPH-Salesman_Brand_Productivity`  → openPowerBI
+      - Salesman Lead Base Pack Productivity  `PBIR_THPH-Salesman_LeadBasePack_Productivity`  → openPowerBI
+      - Salesman Productivity  `PBIR_THPH-Salesman_Productivity_Report`  → openPowerBI
+    - Promotion  `PBIR_TH_Promotion`  → NULL
+      - Customer Scheme Limit Report  `PBIR_THPH-Customer_Scheme_Limit_Report`  → openPowerBI
+      - Promotion Detail Report  `PBIR_THPH-Promotion_Detail_Report`  → openPowerBI
+      - Promotion Summary report  `PBIR_THPH-Promotion_Summary_Report`  → openPowerBI
+    - Purchase & Inventory  `PBIR_TH_Purchase_Inventory`  → NULL
+      - Inventory Summary Listing  `PBIR_THPH-Inventory_Summary_Listing`  → openPowerBI
+      - PSI Detail Report  `PBIR_THPH-PSI_Detail_Report`  → openPowerBI
+      - PSI Detail Report (Paginated)  `PBIR_THPH-PSI_Detail_Report_PGNT`  → openPowerBI
+      - PSI Report  `PBIR_THPH-PSI_Report`  → openPowerBI
+      - PSI Report (Paginated)  `PBIR_THPH-PSI_Report_PGNT`  → openPowerBI
+      - Purchase Details  `PBIR_THPH-Purchase_Details`  → openPowerBI
+      - SKU Wise Picked Quantity Report  `PBIR_THPH-SKU_Wise_Picked_Quantity_Report`  → openPowerBI
+      - Sales and Stock Report  `PBIR_THPH-Sales_and_Stock_Report`  → openPowerBI
+    - Sales  `PBIR_TH_Sales`  → NULL
+      - Order Booking vs Execution (History) Report  `PBIR_THPH-Order_Booking_vs_Exec_Hist`  → openPowerBI
+      - Sales Analysis  `PBIR_THPH-Sales_Analysis`  → openPowerBI
+      - Sales Summary  `PBIR_THPH-Sales_Summary`  → openPowerBI
+      - Order Booking vs Execution (Realtime) Report  `PBIR_THPH-Order_Booking_vs_Exec_Rltm`  → openPowerBI
+    - Target Achievement  `PBIR_TH_Target Achievement`  → NULL
+      - Distributor Target Achievement  `PBIR_THPH-Distributor_Target_Achievement`  → openPowerBI
+      - Salesman Target Achievement Report  `PBIR_THPH-Salesman_Target_Achievement_Report`  → openPowerBI
+    - VAT  `PBIR_TH_VAT`  → NULL
+      - Purchase and Sales Register-Detail  `PBIR_THPH-Purchase_and_Sales_Register-Detail`  → openPowerBI
+      - Stock Adjustment VAT Impact  `PBIR_THPH-Outlet_Stock_Adjustment_VAT_Impact`  → openPowerBI
+      - VATLedger_Detail  `PBIR_THPH-VATLedger_Detail`  → openPowerBI
+      - VATLedger_Summary  `PBIR_THPH-VATLedger_Summary`  → openPowerBI
+  - UL - Philippines
+    - Account Receivable  `PBIR_TH_Account Receivable`  → NULL
+      - Account Receivable Aging Detail Report  `PBIR_PH-Account_Receivable_Aging_DTL_RPT`  → openPowerBI
+      - Cheque Details  `PBIR_PH-Cheque_Details`  → openPowerBI
+      - Outlet Wise Account Receivable Aging Summary Report  `PBIR_PH-Outlet_Account_Receivable_Aging_DTL_RPT`  → openPowerBI
+      - PJP Wise Collection & Variance Report  `PBIR_PH-Outlet_PJP_Wise_Collection_Variance RPT`  → openPowerBI
+    - Controls  `PBIR_TH_Controls`  → NULL
+      - EFOS PJP View report  `PBIR_PH-EFOS_PJP_View_Report`  → openPowerBI
+      - Invoice Analysis - Distributor  `PBIR_PH-Invoice_Analysis_Distributor`  → openPowerBI
+      - Time Stamping Report  `PBIR_PH-Time_Stamping_Report`  → openPowerBI
+      - Un-productive Customers  `PBIR_PH-Unproductive_Customers`  → openPowerBI
+    - IQ  `PBIR_TH_IQ`  → NULL
+      - IQ Assortment Compliance  `PBIR_PH-IQ_Assortment_Compliance`  → openPowerBI
+      - IQ Compliance By Lead Base Pack Report  `PBIR_PH-IQ_Compliance_By_LeadBase_Pack_Report`  → openPowerBI
+      - IQ Compliance by Customer  `PBIR_PH-IQ_Compliance_by_Customer`  → openPowerBI
+      - IQ Dashboard  `PBIR_PH-IQ_Dashboard`  → openPowerBI
+    - Others  `PBIR_TH_Others`  → NULL
+      - Claim Summary report  `PBIR_PH-Claim_Summary_Report`  → openPowerBI
+      - Claims Report  `PBIR_PH-Claims_Report`  → openPowerBI
+      - Credit note Adjustment Report  `PBIR_PH-Credit_Note_Adjustment_Report`  → openPowerBI
+      - Customer Listing  `PBIR_PH-Customer_Listing`  → openPowerBI
+      - DSR Statement  `PBIR_PH-DSR_Statement_Report`  → openPowerBI
+      - DSR Statement (Paginated)  `PBIR_PH-DSR_Statement_PGNT_Report`  → openPowerBI
+      - Damage Stock Summary – By Customer Report  `PBIR_PH-Damage_Stock_Summary_RPT`  → openPowerBI
+      - Distributor Master  `PBIR_PH-Distributor_Master`  → openPowerBI
+      - Distributor Statement Report  `PBIR_PH-Distributor_Statement_Report`  → openPowerBI
+      - Distributor Statement Report (Paginated)  `PBIR_PH-Distributor_Statement_PGNT_Report`  → openPowerBI
+      - Free Goods Detail Report  `PBIR_PH-Free_GoodsDetail_Report`  → openPowerBI
+      - Goods Receipt Note  `PBIR_PH-Goods_Receipt_Note`  → openPowerBI
+      - Non-UBL Items delivery  `PBIR_PH-Non-UBL_Items_delivery`  → openPowerBI
+      - Physical Stock vs System Stock Report (Paginated)  `PBIR_PH-Physical_Stock_vs_System Stock_RPT_PGNT`  → openPowerBI
+      - Physical Stock vs System Stock report  `PBIR_PH-Physical Stock_vs_System Stock report`  → openPowerBI
+      - Route Settlement Statement Report  `PBIR_PH-Route_Settlement_Statement_Report`  → openPowerBI
+    - Performance  `PBIR_TH_Performance`  → NULL
+      - Brand Sub Brand Lead Base Pack Productivity Report  `PBIR_PH-BrandSubBrandLeadBasePack_Prdy_RPT`  → openPowerBI
+      - Channel Wise Brand Channel Wise Lead Base Pack Productivity Report  `PBIR_PH-ChannelWise_BrandLeadBasePack_Prdy_RPT`  → openPowerBI
+      - Distributor Productivity  `PBIR_PH-Distributor_Productivity_Report`  → openPowerBI
+      - Lead Base Pack Penetration  `PBIR_PH-Lead_BasePack_Penetration`  → openPowerBI
+      - SKU Productivity  `PBIR_PH-SKU_Productivity_Report`  → openPowerBI
+      - Salesman Brand Productivity  `PBIR_PH-Salesman_Brand_Productivity`  → openPowerBI
+      - Salesman Lead Base Pack Productivity  `PBIR_PH-Salesman_LeadBasePack_Productivity`  → openPowerBI
+      - Salesman Productivity  `PBIR_PH-Salesman_Productivity_Report`  → openPowerBI
+    - Promotion  `PBIR_TH_Promotion`  → NULL
+      - Customer Scheme Limit Report  `PBIR_PH-Customer_Scheme_Limit_Report`  → openPowerBI
+      - Promotion Detail Report  `PBIR_PH-Promotion_Detail_Report`  → openPowerBI
+      - Promotion Summary report  `PBIR_PH-Promotion_Summary_Report`  → openPowerBI
+    - Purchase & Inventory  `PBIR_TH_Purchase_Inventory`  → NULL
+      - Inventory Summary Listing  `PBIR_PH-Inventory_Summary_Listing`  → openPowerBI
+      - PSI Detail Report  `PBIR_PH-PSI_Detail_Report`  → openPowerBI
+      - PSI Detail Report (Paginated)  `PBIR_PH-PSI_Detail_Report_PGNT`  → openPowerBI
+      - PSI Report  `PBIR_PH-PSI_Report`  → openPowerBI
+      - PSI Report (Paginated)  `PBIR_PH-PSI_Report_PGNT`  → openPowerBI
+      - Purchase Details  `PBIR_PH-Purchase_Details`  → openPowerBI
+      - SKU Wise Picked Quantity Report  `PBIR_PH-SKU_Wise_Picked_Quantity_Report`  → openPowerBI
+      - Sales and Stock Report  `PBIR_PH-Sales_and_Stock_Report`  → openPowerBI
+    - Sales  `PBIR_TH_Sales`  → NULL
+      - Order Booking vs Execution (History) Report  `PBIR_PH-Order_Booking_vs_Exec_Hist`  → openPowerBI
+      - Sales Analysis  `PBIR_PH-Sales_Analysis`  → openPowerBI
+      - Sales Summary  `PBIR_PH-Sales_Summary`  → openPowerBI
+      - Order Booking vs Execution (Realtime) Report  `PBIR_PH-Order_Booking_vs_Exec_Rltm`  → openPowerBI
+    - Target Achievement  `PBIR_TH_Target Achievement`  → NULL
+      - Distributor Target Achievement  `PBIR_PH-Distributor_Target_Achievement`  → openPowerBI
+      - Salesman Target Achievement Report  `PBIR_PH-Salesman_Target_Achievement_Report`  → openPowerBI
+    - VAT  `PBIR_TH_VAT`  → NULL
+      - Purchase and Sales Register-Detail  `PBIR_PH-Purchase_and_Sales_Register-Detail`  → openPowerBI
+      - Stock Adjustment VAT Impact  `PBIR_PH-Outlet_Stock_Adjustment_VAT_Impact`  → openPowerBI
+      - VATLedger_Detail  `PBIR_PH-VATLedger_Detail`  → openPowerBI
+      - VATLedger_Summary  `PBIR_PH-VATLedger_Summary`  → openPowerBI
+- Support
+  - Audit Log
+    - Audit Log View  `AUDIT_LOG`  → /content-master/security/audit-log
+    - Audit Log By Period  `AUDIT_LOG_BY_PERIOD`  → /content-master/security/audit-log-by-period
+- Target
+  - Budget
+    - Budget Setup  `BUDGET_LAYOUT`  → /target
+    - Budget Role Hierarchy  `BUDGET_USER_HIER`  → /target/target-user-mapping
+  - Target
+    - Target Setup  `TARGET_LAYOUT`  → /product-target
+    - Target Role Hierarchy  `TARGET_USER_HIER`  → /target/target-user-mapping
+    - Bulk Promo Allocation  `BULK_PROMO_ALLOCATION`  → /target/promo-target-builder
+    - Outlet Enrollment  `ENROLLMENT_BASED_TARGET`  → /excel-upload/enrollment-based-target
+    - FCS Target Excel Upload  `FCS_TARGET_UPLOAD`  → /excel-upload/fcs-target-upload
+- Transaction
+  - Logs
+    - Visit Status Log  `DYL_201087`  → /dyl/layout
+  - Order
+    - Cashmemo Status  `CASHMEMO-STATUS`  → /order-booking/cashmemo-status
+    - BG - Transaction Inquiry  `DYL_BG1016`  → /dyl/layout
+    - Transaction Inquiry  `DYL_102014`  → /dyl/layout
+    - Delivery Date Change   `DYL_201080`  → /dyl/layout
+    - Order Stock Allocation  `DYL_201904`  → /dyl/layout
+    - Order Change Utility  `DYL_202008`  → /dyl/layout
+    - Cashmemo Status Change  `DYL_202019`  → /dyl/layout
+    - Order Cancellation  `DYL_202022`  → /dyl/layout
+    - Order Editing  `ORDER_EDITING`  → /order-editing
+    - Delivery Man Shuffling  `DELIVERY_MAN_SHUFFLING`  → /content-master/mobility/delivery-man-shuffling
+    - Order Cancellation DT  `DYL_202049`  → /dyl/layout
+    - Cancel Reschedule Order  `CANCEL_RESCHEDULE_ORDER`  → /order-booking/cancel-reschedule-order
+    - Cashmemo Reschedule  `DYL_202053`  → /dyl/layout
+    - Split Manual Order  `DYL_202054`  → /dyl/layout
+    - Order Integration
+    - Daily Delivery Man Plan  `DAILY_DELIVERY_MAN`  → /non-ul-screens/daily-delivery-man
+    - Re Attempt FBR Invoice  `DYL_202036`  → /dyl/layout
+  - Order Booking  `ORDER_BOOKING`  → /order-booking
+  - Primary Sale
+    - Dispatch Advice  `DYL_201068`  → /dyl/layout
+    - Dispatch Advice NUP  `DYL_BG1003`  → /dyl/layout
+    - Dispatch Advice II  `DYL_BG1004`  → /dyl/layout
+    - Transfer In DA  `DYL_AS1001`  → /dyl/layout
+  - Process
+    - Adhoc Executor  `ADHOC_JOB_EXECUTOR`  → /content-master/mobility/adhoc-executor
+    - Adhoc Executor
+    - Adhoc Job Executor  `ADHOC_JOB_EXECUTOR2`  → /integrator/adhoc-job-executor
+    - Execution Status  `DYL_202023`  → /dyl/layout
+  - Receivable
+    - Credit/Debit Note Inquiry  `DYL_201502`  → /dyl/layout
+    - Deposit Slip  `DYL_201802`  → /dyl/layout
+    - Debit\Credit Note  `DYL_201901`  → /dyl/layout
+    - Manual Knockoff  `DYL_202010`  → /dyl/layout
+    - Cheque Status  `DYL_202020`  → /dyl/layout
+    - Off-Invoice Credit Note  `OFF_INVOICE_CREDIT`  → /excel-upload/off-invoice-credit-excel-upload
+    - Off-Invoice Credit Note Approval  `CREDIT_NOTE_APPROVAL`  → /credit-note/credit-note-approval
+    - DSR Adjustment Amount  `DSR_ADJUSTMENT_AMOUNT`  → /content-master/mobility/dsr-adjustment-amount-wise
+    - Route Settlement  `ROUTE_SETTLEMENT`  → /content-master/route-settlement
+    - Vat Adjustment Rebate Payable  `VAT_ADJUSTMENT_REBATE_PAYABLE`  → /content-master/mobility/vat-adjustment-rebate-payable
+    - Vat Treasury Deposit  `VAT_TREASURY_DEPOSIT`  → /content-master/mobility/vat-treasury-deposit
+    - None  `DYL_201202`  → /dyl/layout
+    - Credit Note Editing  `CREDIT_NOTE_EDIT`  → /credit-note/credit-note-edit
+    - Invoice Upload Excel  `INVOICE_UPLOAD`  → excel-upload/invoice-upload
+    - Credit Note Knock Off  `CREDIT_NOTE_KNOCK_OFF`  → /credit-note/credit-note-knock-off
+  - Sales Return
+    - Sales Return  `SALESRETURN`  → /content-master/mobility/sales-return
+    - Sales Return Status Change  `SALESRETURN-STATUSCHANGE`  → /sales-return-statusChange
+    - Sales Return View  `SALESRETURNVIEW`  → /sales-return-statusChange/view
+    - In-House/Market Return Claim  `INHOUSE_MARKET_RETURN`  → /content-master/mobility/inhouse-market-return
+    - Sales Return Without Reference  `SALE_RETURN_WITHOUT_REFERENCE`  → /pqc/without-reference
+    - Fresh Sales Return  `FRESH_SALES_RETURN`  → /sales-return-statusChange/fresh-sales-return
+    - Sales Return W/O Reference View  `SALES_RETURN_WITHOUT_REF_VIEW`  → /pqc/sales-return-without-ref-view
+    - Sales Return W/O Reference Pick  `SALES_RETURN_WITHOUT_REF_PICKED`  → /pqc/sales-return-without-ref-picked
+  - Stock
+    - Goods Issue Note  `GOOD_ISSUE_NODE`  → /good-issue-notes/GIN
+    - Stock Adjustment SAN  `DYL_201045`  → /dyl/layout
+    - Return Advise  `DYL_201046`  → /dyl/layout
+    - Goods Return Notes  `GOODS_RETURN_NOTES`  → /goods-return-notes/GRN
+    - Stock Master Inquiry  `DYL_201906`  → /dyl/layout
+    - GIN/GRN Inquiry  `GIN_GRN_INQUIRY`  → /content-master/mobility/gin-grn-inquiry
+    - Stock Reconciliation  `PHYSICAL_STOCK_RECONCILIATION`  → /excel-upload/physical-stock-reconciliation
+    - Stock Inquiry  `DYL_201069`  → /dyl/layout
+    - Stock Inquiry II  `DYL_BG1015`  → /dyl/layout
+  - Claim
+    - IO Listing  `DYL_202028`  → /content-master/mobility/io-Listing
+    - IO Master  `DYL_202058`  → /dyl/layout
+    - IQ Threshold  `DYL_202033`  → /dyl/layout
+    - Claim Approval  `CLAIM_APPROVAL`  → content-master/mobility/claim-approval
+    - Incentive Claim Process  `INCENTIVE_CLAIM_PROCESS`  → /content-master/mobility/incentive-claim-process
+    - Cancel Claim  `CANCEL_CLAIM`  → /content-master/mobility/cancel-claim
+    - Incentive Reward Generation  `INCENTIVE_REWARD_GENERATION`  → /excel-upload/incentive-reward-generation
+    - Incentive Manual Reward Finalization  `MANUAL_REWARD_FINALIZATION`  → /incentive-setup/manual-reward-finalization
+    - Claim Inquiry  `DYL_201097005`  → /dyl/layout
+    - Claim Inquiry - BG  `DYL_BG1021`  → /dyl/layout
+    - Claim  `DYL_201097`  → /dyl/layout
+    - Claim Period Setup  `CLAIM_PERIOD`  → /content-master/claim
+    - Claim Inquiry Doc Wise  `CLAIM_INQUIRY_DOC_WISE`  → /content-master/claim/claim-inquiry-doc-wise
+    - Manual Claim  `MANUAL_CLAIM`  → /content-master/claim/manual-claim
+    - Claim Inquiry Doc Wise 1  `DYL_BG1023`  → /dyl/layout
+    - Claim Inquiry Doc Wise 3  `DYL_BG1025`  → /dyl/layout
+  - Bulk Order Upload  `DYL_LMT_ORDER_CREATION`  → /dyl/layout
+  - Locus Upload  `LOCUS_UPLOAD`  → /excel-upload/locus-upload
+  - Locus Download  `LOCUS_DOWNLOAD`  → /excel-upload/locus-download
+  - Change Execution Status  `DYL_202040`  → /dyl/layout
+  - Upload Base Pack Excel  `BASE_PACK_EXCEL`  → /excel-upload/base-pack-excel
+  - Loss Approval  `DYL_202026`  → /dyl/layout
+  - None  `DYL_202051`  → /dyl/layout
+  - Change GIN Driver  `CHANGE_GIN_DRIVER`  → /good-issue-notes/driver-change
+  - Order File Upload  `ORDER_FILE_UPLOAD`  → /excel-upload/order-file-upload
+  - Document Completion Status  `DOCUMENT_COMPLETION_STATUS`  → /content-master/mobility/document-completion-status
+  - Order File  `DYL_202059`  → /dyl/layout
+  - API Monitoring  `DYL_DN1006`  → /dyl/layout
+- Studio
+  - Stock
+- Promotion
+- Asset Module
+- Budget
+- Master Data
+  - Price Structure Excel  `PRICE_MASTER_EXCEL`  → /excel-upload/price-master-excel
+  - Price Master Approval  `PRICE_MASTER_APPROVAL`  → /excel-upload/price-master-approval
+  - Product Enrichment Excel Upload  `APP_PRODUCT_ENRICHMENT`  → /excel-upload/product-enrichment
+  - Product Enrichment Excel Upload Approval  `PRODUCT_ENRICHMENT_APPROVAL`  → /excel-upload/product-enrichment-approval
+- Image Beautifier
+  - Product Image Inquiry  `PRODUCTIMAGEINQUIRY`  → productImage-header-detail-view
+  - Product Image Master  `DYL_201038`  → /dyl/layout
+- Integrator
+  - Adhoc Job Executor  `ADHOC_JOB_EXECUTOR2`  → /integrator/adhoc-job-executor
+  - In Out Bound Source  `DATA_BINDING_SOURCE`  → /integrator/data-binding-source
+  - Adhoc Node Executor  `ADHOC_EXECUTOR`  → /content-master/mobility/adhoc-executor
+  - Integration Job  `INTEGRATION_JOB_CONTAINER`  → /integrator/integration-job-container
+  - Organization Setup  `TRANSMISSION_MAPPING`  → /integrator/transmission-mapping
+  - Integration Group  `GROUP_INTEGRATION`  → /integrator/group-integration
+  - Integrator Scheduling  `INTEGRATOR_SCHEDULING`  → /integrator/trigger
+  - Order Integration  `DYL_202030`  → /dyl/layout
+  - Node Executor  `NODE_JOB_EXECUTOR`  → /integrator/node-job-executor
+  - Node Executor  `NODE_JOB_EXECUTOR`  → /integrator/node-job-executor
+  - Integrator Operations  `INTEGRATOR_OPERATION`  → /integrator/operation
+  - Operation  `INTEGRATOR_OPERATION`  → /integrator/operation
+  - Triggers in execution  `TRIGGER-EXECUTION`  → /integrator/trigger-execution
+  - Triggers in execution  `TRIGGER-EXECUTION`  → /integrator/trigger-execution
+  - Node Track Log  `NODE_TRACK_LOG`  → /integrator/node-track-log
+  - Bulk Order Upload  `DYL_LMT_ORDER_CREATION`  → /dyl/layout
+  - User Event Log  `USER_EVENT_LOG`  → /integrator/user-event-log
+- Incentive
+  - Program Setup  `PROGRAM_SETUP`  → /content-master/mobility/program-setup
+  - Incentive Reward Upload  `INCENTIVE_REWARD`  → /excel-upload/incentive-reward
+  - Process Reward  `REWARD_PROCESS`  → /excel-upload/reward-process
+  - Incentive Setup  `INCENTIVE_SETUP`  → /incentive-setup
+- Incentive
+  - Incentive Reward Approval  `INCENTIVE_REWARD_APPROVAL`  → /excel-upload/incentive-reward-approval
+  - Incentive Target Upload  `INCENTIVE_TARGET_UPLOAD`  → /excel-upload/Incentive-Type-Excel
+  - Incentive Target Extract  `INCENTIVE_TARGET_EXTRACT`  → /excel-upload/incentive-target-extract
+- Integrator
+  - None  `DYP_202030002__`  → /dyl/layout
+  - None  `DYP_202030003__`  → /dyl/layout
+  - None  `DYP_202030001__`  → /dyl/layout
+  - None  `INTEGRATOR_DEFINITION_INBOUND`  → integrator-definition-inbound-view
+- Asset Module
+  - Asset Category  `DYL_201048`  → /dyl/layout
+  - Asset Type  `DYL_201049`  → /dyl/layout
+  - Asset State  `DYL_201050`  → /dyl/layout
+  - Complaint Type  `DYL_201051`  → /dyl/layout
+  - Repair Items  `DYL_201052`  → /dyl/layout
+  - Quota Type  `DYL_201053`  → /dyl/layout
+  - Asset Make   `DYL_201054`  → /dyl/layout
+  - Asset Master  `DYL_201055`  → /dyl/layout
+  - Asset Maintenance Contract  `DYL_201057`  → /dyl/layout
+  - Asset Complaint  `DYL_201059`  → /dyl/layout
+  - Asset Transaction  `DYL_201061`  → /dyl/layout
+  - Asset Movement  `DYL_201062`  → /dyl/layout
+  - Asset Repair  `DYL_201063`  → /dyl/layout
+- Print
+  - Cashmemo Print  `CASHMEMO`  → /print/cashmemo
+  - Credit Note Print  `CREDIT_NOTE_PRINT`  → print/credit-note
+  - Dynamic Page Studio  `DYNAMIC_STUDIO`  → /studio
+  - Credit Note Distributor Print  `CREDIT_NOTE_DISTRIBUTOR`  → /print/credit-note-distributor
+  - Layout Designer Studio  `LAYOUT_STUDIO`  → /layout-studio
+  - Cashmemo  Print II  `CASHMEMO_PRINT_II`  → /print/cashmemo-print-II
+  - Cashmemo Print III  `CASHMEMO_PRINT_III`  → /print/cashmemo-print-III
+  - Cashmemo Print IV  `CASHMEMO_PRINT_IV`  → /print/zt-13
+  - Credit Note Print II  `CREDIT_NOTE_PRINT_II`  → /print/credit-note-print
+  - Service Memo Print  `SERVICE_MEMO_PRINT`  → /print/service-memo-print
+- Logging 
+  - Log Configuration  `LOGING_LEVELS`  → /content-master/loging-levels
+  - Audit Log Configuration  `TABLE_META`  → /content-master/security/table-meta
+- Parameter
+  - General Parameter
+    - Business Entity
+    - Events/Repository
+    - Financial
+      - Stock
+    - Management
+      - Calendar
+      - Group  `DYL_201042`  → /dyl/layout
+    - Type
+    - Geographical
+      - Analysis Hierarchy
+      - Coordinate Compliance  `DYL_1036`  → /dyl/layout
+  - Globals Parameter
+- Studio Cache Eviction
+  - Cache Eviction  `CACHE_EVICTION`  → /content-master/mobility/cache-eviction
+- Setup/Configuration
+  - PJP
+    - Section Approval  `DYL_BG1002`  → /dyl/layout
+    - Section Creation HQ - Layout  `DYL_202046`  → /dyl/layout
+    - Delivery Coverage Setup  `MAP_TRACK_VIEW`  → centegy-track-view
+    - Section Profile  `DYL_BG1007`  → /dyl/layout
+    - Section  `DYL_102003015`  → /dyl/layout
+    - Daily Visit Plan  `DAILY_VISIT_PLAN`  → /content-master/mobility/daily-visit-plan
+  - Security
+    - Pre Order Stock Header  `PRE_ORDER_STOCK_HEADER`  → pre-order-stock-header-view
+  - Entity Profile
+    - Analysis Entity
+    - Customer Profile  `DYL_102003004`  → /dyl/layout
+    - Outlet Segments  `OUTLET_SEGMENTS`
+    - Route Scheduling  `DYL_201041`  → /dyl/layout
+  - New Outlet  `DYL_201032`  → /dyl/layout
+  - Vehicle
+  - Mobility
+    - Application Flow
+      - Screen Model  `DYL_201006`  → /dyl/layout
+      - User Group  `DYL_201007`  → /dyl/layout
+      - Screen  `DYL_201004`  → /dyl/layout
+      - Model  `DYL_201003`  → /dyl/layout
+      - Screen Associate  `DYL_201005001`  → /dyl/layout
+      - Model Group Association  `DYL_201008`  → /dyl/layout
+    - WorkFlow Modeler
+    - Reminder Notification Setup  `DYL_201039`  → /dyl/layout
+    - Scheduling
+    - Place Holder  `DYL_201002`  → /dyl/layout
+    - Voice  `DYL_201001004`  → /dyl/layout
+    - Voice Filter  `DYL_201001`  → /dyl/layout
+  - Data Authority  `DATA_AUTHORITY_CONTAINER`  → data-authority-container-view
+  - Mobiz
+    - Review Inquiry  `DYL_201060`  → /dyl/layout
+    - Broadcasting  `BROADCAST_CONTAINER`  → broadcast-container-view
+  - Questionnaire
+    - Questions Setup  `DYL_201029`  → /dyl/layout
+    - Questionnaire Setup  `DYL_201030`  → /dyl/layout
+    - Questionnaire Mapping  `DYL_201030003`  → /dyl/layout
+  - Banner
+    - Banner Type  `DYL_201009`  → /dyl/layout
+    - Link Type  `DYL_201010`  → /dyl/layout
+    - Banner Header  `DYL_201011`  → /dyl/layout
+    - Link Header  `DYL_201012`  → /dyl/layout
+    - Link Values  `DYL_201013`  → /dyl/layout
+    - Link Banner Map  `DYL_201014`  → /dyl/layout
+    - Screen Setup  `DYL_201004003`  → /dyl/layout
+    - Banner Header  `BANNER_HEADER`  → banner-header-view
+    - Screen Map  `DYL_201015`  → /dyl/layout
+  - Entity To Entity Mapping  `DYL_102013`  → /dyl/layout
+  - Entity To Entity Mapping  `DYL_102013001`  → /dyl/layout
+  - Validation & Filtration
+    - Filtration   `DYL_201016`  → /dyl/layout
+  - Time Slab  `DYL_201071`  → /dyl/layout
+  - Outlet Association Mapping  `OUTLET_ASSOCIATION`  → outlet-association-view
+- Application Configuration
+  - Distributor Feature  `DIST_FEATURE`  → /feature/dist-feature
+  - Organization Feature  `ORG_FEATURE`  → /feature/org-feature
+  - Feature Types  `FEATURE_TYPES`  → /feature/feature-types
+- Product
+  - Suggested Product Group  `DYL_201028`  → /dyl/layout
+  - Mobile Price  `MOBILEPRICE`  → /content-master/mobility/mobile-prices
+  - Product Customer Code  `PRODUCT_CUSTOMER_CODE`  → /excel-upload/product-customer-code
+  - Outlet Barcode Mapp  `OUTLETBARCODEMAPP`  → outlet-barcode-mapping-view
+  - ABC Classification  `DYL_101048`  → /dyl/layout
+  - Analysis
+- MIS and Stock Type Mapping
+  - Warehouse and Stock Type Mapping  `MIS_STOCK_TYPE`  → /content-master/mobility/mis-stock-type
+- Promotion Setup
+  - Group Mapping Container  `GROUP_MAPPING_CONTAINER`  → group-mapping-container-view
+  - REDEMPTION_CAP_VIEW  `REDEMPTION_CAP_VIEW`  → promotion-redemption-cap-view
+  - Redeem Points  `POINTS_REDEEM_COMB`  → combination-header-view
+  - Redemption Limit  `DYL_201077`  → /dyl/layout
+  - voucher  `VOUCHER_SETUP`  → voucher-setup-view
+  - Customer Points  `CUSTOMER_POINTS`  → customer-orderwise-point-view
+  - Promo test by riz  `PROMO_VIEW_RIZ`  → promoViewer
+- DSR Menu Inquiry
+  - DSR Menu Inquiry  `DYL_202047`  → /dyl/layout
+- Reports
+  - Stock Movement Report  `DYL_JR1001`  → /dyl/layout
+  - Pick List - Delivery Man Wise  `DYL_JR1002`  → /dyl/layout
+  - Customer Ledger and Balance Report  `DYL_JR1003`  → /dyl/layout
+  - DSR Sale Summary  `DYL_JR1004`  → /dyl/layout
+  - DSR Statement DM - SS Based  `DYL_JR1005`  → /dyl/layout
+  - Customer Wise Sale Report  `DYL_JR1006`  → /dyl/layout
+  - Cheque For Realization  `DYL_JR1007`  → /dyl/layout
+  - Daily Collection Pay Slip Wise Report  `DYL_JR1008`  → /dyl/layout
+  - Credit Aging Analysis Report  `DYL_JR1009`  → /dyl/layout
+  - Daily Time Stamping Report  `DYL_JR1010`  → /dyl/layout
+  - DA-RA Stock Detail Report  `DYL_JR1011`  → /dyl/layout
+  - Cashmemo Format  `DYL_201903`  → /dyl/layout
+  - Account Report  `DYL_JR1013`  → /dyl/layout
+  - Purchase Detail Report  `DYL_JR1012`  → /dyl/layout
+  - Daily Sale Return Sheet Report  `DYL_JR1014`  → /dyl/layout
+  - Distributor Statement Report  `DYL_JR1015`  → /dyl/layout
+  - None  `DYL_JR1016`  → /dyl/layout
+  - None  `DYL_JR1017`  → /dyl/layout
+- Sales Return WOR By DM
+  - Entry  `CLOSED_ENTRY`  → /non-ul-screens/account-closed-entry
+  - View  `CLOSED_VIEW`  → /non-ul-screens/account-closed-view
+  - Pick  `CLOSED_PICK`  → /non-ul-screens/account-closed-pick
+  - Reschedule Pick  `RESCHEDULE_PICK`  → /non-ul-screens/reschedule-pick
+- Release Version  `RELEASE_VERSION`  → /release-version
+- RCOA
+  - Setup
+    - RCOA Type  `DYL_202061`  → /dyl/layout
+    - RCOA UOM  `DYL_202076`  → /dyl/layout
+    - RCOA Report Layout  `DYL_202062`  → /dyl/layout
+    - RCOA Activity Control  `DYL_202078`  → /dyl/layout
+    - RCOA Setup Tabs  `DYL_202081`  → /dyl/layout
+    - RCOA Validation Exception Log  `DYL_202087`  → /dyl/layout
+    - RCOA Activity Control II  `DYL_202088`  → /dyl/layout
+    - RCOA Activity Start And Complete  `DYL_202090`  → /dyl/layout
+    - RCOA Status Control Button  `DYL_202091`  → /dyl/layout
+    - RCOA Classification Tabs  `DYL_202098`  → /dyl/layout
+    - RCOA Distributor Profile  `DYL_202092`  → /dyl/layout
+  - Input
+    - Manual Input By Unilever  `DYL_202067`  → /dyl/layout
+    - Manual Input By DT  `DYL_202079`  → /dyl/layout
+  - Approval
+    - Manual Input By Unilever Approval  `DYL_202068`  → /dyl/layout
+    - Manual Input By DT Approval  `DYL_202080`  → /dyl/layout
+    - DMS Extract Approval  `DYL_202069`  → /dyl/layout
+    - File Upload Approval  `DYL_202070`  → /dyl/layout
+    - RCOA Transaction Approval  `DYL_202074`  → /dyl/layout
+  - Inquiry
+    - RCOA Transaction Inquiry  `DYL_202072`  → /dyl/layout
+    - RCOA Report Layout Inquiry  `DYL_202071`  → /dyl/layout
+    - RCOA Transactions Inquiry After Approval  `DYL_202093`  → /dyl/layout
+    - RCOA Transactions Inquiry Before Approval  `DYL_202094`  → /dyl/layout
+- Segment Setup  `SEGMENT_SETUP`  → /content-master/mobility/segment-setup
+- Selenium
+- Transactions
+  - Target Achievement Inquiry  `DYL_201098`  → /dyl/layout
+  - Back Order  `DYL_202009`  → /dyl/layout
+  - Transaction View  `DYL_102014001`  → /dyl/layout
+  - Stock Transaction  `DYL_201033`  → /dyl/layout
+  - DSR Adjustment  `DYL_201065`  → /dyl/layout
+  - Inquiry  `DYL_201047`  → /dyl/layout
+  - Loyalty Points Inquiry  `DYL_201099`  → /dyl/layout
+  - Transaction Reminder Inquiry  `CASHMEMO_INQUIRY`  → cashmemo-inquiry-view
+  - Paymeent Collection  `DYL_201603`  → /dyl/layout
+  - Auto Journey Inquiry  `DYL_201201`  → /dyl/layout
+
+## Not reachable from a root (12)
+
+- Dynamic Page Studio (`0301`, parent `03`)
+- Layout Designer Studio (`0302`, parent `03`)
+- Data Combo Config (`0304`, parent `03`)
+- Page Meta (`0303`, parent `03`)
+- Page Meta Field Comb (`0305`, parent `03`)
+- None (`0306`, parent `03`)
+- --Outlet Profile (`NG0204`, parent ``)
+- Good Return Note-OLD (`DYL_201067`, parent ``)
+- Change Track PJP Configuration (`CHANGE_TRACK_PJP_CONFIGURATION`, parent ``)
+- None (`3213`, parent `12`)
+- Disqualified Promotion (`DYL_201101`, parent `0601`)
+- PQC (`DYL_201091`, parent `0601`)

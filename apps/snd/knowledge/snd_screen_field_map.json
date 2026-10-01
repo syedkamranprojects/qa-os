@@ -1,0 +1,2360 @@
+{
+ "_meta": {
+  "source": "DD-S&D Entity Model - Data Dictionary 24 June 2026.xlsx"
+ },
+ "screens": {
+  "Application Screens": [
+   {
+    "screen_tab": "Demographics",
+    "caption": "Hidden Field",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PORG_ORGACODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Hidden Field",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Distributor Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_BUSENT_PHS_LVL1_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Distributor Name",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Reference ID",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Active",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_ACTIVE",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Working Date",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_WORKING_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "MIS Type",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBEM_BUSENTITY_MISTYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Closing Date",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_CLOSING_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Geo Hierarchy",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PGEO_GEOGHIER_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Day Off",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_DAY_OFF",
+    "type": "VARCHAR(10)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Loca Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PLOC_LOCACODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Date of Appointment",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_APPOINT_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Place of Appointment",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Currency",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PCUR_CURRCODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Channel Hierarchy",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PCHH_CHNLHIER_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Financial Entity",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PFET_FINENT_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Corporate Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_CORP_CODE",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Registration No",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Registration Date",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Incorporation Date",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REF_DATE_2",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Coordinates Latitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_COR_LATITUDE",
+    "type": "VARCHAR2(50)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Coordinates Longitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_COR_LONGITUDE",
+    "type": "VARCHAR2(50)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Spending Time",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_SPENDING_TIME",
+    "type": "NUMERIC(5)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Number Generation Prefix",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_NUMBER_GEN_PREFIX",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Sub Distributor",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_SUB_DISTRIBUTOR",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Report To",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REPORT_TO",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Starting latitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_4",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Starting Longitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_5",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Invoice round offlogic",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_ROUNDING_LOGIC",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Invoice rounding digit",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_ROUNDING_DECIMAL",
+    "type": "NUMERIC"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Auto Inventory Allocation",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_AUTO_INVENTORY_ALLOC",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Threshold Time For Delivery Date",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_THRSHLD_TIME_DELV_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Delivery Days After Threshold Time",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_DELV_DAYS_THRSHLD_TIME",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Invoice Printing Name",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_MESSAGE",
+    "type": "VARCHAR(200)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Manual Order Creation",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_MANUAL_ORDER",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Ending latitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_6",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Ending Longitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_7",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Claim Days",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_CLAIMDAYS",
+    "type": "NUMERIC"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR2(70)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_BUSENTITY_CODE",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Sr No",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Document Type",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PDOT_DOCMTYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Document Number",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_DESC",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Issue Date",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_ISSUE_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Expirty Date",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_EXPIRY_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR2(70)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_BUSENTITY_CODE",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Sr No",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Bank",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "PBNK_BANK_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Branch",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "PBNB_BNBR_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Account Number",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_ACCOUNT_NO",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Account Title",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_ACCOUNT_TITLE",
+    "type": "VARCHAR(50)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Debit Card Number",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_REFERENCE_1",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR2(70)"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_BUSENTITY_CODE",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Sr No",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_SRNO",
+    "type": "NUMERIC(5)"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Business Name",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_DESC",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Detail of Business",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Incorporation Date",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Issue Date",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_REF_DATE_2",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Other Business",
+    "caption": "Active",
+    "table": "GLB_EN_BSI_BUSINESSINFO",
+    "column": "EBSI_ACTIVE",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR2(70)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_BUSENTITY_CODE",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Sr No",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Name",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "ID No",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_IDENTIFICATION_NO",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Designation",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "PDSG_DESIGNATION",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Gender",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Qualification",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "PQLN_QUALIFICATION",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Phone",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_PHONE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Cell Phone",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_MOBILE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Contact Person Details",
+    "caption": "Email",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_EMAIL",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Payment Mode",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Payment Term",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Stock Checking On Order",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_2",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Stock Checking On Delivery",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_3",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Stock Checking On",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Stock Holding On Policy",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Sale Criteria",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_4",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Can Modify Selling Category",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_4",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Product Exchange",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_5",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "POP Inactive Days",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_1",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Unique Section POP",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_6",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Payment (Counter Sale)",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_7",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Limit (Counter Sale)",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_2",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Scheme Apply date",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_8",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Auto GIN",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_9",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Auto GIN time",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Distributor Time Zone",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Delivery Optimization",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_10",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Distributor Margin",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_6",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Reference Company code",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_4",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Reference Sales Origination",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_5",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "GPS Restriction",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_12",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "GPS Redius",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_7",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "MAX Order Delivery Days",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_MAX_ORDER_DELV_DAYS",
+    "type": "NUMERIC"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Capital Investment",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_3",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Credit Limit/Bank Guarantee",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_4",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR2(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_BUSENTITY_CODE",
+    "type": "VARCHAR2(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Company/Business/Residence",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PADT_ADDRESS_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Address 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Address 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Address 3",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_ABRV",
+    "type": "VARCHAR(10)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Country",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PCCY_CTRYCTY_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Phone 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_PHONE1",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Phone 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_PHONE2",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Cell Phone 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_MOBILE1",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Cell Phone 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_MOBILE2",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Fax",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_FAX",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Email",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_EMAIL1",
+    "type": "VARCHAR2(30)"
+   }
+  ],
+  "Outlet Profile": [
+   {
+    "screen_tab": "Demographics",
+    "caption": "Organization",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PORG_ORGACODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Entity Type",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Outlet Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_BUSENT_PHS_LVL1_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Outlet Long Name",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Outlet Short Name",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_ABRV",
+    "type": "VARCHAR(10)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Currency",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PCUR_CURRCODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Outlet Type",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBEM_BUSENTITY_MISTYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Channel Hierarchy",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PCHH_CHNLHIER_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Geographical Hierarchy",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PGEO_GEOGHIER_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Outlet Rank",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBER_BUSENTITY_RANKING",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Company Rank",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBEO_BUSENTITY_ORGRANKING",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Area Type",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PLSM_LIFESTYLE_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Coordiante Laitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_COR_LATITUDE",
+    "type": "VARCHAR(50)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Coordiante Longitude",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_COR_LONGITUDE",
+    "type": "VARCHAR(50)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Identfied On",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Identfied by",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Previous Outlet Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_PREV_CODE",
+    "type": "VARCHAR(50)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Active",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_ACTIVE",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Corporate Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_CORP_CODE",
+    "type": "VARCHAR100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Bill to Code",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_OUTLET_BILLTO",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Analysis 1",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PANC_ANALYSIS_EPP1_A",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Analysis 2",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PANC_ANALYSIS_EPP1_B",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Analysis 3",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PANC_ANALYSIS_EPP1_C",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Is B2B?",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REF_VAL_3",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Activation Date",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REF_DATE_2",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Sub Distributor",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_SUB_DISTRIBUTOR",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Report to main Distributor",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_REPORT_TO",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Manual Order",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_MANUAL_ORDER (Y/N)",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Cancellation Status",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_CANCEL_STATUS",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Cancellation Comments",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_CANCEL_COMMENTS",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Requested Section",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPL1_BUSENT_LOG_LVL1_CODE_REQ",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Prospect ID",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "EPP1_PROSPECT_ID",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Hidden Field",
+    "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+    "column": "PBET_BUSENTITY_TYPE_REQ",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Perfect Store",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Perfect Store Creation Date",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "SMS Notification",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_7",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "B2B Phone",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_B2B_PHONE",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "B2B Email",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_B2B_EMAIL",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Barcode",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Barcode Scanning",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_2",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Post dated cheque",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_5",
+    "type": "NUMERIC"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Tax Payer",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_3",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Tax Exemption",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_4",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Auto Cheque Relization",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_5",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Restrict Un-mapped Bank",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_6",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Preferred Ordering Time From",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_15",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Preferred Ordering Time To",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_16",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Preferred Delivery Time From",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_17",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Preferred Delivery Time To",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_18",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Tax Registered",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_8",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Tiers",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Perfect Village",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Channel TTS",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_4",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Perfect Store",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_5",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Perfect Store Compliance",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_6",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Point of Consumption",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_9",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Loyalty Programs",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_10",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Chain Outlets",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_11",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Customer Attribute 12",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_12",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "Outlet Programs",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_14",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "GPS Restriction",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_12",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Operative Info",
+    "caption": "GPS Redius",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_7",
+    "type": "NUMERIC"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Previous Outlet Code",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_6",
+    "type": null
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Shopper Type",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REFERENCE_7",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Company Turnover",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_1",
+    "type": null
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Overall Total Turnover",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_2",
+    "type": null
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Stock Selling Capacity",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_3",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Stock Holding Capacity",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_4",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Freezer",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_5",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Cool Cabin",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_6",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Asset Scheme",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_VAL_7",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Commission Percentage",
+    "table": "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+    "column": "EOP1_REF_NUM_7",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "SR No",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Type (Delivery Address/Business/Residence)",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PADT_ADDRESS_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Premises Number",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Street/Road",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Area/Market Name",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Reference",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_ABRV",
+    "type": "VARCHAR(10)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Country/City",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PCCY_CTRYCTY_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Province",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PPRV_PROVINCE_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Region",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PRGN_REGION_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Locality",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PLOL_LOCALITY_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Landline 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_PHONE1",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Landline 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_PHONE2",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Cell Phone 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_MOBILE1",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Cell Phone 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_MOBILE2",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Fax",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_FAX",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Email 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_EMAIL1",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Email 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_EMAIL2",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "ZIP Code",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_ZIPCODE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Postal Code",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_POSTAL_CODE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Sr No",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Document Type",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PDOT_DOCMTYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Document Number",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Issue Date",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_ISSUE_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Expiry Date",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_EXPIRY_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Document Status",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PDOS_DOCMSTATUS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Ref. No",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_REFERENCE_NO",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Sr No",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Bank",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "PBNK_BANK_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Branch",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "PBNB_BNBR_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Account Number",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_ACCOUNT_NO",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Account Title",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_ACCOUNT_TITLE",
+    "type": "VARCHAR(50)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Details",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Bank",
+    "caption": "Debit Card Number",
+    "table": "GLB_EN_BAC_BANKACCOUNT",
+    "column": "EBAC_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Sr No",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Name",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Identification Type",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "PIDN_IDENTIFIER_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "ID No",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_IDENTIFICATION_NO",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Designation",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "PDSG_DESIGNATION",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Gender",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Qualification",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "PQLN_QUALIFICATION",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Land Line #",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_PHONE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Cell Phone #",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_MOBILE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Contact Info",
+    "caption": "Email ID",
+    "table": "GLB_EN_COD_CONTACTDETAIL",
+    "column": "ECOD_EMAIL",
+    "type": "VARCHAR(30)"
+   }
+  ],
+  "DSR Profile": [
+   {
+    "screen_tab": "Demographics",
+    "caption": "Organization",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "PORG_ORGACODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Entity Type",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "DSR Code",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_BUSENT_PHS_LVL2_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "DSR Name",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Father/Spouse Name",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "DSR Type",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "PDST_DSR_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Employee No",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Sales Hierarchy",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "PSLH_SALESHIER_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Date of Birth",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Date of Appointment",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REF_DATE_2",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Blood Group",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Marital Status",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "PMRT_MARITALSTATUS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Report To",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REPORT_TO",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Counter Sales",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Status",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_ACTIVE",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Working Nature",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REF_VAL_2",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Vehicle",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "PVCH_VEHICLE_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Route Starting",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_REF_VAL_10",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "User ID",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "SSUS_USERCODE",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Demographics",
+    "caption": "Password",
+    "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+    "column": "EPP2_HHT_PASSWORD",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Document",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_BUSENTITY_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Sr No",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Document Type",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PDOT_DOCMTYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Document Number",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Issue Date",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_ISSUE_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Expiry Date",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_EXPIRY_DATE",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Document Status",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "PDOS_DOCMSTATUS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Documents",
+    "caption": "Reference. No",
+    "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+    "column": "EDOC_REFERENCE_NO",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "EQLF_BUSENTITY_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Sr No",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "EQLF_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Qualification Type",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "PQLN_QUALIFICATION",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Qualification Detail",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "EQLF_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Year Passed",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "EQLF_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Qualification",
+    "caption": "Insitution",
+    "table": "GLB_EN_QLF_QUALIFICATION",
+    "column": "EQLF_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_BUSENTITY_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Sr No",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Organization",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Address",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Phone",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Cell Phone",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Period From",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Previous Experience",
+    "caption": "Period To",
+    "table": "GLB_EN_PEX_PASTEXPERIENCE",
+    "column": "EPEX_REF_DATE_2",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_BUSENTITY_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Sr No",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Device Type",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "PDVT_DEVICETYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Device Name",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Make",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Model",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Serial No",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "IMEI No",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_REFERENCE_4",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Period From",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_REF_DATE_1",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Device",
+    "caption": "Period To",
+    "table": "GLB_EN_DEV_DEVICEINFO",
+    "column": "EDEV_REF_DATE_2",
+    "type": "TIMESTAMP"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PBET_BUSENTITY_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Hidden Field",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_BUSENTITY_CODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "SR No",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_SRNO",
+    "type": "NUMERIC(10)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Type (Company/Business/Residence)",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PADT_ADDRESS_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Premises Number",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Street/Road",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Area/Market Name",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_DESC_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Reference",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_ABRV",
+    "type": "VARCHAR(10)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Country/City",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PCCY_CTRYCTY_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Province",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PPRV_PROVINCE_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Region",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PRGN_REGION_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Locality",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "PLOL_LOCALITY_CODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Landline 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_PHONE1",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Landline 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_PHONE2",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Cell Phone 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_MOBILE1",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Cell Phone 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_MOBILE2",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Fax",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_FAX",
+    "type": "VARCHAR(20)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Email 1",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_EMAIL1",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Email 2",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_EMAIL2",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "ZIP Code",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_ZIPCODE",
+    "type": "VARCHAR(30)"
+   },
+   {
+    "screen_tab": "Address",
+    "caption": "Postal Code",
+    "table": "GLB_EN_ADR_ADDRESS",
+    "column": "EADR_POSTAL_CODE",
+    "type": "VARCHAR(30)"
+   }
+  ],
+  "Product": [
+   {
+    "screen_tab": "Product",
+    "caption": "Organization",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PORG_ORGACODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Product",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_PRODCODE",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Base Code",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PORP_PRINCODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Long Description",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_DESC",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Short Description",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_ABRV",
+    "type": "VARCHAR(25)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Type of Product",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPTY_PROD_TYPE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Active",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_ACTIVE",
+    "type": "VARCHAR(1)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Image Path",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_IMG_NAME",
+    "type": "VARCHAR(50)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Barcode Type",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Product Indexing",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_NUM_5",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Product",
+    "caption": "Other Attribute",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REFERENCE_7",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Product Analysis",
+    "caption": "Analysis 1",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPA1_PROD_ANALYSIS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product Analysis",
+    "caption": "Analysis 2",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPA2_PROD_ANALYSIS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product Analysis",
+    "caption": "Analysis 3",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPA3_PROD_ANALYSIS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product Analysis",
+    "caption": "Analysis 4",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPA4_PROD_ANALYSIS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Product Analysis",
+    "caption": "Analysis 5",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPA5_PROD_ANALYSIS",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Unit Description",
+    "caption": "Unit Code",
+    "table": "SND_PR_UOM_PROD_UOMHEADER",
+    "column": "PUOM_UNITCODE",
+    "type": "VARCHAR(70)"
+   },
+   {
+    "screen_tab": "Unit Description",
+    "caption": "Event ID",
+    "table": "SND_PR_UOM_PROD_UOMHEADER",
+    "column": "PEV_EVENTID",
+    "type": "VARCHAR(10)"
+   },
+   {
+    "screen_tab": "Unit Description",
+    "caption": "Reference Field 1",
+    "table": "SND_PR_UOM_PROD_UOMHEADER",
+    "column": "PPUH_REFERENCE_1",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Unit Description",
+    "caption": "Reference Field 2",
+    "table": "SND_PR_UOM_PROD_UOMHEADER",
+    "column": "PPUH_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Unit Description",
+    "caption": "Reference Field 3",
+    "table": "SND_PR_UOM_PROD_UOMHEADER",
+    "column": "PPUH_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Standard Factor",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_NUM_1",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Standard Weight",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_NUM_2",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Sales Alert Days",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_NUM_3",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Maximum Allow Quantity",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_NUM_4",
+    "type": "NUMERIC(22,8)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Product Type",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REFERENCE_1",
+    "type": "VARCHAR(500)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Premium Product Code",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REFERENCE_2",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Start Case",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REFERENCE_3",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Update Stock Batch",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REFERENCE_4",
+    "type": "VARCHAR(100)"
+   },
+   {
+    "screen_tab": "Other Info",
+    "caption": "Simultaneously",
+    "table": "SND_PR_PRD_PRODUCT",
+    "column": "PPRD_REF_VAL_1",
+    "type": "VARCHAR(2)"
+   }
+  ]
+ }
+}

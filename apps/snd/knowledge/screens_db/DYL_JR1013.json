@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1013",
+ "title": "Account Report",
+ "menu": {
+  "path": [
+   "Reports",
+   "Account Report"
+  ],
+  "group_id": "DYL_JR1013"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1013",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

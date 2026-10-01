@@ -1,0 +1,4002 @@
+[
+ {
+  "option_id": "DYL_101032003",
+  "title": "Vehical Profile Approval",
+  "path": "Approval > Master Data Approval > Vehical Profile Approval",
+  "layout": "101032003",
+  "panels": 2,
+  "fields": 23,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VCH_VEHICLE",
+   "snd_pr_vch_vehicle"
+  ]
+ },
+ {
+  "option_id": "DYL_102003061",
+  "title": "DSR Approval",
+  "path": "Approval > Master Data Approval > DSR Approval",
+  "layout": "102003061",
+  "panels": 9,
+  "fields": 15,
+  "required": 1,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_DEV_DEVICEINFO",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_EN_PEX_PASTEXPERIENCE",
+   "GLB_EN_QLF_QUALIFICATION",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2"
+  ]
+ },
+ {
+  "option_id": "DYL_202039",
+  "title": "Vehicle Profile Approval II",
+  "path": "Approval > Master Data Approval > Vehicle Profile Approval II",
+  "layout": "202039",
+  "panels": 2,
+  "fields": 40,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VCH_VEHICLE",
+   "snd_pr_vch_vehicle"
+  ]
+ },
+ {
+  "option_id": "DYL_102003062",
+  "title": "Outlet Approval",
+  "path": "Approval > Master Data Approval > Outlet Approval",
+  "layout": "102003062",
+  "panels": 10,
+  "fields": 79,
+  "required": 35,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_102003079",
+  "title": "Outlet Status",
+  "path": "Approval > Master Data Approval > Outlet Status",
+  "layout": "102003079",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_102011004",
+  "title": "PJP Approval",
+  "path": "Approval > Master Data Approval > PJP Approval",
+  "layout": "102011004",
+  "panels": 2,
+  "fields": 16,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD",
+   "snd_en_pjp_pjphead"
+  ]
+ },
+ {
+  "option_id": "DYL_102011006",
+  "title": "PJP - Status",
+  "path": "Approval > Master Data Approval > PJP - Status",
+  "layout": "102011006",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1010",
+  "title": "Vehicle Profile II",
+  "path": "Approval > Master Data Approval > Vehicle Profile II",
+  "layout": "BG1010",
+  "panels": 2,
+  "fields": 41,
+  "required": 17,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VCH_VEHICLE"
+  ]
+ },
+ {
+  "option_id": "DYL_DN1001",
+  "title": null,
+  "path": "Approval > Master Data Approval > DYL_DN1001",
+  "layout": "DN1001",
+  "panels": 2,
+  "fields": 7,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_PR_VCH_VEHICLE"
+  ]
+ },
+ {
+  "option_id": "DYL_DN1003",
+  "title": "DSR Helper Mapping",
+  "path": "Approval > Master Data Approval > DSR Helper Mapping",
+  "layout": "DN1003",
+  "panels": 2,
+  "fields": 6,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2"
+  ]
+ },
+ {
+  "option_id": "DYL_102003003",
+  "title": "Warehouse Profile",
+  "path": "Warehouse Profile",
+  "layout": "102003003",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_201089",
+  "title": "Analysis Classification - Chanel Hierarchy",
+  "path": "Company setup > Analysis Classification > Analysis Classification - Chanel Hierarchy",
+  "layout": "201089",
+  "panels": 4,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "GLB_PR_ANT_ANLS_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201089005",
+  "title": "Analysis Classification - Distributor ",
+  "path": "Company setup > Analysis Classification > Analysis Classification - Distributor ",
+  "layout": "201089005",
+  "panels": 4,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "GLB_PR_ANT_ANLS_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201089006",
+  "title": "Analysis Classification - Outlet ",
+  "path": "Company setup > Analysis Classification > Analysis Classification - Outlet ",
+  "layout": "201089006",
+  "panels": 16,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "GLB_PR_ANT_ANLS_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201089007",
+  "title": "Analysis Classification - Warehouse ",
+  "path": "Company setup > Analysis Classification > Analysis Classification - Warehouse ",
+  "layout": "201089007",
+  "panels": 4,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "GLB_PR_ANT_ANLS_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201089008",
+  "title": "Analysis Classification - Sales Hierarchy",
+  "path": "Company setup > Analysis Classification > Analysis Classification - Sales Hierarchy",
+  "layout": "201089008",
+  "panels": 4,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "GLB_PR_ANT_ANLS_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201089009",
+  "title": "Analysis Classification - Geo Hierarchy",
+  "path": "Company setup > Analysis Classification > Analysis Classification - Geo Hierarchy",
+  "layout": "201089009",
+  "panels": 4,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "GLB_PR_ANT_ANLS_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1038",
+  "title": "Channel Hierarchy",
+  "path": "Company setup > Channel Hierarchy",
+  "layout": "1038",
+  "panels": 2,
+  "fields": 12,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_CHH_CHANEL_HIERARCHY"
+  ]
+ },
+ {
+  "option_id": "DYL_101002",
+  "title": "Location",
+  "path": "Company setup > Distributor Profile > Location",
+  "layout": "101002",
+  "panels": 2,
+  "fields": 13,
+  "required": 7,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_LOC_LOCATION"
+  ]
+ },
+ {
+  "option_id": "DYL_L__BusinessEntityProfile",
+  "title": "Distributor Profile HQ",
+  "path": "Company setup > Distributor Profile > Distributor Profile HQ",
+  "layout": "L__BusinessEntityProfile",
+  "panels": 11,
+  "fields": 34,
+  "required": 9,
+  "grids": 3,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1008",
+  "title": "Distributor Profile View",
+  "path": "Company setup > Distributor Profile > Distributor Profile View",
+  "layout": "BG1008",
+  "panels": 11,
+  "fields": 70,
+  "required": 9,
+  "grids": 3,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_DT1001",
+  "title": "Distributor DT",
+  "path": "Company setup > Distributor Profile > Distributor DT",
+  "layout": "DT1001",
+  "panels": 11,
+  "fields": 70,
+  "required": 4,
+  "grids": 3,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1014",
+  "title": "Distributor Creation",
+  "path": "Company setup > Distributor Profile > Distributor Creation",
+  "layout": "BG1014",
+  "panels": 10,
+  "fields": 71,
+  "required": 15,
+  "grids": 3,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_TM1001",
+  "title": "Distributor TM",
+  "path": "Company setup > Distributor Profile > Distributor TM",
+  "layout": "TM1001",
+  "panels": 10,
+  "fields": 67,
+  "required": 3,
+  "grids": 3,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_OP1_OTH_BSEN_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_202060",
+  "title": "RCOA Account",
+  "path": "Company setup > Distributor Profile > RCOA Account",
+  "layout": "202060",
+  "panels": 2,
+  "fields": 33,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_ACCOUNT_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_DT1005",
+  "title": "Trip Status Inquiry",
+  "path": "Company setup > Distributor Profile > Trip Status Inquiry",
+  "layout": "DT1005",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "("
+  ]
+ },
+ {
+  "option_id": "DYL_1004",
+  "title": "Bank",
+  "path": "Company setup > General > Bank",
+  "layout": "1004",
+  "panels": 3,
+  "fields": 8,
+  "required": 4,
+  "grids": 2,
+  "tables": [
+   "GLB_PR_BNB_BANKBRANCH",
+   "GLB_PR_BNK_BANK"
+  ]
+ },
+ {
+  "option_id": "DYL_1006",
+  "title": "Country",
+  "path": "Company setup > General > Country",
+  "layout": "1006",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_CCY_CTRYCTY"
+  ]
+ },
+ {
+  "option_id": "DYL_1008",
+  "title": "Currency",
+  "path": "Company setup > General > Currency",
+  "layout": "1008",
+  "panels": 2,
+  "fields": 13,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_CUR_CURRENCIES"
+  ]
+ },
+ {
+  "option_id": "DYL_1009",
+  "title": "Designation",
+  "path": "Company setup > General > Designation",
+  "layout": "1009",
+  "panels": 2,
+  "fields": 7,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_DSG_DESIGNATION"
+  ]
+ },
+ {
+  "option_id": "DYL_101049",
+  "title": "Local Validity",
+  "path": "Company setup > General > Local Validity",
+  "layout": "101049",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PLV_PROD_LOCALVALIDITY"
+  ]
+ },
+ {
+  "option_id": "DYL_101055",
+  "title": "Policy",
+  "path": "Company setup > General > Policy",
+  "layout": "101055",
+  "panels": 9,
+  "fields": 20,
+  "required": 5,
+  "grids": 2,
+  "tables": [
+   "SND_PR_ALW_PRD_POLICY_BSE_RANK",
+   "SND_PR_ALW_PRD_POLICY_BSE_TYPE",
+   "SND_PR_ALW_PRD_POLICY_LSM",
+   "SND_PR_ALW_PRD_POLICY_OUTCHNEL",
+   "SND_PR_ALW_PRD_POLICY_STRATA",
+   "SND_PR_PRO_PROD_POLICY",
+   "snd_pr_alw_prd_policy_geohrchy",
+   "snd_pr_bth_prod_batch"
+  ]
+ },
+ {
+  "option_id": "DYL_102005",
+  "title": "Selling Category",
+  "path": "Company setup > General > Selling Category",
+  "layout": "102005",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_1022",
+  "title": "Qualification",
+  "path": "Company setup > General > Qualification",
+  "layout": "1022",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_QLN_QUALIFICATION"
+  ]
+ },
+ {
+  "option_id": "DYL_1024",
+  "title": "Company Rank",
+  "path": "Company setup > General > Company Rank",
+  "layout": "1024",
+  "panels": 2,
+  "fields": 8,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_BEO_BUSENTITY_ORGRANK"
+  ]
+ },
+ {
+  "option_id": "DYL_1025",
+  "title": "Rank",
+  "path": "Company setup > General > Rank",
+  "layout": "1025",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_BER_BUSENTITY_RANKING"
+  ]
+ },
+ {
+  "option_id": "DYL_1029",
+  "title": "STRATA",
+  "path": "Company setup > General > STRATA",
+  "layout": "1029",
+  "panels": 2,
+  "fields": 9,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_STR_STRATA"
+  ]
+ },
+ {
+  "option_id": "DYL_1030",
+  "title": "Transport Company",
+  "path": "Company setup > General > Transport Company",
+  "layout": "1030",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_TCM_TRANSPORT_COMP"
+  ]
+ },
+ {
+  "option_id": "DYL_1031",
+  "title": "Transport Mode",
+  "path": "Company setup > General > Transport Mode",
+  "layout": "1031",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_TMD_TRANSPORT_MODE"
+  ]
+ },
+ {
+  "option_id": "DYL_1033",
+  "title": "Vendor Profile",
+  "path": "Company setup > General > Vendor Profile",
+  "layout": "1033",
+  "panels": 2,
+  "fields": 9,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VND_VENDOR"
+  ]
+ },
+ {
+  "option_id": "DYL_1074",
+  "title": "Locality",
+  "path": "Company setup > General > Locality",
+  "layout": "1074",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_LOL_LOCALITY"
+  ]
+ },
+ {
+  "option_id": "DYL_1075",
+  "title": "Province",
+  "path": "Company setup > General > Province",
+  "layout": "1075",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_PRV_PROVINCE"
+  ]
+ },
+ {
+  "option_id": "DYL_1077",
+  "title": "Region",
+  "path": "Company setup > General > Region",
+  "layout": "1077",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_RGN_REGION"
+  ]
+ },
+ {
+  "option_id": "DYL_1079",
+  "title": "Vehicle Color",
+  "path": "Company setup > General > Vehicle Color",
+  "layout": "1079",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VHC_VEHICLE_COLOR"
+  ]
+ },
+ {
+  "option_id": "DYL_1080",
+  "title": "Vehicle Make",
+  "path": "Company setup > General > Vehicle Make",
+  "layout": "1080",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VHM_VEHICLE_MAKE"
+  ]
+ },
+ {
+  "option_id": "DYL_1081",
+  "title": "Location Type",
+  "path": "Company setup > General > Location Type",
+  "layout": "1081",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_LOT_LOCATION_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1082",
+  "title": "Visit Status",
+  "path": "Company setup > General > Visit Status",
+  "layout": "1082",
+  "panels": 2,
+  "fields": 17,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VST_VISIT_STATUS"
+  ]
+ },
+ {
+  "option_id": "DYL_1083",
+  "title": "Life Style Measurement",
+  "path": "Company setup > General > Life Style Measurement",
+  "layout": "1083",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_LSM_LIFESTYLEMEASURMENT"
+  ]
+ },
+ {
+  "option_id": "DYL_1088",
+  "title": "MIS Type",
+  "path": "Company setup > General > MIS Type",
+  "layout": "1088",
+  "panels": 2,
+  "fields": 10,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_BEM_BUSENTITY_MISTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201043",
+  "title": "Charges",
+  "path": "Company setup > General > Charges",
+  "layout": "201043",
+  "panels": 4,
+  "fields": 14,
+  "required": 8,
+  "grids": 1,
+  "tables": [
+   "glb_pr_chd_charges_setup_dtl",
+   "glb_pr_chs_charges_setup"
+  ]
+ },
+ {
+  "option_id": "DYL_201072",
+  "title": "Delivery Mode",
+  "path": "Company setup > General > Delivery Mode",
+  "layout": "201072",
+  "panels": 2,
+  "fields": 10,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_DLM_DELIVERY_MODE"
+  ]
+ },
+ {
+  "option_id": "DYL_201073",
+  "title": "Reason Type",
+  "path": "Company setup > General > Reason Type",
+  "layout": "201073",
+  "panels": 2,
+  "fields": 9,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_RNT_REASON_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201076",
+  "title": "Promotion User Group",
+  "path": "Company setup > General > Promotion User Group",
+  "layout": "201076",
+  "panels": 2,
+  "fields": 5,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "PRM_PM_PED_PROM_ENT_GRP_DTL",
+   "PRM_PM_PEG_PROM_ENTITY_GROUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201082",
+  "title": "Business Type",
+  "path": "Company setup > General > Business Type",
+  "layout": "201082",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_BST_BUSINESSTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201096",
+  "title": "Calendar Setup",
+  "path": "Company setup > General > Calendar Setup",
+  "layout": "201096",
+  "panels": 2,
+  "fields": 2,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "glb_pr_cls_calendar_setup"
+  ]
+ },
+ {
+  "option_id": "DYL_201301",
+  "title": "Expense Setup",
+  "path": "Company setup > General > Expense Setup",
+  "layout": "201301",
+  "panels": 2,
+  "fields": 7,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "glb_pr_exp_expense_setup"
+  ]
+ },
+ {
+  "option_id": "DYL_202011",
+  "title": "Promotion Type Group",
+  "path": "Company setup > General > Promotion Type Group",
+  "layout": "202011",
+  "panels": 2,
+  "fields": 10,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "prm_pm_ptg_prom_type_group"
+  ]
+ },
+ {
+  "option_id": "DYL_202017",
+  "title": "Company Holidays",
+  "path": "Company setup > General > Company Holidays",
+  "layout": "202017",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "glb_pr_CHO_CompanyHolidays"
+  ]
+ },
+ {
+  "option_id": "DYL_202021",
+  "title": "Vehicle Type",
+  "path": "Company setup > General > Vehicle Type",
+  "layout": "202021",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_VHT_VEHICLE_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_DN1005",
+  "title": "Sales Office",
+  "path": "Company setup > General > Sales Office",
+  "layout": "DN1005",
+  "panels": 2,
+  "fields": 7,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_SOF_SALES_OFFICE"
+  ]
+ },
+ {
+  "option_id": "DYL_202055",
+  "title": "Selling Category - II",
+  "path": "Company setup > General > Selling Category - II",
+  "layout": "202055",
+  "panels": 2,
+  "fields": 4,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "snd_en_pl1_prf_bsen_log_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_1037",
+  "title": "Geo Hierarchy",
+  "path": "Company setup > Geo Hierarchy",
+  "layout": "1037",
+  "panels": 2,
+  "fields": 10,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_GEO_GEOG_HIERARCHY"
+  ]
+ },
+ {
+  "option_id": "DYL_102003046",
+  "title": "Price Structure",
+  "path": "Company setup > Price > Price Structure",
+  "layout": "102003046",
+  "panels": 3,
+  "fields": 7,
+  "required": 4,
+  "grids": 2,
+  "tables": [
+   "snd_pr_bth_prod_batch",
+   "snd_pr_prs_prod_pricestructure"
+  ]
+ },
+ {
+  "option_id": "DYL_201035",
+  "title": "Outlet Price",
+  "path": "Company setup > Price > Outlet Price",
+  "layout": "201035",
+  "panels": 2,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PRM_MOB_PRICES",
+   "snd_en_pp1_prf_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_101043",
+  "title": "Analysis 1",
+  "path": "Company setup > Product Hierarchy > Analysis 1",
+  "layout": "101043",
+  "panels": 2,
+  "fields": 8,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PA1_PROD_ANALYSIS_1"
+  ]
+ },
+ {
+  "option_id": "DYL_101044",
+  "title": "Analysis 2",
+  "path": "Company setup > Product Hierarchy > Analysis 2",
+  "layout": "101044",
+  "panels": 2,
+  "fields": 8,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PA2_PROD_ANALYSIS_2"
+  ]
+ },
+ {
+  "option_id": "DYL_101045",
+  "title": "Analysis 3",
+  "path": "Company setup > Product Hierarchy > Analysis 3",
+  "layout": "101045",
+  "panels": 2,
+  "fields": 8,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PA3_PROD_ANALYSIS_3"
+  ]
+ },
+ {
+  "option_id": "DYL_101046",
+  "title": "Analysis 4",
+  "path": "Company setup > Product Hierarchy > Analysis 4",
+  "layout": "101046",
+  "panels": 2,
+  "fields": 5,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PA4_PROD_ANALYSIS_4"
+  ]
+ },
+ {
+  "option_id": "DYL_101047",
+  "title": "Analysis 5",
+  "path": "Company setup > Product Hierarchy > Analysis 5",
+  "layout": "101047",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PA5_PROD_ANALYSIS_5"
+  ]
+ },
+ {
+  "option_id": "DYL_101051",
+  "title": "Batch",
+  "path": "Company setup > Product Management > Batch",
+  "layout": "101051",
+  "panels": 2,
+  "fields": 18,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "SND_PR_BTH_PROD_BATCH",
+   "snd_pr_bth_prod_batch"
+  ]
+ },
+ {
+  "option_id": "DYL_102003024",
+  "title": "Product Configuration",
+  "path": "Company setup > Product Management > Product Configuration",
+  "layout": "102003024",
+  "panels": 4,
+  "fields": 20,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_PR_PRD_PRODUCT",
+   "snd_pr_prd_product"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1001",
+  "title": "Non Unilever Products",
+  "path": "Company setup > Product Management > Non Unilever Products",
+  "layout": "BG1001",
+  "panels": 4,
+  "fields": 33,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PRD_PRODUCT",
+   "snd_pr_prd_product"
+  ]
+ },
+ {
+  "option_id": "DYL_201401",
+  "title": "Custom Tags",
+  "path": "Company setup > Promotion > Custom Tags",
+  "layout": "201401",
+  "panels": 3,
+  "fields": 16,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "clc_pr_ctg_customtags",
+   "clc_pr_ctp_customtags_params"
+  ]
+ },
+ {
+  "option_id": "DYL_201501",
+  "title": "Promotion Eligible",
+  "path": "Company setup > Promotion > Promotion Eligible",
+  "layout": "201501",
+  "panels": 5,
+  "fields": 8,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "PRM_PM_PEE_PROM_ELGBL_ENTITY",
+   "PRM_PM_PEH_PROM_ELGBL_HEADER",
+   "PRM_PM_PEP_PROM_ELGBL_PROD",
+   "PRM_PM_PSL_PROMOTION_SLABS"
+  ]
+ },
+ {
+  "option_id": "DYL_201601",
+  "title": "Event Custom",
+  "path": "Company setup > Promotion > Event Custom",
+  "layout": "201601",
+  "panels": 2,
+  "fields": 3,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "clc_pr_ecm_eventcusttagmapping"
+  ]
+ },
+ {
+  "option_id": "DYL_1039",
+  "title": "Sales Hierarchy",
+  "path": "Company setup > Sales Hierarchy Setup > Sales Hierarchy",
+  "layout": "1039",
+  "panels": 2,
+  "fields": 18,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "SND_PR_SLH_SALES_HIERARCHY"
+  ]
+ },
+ {
+  "option_id": "DYL_102013003",
+  "title": "Company Mapping",
+  "path": "Company setup > Setup Mapping > Company Mapping",
+  "layout": "102013003",
+  "panels": 11,
+  "fields": 24,
+  "required": 3,
+  "grids": 2,
+  "tables": [
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "SND_PR_VST_VISIT_STATUS",
+   "glb_pr_aee_allow_enttoentity"
+  ]
+ },
+ {
+  "option_id": "DYL_202077",
+  "title": "Stock Type Reason Mapping",
+  "path": "Company setup > Setup Mapping > Stock Type Reason Mapping",
+  "layout": "202077",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "glb_pr_aee_allow_enttoentity",
+   "snd_pr_stt_sku_stocktype"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1020",
+  "title": "User HQ",
+  "path": "Company setup > Users > User HQ",
+  "layout": "BG1020",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SMM_PR_SUS_USER"
+  ]
+ },
+ {
+  "option_id": "DYL_201017",
+  "title": "Validation Setup",
+  "path": "Company setup > Validation > Validation Setup",
+  "layout": "201017",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "VLD_VL_VDS_VALIDATION_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201018",
+  "title": "Validation Header",
+  "path": "Company setup > Validation > Validation Header",
+  "layout": "201018",
+  "panels": 3,
+  "fields": 7,
+  "required": 2,
+  "grids": 2,
+  "tables": [
+   "VLD_VL_VDD_VALIDATION_DETAIL",
+   "VLD_VL_VDH_VALIDATION_HEADER"
+  ]
+ },
+ {
+  "option_id": "DYL_202029",
+  "title": "Role Option",
+  "path": "Configuration > Access Role > Role Option",
+  "layout": "202029",
+  "panels": 2,
+  "fields": 6,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SMM_PR_ROL_ROLE",
+   "SMM_PR_ROP_ROLEOPTION"
+  ]
+ },
+ {
+  "option_id": "DYL_201019",
+  "title": "Dynamic Filter",
+  "path": "Configuration > Device Configuration > Dynamic Filter",
+  "layout": "201019",
+  "panels": 2,
+  "fields": 11,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_MDF_MBLTY_DYNMC_FILTR"
+  ]
+ },
+ {
+  "option_id": "DYL_201084",
+  "title": "Indicator",
+  "path": "Configuration > Device Configuration > Indicator",
+  "layout": "201084",
+  "panels": 3,
+  "fields": 11,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "mob_mb_ind_indctr_definition",
+   "mob_mb_ins_indicator_setup"
+  ]
+ },
+ {
+  "option_id": "DYL_201020",
+  "title": "LookUps",
+  "path": "Configuration > Mobiz  Configuration > LookUps",
+  "layout": "201020",
+  "panels": 2,
+  "fields": 5,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "mbz_lookups"
+  ]
+ },
+ {
+  "option_id": "DYL_201021",
+  "title": "Alerts",
+  "path": "Configuration > Mobiz  Configuration > Alerts",
+  "layout": "201021",
+  "panels": 2,
+  "fields": 26,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "mbz_alerts"
+  ]
+ },
+ {
+  "option_id": "DYL_201022",
+  "title": "Email Message",
+  "path": "Configuration > Mobiz  Configuration > Email Message",
+  "layout": "201022",
+  "panels": 2,
+  "fields": 17,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "mbz_emailmessage"
+  ]
+ },
+ {
+  "option_id": "DYL_201023",
+  "title": "Event",
+  "path": "Configuration > Mobiz  Configuration > Event",
+  "layout": "201023",
+  "panels": 2,
+  "fields": 10,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "MBZ_EVENT"
+  ]
+ },
+ {
+  "option_id": "DYL_201024",
+  "title": "Sender Info",
+  "path": "Configuration > Mobiz  Configuration > Sender Info",
+  "layout": "201024",
+  "panels": 2,
+  "fields": 6,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "mbz_senderinfo"
+  ]
+ },
+ {
+  "option_id": "DYL_201025",
+  "title": "Parameter Repository",
+  "path": "Configuration > Mobiz  Configuration > Parameter Repository",
+  "layout": "201025",
+  "panels": 2,
+  "fields": 9,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "mbz_paramsrepstry"
+  ]
+ },
+ {
+  "option_id": "DYL_201034",
+  "title": "Event Parameter",
+  "path": "Configuration > Mobiz  Configuration > Event Parameter",
+  "layout": "201034",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "mbz_eventparam"
+  ]
+ },
+ {
+  "option_id": "DYL_201031",
+  "title": "Template",
+  "path": "Configuration > Mobiz  Configuration > Template",
+  "layout": "201031",
+  "panels": 2,
+  "fields": 16,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "mbz_template"
+  ]
+ },
+ {
+  "option_id": "DYL_1003",
+  "title": "Principal",
+  "path": "Configuration > System Configuration > Principal",
+  "layout": "1003",
+  "panels": 2,
+  "fields": 16,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "glb_pr_orp_principal"
+  ]
+ },
+ {
+  "option_id": "DYL_101001",
+  "title": "Organization",
+  "path": "Configuration > System Configuration > Organization",
+  "layout": "101001",
+  "panels": 2,
+  "fields": 16,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "glb_pr_org_organization"
+  ]
+ },
+ {
+  "option_id": "DYL_101016",
+  "title": "Unit of Measurement",
+  "path": "Configuration > System Configuration > Unit of Measurement",
+  "layout": "101016",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_UOM_UNITOFMEASURE"
+  ]
+ },
+ {
+  "option_id": "DYL_101041",
+  "title": "Product Type",
+  "path": "Configuration > System Configuration > Product Type",
+  "layout": "101041",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PTY_PROD_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1013",
+  "title": "Payment Mode",
+  "path": "Configuration > System Configuration > Payment Mode",
+  "layout": "1013",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_PYM_PAYMENTMODE"
+  ]
+ },
+ {
+  "option_id": "DYL_1014",
+  "title": "Period Type",
+  "path": "Configuration > System Configuration > Period Type",
+  "layout": "1014",
+  "panels": 2,
+  "fields": 12,
+  "required": 7,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_PTP_PERIODTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1015",
+  "title": "Frequency",
+  "path": "Configuration > System Configuration > Frequency",
+  "layout": "1015",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_FQY_FREQUENCY"
+  ]
+ },
+ {
+  "option_id": "DYL_1017",
+  "title": "Address Type",
+  "path": "Configuration > System Configuration > Address Type",
+  "layout": "1017",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_ADT_ADDRESSTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1020",
+  "title": "Device Type",
+  "path": "Configuration > System Configuration > Device Type",
+  "layout": "1020",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_DVT_DEVICETYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_102008",
+  "title": "Events",
+  "path": "Configuration > System Configuration > Events",
+  "layout": "102008",
+  "panels": 2,
+  "fields": 6,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "clc_pr_evt_events"
+  ]
+ },
+ {
+  "option_id": "DYL_102009",
+  "title": "Repository",
+  "path": "Configuration > System Configuration > Repository",
+  "layout": "102009",
+  "panels": 2,
+  "fields": 11,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "CLC_PR_REP_REPOSITORY"
+  ]
+ },
+ {
+  "option_id": "DYL_102010",
+  "title": "Event Repository Mapping",
+  "path": "Configuration > System Configuration > Event Repository Mapping",
+  "layout": "102010",
+  "panels": 2,
+  "fields": 3,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "CLC_PR_ERM_EVENTREPOMAPPING"
+  ]
+ },
+ {
+  "option_id": "DYL_1021",
+  "title": "Identifier Type",
+  "path": "Configuration > System Configuration > Identifier Type",
+  "layout": "1021",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_IDN_IDENTIFIERTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1023",
+  "title": "Business Entity Types",
+  "path": "Configuration > System Configuration > Business Entity Types",
+  "layout": "1023",
+  "panels": 2,
+  "fields": 8,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_BET_BUSENTITY_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1026",
+  "title": "Language",
+  "path": "Configuration > System Configuration > Language",
+  "layout": "1026",
+  "panels": 2,
+  "fields": 9,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_LNG_LANGUAGE"
+  ]
+ },
+ {
+  "option_id": "DYL_1028",
+  "title": "Document",
+  "path": "Configuration > System Configuration > Document",
+  "layout": "1028",
+  "panels": 3,
+  "fields": 16,
+  "required": 4,
+  "grids": 2,
+  "tables": [
+   "SND_PR_DOS_DOCUMENTSTATUS",
+   "SND_PR_DOT_DOCUMENTTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1034",
+  "title": "Price Type",
+  "path": "Configuration > System Configuration > Price Type",
+  "layout": "1034",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PRT_PRICETYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1035",
+  "title": "DSR Type",
+  "path": "Configuration > System Configuration > DSR Type",
+  "layout": "1035",
+  "panels": 2,
+  "fields": 10,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "SND_PR_DST_DSRTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1040",
+  "title": "Transaction Nature",
+  "path": "Configuration > System Configuration > Transaction Nature",
+  "layout": "1040",
+  "panels": 2,
+  "fields": 9,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_TRN_TRANS_NATURE"
+  ]
+ },
+ {
+  "option_id": "DYL_1078",
+  "title": "Stock Type",
+  "path": "Configuration > System Configuration > Stock Type",
+  "layout": "1078",
+  "panels": 2,
+  "fields": 10,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_STT_SKU_STOCKTYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_1084",
+  "title": "Marital Status",
+  "path": "Configuration > System Configuration > Marital Status",
+  "layout": "1084",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_MRT_MARITALSTATUS"
+  ]
+ },
+ {
+  "option_id": "DYL_201036",
+  "title": "Business Repository Mapping",
+  "path": "Configuration > System Configuration > Business Repository Mapping",
+  "layout": "201036",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "glb_pr_brm_business_repo_map"
+  ]
+ },
+ {
+  "option_id": "DYL_202014",
+  "title": "Profile Hierarchy Level",
+  "path": "Configuration > System Configuration > Profile Hierarchy Level",
+  "layout": "202014",
+  "panels": 2,
+  "fields": 4,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_HLS_HIERARCHY_LVL_STP"
+  ]
+ },
+ {
+  "option_id": "DYL_201079",
+  "title": "Instrument Status",
+  "path": "Configuration > System Configuration > Instrument Status",
+  "layout": "201079",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "glb_pr_ins_instrument_status"
+  ]
+ },
+ {
+  "option_id": "DYL_201081",
+  "title": "Finance Entity",
+  "path": "Configuration > System Configuration > Finance Entity",
+  "layout": "201081",
+  "panels": 2,
+  "fields": 7,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "snd_pr_fet_finance_entity"
+  ]
+ },
+ {
+  "option_id": "DYL_102003019",
+  "title": "DSR Profile",
+  "path": "Distributor Setup > DSR Profile > DSR Profile",
+  "layout": "102003019",
+  "panels": 9,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_DT1002",
+  "title": "DSR Profile - DT",
+  "path": "Distributor Setup > DSR Profile > DSR Profile - DT",
+  "layout": "DT1002",
+  "panels": 9,
+  "fields": 30,
+  "required": 8,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_EN_QLF_QUALIFICATION",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "glb_en_adr_address",
+   "glb_en_dev_deviceinfo",
+   "glb_en_pex_pastexperience"
+  ]
+ },
+ {
+  "option_id": "DYL_TM1002",
+  "title": "DSR Profile TM - Layout",
+  "path": "Distributor Setup > DSR Profile > DSR Profile TM - Layout",
+  "layout": "TM1002",
+  "panels": 9,
+  "fields": 30,
+  "required": 4,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_EN_QLF_QUALIFICATION",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "glb_en_adr_address",
+   "glb_en_dev_deviceinfo",
+   "glb_en_pex_pastexperience"
+  ]
+ },
+ {
+  "option_id": "DYL_202044",
+  "title": "DSR Profile HQ",
+  "path": "Distributor Setup > DSR Profile > DSR Profile HQ",
+  "layout": "202044",
+  "panels": 9,
+  "fields": 30,
+  "required": 8,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_DEV_DEVICEINFO",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_EN_PEX_PASTEXPERIENCE",
+   "GLB_EN_QLF_QUALIFICATION",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "glb_en_adr_address"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1017",
+  "title": "DSR Profile BG",
+  "path": "Distributor Setup > DSR Profile > DSR Profile BG",
+  "layout": "BG1017",
+  "panels": 9,
+  "fields": 31,
+  "required": 7,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_DEV_DEVICEINFO",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_EN_PEX_PASTEXPERIENCE",
+   "GLB_EN_QLF_QUALIFICATION",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "glb_en_adr_address"
+  ]
+ },
+ {
+  "option_id": "DYL_202052",
+  "title": null,
+  "path": "Distributor Setup > DSR Profile > DYL_202052",
+  "layout": "202052",
+  "panels": 9,
+  "fields": 29,
+  "required": 8,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_EN_QLF_QUALIFICATION",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "glb_en_adr_address",
+   "glb_en_dev_deviceinfo",
+   "glb_en_pex_pastexperience"
+  ]
+ },
+ {
+  "option_id": "DYL_202075",
+  "title": null,
+  "path": "Distributor Setup > DSR Profile > DYL_202075",
+  "layout": "202075",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD_DAILY"
+  ]
+ },
+ {
+  "option_id": "DYL_202066",
+  "title": "RCOA Report Setup",
+  "path": "Distributor Setup > DSR Profile > RCOA Report Setup",
+  "layout": "202066",
+  "panels": 2,
+  "fields": 9,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_REPORT"
+  ]
+ },
+ {
+  "option_id": "DYL_202018",
+  "title": "Distributor Holidays",
+  "path": "Distributor Setup > General > Distributor Holidays",
+  "layout": "202018",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "glb_pr_PLH_phs_lvl1_Holidays"
+  ]
+ },
+ {
+  "option_id": "DYL_DN1002",
+  "title": "Document Check List",
+  "path": "Distributor Setup > General > Document Check List",
+  "layout": "DN1002",
+  "panels": 2,
+  "fields": 4,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_PR_DFM_DOC_FILE_MAPPING"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1009",
+  "title": "Distributor Holiday Approval",
+  "path": "Distributor Setup > General > Distributor Holiday Approval",
+  "layout": "BG1009",
+  "panels": 2,
+  "fields": 6,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "glb_pr_PLH_phs_lvl1_Holidays"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1011",
+  "title": "Distributor Holiday II",
+  "path": "Distributor Setup > General > Distributor Holiday II",
+  "layout": "BG1011",
+  "panels": 2,
+  "fields": 5,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "glb_pr_PLH_phs_lvl1_Holidays"
+  ]
+ },
+ {
+  "option_id": "DYL_102011",
+  "title": "PJP Creation",
+  "path": "Distributor Setup > Journey Plan > PJP Creation",
+  "layout": "102011",
+  "panels": 2,
+  "fields": 17,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_202045",
+  "title": "PJP Creation HQ",
+  "path": "Distributor Setup > Journey Plan > PJP Creation HQ",
+  "layout": "202045",
+  "panels": 2,
+  "fields": 17,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_202037",
+  "title": "PJP Daily Inquiry",
+  "path": "Distributor Setup > Journey Plan > PJP Daily Inquiry",
+  "layout": "202037",
+  "panels": 3,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(",
+   "snd_en_pjp_pjphead_daily"
+  ]
+ },
+ {
+  "option_id": "DYL_DT1003",
+  "title": "PJP Creation DT",
+  "path": "Distributor Setup > Journey Plan > PJP Creation DT",
+  "layout": "DT1003",
+  "panels": 2,
+  "fields": 17,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1022",
+  "title": "PJP Daily Inquiry Update",
+  "path": "Distributor Setup > Journey Plan > PJP Daily Inquiry Update",
+  "layout": "BG1022",
+  "panels": 2,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD_DAILY"
+  ]
+ },
+ {
+  "option_id": "DYL_TM1003",
+  "title": "PJP Creation TM",
+  "path": "Distributor Setup > Journey Plan > PJP Creation TM",
+  "layout": "TM1003",
+  "panels": 2,
+  "fields": 17,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_DN1004",
+  "title": "PJP Daily Inquiry Update DN",
+  "path": "Distributor Setup > Journey Plan > PJP Daily Inquiry Update DN",
+  "layout": "DN1004",
+  "panels": 3,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD_DAILY",
+   "SND_TR_CET_CASHMEMO_EXE_TOUR"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1018",
+  "title": "PJP Creation BG",
+  "path": "Distributor Setup > Journey Plan > PJP Creation BG",
+  "layout": "BG1018",
+  "panels": 2,
+  "fields": 17,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PJP_PJPHEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_102003081",
+  "title": "Outlet Approval II",
+  "path": "Distributor Setup > Outlet Profile > Outlet Approval II",
+  "layout": "102003081",
+  "panels": 10,
+  "fields": 82,
+  "required": 28,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_202009001",
+  "title": "Outlet Profile ",
+  "path": "Distributor Setup > Outlet Profile > Outlet Profile ",
+  "layout": "202009001",
+  "panels": 11,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_202016",
+  "title": "Outlet Excel View - Filter",
+  "path": "Distributor Setup > Outlet Profile > Outlet Excel View - Filter",
+  "layout": "202016",
+  "panels": 1,
+  "fields": 5,
+  "required": 0,
+  "grids": 0,
+  "tables": [
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1013",
+  "title": "Outlet Profile HQ",
+  "path": "Distributor Setup > Outlet Profile > Outlet Profile HQ",
+  "layout": "BG1013",
+  "panels": 11,
+  "fields": 81,
+  "required": 28,
+  "grids": 2,
+  "tables": [
+   "(SELECT",
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_102003090",
+  "title": "Outlet Profile View",
+  "path": "Distributor Setup > Outlet Profile > Outlet Profile View",
+  "layout": "102003090",
+  "panels": 11,
+  "fields": 83,
+  "required": 29,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "GLB_PR_ANC_ANLS_CLASIFY",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_TM1004",
+  "title": "Outlet Profile TM",
+  "path": "Distributor Setup > Outlet Profile > Outlet Profile TM",
+  "layout": "TM1004",
+  "panels": 10,
+  "fields": 61,
+  "required": 25,
+  "grids": 3,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_102003100",
+  "title": "Prospect Outlet Approval",
+  "path": "Distributor Setup > Outlet Profile > Prospect Outlet Approval",
+  "layout": "102003100",
+  "panels": 10,
+  "fields": 83,
+  "required": 29,
+  "grids": 2,
+  "tables": [
+   "GLB_EN_BAC_BANKACCOUNT",
+   "GLB_EN_COD_CONTACTDETAIL",
+   "GLB_EN_DOC_DOCUMENTDETAIL",
+   "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_en_adr_address",
+   "snd_en_op1_oth_bsen_phs_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_102013002",
+  "title": "Distributor Mapping",
+  "path": "Distributor Setup > Setup Mapping > Distributor Mapping",
+  "layout": "102013002",
+  "panels": 14,
+  "fields": 21,
+  "required": 8,
+  "grids": 2,
+  "tables": [
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "glb_pr_aee_allow_enttoentity",
+   "glb_pr_bem_busentity_mistype"
+  ]
+ },
+ {
+  "option_id": "DYL_1032",
+  "title": "Vehicle Profile",
+  "path": "Distributor Setup > Vehicle Profile > Vehicle Profile",
+  "layout": "1032",
+  "panels": 2,
+  "fields": 40,
+  "required": 17,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VCH_VEHICLE"
+  ]
+ },
+ {
+  "option_id": "DYL_202032",
+  "title": "Vehicle Profile View",
+  "path": "Distributor Setup > Vehicle Profile > Vehicle Profile View",
+  "layout": "202032",
+  "panels": 2,
+  "fields": 40,
+  "required": 17,
+  "grids": 1,
+  "tables": [
+   "SND_PR_VCH_VEHICLE"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1005",
+  "title": "Warehouse Profile Approval",
+  "path": "Distributor Setup > Warehouse > Warehouse Profile Approval",
+  "layout": "BG1005",
+  "panels": 2,
+  "fields": 4,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1006",
+  "title": "Warehouse Profile",
+  "path": "Distributor Setup > Warehouse > Warehouse Profile",
+  "layout": "BG1006",
+  "panels": 2,
+  "fields": 7,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_201087",
+  "title": "Visit Status Log",
+  "path": "Transaction > Logs > Visit Status Log",
+  "layout": "201087",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "snd_lg_vsl_visitstatus_log"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1016",
+  "title": "BG - Transaction Inquiry",
+  "path": "Transaction > Order > BG - Transaction Inquiry",
+  "layout": "BG1016",
+  "panels": 8,
+  "fields": 6,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "(select",
+   "SND_TR_CMM_CASHMEMO_DETAIL",
+   "SND_TR_CMM_CASHMEMO_OFFRITEM",
+   "snd_tr_cmm_cashmemo_payment"
+  ]
+ },
+ {
+  "option_id": "DYL_102014",
+  "title": "Transaction Inquiry",
+  "path": "Transaction > Order > Transaction Inquiry",
+  "layout": "102014",
+  "panels": 11,
+  "fields": 10,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "(select",
+   "SND_TR_CAI_CMM_ADITIONL_INFO",
+   "SND_TR_CMM_CASHMEMO_OFFRITEM",
+   "snd_pr_dos_documentstatus",
+   "snd_tr_cmm_cashmemo_master",
+   "snd_tr_cmm_cashmemo_payment"
+  ]
+ },
+ {
+  "option_id": "DYL_201080",
+  "title": "Delivery Date Change ",
+  "path": "Transaction > Order > Delivery Date Change ",
+  "layout": "201080",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT"
+  ]
+ },
+ {
+  "option_id": "DYL_201904",
+  "title": "Order Stock Allocation",
+  "path": "Transaction > Order > Order Stock Allocation",
+  "layout": "201904",
+  "panels": 3,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "snd_tr_cmm_cashmemo_master"
+  ]
+ },
+ {
+  "option_id": "DYL_202008",
+  "title": "Order Change Utility",
+  "path": "Transaction > Order > Order Change Utility",
+  "layout": "202008",
+  "panels": 6,
+  "fields": 12,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "(select"
+  ]
+ },
+ {
+  "option_id": "DYL_202019",
+  "title": "Cashmemo Status Change",
+  "path": "Transaction > Order > Cashmemo Status Change",
+  "layout": "202019",
+  "panels": 1,
+  "fields": 2,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_202022",
+  "title": "Order Cancellation",
+  "path": "Transaction > Order > Order Cancellation",
+  "layout": "202022",
+  "panels": 1,
+  "fields": 4,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_202049",
+  "title": "Order Cancellation DT",
+  "path": "Transaction > Order > Order Cancellation DT",
+  "layout": "202049",
+  "panels": 1,
+  "fields": 4,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_202053",
+  "title": "Cashmemo Reschedule",
+  "path": "Transaction > Order > Cashmemo Reschedule",
+  "layout": "202053",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(select"
+  ]
+ },
+ {
+  "option_id": "DYL_202054",
+  "title": "Split Manual Order",
+  "path": "Transaction > Order > Split Manual Order",
+  "layout": "202054",
+  "panels": 2,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(select"
+  ]
+ },
+ {
+  "option_id": "DYL_202036",
+  "title": "Re Attempt FBR Invoice",
+  "path": "Transaction > Order > Re Attempt FBR Invoice",
+  "layout": "202036",
+  "panels": 2,
+  "fields": 6,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_TR_CMM_CASHMEMO_MASTER",
+   "snd_pr_dos_documentstatus"
+  ]
+ },
+ {
+  "option_id": "DYL_201068",
+  "title": "Dispatch Advice",
+  "path": "Transaction > Primary Sale > Dispatch Advice",
+  "layout": "201068",
+  "panels": 3,
+  "fields": 26,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1003",
+  "title": "Dispatch Advice NUP",
+  "path": "Transaction > Primary Sale > Dispatch Advice NUP",
+  "layout": "BG1003",
+  "panels": 3,
+  "fields": 22,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1004",
+  "title": "Dispatch Advice II",
+  "path": "Transaction > Primary Sale > Dispatch Advice II",
+  "layout": "BG1004",
+  "panels": 3,
+  "fields": 26,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_AS1001",
+  "title": "Transfer In DA",
+  "path": "Transaction > Primary Sale > Transfer In DA",
+  "layout": "AS1001",
+  "panels": 3,
+  "fields": 27,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_202023",
+  "title": "Execution Status",
+  "path": "Transaction > Process > Execution Status",
+  "layout": "202023",
+  "panels": 2,
+  "fields": 9,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "glb_pr_exs_execution_status"
+  ]
+ },
+ {
+  "option_id": "DYL_201502",
+  "title": "Credit/Debit Note Inquiry",
+  "path": "Transaction > Receivable > Credit/Debit Note Inquiry",
+  "layout": "201502",
+  "panels": 3,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_TR_FDD_FINANCIAL_DOC_DTL"
+  ]
+ },
+ {
+  "option_id": "DYL_201802",
+  "title": "Deposit Slip",
+  "path": "Transaction > Receivable > Deposit Slip",
+  "layout": "201802",
+  "panels": 3,
+  "fields": 8,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_TR_DSD_DEPOSIT_SLIP_DTL",
+   "snd_tr_dsl_deposit_slip"
+  ]
+ },
+ {
+  "option_id": "DYL_201901",
+  "title": "Debit\\Credit Note",
+  "path": "Transaction > Receivable > Debit\\Credit Note",
+  "layout": "201901",
+  "panels": 2,
+  "fields": 11,
+  "required": 7,
+  "grids": 1,
+  "tables": [
+   "SND_TR_FDH_FINANCIAL_DOC_HDR"
+  ]
+ },
+ {
+  "option_id": "DYL_202010",
+  "title": "Manual Knockoff",
+  "path": "Transaction > Receivable > Manual Knockoff",
+  "layout": "202010",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT"
+  ]
+ },
+ {
+  "option_id": "DYL_202020",
+  "title": "Cheque Status",
+  "path": "Transaction > Receivable > Cheque Status",
+  "layout": "202020",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(select",
+   "SND_TR_DSL_DEPOSIT_SLIP"
+  ]
+ },
+ {
+  "option_id": "DYL_201202",
+  "title": null,
+  "path": "Transaction > Receivable > DYL_201202",
+  "layout": "201202",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(select"
+  ]
+ },
+ {
+  "option_id": "DYL_201045",
+  "title": "Stock Adjustment SAN",
+  "path": "Transaction > Stock > Stock Adjustment SAN",
+  "layout": "201045",
+  "panels": 3,
+  "fields": 9,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_201046",
+  "title": "Return Advise",
+  "path": "Transaction > Stock > Return Advise",
+  "layout": "201046",
+  "panels": 3,
+  "fields": 25,
+  "required": 7,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_201906",
+  "title": "Stock Master Inquiry",
+  "path": "Transaction > Stock > Stock Master Inquiry",
+  "layout": "201906",
+  "panels": 3,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_DETAIL",
+   "snd_tr_stm_stock_master"
+  ]
+ },
+ {
+  "option_id": "DYL_201069",
+  "title": "Stock Inquiry",
+  "path": "Transaction > Stock > Stock Inquiry",
+  "layout": "201069",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(select",
+   "snd_tr_ssb_salestock_balance"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1015",
+  "title": "Stock Inquiry II",
+  "path": "Transaction > Stock > Stock Inquiry II",
+  "layout": "BG1015",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(select",
+   "snd_tr_ssb_salestock_balance"
+  ]
+ },
+ {
+  "option_id": "DYL_202028",
+  "title": "IO Listing",
+  "path": "Transaction > Claim > IO Listing",
+  "layout": "202028",
+  "panels": 2,
+  "fields": 6,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_EN_ICT_IO_CLAIM_TYPE_MAP"
+  ]
+ },
+ {
+  "option_id": "DYL_202058",
+  "title": "IO Master",
+  "path": "Transaction > Claim > IO Master",
+  "layout": "202058",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_IOD_IO_DETAIL",
+   "SND_EN_IOM_IO_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_202033",
+  "title": "IQ Threshold",
+  "path": "Transaction > Claim > IQ Threshold",
+  "layout": "202033",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_ITS_IQ_ENT_THRESHOLD"
+  ]
+ },
+ {
+  "option_id": "DYL_201097005",
+  "title": "Claim Inquiry",
+  "path": "Transaction > Claim > Claim Inquiry",
+  "layout": "201097005",
+  "panels": 4,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_TR_CLD_CLAIM_DETAIL",
+   "SND_TR_CLM_CLAIM_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1021",
+  "title": "Claim Inquiry - BG",
+  "path": "Transaction > Claim > Claim Inquiry - BG",
+  "layout": "BG1021",
+  "panels": 4,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(",
+   "SND_TR_CLD_CLAIM_DETAIL",
+   "SND_TR_CLM_CLAIM_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_201097",
+  "title": "Claim",
+  "path": "Transaction > Claim > Claim",
+  "layout": "201097",
+  "panels": 5,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_TR_CLD_CLAIM_DETAIL",
+   "SND_TR_CLM_CLAIM_MASTER",
+   "snd_tr_clr_claim_refinfo"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1023",
+  "title": "Claim Inquiry Doc Wise 1",
+  "path": "Transaction > Claim > Claim Inquiry Doc Wise 1",
+  "layout": "BG1023",
+  "panels": 4,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_TR_CLD_CLAIM_DETAIL",
+   "SND_TR_CLM_CLAIM_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1025",
+  "title": "Claim Inquiry Doc Wise 3",
+  "path": "Transaction > Claim > Claim Inquiry Doc Wise 3",
+  "layout": "BG1025",
+  "panels": 4,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_TR_CLD_CLAIM_DETAIL",
+   "SND_TR_CLM_CLAIM_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_LMT_ORDER_CREATION",
+  "title": "Bulk Order Upload",
+  "path": "Transaction > Bulk Order Upload",
+  "layout": "LMT_ORDER_CREATION",
+  "panels": 3,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_OID_ORDR_INTGRTON_DTL",
+   "SND_EN_ORI_ORDER_INTEGRATION"
+  ]
+ },
+ {
+  "option_id": "DYL_202040",
+  "title": "Change Execution Status",
+  "path": "Transaction > Change Execution Status",
+  "layout": "202040",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "snd_tr_cmm_cashmemo_master"
+  ]
+ },
+ {
+  "option_id": "DYL_202026",
+  "title": "Loss Approval",
+  "path": "Transaction > Loss Approval",
+  "layout": "202026",
+  "panels": 3,
+  "fields": 4,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_RECVDETAIL",
+   "snd_tr_stm_stock_recvmaster"
+  ]
+ },
+ {
+  "option_id": "DYL_202051",
+  "title": null,
+  "path": "Transaction > DYL_202051",
+  "layout": "202051",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "snd_tr_cmm_cashmemo_master"
+  ]
+ },
+ {
+  "option_id": "DYL_202059",
+  "title": "Order File",
+  "path": "Transaction > Order File",
+  "layout": "202059",
+  "panels": 3,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_TR_OFD_ORDER_FILE_DETAIL",
+   "SND_TR_OFH_ORDER_FILE_HEADER"
+  ]
+ },
+ {
+  "option_id": "DYL_DN1006",
+  "title": "API Monitoring",
+  "path": "Transaction > API Monitoring",
+  "layout": "DN1006",
+  "panels": 4,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "(select"
+  ]
+ },
+ {
+  "option_id": "DYL_201038",
+  "title": "Product Image Master",
+  "path": "Image Beautifier > Product Image Master",
+  "layout": "201038",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "mob_pr_pim_prod_image_master"
+  ]
+ },
+ {
+  "option_id": "DYL_202030",
+  "title": "Order Integration",
+  "path": "Integrator > Order Integration",
+  "layout": "202030",
+  "panels": 3,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_OID_ORDR_INTGRTON_DTL",
+   "SND_EN_ORI_ORDER_INTEGRATION"
+  ]
+ },
+ {
+  "option_id": "DYL_LMT_ORDER_CREATION",
+  "title": "Bulk Order Upload",
+  "path": "Integrator > Bulk Order Upload",
+  "layout": "LMT_ORDER_CREATION",
+  "panels": 3,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_OID_ORDR_INTGRTON_DTL",
+   "SND_EN_ORI_ORDER_INTEGRATION"
+  ]
+ },
+ {
+  "option_id": "DYL_201048",
+  "title": "Asset Category",
+  "path": "Asset Module > Asset Category",
+  "layout": "201048",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_ACT_ASSET_CATEGORY"
+  ]
+ },
+ {
+  "option_id": "DYL_201049",
+  "title": "Asset Type",
+  "path": "Asset Module > Asset Type",
+  "layout": "201049",
+  "panels": 2,
+  "fields": 7,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "AST_PR_ATP_ASSET_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201050",
+  "title": "Asset State",
+  "path": "Asset Module > Asset State",
+  "layout": "201050",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_AST_ASSET_STATE"
+  ]
+ },
+ {
+  "option_id": "DYL_201051",
+  "title": "Complaint Type",
+  "path": "Asset Module > Complaint Type",
+  "layout": "201051",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_CTP_COMPLAINT_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201052",
+  "title": "Repair Items",
+  "path": "Asset Module > Repair Items",
+  "layout": "201052",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_RIT_REPAIR_ITEMS"
+  ]
+ },
+ {
+  "option_id": "DYL_201053",
+  "title": "Quota Type",
+  "path": "Asset Module > Quota Type",
+  "layout": "201053",
+  "panels": 2,
+  "fields": 8,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_QTP_QUOTA_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201054",
+  "title": "Asset Make ",
+  "path": "Asset Module > Asset Make ",
+  "layout": "201054",
+  "panels": 2,
+  "fields": 7,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_AMK_ASSET_MAKE"
+  ]
+ },
+ {
+  "option_id": "DYL_201055",
+  "title": "Asset Master",
+  "path": "Asset Module > Asset Master",
+  "layout": "201055",
+  "panels": 3,
+  "fields": 13,
+  "required": 3,
+  "grids": 2,
+  "tables": [
+   "AST_PR_AMS_ASSET_MASTER",
+   "AST_PR_ASD_ASSET_DETAIL"
+  ]
+ },
+ {
+  "option_id": "DYL_201057",
+  "title": "Asset Maintenance Contract",
+  "path": "Asset Module > Asset Maintenance Contract",
+  "layout": "201057",
+  "panels": 3,
+  "fields": 8,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "AST_PR_AMC_AST_MAINT_CONTRCT",
+   "AST_PR_AMD_AST_MAIN_CONT_DTL"
+  ]
+ },
+ {
+  "option_id": "DYL_201059",
+  "title": "Asset Complaint",
+  "path": "Asset Module > Asset Complaint",
+  "layout": "201059",
+  "panels": 2,
+  "fields": 15,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "AST_TR_ACM_ASSET_COMPLAINT"
+  ]
+ },
+ {
+  "option_id": "DYL_201061",
+  "title": "Asset Transaction",
+  "path": "Asset Module > Asset Transaction",
+  "layout": "201061",
+  "panels": 2,
+  "fields": 18,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "AST_TR_ATN_ASSET_TRANSACTION"
+  ]
+ },
+ {
+  "option_id": "DYL_201062",
+  "title": "Asset Movement",
+  "path": "Asset Module > Asset Movement",
+  "layout": "201062",
+  "panels": 2,
+  "fields": 25,
+  "required": 6,
+  "grids": 1,
+  "tables": [
+   "AST_TR_AMT_ASSET_MOVEMENT"
+  ]
+ },
+ {
+  "option_id": "DYL_201063",
+  "title": "Asset Repair",
+  "path": "Asset Module > Asset Repair",
+  "layout": "201063",
+  "panels": 3,
+  "fields": 11,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "AST_TR_ARD_ASSET_REPAIR_DTL",
+   "AST_TR_ARH_ASSET_REPAIR_HEAD"
+  ]
+ },
+ {
+  "option_id": "DYL_201042",
+  "title": "Group",
+  "path": "Parameter > General Parameter > Management > Group",
+  "layout": "201042",
+  "panels": 2,
+  "fields": 5,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "SND_PR_SPH_PROD_SUGPRDHR"
+  ]
+ },
+ {
+  "option_id": "DYL_1036",
+  "title": "Coordinate Compliance",
+  "path": "Parameter > General Parameter > Geographical > Coordinate Compliance",
+  "layout": "1036",
+  "panels": 2,
+  "fields": 10,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_COC_CORD_COMPLIANCE"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1002",
+  "title": "Section Approval",
+  "path": "Setup/Configuration > PJP > Section Approval",
+  "layout": "BG1002",
+  "panels": 2,
+  "fields": 6,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "snd_en_pl1_prf_bsen_log_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_202046",
+  "title": "Section Creation HQ - Layout",
+  "path": "Setup/Configuration > PJP > Section Creation HQ - Layout",
+  "layout": "202046",
+  "panels": 2,
+  "fields": 6,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "snd_en_pl1_prf_bsen_log_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_BG1007",
+  "title": "Section Profile",
+  "path": "Setup/Configuration > PJP > Section Profile",
+  "layout": "BG1007",
+  "panels": 2,
+  "fields": 9,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "snd_en_pl1_prf_bsen_log_lvl1"
+  ]
+ },
+ {
+  "option_id": "DYL_102003015",
+  "title": "Section",
+  "path": "Setup/Configuration > PJP > Section",
+  "layout": "102003015",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_102003004",
+  "title": "Customer Profile",
+  "path": "Setup/Configuration > Entity Profile > Customer Profile",
+  "layout": "102003004",
+  "panels": 8,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "GLB_EN_COD_CONTACTDETAIL"
+  ]
+ },
+ {
+  "option_id": "DYL_201041",
+  "title": "Route Scheduling",
+  "path": "Setup/Configuration > Entity Profile > Route Scheduling",
+  "layout": "201041",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_201032",
+  "title": "New Outlet",
+  "path": "Setup/Configuration > New Outlet",
+  "layout": "201032",
+  "panels": 3,
+  "fields": 24,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_OUT_NEW_OUTLET_SETUP",
+   "MOB_PR_OSM_OUT_STAFF_MEMBER"
+  ]
+ },
+ {
+  "option_id": "DYL_201006",
+  "title": "Screen Model",
+  "path": "Setup/Configuration > Mobility > Application Flow > Screen Model",
+  "layout": "201006",
+  "panels": 6,
+  "fields": 22,
+  "required": 13,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MMS_MODEL_SETUP",
+   "MOB_MB_MSA_SCREEN_ASSOCIATE",
+   "MOB_MB_MSS_SCREEN_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201007",
+  "title": "User Group",
+  "path": "Setup/Configuration > Mobility > Application Flow > User Group",
+  "layout": "201007",
+  "panels": 6,
+  "fields": 17,
+  "required": 8,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MGA_MODLGRP_ASSOCTION",
+   "MOB_MB_MUG_USER_GROUP_SETUP",
+   "mob_mb_mua_user_association"
+  ]
+ },
+ {
+  "option_id": "DYL_201004",
+  "title": "Screen",
+  "path": "Setup/Configuration > Mobility > Application Flow > Screen",
+  "layout": "201004",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MSS_SCREEN_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201003",
+  "title": "Model",
+  "path": "Setup/Configuration > Mobility > Application Flow > Model",
+  "layout": "201003",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MMS_MODEL_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201005001",
+  "title": "Screen Associate",
+  "path": "Setup/Configuration > Mobility > Application Flow > Screen Associate",
+  "layout": "201005001",
+  "panels": 2,
+  "fields": 8,
+  "required": 5,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MSA_SCREEN_ASSOCIATE"
+  ]
+ },
+ {
+  "option_id": "DYL_201008",
+  "title": "Model Group Association",
+  "path": "Setup/Configuration > Mobility > Application Flow > Model Group Association",
+  "layout": "201008",
+  "panels": 2,
+  "fields": 5,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MGA_MODLGRP_ASSOCTION"
+  ]
+ },
+ {
+  "option_id": "DYL_201039",
+  "title": "Reminder Notification Setup",
+  "path": "Setup/Configuration > Mobility > Reminder Notification Setup",
+  "layout": "201039",
+  "panels": 3,
+  "fields": 5,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "BSR_BS_BNH_BUS_NOTIF_HEADER",
+   "bsr_bs_bnd_bus_notif_detail"
+  ]
+ },
+ {
+  "option_id": "DYL_201002",
+  "title": "Place Holder",
+  "path": "Setup/Configuration > Mobility > Place Holder",
+  "layout": "201002",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_PHS_PLACEHOLDER_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201001004",
+  "title": "Voice",
+  "path": "Setup/Configuration > Mobility > Voice",
+  "layout": "201001004",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_VCS_VOICE_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201001",
+  "title": "Voice Filter",
+  "path": "Setup/Configuration > Mobility > Voice Filter",
+  "layout": "201001",
+  "panels": 3,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "GLB_PR_VCS_VOICE_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201060",
+  "title": "Review Inquiry",
+  "path": "Setup/Configuration > Mobiz > Review Inquiry",
+  "layout": "201060",
+  "panels": 2,
+  "fields": 4,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "mob_pr_rev_review"
+  ]
+ },
+ {
+  "option_id": "DYL_201029",
+  "title": "Questions Setup",
+  "path": "Setup/Configuration > Questionnaire > Questions Setup",
+  "layout": "201029",
+  "panels": 2,
+  "fields": 9,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "CLC_PR_QUE_QUESTIONS"
+  ]
+ },
+ {
+  "option_id": "DYL_201030",
+  "title": "Questionnaire Setup",
+  "path": "Setup/Configuration > Questionnaire > Questionnaire Setup",
+  "layout": "201030",
+  "panels": 2,
+  "fields": 8,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "CLC_PR_QSR_QUESTIONNAIRE"
+  ]
+ },
+ {
+  "option_id": "DYL_201030003",
+  "title": "Questionnaire Mapping",
+  "path": "Setup/Configuration > Questionnaire > Questionnaire Mapping",
+  "layout": "201030003",
+  "panels": 2,
+  "fields": 6,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "CLC_PR_QQM_QNAIRE_QUSTON_MAP",
+   "CLC_PR_QSR_QUESTIONNAIRE"
+  ]
+ },
+ {
+  "option_id": "DYL_201009",
+  "title": "Banner Type",
+  "path": "Setup/Configuration > Banner > Banner Type",
+  "layout": "201009",
+  "panels": 2,
+  "fields": 8,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "BNR_BR_BNT_BANNER_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201010",
+  "title": "Link Type",
+  "path": "Setup/Configuration > Banner > Link Type",
+  "layout": "201010",
+  "panels": 4,
+  "fields": 11,
+  "required": 7,
+  "grids": 1,
+  "tables": [
+   "BNR_BR_LNS_LINK_SCREEN_MAPP",
+   "BNR_BR_LNT_LINK_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_201011",
+  "title": "Banner Header",
+  "path": "Setup/Configuration > Banner > Banner Header",
+  "layout": "201011",
+  "panels": 2,
+  "fields": 10,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "BNR_BR_BNH_BANNER_HEADER"
+  ]
+ },
+ {
+  "option_id": "DYL_201012",
+  "title": "Link Header",
+  "path": "Setup/Configuration > Banner > Link Header",
+  "layout": "201012",
+  "panels": 4,
+  "fields": 14,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "BNR_BR_LBM_LINK_BANNER_MAP",
+   "BNR_BR_LIH_LINK_HEADER",
+   "BNR_BR_LIV_LINK_VALUES"
+  ]
+ },
+ {
+  "option_id": "DYL_201013",
+  "title": "Link Values",
+  "path": "Setup/Configuration > Banner > Link Values",
+  "layout": "201013",
+  "panels": 2,
+  "fields": 6,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "BNR_BR_LIV_LINK_VALUES"
+  ]
+ },
+ {
+  "option_id": "DYL_201014",
+  "title": "Link Banner Map",
+  "path": "Setup/Configuration > Banner > Link Banner Map",
+  "layout": "201014",
+  "panels": 2,
+  "fields": 16,
+  "required": 3,
+  "grids": 0,
+  "tables": [
+   "BNR_BR_LBM_LINK_BANNER_MAP"
+  ]
+ },
+ {
+  "option_id": "DYL_201004003",
+  "title": "Screen Setup",
+  "path": "Setup/Configuration > Banner > Screen Setup",
+  "layout": "201004003",
+  "panels": 2,
+  "fields": 6,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "MOB_MB_MSS_SCREEN_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_201015",
+  "title": "Screen Map",
+  "path": "Setup/Configuration > Banner > Screen Map",
+  "layout": "201015",
+  "panels": 2,
+  "fields": 2,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "BNR_BR_LNS_LINK_SCREEN_MAPP"
+  ]
+ },
+ {
+  "option_id": "DYL_102013",
+  "title": "Entity To Entity Mapping",
+  "path": "Setup/Configuration > Entity To Entity Mapping",
+  "layout": "102013",
+  "panels": 20,
+  "fields": 31,
+  "required": 8,
+  "grids": 3,
+  "tables": [
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "GLB_PR_BET_BUSENTITY_TYPE",
+   "SND_PR_VST_VISIT_STATUS",
+   "glb_pr_aee_allow_enttoentity",
+   "glb_pr_bem_busentity_mistype",
+   "snd_pr_dst_dsrtype"
+  ]
+ },
+ {
+  "option_id": "DYL_102013001",
+  "title": "Entity To Entity Mapping",
+  "path": "Setup/Configuration > Entity To Entity Mapping",
+  "layout": "102013001",
+  "panels": 29,
+  "fields": 36,
+  "required": 5,
+  "grids": 2,
+  "tables": [
+   "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "GLB_PR_RNT_REASON_TYPE",
+   "SND_PR_VST_VISIT_STATUS",
+   "glb_pr_aee_allow_enttoentity",
+   "glb_pr_bem_busentity_mistype"
+  ]
+ },
+ {
+  "option_id": "DYL_201016",
+  "title": "Filtration ",
+  "path": "Setup/Configuration > Validation & Filtration > Filtration ",
+  "layout": "201016",
+  "panels": 3,
+  "fields": 5,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "VLD_VL_FLD_FILTRATION_DETAIL",
+   "VLD_VL_FLH_FILTRATION_HEADER"
+  ]
+ },
+ {
+  "option_id": "DYL_201071",
+  "title": "Time Slab",
+  "path": "Setup/Configuration > Time Slab",
+  "layout": "201071",
+  "panels": 4,
+  "fields": 14,
+  "required": 8,
+  "grids": 2,
+  "tables": [
+   "MOB_PR_BGT_LVL1_TIME_SLB_MAP",
+   "MOB_PR_GTS_GLOBAL_TIME_SLAB",
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_201028",
+  "title": "Suggested Product Group",
+  "path": "Product > Suggested Product Group",
+  "layout": "201028",
+  "panels": 4,
+  "fields": 14,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_SPG_PROD_SUGPRDGP",
+   "SND_PR_SPH_PROD_SUGPRDHR"
+  ]
+ },
+ {
+  "option_id": "DYL_101048",
+  "title": "ABC Classification",
+  "path": "Product > ABC Classification",
+  "layout": "101048",
+  "panels": 2,
+  "fields": 7,
+  "required": 4,
+  "grids": 1,
+  "tables": [
+   "SND_PR_PAB_PROD_ABCCLSFICATION"
+  ]
+ },
+ {
+  "option_id": "DYL_201077",
+  "title": "Redemption Limit",
+  "path": "Promotion Setup > Redemption Limit",
+  "layout": "201077",
+  "panels": 2,
+  "fields": 3,
+  "required": 1,
+  "grids": 1,
+  "tables": [
+   "prm_pm_erc_ent_redmption_cap"
+  ]
+ },
+ {
+  "option_id": "DYL_202047",
+  "title": "DSR Menu Inquiry",
+  "path": "DSR Menu Inquiry > DSR Menu Inquiry",
+  "layout": "202047",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "MOB_PR_BEM_BUSACTVTY_LVL2_MP",
+   "SND_EN_PP2_PRF_BSEN_PHS_LVL2"
+  ]
+ },
+ {
+  "option_id": "DYL_JR1001",
+  "title": "Stock Movement Report",
+  "path": "Reports > Stock Movement Report",
+  "layout": "JR1001",
+  "panels": 1,
+  "fields": 9,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1002",
+  "title": "Pick List - Delivery Man Wise",
+  "path": "Reports > Pick List - Delivery Man Wise",
+  "layout": "JR1002",
+  "panels": 1,
+  "fields": 3,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1003",
+  "title": "Customer Ledger and Balance Report",
+  "path": "Reports > Customer Ledger and Balance Report",
+  "layout": "JR1003",
+  "panels": 1,
+  "fields": 6,
+  "required": 2,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1004",
+  "title": "DSR Sale Summary",
+  "path": "Reports > DSR Sale Summary",
+  "layout": "JR1004",
+  "panels": 1,
+  "fields": 2,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1005",
+  "title": "DSR Statement DM - SS Based",
+  "path": "Reports > DSR Statement DM - SS Based",
+  "layout": "JR1005",
+  "panels": 1,
+  "fields": 5,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1006",
+  "title": "Customer Wise Sale Report",
+  "path": "Reports > Customer Wise Sale Report",
+  "layout": "JR1006",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1007",
+  "title": "Cheque For Realization",
+  "path": "Reports > Cheque For Realization",
+  "layout": "JR1007",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1008",
+  "title": "Daily Collection Pay Slip Wise Report",
+  "path": "Reports > Daily Collection Pay Slip Wise Report",
+  "layout": "JR1008",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1009",
+  "title": "Credit Aging Analysis Report",
+  "path": "Reports > Credit Aging Analysis Report",
+  "layout": "JR1009",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1010",
+  "title": "Daily Time Stamping Report",
+  "path": "Reports > Daily Time Stamping Report",
+  "layout": "JR1010",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1011",
+  "title": "DA-RA Stock Detail Report",
+  "path": "Reports > DA-RA Stock Detail Report",
+  "layout": "JR1011",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_201903",
+  "title": "Cashmemo Format",
+  "path": "Reports > Cashmemo Format",
+  "layout": "201903",
+  "panels": 1,
+  "fields": 1,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1013",
+  "title": "Account Report",
+  "path": "Reports > Account Report",
+  "layout": "JR1013",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1012",
+  "title": "Purchase Detail Report",
+  "path": "Reports > Purchase Detail Report",
+  "layout": "JR1012",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1014",
+  "title": "Daily Sale Return Sheet Report",
+  "path": "Reports > Daily Sale Return Sheet Report",
+  "layout": "JR1014",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1015",
+  "title": "Distributor Statement Report",
+  "path": "Reports > Distributor Statement Report",
+  "layout": "JR1015",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1016",
+  "title": null,
+  "path": "Reports > DYL_JR1016",
+  "layout": "JR1016",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_JR1017",
+  "title": null,
+  "path": "Reports > DYL_JR1017",
+  "layout": "JR1017",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_202061",
+  "title": "RCOA Type",
+  "path": "RCOA > Setup > RCOA Type",
+  "layout": "202061",
+  "panels": 2,
+  "fields": 8,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_TYPE"
+  ]
+ },
+ {
+  "option_id": "DYL_202076",
+  "title": "RCOA UOM",
+  "path": "RCOA > Setup > RCOA UOM",
+  "layout": "202076",
+  "panels": 2,
+  "fields": 8,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_UOM"
+  ]
+ },
+ {
+  "option_id": "DYL_202062",
+  "title": "RCOA Report Layout",
+  "path": "RCOA > Setup > RCOA Report Layout",
+  "layout": "202062",
+  "panels": 2,
+  "fields": 8,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_REP_LAYOUT"
+  ]
+ },
+ {
+  "option_id": "DYL_202078",
+  "title": "RCOA Activity Control",
+  "path": "RCOA > Setup > RCOA Activity Control",
+  "layout": "202078",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_ACTIVITYCONTROL"
+  ]
+ },
+ {
+  "option_id": "DYL_202081",
+  "title": "RCOA Setup Tabs",
+  "path": "RCOA > Setup > RCOA Setup Tabs",
+  "layout": "202081",
+  "panels": 14,
+  "fields": 22,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_ACCOUNT_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_202087",
+  "title": "RCOA Validation Exception Log",
+  "path": "RCOA > Setup > RCOA Validation Exception Log",
+  "layout": "202087",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANS_EXCEPTION"
+  ]
+ },
+ {
+  "option_id": "DYL_202088",
+  "title": "RCOA Activity Control II",
+  "path": "RCOA > Setup > RCOA Activity Control II",
+  "layout": "202088",
+  "panels": 2,
+  "fields": 14,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_ACTIVITYCONTROL"
+  ]
+ },
+ {
+  "option_id": "DYL_202090",
+  "title": "RCOA Activity Start And Complete",
+  "path": "RCOA > Setup > RCOA Activity Start And Complete",
+  "layout": "202090",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SMM_PR_USL_USERLOCATION"
+  ]
+ },
+ {
+  "option_id": "DYL_202091",
+  "title": "RCOA Status Control Button",
+  "path": "RCOA > Setup > RCOA Status Control Button",
+  "layout": "202091",
+  "panels": 2,
+  "fields": 6,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_STATUS_CONTROL_BUTTON"
+  ]
+ },
+ {
+  "option_id": "DYL_202098",
+  "title": "RCOA Classification Tabs",
+  "path": "RCOA > Setup > RCOA Classification Tabs",
+  "layout": "202098",
+  "panels": 34,
+  "fields": 37,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "FIN_PR_RCOA_ACCOUNT_SETUP"
+  ]
+ },
+ {
+  "option_id": "DYL_202092",
+  "title": "RCOA Distributor Profile",
+  "path": "RCOA > Setup > RCOA Distributor Profile",
+  "layout": "202092",
+  "panels": 2,
+  "fields": 5,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "SND_EN_PP1_PRF_BSEN_PHS_LVL1"
+  ]
+ },
+ {
+  "option_id": "DYL_202067",
+  "title": "Manual Input By Unilever",
+  "path": "RCOA > Input > Manual Input By Unilever",
+  "layout": "202067",
+  "panels": 2,
+  "fields": 3,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_INPUT"
+  ]
+ },
+ {
+  "option_id": "DYL_202079",
+  "title": "Manual Input By DT",
+  "path": "RCOA > Input > Manual Input By DT",
+  "layout": "202079",
+  "panels": 2,
+  "fields": 3,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_INPUT"
+  ]
+ },
+ {
+  "option_id": "DYL_202068",
+  "title": "Manual Input By Unilever Approval",
+  "path": "RCOA > Approval > Manual Input By Unilever Approval",
+  "layout": "202068",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_INPUT"
+  ]
+ },
+ {
+  "option_id": "DYL_202080",
+  "title": "Manual Input By DT Approval",
+  "path": "RCOA > Approval > Manual Input By DT Approval",
+  "layout": "202080",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_INPUT"
+  ]
+ },
+ {
+  "option_id": "DYL_202069",
+  "title": "DMS Extract Approval",
+  "path": "RCOA > Approval > DMS Extract Approval",
+  "layout": "202069",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_INTG"
+  ]
+ },
+ {
+  "option_id": "DYL_202070",
+  "title": "File Upload Approval",
+  "path": "RCOA > Approval > File Upload Approval",
+  "layout": "202070",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_FILE"
+  ]
+ },
+ {
+  "option_id": "DYL_202074",
+  "title": "RCOA Transaction Approval",
+  "path": "RCOA > Approval > RCOA Transaction Approval",
+  "layout": "202074",
+  "panels": 2,
+  "fields": 4,
+  "required": 3,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS"
+  ]
+ },
+ {
+  "option_id": "DYL_202072",
+  "title": "RCOA Transaction Inquiry",
+  "path": "RCOA > Inquiry > RCOA Transaction Inquiry",
+  "layout": "202072",
+  "panels": 2,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS"
+  ]
+ },
+ {
+  "option_id": "DYL_202071",
+  "title": "RCOA Report Layout Inquiry",
+  "path": "RCOA > Inquiry > RCOA Report Layout Inquiry",
+  "layout": "202071",
+  "panels": 2,
+  "fields": 4,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_REP_TRANSACTION",
+   "FIN_TR_RCOA_REP_TRANSACTIONS"
+  ]
+ },
+ {
+  "option_id": "DYL_202093",
+  "title": "RCOA Transactions Inquiry After Approval",
+  "path": "RCOA > Inquiry > RCOA Transactions Inquiry After Approval",
+  "layout": "202093",
+  "panels": 5,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_FILE",
+   "FIN_TR_RCOA_TRANSACTIONS_INPUT",
+   "FIN_TR_RCOA_TRANSACTIONS_INTG"
+  ]
+ },
+ {
+  "option_id": "DYL_202094",
+  "title": "RCOA Transactions Inquiry Before Approval",
+  "path": "RCOA > Inquiry > RCOA Transactions Inquiry Before Approval",
+  "layout": "202094",
+  "panels": 5,
+  "fields": 3,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "FIN_TR_RCOA_TRANSACTIONS_FILE",
+   "FIN_TR_RCOA_TRANSACTIONS_INPUT",
+   "FIN_TR_RCOA_TRANSACTIONS_INTG"
+  ]
+ },
+ {
+  "option_id": "DYL_201098",
+  "title": "Target Achievement Inquiry",
+  "path": "Transactions > Target Achievement Inquiry",
+  "layout": "201098",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "snd_tr_tac_targt_achievement"
+  ]
+ },
+ {
+  "option_id": "DYL_202009",
+  "title": "Back Order",
+  "path": "Transactions > Back Order",
+  "layout": "202009",
+  "panels": 2,
+  "fields": 2,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "snd_tr_cmm_cashmemo_master"
+  ]
+ },
+ {
+  "option_id": "DYL_102014001",
+  "title": "Transaction View",
+  "path": "Transactions > Transaction View",
+  "layout": "102014001",
+  "panels": 4,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT",
+   "SND_TR_CMM_CASHMEMO_MASTER",
+   "SND_TR_CMM_CASHMEMO_OFFRITEM"
+  ]
+ },
+ {
+  "option_id": "DYL_201033",
+  "title": "Stock Transaction",
+  "path": "Transactions > Stock Transaction",
+  "layout": "201033",
+  "panels": 3,
+  "fields": 24,
+  "required": 2,
+  "grids": 1,
+  "tables": [
+   "SND_TR_STM_STOCK_DETAIL",
+   "SND_TR_STM_STOCK_MASTER"
+  ]
+ },
+ {
+  "option_id": "DYL_201065",
+  "title": "DSR Adjustment",
+  "path": "Transactions > DSR Adjustment",
+  "layout": "201065",
+  "panels": 5,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "snd_tr_cmm_cashmemo_detail",
+   "snd_tr_cmm_cashmemo_master",
+   "snd_tr_cmm_cashmemo_payment",
+   "snd_tr_exm_expense_master"
+  ]
+ },
+ {
+  "option_id": "DYL_201047",
+  "title": "Inquiry",
+  "path": "Transactions > Inquiry",
+  "layout": "201047",
+  "panels": 1,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "mob_pr_owr_outlet_web_regist"
+  ]
+ },
+ {
+  "option_id": "DYL_201099",
+  "title": "Loyalty Points Inquiry",
+  "path": "Transactions > Loyalty Points Inquiry",
+  "layout": "201099",
+  "panels": 2,
+  "fields": 1,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "prm_pm_dhr_data_holder"
+  ]
+ },
+ {
+  "option_id": "DYL_201603",
+  "title": "Paymeent Collection",
+  "path": "Transactions > Paymeent Collection",
+  "layout": "201603",
+  "panels": 0,
+  "fields": 0,
+  "required": 0,
+  "grids": 0,
+  "tables": []
+ },
+ {
+  "option_id": "DYL_201201",
+  "title": "Auto Journey Inquiry",
+  "path": "Transactions > Auto Journey Inquiry",
+  "layout": "201201",
+  "panels": 2,
+  "fields": 0,
+  "required": 0,
+  "grids": 1,
+  "tables": [
+   "(SELECT"
+  ]
+ }
+]

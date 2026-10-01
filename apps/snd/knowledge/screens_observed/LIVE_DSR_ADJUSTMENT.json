@@ -1,0 +1,10 @@
+{"option_id":"201065","title":"DSR Adjustment","menu_path":["Home","DSR Adjustment","DSR Adjustment"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=201065",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[
+{"name":"Product","id":"tab_group_0","fields":[],"buttons":[],"grids":[{"headers":["Serial No","Product","CS","DZ","Pcs","VAT"],"rows":0,"columns":6,"grid_text":"Data grid with 0 rows and 6 columns"}]},
+{"name":"Payment","id":"tab_group_1","fields":[],"buttons":[],"grids":[{"headers":["Serial No","Outstanding Payment"],"rows":0,"columns":2,"grid_text":"Data grid with 0 rows and 2 columns"}]},
+{"name":"Expense","id":"tab_group_2","fields":[],"buttons":[],"grids":[{"headers":["PJP Number","Document No","PJP Daily","Expense Amount","Approved"],"rows":0,"columns":5,"grid_text":"Data grid with 0 rows and 5 columns"}]}],
+"fields":[{"label":"Document Date","id":"docDate","type":"date","widget":"date","required":false,"readonly":false,"default":"today (2026-10-01)"}],
+"buttons":[],
+"grids":[{"title":"master","headers":["Document No","DSR Code","DSR","Distributor Code","Distributor","Document Reference No"],"rows":0,"columns":6,"grid_text":"Data grid with 0 rows and 6 columns","paged":false,"filter_inputs":{}}],
+"messages":["Menu entry is a top-level 'DSR Adjustment' folder (not under Transaction). No action buttons visible: this role (Maker) sees a read view; document appears to be created elsewhere (DSR shortage/adjust flows)."]}

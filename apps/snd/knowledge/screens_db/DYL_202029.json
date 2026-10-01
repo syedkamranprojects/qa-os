@@ -1,0 +1,169 @@
+{
+ "option_id": "DYL_202029",
+ "title": "Role Option",
+ "menu": {
+  "path": [
+   "Configuration",
+   "Access Role",
+   "Role Option"
+  ],
+  "group_id": "DYL_202029"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202029",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202029001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SMM_PR_ROL_ROLE",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202029002",
+   "tab": "Allowable",
+   "is_child": true,
+   "parent": "202029001",
+   "partial": null,
+   "desc": null,
+   "table": "SMM_PR_ROP_ROLEOPTION",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "SAPO_OPTIONID",
+   "id": "column5",
+   "widget": "allowable",
+   "data_field": "SAPO_OPTIONID",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202029002"
+  },
+  "Description": {
+   "name": "SAPO_DESC",
+   "id": "column6",
+   "widget": "allowable",
+   "data_field": "SAPO_DESC",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202029002"
+  },
+  "Start Date": {
+   "name": "SROP_START_DATE",
+   "id": "column11",
+   "widget": "allowable",
+   "data_field": "SROP_START_DATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202029002"
+  },
+  "End Date": {
+   "name": "SROP_END_DATE",
+   "id": "column12",
+   "widget": "allowable",
+   "data_field": "SROP_END_DATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202029002"
+  },
+  "ID": {
+   "name": "SROL_ROLEID",
+   "id": "column8",
+   "widget": "allowable",
+   "data_field": "SROL_ROLEID",
+   "db_description": "Role ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202029002"
+  },
+  "Organization/Company Code": {
+   "name": "PORG_ORGACODE",
+   "id": "column10",
+   "widget": "allowable",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202029002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Authorizer"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Reload Menu"
+ ]
+}

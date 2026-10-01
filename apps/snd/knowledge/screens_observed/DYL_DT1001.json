@@ -1,0 +1,444 @@
+{
+ "option_id": "DYL_DT1001",
+ "title": "Distributor Profile DT",
+ "menu_path": [
+  "Company setup",
+  "Distributor Profile",
+  "Distributor Profile DT"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=DT1001",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=DT1001",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Distributor",
+   "id": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Distributor",
+   "id": "TXT__EPP1DESC",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Reference ID",
+   "id": "TXT__EPP1REFERENCE1",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Reference ID",
+   "id": "DDL__EPP1ACTIVE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PBEMBUSENTITYMISTYPE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PLOC_LOCACODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Location",
+   "id": "DT__EPP1APPOINTDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "DDL__PCURCURRCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__PFETFINENTCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__EPP1CORPCODE",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Corporate Code",
+   "id": "TXT__EPP1REFERENCE3",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Registration Date",
+   "id": "DT__EPP1REFDATE1",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Registration Date",
+   "id": "DT__EPP1REFDATE2",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Coordinates Latitude",
+   "id": "TXT__EPP1CORLATITUDE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Coordinates Latitude",
+   "id": "TXT__EPP1CORLONGITUDE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Spending Time",
+   "id": "TXT__EPP1SPENDINGTIME",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Spending Time",
+   "id": "TXT__EPP1_NUMBER_GEN_PREFIX",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Sub Distributor",
+   "id": "TXT__EPP1SUBDISTRIBUTOR",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "TXT__EPP1REPORTTO",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Starting Latitude",
+   "id": "TXT__EPP1REFERENCE4",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Starting Latitude",
+   "id": "TXT__EPP1REFERENCE5",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Ending latitude",
+   "id": "TXT__epp1_reference_6",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Ending latitude",
+   "id": "TXT__epp1_reference_7",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Off Days",
+   "id": "TXT__epp1_offdays",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Off Days",
+   "id": "DDL__EPP1_AUTO_INVENTORY_ALLOC",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": true,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Threshold Time For Delivery Date",
+   "id": "TT__EPP1_THRSHLD_TIME_DELV_DATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Threshold Time For Delivery Date",
+   "id": "TXT__EPP1_DELV_DAYS_THRSHLD_TIME",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "GIN Creation Time",
+   "id": "DT__EPP1_GIN_INITIATION_TIME",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Invoice Print Message",
+   "id": "TXT__EPP1_Message",
+   "name": null,
+   "type": "textarea",
+   "widget": "textarea",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Invoice Print Message",
+   "id": "DDL__EPP1_MANUAL_ORDER",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "MDSP%",
+   "id": "TXT__EPP1_MDSP",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "MDSP%",
+   "id": "TXT__EPP1_MCDP",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Sold To",
+   "id": "TXT__epp1_outlet_corporate",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Sold To",
+   "id": "TXT__epp1_outlet_billto",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Parent Reference code",
+   "id": "TXT__EPP1_PARENT_REF_CODE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Demographics",
+   "id": null,
+   "title": "Demographics",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "spindown",
+   "disabled": false
+  },
+  {
+   "text": "Document",
+   "id": null,
+   "title": "Document",
+   "disabled": true
+  },
+  {
+   "text": "Bank",
+   "id": null,
+   "title": "Bank",
+   "disabled": true
+  },
+  {
+   "text": "Contact Person Details",
+   "id": null,
+   "title": "Contact Person Details",
+   "disabled": true
+  },
+  {
+   "text": "Geo Hierarchy",
+   "id": null,
+   "title": "Geo Hierarchy",
+   "disabled": true
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Distributor",
+    "Name",
+    "Reference ID",
+    "Geo Hierarchy",
+    "Location",
+    "Appointment Date"
+   ],
+   "rows": 1,
+   "pager": false
+  }
+ ]
+}

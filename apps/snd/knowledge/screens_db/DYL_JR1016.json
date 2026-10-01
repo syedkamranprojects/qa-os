@@ -1,0 +1,22 @@
+{
+ "option_id": "DYL_JR1016",
+ "title": null,
+ "menu": {
+  "path": [
+   "Reports",
+   "DYL_JR1016"
+  ],
+  "group_id": "DYL_JR1016"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "JR1016",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [],
+ "fields": {},
+ "grids": {},
+ "buttons": []
+}

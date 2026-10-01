@@ -1,0 +1,132 @@
+{
+ "option_id": "DYL_102003004",
+ "title": "Customer Profile",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Entity Profile",
+   "Customer Profile"
+  ],
+  "group_id": "DYL_102003004"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102003004",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003002_PBET_BUSENTITY_TYPE_CUST",
+   "tab": "Demographics",
+   "is_child": false,
+   "parent": null,
+   "partial": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003056_padt_address_type_DELV",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003056_padt_address_type_BUSI",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003056_padt_address_type_RESD",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003041_pbet_busentity_type_CUST",
+   "tab": "Documents",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003042_pbet_busentity_type_CUST",
+   "tab": "Bank",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003055",
+   "tab": "Contact Person Details",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_CUST",
+   "partial": null,
+   "desc": null,
+   "table": "GLB_EN_COD_CONTACTDETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Sr No",
+    "Name",
+    "Identification Type",
+    "ID No",
+    "Designation",
+    "Gender ",
+    "Qualification",
+    "Land Line #",
+    "Cell Phone ",
+    "EmailID",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

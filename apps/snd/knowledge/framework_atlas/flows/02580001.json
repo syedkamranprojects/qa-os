@@ -1,0 +1,538 @@
+{
+ "src": "tf:02580001",
+ "flow_id": "02580001",
+ "description": "Cashmemo Reschedule_Astron",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:02580001|0258|1",
+   "seq": 1,
+   "menu_group": "0258",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0258",
+   "menu_group": "0258",
+   "exists": true,
+   "description": "Cashmemo Reschedule_Asto",
+   "search_text": "Cashmemo Reschedule",
+   "navigation": "DYL_202053",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0258|025801|1",
+   "mgsm_seq": 1,
+   "screen_id": "025801",
+   "screen_name": "Cashmemo Reschedule_Astron",
+   "sheet": "Cashmemo Reschedule_Astron",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "025801"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Cashmemo Reschedule_Astron",
+   "kind": "screen",
+   "screen_ids": [
+    "025801"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Cashmemo Reschedule_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Cashmemo Reschedule_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Cashmemo Reschedule_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Cashmemo Reschedule_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Cashmemo Reschedule_Astron"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "REPO_GINNO",
+    "canon": "REPO_GINNO",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_GIN_NO",
+    "src": [
+     "sef:025801|serial 3"
+    ],
+    "screen_id": "025801"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "REPO_GINNO"
+  ],
+  "reads_not_written_by_this_flow": [
+   "REPO_GINNO"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 3,
+  "fields_active": 3,
+  "events": 10,
+  "events_active": 9,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 3,
+   "fill_text": 2,
+   "wait": 1,
+   "fill_dropdown": 1,
+   "alert_click": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Cashmemo"
+  ],
+  "market": "Astron",
+  "menu_option": "DYL_202053",
+  "menu_search_text": "Cashmemo Reschedule"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "67",
+   "group_desc": "Daily Cycle Only Positive Flow_Astron",
+   "seq": 14,
+   "active": false,
+   "user": null,
+   "login_status": "N"
+  }
+ ],
+ "screens": {
+  "025801": {
+   "src": "sc:025801",
+   "screen_id": "025801",
+   "name": "Cashmemo Reschedule_Astron",
+   "sheet": "Cashmemo Reschedule_Astron",
+   "type": "Save",
+   "sheet_name_len": 26,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:025801|DT__ORDERDATE|1.0|1|1",
+     "seq": 1,
+     "field_id": "DT__ORDERDATE",
+     "locate_by": "id",
+     "label": "Order Date",
+     "db_column": "Order Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "025801:f1"
+    },
+    {
+     "src": "sf:025801|DELIVERYDATE|1.0|2|1",
+     "seq": 2,
+     "field_id": "DELIVERYDATE",
+     "locate_by": "id",
+     "label": "Delivery Date",
+     "db_column": "Delivery Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "025801:f2"
+    },
+    {
+     "src": "sf:025801|DDL__EPJPPJPNODAILY|1.0|3|1",
+     "seq": 3,
+     "field_id": "DDL__EPJPPJPNODAILY",
+     "locate_by": "id",
+     "label": "PJP Number",
+     "db_column": "PJP Number",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "025801:f3"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:025801|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e1"
+    },
+    {
+     "src": "sef:025801|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e2"
+    },
+    {
+     "src": "sef:025801|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_GIN_NO",
+     "fixed_value": "REPO_GINNO",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e3"
+    },
+    {
+     "src": "sef:025801|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_OUTLETCODENAME",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e4"
+    },
+    {
+     "src": "sef:025801|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "5",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e5",
+     "wait_s": "5"
+    },
+    {
+     "src": "sef:025801|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click On Cheak box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_pjp_delivery_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e6"
+    },
+    {
+     "src": "sef:025801|serial 7",
+     "serial": 7,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0002",
+     "event": "0001",
+     "kind": "fill_dropdown",
+     "event_name": "Fill Single Drop Down",
+     "in_ce_table": true,
+     "desc": "Search text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_reschedule_reason,reason_0",
+     "fixed_value": "Auto1",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e7"
+    },
+    {
+     "src": "sef:025801|serial 8",
+     "serial": 8,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "wait",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "8",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e8",
+     "wait_s": "8"
+    },
+    {
+     "src": "sef:025801|serial 9",
+     "serial": 9,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "process Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "DYP.G......ProcessButton",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e9"
+    },
+    {
+     "src": "sef:025801|serial 10",
+     "serial": 10,
+     "seq": 10,
+     "depth": 0,
+     "parent": null,
+     "type": "0005",
+     "event": "0002",
+     "kind": "alert_click",
+     "event_name": "Click Alert",
+     "in_ce_table": true,
+     "desc": "Accept Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "accept",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "025801:e10"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "REPO_GINNO",
+     "canon": "REPO_GINNO",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_GIN_NO",
+     "src": [
+      "sef:025801|serial 3"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 3,
+    "fields_active": 3,
+    "events": 10,
+    "events_active": 9
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  }
+ }
+}

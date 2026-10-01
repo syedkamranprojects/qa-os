@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1074",
+ "title": "Locality",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Locality"
+  ],
+  "group_id": "DYL_1074"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1074",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101074001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Locality - Grid",
+   "table": "GLB_PR_LOL_LOCALITY",
+   "n_fields": 0,
+   "grids": [
+    "Locality"
+   ]
+  },
+  {
+   "page": "101074002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101074001",
+   "desc": "Locality - Form",
+   "table": "GLB_PR_LOL_LOCALITY",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__locality_code",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PLOL_LOCALITY_CODE",
+   "db_description": "Town / Locality / Sub Locality Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  },
+  "Description": {
+   "name": "TXT__plol_desc",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "PLOL_DESC",
+   "db_description": "Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  },
+  "Abbreviation": {
+   "name": "TXT__plol_abrv",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PLOL_ABRV",
+   "db_description": "Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  },
+  "Default": {
+   "name": "DDL__plol_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PLOL_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  },
+  "Status": {
+   "name": "DDL__plol_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PLOL_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  },
+  "Level Type": {
+   "name": "TXT__plol_leveltype",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PLOL_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  },
+  "Level No": {
+   "name": "TXT__plol_level_no",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PLOL_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101074002"
+  }
+ },
+ "grids": {
+  "Locality": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

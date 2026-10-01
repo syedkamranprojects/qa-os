@@ -1,0 +1,117 @@
+{
+ "option_id": "DYL_202033",
+ "title": "IQ Threshold",
+ "menu_path": [
+  "Transaction",
+  "Claim",
+  "IQ Threshold"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202033",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202033",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__YEARParent",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "DDL__MONTHParent",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add a row",
+   "id": null,
+   "title": "Add a row",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Serial No",
+    "Distributor",
+    "Assortment TH Outlet",
+    "Assortment TH Salesman",
+    "RL TH Outlet",
+    "RL TH Salesman",
+    "EB TH Outlet",
+    "EB TH Salesman",
+    "WP TH Outlet",
+    "WP TH Salesman",
+    "NPD TH Outlet",
+    "NP DTH Salesman",
+    "PS TH Salesman",
+    "Brand ECO Salesman",
+    "ETE TH Outlet",
+    "ETE TH Salesman",
+    "ETS TH Outlet",
+    "ETS TH Salesman",
+    "COTC TH Outlet",
+    "COTC TH Salesman",
+    "ECO TH Salesman",
+    "BP TH Salesman",
+    "LPPC TH Salesman",
+    "Strike Rate TH Salesman",
+    "B2B ECO TH Salesman",
+    "Geo Compliance",
+    "PJP Compliance",
+    "Working Start Time",
+    "Working End Time",
+    "Max Time Per Outlet",
+    "Fixed Time Per Outlet",
+    "Target Productive Time in Day",
+    "Target Total Time Spent"
+   ],
+   "rows": 1,
+   "pager": false
+  }
+ ]
+}

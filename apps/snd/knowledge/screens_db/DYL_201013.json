@@ -1,0 +1,176 @@
+{
+ "option_id": "DYL_201013",
+ "title": "Link Values",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Banner",
+   "Link Values"
+  ],
+  "group_id": "DYL_201013"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201013",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201013001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Link Values - Grid",
+   "table": "BNR_BR_LIV_LINK_VALUES",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201013002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201013001",
+   "desc": "Link Values - Form",
+   "table": "BNR_BR_LIV_LINK_VALUES",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Entity Type": {
+   "name": "DDL__pbet_busentity_type",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PBET",
+   "validations": null,
+   "regex": null,
+   "page": "201013002"
+  },
+  "Entity Code": {
+   "name": "TXT__BLIHBUSENTITYCODE",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "BLIH_BUS_ENTITY_CODE",
+   "db_description": "Business Entity Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201013002"
+  },
+  "Sub Serial": {
+   "name": "TXT__BLIVSUBSRNO",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "BLIV_SUB_SRNO",
+   "db_description": "Link Field Values Serial Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201013002"
+  },
+  "Serial Number": {
+   "name": "DDL__BLIHSRNO",
+   "id": "selectbox6",
+   "widget": "select",
+   "data_field": "BLIH_SRNO",
+   "db_description": "Link Header Serial Number",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": "BLIH",
+   "validations": null,
+   "regex": null,
+   "page": "201013002"
+  },
+  "Field Combination Value": {
+   "name": "TXT__BLIVFIELDCOMBVALUE",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "BLIV_FIELD_COMB_VALUE",
+   "db_description": "Field Combination Value",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201013002"
+  },
+  "Actual Value": {
+   "name": "TXT__BLIVACTUALVALUE",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "BLIV_ACTUAL_VALUE",
+   "db_description": "Actual Value",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201013002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization/Company Code",
+    "Entity Type",
+    "Entity Code",
+    "Serial Number",
+    "Sub Serial",
+    "Field Combination Value",
+    "Actual Value"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

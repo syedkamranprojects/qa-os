@@ -1,0 +1,164 @@
+{
+ "option_id": "DYL_202009001",
+ "title": "Outlet Profile ",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Outlet Profile",
+   "Outlet Profile "
+  ],
+  "group_id": "DYL_202009001"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202009001",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003002_PBET_BUSENTITY_TYPE_OUTL",
+   "tab": "Demographics",
+   "is_child": false,
+   "parent": null,
+   "partial": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003010_pbet_busentity_type_OUTL",
+   "tab": "Operative Info",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003039_padt_address_type_COMP",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003039_padt_address_type_BUSI",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003039_padt_address_type_RESD",
+   "tab": "Address",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003041_pbet_busentity_type_OUTL",
+   "tab": "Documents",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003042_pbet_busentity_type_OUTL",
+   "tab": "Bank",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": null,
+   "n_fields": 0,
+   "grids": []
+  },
+  {
+   "page": "102003040",
+   "tab": "Contact Person Details",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": "Entity Profile 1  Outlet Contact Person Grid",
+   "table": "GLB_EN_COD_CONTACTDETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102003058",
+   "tab": "Credit Limit",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": "Entity Profile 1 Outlet - Credit Limit",
+   "table": "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1013012",
+   "tab": "Segment",
+   "is_child": true,
+   "parent": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Segment Code",
+    "Segment Description",
+    "Segment Type",
+    "Start Date",
+    "End Date",
+    "Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": []
+}

@@ -1,0 +1,119 @@
+{
+ "option_id": "DYL_102010",
+ "title": "Event Repository Mapping",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Event Repository Mapping"
+  ],
+  "group_id": "DYL_102010"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "102010",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "102010001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Event Repository Mapping - Grid",
+   "table": "CLC_PR_ERM_EVENTREPOMAPPING",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "102010002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "102010001",
+   "desc": "Event Repository Mapping - Form",
+   "table": "CLC_PR_ERM_EVENTREPOMAPPING",
+   "n_fields": 3,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Event ID": {
+   "name": "DDL__PEVEVENTID",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PEV_EVENTID",
+   "db_description": "Event ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PEVT",
+   "validations": null,
+   "regex": null,
+   "page": "102010002"
+  },
+  "Group Code": {
+   "name": "DDL__GRPCODE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "GRP_CODE",
+   "db_description": "Repository Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PREP",
+   "validations": null,
+   "regex": null,
+   "page": "102010002"
+  },
+  "Sequence ID": {
+   "name": "TXT__GRMSEQUENCEID",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "GRM_SEQUENCEID",
+   "db_description": "Sequence ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "102010002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Event ID",
+    "Group Code",
+    "Sequence ID"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

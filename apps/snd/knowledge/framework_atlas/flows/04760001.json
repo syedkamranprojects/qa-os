@@ -1,0 +1,138 @@
+{
+ "src": "tf:04760001",
+ "flow_id": "04760001",
+ "description": "Stock Validation After GIN R2 KH",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:04760001|0476|1",
+   "seq": 1,
+   "menu_group": "0476",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0476",
+   "menu_group": "0476",
+   "exists": true,
+   "description": "Stock Validation After GIN R2 KH",
+   "search_text": "Stock Inquiry II",
+   "navigation": "DYL_BG1015",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [],
+ "screen_ids": [],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 0,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {},
+   "complete": true,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 0,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 0,
+  "events_active": 0,
+  "events_by_kind": {}
+ },
+ "tags": {
+  "areas": [
+   "GIN (Goods Issue Note)",
+   "Stock Validation/Inquiry"
+  ],
+  "market": "KH",
+  "menu_option": "DYL_BG1015",
+  "menu_search_text": "Stock Inquiry II"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "76",
+   "group_desc": "Daily Cycle Only Positive Flow_KH",
+   "seq": 27,
+   "active": true,
+   "user": "Auto_KH1 (serial 39)",
+   "login_status": "Y"
+  },
+  {
+   "group": "79",
+   "group_desc": "Daily Cycle Only Positive Flow_LA",
+   "seq": 27,
+   "active": true,
+   "user": "Auto_KH1 (serial 39)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {}
+}

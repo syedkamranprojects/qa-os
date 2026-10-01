@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_202062",
+ "title": "RCOA Report Layout",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Setup",
+   "RCOA Report Layout"
+  ],
+  "group_id": "DYL_202062"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202062",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202062001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "FIN_PR_RCOA_REP_LAYOUT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202062002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202062001",
+   "desc": null,
+   "table": "FIN_PR_RCOA_REP_LAYOUT",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Report ID": {
+   "name": "DDL__PRCA_REPORT_ID",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PRCA_REPORT_ID",
+   "db_description": "Report ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "RCOA_REPORT",
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Group ID": {
+   "name": "TXT__PRCA_REP_GROUP_ID",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PRCA_REP_GROUP_ID",
+   "db_description": "Group ID",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Line Number": {
+   "name": "TXT__PRCA_REP_LINE_NO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PRCA_REP_LINE_NO",
+   "db_description": "Report Line Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Line Type": {
+   "name": "DDL__PRCA_REP_LINE_TYPE",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PRCA_REP_LINE_TYPE",
+   "db_description": "Line Type (Group Heading/Group Total/Formula)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Line Tax": {
+   "name": "TXT__PRCA_REP_LINE_TEXT",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PRCA_REP_LINE_TEXT",
+   "db_description": "Heading = “Financial Trend Analysis” Total = “Sub Total” / “Grand Total”",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Account Type": {
+   "name": "DDL__PRCA_TYPE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PRCA_TYPE",
+   "db_description": "Chart of Account Type (TRND/INVS/INCM/EXPN)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "RCOA_TYPE",
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Account Code": {
+   "name": "DDL__PRCA_CODE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PRCA_CODE",
+   "db_description": "Chart of Account Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "RCOA_CODE",
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  },
+  "Element Order By": {
+   "name": "TXT__PRCA_ELEMENT_ORDER_BY",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PRCA_ELEMENT_ORDER_BY",
+   "db_description": "Element Order By",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202062002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Order",
+    "Organization Code",
+    "Report ID",
+    "Group ID",
+    "Line Number",
+    "Line Type",
+    "Account Type",
+    "Account Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

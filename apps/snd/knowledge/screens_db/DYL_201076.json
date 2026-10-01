@@ -1,0 +1,153 @@
+{
+ "option_id": "DYL_201076",
+ "title": "Promotion User Group",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Promotion User Group"
+  ],
+  "group_id": "DYL_201076"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201076",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201076001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "PRM_PM_PEG_PROM_ENTITY_GROUP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201076002",
+   "tab": "Allowable",
+   "is_child": true,
+   "parent": "201076001",
+   "partial": null,
+   "desc": null,
+   "table": "PRM_PM_PED_PROM_ENT_GRP_DTL",
+   "n_fields": 5,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Customer Code": {
+   "name": "PPED_ENTITY_CODE",
+   "id": "column4",
+   "widget": "allowable",
+   "data_field": "PPED_ENTITY_CODE",
+   "db_description": "Entity Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201076002"
+  },
+  "Customer Name": {
+   "name": "EPP1_DESC",
+   "id": "column5",
+   "widget": "allowable",
+   "data_field": "EPP1_DESC",
+   "db_description": "Physical Business Entities Level 1 Long Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201076002"
+  },
+  "Type": {
+   "name": "PBET_BUSENTITY_TYPE",
+   "id": "column19",
+   "widget": "allowable",
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "db_description": "Business Entity Type Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201076002"
+  },
+  "Organization": {
+   "name": "PORG_ORGACODE",
+   "id": "column20",
+   "widget": "allowable",
+   "data_field": "PORG_ORGACODE",
+   "db_description": "Organization/Company Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201076002"
+  },
+  "Entity Group Code": {
+   "name": "PPEG_ENTITY_GROUP_CODE",
+   "id": "column7",
+   "widget": "allowable",
+   "data_field": "PPEG_ENTITY_GROUP_CODE",
+   "db_description": "Entity Group Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201076002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Active",
+    "Default",
+    "Level No",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

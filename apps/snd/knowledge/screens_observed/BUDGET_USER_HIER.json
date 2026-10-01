@@ -1,0 +1,76 @@
+{
+ "option_id": "BUDGET_USER_HIER",
+ "title": "Budget Role Hierarchy",
+ "menu_path": [
+  "Target",
+  "Budget",
+  "Budget Role Hierarchy"
+ ],
+ "route": "/target/target-user-mapping",
+ "param": "?Module=BUD001",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/target/target-user-mapping?Module=BUD001",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "difilter",
+   "name": null,
+   "type": "text",
+   "widget": null,
+   "required": false,
+   "readonly": false,
+   "placeholder": "Search List"
+  },
+  {
+   "label": null,
+   "id": "userName",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Map",
+   "id": null,
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Unmapped",
+   "id": null,
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

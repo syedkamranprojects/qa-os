@@ -1,0 +1,106 @@
+{
+ "option_id": "DYL_BG1022",
+ "title": "PJP Daily Inquiry Update",
+ "menu_path": [
+  "Distributor Setup",
+  "Journey Plan",
+  "PJP Daily Inquiry Update"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=BG1022",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=BG1022",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Working Date",
+   "id": "DT_epjpworkingdateParent",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "16",
+   "id": "pagination-element-16",
+   "title": "Page 16",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "PJP Number",
+    "DSR",
+    "Current Status",
+    "Mark Status",
+    "DSR Files Status",
+    "Working Date",
+    "Start Date",
+    "End Date"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

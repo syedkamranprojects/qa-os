@@ -1,0 +1,131 @@
+{
+ "option_id": "DYL_102014",
+ "title": "Transaction Inquiry",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Transaction Inquiry"
+  ],
+  "top_id": "NG09",
+  "option_id": "DYL_102014",
+  "search_text": "Transaction Inquiry"
+ },
+ "route": "/dyl/layout",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "observed",
+  "env": "cnr1dev1",
+  "user": "KPO_mp",
+  "date": "2026-09-25"
+ },
+ "breadcrumb": [
+  "Home",
+  "Transaction",
+  "Order",
+  "Transaction Inquiry"
+ ],
+ "fields": {
+  "Document Type": {
+   "locator": {
+    "id": "DDL__PDOTDOCMTYPEPARENT"
+   },
+   "widget": "select",
+   "default": "Demand Captured from Tele order",
+   "options_seen": [
+    "Demand Captured from Tele order",
+    "OFF INVOICE CREDIT NOTE",
+    "DSR Shortage Amount",
+    "Amount Wise",
+    "Dsr Adj (SKU Wise)",
+    "Sales",
+    "Sales Return",
+    "Fresh Sales Return"
+   ]
+  },
+  "Document Status": {
+   "locator": {
+    "id": "DDL__PDOSDOCMSTATUSPARENT"
+   },
+   "widget": "select",
+   "default": "All"
+  },
+  "PJP": {
+   "locator": {
+    "id": "DDL__EPJPPJPNODAILY"
+   },
+   "widget": "select",
+   "default": "All",
+   "options_note": "'All' or '<pjp no> - <name>'"
+  },
+  "Document Date From": {
+   "locator": {
+    "id": "DT__TCMMDOCMDATEFROMPARENT"
+   },
+   "widget": "date",
+   "default": "today"
+  },
+  "Document Date To": {
+   "locator": {
+    "id": "DT__TCMMDOCMDATETOPARENT"
+   },
+   "widget": "date",
+   "default": "today"
+  },
+  "Product": {
+   "locator": {
+    "id": "DDL_PRODUCT"
+   },
+   "widget": "select",
+   "default": "All"
+  }
+ },
+ "buttons": {
+  "Refresh": {
+   "locator": {
+    "xpath": "//*[self::button or @role='button'][normalize-space()='Refresh']"
+   }
+  },
+  "Detail": {
+   "locator": {
+    "xpath": "//*[self::button or @role='button'][normalize-space()='Detail']"
+   },
+   "note": "disabled until a row is selected"
+  },
+  "Export all data to Excel": {
+   "locator": {
+    "xpath": "//*[@title='Export all data to Excel' or normalize-space()='Export all data to Excel']"
+   }
+  }
+ },
+ "grids": {
+  "Transaction Inquiry": {
+   "columns": [
+    "Document No",
+    "Outlet Code",
+    "Outlet Long Name",
+    "Order Booker/Delivery Man",
+    "PJP Number",
+    "Order Time",
+    "Document Date",
+    "Delivery Date",
+    "Actual Delivery Date",
+    "Gross Amount",
+    "Discount Amount",
+    "Tax Amount",
+    "Offset Amount",
+    "Net Amount",
+    "Document Status",
+    "Demand Channel",
+    "DDT Ref No",
+    "GIN No",
+    "Invoice Ref. No."
+   ],
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "observations": [
+  "Orders/sales are listed here after choosing Document Type and a date range and clicking Refresh; 'Detail' opens the order lines (the place to check whether an ordered SKU was substituted).",
+  "Disabled until a row is selected: Detail, Product Wise Discount, Product Wise Free Quantity, Total Offering, Total Tax, Credit Note Adjustments."
+ ]
+}

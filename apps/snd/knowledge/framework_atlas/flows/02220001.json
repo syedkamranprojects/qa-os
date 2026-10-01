@@ -1,0 +1,393 @@
+{
+ "src": "tf:02220001",
+ "flow_id": "02220001",
+ "description": "Change Track Outlet Operative Info Approval",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:02220001|0222|1",
+   "seq": 1,
+   "menu_group": "0222",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0222",
+   "menu_group": "0222",
+   "exists": true,
+   "description": "Change Track Outlet Oper Info Approval",
+   "search_text": "Change Track Outlet Operative Info",
+   "navigation": "CHANGETRACK_OUTL_OPINFO",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0222|022201|1",
+   "mgsm_seq": 1,
+   "screen_id": "022201",
+   "screen_name": "Change Track Out Oper Info App",
+   "sheet": "Change Track Out Oper Info App",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "022201"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Change Track Out Oper Info App",
+   "kind": "screen",
+   "screen_ids": [
+    "022201"
+   ]
+  },
+  {
+   "sheet": "Forward_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "022201"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Change Track Out Oper Info App",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Change Track Out Oper Info App",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Change Track Out Oper Info App",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Change Track Out Oper Info App",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 2,
+   "missing_sheets": [
+    "Change Track Out Oper Info App",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Forward_assertion",
+    "screen_id": "022201",
+    "src": "sef:022201|serial 6"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 6,
+  "events_active": 5,
+  "events_by_kind": {
+   "click": 3,
+   "fill_text": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Approval/Reject/Terminate",
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "CHANGETRACK_OUTL_OPINFO",
+  "menu_search_text": "Change Track Outlet Operative Info"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "15",
+   "group_desc": "NG_Setup Flow_PH",
+   "seq": 13,
+   "active": true,
+   "user": "Auto_PH_TSSM (serial 20)",
+   "login_status": "Y"
+  },
+  {
+   "group": "16",
+   "group_desc": "NG_Setup Flow_BG",
+   "seq": 18,
+   "active": true,
+   "user": "autoBD_Tssm (serial 11)",
+   "login_status": "Y"
+  },
+  {
+   "group": "65",
+   "group_desc": "NG_Setup Flow_TH",
+   "seq": 28,
+   "active": true,
+   "user": "auto_thai_tssm (serial 13)",
+   "login_status": "Y"
+  },
+  {
+   "group": "66",
+   "group_desc": "NG_Setup Flow_PK",
+   "seq": 16,
+   "active": true,
+   "user": "Auto_Tssm (serial 8)",
+   "login_status": "Y"
+  },
+  {
+   "group": "73",
+   "group_desc": "NG_Setup Flow_UP",
+   "seq": 28,
+   "active": true,
+   "user": "auto_thai_tssm (serial 13)",
+   "login_status": "Y"
+  }
+ ],
+ "screens": {
+  "022201": {
+   "src": "sc:022201",
+   "screen_id": "022201",
+   "name": "Change Track Out Oper Info App",
+   "sheet": "Change Track Out Oper Info App",
+   "type": "Save",
+   "sheet_name_len": 30,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:022201|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Sort",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "Header_0_request_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022201:e1"
+    },
+    {
+     "src": "sef:022201|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Request No",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_request_no",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022201:e2"
+    },
+    {
+     "src": "sef:022201|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "forward",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forward",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022201:e3"
+    },
+    {
+     "src": "sef:022201|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "Automation approval",
+     "fixed_value_type": "FIXED",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022201:e4"
+    },
+    {
+     "src": "sef:022201|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022201:e5"
+    },
+    {
+     "src": "sef:022201|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Forward Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Forward_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022201:e6",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Forward_assertion"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 6,
+    "events_active": 5
+   },
+   "assertion_sheets": [
+    "Forward_assertion"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

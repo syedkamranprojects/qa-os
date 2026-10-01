@@ -1,0 +1,180 @@
+{
+ "option_id": "STOCK_REQUISITION",
+ "title": "Van Sale Stock Request",
+ "menu_path": [
+  "Transaction",
+  "Stock",
+  "Van Sale Stock Request"
+ ],
+ "route": "/stock-requisition/SR",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/stock-requisition/SR",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document Date",
+   "id": "documentDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Document Date",
+   "id": "requestDate",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "PJP",
+   "id": "pjp",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "PJP",
+   "id": "deliveryManDsr",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse",
+   "id": "warehouse",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse",
+   "id": "vehicle",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Approval Status",
+   "id": "documentStatusDesc",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": true,
+   "placeholder": null
+  },
+  {
+   "label": "Approval Status",
+   "id": null,
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Header",
+   "id": null,
+   "title": "Header",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "Add",
+   "title": "Add",
+   "disabled": false
+  },
+  {
+   "text": "Submit",
+   "id": "Cancel",
+   "title": "Submit",
+   "disabled": true
+  },
+  {
+   "text": "Cancel",
+   "id": "Cancel",
+   "title": "Cancel",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Request No",
+    "Document Date",
+    "Request Date",
+    "Approval Status",
+    "PJP Description",
+    "DSR Description"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

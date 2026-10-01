@@ -1,0 +1,139 @@
+{
+ "option_id": "DYL_202037",
+ "title": "PJP Daily Inquiry",
+ "menu_path": [
+  "Distributor Setup",
+  "Journey Plan",
+  "PJP Daily Inquiry"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202037",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202037",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Working Date",
+   "id": "DT_epjpworkingdateParent",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": null,
+   "id": "TXT__epp2busentcodephslvl2fParent",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Process",
+   "id": "DYP.......process",
+   "title": "Process",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "38",
+   "id": "pagination-element-38",
+   "title": "Page 38",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "PJP Description",
+    "DSR",
+    "Warehouse",
+    "Daily Route No",
+    "Journey Status",
+    "Journey Start Date",
+    "Journey End Date",
+    "DSR File Status"
+   ],
+   "rows": 5,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "Selling Category",
+    "Section",
+    "Outlet Name",
+    "Sequence No"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

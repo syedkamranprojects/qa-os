@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1022",
+ "title": "Qualification",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Qualification"
+  ],
+  "group_id": "DYL_1022"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1022",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101022001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "GLB Qualification - Grid",
+   "table": "GLB_PR_QLN_QUALIFICATION",
+   "n_fields": 0,
+   "grids": [
+    "Qualification"
+   ]
+  },
+  {
+   "page": "101022002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101022001",
+   "desc": "GLB Qualification - Form",
+   "table": "GLB_PR_QLN_QUALIFICATION",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__pqln_qualification",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PQLN_QUALIFICATION",
+   "db_description": "Qualification Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  },
+  "Description": {
+   "name": "txt__pqln_desc",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PQLN_DESC",
+   "db_description": "Qualification Type Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  },
+  "Abbreviation": {
+   "name": "txt__pqln_abrv",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PQLN_ABRV",
+   "db_description": "Qualification Type Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  },
+  "Default": {
+   "name": "ddl__pqln_default",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PQLN_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  },
+  "Status": {
+   "name": "ddl__pqln_active",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PQLN_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  },
+  "Level Type": {
+   "name": "txt__pqln_leveltype",
+   "id": "textbox14",
+   "widget": "text",
+   "data_field": "PQLN_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  },
+  "Level No": {
+   "name": "txt__pqln_level_no",
+   "id": "textbox13",
+   "widget": "text",
+   "data_field": "PQLN_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101022002"
+  }
+ },
+ "grids": {
+  "Qualification": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

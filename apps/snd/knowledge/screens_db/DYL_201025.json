@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_201025",
+ "title": "Parameter Repository",
+ "menu": {
+  "path": [
+   "Configuration",
+   "Mobiz  Configuration",
+   "Parameter Repository"
+  ],
+  "group_id": "DYL_201025"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201025",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201025001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mbz_paramsrepstry",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201025002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201025001",
+   "desc": null,
+   "table": "mbz_paramsrepstry",
+   "n_fields": 9,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "ACCOUNTID": {
+   "name": "DDL__ACCOUNTID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "ACCOUNT_ID",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": "MBZACC",
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "ID": {
+   "name": "TXT__PRPREPOSID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PRP_REPOSID",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "Data Type": {
+   "name": "TXT__PRPDATATYPE",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PRP_DATATYPE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "Data Length": {
+   "name": "TXT__PRPDATALENGTH",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PRP_DATALENGTH",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "Title": {
+   "name": "TXT__PRPTITLE",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PRP_TITLE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "Detail": {
+   "name": "TXT__PRPDETAIL",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "PRP_DETAIL",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "Active": {
+   "name": "DDL__PRPACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PRP_ACTIVE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "Private ": {
+   "name": "TXT__PRPPRIVATE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PRP_PRIVATE",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  },
+  "LookUp Status": {
+   "name": "DDL__PRPLOOKUPSTATUS",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PRP_LOOKUPSTATUS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201025002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "ACCOUNTID",
+    "ID",
+    "Data Type",
+    "Data Length",
+    "Title",
+    "Detail",
+    "Active",
+    "Private ",
+    "LookUp Status"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

@@ -1,0 +1,446 @@
+{
+ "src": "tf:00460001",
+ "flow_id": "00460001",
+ "description": "Analaysis 4",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00460001|0046|1",
+   "seq": 1,
+   "menu_group": "0046",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0046",
+   "menu_group": "0046",
+   "exists": true,
+   "description": "Analaysis 4",
+   "search_text": "Analaysis 4",
+   "navigation": "DYL_101046",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0046|035601|1",
+   "mgsm_seq": 1,
+   "screen_id": "035601",
+   "screen_name": "Good Issue N Reject Appro Promo",
+   "sheet": "Good Issue N Reject Appro Promo",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": []
+  }
+ ],
+ "screen_ids": [
+  "035601"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Good Issue N Reject Appro Promo",
+   "kind": "screen",
+   "screen_ids": [
+    "035601"
+   ]
+  },
+  {
+   "sheet": "GIN_APPROVAL_REJECT_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "035601"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Good Issue N Reject Appro Promo",
+    "GIN_APPROVAL_REJECT_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Good Issue N Reject Appro Promo",
+    "GIN_APPROVAL_REJECT_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Good Issue N Reject Appro Promo",
+    "GIN_APPROVAL_REJECT_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Good Issue N Reject Appro Promo",
+    "GIN_APPROVAL_REJECT_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "Good Issue N Reject Appro Promo",
+    "GIN_APPROVAL_REJECT_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [],
+  "reads": [
+   {
+    "repo": "REPO_GINNO",
+    "canon": "REPO_GINNO",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_documentNo",
+    "src": [
+     "sef:035601|serial 2"
+    ],
+    "screen_id": "035601"
+   }
+  ],
+  "writes_canon": [],
+  "reads_canon": [
+   "REPO_GINNO"
+  ],
+  "reads_not_written_by_this_flow": [
+   "REPO_GINNO"
+  ],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "GIN_APPROVAL_REJECT_ASSR",
+    "screen_id": "035601",
+    "src": "sef:035601|serial 7"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 1,
+  "fields": 0,
+  "fields_active": 0,
+  "events": 8,
+  "events_active": 8,
+  "events_by_kind": {
+   "click": 4,
+   "fill_text": 2,
+   "wait": 1,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": null,
+  "menu_option": "DYL_101046",
+  "menu_search_text": "Analaysis 4"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 48,
+   "active": true,
+   "user": "same session (AppUser)",
+   "login_status": null
+  },
+  {
+   "group": "64",
+   "group_desc": "GIS group",
+   "seq": 3,
+   "active": true,
+   "user": "same session (Sm.Shoaib)",
+   "login_status": "N"
+  }
+ ],
+ "screens": {
+  "035601": {
+   "src": "sc:035601",
+   "screen_id": "035601",
+   "name": "Good Issue N Reject Appro Promo",
+   "sheet": "Good Issue N Reject Appro Promo",
+   "type": "Reject",
+   "sheet_name_len": 31,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:035601|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e1"
+    },
+    {
+     "src": "sef:035601|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_documentNo",
+     "fixed_value": "REPO_GINNO",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e2"
+    },
+    {
+     "src": "sef:035601|serial 8",
+     "serial": 8,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0006",
+     "kind": "wait",
+     "event_name": "Wait",
+     "in_ce_table": true,
+     "desc": "Wait",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "2",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e8",
+     "wait_s": "2"
+    },
+    {
+     "src": "sef:035601|serial 3",
+     "serial": 3,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_gin_no.",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e3"
+    },
+    {
+     "src": "sef:035601|serial 4",
+     "serial": 4,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Reject",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rejectBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e4"
+    },
+    {
+     "src": "sef:035601|serial 5",
+     "serial": 5,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "comments",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e5"
+    },
+    {
+     "src": "sef:035601|serial 6",
+     "serial": 6,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e6"
+    },
+    {
+     "src": "sef:035601|serial 7",
+     "serial": 7,
+     "seq": 8,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,GIN_APPROVAL_REJECT_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "035601:e7",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "GIN_APPROVAL_REJECT_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "REPO_GINNO",
+     "canon": "REPO_GINNO",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_documentNo",
+     "src": [
+      "sef:035601|serial 2"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 8,
+    "events_active": 8
+   },
+   "assertion_sheets": [
+    "GIN_APPROVAL_REJECT_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

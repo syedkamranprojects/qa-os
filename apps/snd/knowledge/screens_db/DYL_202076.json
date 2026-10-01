@@ -1,0 +1,213 @@
+{
+ "option_id": "DYL_202076",
+ "title": "RCOA UOM",
+ "menu": {
+  "path": [
+   "RCOA",
+   "Setup",
+   "RCOA UOM"
+  ],
+  "group_id": "DYL_202076"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "202076",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202076001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "FIN_PR_RCOA_UOM",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202076002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202076001",
+   "desc": null,
+   "table": "FIN_PR_RCOA_UOM",
+   "n_fields": 8,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "UOM Code": {
+   "name": "TXT__PRCA_UOM_CODE",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "PRCA_UOM_CODE",
+   "db_description": "UOM Code",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "UOM Description": {
+   "name": "TXT__PRCA_UOM_DESC",
+   "id": "textbox2",
+   "widget": "text",
+   "data_field": "PRCA_UOM_DESC",
+   "db_description": "UOM Description (Count/Quantity/Units/Days/Rate)",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "UOM Short Description": {
+   "name": "TXT__PRCA_UOM_ABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "PRCA_UOM_ABRV",
+   "db_description": "UOM Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "UOM Field Control": {
+   "name": "DDL__PRCA_UOM_FIELD_CONTROL",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PRCA_UOM_FIELD_CONTROL",
+   "db_description": "UOM Field Control",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "Default": {
+   "name": "DDL__PRCA_DEFAULT",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PRCA_DEFAULT",
+   "db_description": "Default",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "Active": {
+   "name": "DDL__PRCA_ACTIVE",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PRCA_ACTIVE",
+   "db_description": "Active",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "Level Number": {
+   "name": "TXT__PRCA_LEVEL_NO",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "PRCA_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  },
+  "Level Type": {
+   "name": "DDL__PRCA_LEVELTYPE",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PRCA_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202076002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "UOM Code",
+    "Long Description",
+    "Level Number",
+    "UOM Field Control",
+    "Active",
+    "Default",
+    "Level Type",
+    "Organization Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

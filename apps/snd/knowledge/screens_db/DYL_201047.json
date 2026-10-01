@@ -1,0 +1,51 @@
+{
+ "option_id": "DYL_201047",
+ "title": "Inquiry",
+ "menu": {
+  "path": [
+   "Transactions",
+   "Inquiry"
+  ],
+  "group_id": "DYL_201047"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201047",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201047001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mob_pr_owr_outlet_web_regist",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Mobile Number",
+    "Email",
+    "Comments",
+    "City",
+    "MIS Type",
+    "User Type",
+    "Outlet Name",
+    "Owner Name"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": []
+}

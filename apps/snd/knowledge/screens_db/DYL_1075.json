@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1075",
+ "title": "Province",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Province"
+  ],
+  "group_id": "DYL_1075"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1075",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101075001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Province - Grid",
+   "table": "GLB_PR_PRV_PROVINCE",
+   "n_fields": 0,
+   "grids": [
+    "GLBPRPRVPROVINCE"
+   ]
+  },
+  {
+   "page": "101075002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101075001",
+   "desc": "Province - Form",
+   "table": "GLB_PR_PRV_PROVINCE",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "TXT__PPRVPROVINCECODE",
+   "id": "FTXT__PPRVPROVINCECODE",
+   "widget": "text",
+   "data_field": "PPRV_PROVINCE_CODE",
+   "db_description": "Province Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  },
+  "Description": {
+   "name": "TXT__PPRVDESC",
+   "id": "FTXT__PPRVDESC",
+   "widget": "text",
+   "data_field": "PPRV_DESC",
+   "db_description": "Province Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  },
+  "Abbreviation": {
+   "name": "TXT__PPRVABRV",
+   "id": "FTXT__PPRVABRV",
+   "widget": "text",
+   "data_field": "PPRV_ABRV",
+   "db_description": "Province Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  },
+  "Default": {
+   "name": "DDL__PPRVDEFAULT",
+   "id": "FDDL__PPRVDEFAULT",
+   "widget": "select",
+   "data_field": "PPRV_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  },
+  "Status": {
+   "name": "DDL__PPRVACTIVE",
+   "id": "FDDL__PPRVACTIVE",
+   "widget": "select",
+   "data_field": "PPRV_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  },
+  "Level Type": {
+   "name": "TXT__PPRVLEVELTYPE",
+   "id": "FTXT__PPRVLEVELTYPE",
+   "widget": "text",
+   "data_field": "PPRV_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  },
+  "Level No": {
+   "name": "TXT__PPRVLEVELNO",
+   "id": "FTXT__PPRVLEVELNO",
+   "widget": "text",
+   "data_field": "PPRV_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101075002"
+  }
+ },
+ "grids": {
+  "GLBPRPRVPROVINCE": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

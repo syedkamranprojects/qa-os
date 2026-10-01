@@ -1,0 +1,1056 @@
+{
+ "src": "tf:00890001",
+ "flow_id": "00890001",
+ "description": "Goods Issue Note Negative",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00890001|0089|1",
+   "seq": 1,
+   "menu_group": "0089",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0089",
+   "menu_group": "0089",
+   "exists": true,
+   "description": "Goods Issue Note Negative",
+   "search_text": "Goods Issue Note",
+   "navigation": "GOOD_ISSUE_NODE",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0089|000501|1",
+   "mgsm_seq": 1,
+   "screen_id": "000501",
+   "screen_name": "Goods Issue Note",
+   "sheet": "Goods Issue Note",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_OTC_Negative",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0089|000502|2",
+     "mgsm_seq": 2,
+     "screen_id": "000502",
+     "screen_name": "Goods Issue Note CM Selection",
+     "sheet": "Goods Issue Note CM Selection",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "000501",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_2",
+     "workbook": "NG_Dcode_QA_OTC_Negative",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": null
+    },
+    {
+     "src": "mgsm:0089|008903|3",
+     "mgsm_seq": 3,
+     "screen_id": "008903",
+     "screen_name": "Goods Issue Note Detail",
+     "sheet": "Goods Issue Note Detail",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "000501",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_3",
+     "workbook": "NG_Dcode_QA_OTC_Negative",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": null
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "000501",
+  "000502",
+  "008903"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_OTC_Negative"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "Goods Issue Note",
+   "kind": "screen",
+   "screen_ids": [
+    "000501"
+   ]
+  },
+  {
+   "sheet": "screenshot_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "000501",
+    "000502"
+   ]
+  },
+  {
+   "sheet": "Goods Issue Note CM Selection",
+   "kind": "screen",
+   "screen_ids": [
+    "000502"
+   ]
+  },
+  {
+   "sheet": "Goods Issue Note Detail",
+   "kind": "screen",
+   "screen_ids": [
+    "008903"
+   ]
+  },
+  {
+   "sheet": "GIN_DTL_SAVE_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "008903"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 5,
+   "sheets_total": 5,
+   "missing_sheets": [],
+   "missing_columns": {
+    "Goods Issue Note CM Selection": [
+     "Actual CS",
+     "Actual DZ",
+     "Actual PC"
+    ],
+    "Goods Issue Note Detail": [
+     "Actual PC"
+    ]
+   },
+   "rows": {
+    "Goods Issue Note": 1,
+    "screenshot_ASSR": 1,
+    "Goods Issue Note CM Selection": 1,
+    "Goods Issue Note Detail": 1,
+    "GIN_DTL_SAVE_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "Goods Issue Note",
+    "Goods Issue Note CM Selection",
+    "Goods Issue Note Detail"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "screenshot_ASSR": 1,
+    "GIN_DTL_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.4
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 5,
+   "sheets_total": 5,
+   "missing_sheets": [],
+   "missing_columns": {
+    "Goods Issue Note CM Selection": [
+     "Actual CS",
+     "Actual DZ",
+     "Actual PC"
+    ],
+    "Goods Issue Note Detail": [
+     "Actual PC"
+    ]
+   },
+   "rows": {
+    "Goods Issue Note": 1,
+    "screenshot_ASSR": 1,
+    "Goods Issue Note CM Selection": 1,
+    "Goods Issue Note Detail": 5,
+    "GIN_DTL_SAVE_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 2,
+   "sheets_total": 5,
+   "missing_sheets": [
+    "Goods Issue Note",
+    "Goods Issue Note CM Selection",
+    "Goods Issue Note Detail"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "screenshot_ASSR": 1,
+    "GIN_DTL_SAVE_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.4
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 5,
+   "sheets_total": 5,
+   "missing_sheets": [],
+   "missing_columns": {
+    "Goods Issue Note CM Selection": [
+     "Actual CS",
+     "Actual DZ",
+     "Actual PC"
+    ],
+    "Goods Issue Note Detail": [
+     "Actual PC"
+    ]
+   },
+   "rows": {
+    "Goods Issue Note": 1,
+    "screenshot_ASSR": 1,
+    "Goods Issue Note CM Selection": 1,
+    "Goods Issue Note Detail": 1,
+    "GIN_DTL_SAVE_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "screenshot_ASSR",
+    "screen_id": "000501",
+    "src": "sef:000501|serial 2"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "screenshot_ASSR",
+    "screen_id": "000502",
+    "src": "sef:000502|serial 4"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "GIN_DTL_SAVE_ASSR",
+    "screen_id": "008903",
+    "src": "sef:008903|serial 3"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 3,
+  "fields": 16,
+  "fields_active": 10,
+  "events": 9,
+  "events_active": 9,
+  "events_by_kind": {
+   "load_data": 2,
+   "group_assertion": 3,
+   "click": 3,
+   "fill_text": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "GIN (Goods Issue Note)",
+   "Negative test"
+  ],
+  "market": null,
+  "menu_option": "GOOD_ISSUE_NODE",
+  "menu_search_text": "Goods Issue Note"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 17,
+   "active": true,
+   "user": "same session (AppUser)",
+   "login_status": null
+  },
+  {
+   "group": "14",
+   "group_desc": "For GIN Testing",
+   "seq": 17,
+   "active": true,
+   "user": "same session (Auto_Tssm)",
+   "login_status": null
+  },
+  {
+   "group": "52",
+   "group_desc": "Daily Cycle Negative with Positive Flow_ITHD",
+   "seq": 18,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "000501": {
+   "src": "sc:000501",
+   "screen_id": "000501",
+   "name": "Goods Issue Note",
+   "sheet": "Goods Issue Note",
+   "type": "Save",
+   "sheet_name_len": 16,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:000501|deliveryManPjp|1.0|1|1",
+     "seq": 1,
+     "field_id": "deliveryManPjp",
+     "locate_by": "id",
+     "label": "Delivery Man PJP",
+     "db_column": "Delivery Man PJP",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000501:f1"
+    },
+    {
+     "src": "sf:000501|DDL__epp2_busent_code_phs_lvl2_f1|1.0|2|1",
+     "seq": 2,
+     "field_id": "DDL__epp2_busent_code_phs_lvl2_f1",
+     "locate_by": "id",
+     "label": "Delivery Man DSR",
+     "db_column": "Delivery Man DSR",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000501:f2"
+    },
+    {
+     "src": "sf:000501|DDL__epl1_busent_code_log_lvl1_k|1.0|3|1",
+     "seq": 3,
+     "field_id": "DDL__epl1_busent_code_log_lvl1_k",
+     "locate_by": "id",
+     "label": "Selling Category",
+     "db_column": "Selling Category",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000501:f3"
+    },
+    {
+     "src": "sf:000501|DDL__epp1_busent_code_phs_lvl1_b|1.0|4|1",
+     "seq": 4,
+     "field_id": "DDL__epp1_busent_code_phs_lvl1_b",
+     "locate_by": "id",
+     "label": "Warehouse",
+     "db_column": "Warehouse",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000501:f4"
+    },
+    {
+     "src": "sf:000501|DDL__epl1_busent_code_log_lvl1_l|1.0|5|1",
+     "seq": 5,
+     "field_id": "DDL__epl1_busent_code_log_lvl1_l",
+     "locate_by": "id",
+     "label": "Section",
+     "db_column": "Section",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000501:f5"
+    },
+    {
+     "src": "sf:000501|TXT__pvch_vehicle_code|1.0|6|1",
+     "seq": 6,
+     "field_id": "TXT__pvch_vehicle_code",
+     "locate_by": "id",
+     "label": "Vehicle",
+     "db_column": "Vehicle",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000501:f6"
+    },
+    {
+     "src": "sf:000501|suggestedType|1.0|7|1",
+     "seq": 7,
+     "field_id": "suggestedType",
+     "locate_by": "id",
+     "label": "Suggested Type",
+     "db_column": "Suggested Type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "N",
+     "addition": "+",
+     "active": false,
+     "trace_key": "000501:f7"
+    },
+    {
+     "src": "sf:000501|deliveryDate|1.0|8|1",
+     "seq": 8,
+     "field_id": "deliveryDate",
+     "locate_by": "id",
+     "label": "Delivery Date",
+     "db_column": "Delivery Date",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": true,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000501:f8"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:000501|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000501:e1"
+    },
+    {
+     "src": "sef:000501|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Click On Row",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,screenshot_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "000501:e2",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "screenshot_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 8,
+    "fields_active": 2,
+    "events": 2,
+    "events_active": 2
+   },
+   "assertion_sheets": [
+    "screenshot_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  },
+  "000502": {
+   "src": "sc:000502",
+   "screen_id": "000502",
+   "name": "Goods Issue Note CM Selection",
+   "sheet": "Goods Issue Note CM Selection",
+   "type": "Save",
+   "sheet_name_len": 29,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:000502|row_1_actual_cs,actualQty1_0|1.0|1|1",
+     "seq": 1,
+     "field_id": "row_1_actual_cs,actualQty1_0",
+     "locate_by": "id",
+     "label": "Actual CS",
+     "db_column": "Actual CS",
+     "component_type": "0009",
+     "component_name": "Grid Input Selection",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000502:f1"
+    },
+    {
+     "src": "sf:000502|row_1_actual_dz,actualQty2_0|1.0|2|1",
+     "seq": 2,
+     "field_id": "row_1_actual_dz,actualQty2_0",
+     "locate_by": "id",
+     "label": "Actual DZ",
+     "db_column": "Actual DZ",
+     "component_type": "0009",
+     "component_name": "Grid Input Selection",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000502:f2"
+    },
+    {
+     "src": "sf:000502|row_1_actual_pc,actualQty3_0|1.0|3|1",
+     "seq": 3,
+     "field_id": "row_1_actual_pc,actualQty3_0",
+     "locate_by": "id",
+     "label": "Actual PC",
+     "db_column": "Actual PC",
+     "component_type": "0009",
+     "component_name": "Grid Input Selection",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000502:f3"
+    },
+    {
+     "src": "sf:000502|row_1_actual_cs,actualQty1_0|1.0|9|1",
+     "seq": 9,
+     "field_id": "row_1_actual_cs,actualQty1_0",
+     "locate_by": "id",
+     "label": "Actual CS",
+     "db_column": "Actual CS",
+     "component_type": "0009",
+     "component_name": "Grid Input Selection",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000502:f9"
+    },
+    {
+     "src": "sf:000502|row_1_actual_dz,actualQty2_0|1.0|10|1",
+     "seq": 10,
+     "field_id": "row_1_actual_dz,actualQty2_0",
+     "locate_by": "id",
+     "label": "Actual DZ",
+     "db_column": "Actual DZ",
+     "component_type": "0009",
+     "component_name": "Grid Input Selection",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000502:f10"
+    },
+    {
+     "src": "sf:000502|row_1_actual_pc,actualQty3_0|1.0|11|1",
+     "seq": 11,
+     "field_id": "row_1_actual_pc,actualQty3_0",
+     "locate_by": "id",
+     "label": "Actual PC",
+     "db_column": "Actual PC",
+     "component_type": "0009",
+     "component_name": "Grid Input Selection",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "000502:f11"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:000502|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000502:e1"
+    },
+    {
+     "src": "sef:000502|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_dsrName",
+     "fixed_value": "DSR Name",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000502:e2"
+    },
+    {
+     "src": "sef:000502|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Chek Box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "Header_0_checkbox_1",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000502:e3"
+    },
+    {
+     "src": "sef:000502|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Click On Row",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,screenshot_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "000502:e4",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "screenshot_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 6,
+    "fields_active": 6,
+    "events": 4,
+    "events_active": 4
+   },
+   "assertion_sheets": [
+    "screenshot_ASSR"
+   ],
+   "observed_toasts_event0004": [
+    {
+     "message": "Forwarded successfully",
+     "count": 39
+    },
+    {
+     "message": "Saved Succesfully.",
+     "count": 33
+    },
+    {
+     "message": "actual quantity could not be beyond the suggested quantity.",
+     "count": 21
+    },
+    {
+     "message": "gin detail bean is going to be empty.",
+     "count": 5
+    },
+    {
+     "message": "Detail is not available.",
+     "count": 4
+    },
+    {
+     "message": "Action cannot be performed, something went wrong!",
+     "count": 2
+    },
+    {
+     "message": "workflow.messages.forward",
+     "count": 2
+    },
+    {
+     "message": "Do not use Special charters.",
+     "count": 1
+    }
+   ]
+  },
+  "008903": {
+   "src": "sc:008903",
+   "screen_id": "008903",
+   "name": "Goods Issue Note Detail",
+   "sheet": "Goods Issue Note Detail",
+   "type": "Save",
+   "sheet_name_len": 23,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:008903|row_1_actual_cs,actualQty1_0|1.0|1|1",
+     "seq": 1,
+     "field_id": "row_1_actual_cs,actualQty1_0",
+     "locate_by": "id",
+     "label": "Actual CS",
+     "db_column": "Actual CS",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "008903:f1"
+    },
+    {
+     "src": "sf:008903|row_1_actual_pc,actualQty3_0|1.0|3|1",
+     "seq": 3,
+     "field_id": "row_1_actual_pc,actualQty3_0",
+     "locate_by": "id",
+     "label": "Actual PC",
+     "db_column": "Actual PC",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "008903:f3"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:008903|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "008903:e1"
+    },
+    {
+     "src": "sef:008903|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 1,
+     "parent": 1,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save All",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "saveallBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "008903:e2"
+    },
+    {
+     "src": "sef:008903|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 1,
+     "parent": 1,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion After Save Button",
+     "status": "Y",
+     "active": true,
+     "locate_by": "",
+     "field_id": "",
+     "fixed_value": "TSTMSG,GIN_DTL_SAVE_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "008903:e3",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "GIN_DTL_SAVE_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 2,
+    "fields_active": 2,
+    "events": 3,
+    "events_active": 3
+   },
+   "assertion_sheets": [
+    "GIN_DTL_SAVE_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

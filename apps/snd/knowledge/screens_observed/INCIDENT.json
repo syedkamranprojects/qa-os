@@ -1,0 +1,37 @@
+{
+ "option_id": "INCIDENT",
+ "title": "Incident",
+ "menu_path": [
+  "Configuration",
+  "Workflow Configuration",
+  "Incident"
+ ],
+ "route": "/workflow/incident",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/workflow/incident",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  }
+ ],
+ "grids": []
+}

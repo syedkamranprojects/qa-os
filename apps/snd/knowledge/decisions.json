@@ -1,0 +1,42 @@
+{
+ "app": "snd",
+ "updated": "2026-09-29",
+ "defaults": {
+  "scope": "browser+manual"
+ },
+ "terms": [
+  {
+   "story": "Van Seller",
+   "app": "Van Sales",
+   "status": "stated",
+   "source": {
+    "story": "VAN-SALES-E2E",
+    "date": "2026-09-29",
+    "by": "story author"
+   }
+  }
+ ],
+ "variances": [],
+ "rules": [
+  {
+   "key": "one Draft request per PJP",
+   "text": "Van Sale Stock Request: only one Draft request is allowed per PJP; a second attempt shows 'Draft requisition found, request No: <n>'.",
+   "status": "observed",
+   "source": {
+    "story": "VAN-SALES-E2E",
+    "date": "2026-09-28",
+    "by": "live app (cnr1dev1/KPO_mp)"
+   }
+  },
+  {
+   "key": "grid status New = Draft",
+   "text": "A saved Van Sale Stock Request shows status 'New' in the grid; the story calls it 'Draft'. The duplicate-draft message suggests they are the same state (not confirmed).",
+   "status": "observed",
+   "source": {
+    "story": "VAN-SALES-E2E",
+    "date": "2026-09-28",
+    "by": "live app (cnr1dev1/KPO_mp)"
+   }
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+  "_note": "Data-level facts about the accounts QA OS can log in as. Menu access is necessary, not sufficient: these notes break ties. rank = tie-break, lower first. Update when a run learns something new. No passwords here (they live in .claude/settings.local.json).",
+  "cnr1dev1/KPO_mp": {"rank": 1, "org": "010104", "market": "Pakistan", "distributor_choice": false,
+    "notes": "Unilever Pakistan. Has the 'Van Sales' DSR type and Order Booking option, Van Sale Stock Request, Route Settlement. Order Booking works. No SKU Substitution screens. Slow layout screens (up to 15 s)."},
+  "cnr2dev3/KPO_slv": {"rank": 2, "org": "unknown (not in snd-schema)", "market": "PH/TH-flavoured", "distributor_choice": true, "distributor": "50000451",
+    "notes": "Distributor 50000451 has SKU Substitution screens AND working Order Booking: best default on cnr2dev3. No 'Van Sales' option in Order Booking."},
+  "cnr2dev3/KPO_ph": {"rank": 3, "org": "unknown (not in snd-schema)", "market": "PH", "distributor_choice": true, "distributor": "15181887",
+    "notes": "SKU screens present but Order Booking dropdowns are empty (no data for order flows)."}
+}

@@ -1,0 +1,1018 @@
+{
+ "src": "tf:02280001",
+ "flow_id": "02280001",
+ "description": "BG - Section Profile",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": null,
+ "tfd": [
+  {
+   "src": "tfd:02280001|0228|1",
+   "seq": 1,
+   "menu_group": "0228",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0228",
+   "menu_group": "0228",
+   "exists": true,
+   "description": "BG - Section Profile",
+   "search_text": "BG - Section Profile",
+   "navigation": "DYL_BG1007",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0228|022801|1",
+   "mgsm_seq": 1,
+   "screen_id": "022801",
+   "screen_name": "BG-Section Profile",
+   "sheet": "BG-Section Profile",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "NG_Dcode_QA_Setup",
+   "workbook_source": "mgsm.pmgsm_screen_filename",
+   "workbook_filename_status": null,
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0228|022802|2",
+     "mgsm_seq": 2,
+     "screen_id": "022802",
+     "screen_name": "BG-Section Profile Allowable",
+     "sheet": "BG-Section Profile Allowable",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "022801",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_2",
+     "workbook": "NG_Dcode_QA_Setup",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": null
+    },
+    {
+     "src": "mgsm:0228|022803|3",
+     "mgsm_seq": 3,
+     "screen_id": "022803",
+     "screen_name": "BG-Section Profile Forward",
+     "sheet": "BG-Section Profile Forward",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "022801",
+     "tab_nav_type": "id",
+     "tab_nav_path": "tab_1",
+     "workbook": "NG_Dcode_QA_Setup",
+     "workbook_source": "mgsm.pmgsm_screen_filename",
+     "workbook_filename_status": null
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "022801",
+  "022802",
+  "022803"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "NG_Dcode_QA_Setup"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "BG-Section Profile",
+   "kind": "screen",
+   "screen_ids": [
+    "022801"
+   ]
+  },
+  {
+   "sheet": "Save_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "022801"
+   ]
+  },
+  {
+   "sheet": "Update_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "022801"
+   ]
+  },
+  {
+   "sheet": "BG-Section Profile Allowable",
+   "kind": "screen",
+   "screen_ids": [
+    "022802"
+   ]
+  },
+  {
+   "sheet": "BG-Section Profile Forward",
+   "kind": "screen",
+   "screen_ids": [
+    "022803"
+   ]
+  },
+  {
+   "sheet": "Forward_assertion",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "022803"
+   ]
+  },
+  {
+   "sheet": "GLOBAL-REPO",
+   "kind": "global repo (optional, default workbook)",
+   "screen_ids": []
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 7,
+   "missing_sheets": [
+    "BG-Section Profile",
+    "Save_assertion",
+    "Update_assertion",
+    "BG-Section Profile Allowable",
+    "BG-Section Profile Forward",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 7,
+   "missing_sheets": [
+    "BG-Section Profile",
+    "Save_assertion",
+    "Update_assertion",
+    "BG-Section Profile Allowable",
+    "BG-Section Profile Forward",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 7,
+   "missing_sheets": [
+    "BG-Section Profile",
+    "Save_assertion",
+    "Update_assertion",
+    "BG-Section Profile Allowable",
+    "BG-Section Profile Forward",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 7,
+   "missing_sheets": [
+    "BG-Section Profile",
+    "Save_assertion",
+    "Update_assertion",
+    "BG-Section Profile Allowable",
+    "BG-Section Profile Forward",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 7,
+   "missing_sheets": [
+    "BG-Section Profile",
+    "Save_assertion",
+    "Update_assertion",
+    "BG-Section Profile Allowable",
+    "BG-Section Profile Forward",
+    "Forward_assertion"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  }
+ },
+ "best_sample_workbooks": [],
+ "repos": {
+  "writes": [
+   {
+    "repo": "REPO_SECTIONCODE_BG",
+    "canon": "REPO_SECTIONCODE_BG",
+    "scope": "per PK (<PK>_<repo>)",
+    "field": "Code",
+    "field_id": "TXT__ENTITYCODE",
+    "src": [
+     "sf:022801|TXT__ENTITYCODE|1.0|8|1",
+     "sef:022801|serial 5"
+    ],
+    "screen_id": "022801"
+   }
+  ],
+  "reads": [
+   {
+    "repo": "REPO_SECTIONCODE_BG",
+    "canon": "REPO_SECTIONCODE_BG",
+    "via": "event(fixedvalue_type=REPO)",
+    "target": "rowfilter_TXT__ENTITYCODE",
+    "src": [
+     "sef:022803|serial 3"
+    ],
+    "screen_id": "022803"
+   }
+  ],
+  "writes_canon": [
+   "REPO_SECTIONCODE_BG"
+  ],
+  "reads_canon": [
+   "REPO_SECTIONCODE_BG"
+  ],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "Save_assertion",
+    "screen_id": "022801",
+    "src": "sef:022801|serial 6"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "Update_assertion",
+    "screen_id": "022801",
+    "src": "sef:022801|serial 8"
+   },
+   {
+    "kind": "TSTMSG",
+    "sheet": "Forward_assertion",
+    "screen_id": "022803",
+    "src": "sef:022803|serial 8"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 3,
+  "fields": 6,
+  "fields_active": 6,
+  "events": 19,
+  "events_active": 17,
+  "events_by_kind": {
+   "load_data": 1,
+   "click": 8,
+   "group_assertion": 3,
+   "fill_repo": 1,
+   "fill_text": 3,
+   "checkbox_click": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "Master/Setup"
+  ],
+  "market": "BD",
+  "menu_option": "DYL_BG1007",
+  "menu_search_text": "BG - Section Profile"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "16",
+   "group_desc": "NG_Setup Flow_BG",
+   "seq": 3,
+   "active": true,
+   "user": "same session (runner default login)",
+   "login_status": "N"
+  }
+ ],
+ "screens": {
+  "022801": {
+   "src": "sc:022801",
+   "screen_id": "022801",
+   "name": "BG-Section Profile",
+   "sheet": "BG-Section Profile",
+   "type": "Save",
+   "sheet_name_len": 18,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:022801|TXT__EPL1DESC|1.0|3|1",
+     "seq": 3,
+     "field_id": "TXT__EPL1DESC",
+     "locate_by": "id",
+     "label": "Description",
+     "db_column": "Description",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "022801:f3"
+    },
+    {
+     "src": "sf:022801|TXT__EPL1ABRV|1.0|4|1",
+     "seq": 4,
+     "field_id": "TXT__EPL1ABRV",
+     "locate_by": "id",
+     "label": "Abbreviation",
+     "db_column": "Abbreviation",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "022801:f4"
+    },
+    {
+     "src": "sf:022801|DDL__EPL1DEFAULT|1.0|5|1",
+     "seq": 5,
+     "field_id": "DDL__EPL1DEFAULT",
+     "locate_by": "id",
+     "label": "Default",
+     "db_column": "Default",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "022801:f5"
+    },
+    {
+     "src": "sf:022801|DDL__PBEOBUSENTITYORGRANKING|1.0|6|1",
+     "seq": 6,
+     "field_id": "DDL__PBEOBUSENTITYORGRANKING",
+     "locate_by": "id",
+     "label": "Business_type",
+     "db_column": "Business_type",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "022801:f6"
+    },
+    {
+     "src": "sf:022801|DDL__EPL1ENTRYMODE|1.0|7|1",
+     "seq": 7,
+     "field_id": "DDL__EPL1ENTRYMODE",
+     "locate_by": "id",
+     "label": "Entry_mode",
+     "db_column": "Entry_mode",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "022801:f7"
+    },
+    {
+     "src": "sf:022801|TXT__ENTITYCODE|1.0|8|1",
+     "seq": 8,
+     "field_id": "TXT__ENTITYCODE",
+     "locate_by": "id",
+     "label": "Code",
+     "db_column": "Code",
+     "component_type": "0010",
+     "component_name": "Readable Elements",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": "REPO_SECTIONCODE_BG",
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "022801:f8"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:022801|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Add Btn",
+     "status": "N",
+     "active": false,
+     "locate_by": "id",
+     "field_id": "addBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022801:e2"
+    },
+    {
+     "src": "sef:022801|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022801:e3"
+    },
+    {
+     "src": "sef:022801|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 1,
+     "parent": 3,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "save",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "022801:e4"
+    },
+    {
+     "src": "sef:022801|serial 6",
+     "serial": 6,
+     "seq": 5,
+     "depth": 1,
+     "parent": 3,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "save assert",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Save_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "022801:e6",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Save_assertion"
+     }
+    },
+    {
+     "src": "sef:022801|serial 7",
+     "serial": 7,
+     "seq": 6,
+     "depth": 1,
+     "parent": 3,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Click update",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "update",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "022801:e7"
+    },
+    {
+     "src": "sef:022801|serial 8",
+     "serial": 8,
+     "seq": 7,
+     "depth": 1,
+     "parent": 3,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Update assert",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Update_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "022801:e8",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Update_assertion"
+     }
+    },
+    {
+     "src": "sef:022801|serial 5",
+     "serial": 5,
+     "seq": 8,
+     "depth": 1,
+     "parent": 3,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "FILL REPO",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "per_row_child",
+     "trace_key": "022801:e5"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [
+    {
+     "repo": "REPO_SECTIONCODE_BG",
+     "canon": "REPO_SECTIONCODE_BG",
+     "scope": "per PK (<PK>_<repo>)",
+     "field": "Code",
+     "field_id": "TXT__ENTITYCODE",
+     "src": [
+      "sf:022801|TXT__ENTITYCODE|1.0|8|1",
+      "sef:022801|serial 5"
+     ]
+    }
+   ],
+   "repo_reads": [],
+   "counts": {
+    "fields": 6,
+    "fields_active": 6,
+    "events": 7,
+    "events_active": 6
+   },
+   "assertion_sheets": [
+    "Save_assertion",
+    "Update_assertion"
+   ],
+   "observed_toasts_event0004": []
+  },
+  "022802": {
+   "src": "sc:022802",
+   "screen_id": "022802",
+   "name": "BG-Section Profile Allowable",
+   "sheet": "BG-Section Profile Allowable",
+   "type": "Save",
+   "sheet_name_len": 28,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:022802|serial 1",
+     "serial": 1,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter2",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "filter_2",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022802:e1"
+    },
+    {
+     "src": "sef:022802|serial 2",
+     "serial": 2,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_available.EPP1_BUSENT_PHS_LVL1_CODE",
+     "fixed_value": "1000000021",
+     "fixed_value_type": "FIXED",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022802:e2"
+    },
+    {
+     "src": "sef:022802|serial 3",
+     "serial": 3,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0015",
+     "kind": "checkbox_click",
+     "event_name": "Checkbox Click",
+     "in_ce_table": true,
+     "desc": "Chek Box",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "checkbox-2",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022802:e3"
+    },
+    {
+     "src": "sef:022802|serial 4",
+     "serial": 4,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Batch SaveBtn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "BatchSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022802:e4"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 4,
+    "events_active": 4
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "022803": {
+   "src": "sc:022803",
+   "screen_id": "022803",
+   "name": "BG-Section Profile Forward",
+   "sheet": "BG-Section Profile Forward",
+   "type": "Save",
+   "sheet_name_len": 26,
+   "exists_in_sc": true,
+   "fields": [],
+   "events": [
+    {
+     "src": "sef:022803|serial 1",
+     "serial": 1,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Filter",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "gridFilterCheckbox",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e1"
+    },
+    {
+     "src": "sef:022803|serial 2",
+     "serial": 2,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0012",
+     "kind": "fill_repo",
+     "event_name": "Fill Repos",
+     "in_ce_table": true,
+     "desc": "FILL REPO",
+     "status": "N",
+     "active": false,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e2"
+    },
+    {
+     "src": "sef:022803|serial 3",
+     "serial": 3,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__ENTITYCODE",
+     "fixed_value": "REPO_SECTIONCODE_BG",
+     "fixed_value_type": "REPO",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e3"
+    },
+    {
+     "src": "sef:022803|serial 4",
+     "serial": 4,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_code",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e4"
+    },
+    {
+     "src": "sef:022803|serial 5",
+     "serial": 5,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Forward Click",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e5"
+    },
+    {
+     "src": "sef:022803|serial 6",
+     "serial": 6,
+     "seq": 7,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Comments",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "comments",
+     "fixed_value": "comments",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e6"
+    },
+    {
+     "src": "sef:022803|serial 7",
+     "serial": 7,
+     "seq": 9,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "forwardPopUpSaveBtn",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e7"
+    },
+    {
+     "src": "sef:022803|serial 8",
+     "serial": 8,
+     "seq": 10,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Forward assert",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,Forward_assertion",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "022803:e8",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "Forward_assertion"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [
+    {
+     "repo": "REPO_SECTIONCODE_BG",
+     "canon": "REPO_SECTIONCODE_BG",
+     "via": "event(fixedvalue_type=REPO)",
+     "target": "rowfilter_TXT__ENTITYCODE",
+     "src": [
+      "sef:022803|serial 3"
+     ]
+    }
+   ],
+   "counts": {
+    "fields": 0,
+    "fields_active": 0,
+    "events": 8,
+    "events_active": 7
+   },
+   "assertion_sheets": [
+    "Forward_assertion"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

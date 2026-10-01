@@ -1,0 +1,194 @@
+{
+ "option_id": "DYL_1083",
+ "title": "Life Style Measurement",
+ "menu": {
+  "path": [
+   "Company setup",
+   "General",
+   "Life Style Measurement"
+  ],
+  "group_id": "DYL_1083"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1083",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101083001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Life Style Measurement - Grid",
+   "table": "SND_PR_LSM_LIFESTYLEMEASURMENT",
+   "n_fields": 0,
+   "grids": [
+    "Life Style Measurement"
+   ]
+  },
+  {
+   "page": "101083002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101083001",
+   "desc": "Life Style Measurement - Form",
+   "table": "SND_PR_LSM_LIFESTYLEMEASURMENT",
+   "n_fields": 7,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "code",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "PLSM_LIFESTYLE_CODE",
+   "db_description": "Life Style (LSM) Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  },
+  "Description": {
+   "name": "decsription",
+   "id": "textbox7",
+   "widget": "text",
+   "data_field": "PLSM_DESC",
+   "db_description": "Life Style (LSM) Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  },
+  "Abbreviation": {
+   "name": "TXT__plsm_abrv",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PLSM_ABRV",
+   "db_description": "Life Style (LSM) Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  },
+  "Default": {
+   "name": "DDL__plsm_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PLSM_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  },
+  "Status": {
+   "name": "DDL__plsm_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PLSM_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  },
+  "Level Type": {
+   "name": "TXT__plsm_leveltype",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PLSM_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  },
+  "Level No": {
+   "name": "TXT__plsm_level_no",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PLSM_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101083002"
+  }
+ },
+ "grids": {
+  "Life Style Measurement": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

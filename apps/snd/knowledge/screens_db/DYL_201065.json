@@ -1,0 +1,119 @@
+{
+ "option_id": "DYL_201065",
+ "title": "DSR Adjustment",
+ "menu": {
+  "path": [
+   "Transactions",
+   "DSR Adjustment"
+  ],
+  "group_id": "DYL_201065"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201065",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201065005",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_master",
+   "n_fields": 1,
+   "grids": []
+  },
+  {
+   "page": "201065001",
+   "tab": null,
+   "is_child": true,
+   "parent": "201065005",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_master",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201065003",
+   "tab": null,
+   "is_child": true,
+   "parent": "201065001",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_detail",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201065004",
+   "tab": null,
+   "is_child": true,
+   "parent": "201065003",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_payment",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201065006",
+   "tab": null,
+   "is_child": true,
+   "parent": "201065001",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_exm_expense_master",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document Date": {
+   "name": "docDate",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "TCMM_DOCM_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201065005"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "PJP Number",
+    "Document No",
+    "PJP Daily",
+    "Expense Amount",
+    "Approved"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "Refresh"
+ ]
+}

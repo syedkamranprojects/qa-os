@@ -1,0 +1,232 @@
+{
+ "option_id": "DYL_201097",
+ "title": "Claim",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "Claim"
+  ],
+  "group_id": "DYL__201097"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201097",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201097001",
+   "tab": "Header",
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201097002",
+   "tab": "Header",
+   "is_child": false,
+   "parent": null,
+   "partial": "201097001",
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 7,
+   "grids": []
+  },
+  {
+   "page": "201097009",
+   "tab": "Detail",
+   "is_child": true,
+   "parent": "201097001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 7,
+   "grids": []
+  },
+  {
+   "page": "201097003",
+   "tab": "Detail",
+   "is_child": true,
+   "parent": "201097001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLD_CLAIM_DETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201097004",
+   "tab": "Detail",
+   "is_child": true,
+   "parent": "201097003",
+   "partial": null,
+   "desc": null,
+   "table": "snd_tr_clr_claim_refinfo",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document No": {
+   "name": "TXT__TCLM_DOCNO",
+   "id": "textbox19",
+   "widget": "text",
+   "data_field": "TCLM_DOCNO",
+   "db_description": "Claim Master Document Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201097002"
+  },
+  "Document Type": {
+   "name": "DDL__PDOT_DOCMTYPE",
+   "id": "selectbox14",
+   "widget": "select",
+   "data_field": "PDOT_DOCMTYPE",
+   "db_description": "Document Type Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "201097002"
+  },
+  "Document Date": {
+   "name": "DDT__TCLM_DOC_DATE",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "TCLM_DOC_DATE",
+   "db_description": "Document Date",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201097002"
+  },
+  "Claim Amount": {
+   "name": "TXT__TCLM_TOTAL_GRS_AMT_FCY",
+   "id": "textbox42",
+   "widget": "text",
+   "data_field": "TCLM_TOTAL_GRS_AMT_FCY",
+   "db_description": "Total Gross Amount for Claim in Foreign Currency",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": "/^(?:\\d*\\.\\d{1,2}|\\d+)$/",
+   "page": "201097002"
+  },
+  "Adjusted Claim Amount": {
+   "name": "TXT__TCLM_TOT_ADJ_GRS_AMT_FCY",
+   "id": "textbox33",
+   "widget": "text",
+   "data_field": "TCLM_TOT_ADJ_GRS_AMT_FCY",
+   "db_description": "Total Adjusted Gross Amount for Claim in Foreign Currency",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201097002"
+  },
+  "Comments": {
+   "name": "TXT__TCLM_COMMENTS",
+   "id": "textbox43",
+   "widget": "text",
+   "data_field": "TCLM_COMMENTS",
+   "db_description": "Comments",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201097002"
+  },
+  "Active": {
+   "name": "DDL__TCLM_STATUS",
+   "id": "selectbox13",
+   "widget": "select",
+   "data_field": "TCLM_STATUS",
+   "db_description": "Document Status. (Use in Workflow). Active/InAtive/Approve/UnApprove/Pending",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201097002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Distributor Code",
+    "Document Type",
+    "Document No",
+    "Reference Document No",
+    "Outlet Type",
+    "Outlet Code",
+    "Outlet Description",
+    "Gross Amount"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

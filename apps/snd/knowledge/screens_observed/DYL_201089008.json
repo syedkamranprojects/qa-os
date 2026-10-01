@@ -1,0 +1,74 @@
+{
+ "option_id": "DYL_201089008",
+ "title": "Analysis Classification - Sales Hierarchy",
+ "menu_path": [
+  "Company setup",
+  "Analysis Classification",
+  "Analysis Classification - Sales Hierarchy"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=201089008",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=201089008",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Add a row",
+   "id": null,
+   "title": "Add a row",
+   "disabled": false
+  },
+  {
+   "text": "Classification A",
+   "id": null,
+   "title": "Classification A",
+   "disabled": true
+  },
+  {
+   "text": "Classification B",
+   "id": null,
+   "title": "Classification B",
+   "disabled": true
+  },
+  {
+   "text": "Classification C",
+   "id": null,
+   "title": "Classification C",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Analysis Type",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active"
+   ],
+   "rows": 3,
+   "pager": false
+  }
+ ]
+}

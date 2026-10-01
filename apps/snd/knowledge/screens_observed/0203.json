@@ -1,0 +1,102 @@
+{
+ "option_id": "0203",
+ "title": "Role Profile",
+ "menu_path": [
+  "Configuration",
+  "Access Role",
+  "Role Profile"
+ ],
+ "route": "/content-master/security/role-profile",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/content-master/security/role-profile",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "Header",
+   "id": null,
+   "title": "Header",
+   "disabled": true
+  },
+  {
+   "text": "Application",
+   "id": null,
+   "title": "Application",
+   "disabled": true
+  },
+  {
+   "text": "Options",
+   "id": null,
+   "title": "Options",
+   "disabled": true
+  },
+  {
+   "text": "Location",
+   "id": null,
+   "title": "Location",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "Authorizer"
+   ],
+   "rows": 5,
+   "pager": true
+  }
+ ]
+}

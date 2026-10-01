@@ -1,0 +1,187 @@
+{
+ "option_id": "DYL_202028",
+ "title": "IO Listing",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "IO Listing"
+  ],
+  "group_id": "DYL_202028"
+ },
+ "route": "/content-master/mobility/io-Listing",
+ "layout_code": "202028",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "202028001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_EN_ICT_IO_CLAIM_TYPE_MAP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "202028002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "202028001",
+   "desc": null,
+   "table": "SND_EN_ICT_IO_CLAIM_TYPE_MAP",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "IO Number": {
+   "name": "TXT__EICT_IO_NO",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "EICT_IO_NO",
+   "db_description": "IO Number",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 12,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202028002"
+  },
+  "Claim Type": {
+   "name": "DDL__EICT_CLAIM_TYPE",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EICT_CLAIM_TYPE",
+   "db_description": "Claim Type (Document Type)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PDOT",
+   "validations": null,
+   "regex": null,
+   "page": "202028002"
+  },
+  "Master Channel": {
+   "name": "DDL__PCHH_CHNLHIER_CODE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "PCHH_CHNLHIER_CODE",
+   "db_description": "Channel Hierarchy Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "PANC",
+   "validations": null,
+   "regex": null,
+   "page": "202028002"
+  },
+  "Start Date": {
+   "name": "DT__EICTSTARTDATE",
+   "id": "datebox1",
+   "widget": "date",
+   "data_field": "EICT_START_DATE",
+   "db_description": "Start Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "202028002"
+  },
+  "End Date": {
+   "name": "DT__EICTENDDATE",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "EICT_END_DATE",
+   "db_description": "End Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": [
+    {
+     "validationExpr": "@Date(@Model(DT__EICTSTARTDATE)) =< @Date(@Model(DT__EICTENDDATE)) || !@Model(DT__EICTSTARTDATE) || !@Model(DT__EICTENDDATE)",
+     "validationMessage": "DYP.G......TheEndDateshouldbegreaterthanStartDate"
+    },
+    {
+     "validationExpr": "@Model(DT__EICTENDDATE) ? !!@Model(DT__EICTSTARTDATE) : !@Model(DT__EICTENDDATE)",
+     "validationMessage": "DYP.G......Insertbothdateinputs"
+    }
+   ],
+   "regex": null,
+   "page": "202028002"
+  },
+  "Status": {
+   "name": "DDL__EICTSTATUS",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "EICT_STATUS",
+   "db_description": "Status",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "AIA",
+   "validations": null,
+   "regex": null,
+   "page": "202028002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "IO Number",
+    "Claim Type",
+    "Master Channel",
+    "Create Date",
+    "Start Date",
+    "End Date",
+    "Status",
+    "Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

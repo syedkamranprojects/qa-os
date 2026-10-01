@@ -1,0 +1,176 @@
+{
+ "option_id": "DYL_201004003",
+ "title": "Screen Setup",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "Banner",
+   "Screen Setup"
+  ],
+  "group_id": "DYL_201004003"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201004003",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201004003",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Banner Setup Screen Setup - Grid",
+   "table": "MOB_MB_MSS_SCREEN_SETUP",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201004004",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201004003",
+   "desc": "Banner Setup Screen Setup - Form",
+   "table": "MOB_MB_MSS_SCREEN_SETUP",
+   "n_fields": 6,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Screen ID": {
+   "name": "TXT__MMSSSCREENID",
+   "id": "textbox1",
+   "widget": "text",
+   "data_field": "MMSS_SCREEN_ID",
+   "db_description": "Screen ID",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201004004"
+  },
+  "Description": {
+   "name": "TXT__MMSSABRV",
+   "id": "textbox3",
+   "widget": "text",
+   "data_field": "MMSS_ABRV",
+   "db_description": "Screen Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201004004"
+  },
+  "Default": {
+   "name": "DDL__MMSSDEFAULT",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "MMSS_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201004004"
+  },
+  "Active": {
+   "name": "DDL__MMSSACTIVE",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "MMSS_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201004004"
+  },
+  "Level Number": {
+   "name": "TXT__MMSSLEVELNO",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "MMSS_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201004004"
+  },
+  "Level Type": {
+   "name": "TXT__MMSSLEVELTYPE",
+   "id": "textbox6",
+   "widget": "text",
+   "data_field": "MMSS_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201004004"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Screen ID",
+    "Description",
+    "Description",
+    "Default",
+    "Active",
+    "Level Number",
+    "Level Type"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

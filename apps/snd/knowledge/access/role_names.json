@@ -1,0 +1,4 @@
+{"_note":"Role ids per organization from smm_pr_rol_role (only 4 roles per org have a description). Extracted 2026-09-29.",
+"010104":{"0001":"nguser","0002":"NG User Admin","0003":"Delivery Man","0004":"Warehouse","0005":null,"0006":null,"0008":null,"0011":null,"0012":null,"0013":null,"0014":null,"0015":null,"0016":null,"0017":null,"0088":null,"0888":null,"1232":null,"1234":null,"2343":null,"9999":null,"XXXX":null},
+"010105":{"0001":"nguser","0002":"NG User Admin","0003":"Delivery Man","0004":"Warehouse","0005":null,"0006":null,"0008":null,"0088":null,"0099":null,"0101":null,"0555":null,"0888":null,"1111":null,"1234":null,"1405":null,"2343":null,"8888":null,"9999":null,"XXXX":null},
+"99":{"0001":"nguser","0002":"NG User Admin","0003":"Delivery Man"}}

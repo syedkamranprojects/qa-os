@@ -1,0 +1,107 @@
+{
+ "option_id": "SALE_PRICE",
+ "title": "Sale Price",
+ "menu_path": [
+  "Company setup",
+  "Price",
+  "Sale Price"
+ ],
+ "route": "/prices/sale-price",
+ "param": null,
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/prices/sale-price",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "2572",
+   "id": "pagination-element-2572",
+   "title": "Page 2572",
+   "disabled": false
+  },
+  {
+   "text": "Global Sale Detail",
+   "id": null,
+   "title": "Global Sale Detail",
+   "disabled": true
+  },
+  {
+   "text": "Distributor Sale Detail",
+   "id": null,
+   "title": "Distributor Sale Detail",
+   "disabled": true
+  },
+  {
+   "text": "Outlet Sale Detail",
+   "id": null,
+   "title": "Outlet Sale Detail",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Product ID",
+    "Description"
+   ],
+   "rows": 10,
+   "pager": true
+  }
+ ]
+}

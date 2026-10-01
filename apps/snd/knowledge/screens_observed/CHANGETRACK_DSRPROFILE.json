@@ -1,0 +1,114 @@
+{
+ "option_id": "CHANGETRACK_DSRPROFILE",
+ "title": "Change Track DSR Profile",
+ "menu_path": [
+  "Distributor Setup",
+  "DSR Profile",
+  "Change Track DSR Profile"
+ ],
+ "route": "/change-management",
+ "param": "pageCodeGrid=102003019&fieldComb=pbet_busentity_type&valueComb=DSRS&serialNoGrid=4&pageCodeForm=102003020&serialNoForm=2&label1=DSR Modification Request List&label2=List of DSR&label3=DSR Modification attribute",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/change-management?pageCodeGrid=102003019&fieldComb=pbet_busentity_type&valueComb=DSRS&serialNoGrid=4&pageCodeForm=102003020&serialNoForm=2&label1=DSR%20Modification%20Request%20List&label2=List%20of%20DSR&label3=DSR%20Modification%20attribute",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Hierarchy Type",
+   "id": "TXT__PHLS_HIERARCHY_TYPE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Distributor Level",
+   "id": "TXT__PHLS_DISTRIBUTOR_LEVEL",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse Level",
+   "id": "TXT__PHLS_WAREHOUSE_LEVEL",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Outlet Level",
+   "id": "TXT__PHLS_OUTLET_LEVEL",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Hierarchy Type",
+    "Distributor Level",
+    "Warehouse Level",
+    "Outlet Level"
+   ],
+   "rows": 4,
+   "pager": false
+  }
+ ]
+}

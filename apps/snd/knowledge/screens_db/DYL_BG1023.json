@@ -1,0 +1,131 @@
+{
+ "option_id": "DYL_BG1023",
+ "title": "Claim Inquiry Doc Wise 1",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "Claim Inquiry Doc Wise 1"
+  ],
+  "group_id": "DYL_BG1023"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "BG1023",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "BG1023001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 2,
+   "grids": []
+  },
+  {
+   "page": "BG1023002",
+   "tab": null,
+   "is_child": true,
+   "parent": "BG1023001",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1023003",
+   "tab": "Detail",
+   "is_child": true,
+   "parent": "BG1023002",
+   "partial": null,
+   "desc": null,
+   "table": "SND_TR_CLD_CLAIM_DETAIL",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "BG1023004",
+   "tab": "Reference Info",
+   "is_child": true,
+   "parent": "BG1023003",
+   "partial": null,
+   "desc": null,
+   "table": "(SELECT",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  }
+ ],
+ "fields": {
+  "Document Date From": {
+   "name": "DT__TCMMDOCMDATEFROMPARENT",
+   "id": "datebox2",
+   "widget": "date",
+   "data_field": "TCLM_DOC_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1023001"
+  },
+  "Document Date To": {
+   "name": "DT__TCMMDOCMDATETOPARENT",
+   "id": "datebox3",
+   "widget": "date",
+   "data_field": "TCLM_DOC_DATE",
+   "db_description": "Document Date",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "D",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "BG1023001"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Distributor Code",
+    "Promo Code",
+    "Promo Description",
+    "Ref Promo Code",
+    "Reference Document Type",
+    "Reference Document No",
+    "Outlet Code",
+    "Outlet Description",
+    "Claim Amount"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "Refresh",
+  "Excel Export"
+ ]
+}

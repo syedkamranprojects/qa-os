@@ -1,0 +1,82 @@
+{
+ "option_id": "DYL_202020",
+ "title": "Cheque Status",
+ "menu_path": [
+  "Transaction",
+  "Receivable",
+  "Cheque Status"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202020",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202020",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "Bounce",
+   "id": "DYP.G......Bounce",
+   "title": "Bounce",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Deposit Slip",
+    "PJP-DSR",
+    "Current Date",
+    "Bank",
+    "Bank Branch",
+    "Status",
+    "Amount"
+   ],
+   "rows": 9,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "Cheque No",
+    "Cheque Date",
+    "Amount",
+    "Cheque Status",
+    "Cheque Status Date"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

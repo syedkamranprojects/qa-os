@@ -1,0 +1,600 @@
+{
+ "src": "tf:00930001",
+ "flow_id": "00930001",
+ "description": "PJP Daily Inquiry Update",
+ "exists_in_tf": true,
+ "status": "Y",
+ "test_type": "2",
+ "master_app_id": "1",
+ "tfd": [
+  {
+   "src": "tfd:00930001|0093|1",
+   "seq": 1,
+   "menu_group": "0093",
+   "filename": null
+  }
+ ],
+ "menus": [
+  {
+   "src": "mg:0093",
+   "menu_group": "0093",
+   "exists": true,
+   "description": "PJPDaily",
+   "search_text": "PJP Daily Inquiry",
+   "navigation": "DYL_BG1022",
+   "navigation_type": "id"
+  }
+ ],
+ "screens_exec": [
+  {
+   "src": "mgsm:0093|009301|1",
+   "mgsm_seq": 1,
+   "screen_id": "009301",
+   "screen_name": "PJP Daily",
+   "sheet": "PJP Daily",
+   "runs": true,
+   "mgsm_status": "Y",
+   "child_of": null,
+   "tab_nav_type": null,
+   "tab_nav_path": null,
+   "workbook": "(app default workbook)",
+   "workbook_source": "default",
+   "workbook_filename_status": "Y",
+   "exec_index": 1,
+   "children": [
+    {
+     "src": "mgsm:0093|009302|2",
+     "mgsm_seq": 2,
+     "screen_id": "009302",
+     "screen_name": "PJP Daily2",
+     "sheet": "PJP Daily2",
+     "runs": true,
+     "mgsm_status": "Y",
+     "child_of": "009301",
+     "tab_nav_type": "id",
+     "tab_nav_path": "gridFilterCheckbox",
+     "workbook": "(app default workbook)",
+     "workbook_source": "default",
+     "workbook_filename_status": "Y"
+    }
+   ]
+  }
+ ],
+ "screen_ids": [
+  "009301",
+  "009302"
+ ],
+ "workbook": {
+  "flow_level_filename": null,
+  "effective_files": [
+   "(app default workbook)"
+  ],
+  "rule": "ptfd_filename, else pmgsm_screen_filename, else app default (runtime.md 2.3)"
+ },
+ "sheets": [
+  {
+   "sheet": "PJP Daily",
+   "kind": "screen",
+   "screen_ids": [
+    "009301"
+   ]
+  },
+  {
+   "sheet": "PJP Daily2",
+   "kind": "screen",
+   "screen_ids": [
+    "009302"
+   ]
+  },
+  {
+   "sheet": "PJP_Inquiry_ASSR",
+   "kind": "assertion(_ASSR)",
+   "screen_ids": [
+    "009302"
+   ]
+  }
+ ],
+ "sheet_name_over_31": [],
+ "workbook_coverage": {
+  "NG_Dcode_QA_OTC (Bangla).xlsx": {
+   "sheets_present": 3,
+   "sheets_total": 3,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "PJP Daily": 1,
+    "PJP Daily2": 1,
+    "PJP_Inquiry_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (PHP).xlsx": {
+   "sheets_present": 0,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "PJP Daily",
+    "PJP Daily2",
+    "PJP_Inquiry_ASSR"
+   ],
+   "missing_columns": {},
+   "rows": {},
+   "complete": false,
+   "ratio": 0.0
+  },
+  "NG_Dcode_QA_OTC (Pak).xlsx": {
+   "sheets_present": 3,
+   "sheets_total": 3,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "PJP Daily": 1,
+    "PJP Daily2": 1,
+    "PJP_Inquiry_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  },
+  "NG_Dcode_QA_OTC (Vietnam).xlsx": {
+   "sheets_present": 1,
+   "sheets_total": 3,
+   "missing_sheets": [
+    "PJP Daily",
+    "PJP Daily2"
+   ],
+   "missing_columns": {},
+   "rows": {
+    "PJP_Inquiry_ASSR": 1
+   },
+   "complete": false,
+   "ratio": 0.333
+  },
+  "NG_Dcode_QA_OTC.xlsx": {
+   "sheets_present": 3,
+   "sheets_total": 3,
+   "missing_sheets": [],
+   "missing_columns": {},
+   "rows": {
+    "PJP Daily": 1,
+    "PJP Daily2": 1,
+    "PJP_Inquiry_ASSR": 1
+   },
+   "complete": true,
+   "ratio": 1.0
+  }
+ },
+ "best_sample_workbooks": [
+  "NG_Dcode_QA_OTC (Bangla).xlsx",
+  "NG_Dcode_QA_OTC (Pak).xlsx",
+  "NG_Dcode_QA_OTC.xlsx"
+ ],
+ "repos": {
+  "writes": [],
+  "reads": [],
+  "writes_canon": [],
+  "reads_canon": [],
+  "reads_not_written_by_this_flow": [],
+  "note": "Excel repo_* columns and GLOBAL-REPO rows are inside the workbooks and are not visible in the DB"
+ },
+ "assertions": {
+  "message_assertions_0013": [],
+  "group_assertions_0014": [
+   {
+    "kind": "TSTMSG",
+    "sheet": "PJP_Inquiry_ASSR",
+    "screen_id": "009302",
+    "src": "sef:009302|serial 6"
+   }
+  ],
+  "validations_0007": 0,
+  "q2q_0005": 0,
+  "toast_records_0004": 0,
+  "flow_control_0023": 0
+ },
+ "counts": {
+  "screens": 2,
+  "fields": 5,
+  "fields_active": 5,
+  "events": 7,
+  "events_active": 7,
+  "events_by_kind": {
+   "load_data": 2,
+   "fill_text": 1,
+   "click": 3,
+   "group_assertion": 1
+  }
+ },
+ "tags": {
+  "areas": [
+   "DSR/PJP/Route"
+  ],
+  "market": null,
+  "menu_option": "DYL_BG1022",
+  "menu_search_text": "PJP Daily Inquiry"
+ },
+ "live_notes": [],
+ "groups": [
+  {
+   "group": "1",
+   "group_desc": "Daily Cycle Negative with Positive Flow",
+   "seq": 47,
+   "active": true,
+   "user": "same session (AppUser)",
+   "login_status": null
+  },
+  {
+   "group": "11",
+   "group_desc": "Daily Cycle Only Positive Flow",
+   "seq": 57,
+   "active": true,
+   "user": "same session (Auto_Multi_Orga)",
+   "login_status": null
+  },
+  {
+   "group": "51",
+   "group_desc": "Daily Cycle Only Positive Flow_ITHD",
+   "seq": 59,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": null
+  },
+  {
+   "group": "52",
+   "group_desc": "Daily Cycle Negative with Positive Flow_ITHD",
+   "seq": 50,
+   "active": true,
+   "user": "same session (Auto_Th)",
+   "login_status": null
+  },
+  {
+   "group": "61",
+   "group_desc": "Daily Cycle Only Positive Flow_BD",
+   "seq": 51,
+   "active": true,
+   "user": "same session (Auto_Multi_Orga)",
+   "login_status": null
+  }
+ ],
+ "screens": {
+  "009301": {
+   "src": "sc:009301",
+   "screen_id": "009301",
+   "name": "PJP Daily",
+   "sheet": "PJP Daily",
+   "type": "Save",
+   "sheet_name_len": 9,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:009301|DT_epjpworkingdateParent|1.0|1|1",
+     "seq": 1,
+     "field_id": "DT_epjpworkingdateParent",
+     "locate_by": "id",
+     "label": "Working Date",
+     "db_column": "Working Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "009301:f1"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:009301|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009301:e1"
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 1,
+    "fields_active": 1,
+    "events": 1,
+    "events_active": 1
+   },
+   "assertion_sheets": [],
+   "observed_toasts_event0004": []
+  },
+  "009302": {
+   "src": "sc:009302",
+   "screen_id": "009302",
+   "name": "PJP Daily2",
+   "sheet": "PJP Daily2",
+   "type": "Save",
+   "sheet_name_len": 10,
+   "exists_in_sc": true,
+   "fields": [
+    {
+     "src": "sf:009302|TXT__EPP2_BUSENT_CODE_PHS_LVL2_F_0|1.0|1|1",
+     "seq": 1,
+     "field_id": "TXT__EPP2_BUSENT_CODE_PHS_LVL2_F_0",
+     "locate_by": "id",
+     "label": "DSR",
+     "db_column": "DSR",
+     "component_type": "0001",
+     "component_name": "Text Field",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "009302:f1"
+    },
+    {
+     "src": "sf:009302|DDL__JourneyStatus_0|1.0|2|1",
+     "seq": 2,
+     "field_id": "DDL__JourneyStatus_0",
+     "locate_by": "id",
+     "label": "Mark Status",
+     "db_column": "Mark Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "009302:f2"
+    },
+    {
+     "src": "sf:009302|DDL__epjp_dsr_file_status_0|1.0|3|1",
+     "seq": 3,
+     "field_id": "DDL__epjp_dsr_file_status_0",
+     "locate_by": "id",
+     "label": "DSR Files Status",
+     "db_column": "DSR Files Status",
+     "component_type": "0002",
+     "component_name": "Dropdown",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "009302:f3"
+    },
+    {
+     "src": "sf:009302|DT__epjp_journey_end_time_0|1.0|4|1",
+     "seq": 4,
+     "field_id": "DT__epjp_journey_end_time_0",
+     "locate_by": "id",
+     "label": "End Date",
+     "db_column": "End Date",
+     "component_type": "0003",
+     "component_name": "Date Picker",
+     "fixed_value": null,
+     "mandatory": false,
+     "value_source": "EXCEL(default)",
+     "repo_id": null,
+     "sub_field_id": null,
+     "extra_config": null,
+     "iteration": 1,
+     "version": "1.0",
+     "check_assertion": false,
+     "assertion_type": null,
+     "wait_s": null,
+     "status": "Y",
+     "addition": "+",
+     "active": true,
+     "trace_key": "009302:f4"
+    }
+   ],
+   "events": [
+    {
+     "src": "sef:009302|serial 1",
+     "serial": 1,
+     "seq": 1,
+     "depth": 0,
+     "parent": null,
+     "type": "0001",
+     "event": "0001",
+     "kind": "fill_text",
+     "event_name": "Fill Single Text Field",
+     "in_ce_table": true,
+     "desc": "Search Text",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowfilter_TXT__EPJP_PJPNO_DAILY",
+     "fixed_value": "Auto",
+     "fixed_value_type": "EXCEL",
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009302:e1"
+    },
+    {
+     "src": "sef:009302|serial 2",
+     "serial": 2,
+     "seq": 2,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Grid",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "row_1_pjp_number",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009302:e2"
+    },
+    {
+     "src": "sef:009302|serial 3",
+     "serial": 3,
+     "seq": 3,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Edit Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowEditBtn_Edit_0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009302:e3"
+    },
+    {
+     "src": "sef:009302|serial 4",
+     "serial": 4,
+     "seq": 4,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0001",
+     "kind": "load_data",
+     "event_name": "Load Data",
+     "in_ce_table": true,
+     "desc": "Load Data",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009302:e4"
+    },
+    {
+     "src": "sef:009302|serial 5",
+     "serial": 5,
+     "seq": 5,
+     "depth": 0,
+     "parent": null,
+     "type": "0004",
+     "event": "0002",
+     "kind": "click",
+     "event_name": "Click",
+     "in_ce_table": true,
+     "desc": "Save Btn",
+     "status": "Y",
+     "active": true,
+     "locate_by": "id",
+     "field_id": "rowEditBtn_Save_0",
+     "fixed_value": null,
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009302:e5"
+    },
+    {
+     "src": "sef:009302|serial 6",
+     "serial": 6,
+     "seq": 6,
+     "depth": 0,
+     "parent": null,
+     "type": "0000",
+     "event": "0014",
+     "kind": "group_assertion",
+     "event_name": "Group Assertion",
+     "in_ce_table": true,
+     "desc": "Assertion",
+     "status": "Y",
+     "active": true,
+     "locate_by": null,
+     "field_id": null,
+     "fixed_value": "TSTMSG,PJP_Inquiry_ASSR",
+     "fixed_value_type": null,
+     "validation_type": null,
+     "mandatory_validation": null,
+     "engine_role": "top_level",
+     "trace_key": "009302:e6",
+     "assertion": {
+      "kind": "TSTMSG",
+      "sheet": "PJP_Inquiry_ASSR"
+     }
+    }
+   ],
+   "queries": [],
+   "repo_writes": [],
+   "repo_reads": [],
+   "counts": {
+    "fields": 4,
+    "fields_active": 4,
+    "events": 6,
+    "events_active": 6
+   },
+   "assertion_sheets": [
+    "PJP_Inquiry_ASSR"
+   ],
+   "observed_toasts_event0004": []
+  }
+ }
+}

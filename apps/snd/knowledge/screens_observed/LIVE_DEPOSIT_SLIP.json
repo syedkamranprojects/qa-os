@@ -1,0 +1,22 @@
+{"option_id":"201802","title":"Deposit Slip","menu_path":["Home","Transaction","Receivable","Deposit Slip"],"route":"/ngui/dyl/layout","url_path":"/ngui/dyl/layout?layoutCode=201802",
+"provenance":{"source":"live harvest","date":"2026-10-01","env":"cnr1dev1","user":"Auto_Multi_Orga","mode":"read-only"},
+"tabs":[
+{"name":"Header","note":"header form + list grid (always visible above the sub-tabs)","fields":[
+{"label":"Deposit Slip","id":"TXT__TDSLDEPOSITSLIPSRNO","type":"text","widget":"readonly","required":true,"readonly":true,"default":""},
+{"label":"PJP-DSR","id":"DDL__EPJPPJPNODAILY","type":"dropdown","widget":"dropdown","required":true,"readonly":false,"default":"02111 - AutomationOB1","options":["02111 - AutomationOB1","02112 - AutomationDSR","7918624876 - Aslam PJP OB","8197298470 - Aslam PJP DM","AUTO021311 - Auto917248","AUTO031026 - Auto_test","AUTO061238 - Auto917248","AUTO241602 - Auto917248","AUTO301301 - Auto_test","AutoPJGIN1 - Auto GIN PJP OB","AutoPJGIN2 - Auto GIN PJP DM","AutoPromo1 - Auto Promo PJP OB","AutoPromo2 - Auto Promo PJP DM"]},
+{"label":"Date","id":"DT__TDSLDEPOSITSLIPDATE","type":"date","widget":"date","required":false,"readonly":true,"default":""},
+{"label":"Type","id":"DDL__TDSLINSTRUMENTTYPE","type":"dropdown","widget":"dropdown","required":true,"readonly":false,"default":"","options":["Cash","Cheque"]},
+{"label":"Status","id":"DDL__tdsl_status","type":"text","widget":"readonly","required":false,"readonly":true,"default":"Un Posted"},
+{"label":"Bank","id":"DDL__PBNKBANKCODE","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"demo","options":["The Bank of Punjab","Sindh Bank Limited","Zarai Tarqiati Bank Limited","SME Bank Limited","Industrial Development Bank of Pakistan Limited","Habib Bank Limited","Allied Bank limited","Bank Al-Falah Limited","JS Bank Limited","Faysal Bank Limited","Askari Bank Limited","Standard Chartered Bank (Pakistan) Limited","Soneri Bank Limited","SILKBANK Limited","Summit Bank Limited"]},
+{"label":"Bank Branch","id":"DDL__PBNBBNBRCODE","type":"dropdown","widget":"dropdown","required":false,"readonly":false,"default":"","note":"cascades from Bank"},
+{"label":"Deposit Amount","id":"TXT__TDSLAMOUNTFCY","type":"text","widget":"text","required":true,"readonly":false,"default":""}],
+"buttons":[{"text":"Add","id":"add","kind":"read-only (disabled in new mode)"},{"text":"Save","id":"save","kind":"ACTION - not clicked"},{"text":"Update","id":"update","kind":"ACTION - not clicked"},{"text":"Delete","id":"delete","kind":"ACTION - not clicked"},{"text":"Forward","id":"forward","kind":"ACTION - not clicked"},{"text":"Reject","id":"reject","kind":"ACTION - not clicked"}],
+"grids":[{"headers":["Deposit Slip","PJP-DSR","Deposit Date","Type","Bank","Bank Branch","Status","Deposit Amount","Adjusted Amount"],"rows":1128,"columns":9,"grid_text":"Data grid with 1128 rows and 9 columns","paged":true,"page_size":9,"filter_inputs":{}}]},
+{"name":"Outstanding Cash memos","id":"tab_group_0","fields":[],"buttons":[{"text":"Save All","id":"saveallBtn","kind":"ACTION - not clicked (disabled)"}],
+"grids":[{"headers":["(row select checkbox)","PJP","Document No","Document Type","Outlet Code","Outlet Desc","GIN","Cheque No.","Cheque Date","Bank_Name","Net Amount","Received Amount","Balance","Un Posted Amount","Deposit-Amount"],"rows":0,"columns":14,"grid_text":"Data grid with 0 rows and 14 columns"}]},
+{"name":"Outstanding Outlet","id":"tab_group_1","fields":[],"buttons":[{"text":"Save All","id":"saveAll","kind":"ACTION - not clicked (disabled)"}],
+"grids":[{"headers":["Outlet Code","Outlet Desc","Net Amount","Received Amount","Balance","Un Posted Amount","Deposit Amount"],"rows":0,"columns":7,"grid_text":"Data grid with 0 rows and 7 columns"}]},
+{"name":"Deposit Slip Detail","id":"tab_group_2","fields":[],"buttons":[],
+"grids":[{"headers":["Serial No","Document Type","Document No","Deposit Amount","Cheque No","Cheque Date","Cheque Status","Cheque Status Date"],"rows":0,"columns":8,"grid_text":"Data grid with 0 rows and 8 columns"}]}],
+"fields":[],"buttons":[],"grids":[],
+"messages":["Save is enabled on open (new-mode) while Add is disabled; Bank defaults to 'demo' (a test bank not in the first 15 options)."]}

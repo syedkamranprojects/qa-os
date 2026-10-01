@@ -1,0 +1,248 @@
+{
+ "option_id": "DYL_102013",
+ "title": "Entity To Entity Mapping",
+ "menu_path": [
+  "Setup/Configuration",
+  "Entity To Entity Mapping"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=102013",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=102013",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [
+  "Product",
+  "Analysis Category",
+  "Analysis Subcategory",
+  "DSR",
+  "Payment Mode",
+  "Delivery Mode"
+ ],
+ "fields": [],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Outlet",
+   "id": null,
+   "title": "Outlet",
+   "disabled": false
+  },
+  {
+   "text": "Selling Category",
+   "id": null,
+   "title": "Selling Category",
+   "disabled": false
+  },
+  {
+   "text": "MIS Type",
+   "id": null,
+   "title": "MIS Type",
+   "disabled": false
+  },
+  {
+   "text": "Visit Status",
+   "id": null,
+   "title": "Visit Status",
+   "disabled": false
+  },
+  {
+   "text": "Entity Type",
+   "id": null,
+   "title": "Entity Type",
+   "disabled": false
+  },
+  {
+   "text": "DSR Type",
+   "id": null,
+   "title": "DSR Type",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-0",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-1",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-2",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-3",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-4",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-5",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-6",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-7",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-8",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-9",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-10",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-11",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-12",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-13",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-14",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "grid-button-15",
+   "title": "Translate",
+   "disabled": false
+  },
+  {
+   "text": "1",
+   "id": "pagination-element-1",
+   "title": "Page 1",
+   "disabled": false
+  },
+  {
+   "text": "2",
+   "id": "pagination-element-2",
+   "title": "Page 2",
+   "disabled": false
+  },
+  {
+   "text": "3",
+   "id": "pagination-element-3",
+   "title": "Page 3",
+   "disabled": false
+  },
+  {
+   "text": "4",
+   "id": "pagination-element-4",
+   "title": "Page 4",
+   "disabled": false
+  },
+  {
+   "text": "5",
+   "id": "pagination-element-5",
+   "title": "Page 5",
+   "disabled": false
+  },
+  {
+   "text": "218",
+   "id": "pagination-element-218",
+   "title": "Page 218",
+   "disabled": false
+  },
+  {
+   "text": "Save changes",
+   "id": "BatchSaveBtn",
+   "title": "Save changes",
+   "disabled": true
+  },
+  {
+   "text": "Discard changes",
+   "id": "BatchRevertBtn",
+   "title": "Discard changes",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Code",
+    "Description",
+    "Translatable"
+   ],
+   "rows": 16,
+   "pager": true
+  },
+  {
+   "id": null,
+   "headers": [
+    "Selected"
+   ],
+   "rows": 0,
+   "pager": false
+  },
+  {
+   "id": null,
+   "headers": [],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

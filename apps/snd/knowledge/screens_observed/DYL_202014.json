@@ -1,0 +1,114 @@
+{
+ "option_id": "DYL_202014",
+ "title": "Profile Hierarchy Level",
+ "menu_path": [
+  "Configuration",
+  "System Configuration",
+  "Profile Hierarchy Level"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202014",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202014",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Hierarchy Type",
+   "id": "TXT__PHLS_HIERARCHY_TYPE",
+   "name": null,
+   "type": "text",
+   "widget": "textbox",
+   "required": true,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Distributor Level",
+   "id": "TXT__PHLS_DISTRIBUTOR_LEVEL",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Warehouse Level",
+   "id": "TXT__PHLS_WAREHOUSE_LEVEL",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Outlet Level",
+   "id": "TXT__PHLS_OUTLET_LEVEL",
+   "name": null,
+   "type": "text",
+   "widget": "numberbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": "Add",
+   "id": "add",
+   "title": "Add",
+   "disabled": true
+  },
+  {
+   "text": "Save",
+   "id": "save",
+   "title": "Save",
+   "disabled": false
+  },
+  {
+   "text": "Update",
+   "id": "update",
+   "title": "Update",
+   "disabled": true
+  },
+  {
+   "text": "Delete",
+   "id": "delete",
+   "title": "Delete",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Hierarchy Type",
+    "Distributor Level",
+    "Warehouse Level",
+    "Outlet Level"
+   ],
+   "rows": 4,
+   "pager": false
+  }
+ ]
+}

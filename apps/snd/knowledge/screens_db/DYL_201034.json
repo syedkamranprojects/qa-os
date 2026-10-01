@@ -1,0 +1,137 @@
+{
+ "option_id": "DYL_201034",
+ "title": "Event Parameter",
+ "menu": {
+  "path": [
+   "Configuration",
+   "Mobiz  Configuration",
+   "Event Parameter"
+  ],
+  "group_id": "DYL_201034"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "201034",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "201034001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": null,
+   "table": "mbz_eventparam",
+   "n_fields": 0,
+   "grids": [
+    "grid1"
+   ]
+  },
+  {
+   "page": "201034002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "201034001",
+   "desc": null,
+   "table": "mbz_eventparam",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Event ID": {
+   "name": "DDL__EVTEVENTID",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "EVT_EVENT_ID",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "MBZEVT",
+   "validations": null,
+   "regex": null,
+   "page": "201034002"
+  },
+  "ACCOUNTID": {
+   "name": "DDL__ACCOUNTID",
+   "id": "selectbox2",
+   "widget": "select",
+   "data_field": "ACCOUNT_ID",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": "MBZEVT2",
+   "validations": null,
+   "regex": null,
+   "page": "201034002"
+  },
+  "Parameter key": {
+   "name": "TXT__EPPARAMKEY",
+   "id": "textbox4",
+   "widget": "text",
+   "data_field": "EP_PARAMKEY",
+   "db_description": null,
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 20,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201034002"
+  },
+  "Parameter position": {
+   "name": "TXT__EPPARAMPOS",
+   "id": "textbox5",
+   "widget": "text",
+   "data_field": "EP_PARAMPOS",
+   "db_description": null,
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 30,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "201034002"
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Event ID",
+    "ACCOUNTID",
+    "Parameter key",
+    "Parameter position"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

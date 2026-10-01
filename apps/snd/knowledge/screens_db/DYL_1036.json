@@ -1,0 +1,261 @@
+{
+ "option_id": "DYL_1036",
+ "title": "Coordinate Compliance",
+ "menu": {
+  "path": [
+   "Parameter",
+   "General Parameter",
+   "Geographical",
+   "Coordinate Compliance"
+  ],
+  "group_id": "DYL_1036"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "1036",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101036001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Coordinate Compliance - Grid",
+   "table": "SND_PR_COC_CORD_COMPLIANCE",
+   "n_fields": 0,
+   "grids": [
+    "Coordinate Compliance"
+   ]
+  },
+  {
+   "page": "101036002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101036001",
+   "desc": "Coordinate Compliance - Form",
+   "table": "SND_PR_COC_CORD_COMPLIANCE",
+   "n_fields": 10,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__pccc_cordcomp_code",
+   "id": "textbox8",
+   "widget": "text",
+   "data_field": "PCCC_CORDCOMP_CODE",
+   "db_description": "Coordinate Compliance Code",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Description": {
+   "name": "txt__pccc_desc",
+   "id": "textbox9",
+   "widget": "text",
+   "data_field": "PCCC_DESC",
+   "db_description": "Coordinate Compliance Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Abbreviation": {
+   "name": "txt__pccc_abrv",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PCCC_ABRV",
+   "db_description": "Coordinate Compliance Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Default": {
+   "name": "ddl__pccc_default",
+   "id": "selectbox3",
+   "widget": "select",
+   "data_field": "PCCC_DEFAULT",
+   "db_description": "Default",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Status": {
+   "name": "ddl__pccc_active",
+   "id": "selectbox4",
+   "widget": "select",
+   "data_field": "PCCC_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": null,
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Level Type": {
+   "name": "txt__pccc_leveltype",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PCCC_LEVELTYPE",
+   "db_description": "Level Type",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Level No": {
+   "name": "txt__pccc_level_no",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PCCC_LEVEL_NO",
+   "db_description": "Level Number",
+   "required": false,
+   "editable": true,
+   "readonly": true,
+   "primary": false,
+   "max_length": null,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Range Type": {
+   "name": "txt__pccc_range_type",
+   "id": "textbox17",
+   "widget": "text",
+   "data_field": "PCCC_RANGE_TYPE",
+   "db_description": "Range Type",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 10,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Range From": {
+   "name": "txt__pccc_range_from",
+   "id": "textbox18",
+   "widget": "text",
+   "data_field": "PCCC_RANGE_FROM",
+   "db_description": "Range From",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 5,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101036002"
+  },
+  "Range To": {
+   "name": "txt__pccc_range_to",
+   "id": "textbox19",
+   "widget": "text",
+   "data_field": "PCCC_RANGE_TO",
+   "db_description": "Range To",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 5,
+   "type": "N",
+   "default": null,
+   "data_list_id": null,
+   "validations": [
+    {
+     "validationExpr": "@Model(txt__pccc_range_from) <= @Model(txt__pccc_range_to)  || !@Model(txt__pccc_range_from) || !@Model(txt__pccc_range_to)",
+     "validationMessage": "DYP.P.101036.G....RangeReg"
+    },
+    {
+     "validationExpr": "@Model(txt__pccc_range_to) ? !!@Model(txt__pccc_range_from) : !@Model(txt__pccc_range_from)",
+     "validationMessage": "DYP.P.101036.G....Insertrangereg"
+    }
+   ],
+   "regex": null,
+   "page": "101036002"
+  }
+ },
+ "grids": {
+  "Coordinate Compliance": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Range Type",
+    "Range From",
+    "Range To"
+   ],
+   "edit_mode": "row",
+   "selection": null
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}

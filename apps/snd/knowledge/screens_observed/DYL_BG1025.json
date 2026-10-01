@@ -1,0 +1,113 @@
+{
+ "option_id": "DYL_BG1025",
+ "title": "Claim Inquiry Doc Wise 3",
+ "menu_path": [
+  "Transaction",
+  "Claim",
+  "Claim Inquiry Doc Wise 3"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=BG1025",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=BG1025",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": "Document Date From",
+   "id": "DT__TCMMDOCMDATEFROMPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  },
+  {
+   "label": "Document Date From",
+   "id": "DT__TCMMDOCMDATETOPARENT",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Export all data to Excel",
+   "id": null,
+   "title": "Export all data to Excel",
+   "disabled": false
+  },
+  {
+   "text": "Excel Export",
+   "id": "DYP.......ExcelExport",
+   "title": "Excel Export",
+   "disabled": false
+  },
+  {
+   "text": "Detail",
+   "id": null,
+   "title": "Detail",
+   "disabled": true
+  },
+  {
+   "text": "Reference Info",
+   "id": null,
+   "title": "Reference Info",
+   "disabled": true
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Document No",
+    "Document Type",
+    "Claim No",
+    "Claim Reference No",
+    "Credit Note Number",
+    "Claim Amount",
+    "Claim Start Date",
+    "Claim End Date",
+    "Document Date",
+    "Status",
+    "Project Code"
+   ],
+   "rows": 0,
+   "pager": false
+  }
+ ]
+}

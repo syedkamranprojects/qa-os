@@ -1,0 +1,123 @@
+{
+ "option_id": "DYL_202053",
+ "title": "Cashmemo Reschedule",
+ "menu_path": [
+  "Transaction",
+  "Order",
+  "Cashmemo Reschedule"
+ ],
+ "route": "/dyl/layout",
+ "param": "layoutCode=202053",
+ "url": "https://dcodecnr2dev3.unilever.com/ngui/dyl/layout?layoutCode=202053",
+ "provenance": {
+  "source": "observed",
+  "method": "sweep",
+  "env": "cnr2dev3",
+  "user": "KPO_slv",
+  "date": "2026-09-25"
+ },
+ "headings": [],
+ "tabs": [],
+ "fields": [
+  {
+   "label": null,
+   "id": "DDL__EPJPPJPNODAILY",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": null,
+   "id": "GIN_NO_FILTER",
+   "name": null,
+   "type": "text",
+   "widget": "selectbox",
+   "required": false,
+   "readonly": false,
+   "placeholder": "Select..."
+  },
+  {
+   "label": "Delivery Date",
+   "id": "DELIVERYDATE",
+   "name": null,
+   "type": "text",
+   "widget": "datebox",
+   "required": false,
+   "readonly": false,
+   "placeholder": null
+  }
+ ],
+ "buttons": [
+  {
+   "text": null,
+   "id": "menurollin",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": "for-selenium",
+   "title": null,
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": null,
+   "id": null,
+   "title": "Select",
+   "disabled": false
+  },
+  {
+   "text": "Save changes",
+   "id": "BatchSaveBtn",
+   "title": "Save changes",
+   "disabled": true
+  },
+  {
+   "text": "Discard changes",
+   "id": "BatchRevertBtn",
+   "title": "Discard changes",
+   "disabled": true
+  },
+  {
+   "text": "Process",
+   "id": "DYP.G......ProcessButton",
+   "title": "Process",
+   "disabled": false
+  }
+ ],
+ "grids": [
+  {
+   "id": null,
+   "headers": [
+    "Cashmemo No",
+    "Outlet Name",
+    "Status",
+    "Document Date",
+    "Amount FCY",
+    "PJP Number",
+    "PJP Delivery No",
+    "Delivery Date",
+    "Demand Channel",
+    "GIN No",
+    "Reschedule Reason"
+   ],
+   "rows": 1,
+   "pager": false
+  }
+ ]
+}

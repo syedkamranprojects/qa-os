@@ -1,0 +1,141 @@
+{
+ "option_id": "DYL_101047",
+ "title": "Analysis 5",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Product Hierarchy",
+   "Analysis 5"
+  ],
+  "group_id": "DYL_101047"
+ },
+ "route": "/dyl/layout",
+ "layout_code": "101047",
+ "kind": "dynamic",
+ "provenance": {
+  "source": "db-declared",
+  "db": "snd-schema (ng_astrone)"
+ },
+ "panels": [
+  {
+   "page": "101047001",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": null,
+   "desc": "Product -  Analysis 5 - Grid",
+   "table": "SND_PR_PA5_PROD_ANALYSIS_5",
+   "n_fields": 0,
+   "grids": [
+    "Product -  Analysis 5"
+   ]
+  },
+  {
+   "page": "101047002",
+   "tab": null,
+   "is_child": false,
+   "parent": null,
+   "partial": "101047001",
+   "desc": "Product -  Analysis 5 - Form",
+   "table": "SND_PR_PA5_PROD_ANALYSIS_5",
+   "n_fields": 4,
+   "grids": []
+  }
+ ],
+ "fields": {
+  "Code": {
+   "name": "txt__ppa5_prod_analysis",
+   "id": "textbox10",
+   "widget": "text",
+   "data_field": "PPA5_PROD_ANALYSIS",
+   "db_description": "Product - Analysis-5 Code (HS Code)",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": true,
+   "max_length": 70,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101047002"
+  },
+  "Description": {
+   "name": "txt__ppa5_desc",
+   "id": "textbox11",
+   "widget": "text",
+   "data_field": "PPA5_DESC",
+   "db_description": "Product - Analysis-5 Long Description",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 100,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101047002"
+  },
+  "Abbreviation": {
+   "name": "txt__ppa5_abrv",
+   "id": "textbox12",
+   "widget": "text",
+   "data_field": "PPA5_ABRV",
+   "db_description": "Product - Analysis-5 Short Description",
+   "required": false,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": 25,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101047002"
+  },
+  "Status": {
+   "name": "txt__ppa5_active",
+   "id": "selectbox1",
+   "widget": "select",
+   "data_field": "PPA5_ACTIVE",
+   "db_description": "Active",
+   "required": true,
+   "editable": true,
+   "readonly": false,
+   "primary": false,
+   "max_length": null,
+   "type": "T",
+   "default": null,
+   "data_list_id": null,
+   "validations": null,
+   "regex": null,
+   "page": "101047002"
+  }
+ },
+ "grids": {
+  "Product -  Analysis 5": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Image Path"
+   ],
+   "edit_mode": "row",
+   "selection": "single"
+  }
+ },
+ "buttons": [
+  "New",
+  "Save",
+  "Update",
+  "Delete"
+ ]
+}
