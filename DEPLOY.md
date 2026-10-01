@@ -79,6 +79,18 @@ If "QA environment" means a shared machine/VM that the whole team drives the bro
 
 ## 6. First thing to try after install
 
+Every new QA member is, by default, a **cold start**: different machine, different
+Claude account, none of the development history or memory this platform was built
+under. `qa-os/CLAUDE.md` is meant to make Claude Code pick this up automatically
+(it points any fresh session at `docs/STATUS.md` and the business knowledge before it
+does anything else) — but confirm it actually did, don't assume:
+- Ask Claude "what do you know about this QA OS setup so far?" — it should cite
+  `docs/STATUS.md` / `apps/snd/knowledge/business/INDEX.md` without being told to read them.
+- If it doesn't (older Claude Code version, or `CLAUDE.md` auto-load disabled in their
+  settings), tell it explicitly once: "read qa-os/docs/STATUS.md and
+  apps/snd/knowledge/business/INDEX.md before we start."
+
+Then:
 ```
 /qa-os:status
 ```
