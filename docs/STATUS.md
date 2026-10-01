@@ -163,3 +163,36 @@ Loss modal save has no message; `rowEditBtn_Save_<row>` index; `forwardBtn` wrap
 2. Continue the cycle from seq 15 as Auto_Multi_Orga (browser must be logged in again; the session was closed), then GIN, then the switch to Auto_Tssm (seq 23).
 3. Still open from before: framework owner validates the SKU and Van Sales SQL drafts; BA note for Van Sales; loss-stock location question; the maker default user.
 Tools/gotchas: in-page order booking routine (type-ahead via key events, run in background and poll, tool call limit ~30 s); helper is lost on every new login (re-inject); real clicks needed for tabs and the filter checkbox; browser alerts (Allocation) are accepted with the alert tool.
+
+---
+# Update: 2026-10-01 — v0.4.0 released; PAUSED for user to learn the app; account switch pending
+
+**If you are a new session picking this up (possibly a different Claude account): read this whole section before doing anything.** Don't re-run learning-mode agents or re-derive what's already written — read the files named below instead.
+
+## What exists now (all shipped in `qa-os/`, which is its own git repo, tag `v0.4.0`)
+- **The plugin**: 8 agents (`story-analyst`, `test-designer`, `step-author`, `data-engineer`, `app-cartographer`, `recorder`, `framework-generator`, `verifier`), 8 skills, 6 commands. Loads from a **versioned plugin cache** — editing files alone does nothing; see `DEPLOY.md` §4 to bump/reload.
+- **Assisted step authoring + Excel round trip**: `vocabulary/core.yaml` (predefined step words), `runtime/qaos_steps.py` (checks a step against the real screen labels), `runtime/qaos_export.py` / `qaos_import.py` (Claude drafts → QA member finalizes in Excel's Test Steps column → Claude imports+checks → executes from exactly that). QA cheat sheet: `docs/QA_STEP_CHEAT_SHEET.md`.
+- **Business knowledge** (the closest thing to a user guide that exists — **read `apps/snd/knowledge/business/INDEX.md` first**):
+  - `apps/snd/knowledge/business/` — 23 pages across 4 areas (inbound stock, order→delivery planning, delivery & returns, settlement & finance) + `glossary.md`, `document_lifecycle.md`, `OPEN_QUESTIONS.md` (52 open items: 14 safe-default, 25 verify-live, 13 genuine BA decisions, each with a default — none blocks work), `LIVE_LEARNING_CHECKLIST.md` (33-item live-verification plan, items L01-L12 done, L13-L33 not done), `LIVE_FINDINGS.md` (raw evidence log).
+  - `apps/snd/knowledge/framework_atlas/` — the whole legacy framework (`CTA_CONFIG_ASSERTION`) mapped: 31 groups, 547 flows, 1,477 screens. `apps/snd/tools/build_atlas.py --find "<text>"` looks up a flow by business term.
+  - `apps/snd/knowledge/screens_observed/LIVE_*.json` — 23 real screens harvested live (fields, buttons, grids, messages).
+- **One verified end-to-end case**: Dispatch Advice create→add line→forward (maker)→approve (checker), recorded live, framework SQL generated and independently reviewed 4 times (`runs/PILOT-DA-GIN/20260930-1615/`, `review.md`..`review_v4.md`). SQL has never been applied/replayed in the legacy engine — that's still open.
+- **Release packaging**: `RELEASE_NOTES.md` (what's in v0.4.0 + 5 known issues), `DEPLOY.md` (install/update/rollback steps for the QA team). Distributable archive: `C:\MyWork\gias-qa-workspace\dist\qa-os-v0.4.0.zip`.
+
+## The one big fact learned today (now baked into the knowledge pages, don't re-discover it)
+**Stock and orders are keyed by calendar day.** A Dispatch Advice approved "yesterday" does not carry its stock into "today" (Opening resets to 0 for anything not received that same day), and a Goods Issue Note is refused if its cash memos' delivery date is before the PJP's current working date (exact message: *"cashmemo(s) found with delivery date earlier than the pjp working date"*). **The whole receive → order → issue chain (Dispatch Advice → Order Booking → Delivery Date Change → GIN → ...) must run inside one calendar day**, with fresh same-day data every time. This blocked the group-11 Pakistan replay twice (2026-09-30 and 2026-10-01) and is why the cycle needs restarting fresh rather than resumed from stale data.
+
+## Why we're paused (not a technical blocker — a deliberate pause)
+The user wants to personally build understanding of the application (as Maker, Checker, and themselves) before continuing, since no vendor user guide exists — using the business knowledge pages above as a head start. They are also switching from a personal Claude account (usage running out) to their company's Claude Team subscription. **Do not auto-resume live-walk/learning-mode agents.** Wait for the user to say they're ready.
+
+## What does NOT travel with a plain file copy / account switch (tell the user if relevant)
+- Claude's cross-session memory (`~/.claude/projects/.../memory/*.md`) is local to this machine/OS profile, not the Claude account — should still load in a new session on this same machine regardless of which email is signed in, but has never been verified to survive an actual account switch.
+- `runs/` (raw execution evidence, incl. `PILOT-DA-GIN/`) is gitignored — not shipped in the git repo or the zip. Only what got distilled into `apps/snd/knowledge/` travels.
+- MCP server connectors (`snd-schema`, `selenium-framework-db`, `selenium`, `gias-schema`, Atlassian) are configured in Claude Code's own settings, not in this repo — must be set up fresh per machine/account. The user is setting these up themselves on the Team account.
+- Credentials (`~/.qa-os/credentials.json` or env vars) — per-person, never shared, never typed by Claude.
+
+## Exact resume plan (once the user says go)
+1. Quick health check: `python runtime/qaos_doctor.py` (expect READY), `python runtime/qaos_config.py validate` (expect OK), confirm the plugin's 8 agents are loaded (call an unlikely agent name — the error lists what's loaded).
+2. Confirm `apps/snd/knowledge/business/OPEN_QUESTIONS.md` — ask if the user got any BA answers while learning; apply them (`qaos_promote.py` pattern) if so.
+3. Restart **Daily Cycle Only Positive Flow, Pakistan market, group 11, env cnr1dev1** from the top (Login → Dispatch Advice) with a **fresh same-day** data set — do not reuse DA 1353-1357, GIN 505, or any prior-day document. Honor the one-calendar-day rule above from the start: plan the whole session (DA → orders → delivery date → GIN → returns → settlement) to run in one sitting, one day.
+4. Logins are still never typed by Claude — ask for Maker (`Auto_Multi_Orga`) first, Checker (`Auto_Tssm`) at the switch points, per `apps/snd/app.yaml` roles.
