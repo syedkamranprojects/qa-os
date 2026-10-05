@@ -31,19 +31,27 @@ def app_cfg(app_id):
         return yaml.safe_load(f)
 
 
-def role_user(cfg, env, role):
-    """(user, distributor or None) for a role name in an environment. Roles are case-insensitive."""
+def role_users(cfg, env, role):
+    """All users of a role in an environment (first = default). A role maps to one user or a list. Case-insensitive."""
     roles = (cfg.get('environments', {}).get(env) or {}).get('roles') or {}
-    for name, user in roles.items():
+    for name, users in roles.items():
         if name.lower() == role.lower():
-            dist = ((cfg['environments'][env].get('users') or {}).get(user) or {}).get('distributor')
-            return user, dist
-    return None, None
+            return [users] if isinstance(users, str) else list(users or [])
+    return []
+
+
+def role_user(cfg, env, role):
+    """(user, distributor or None) for a role name in an environment: the role's default (first) user."""
+    users = role_users(cfg, env, role)
+    if not users:
+        return None, None
+    dist = ((cfg['environments'][env].get('users') or {}).get(users[0]) or {}).get('distributor')
+    return users[0], dist
 
 
 def role_of_user(cfg, env, user):
     roles = (cfg.get('environments', {}).get(env) or {}).get('roles') or {}
-    return [r for r, u in roles.items() if u.lower() == (user or '').lower()]
+    return [r for r in roles if (user or '').lower() in [u.lower() for u in role_users(cfg, env, r)]]
 
 
 def market(cfg, key):
@@ -79,9 +87,13 @@ def validate():
             if 'non_production' not in e:
                 warns.append(f'{a}/{en}: non_production not stated (defaults to false: no data-changing steps)')
             users = e.get('users') or {}
-            for role, user in (e.get('roles') or {}).items():
-                if user not in users:
-                    errs.append(f"{a}/{en}: role '{role}' maps to user '{user}' which is not listed under users")
+            for role in (e.get('roles') or {}):
+                ru = role_users(c, en, role)
+                if not ru:
+                    errs.append(f"{a}/{en}: role '{role}' has no users")
+                for user in ru:
+                    if user not in users:
+                        errs.append(f"{a}/{en}: role '{role}' maps to user '{user}' which is not listed under users")
             host = (e.get('url') or '').split('/')[2] if e.get('url') else None
             if host and host not in (c.get('allowed_hosts') or []):
                 warns.append(f'{a}/{en}: host {host} is not in allowed_hosts')
@@ -111,7 +123,8 @@ if __name__ == '__main__':
             print(f"  {en}: {e.get('url') or '$' + e.get('url_env', '?')} | non_production={e.get('non_production')} | users {list((e.get('users') or {}))} | roles {e.get('roles') or {}}")
         print('  markets:', {k: {x: v for x, v in m.items() if x in ('group', 'framework_app_id', 'env')} for k, m in (c.get('markets') or {}).items()})
     elif a[0] == 'role':
-        print(role_user(app_cfg(a[1]), a[2], a[3]))
+        c = app_cfg(a[1])
+        print(role_user(c, a[2], a[3]), 'all users:', role_users(c, a[2], a[3]))
     elif a[0] == 'market':
         print(yaml.safe_dump(market(app_cfg(a[1]), a[2]), sort_keys=False, allow_unicode=True))
     elif a[0] == 'validate':

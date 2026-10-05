@@ -1,23 +1,46 @@
+---
+option: Sales Return
+area: delivery_and_returns
+doc_types: [CM-02]
+screens: [DYL_201801, SALESRETURNVIEW, SALESRETURN-STATUSCHANGE]
+framework_flows: ["00070001", "00700001", "00730001", "00710001"]
+markets: [PK]
+roles: [Maker, Checker]
+depends_on: [cashmemo_reschedule_and_status, goods_issue_note]
+sources: [legacy-framework-replay, app-db, live-walk]
+updated: 2026-10-01
+---
 # Sales Return: how it works (S&D / DCODE)
 
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]**, **[db]**, **[inferred]**, **[unknown]**.
-Last updated: 2026-10-01. Source flows: atlas `00070001` (group 11 seq 34 Sales Return), `00700001` (seq 36 Sales Return View), `00730001` (seq 37 Sales Return View Approval), `00710001` (seq 38 Sales Return Status Change). Not yet replayed live. Goods Return Note (seq 48-49) is in the inbound-stock pages.
+Updated: 2026-10-01 (consolidated with learning session 1 LEARN-G11-PK/20261001-1611, seq 34/36/37/38)
+Last updated: 2026-10-01. Source flows: atlas `00070001` (group 11 seq 34 Sales Return), `00700001` (seq 36 Sales Return View), `00730001` (seq 37 Sales Return View Approval), `00710001` (seq 38 Sales Return Status Change). Not yet replayed live. (superseded 2026-10-01: all four walked live; return **COL26000000713** against cash memo COL26000002003, 2 CS of 62740537, reason No Cash, forwarded, approved and picked [observed 2026-10-01 G11-1]) Goods Return Note (seq 48-49) is in the inbound-stock pages.
 
 ## 1. Purpose
-A sales return records goods an outlet gives back after delivery (rejected, damaged, wrong, price dispute). It reverses part of a delivered cash memo: the returned quantities and amount are authorised by a checker and later picked up and received into the warehouse. [inferred from document types and names]
+A sales return records goods an outlet gives back after delivery (rejected, damaged, wrong, price dispute). It reverses part of a delivered cash memo: the returned quantities and amount are authorised by a checker and later picked up and received into the warehouse. [inferred from document types and names; confirmed 2026-10-01: created only from a delivered cash memo, approved by the Checker, picked by the Maker, and the returned quantity came back into warehouse stock on the Goods Return Note [observed 2026-10-01 G11-1]]
 
 ## 2. Actors and roles
 Maker: `Auto_Multi_Orga` creates (seq 34) and views/forwards (36). Checker: `Auto_Tssm` approves (37, switch point). Back to `Auto_Multi_Orga` for the status change (38) [atlas]. Workflow `SalesReturnApproval` (event `SR`) [db: wkf_wf_weo_wrkflw_event_orga]; a separate `SRWithoutReferenceApproval` exists for returns without a cash memo [db].
+- Confirmed 2026-10-01: Maker creates and forwards, Checker approves on the same Sales Return View screen with the same Forward button, Maker then saves the pick [observed 2026-10-01 G11-1]. Same maker-checker pattern as DA, GIN and GRN [observed 2026-10-01 G11-1].
+- PJP visibility differs by user: on Sales Return View the Maker's PJP list shows delivery PJPs only, the **Checker sees all 13 PJPs** (booking and delivery) [observed 2026-10-01 G11-1].
 
 ## 3. Documents and master data
 - Document type `CM-02` "Sales Return" (nature SR), stored in the cash memo tables (`snd_tr_cmm_cashmemo_master`, reference to the original cash memo `tcmm_ref_docno`) [db]. Statuses: 01 Authorized, 02 Un-Authorized, 03 Cancelled, 04 Picked [db: snd_pr_dos_documentstatus CM-02]. Related: `CM-04` Fresh Sales Return, `CM-07` Sales Return Without Reference, `CM-08` Customer Account Closed, `CRN-02` Credit Note (Sales Return) [db: snd_pr_dot_documenttype].
-- Return reasons by document type CM-02 (for example Item Out of Stock/No Substitute, Short of Cash, Area Closed, Price Difference) [db: glb_pr_rnt_reason_type]; the label Reason Type on screen [atlas].
+- **Own number series**: the return got its own number **COL26000000713** (the source cash memo is COL26000002003), shown in Sales Return View as Document No. with the source in **Principle Invoice** [observed 2026-10-01 G11-1].
+- Return reasons by document type CM-02 (for example Item Out of Stock/No Substitute, Short of Cash, Area Closed, Price Difference) [db: glb_pr_rnt_reason_type]; the label Reason Type on screen [atlas]. Observed 2026-10-01: Reason Type options on the return line are **No Cash, Wrong Order/No Order, Shop Closed, Credit Exceeded** [observed 2026-10-01 G11-1] (differs from the DB examples; see §12).
+- **Return Stock Type** options on the line (editable in edit mode): **Damaged, Expired, Lost, Sound** [observed 2026-10-01 G11-1]: a return can be booked as non-sound stock. The session used Sound.
+- Menu neighbours (not walked): Sales Return Without Reference, Fresh Sales Return, Sales Return W/O Reference View / Pick, and a second "Sales Return" entry [observed 2026-10-01 G11-1].
 
 ## 4. Inputs: screens and fields
 - **Sales Return** (menu `Sales Return`, option DYL_201801) [atlas]: **PJP Number**, **Date From**, **Date To**, **Outlet Name** (dropdowns/dates); click the document-number header, pick the outlet row, Save. Detail tab (tab_9): per row Edit, **CS**, **PC**, **Reason Type**, row Save/Cancel; buttons Validation and Save. Result block read-only: **Gross Amount**, **Discount**, **Tax**, **Net Amount** [atlas].
+  - Observed 2026-10-01: header Document No (generated), Document Date (today), **PJP Number** (delivery PJP; default the first, AutoPJGIN2), Date From / Date To (today), Outlet Name, SKU; tabs Header / Detail (Detail disabled until the header is saved); buttons Add, Save [observed 2026-10-01 G11-1].
+  - Grid after choosing PJP 02112: **delivered cash memos only** (2003/2004/2005): Document No, Document Date, Delivery Date, Outlet Code, Gross, Discount, Tax, Net, **Received Amount** (0), **Balance Amount** (= Net), Demand Channel [observed 2026-10-01 G11-1].
+  - Detail: per invoice line Product (code-name-price), Batch, Stock Type, Trade Price/Unit, **Invoice Quantity** CS/DZ/PC (shows the EDITED quantity, 4 CS), **Return Quantity** CS/DZ/PC, Gross Amount, **Reason Type**, Edit; buttons Validation, Forward [observed 2026-10-01 G11-1].
 - **Sales Return View** (menu `Sales Return View`, option SALESRETURNVIEW): **PJP Number**, **Date From**, **Date To**, row filter Outlet Code; open the return; Forward button, comments, Save; shows Gross/Discount/Tax/Net and a row_1_status [atlas].
-- **Sales Return View Approval**: same screen layout for the checker; select document, Forward with comments, status checked [atlas].
+  - Observed 2026-10-01: filters PJP Number (delivery PJP; default the first), Date From/To (today); tabs Header / Detail; button Forward. Grid: checkbox, Document No. (return), **Principle Invoice** (source cash memo), Document Date, Delivery Date, Outlet Code, Gross, Discount, Tax, Net. Forward asks for **Comments** (mandatory) [observed 2026-10-01 G11-1].
+- **Sales Return View Approval**: same screen layout for the checker; select document, Forward with comments, status checked [atlas]. Confirmed: same screen, same button, Checker user [observed 2026-10-01 G11-1].
 - **Sales Return Status Change** (option SALESRETURN-STATUSCHANGE): **PJP Number**, **GIN Number** (REPO_GINNO), filter by Document Date, open the row; Validation then `savesalePick` [atlas].
+  - Observed 2026-10-01: filters PJP Number (delivery PJP) and **Gin Number**, which fills by itself (GN-01~506). Grid: Document No. (return), Principle Invoice, Document Date, Delivery Date, Outlet Code, Gross, Discount, Tax, Net; it lists the APPROVED return. A single click does not open it; double-click opens the Detail tab: Product, Batch, Stock Type, Trade Price/Unit, **Order Quantity**, **Return Quantity** (editable again: the picked quantity can differ from the approved return), Gross, Reason Type, Edit. Button **"Save Sale Pick"** [observed 2026-10-01 G11-1].
 
 ## 5. Process: the business steps in order
 1. [Maker] Navigate to Sales Return; Choose PJP Number, Date From, Date To, Outlet Name; open the outlet's cash memo. (11:34:00070001)
@@ -26,43 +49,69 @@ Maker: `Auto_Multi_Orga` creates (seq 34) and views/forwards (36). Checker: `Aut
 4. [Maker] Save. Expect: `Save successfully`. Return is Un-Authorized [inferred].
 5. [Maker] Navigate to Sales Return View; open the return; Forward with comments. Expect: status Pending for approval (row_1_status) [atlas]; `Please Enter the Comments` if the comment is empty (11:36:00700001).
 6. [Checker] Login; Sales Return View Approval; open; Forward with comments. Expect: status Approved/Authorized (11:37:00730001).
-7. [Maker] Login; Sales Return Status Change; Choose PJP Number and GIN Number = GIN1; open the return; Validation; save pick. Expect: message from `SR_StatsChang_DTL_SAVE_ASSR` [unknown text]; return becomes Picked (04) [inferred] (11:38:00710001).
+7. [Maker] Login; Sales Return Status Change; Choose PJP Number and GIN Number = GIN1; open the return; Validation; save pick. Expect: message from `SR_StatsChang_DTL_SAVE_ASSR` [unknown text]; return becomes Picked (04) [inferred] (11:38:00710001). (superseded 2026-10-01: message is `Save successfully` [observed 2026-10-01 G11-1])
+
+Walked live 2026-10-01 (business steps in the standard vocabulary) [observed 2026-10-01 G11-1]:
+8. [Maker] Navigate to Sales Return; Choose PJP Number = the delivery PJP (02112); Select the delivered cash memo; Save. Expect: `Record Saved Successfully!`; return number generated (COL26000000713); Detail tab enabled. (11:34:00070001)
+9. [Maker] Go to tab Detail; Edit the line; Enter Return Quantity 2 CS; Choose Stock Type "Sound" and Reason Type "No Cash"; Save the line. Expect: Gross 30,845.86 (= workbook). (11:34:00070001)
+10. [Maker] Validate. Expect: `Validation successfully`. Save. Expect: `Save successfully`; Forward enabled. Totals Gross 30,845.86, Discount 6,189.17, Tax 4,419.93, Net 29,077.00. (11:34:00070001)
+11. [Maker] Navigate to Sales Return View; Choose PJP Number 02112; Select the return; Forward; Enter Comments; Save. Expect: result window "Sales Return Status" with Status `Success`. (11:36:00700001)
+12. [Maker] Logout; [Checker] Login; Navigate to Sales Return View; Choose PJP Number 02112; Select the return; Forward; Enter Comments; Save. Expect: "Sales Return Status" `Success`; the return leaves the list (approved). (11:37:00730001)
+13. [Checker] Logout; [Maker] Login; Navigate to Sales Return Status Change; Choose PJP Number 02112 (Gin Number fills by itself); Open the return (double-click); Validate; Save Sale Pick. Expect: `Validation successfully`, then `Save successfully`. (11:38:00710001)
 
 ## 6. Outputs and effects
-- A CM-02 document with returned quantities and reversed amounts linked to the delivered cash memo [db/inferred].
-- On Picked, the goods are collected on the vehicle and handed to the Goods Return Note flow, which brings them back into the warehouse stock (inbound-stock pages) [inferred]. No stock moves at Save or at approval [inferred].
+- A CM-02 document with returned quantities and reversed amounts linked to the delivered cash memo [db/inferred]. Confirmed: own number, Principle Invoice = the source cash memo [observed 2026-10-01 G11-1].
+- On Picked, the goods are collected on the vehicle and handed to the Goods Return Note flow, which brings them back into the warehouse stock (inbound-stock pages) [inferred]. No stock moves at Save or at approval [inferred]. Confirmed 2026-10-01: the 2 CS returned were part of the 19 CS Suggested on GRN 246, and GRN approval posted them as In (Sound) [observed 2026-10-01 G11-1]. Stock was not snapshotted between return Save and the GRN, so "no stock move before the GRN" stays [inferred].
 - A Credit Note (Sales Return) `CRN-02` may follow in finance [db: type exists; trigger [unknown]].
+- **The approved and picked return did NOT reduce the receivable**: cash memo COL26000002003 still showed Balance Amount = Net in the deposit slips, and Route Settlement showed Adjusted Credit Note Amount 0 and Fresh Return Value 0 for the route [observed 2026-10-01 G11-1]. When it is netted is open (Q-SR1).
+- Return amounts: Gross 30,845.86, Discount 6,189.17, Tax 4,419.93, Net 29,077.00; the workbook's Discount 6,169.17 / Tax 4,436.55 / Net 29,113.00 differ because the source order had been edited first (promotion and tax ratios of the smaller basket). Discount and tax are reversed proportionally [observed 2026-10-01 G11-1].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
 |---|---|---|---|---|
 | (none) | Save | Un-Authorized (02) / Draft | Maker | [inferred] |
-| Draft | Forward | Pending for approval (wf 02) | Maker | [atlas flow, status text [unknown]] |
-| Pending | Forward (approve) | Authorized (01), wf 03 | Checker | [db] |
-| Authorized | Status Change, save pick | Picked (04) | Maker | [inferred] |
+| Draft | Forward | Pending for approval (wf 02) | Maker | [atlas flow, status text [unknown]]; result `Success` [observed 2026-10-01 G11-1] |
+| Pending | Forward (approve) | Authorized (01), wf 03 | Checker | [db]; result `Success`, return leaves the View list [observed 2026-10-01 G11-1] |
+| Authorized | Status Change, save pick | Picked (04) | Maker | [inferred]; `Save successfully` on Save Sale Pick [observed 2026-10-01 G11-1]; status text "Picked" not read on screen |
 | any | Cancel | Cancelled (03) | [unknown] | [db] |
 
 ## 8. Rules and validations
 - `Return quantity should not greater than ordered quantity.` [atlas toast, 3 occurrences]: return cannot exceed what was ordered/delivered on the cash memo.
-- Validation must pass before Save; comments are mandatory on Forward (`Please Enter the Comments`) [atlas, 9 occurrences].
+- Validation must pass before Save; comments are mandatory on Forward (`Please Enter the Comments`) [atlas, 9 occurrences]. Comments mandatory confirmed (the Comments popup) [observed 2026-10-01 G11-1].
 - Reason Type mandatory per returned line [inferred].
 - Approver differs from maker [atlas switch point].
+- **Only delivered cash memos are offered** on Sales Return (rescheduled and cancelled ones are not) [observed 2026-10-01 G11-1].
+- Invoice Quantity on the return = the delivered (edited) quantity, not the booked one (4 CS after the 7 -> 4 edit) [observed 2026-10-01 G11-1].
+- The header must be saved before the Detail tab opens [observed 2026-10-01 G11-1].
+- The Status Change pick quantity is editable and can differ from the approved return quantity [observed 2026-10-01 G11-1]; what happens if it does is [unknown].
 
 ## 9. Messages
 `Validation successfully`; `Save successfully`; `Forwarded successfully` (8 times on the detail screen); `Return quantity should not greater than ordered quantity.`; `Please Enter the Comments` [atlas toast history, all recorded by the framework, none observed live yet].
+- Observed 2026-10-01 [observed 2026-10-01 G11-1]: `Record Saved Successfully!` (header Save; once also while tabbing on a line), `Validation successfully`, `Save successfully` (detail Save and Save Sale Pick); Sales Return View Forward (Maker and Checker): result window "Sales Return Status" (Document No, Sales Return Status, Status, Error Message) with Status `Success` (= workbook SaleRetrunView_ASSR), no toast. `Forwarded successfully` was not shown on Sales Return View.
 
 ## 10. Dependencies
-Reads a delivered cash memo of the PJP and outlet (so seq 33 or an equivalent delivery state must come first) and `REPO_GINNO` (Status Change). Hands over a Picked return to the Goods Return Note (seq 48-49), and credit/value to settlement.
+Reads a delivered cash memo of the PJP and outlet (so seq 33 or an equivalent delivery state must come first) and `REPO_GINNO` (Status Change). Hands over a Picked return to the Goods Return Note (seq 48-49), and credit/value to settlement. Confirmed 2026-10-01: Cashmemo Status (seq 33) must come first; the picked return's quantity is on the GRN Suggested; the credit value did not reach Route Settlement (Adjusted Credit Note 0) [observed 2026-10-01 G11-1].
 
 ## 11. Test design hints
 Positive: return 1 CS of one line, validate, save, forward, approve, status change to Picked; amounts match the workbook (Gross, Discount, Tax, Net). Negative: quantity above ordered; CS and PC both 0; no Reason Type; Forward without comments; maker approves own return. Boundary: return = ordered quantity (full line); return of a line with discount/offer item (amounts pro-rated?, [unknown]); PC only vs CS only. A green run proves screen messages only; verify the CM-02 status in the DB and that stock did not move until the GRN.
+- Positive: return with Stock Type Damaged / Expired / Lost and check which stock type the GRN posts (only Sound was walked) [observed 2026-10-01 G11-1 for Sound].
+- **Trap, receivable:** the approved return is not netted from the cash memo receivable or in Route Settlement (Adjusted Credit Note 0); a test that expects the balance to fall by the return Net would fail, and a test that ignores it proves nothing about the credit (Q-SR1) [observed 2026-10-01 G11-1].
+- **Trap, workbook amounts:** totals depend on the source cash memo; if the order was edited the workbook Discount/Tax/Net no longer match (Gross still did) [observed 2026-10-01 G11-1].
+- **Trap, stock:** the returned quantity comes back only through the GRN (In, Sound); check the GRN Suggested and Stock Inquiry after GRN approval [observed 2026-10-01 G11-1].
+- **Trap, default PJP:** screens default to the first PJP (AutoPJGIN2); choose the delivery PJP explicitly. The Checker sees all PJPs, the Maker only delivery PJPs [observed 2026-10-01 G11-1].
+- **Trap, approval result:** View Forward answers in a result window ("Success"), not a toast; the approved return then leaves the View list [observed 2026-10-01 G11-1].
 
 ## 12. Open questions (batched for the BA; each with a default)
-Q: Is the return limited to quantity ordered or quantity delivered? | Default: delivered | Evidence: message says "ordered quantity".
-Q: What does "Status Change" do exactly (Picked)? | Default: marks the authorised return as picked up by the DSR | Evidence: button `savesalePick`, status 04 Picked.
-Q: Does the return reverse stock at approval or only at the GRN? | Default: only at the GRN | Evidence: no stock effect in the flows.
-Q: Are discounts/offers on returned items reversed proportionally? | Default: yes (Discount shown) | Evidence: Discount field only.
-Q: Can a return be made before the cash memo is marked delivered? | Default: no | Evidence: chain order only.
+Q: Is the return limited to quantity ordered or quantity delivered? | Default: delivered | Evidence: message says "ordered quantity". PARTLY 2026-10-01: Invoice Quantity shown = the delivered/edited quantity (4 CS); the over-return refusal was not tried [observed 2026-10-01 G11-1].
+Q: What does "Status Change" do exactly (Picked)? | Default: marks the authorised return as picked up by the DSR | Evidence: button `savesalePick`, status 04 Picked. PARTLY 2026-10-01: button "Save Sale Pick" with editable pick quantity, `Save successfully`; the status text after it was not read [observed 2026-10-01 G11-1].
+Q: Does the return reverse stock at approval or only at the GRN? | Default: only at the GRN | Evidence: no stock effect in the flows. PARTLY 2026-10-01: the 2 CS came back via GRN 246 as In (Sound) [observed 2026-10-01 G11-1]; no snapshot between approval and the GRN.
+Q: Are discounts/offers on returned items reversed proportionally? | Default: yes (Discount shown) | Evidence: Discount field only. ANSWERED 2026-10-01: yes, Discount 6,189.17 and Tax 4,419.93 reversed on Gross 30,845.86 at the source order's ratios [observed 2026-10-01 G11-1].
+Q: Can a return be made before the cash memo is marked delivered? | Default: no | Evidence: chain order only. ANSWERED 2026-10-01: no, Sales Return lists delivered cash memos only [observed 2026-10-01 G11-1].
+Q-SR1: When does an approved sales return reduce the cash memo receivable (credit note? Route Settlement?) | Default: at Route Settlement / credit note | Class: B | Evidence: after approval and pick, Balance Amount unchanged and Route Settlement Adjusted Credit Note 0 (2026-10-01); settlement itself was blocked.
+Q: Which return reasons are valid for CM-02: the DB examples (Short of Cash, Area Closed, ...) or the four on screen (No Cash, Wrong Order/No Order, Shop Closed, Credit Exceeded)? | Default: the on-screen list | Class: A | Evidence: dropdown 2026-10-01 vs glb_pr_rnt_reason_type.
+Q: What happens when the picked quantity on Status Change differs from the approved return quantity? | Default: the pick quantity is what goes to the GRN | Class: B | Evidence: Return Quantity editable on Status Change 2026-10-01.
+Q: Does a non-Sound return stock type (Damaged/Expired/Lost) post to the matching stock type on the GRN? | Default: yes | Class: B | Evidence: only Sound walked.
 
 ## 13. Sources
 `framework_atlas/flows/00070001.md`, `00700001.md`, `00730001.md`, `00710001.md`, `group_11.md`; DB: snd_pr_dot_documenttype, snd_pr_dos_documentstatus, glb_pr_rnt_reason_type, wkf_wf_weo_wrkflw_event_orga, snd_tr_cmm_cashmemo_master. No SR table of its own exists (CM-02 lives in the cash memo tables).
+Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 34, 36, 37, 38, seq 39-46 (Balance Amount), seq 48-50 (GRN), seq 51 (Route Settlement); `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 12 and 15, §8 Q-SR1.

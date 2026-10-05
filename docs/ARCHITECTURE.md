@@ -237,6 +237,11 @@ move into `apps/gias/`.
 
 ## 7A. Knowledge sources: learning an application without documentation
 
+> **Business-process learning (L1–L3: domain map, process chains, option pages) follows
+> [`LEARNING_STANDARD.md`](LEARNING_STANDARD.md).** This section covers the screen-level harvest (L4) done by
+> the app-cartographer. The learning standard fixes the output and phases for every app and treats each
+> knowledge source (user guide, legacy framework replay, app DB, live walk, Jira, SME) as a pluggable playbook.
+
 **Assumption: there is no user guide and no documented flow.** For any system, the only
 inputs are:
 - **the application database**, which holds both business data and metadata (users, roles,

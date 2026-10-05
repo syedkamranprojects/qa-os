@@ -5,12 +5,10 @@
 app: snd
 updated: 2026-09-29
 
-actors:                     # roles used in test cases -> users, per environment. No passwords here.
-  cnr1dev1:
-    Maker:      { users: [Automation, Auto_Multi_Orga], note: "creates documents; 'Automation' login was rejected on 2026-09-29; confirm who is the maker" }
-    Checker:    { users: [Auto_Tssm], note: "approves; cannot create a DA ('Current user is not authorized to save this record!')" }
-    StockController: { users: [Auto_Multi_Orga], note: "framework runs stock validation flows as this user" }
-    HeadOffice: { users: [KPO_mp], note: "Pakistan HQ user; no distributor unless the environment assigns one (M&P 50250327 was assigned on 2026-09-29)" }
+actors:                     # ONLY two roles: Maker and Checker (QA lead, 2026-10-01). Each may have several users; first = default.
+  cnr1dev1:                 # source of truth: apps/snd/app.yaml environments.cnr1dev1.roles. No passwords here.
+    Maker:      { users: [Auto_Multi_Orga, Automation], note: "creates/forwards documents and also runs stock validation, orders, allocation (no separate Stock Controller / Order User); 'Automation' login was rejected on 2026-09-29, re-check" }
+    Checker:    { users: [Auto_Tssm], note: "approves for every maker; cannot create a DA ('Current user is not authorized to save this record!')" }
   distributor_for_automation: "15108843"    # 'Auto KARACHI' / IBRAHIM TRADERS; framework case-data sheet 'Distributor selection'
 
 steps:

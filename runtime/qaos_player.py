@@ -87,7 +87,8 @@ def credentials(app, user=None):
         env = {**json.load(open(SETTINGS_LOCAL, encoding='utf-8')).get('env', {}), **env}
     if user:                                                # a role name (Maker, Checker) maps to its user via app.yaml
         for e in (app.cfg.get('environments') or {}).values():
-            hit = next((u for r, u in (e.get('roles') or {}).items() if r.lower() == user.lower()), None)
+            hit = next((([u] if isinstance(u, str) else list(u or []) or [None])[0]   # a role's first user is its default
+                        for r, u in (e.get('roles') or {}).items() if r.lower() == user.lower()), None)
             if hit:
                 user = hit
                 break

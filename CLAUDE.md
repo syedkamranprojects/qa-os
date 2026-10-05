@@ -14,3 +14,5 @@ This file exists specifically so a fresh Claude session — a different machine,
 different account, no shared memory — still finds its footing automatically. See
 `RELEASE_NOTES.md` for what the platform does and `DEPLOY.md` for one-time setup
 (MCP connectors, credentials, plugin registration) before anything here will work.
+
+Standing preferences and run rules of the QA lead (account-independent): read `docs/OPERATING_RULES.md` (copies of the assistant memory notes are in `docs/memory_export/`). Latest resume point: end of `docs/STATUS.md` (2026-10-05, stopped at seq 51 Route Settlement, waiting for QA).

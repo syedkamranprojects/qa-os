@@ -8,7 +8,7 @@ description: The standard QA OS step language ([Actor] Verb Object), the step sh
 Full vocabulary: `docs/STEP_VOCABULARY.md`. Per-app definitions (parameters, expansion, expected messages, gotchas, `verified`): `apps/<app>/steps/library.yaml`. Actors and users: `apps/<app>/app.yaml` (`roles`). Technical layer underneath: the `step-dsl` skill.
 
 ## Rules
-- One line = one step = one verb from the vocabulary; number the steps; start with the **actor in brackets** (`[Maker]`, `[Checker]`, `[Stock Controller]`). Roles, never user names or passwords.
+- One line = one step = one verb from the vocabulary; number the steps; start with the **actor in brackets** (`[Maker]` or `[Checker]`, the only two roles; a role can have several users, first = default). Roles, never user names or passwords.
 - Use the screen's own names for screens, fields, buttons and statuses. No waits, element ids or locators in a step: those belong to the library and the helper.
 - Values come from the data row or from `Remember <Field> as NAME` placeholders; `<date>` = today.
 - Every user change is `Logout` then `Login as <role>` (a **switch point**); the run stops there and the QA member logs in.

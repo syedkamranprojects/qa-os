@@ -30,7 +30,7 @@ Expected result : Dispatch Advice DA1 is Approved and its stock is received
 ```
 Rules of the format:
 - One line = one step = one verb from section 2. Number the steps. Start each with the **actor in brackets**.
-- **Roles, not user names** in steps (Maker, Checker, Stock Controller). The actor map (library.yaml `actors`) says which user plays which role in which environment.
+- **Roles, not user names** in steps. There are only **two roles: Maker and Checker**; each can have several users (first = default). There is no Stock Controller or Order User role: the Maker does stock checks, orders and allocation. The actor map (`app.yaml` `roles`, mirrored in library.yaml `actors`) says which users play which role in which environment.
 - `Expect:` lines are checks; the message text is the app's real text.
 - Values come from the **data row**, not typed into steps; `<date>` and `Remember ... as NAME` values are placeholders.
 - Every user change is written as `Logout` then `Login as <role>`. (Same as `Switch user to <role>`, which Claude runs as those two steps.)

@@ -183,3 +183,27 @@ Status column updated 2026-10-01 after the live walk. RESOLVED rows keep the old
 
 ## 7. Source code legend
 DA = dispatch_advice, DAL = da_loss_approval, GRN = goods_return_note, SI = stock_inquiry_and_balances, SV = stock_validation_flows, OB = order_booking, OE = order_editing_cancellation, OL = order_lifecycle_and_statuses, SA = stock_allocation, TI = transaction_inquiry, DD = delivery_date_change, DL = delivery_lifecycle, GIN = goods_issue_note, CR = cashmemo_reschedule_and_status, SR = sales_return, DS = deposit_slips, RS = route_settlement, CS = cheque_status, DJ = dsr_adjustment, PJ = pjp_daily_inquiry_update, OT = otc_stock_out_and_san, EO = end_of_day_validations. Number = position in section 12 of that page.
+
+## 8. New from learning session G11-PK 1 (2026-10-01 evening; not yet renumbered into the sections above)
+Evidence: [learning_sessions/2026-10-01_G11-PK_session1_report.md](learning_sessions/2026-10-01_G11-PK_session1_report.md) §8.
+| Id | Question | Default | Class |
+|---|---|---|---|
+| Q-OE1 | Is the Order Editing date range meant to be the delivery date, defaulting to today (orders booked today for a later delivery are invisible)? | treat as delivery date | C |
+| Q-OE2 | Which order should group 11 seq 15 edit when workbook outlets 1000000001-03 are not offered on cnr1dev1? | the outlet-04 order | C |
+| Q-OE3 | Should editing / cancelling an order on an approved GIN be blocked or warned (business control)? | allowed (as observed); record as defect candidate | C |
+| Q-DA1 | May the Maker approve or reject his own Pending Dispatch Advice (buttons stay enabled for him)? | must not (QA convention); possible defect | C |
+| Q-SR1 | When does an approved and picked sales return reduce the cash memo receivable (credit note? Route Settlement)? | at Route Settlement / credit note | B |
+| Q-DS1 | What is deposit-slip "posting" (who/when), and may a partly allocated slip be posted? | at Route Settlement | B |
+| Q-RS1 | How is a working day closed (which screen/process), and may 2026-09-30 be closed on cnr1dev1? | ask BA before closing | C |
+| Q-OB1 | Who or what generated the 2026-10-01 opening balances during the day (morning: none; 16:40: present)? | unknown | B |
+| Q-DS2 | Is a duplicate cheque number for the same outlet allowed, and should a cash memo already fully allocated on an unposted slip be blocked on another slip? | both should be blocked (current acceptance = defect candidate) | C |
+| Q-RS2 | What does Route Settlement do with Sale Value not covered by collections (87,107 on 2026-10-01): cash shortage, carried to the next day, or blocked? | shown as Cash Shortage at settlement | B |
+| Q-DA2 | What are "Dispatch Advice NUP" and "Dispatch Advice II" in the menu, and are they in scope? (page inbound_stock\dispatch_advice.md) | out of scope; only "Dispatch Advice" is tested | A |
+| Q-DA3 | Why does the product label price differ from the Purchase Price / PC (and purchase exceed trade price for some SKUs)? (page inbound_stock\dispatch_advice.md) | label shows another price list; assert amounts on Purchase Price / PC only | C |
+| Q-GRN1 | When Actual < Suggested on a GRN, where does the difference go (loss record, shortage at Route Settlement)? (page inbound_stock\goods_return_note.md) | shortage charged to the delivery man at Route Settlement | B |
+| Q-GRN2 | Does a sales return booked as Damaged/Expired/Lost come back on the GRN with that stock type? (page inbound_stock\goods_return_note.md) | yes, per line stock type | B |
+| Q-LA1 | Is an approved loss used anywhere else (claim to the supplier, finance, a claim loss log)? (page inbound_stock\da_loss_approval.md) | claim record only, no stock effect | C |
+| Q-LA2 | Why is Reject disabled for the Checker on a Pending loss record while the workflow declares Rejected? (page inbound_stock\da_loss_approval.md) | losses cannot be rejected on this screen; do not design a Reject case | B |
+| Q-LA3 | Is the duplicate "Lost" entry in the loss Stock list two different stock types? (page inbound_stock\da_loss_approval.md) | master-data duplicate; use the first | A |
+| Q-SV1 | May the framework stock checks (seq 9, 24, 50) be changed to before/after deltas (needs a pre-snapshot step)? (page inbound_stock\stock_validation_flows.md) | yes, deltas | C |
+Answered this session: L21 / loss-stock effect (approving a DA loss creates no stock row); GIN Verify+Approve = one Checker Forward in org 010104; why Order Editing showed no outlets (delivery-date filter).

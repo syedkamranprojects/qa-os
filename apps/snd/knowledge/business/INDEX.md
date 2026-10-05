@@ -1,7 +1,7 @@
 # S&D (DCODE) business knowledge: index and map of the Daily Cycle
 
 Status: consolidated 2026-10-01 from the four analysts' pages. Nothing here is new knowledge; every fact keeps the confidence tag of its source page: **[observed]** seen live, **[db]** declared by the DB/framework tables, **[inferred]** concluded from names, **[unknown]** not determined. Companion files: [glossary.md](glossary.md), [document_lifecycle.md](document_lifecycle.md), [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md), [LIVE_LEARNING_CHECKLIST.md](LIVE_LEARNING_CHECKLIST.md), page template [_TEMPLATE.md](_TEMPLATE.md).
-Updated: 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation: seq 1-50 walked live on one day (evidence [learning_sessions/2026-10-01_G11-PK_session1_log.md](learning_sessions/2026-10-01_G11-PK_session1_log.md))
 
 ## 1. The business as one story: the Daily Cycle (framework group 11)
 
@@ -11,34 +11,34 @@ A distributor (DT) receives goods from the company supply point, books and alloc
 | Seq | Page | One line |
 |---|---|---|
 | 2, 5 | [dispatch_advice.md](inbound_stock/dispatch_advice.md) | Maker records goods dispatched by the vendor (UPL WH) to the distributor warehouse; checker approves; received quantity (dispatched minus loss) becomes Sound stock of the Received Date, row created by the approval [observed 2026-10-01]; duplicate SO Number allowed, SO optional. |
-| 7 | [da_loss_approval.md](inbound_stock/da_loss_approval.md) | A DA with losses creates a loss record AT THE DA APPROVAL (not at Forward); the checker approves it; where an approved loss lands as stock is unknown [observed 2026-10-01 / unknown]. |
+| 7 | [da_loss_approval.md](inbound_stock/da_loss_approval.md) | A DA with losses creates ONE loss record AT THE DA APPROVAL (rows per product and loss type 02 Damaged / 04 Lost); the checker approves it; **approving it creates no stock row** [observed 2026-10-01 G11-1]. |
 | 9, 24, 50, 60 | [stock_inquiry_and_balances.md](inbound_stock/stock_inquiry_and_balances.md) | Read-only per-day view Opening/In/Out/Allocated/Closing in CS/DZ/PC; Closing = Opening + In - Out - Allocated (assert in base PC); empty on a new day until a movement (DA approval) creates the row [observed]. |
 | 9, 24, 50, 60 | [stock_validation_flows.md](inbound_stock/stock_validation_flows.md) | The four framework checkpoints that read Stock Inquiry after DA, GIN, GRN and at opening/closing [atlas]. |
-| 48-50 | [goods_return_note.md](inbound_stock/goods_return_note.md) | Undelivered/returned goods go back into warehouse stock after approval; not replayed live [db/inferred]. |
+| 48-50 | [goods_return_note.md](inbound_stock/goods_return_note.md) | GRN brings back everything issued but not delivered (cancelled, cut, rescheduled) plus picked returns (GRN 246: 19 CS = 7+7+3+2); approval posts it as In (Sound) [observed 2026-10-01 G11-1]. |
 
 ### Step 2. Order to delivery planning (seq 10-19) - folder [order_to_delivery_planning/](order_to_delivery_planning/README.md)
 | Seq | Page | One line |
 |---|---|---|
 | all | [order_lifecycle_and_statuses.md](order_to_delivery_planning/order_lifecycle_and_statuses.md) | The order is a cash memo (CM-01) from Ordered to Delivered; document types and statuses [db]. |
 | 10 | [order_booking.md](order_to_delivery_planning/order_booking.md) | Order user books an outlet's demand (validate then save); no approval; auto-allocated at save [observed]. |
-| 12, 18 | [stock_allocation.md](order_to_delivery_planning/stock_allocation.md) | Allocation reserves stock to orders; manual step is a no-op on cnr1dev1; Unallocate answers "stock not found." [observed]. |
+| 12, 18 | [stock_allocation.md](order_to_delivery_planning/stock_allocation.md) | Orders reserve stock at save (auto FULL), so manual Allocation is a no-op unless an order was unallocated; Unallocate/Allocate answer "Process completed successfully" after a confirm [observed 2026-10-01 G11-1; earlier "stock not found." superseded]. |
 | 14, 68-71 | [transaction_inquiry.md](order_to_delivery_planning/transaction_inquiry.md) | Read-only check of Gross/Discount/Tax/Net and the Document Status column (execution status text: Confirmed after booking, Planning completed on a GIN); Total Offering = header Discount [observed]. |
-| 15, 16, 29, 31 | [order_editing_cancellation.md](order_to_delivery_planning/order_editing_cancellation.md) | Edit quantities with a reason or cancel with a reason; never executed live [unknown]. |
+| 15, 16, 29, 31 | [order_editing_cancellation.md](order_to_delivery_planning/order_editing_cancellation.md) | Edit quantities with a reason (same document no., promotions re-applied) or cancel with a reason; allowed even after the GIN, with no stock movement until the GRN; Order Editing dates filter the DELIVERY date [observed 2026-10-01 G11-1]. |
 | 19 | [delivery_date_change.md](order_to_delivery_planning/delivery_date_change.md) | Moves the delivery date of a PJP's orders in bulk ("processed orders: 9") [observed]. |
 
 ### Step 3. Delivery and returns (seq 20-38) - folder [delivery_and_returns/](delivery_and_returns/README.md)
 | Seq | Page | One line |
 |---|---|---|
 | 12-38 | [delivery_lifecycle.md](delivery_and_returns/delivery_lifecycle.md) | One cash memo from allocation to delivered/rescheduled/returned; execution status chain [db/inferred]. |
-| 20, 23 | [goods_issue_note.md](delivery_and_returns/goods_issue_note.md) | GIN issues stock to the DSR; maker saves and forwards a Draft, the checker's Forward on the Pending GIN is the approval (workflow StockUpdateGIN v53: Verify, Approve, both role 0005); approval failed on a stale-day stock [observed/db]. |
-| 32, 33 | [cashmemo_reschedule_and_status.md](delivery_and_returns/cashmemo_reschedule_and_status.md) | Reschedule moves undelivered cash memos with a reason; Cashmemo Status records delivery; not replayed [inferred]. |
-| 34-38 | [sales_return.md](delivery_and_returns/sales_return.md) | Outlet returns (CM-02): create, validate, forward, approve, status change to Picked; not replayed [atlas/db]. |
+| 20, 23 | [goods_issue_note.md](delivery_and_returns/goods_issue_note.md) | GIN takes only cash memos whose delivery date = GIN delivery date, sums them per SKU; maker saves + forwards, ONE checker Forward approves (Allocated -> Out); succeeded with same-day stock + delivery date today (GIN 506) [observed 2026-10-01 G11-1]. |
+| 32, 33 | [cashmemo_reschedule_and_status.md](delivery_and_returns/cashmemo_reschedule_and_status.md) | Reschedule sets a new delivery date with a reason (status Reattempt, off the GIN); Cashmemo Status tick + Save marks Delivered/Invoiced [observed 2026-10-01 G11-1]. |
+| 34-38 | [sales_return.md](delivery_and_returns/sales_return.md) | Return (CM-02, own number) against a delivered cash memo: Maker saves + forwards on Sales Return View, Checker approves ("Success"), Maker "Save Sale Pick"; the receivable is not reduced by it (open) [observed 2026-10-01 G11-1]. |
 
 ### Step 4. Settlement and finance (seq 39-60, 68-71) - folder [settlement_and_finance/](settlement_and_finance/README.md)
 | Seq | Page | One line |
 |---|---|---|
-| 39-46, 53-54 | [deposit_slips.md](settlement_and_finance/deposit_slips.md) | DSR banks cash/cheques against cash memos; six variants; no approval row active [db]. |
-| 51-54 | [route_settlement.md](settlement_and_finance/route_settlement.md) | End-of-day reconciliation of one PJP and date: sales, returns, cash/cheque, shortages [db/inferred]. |
+| 39-46, 53-54 | [deposit_slips.md](settlement_and_finance/deposit_slips.md) | DSR banks cash/cheques: slip header then allocation per cash memo or per outlet (multi-cheque popup); slips stay "Un Posted" (balances unchanged) until settlement [observed 2026-10-01 G11-1]. |
+| 51-54 | [route_settlement.md](settlement_and_finance/route_settlement.md) | End-of-day reconciliation per delivery man and date: sale value vs one collection line per deposit slip; **refused while an earlier day is open** ("Following previous days not closed! Please close date. 2026-09-30") [observed 2026-10-01 G11-1]. |
 | 55 | [cheque_status.md](settlement_and_finance/cheque_status.md) | Banked cheques marked Presented/Collected/Realized/Bounced/Cancelled [db]. |
 | 56 | [dsr_adjustment.md](settlement_and_finance/dsr_adjustment.md) | Manual DSR amount correction (AD-07); effect unknown [db/unknown]. |
 | 57 | [pjp_daily_inquiry_update.md](settlement_and_finance/pjp_daily_inquiry_update.md) | Back-office correction of the daily PJP: journey status, file status, end date [db]. |
@@ -48,6 +48,7 @@ A distributor (DT) receives goods from the company supply point, books and alloc
 ## 2. Document map: who creates, who approves, status chain, effect
 
 Only facts stated in the pages. "Maker" = Auto_Multi_Orga, "Checker" = Auto_Tssm on cnr1dev1.
+**Group 11 user roles (R1 / Pakistan, stated by the QA lead 2026-10-01) [stated]:** company Unilever Pakistan Limited, distributor 15108843 - IBRAHIM TRADERS; there are **only two roles, Maker and Checker**, and each can have several users. Maker = **Auto_Multi_Orga** (default, framework serial 35) or **Automation** (serial 28, the framework's SAN Admin rows seq 61/63/66); Checker = **Auto_Tssm** (serial 8), who approves for every maker. There is no separate Stock Controller or Order User: the Maker runs stock checks, orders and allocation. Source of truth: `apps/snd/app.yaml` environments.cnr1dev1.roles.
 
 | Document | Creates | Approves | Status chain (as the page states it) | Stock / finance effect |
 |---|---|---|---|---|
@@ -55,9 +56,9 @@ Only facts stated in the pages. "Maker" = Auto_Multi_Orga, "Checker" = Auto_Tssm
 | DA Loss record (DALossApproval) | Created automatically AT THE DA APPROVAL when the DA has losses (not at Forward) [observed 2026-10-01] | Checker [observed] | Pending for approval -> Approved [observed]; Rejected/Terminated [db] | Stock effect NOT confirmed: no Damaged/Lost row appeared, also not while the loss is Pending [observed] |
 | Order / cash memo (CM-01 Sales) | Order user (Maker) [observed] | none [observed] | document 04 Ordered; execution 02 Confirmed -> 03 Planning completed (on a GIN) [db][observed 2026-10-01] -> Cancelled 03 [db] / Delivered 01 [inferred] | Auto-allocated at save, reserved stock shown in Allocated [observed]; Gross + Discount(-) + Tax = Net [observed] |
 | Stock allocation | Order user | none | Unallocated -> Allocated (FULL) [observed] | Reserves stock [inferred]; effect on stock screens unknown |
-| Goods Issue Note (GN-01) | Maker [observed] | Checker, Forward on the Pending GIN [observed button states 2026-10-01]; workflow Verify then Approve, both role 0005 [db] | Draft/In-Active -> Pending for approval [observed] -> Approved (doc 01 Authorized, wf 03) [db]; Rejected 04, Terminated 05 [db] | Stock out to the DSR on approval [inferred]; approval needs a same-day stock balance [observed]; cash memos move to Planning completed (03) then Ready to dispatch (13) [inferred] |
-| Cashmemo Reschedule | Maker | none [atlas] | Ready to dispatch 13 -> CM Reschedule 19 [inferred] | New delivery date; leaves GIN [inferred] |
-| Cashmemo Status | Maker | none [atlas] | -> Delivered 10 [inferred] | None expected [inferred]; creates receivable to settle [inferred] |
+| Goods Issue Note (GN-01) | Maker [observed] | Checker, ONE Forward on the Pending GIN = final approval [observed 2026-10-01 G11-1, GIN 506]; workflow declares Verify then Approve, both role 0005 [db] | Draft/In-Active -> Pending for approval [observed] -> Approved (doc 01 Authorized, wf 03) [db]; Rejected 04, Terminated 05 [db] | Stock out to the DSR on approval [inferred]; approval needs a same-day stock balance [observed]; cash memos move to **Ready to dispatch/Packed** at approval [observed 2026-10-01 G11-1] (Planning completed seen on a pending GIN) |
+| Cashmemo Reschedule | Maker | none [observed] | Ready to dispatch/Packed -> **Reattempt** [observed 2026-10-01 G11-1] | New delivery date; leaves the GIN; goods return on the GRN [observed 2026-10-01 G11-1] |
+| Cashmemo Status | Maker | none [observed] | -> **Delivered/Invoiced**, Actual Delivery Date = save time [observed 2026-10-01 G11-1] | None expected [inferred]; creates receivable to settle [inferred] |
 | Sales Return (CM-02) | Maker | Checker (SalesReturnApproval) [atlas/db] | Un-Authorized -> Pending -> Authorized -> Picked (04) [inferred/db]; Cancelled 03 [db] | No stock until GRN [inferred]; credit note CRN-02 may follow, trigger unknown [db] |
 | Goods Return Note (GR-01) | Maker [atlas] | Checker [atlas] | Draft -> Pending for approval -> Approved [db/inferred]; Rejected/Terminated [db] | Returned qty back In to warehouse stock on approval [inferred]; stock type unknown |
 | Deposit Slip | Maker | none (approval row inactive) [db] | I -> A with posting date [db sample, trigger unknown] | Reduces cash memo balances [inferred]; Unposted = not yet allocated [inferred] |

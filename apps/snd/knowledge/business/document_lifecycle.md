@@ -1,8 +1,19 @@
 # Document lifecycle: the cross-cutting approval pattern (S&D / DCODE)
 
-Updated: 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0)
 
 Consolidated 2026-10-01 from the area pages. Tags as in the pages: [observed], [db], [inferred], [unknown].
+
+## 0. Live-verified in learning session G11-1 (2026-10-01 evening) [observed 2026-10-01 G11-1]
+Evidence: [learning_sessions/2026-10-01_G11-PK_session1_log.md](learning_sessions/2026-10-01_G11-PK_session1_log.md).
+- **The pattern holds for five documents end to end**: Dispatch Advice (1358), DA Loss record (639), Goods Issue Note (506), Sales Return (COL26000000713, on the Sales Return View screen) and Goods Return Note (246): Maker saves (Draft / In-Active) -> Maker Forward + mandatory comment -> Pending for approval -> Checker opens the same document and Forwards -> Approved. Sales Return answers with a result window "Sales Return Status ... Success" instead of a toast; the others toast "Forwarded successfully".
+- **Approved documents leave the working grid** for GIN, GRN and Sales Return View (only open documents are listed); the DA grid keeps the approved DA (Active / Approved / Authorized, Received Date set).
+- **One Checker Forward is the final approval** for the GIN in org 010104 (stock Allocated -> Out immediately), although the workflow declares Verify + Approve (answers the earlier open point).
+- **Exception to the Forward semantics**: on the Pending **DA**, the **Maker still had Forward and Reject enabled** (not clicked); on the Pending GIN they were disabled. Possible defect / Q-DA1.
+- **Loss record**: on a Pending loss record the Checker has Forward but **Reject disabled**.
+- **Stale form after Forward**: the form keeps showing "Draft" until the document is reopened from the grid; reopen before reading the status.
+- **Approval preconditions confirmed**: GIN approval succeeds when the stock was received the same day and the cash memos' delivery date equals the GIN delivery date (the two earlier failure messages came from stale-day data).
+- **Settlement precondition**: Route Settlement needs every earlier working day closed ("Following previous days not closed! Please close date. 2026-09-30").
 
 ## 1. The common pattern
 

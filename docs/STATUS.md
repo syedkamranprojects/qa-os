@@ -196,3 +196,57 @@ The user wants to personally build understanding of the application (as Maker, C
 2. Confirm `apps/snd/knowledge/business/OPEN_QUESTIONS.md` — ask if the user got any BA answers while learning; apply them (`qaos_promote.py` pattern) if so.
 3. Restart **Daily Cycle Only Positive Flow, Pakistan market, group 11, env cnr1dev1** from the top (Login → Dispatch Advice) with a **fresh same-day** data set — do not reuse DA 1353-1357, GIN 505, or any prior-day document. Honor the one-calendar-day rule above from the start: plan the whole session (DA → orders → delivery date → GIN → returns → settlement) to run in one sitting, one day.
 4. Logins are still never typed by Claude — ask for Maker (`Auto_Multi_Orga`) first, Checker (`Auto_Tssm`) at the switch points, per `apps/snd/app.yaml` roles.
+
+---
+# Update: 2026-10-01 evening — learning session G11-PK 1 done (stopped at seq 51) — RESUME HERE
+
+**Read first:** `apps/snd/knowledge/business/learning_sessions/2026-10-01_G11-PK_session1_report.md` (what was walked, rules learned, defects, framework drift, open questions, resume plan). Raw per-flow facts: `..._session1_log.md` in the same folder.
+
+## Done today (after the v0.4.0 pause; the QA lead resumed work in this session)
+- **Learning standard** written: `docs/LEARNING_STANDARD.md` (output contract L1-L4, confidence tags incl. new `[stated]`, pluggable sources, phases, G0). ARCHITECTURE §7A points to it. Not built yet: `app-learning` skill, `learning:` block in app.yaml, page front-matter + INDEX.json, coverage checker (§10 backlog).
+- **Roles simplified** (QA lead): only **Maker** and **Checker**, several users each. `apps/snd/app.yaml` cnr1dev1: Maker = [Automation, Auto_Multi_Orga], Checker = [Auto_Tssm]; `runtime/qaos_config.py` + `qaos_player.py` accept lists; vocabulary/library/skill updated; plugin bumped to **0.4.1** (needs `claude plugin marketplace update qa-os` + `claude plugin update qa-os@qa-os --scope project` + restart).
+- **S&D navigation** recorded in app.yaml `menu:` (top-left hamburger `#menurollin` -> Search Here -> item; ignore the Kaspersky cert notice on the home page).
+- **Learning walk of group 11 (business facts only, no ids)** on cnr1dev1, one calendar day: seq 1-50 walked (seq 15 skipped by the QA lead for QA/BA discussion; seq 18 done on one order; deposit slips with real numbers), stopped at **seq 51 Route Settlement: "Following previous days not closed! Please close date. 2026-09-30"**.
+
+## Next (in order)
+1. QA lead / BA: answer **Q-RS1** (how to close a working day; may 2026-09-30 be closed?) and Q-OE1/Q-OE2 (Order Editing) — listed in `apps/snd/knowledge/business/OPEN_QUESTIONS.md` §8.
+2. ~~Consolidate~~ **DONE 2026-10-01 evening**: session log merged into all touched L3 pages (front-matter added, [Maker]/[Checker] steps with trace keys, test hints, questions), glossary (+17 terms), document_lifecycle (§0), INDEX, LIVE_LEARNING_CHECKLIST, OPEN_QUESTIONS §8 (18 new questions; not renumbered yet). Still to do: coverage report + G0 sign-off request for inbound stock and order-to-delivery.
+3. Finish the cycle (seq 51-71) on a **fresh day from seq 1** (stock/day rule) once the day-close question is settled; today's documents (DA 1358, orders 2003-2008, GIN 506, return 713, slips 1131-1136, GRN 246) must not be continued on another day.
+4. Then other groups (positive/negative) as the QA lead requests, same standard.
+
+## Gotchas learned today (for the recorder / replays)
+- Logins must be done in the **Selenium-controlled window**; one login landed in another browser.
+- DevExtreme grids: number inputs go stale on clear -> click the cell, select, press keys one by one; checkbox cells need scrollIntoView; fixed-column grids duplicate links (click by position).
+- Dropdown option clicks can land on the neighbouring item (verify with elementFromPoint before clicking); cascades clear the fields below.
+- Multi-cheque popup dates must be typed MM/DD/YYYY; other dates yyyy-mm-dd.
+- Menu deep links redirect to the menu; after clicking a menu item the side menu may stay open over the page.
+
+## Planned: Senior QA knowledge check (QA lead, 2026-10-01)
+After the positive cycle (group 11) is completed through its last active flow, **seq 71 "Transaction Inquiry Validate After Sales Return" (03770001)**, a **Senior QA user** will test Claude's S&D business knowledge. They give test cases; Claude states the **expected output first** (from the knowledge pages, with confidence tags), executes the case live, and the result is compared. Misses go back into the knowledge pages. Prerequisites: seq 51-71 walked, plus the Consolidate phase done. This works as the human check for gate G0 of docs/LEARNING_STANDARD.md.
+
+
+---
+# Update: 2026-10-05 - learning session G11-PK 2 (fresh full run) stopped at seq 51 - RESUME HERE
+
+**Read first:** `apps/snd/knowledge/business/learning_sessions/2026-10-05_G11-PK_session2_report.md` (flows, confirmations, new findings, left-over documents, resume plan); raw log `..._session2_log.md`; Order Editing screenshots in `learning_sessions/screenshots/`. Operating rules and the QA lead's standing preferences: `docs/OPERATING_RULES.md` (copied from the assistant's account memory so a different Claude account has them).
+
+## State
+- Seq 1-50 walked again on one day (2026-10-05); every number and message matched session 1. Seq 15 Order Editing skipped again (QA lead). Stopped at **seq 51 Route Settlement**: "Following previous days not closed! Please close date. 2026-10-01".
+- **Waiting for the QA team**: Q-RS1 (how to close a working day; 2026-10-01), Q-OE1/Q-OE2 (Order Editing delivery-date filter / how seq 15 reaches its order).
+- Documents of today (DA 1359, orders 2009-2014, GIN 507, return COL26000000714, slips 1137-1142, GRN 247) must not be reused on another day.
+
+## Next
+1. QA answers -> apply to OPEN_QUESTIONS and the pages. 2. Continue from seq 51 (check whether Route Settlement for 2026-10-05 still opens on a later day, else rerun from seq 1 on a fresh day). 3. Seq 52-60, 68-71. 4. Consolidate session 2 into the pages, renumber questions, coverage report, G0. 5. Senior QA knowledge check after seq 71. 6. Still open: `qaos_login.py` failed for Auto_Multi_Orga (ask for the terminal error); plugin 0.4.1 not reloaded (`claude plugin marketplace update qa-os`, `claude plugin update qa-os@qa-os --scope project`, restart); qa-os changes not committed to git.
+
+---
+# Update: 2026-10-05 afternoon - group 11 PK walked to the END (seq 71) - RESUME HERE
+
+**Read first:** `runs/LEARN-G11-PK/20261005-RS/session_log.md` (seq 51-71, same calendar day as session 2's seq 1-50).
+- QA lead: earlier days had been left un-closed; a QA team member closed them (more detail promised). **Day close = PJP Daily Inquiry Update (DYL_BG1022): Mark Status End Of Day + DSR Files Status Complete -> Current Status E.** Route 02112 for 2026-10-01 and 2026-10-05 is settled (Complete) and closed.
+- Seq 51-54 read after settlement (slips Posted, cheques Clear, Offset = slip allocations); 55 Cheque Status and 56 DSR Adjustment BYPASSED (QA lead); 57 day close done; 58-59 SAN 96 created/forwarded (Maker) and approved (Checker); 60 stock Out +50; 68-71 Transaction Inquiry: edited-order tax/detail/offering match the workbook, header Tax of seq 70 and all sales-return values in the workbook are stale (drift).
+- Claude Code auto mode blocked typing amounts on the shared env; the QA lead switched the session to Ask permissions (blocks stopped).
+- Documents added today: SAN 96 (Approved). Browser closed after logout.
+## Next
+1. Consolidate session 2 + this resume into the knowledge pages (route_settlement, deposit_slips, cheque_status, pjp_daily_inquiry_update, otc_stock_out_and_san, transaction_inquiry, sales_return, stock pages), answer Q-RS1 / Q-DS1 / Q-OB1, renumber OPEN_QUESTIONS, coverage report, G0.
+2. Senior QA knowledge check (predict, execute, compare).
+3. Still open: QA lead's detailed day-close note; Q-OE1/Q-OE2 (seq 15); framework drift list for the framework owner; qa-os changes not committed.

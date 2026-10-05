@@ -1,0 +1,25 @@
+- [Close browser after logout](feedback_close_browser_after_logout.md) — always close the Selenium session right after a GIAS logout completes, don't wait to be asked.
+- [GIAS element-cache status](project_gias_element_cache.md) — login->menu flow cached & verified; GIAS_DEFAULT_APPLICATION fixed to "88" (DB-confirmed 2026-08-19).
+- [GIAS schema queries](reference_gias_schema_queries.md) — SQL to look up app/system codes via mcp__gias-schema__run_readonly_query; only system 02/app 88 active.
+- [GIAS menu navigation & flow schema](project_gias_menu_navigation.md) — menu/doc-selection caches + structured flow JSON (login_to_document_selection.json), incl. flyout retry gotcha.
+- [Structured flow replay preference](feedback_structured_flow_replay.md) — user wants JSON flows a dumb player can execute (no LLM at replay time); feeds phase 2 code-gen.
+- [GIAS full menu catalog](project_gias_full_menu_catalog.md) — whole app-88 menu tree extracted from SH_SM_AM_APPMENU to .claude/element-cache/gias/menu/ (tree + flat paths + outline); SAM_LEVELCODE = 2-char-per-level materialized path.
+- [Regress-Master project](project_regress_master.md) — app-agnostic data-driven web test runner in regress-master/ (own repo); Phase 0 docs+skeleton done; gias-qa-core is the GIAS adapter; engine code gated on sign-off.
+- [GIAS branch codes](reference_gias_branch_codes.md) — login branch dropdown = PR_GN_LC_LOCATION.PLC_LOCACODE; "GIS Setup" branch = 0010010001 (needed for Parameter Setup menu items).
+- [Test execution starts from login](feedback_test_execution_from_login.md) — every test case run must start fresh with login, never reuse a session from a prior test case.
+- [S&D table catalog](reference_snd_table_catalog.md) — S&D data dictionary parsed to qa-os/apps/snd/knowledge/ (JSON + tools/dd_lookup.py); PP1 holds DT+outlets; dictionary lacks newer tables.
+- [S&D test automation project](project_snd_test_automation.md) — Jira->cases->auto steps->Selenium->framework-db SQL; QA OS in qa-os/ (plugin + player + app packs); P0 built, awaiting live run of the P0 flow.
+- [No docs: learn from metadata](feedback_no_docs_learn_from_metadata.md) — never expect user guides; derive app knowledge from DB metadata + live app + Jira; snd-schema is the base DB (env = overlay); connectors are the access boundary; framework target CTA_CONFIG_ASSERTION.
+- [Regress case-data contract](reference_regress_casedata_contract.md) — legacy engine reads <BASE_PATH>\casedata\<file>.xlsx, sheet per screen name, headers = psf_field_db_column + PK/CASE_TYPE/EXPECTED_MESSAGE…; bulk data only for engine runs.
+- [QA OS must be shareable](feedback_qaos_shareable.md) — team-wide plugin; no machine-specific paths; SDMS-10351 is only the pilot; logins are triggered by the QA member (Claude never enters passwords); Jira SDMS access pending.
+- [DCODE authoring gap](project_regress_master_dcode_gap.md) — first DCODE flow (SMK-SKU-01) authored for framework-db, but no DCODE AppAdapter/app row exists yet, so it can't run.
+- [Use agents and skills](feedback_use_agents_and_skills.md) — run QA OS stages in the plugin's sub-agents/skills, not inline; plugin was never registered (fix first); final design in qa-os/docs/FINAL_DESIGN.md.
+- [Purpose of the daily cycle replay](project_qaos_purpose_app_context.md) — replay group 11 to learn the whole S&D business into an app context (framework atlas); QA OS must be app-agnostic; cycle must run within one calendar day.
+- [Minimise user intervention](feedback_minimise_user_intervention.md) — QA OS runs should need only login; log every obstacle in friction.md and build the fix (fixture discovery, sequential UI steps, toast capture).
+- [Excel is the source of truth](feedback_excel_source_of_truth.md) — QA member finalizes steps in the Excel; import+check it, then execute from it (qaos_import.py).
+- [Group flow execution rules](feedback_group_flow_execution_rules.md) — replay only status-Y test flows in sequence order; learning runs = business knowledge only, no ids (recorder does ids); roles = Maker/Checker only (users in app.yaml).
+- [S&D navigation](reference_snd_navigation.md) — top-left hamburger (#menurollin) -> Search Here -> click item; ignore Kaspersky cert notice on home.
+- [G11 learning session 1](project_learn_g11_session1.md) — 2026-10-01 walk stopped at seq 51 (day 09-30 not closed); consolidated into the pages; resume via STATUS.md.
+- [S&D knowledge check](project_snd_knowledge_check.md) — after group 11 reaches seq 71, a Senior QA tests Claude with cases: predict, execute, compare.
+- [Always enter comments / login hand-off](feedback_always_enter_comments.md) — verify comment textarea before Save; Claude does logout + company/distributor selection, user types credentials.
+- [G11 learning session 2](project_learn_g11_session2.md) - 2026-10-05 fresh run, seq 1-50 done, stopped at seq 51 (2026-10-01 not closed); waiting for QA answers.

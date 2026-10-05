@@ -1,6 +1,6 @@
 {
   "name": "qa-os",
   "description": "Agentic QA life cycle on Claude: Jira story → test cases → steps → live execution → selenium-framework-db scripts + bulk case data. App knowledge lives in app packs (qa-os/apps/<app>).",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": { "name": "QA Automation Team" }
 }

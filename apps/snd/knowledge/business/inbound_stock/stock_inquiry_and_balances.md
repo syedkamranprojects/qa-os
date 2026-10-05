@@ -1,62 +1,133 @@
+---
+option: Stock Inquiry
+area: inbound_stock
+doc_types: []
+screens: [STOCKINQUIRY]
+framework_flows: ["02800001", "02810001", "02820001", "02830001"]
+markets: [PK]
+roles: [Maker, Checker]
+depends_on: [dispatch_advice, da_loss_approval, order_booking, stock_allocation, goods_issue_note, goods_return_note]
+sources: [legacy-framework-replay, app-db, live-walk]
+updated: 2026-10-01
+---
+
 # Stock Inquiry and stock balances: how it works (S&D / DCODE)
 
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Confidence tags: **[observed]**, **[db]**, **[inferred]**, **[unknown]**.
-Updated: 2026-10-01 (live blocks 1-3b)
-Last updated: 2026-10-01. Source flows: 02800001 (group 11 seq 9), 02810001 (seq 24), 02820001 (seq 50), 02830001 (seq 60).
+Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
+Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 02800001 (group 11 seq 9), 02810001 (seq 24), 02820001 (seq 50), 02830001 (seq 60). G11-1 learning walk: snapshots before/after DA 1358, after orders, after GIN 506, after GRN 246.
 
 ## 1. Purpose
-Stock Inquiry shows, per warehouse, product, batch and stock type, how much stock the distributor holds on a chosen day: what it opened with, what came in, went out, is promised to orders (Allocated) and what remains. It is the stock controller's check that DA, GIN, GRN and adjustments did what they should. It is read-only except for the button Generate Opening Balances [observed].
+Stock Inquiry shows, per warehouse, product, batch and stock type, how much stock the distributor holds on a chosen day: what it opened with, what came in, went out, is promised to orders (Allocated) and what remains. It is the stock controller's check that DA, GIN, GRN and adjustments did what they should (superseded 2026-10-01 G11-1: role wording; the check is done by the Maker Auto_Multi_Orga, there is no separate stock-controller role). It is read-only except for the button Generate Opening Balances [observed].
+- G11-1: one screen shows the whole stock life of a day: DA approval -> In; order save -> Allocated (Closing down); order cancel before GIN -> Allocated released; GIN approval -> Allocated moves to Out (Closing unchanged); GRN approval -> In [observed 2026-10-01 G11-1].
 
 ## 2. Actors and roles
-Stock Controller = Auto_Multi_Orga [observed]. Auto_Tssm has no Stock Inquiry menu entry (search returns nothing; 'Stock Master Inquiry', 'Stock Adjustment SAN', 'Order Stock Allocation', 'Stock' do exist for him) [observed 2026-10-01].
+Stock Controller = Auto_Multi_Orga [observed] (superseded 2026-10-01 G11-1: roles are only Maker and Checker; Auto_Multi_Orga reads Stock Inquiry as the **Maker**). Auto_Tssm has no Stock Inquiry menu entry (search returns nothing; 'Stock Master Inquiry', 'Stock Adjustment SAN', 'Order Stock Allocation', 'Stock' do exist for him) [observed 2026-10-01].
+- Maker = Auto_Multi_Orga read every G11-1 snapshot (seq 9, 24, 50) [observed 2026-10-01 G11-1]. Checker = Auto_Tssm: no access (see above).
 
 ## 3. Documents and master data
 No document. Data: stock balance table snd_tr_ssb_salestock_balance, keyed by balance date, warehouse, product, batch, stock type; quantity columns in three units (qty_1 CS, qty_2 DZ, qty_3 PC are [inferred] from the screen columns) [db]. Stock types (org 010104): 01 Sound, 02 Damaged, 03 Expired, 04 Lost, 11 Variance Warehouse [db]. Warehouses e.g. Auto Main Warehouse, SAN Warehouse A, test wh 1 [observed]. In the snd-schema base DB the balance table holds only type CL rows to 2026-01-30 and none for org 010104; the live environment overlay differs [db].
+- G11-1 cycle products at Auto Main Warehouse, 01 - Sound: 62740537, 20050310, 62690363, 20050308, 69997598 [observed 2026-10-01 G11-1].
+- Product Name column shows "code - name - price" [observed 2026-10-01 G11-1].
 
 ## 4. Inputs: screens and fields
 Menu Transaction > Stock > Stock Inquiry (layout 201069, STOCKINQUIRY) [observed].
 - Period Type (default DAILY, only DAILY seen), Balance Date (yyyy-MM-dd, default today), Category (default All, 27 entries), Brand (default All); buttons Show Inquiry and Generate Opening Balances.
 - Grid, 21 columns: Category, Brand, Product Name, Warehouse, Batch, Stock Type, then Opening, In, Out, Allocated, Closing, each in CS, DZ, PC. Paged, 15 rows per page; row filters rowfilter_asyd (product), rowfilter_warehousedesc, rowfilter_TXT__STOCKTYPEDESC (tick gridFilterCheckbox with a real click). No filters on numeric columns [observed].
 - Drill-down checkbox-0 reloads the grid and clears the row filter [observed].
+- G11-1 confirmation: filters Period Type* (DAILY), Balance Date, Category, Brand; buttons Show Inquiry, Generate Opening Balances (not clicked); 2026-10-01 grid 39 rows, 3 pages of 15 (was [observed]; now [observed 2026-10-01 G11-1]).
+- After clicking a menu item the side menu stays open and covers the page buttons; click the hamburger once to close it [observed 2026-10-01 G11-1].
 
 ## 5. Process: the business steps in order
-1. [Stock Controller] Navigate to Stock Inquiry.
-2. Choose Period Type, Balance Date, Category, Brand (defaults are fine), click Show Inquiry. No message; an empty result shows "No data" [observed].
-3. Filter by Product / Warehouse / Stock Type and read In, Out, Allocated, Closing (11:9:02800001 and siblings).
+1. [Maker] Navigate to Stock Inquiry.
+2. [Maker] Choose Period Type, Balance Date, Category, Brand (defaults are fine), click Show Inquiry. No message; an empty result shows "No data" [observed]. (Actor prefix added 2026-10-01 G11-1.)
+3. [Maker] Filter by Product / Warehouse / Stock Type and read In, Out, Allocated, Closing (11:9:02800001 and siblings). (Actor prefix added 2026-10-01 G11-1.)
 Never click Generate Opening Balances in a validation flow: it changes data [observed, not clicked].
+
+G11-1 walk (standard vocabulary, trace keys) [observed 2026-10-01 G11-1]:
+1. [Maker] Navigate to Stock Inquiry; Choose Period DAILY, Balance Date 2026-10-01, Category All, Brand All; Click Show Inquiry; Record before snapshot of the five products (before 11:5:00740001).
+2. [Maker] Show Inquiry after DA 1358 + loss 639 approval; Verify In delta = received per product (11:9:02800001).
+3. [Maker] Show Inquiry after six orders booked and one cancelled; Verify Allocated up / Closing down by the open orders (after 11:16:00040001).
+4. [Maker] Show Inquiry after GIN 506 approval; Verify Out = issued, Allocated down by the same, Closing unchanged (11:24:02810001).
+5. [Maker] Show Inquiry after order edit and cancel after GIN; Verify no change (after 11:29:00840001, 11:31:00850001).
+6. [Maker] Show Inquiry after GRN 246 approval; Verify In +19 for 62740537, Out unchanged (11:50:02820001).
 
 ## 6. Outputs and effects
 Live-verified 2026-10-01 (Block 1, 2026-09-30, 39 rows, 3 pages of 15/15/9; Closing/Allocated/Out read for every row): **Closing = Opening + In - Out - Allocated holds on all 39 rows once the units are normalised to base PC with the pack factor from the product name (NNxSIZE)**; literal per-unit comparison holds on 37 rows and fails on 2 only because of PC-to-CS carry (the system borrows a case when allocated PC exceeds opening PC): 20050308 BLUE BAND 32X250G Auto Main (Opening 1978 CS 21 PC, Allocated 39 CS 96 PC, Closing 1936 CS 21 PC: 1978*32+21-(39*32+96) = 61,973 = 1936*32+21) and 20061858 LIFEBUOY 12X180ML IBT (310988 CS 3 PC - 203 CS 9 PC = 310784 CS 6 PC with 12 PC per CS) [observed]. **Automation must assert the identity in base PC, not per column.** Closing is available stock (net of Allocated) on every row [observed]. CS/PC never negative; DZ is 0 in every row and column [observed]. Facts of that day: warehouses Auto Main Warehouse, IBT Main warehouse, test wh 1, SAN Warehouse A; batch always 1-1; stock types 01 Sound (36 rows), 11 Variance (2), 02 Damaged (1: 20080958 SAN Warehouse A, 83 CS 4 PC); no row with any Out (GIN 505 not approved); one row with In (62740537 Auto Main: Opening 80, In 80, Allocated 63, Closing 97) [observed]. Allocated 63 CS equals the GIN 505 line for 62740537; for 20050308 Auto Main allocated 39 CS 96 PC exceeds the GIN 505 line (18 CS 16 PC), so allocation also covers other pending documents [observed].
 Read only. Identity observed on 2026-09-30 for 62740537 in Auto Main Warehouse: Closing = Opening + In - Out - Allocated (80 + 80 - 0 - 63 = 97 CS) [observed]. After DA 1350: closing 80 CS equals the received quantity; on a busy day In 176 and Out 96 netted to 80 [observed].
 
+G11-1 day trace, Auto Main Warehouse, 01 - Sound, Balance Date 2026-10-01 (CS/PC) [observed 2026-10-01 G11-1]:
+
+Before DA 1358 approval (16:4x, 39 rows):
+| Product | Opening | In | Allocated | Closing |
+|---|---|---|---|---|
+| 62740537 | 160/0 | 84 (DA 1356 4 + DA 1357 80) | 63/0 | 181/0 |
+| 20050310 | 5751/3 | 70 | 85/0 | 5736/3 |
+| 62690363 | 6200/94 | 60 | 53/32 | 6207/62 |
+| 20050308 | 1978/21 | 50 | 39/96 | 1986/21 |
+| 69997598 | 2560/171 | 0 | 0/96 | 2560/75 |
+
+Movements and effects:
+| Event | Effect | Evidence |
+|---|---|---|
+| DA 1358 approved (+ loss 639 approved) | In +80 / +64 / +55 / +50 / +40 (received, not dispatched); Closing up by the same; no Damaged/Lost rows; 39 rows | seq 9 |
+| 6 orders booked (2003-2008) | Allocated up and Closing (= ATP) down at each save; 62740537 ATP 261 -> 254 -> ... -> 226 (7 CS per order) | seq 10 |
+| Order 2008 cancelled before GIN | its 7 CS of 62740537 released; net Allocated 62740537 63 -> 98, Closing 261 -> 226; 20050310 Allocated 85 -> 100, Closing 5800/3 -> 5785/3; 62690363 53/32 -> 56/34; 20050308 39/96 -> 41/106; 69997598 0/96 -> 0/102 | seq 16 |
+| GIN 506 approved | Out = issued (35/0, 15/0, 3/2, 2/10, 0/6); Allocated down by the same (62740537 98 -> 63); **Closing unchanged** (226, 5785/3, 6259/60, 2034/11, 2600/69) | seq 24 |
+| Order 2003 edited 7 -> 4 CS after GIN | none (62740537 Out 35, Allocated 63, Closing 226) | seq 29 |
+| Order 2007 cancelled after GIN | none (all five SKUs unchanged) | seq 31 |
+| GRN 246 approved (19 CS 62740537) | In 164 -> 183 (+19), Out stays 35, Allocated 63, Closing 226 -> 245; other SKUs unchanged; 39 rows | seq 50 |
+End of day 62740537: In 183 / Out 35 / Allocated 63 / Closing 245 [observed 2026-10-01 G11-1].
+- 20050308 Allocated after the GIN read 42/0 rather than 41/106 - 2/10 = 39/96: same PC total (1418 - 74 = 1344 PC = 42 CS x 32 PC), i.e. the screen re-normalises PC into CS after a movement [observed 2026-10-01 G11-1].
+- Allocated after the GIN was back to the pre-order level (62740537 63 = the old GIN 505 reservation still pending from 09-30) [observed 2026-10-01 G11-1].
+- Order Booking ATP (Current Stock) = Stock Inquiry Closing; GIN Detail "Current Stock" = Stock Inquiry Closing [observed 2026-10-01 G11-1].
+- Closing = Opening + In - Out - Allocated held through all G11-1 snapshots (upgraded from 2026-09-30 evidence to [observed 2026-10-01 G11-1]).
+
 ## 7. Statuses and transitions
-No document status. Day states: balances exist for a day or not. 2026-09-30 had a grid (39 rows); 2026-10-01 showed "Data grid with 0 rows" (No data) before the DA approval; after DA 1356 was approved it showed 1 row (62740537, Opening 0, In 4, Closing 4) [observed 2026-10-01]. Products without a movement on the new day have no row; the day-roll is not automatic [observed].
+No document status. Day states: balances exist for a day or not. 2026-09-30 had a grid (39 rows); 2026-10-01 showed "Data grid with 0 rows" (No data) before the DA approval; after DA 1356 was approved it showed 1 row (62740537, Opening 0, In 4, Closing 4) [observed 2026-10-01]. Products without a movement on the new day have no row; the day-roll is not automatic [observed] (superseded 2026-10-01 G11-1: by 16:4x the same day showed 39 rows with Opening balances for products without any movement that day, e.g. 69997598 Opening 2560/171, In 0; 62740537 Opening 160 = 09-30 closing 97 + 09-30 allocated 63, so openings appear rebuilt from the previous day with allocation released; who or what generated them during the day is unknown, someone may have clicked Generate Opening Balances: Q-OB1).
 
 ## 8. Rules and validations
-- Balances are keyed by calendar day. Stock received on 09-29 was not found on 09-30: GIN approval failed with "No stock balance found for products: [20050308, 20050310, 62690363, 62740537, 69997598]" [observed].
-- **The DA approval creates the day's balance row for a received product** (In = received, Opening 0), without Generate Opening Balances [observed 2026-10-01]. The row for 62740537 did not carry the previous day's closing (97 CS on 09-30, Opening 0 on 10-01): a day's Opening is NOT filled by the DA approval; whether Generate Opening Balances carries previous closings is [inferred, never run]. Correction: earlier text said a new day has no rows "until opening balances exist"; a movement creates the row for that product.
+- Balances are keyed by calendar day. Stock received on 09-29 was not found on 09-30: GIN approval failed with "No stock balance found for products: [20050308, 20050310, 62690363, 62740537, 69997598]" [observed]. G11-1: with stock received the same day the GIN approval succeeded (GIN 506) [observed 2026-10-01 G11-1].
+- **The DA approval creates the day's balance row for a received product** (In = received, Opening 0), without Generate Opening Balances [observed 2026-10-01]. The row for 62740537 did not carry the previous day's closing (97 CS on 09-30, Opening 0 on 10-01): a day's Opening is NOT filled by the DA approval; whether Generate Opening Balances carries previous closings is [inferred, never run]. Correction: earlier text said a new day has no rows "until opening balances exist"; a movement creates the row for that product. (Superseded 2026-10-01 G11-1 in part: later the same day Opening 62740537 = 160 = previous closing 97 + previous allocated 63, i.e. opening = previous day's closing with the previous day's allocation released; the generator is unknown, Q-OB1. "The DA approval does not fill Opening" still holds.)
 - Approval posts to the received date only; 09-30 stayed unchanged after the 10-01 approval [observed].
 - Closing = Opening + In - Out - Allocated, asserted in base PC units (see section 6) [observed]. Contradiction with end_of_day_validations.md resolved in favour of this identity.
-- Allocated stock is reserved for orders and is deducted from the closing figure [observed]; orders are auto-allocated at save [observed].
-- Framework check "In CS = DA quantity, Out CS = 0" only holds on a clean day [observed].
+- Allocated stock is reserved for orders and is deducted from the closing figure [observed]; orders are auto-allocated at save [observed]. (Upgraded: each order save reserves its normalised quantity at once; Closing/ATP drops by it [observed 2026-10-01 G11-1].)
+- Framework check "In CS = DA quantity, Out CS = 0" only holds on a clean day [observed]. G11-1: the seq 9 check expects In 80 while the day's In was 164 [observed 2026-10-01 G11-1].
+- **Order cancellation before the GIN releases the reservation** (Allocated down, Closing up) [observed 2026-10-01 G11-1].
+- **GIN approval moves Allocated to Out; Closing does not change at GIN approval** (it already went down when the orders reserved stock) [observed 2026-10-01 G11-1].
+- **After the GIN, editing, cancelling or rescheduling an order does not move stock**; the undelivered quantity stays "out" until the GRN [observed 2026-10-01 G11-1].
+- **GRN approval posts the returned quantity as In (Sound); it does not reduce Out** [observed 2026-10-01 G11-1].
+- **DA loss approval creates no stock row** (no Damaged/Lost row) [observed 2026-10-01 G11-1].
+- Received, not dispatched, quantity is what enters In [observed 2026-10-01 G11-1].
 
 ## 9. Messages
-No toast on Show Inquiry. Grid text "No data" when empty [observed].
+No toast on Show Inquiry. Grid text "No data" when empty [observed]. G11-1: no toast on any of the six Show Inquiry clicks [observed 2026-10-01 G11-1].
 
 ## 10. Dependencies
 Reads results of DA (In), GIN (Out), GRN (In), SAN, order allocation (Allocated). Why keyed by day: stock is a daily snapshot per warehouse so each business day starts from an opening balance [inferred]. A cycle that creates and issues stock must run in one calendar day [observed]. Orders, GIN, returns: see the orders/delivery analyst's pages.
+- G11-1 confirmation: DA In, order Allocated, GIN Out and GRN In all posted to 2026-10-01 and were read on one Balance Date (upgraded to [observed 2026-10-01 G11-1]). Route Settlement additionally requires all previous working days to be closed ("Following previous days not closed! Please close date. 2026-09-30"); how a day is closed is open (Q-RS1) and may relate to how openings are produced (Q-OB1) [observed 2026-10-01 G11-1].
+- Hands Closing (= ATP) to Order Booking and GIN Detail [observed 2026-10-01 G11-1].
 
 ## 11. Test design hints
 - Positive: Show Inquiry for today after an approved DA; closing change equals received quantity; Opening/In/Out/Allocated/Closing identity for each row, computed in base PC units (pack factor from the product name) so carry rows do not give false failures.
 - Negative: Balance Date in the future or a day with no balances (expect No data); Auto_Tssm cannot open the screen; stock type filter Damaged shows none unless losses are posted.
 - Boundary: first day (Opening 0), CS vs PC conversion, rows beyond page 1.
 - Traps: use before/after snapshots, not absolute In/Out; take product filter before reading row_1_*; framework screenshot assertion passes with no values checked; never include Generate Opening Balances.
+- G11-1 additions [observed 2026-10-01 G11-1]:
+  - Positive (business effects, one per document): DA approval -> In delta = received; order save -> Allocated delta = normalised order qty and Closing delta = minus the same; cancel before GIN -> reverse; GIN approval -> Out delta = issued, Allocated delta = minus issued, Closing delta 0; GRN approval -> In delta = returned, Out delta 0.
+  - Negative (no-effect checks): loss approval -> no Damaged/Lost row; order edit or cancel after GIN -> no change; these are good regression checks because a wrong implementation would move stock.
+  - Boundary: PC re-normalisation (20050308 Allocated 41/106 shown later as 42/0): compare in base PC; Opening may be 0 in the morning and non-zero later the same day.
+  - Traps: **the framework's absolute In assertion fails on a busy day** (In 164 vs expected 80); Opening is not stable within a day (Q-OB1), so do not assert Opening in a same-day check; GIN approval leaves Closing unchanged, so a "Closing down after GIN" assertion is wrong; GRN posts In, not a reduction of Out, so "Out back to 0 after GRN" is wrong.
 
 ## 12. Open questions
-Q: What exactly does Generate Opening Balances do and who may run it (it may still serve products NOT received that day and carry prior closings; unknown)? | Default: creates the selected day's opening rows from the prior day's closing | Evidence: never clicked; the DA approval created a row without it.
+Q: What exactly does Generate Opening Balances do and who may run it (it may still serve products NOT received that day and carry prior closings; unknown)? | Default: creates the selected day's opening rows from the prior day's closing | Evidence: never clicked; the DA approval created a row without it. (G11-1: openings appeared during the day = previous closing + previous allocated; see Q-OB1.)
 ANSWERED 2026-10-01 (Q11): Closing is net of Allocated; identity holds on 39 of 39 rows in base PC units [observed].
 Q: Other Period Types than DAILY? | Default: only DAILY | Evidence: popup read ambiguous.
-Q: Do DZ columns apply to any product here? | Default: always 0 | Evidence: all seen rows 0.
+Q: Do DZ columns apply to any product here? | Default: always 0 | Evidence: all seen rows 0. (G11-1: DZ is skipped in Order Booking for these SKUs; still 0 everywhere [observed 2026-10-01 G11-1].)
+Q-OB1: Who or what generated the 2026-10-01 opening balances during the day (morning: none; 16:40: present, 62740537 Opening 160 = 97 + 63)? | Default: unknown; do not assert Opening in same-day checks | Class: B | Evidence: G11-1 before snapshot [observed 2026-10-01 G11-1].
+Q-RS1: How is a working day closed (which screen/process), and may 2026-09-30 be closed on cnr1dev1? | Default: ask BA before closing | Class: C | Evidence: Route Settlement "Following previous days not closed! Please close date. 2026-09-30" [observed 2026-10-01 G11-1].
+ANSWERED 2026-10-01 (Q31 part, G11-1): GIN approval = Out up / Allocated down / Closing unchanged; GRN approval = In up (Sound) / Out unchanged; order cancel before GIN releases Allocated; edit/cancel after GIN no effect [observed 2026-10-01 G11-1]. Sales-return stock effect: returned qty comes back via the GRN (see goods_return_note.md).
 
 ## 13. Sources
 framework_atlas/flows/02800001.md, 02810001.md, 02820001.md, 02830001.md; framework_flows/TC-DA-01_executed.md (TC-DA-02), DISPATCH_ADVICE.md; ui.md section "Verified in the group 11 replay"; runs/PILOT-DA-GIN/20260930-1615/exec/stock_inquiry_harvest.json, learning_block1.json, learning_block3b.json (live 2026-10-01); DB snd_tr_ssb_salestock_balance, snd_pr_stt_sku_stocktype.
+- G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (Stock Inquiry BEFORE DA 1358, seq 9, seq 10, seq 16, seq 24, seq 29, seq 31, seq 50, seq 51) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rules 1-3, 6-7; §5 opening-balance contradiction; §8 Q-OB1, Q-RS1).

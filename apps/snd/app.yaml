@@ -24,19 +24,20 @@ environments:
     framework_app_id: "8"          # fct_pr_app_application: PK_Centegy QA 2 (group 11 is allowed for apps 5 and 8)
     company: Unilever Pakistan Limited     # first login step (Company), then the Distributor dropdown
     users:
-      KPO_mp: {}                   # HQ user: no distributor selection after login; password key SD_PASSWORD_KPO_MP
+      KPO_mp: {}                   # head-office user on the M&P distributor (not in group 11); no distributor selection after login; can approve its own documents; password key SD_PASSWORD_KPO_MP
+      Automation: { distributor: "15108843" }        # Maker (QA lead, 2026-10-01); framework login serial 28 (group 11 seq 61/63/66, SAN Admin, inactive); login was rejected on 2026-09-29, re-check
       Auto_Multi_Orga: { distributor: "15108843" }   # 15108843-IBRAHIM TRADERS ("Auto KARACHI"); framework login serial 35
       Auto_Tssm: { distributor: "15108843" }         # approve-only; cannot create documents; framework login serial 8
-    roles:                         # role names used in business steps (docs/STEP_VOCABULARY.md) -> user
-      Maker: Auto_Multi_Orga
-      Stock Controller: Auto_Multi_Orga
-      Order User: Auto_Multi_Orga
-      Checker: Auto_Tssm
-      HQ: KPO_mp
+    # Group 11 (Daily Cycle Only Positive Flow) user roles, stated by the QA lead 2026-10-01:
+    # company Unilever Pakistan Limited, distributor 15108843 - IBRAHIM TRADERS.
+    # There are only TWO roles: Maker and Checker. Each role may have several users; the FIRST user is the default.
+    # There is no separate Stock Controller / Order User: the Maker does stock checks, orders, allocation, GIN, returns...
+    roles:                         # role names used in business steps (docs/STEP_VOCABULARY.md) -> users (first = default)
+      Maker: [Automation, Auto_Multi_Orga]          # Automation = session-start maker for group 11 (QA lead 2026-10-01)
+      Checker: [Auto_Tssm]
     role_notes:
-      Maker: creates documents (Dispatch Advice, orders, GIN, sales return, GRN ...)
-      Checker: approves only, on the same option as the maker ("Forward" with a comment); has no Stock Inquiry screen
-      HQ: has data on the M&P distributor; approving own documents is possible for this user (no maker/checker control)
+      Maker: creates and forwards documents (Dispatch Advice, orders, allocation, GIN, sales return, GRN, deposit slips, SAN ...) and runs the stock / transaction inquiries; Automation is the framework user of the SAN (Admin) rows (seq 61, 63, 66)
+      Checker: approves only, on the same option as the maker ("Forward" with a comment); has no Stock Inquiry screen; checks for every maker
 
 # Access knowledge layer (roles, screens, users, feature flags per market): apps/snd/knowledge/access/README.md
 access:
@@ -128,7 +129,13 @@ login:                               # verified live 2026-09-25
 menu:
   api: /menu-service/api/v1/optionGroup/allMenusByRoles   # role-filtered; Authorization: Bearer localStorage.accessToken
   top_item: { css: "li#{top_id}" }                        # top-level sidebar items; id = optionGroupId
-  search:   { css: "input[name=filterText]" }             # flyout "Search Here"
+  # STANDARD NAVIGATION (QA lead, 2026-10-01; verified live on cnr1dev1): click the top-left hamburger menu
+  # (`#menurollin`, next to "CENTEGY TECHNOLOGIES") -> the side menu opens with "Search Here" -> type the option name
+  # (e.g. "Dispatch Advice") -> click the matching item (li#DYL_<layout>) -> click the hamburger again to collapse.
+  # The home page content area may show a Kaspersky "untrusted certificate" notice: ignore it, do NOT click through it;
+  # it does not block menu navigation.
+  toggle:   { css: "#menurollin" }                        # top-left hamburger: opens/closes the side menu
+  search:   { css: "input[name=filterText]" }             # flyout "Search Here" (hidden until the menu is opened)
   item:     { css: "li#{option_id}" }                     # menu-child-node loadPage
 
 widgets:                             # how DSL verbs act on this app's widgets (DevExtreme)

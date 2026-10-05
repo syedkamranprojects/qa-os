@@ -1,6 +1,6 @@
 # Glossary for QA members (S&D / DCODE)
 
-Updated: 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (17 terms added; evidence learning_sessions/2026-10-01_G11-PK_session1_log.md)
 
 Only terms that appear in the business pages or the DB. Tag = confidence of the explanation; page = where it is explained.
 
@@ -51,3 +51,20 @@ Only terms that appear in the business pages or the DB. Tag = confidence of the 
 | Trace key | group:seq:flow, e.g. 11:5:00740001. | atlas | _TEMPLATE.md |
 | Org 0101 vs 010104 | 0101 holds the transactional rows in the base DB; 010104 is the live environment organisation (same master tables, overlay data). | db | order_to_delivery_planning/README.md |
 | Vendor Code (UPL WH) | Supply point on the DA header. | observed | inbound_stock/dispatch_advice.md |
+| Demand vs Order quantity | On an order line, **Demand** = quantity as typed (5 CS 4 PC), **Order/Allocated** = normalised to cases (7 CS 0 PC at 2 PC per case). Transaction Inquiry Detail also shows **Delivered** (empty until delivery). | observed 2026-10-01 G11-1 | order_to_delivery_planning/order_booking.md |
+| ATP (Current Stock) | Available-to-promise on the order line = Stock Inquiry Closing of that warehouse/day; drops by each saved order's quantity (reservation at save). | observed 2026-10-01 G11-1 | order_to_delivery_planning/order_booking.md |
+| Outlet tax profile | Shown in the outlet label: Tax Exemption Y/N, Tax Registered Reg/UnReg, Tax Payer Y/N, Advance Tax Exempt Y/N. Tax Exemption Y -> tax 0 on the order. | observed 2026-10-01 G11-1 | order_to_delivery_planning/order_booking.md |
+| Total Offering / promotion | The list of promotions applied to an order (Promotion ID, Description, Type BONUS2 / TRADEOFFER, Discount). The order discount is their sum; two 10%-of-gross promotions plus fixed amounts were seen, so the % depends on the basket. | observed 2026-10-01 G11-1 | order_to_delivery_planning/transaction_inquiry.md |
+| 3rd Schedule (tax) | Charge "9000 - 3rd Schduele" next to "0001 - Value Added Tax" in Total Tax; Pakistani Third-Schedule goods are taxed on retail price, which is why some SKUs carry ~24-26% instead of 18%. | observed amounts / inferred meaning | order_to_delivery_planning/transaction_inquiry.md |
+| Delivery Date Change | Moves a PJP's orders from the planned delivery date (next PJP visit, e.g. 10-07) to another date (today) in bulk; needed so the GIN can issue them today. | observed 2026-10-01 G11-1 | order_to_delivery_planning/delivery_date_change.md |
+| Ready to dispatch/Packed | Order (cash memo) document status once its GIN is approved. | observed 2026-10-01 G11-1 | delivery_and_returns/goods_issue_note.md |
+| Delivered/Invoiced | Order status after Cashmemo Status save; Actual Delivery Date = time of that save. | observed 2026-10-01 G11-1 | delivery_and_returns/cashmemo_reschedule_and_status.md |
+| Reattempt | Order status after Cashmemo Reschedule: new delivery date, taken off the GIN; its goods come back on the GRN. | observed 2026-10-01 G11-1 | delivery_and_returns/cashmemo_reschedule_and_status.md |
+| Principle Invoice | On Sales Return screens: the original cash memo a return (CM-02) belongs to. | observed 2026-10-01 G11-1 | delivery_and_returns/sales_return.md |
+| Save Sale Pick | Sales Return Status Change action that records the returned goods as picked from the outlet ("Save successfully"). | observed 2026-10-01 G11-1 | delivery_and_returns/sales_return.md |
+| Suggested (GRN) | Quantity the GRN proposes to bring back for the DSR's GIN: everything issued but not delivered (cancelled, cut, rescheduled) plus picked returns. | observed 2026-10-01 G11-1 | inbound_stock/goods_return_note.md |
+| Deposit slip | Bank deposit of money the DSR collected: header (PJP-DSR = delivery DSR, Type Cash/Cheque, Bank, Branch, Amount) + allocation of the amount to cash memos or outlets. Stays "Un Posted" until settlement. | observed 2026-10-01 G11-1 | settlement_and_finance/deposit_slips.md |
+| Adjusted Amount | Part of a deposit slip already allocated to cash memos (refreshes only when the screen is reloaded). | observed 2026-10-01 G11-1 | settlement_and_finance/deposit_slips.md |
+| Un Posted Amount (cash memo) | Money already allocated to a cash memo on OTHER, not yet posted deposit slips; Balance/Received change only at posting. | observed 2026-10-01 G11-1 | settlement_and_finance/deposit_slips.md |
+| Collection Type (Route Settlement) | One line per deposit slip (e.g. 1131-CASH, 1132-CHEQUE) plus Stock Shortage, each with Payable and Received Amount. | observed 2026-10-01 G11-1 | settlement_and_finance/route_settlement.md |
+| Day close / previous day not closed | Route Settlement refuses while an earlier working day is open: "Following previous days not closed! Please close date. <date>". How a day is closed is open (Q-RS1). | observed 2026-10-01 G11-1 | settlement_and_finance/route_settlement.md |

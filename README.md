@@ -50,7 +50,7 @@ python runtime/qaos_player.py apps/snd/flows/P0_open_sku_substitution_policy.jso
 | What | File |
 |---|---|
 | Global defaults: limits (10 core cases), gates, safety rules, browser and wait settings, connector names | `qaos.yaml` |
-| Per app: URLs, environments, non-production flag, users, **roles** (Maker, Checker, HQ), login recipe, **markets** (framework group and app id per market), defaults | `apps/<app-id>/app.yaml` |
+| Per app: URLs, environments, non-production flag, users, **roles** (Maker, Checker; several users per role allowed), login recipe, **markets** (framework group and app id per market), defaults | `apps/<app-id>/app.yaml` |
 | Passwords (per person, outside the repo) | `~/.qa-os/credentials.json` |
 | Read everything through | `runtime/qaos_config.py` (`show`, `app`, `role`, `market`, `validate`) |
 

@@ -1,13 +1,13 @@
 # <Business area>: how it works (S&D / DCODE)
 
-Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]** seen live in a replay or recording, **[db]** declared by the application DB or the framework tables, **[inferred]** concluded by Claude from names or structure (to be confirmed), **[unknown]** not determinable yet.
+Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]** seen live in a replay or recording, **[db]** declared by the application DB or the framework tables, **[stated]** said by an owner (BA/QA ruling, with name and date), **[inferred]** concluded by Claude from names or structure (to be confirmed), **[unknown]** not determinable yet. Rules: `docs/LEARNING_STANDARD.md` §3.
 Last updated: <date>. Source flows: <atlas flow ids and group 11 seq numbers>.
 
 ## 1. Purpose
 What the business does here and why it exists, in plain language (2-5 sentences). Where it sits in the Daily Cycle (what comes before and after).
 
 ## 2. Actors and roles
-Who performs each part (Maker, Checker, Stock Controller, HQ ...), which user plays the role on cnr1dev1, whether a different user must approve.
+Who performs each part (only two roles: Maker and Checker; see `apps/snd/app.yaml` roles), which user plays the role on cnr1dev1, whether a different user must approve, and what the other role can or cannot do on this option.
 
 ## 3. Documents and master data
 The documents this area creates or changes (document type, number format, where the number is shown) and the master data it needs (outlets, PJPs, products, warehouses, price lists ...).
