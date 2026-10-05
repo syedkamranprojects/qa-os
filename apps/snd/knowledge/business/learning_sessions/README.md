@@ -1,8 +1,12 @@
 # Learning sessions (S&D)
 
 Copies of each learning session's plan, log and report (docs/LEARNING_STANDARD.md), kept here because `runs/` is not shipped.
-The log holds the raw business facts per flow; the report is the §7 summary. Facts are NOT yet merged into the area pages until a "Consolidate" pass says so in STATUS.md.
+The log holds the raw business facts per flow; the report is the §7 summary. Facts are NOT yet merged into the area pages until a "Consolidate" pass says so (here and in STATUS.md).
 
 | Date | Session | Scope | Result |
 |---|---|---|---|
 | 2026-10-01 | G11-PK session 1 (`2026-10-01_G11-PK_session1_*`) | group 11, seq 1-51, cnr1dev1 | seq 1-50 walked (15 skipped by QA lead), stopped at 51 Route Settlement: "Following previous days not closed! Please close date. 2026-09-30". **Consolidated 2026-10-01 18:5x** into 26 business pages (4 area agents + shared files); check: 348 removed diff lines verified, all facts survive (rewritten/superseded in place). |
+| 2026-10-05 | G11-PK session 2 (`2026-10-05_G11-PK_session2_plan.md`, `_log.md`, `_report.md`) | group 11, fresh full run from seq 1, cnr1dev1 | seq 1-50 walked a second time with new documents (DA 1359, loss 640, orders COL26000002009-2014, GIN 507, return COL26000000714, slips 1137-1142, GRN 247); seq 15 skipped again; same amounts and messages as session 1; stopped at 51: "...Please close date. 2026-10-01". **Consolidated 2026-10-05.** |
+| 2026-10-05 | G11-PK session 2b (`2026-10-05_G11-PK_session2b_resume_log.md`) | group 11, resume seq 51-71, same day | after a QA team member closed the earlier days and settled 02112 (10-01, 10-05): seq 51-54 read (posting, Offset), 55/56 bypassed by the QA lead, 57 day close done (End Of Day / Complete), 58-59 SAN 96 created and approved, 60 and 68-71 read (workbook drift). **Consolidated 2026-10-05.** |
+
+Coverage report of the consolidated sessions (LEARNING_STANDARD §7): [2026-10-05_G11-PK_coverage_report.md](2026-10-05_G11-PK_coverage_report.md).

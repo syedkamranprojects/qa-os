@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: []
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-01
+updated: 2026-10-05
 ---
 
 # Dispatch Advice (DA): how it works (S&D / DCODE)
@@ -16,10 +16,12 @@ updated: 2026-10-01
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]** seen live, **[db]** declared by the DB or framework tables, **[inferred]** concluded by Claude, **[unknown]** not determinable yet.
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 00100001 (group 11 seq 2), 00740001 (seq 5); inactive 00100002 (negative/delete), 00740002 (reject). G11-1 learning walk: DA **1358** created, forwarded and approved.
+Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 
 ## 1. Purpose
 A Dispatch Advice is the distributor's record that a vendor (the company supply point "UPL WH") has dispatched goods to the distributor's warehouse. When it is approved, the quantities RECEIVED become stock in that warehouse, so orders can later be allocated and issued (GIN). It is the first business step of the Daily Cycle: nothing can be sold until a DA is approved [observed: before DA 1356 was approved on 2026-10-01 every product pick in Order Booking answered "Stock not available."; after approval 62740537 became orderable]. Next: DA Loss Approval, then Stock Inquiry (see da_loss_approval.md, stock_inquiry_and_balances.md).
 - Confirmed in the G11-1 walk: after DA 1358 was approved, Order Booking ATP for its five products equalled the Stock Inquiry closing that included the DA's received quantities (orders see stock received today) [observed 2026-10-01 G11-1].
+- G11-2: confirmed on a second day (DA 1359, 2026-10-05): identical inputs gave identical amounts (net 2,227,455.842, prices unchanged over four days) and the received stock fed Order Booking ATP the same day [observed 2026-10-05 G11-2].
 
 ## 2. Actors and roles
 - Maker = Auto_Multi_Orga (creates, adds lines and losses, Forward) [observed]. Auto_Tssm cannot create a DA: "Current user is not authorized to save this record!" [observed].
@@ -30,6 +32,7 @@ A Dispatch Advice is the distributor's record that a vendor (the company supply 
 - **On the Pending DA the Maker still has Forward and Reject enabled (Add also)**; not clicked. On the GIN the same day the Maker's Forward/Reject were disabled on a Pending document. So the screen does not block the Maker from approving or rejecting his own DA (possible defect; Q-DA1) [observed 2026-10-01 G11-1].
 - A Checker opening the screen sees a blank new-DA form with Save enabled, but cannot actually save (authorization message above) [observed 2026-10-01 G11-1]. The Checker's button set on the Pending DA is Add, Forward, Reject = the same set the Maker had [observed 2026-10-01 G11-1].
 - After login Auto_Tssm landed directly on the menu (no Company / Distributor pages) [observed 2026-10-01 G11-1; cause unknown].
+- G11-2 (DA 1359): Maker Auto_Multi_Orga created and forwarded; Checker Auto_Tssm approved with Forward ("Forwarded successfully"); confirmed on a second day [observed 2026-10-05 G11-2]. Q-DA1 (Maker buttons on his own Pending DA) not re-checked.
 
 ## 3. Documents and master data
 - Document type DA-01 "Dispatch Advice" (also DA, DA-05 "Dispatch Advice Auto") [db snd_pr_dot_documenttype]. Header table snd_tr_stm_stock_master, lines snd_tr_stm_stock_detail [db]. Document No is a plain number (570, 1350, 1351, 1352) shown in DOCUMENTNO after save [observed]. G11-1: Document No 1358 [observed 2026-10-01 G11-1].
@@ -38,6 +41,7 @@ A Dispatch Advice is the distributor's record that a vendor (the company supply 
 - Cycle products of DA 1358: 62740537 RAFHAN SLPC OILS CORN TIN 2X10L, 20050310 BLUEBAND MARGARINE 16X500G, 62690363 SURF EXCEL HS 204X35G, 20050308 BLUE BAND MARGARINE 32X250G, 69997598 KNORR CKN CUBE 288X18G [observed 2026-10-01 G11-1].
 - **The price in the product label is not always the purchase price**: 20050310 label 31.25, Purchase Price / PC 33.79; 62690363 label has no price, purchase price 15.45; 62740537 7711.47 in both [observed 2026-10-01 G11-1]. The DA purchase price also differs from the selling trade price seen in Order Booking (e.g. 20050308 purchase 118.9316 / PC vs trade 87.6816; purchase > trade for some SKUs: price-master observation) [observed 2026-10-01 G11-1].
 - Purchase price is held with 8 decimals (e.g. 7711.46500000), shown rounded to 2; amounts use the precise price [observed 2026-10-01 G11-1].
+- G11-2: Document No **1359** (serial +1 vs 1358) [observed 2026-10-05 G11-2].
 
 ## 4. Inputs: screens and fields
 Menu Transaction > Primary Sale > Dispatch Advice (layout 201068, DYL_201068); tabs Header Info / Dispatch Detail [observed]. The menu search "Dispatch Advice" also offers "Dispatch Advice NUP" and "Dispatch Advice II" [observed 2026-10-01 G11-1].
@@ -53,6 +57,7 @@ Menu Transaction > Primary Sale > Dispatch Advice (layout 201068, DYL_201068); t
 - Buttons: Add, Save, Update, Delete, Forward, Reject, Terminate [step_labels]. (Superseded 2026-10-01 G11-1: no Terminate button was shown on this screen for the Checker on a Pending DA; buttons seen were Add, Save, Update, Delete, Forward, Reject.)
 - Amount check screen (001010) reads Purchase Price / PC, Gross Amount, Discount, Tax Amount, Net Amount [atlas].
 - Master grid: reopen a DA with Show filter row -> Document No; the grid's Warehouse column shows "Auto KARACHI" (the distributor name), not the warehouse [observed 2026-10-01 G11-1].
+- G11-2: fresh-screen defaults confirmed on a second day (Warehouse 0000000025-IBT Main warehouse, Vendor UPL WH, DA Type Dispatch Advice, Document Date today). Values entered for DA 1359: Warehouse C0000000055-Auto Main Warehouse, SO Automation_05-10-2026, Shipment 123, Deliver 12312, Tax Invoice 123, Comments Positive_QA_Learning_02, Reference No 1115 [observed 2026-10-05 G11-2].
 
 ## 5. Process: the business steps in order
 1. [Maker] Navigate to Dispatch Advice (11:2:00100001).
@@ -80,6 +85,8 @@ G11-1 walk, DA 1358 (standard vocabulary, trace keys) [observed 2026-10-01 G11-1
 | 5 | 69997598 | 40 | 0 | 40 | 595,336.32 |
 DA 1358 net (header/grid) PKR 2,227,455.842, Tax 0, Discount 0 [observed 2026-10-01 G11-1].
 
+G11-2 walk, DA 1359 (2026-10-05): same steps as DA 1358 (11:2:00100001 save + 5 lines + losses + Forward; 11:5:00740001 Checker Forward); same five lines 80 / 70 (loss 6) / 60 (loss 5) / 50 / 40 CS; line nets 1,233,834.40 / 34,597.38 / 173,397.25 / 190,290.50 / 595,336.32; DA net 2,227,455.842 [observed 2026-10-05 G11-2].
+
 ## 6. Outputs and effects
 Approved DA: received quantities (dispatched minus loss) are added to Sound stock of the warehouse for that day (closing of 62740537 = 80 CS = DA 1350 quantity) [observed].
 Live-verified 2026-10-01 (DA 1356: 62740537, dispatch 5 CS, loss 1 CS, received 4 CS): before approval Stock Inquiry for 2026-10-01 had 0 rows (No data); after approval it had exactly 1 row: 62740537 / Auto Main Warehouse / batch 1-1 / 01 - Sound, Opening 0, In 4, Out 0, Allocated 0, Closing 4 CS [observed]. So **the DA approval itself creates the day's stock row (no start-of-day step, Generate Opening Balances was not clicked)**; In = received quantity, posted to the Received Date (2026-10-01), not to the previous day (09-30 stayed unchanged: Opening 80 / In 80 / Closing 97) [observed]. The loss 1 CS created NO 02 - Damaged stock row while the loss record is Pending [observed]. Order Booking then showed ATP 4/0/0 for 62740537 = the Stock Inquiry closing [observed]. NOTE: the new row started with Opening 0 although 62740537 closed 09-30 with 97 CS: previous-day stock is not carried by the DA approval [observed; carry-over mechanism unknown] (superseded 2026-10-01 G11-1: by 16:4x the same day's rows had Opening balances, 62740537 Opening 160 = 09-30 closing 97 + 09-30 allocated 63; who or what generated them is open, Q-OB1; the DA approval itself still only adds In). Net amount = sum of line amounts after loss (PKR 1,632,119.522 for DA 1350) [observed]. Document number goes on via REPO_DOCUMENTNO [atlas].
@@ -87,6 +94,8 @@ Live-verified 2026-10-01 (DA 1356: 62740537, dispatch 5 CS, loss 1 CS, received 
 - The approval created ONE loss record (Serial 639) for the DA's three loss rows; the approved loss created no Damaged/Lost stock row (see da_loss_approval.md) [observed 2026-10-01 G11-1].
 - Line amounts: Gross = Received qty (in PC) x Purchase Price / PC; Discount 0, Tax 0, Net = Gross on every line; amounts are recomputed on Received after Calculate [observed 2026-10-01 G11-1].
 - After approval all fields are read-only and only Add is enabled [observed 2026-10-01 G11-1].
+- G11-2 (supersedes the note above that previous-day stock is not carried): on 2026-10-05 the approval of DA 1359 was the first movement of the day and created ALL 39 stock rows with Opening = previous Closing + still-Allocated (62740537 Opening 308), then added the received quantities as In (+80 / +64 / +55 / +50 / +40) [observed 2026-10-05 G11-2]. See stock_inquiry_and_balances.md (new-day rule, Q-OB2 for the 10-01 difference).
+- G11-2: the approval created loss record **640** (one per DA, serial +1) [observed 2026-10-05 G11-2].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -113,14 +122,17 @@ Live-verified 2026-10-01 (DA 1356: 62740537, dispatch 5 CS, loss 1 CS, received 
 - The maker's Forward creates NO loss record; it is created when the checker approves the DA (see da_loss_approval.md) [observed]. G11-1: one loss record per DA, created at approval (Serial 638 -> 639) [observed 2026-10-01 G11-1].
 - Correction 2026-10-01: earlier text said duplicate SO Number was untested; it is allowed.
 - The app does not stop the Maker from acting on his own Pending DA (Forward / Reject enabled for him) [observed 2026-10-01 G11-1; Q-DA1].
+- G11-2: amounts are reproducible: the same lines on 2026-10-01 and 2026-10-05 gave the same line and DA totals [observed 2026-10-05 G11-2].
 
 ## 9. Messages
 "Saved successfully" (header); "Saved Successfully!" (line); "Forwarded successfully"; "Please add comments"; "Detail is not available"; "Current user is not authorized to save this record!". The loss-modal row save shows no toast, but picking the stock type in the modal raises "Reason Type is required" before the reason is chosen (the row still saves) [observed 2026-10-01]. Silent Save with a missing mandatory field: no message at all [observed].
 - G11-1 confirmations: header Save -> "Saved successfully"; line Save -> "Saved Successfully!" (capital S, exclamation; differs from the header text); Maker Forward and Checker Forward -> "Forwarded successfully"; loss-window row Save/Cancel -> no message [observed 2026-10-01 G11-1].
+- G11-2: "Saved successfully" (header), "Saved Successfully!" (each line), "Forwarded successfully" (Maker and Checker) confirmed on a second day [observed 2026-10-05 G11-2].
 
 ## 10. Dependencies
 Reads warehouse, vendor, product master. Hands to: DA Loss Approval (record created when losses exist), Stock Inquiry, and Order Booking / Allocation / GIN (need Sound stock for the same calendar day). Stock is keyed by day: see stock_inquiry_and_balances.md. Live-verified 2026-10-01: stock posts to the Received Date (day of approval). Orders and GIN are covered by the orders/delivery analyst's pages.
 - G11-1: the first successful GIN approval of the replay (GIN 506) was possible because DA 1358 was approved the SAME day; the received stock fed Order Booking ATP and the GIN [observed 2026-10-01 G11-1].
+- G11-2: the DA approval is also the step that opens the stock day (creates all rows with carried Openings) when it is the first movement of the day [observed 2026-10-05 G11-2].
 
 ## 11. Test design hints
 - Positive: one line; four lines; with and without loss; Forward then approve by the checker; approved Received Date = today.
@@ -136,6 +148,10 @@ Reads warehouse, vendor, product master. Hands to: DA Loss Approval (record crea
   - Negative: Forward with zero lines -> "Detail is not available" although the button is enabled.
   - Boundary: the warehouse default is IBT Main warehouse, not Auto Main; a test that does not pick the warehouse posts stock to the wrong warehouse.
   - Traps: the grid's Warehouse column shows the distributor name (Auto KARACHI), so do not assert the warehouse from the grid; after Forward the open form still shows Draft until reopened; message texts differ in case and punctuation between header ("Saved successfully") and line ("Saved Successfully!").
+- G11-2 additions [observed 2026-10-05 G11-2]:
+  - Positive (regression): the same five-line DA must give the same amounts on any day while prices are unchanged (2,227,455.842 on 10-01 and 10-05); a difference signals a price-master change.
+  - Positive (new day): if the DA approval is the first movement of the day, assert the day's rows appear with carried Openings, then In delta = received.
+  - Trap: on 10-05 the framework's absolute check (seq 9 In 80) passed only because DA 1359 was the day's only receipt.
 
 ## 12. Open questions
 Q: Is a different approver enforced by the app? | Default: no, keep as QA rule | Evidence: KPO_mp approved own DA 570; the GIN workflow declares Verify and Approve for the same role. (G11-1 adds: the Maker keeps Forward/Reject enabled on his own Pending DA 1358; see Q-DA1.)
@@ -146,7 +162,9 @@ ANSWERED 2026-10-01 (BA1 part): the DA approval creates the day's stock row; no 
 Q-DA1: May the Maker approve or reject his own Pending Dispatch Advice (Forward/Reject stay enabled for him)? | Default: must not (QA convention); possible defect | Class: C | Evidence: DA 1358 Pending, Maker buttons Forward/Reject/Add enabled; on GIN 506 the Maker's Forward/Reject were disabled [observed 2026-10-01 G11-1].
 Q-DA2: What are "Dispatch Advice NUP" and "Dispatch Advice II" in the menu, and are they in scope? | Default: out of scope; only "Dispatch Advice" is tested | Class: A | Evidence: menu search results only [observed 2026-10-01 G11-1].
 Q-DA3: Why does the product label price differ from the Purchase Price / PC (and purchase exceed trade price for some SKUs)? | Default: label shows another price list; assert amounts on Purchase Price / PC only | Class: C | Evidence: 20050310 label 31.25 vs purchase 33.79; 20050308 purchase 118.93 vs trade 87.68 [observed 2026-10-01 G11-1].
+- G11-2 (2026-10-05): no change to Q-DA1/Q-DA2/Q-DA3; Q-DA1 is merged into BA2 in OPEN_QUESTIONS.md (self-approval).
 
 ## 13. Sources
 runs/PILOT-DA-GIN/20260930-1615/exec/learning_block2a.json, learning_block3a.json, learning_block3b.json (live 2026-10-01); LIVE_FINDINGS.md; framework_atlas/flows/00100001.md, 00740001.md, 00100002.md, 00740002.md; framework_flows/DISPATCH_ADVICE.md, TC-DA-01_executed.md; runs/PILOT-DA-GIN/20260930-1615/friction.md, PILOT_REPORT.md; DB snd_pr_dot_documenttype, wkf_wf_wfs_workflow_status, wkf_wf_weo_wrkflw_event_orga, snd_tr_stm_stock_master/detail (names only); step_labels.json.
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (seq 2, seq 5, Stock Inquiry before/after, seq 9) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rule 1, §6 defect 1, §8 Q-DA1).
+- G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 2, 5, 9).

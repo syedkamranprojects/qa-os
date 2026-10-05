@@ -8,23 +8,26 @@ markets: [PK]
 roles: [Maker]
 depends_on: [goods_issue_note, cashmemo_reschedule_and_status, sales_return]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-01
+updated: 2026-10-05
 ---
 
 # Deposit slips: banking the cash and cheques collected (S&D / DCODE)
 
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]** seen live, **[db]** declared by the application DB or framework tables, **[inferred]** concluded by Claude, **[unknown]** not determinable yet. Rules: `docs/LEARNING_STANDARD.md` §3.
 Last updated: 2026-10-01 (consolidated with learning session G11-1, seq 39-46). Source flows: 03230001 (seq 39), 03240001 (40), 03260001 (41), 00140001 (42), 00140004 (44), 00140005 (46); related 03220001 (53), 03250001 (54). ~~No live replay of any exists~~ (superseded 2026-10-01: all six walked live in G11-1 on cnr1dev1, slips 1131-1136). The DB holds no 010104 deposit-slip rows (4 rows, all org 0101) [db, before the walk].
+Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 
 ## 1. Purpose
 A deposit slip records the money a DSR (salesman, identified by his daily PJP) hands in after delivering: how much of the cash and/or cheques collected on cash memos (invoices) is being banked. It ties collected money to specific cash memos so each outlet's receivable is reduced [inferred from table links: slip detail -> snd_tr_cmm_cashmemo_master]. It follows GIN/delivery and sales return and precedes Route Settlement (seq 51), which reconciles the day's collection per PJP. [inferred; order confirmed observed 2026-10-01 G11-1: slips made after Cashmemo Status (delivered) and Sales Return pick, and each slip appears as a collection line in Route Settlement]
 - The slip is a header (PJP-DSR, Cash or Cheque, bank, amount) plus allocations of that amount to the DSR's delivered cash memos, either per cash memo or per outlet (multi-cheque) [observed 2026-10-01 G11-1].
 - Receivable balances do not move when a slip is saved or allocated; they move at "posting", which has not been seen yet and is presumed to happen at Route Settlement [observed 2026-10-01 G11-1 for "no movement"; posting moment inferred, Q-DS1].
+- G11-2b (answers Q-DS1): **posting happens at Route Settlement**: the six 2026-10-05 slips turned from Un Posted to Posted once route 02112 was settled; only then did the cash memos' Received / Balance and Transaction Inquiry Offset change [observed 2026-10-05 G11-2b].
 
 ## 2. Actors and roles
 Maker Auto_Multi_Orga on all six flows (same session, no user switch) [db: group 11; observed 2026-10-01 G11-1, segment 7]. An approval row "Deposit Slip Approval" (00140002) exists but is inactive (seq 43/45/47) [db], so no approval step is exercised; whether slips need approval is [unknown].
 - The screen shows Forward and Reject buttons next to Add/Save/Update/Delete/Save All [observed 2026-10-01 G11-1]; they were not clicked, so a maker-checker path may exist on screen even though group 11 does not use it [inferred].
 - Checker behaviour on this screen not walked [unknown].
+- G11-2: Maker Auto_Multi_Orga made all six slips of 2026-10-05 (seq 39-46) in one login [observed 2026-10-05 G11-2].
 
 ## 3. Documents and master data
 - Header `snd_tr_dsl_deposit_slip`: org, entity type, distributor code, serial `tdsl_deposit_slip_srno` (auto-generated, shown as "Deposit Slip"). Holds PJP daily number, instrument type, bank, branch, amount, date, status (default `I`) [db]. Serial is a plain running number per distributor: 1128-1130 existed, today 1131-1136 [observed 2026-10-01 G11-1].
@@ -34,6 +37,8 @@ Maker Auto_Multi_Orga on all six flows (same session, no user switch) [db: group
 - **"National Bank of Pakistan" (the workbook value) no longer exists**; only "National Bank of Pakistanss" is offered (framework value drift) [observed 2026-10-01 G11-1].
 - Bank Branch fills itself when the bank has one branch (Bank Al-Habib Limited -> DHA Branch) [observed 2026-10-01 G11-1].
 - Upstream: a delivered cash memo with open balance (REPO_GINNO from seq 20) [db; observed 2026-10-01 G11-1: only cash memos in status Delivered/Invoiced for the DSR were listed (2003, 2004, 2005)].
+- G11-2: slips **1137-1142** on 2026-10-05; the header grid lists every slip of the distributor (1129/1130 Posted, 1131-1136 of 10-01 Un Posted at that time) [observed 2026-10-05 G11-2].
+- G11-2: the grid Bank_Name list (Bank tdm, National Bank of Pakistanss, SME Bank, United Bank Limited, ...) is a **different list** from the header Bank list (~48 entries incl. test junk); "National Bank of Pakistan" still absent [observed 2026-10-05 G11-2].
 
 ## 4. Inputs: screens and fields
 Menu: Transaction > Receivable > Deposit Slip (`DYL_201802`) [db; observed 2026-10-01 G11-1, layout 201802; a direct URL redirects to the menu]. Header screen plus a child tab listing cash memos.
@@ -52,6 +57,9 @@ Menu: Transaction > Receivable > Deposit Slip (`DYL_201802`) [db; observed 2026-
 - **Date-format trap**: in the "Cheque Details" popup the Cheque Date must be typed **MM/DD/YYYY** ("10/01/2026"); typing 2026-10-01 shows the text but leaves the value empty, and row Save answers "Fill all the values!". The Outstanding Cash memos grid accepts yyyy-mm-dd [observed 2026-10-01 G11-1].
 - Picking uses a filter then a GIN row (`filter_2`, `row_1_gin`) and "save all" (`saveallBtn`) [db: atlas events].
 - Variants: 03230001 Full Amount Cash; 03240001 Full Amount Cheque (adds Bank, Bank Branch, Cheque No/Date); 03260001 Unposted (then screen "Deposit slip Val Unposted" reads **Un Posted Amount**); 00140001 Multi Cheques (screen "Deposit Slip,Outlet": Cheque. No, Cheque Date, Bank, Net Amount, cash-memo selection grid, popup); 00140004 Cheque; 00140005 Cash [db; all six walked 2026-10-01 G11-1, see section 5].
+- G11-2: header PJP-DSR default 02111 - AutomationOB1 on first opening; **Add also brought PJP-DSR back to 02111** on 10-05 (contradicts the G11-1 note "Add gives a BLANK form"; keep both, set PJP-DSR explicitly every time) [observed 2026-10-05 G11-2]. After other header fields are set the PJP-DSR dropdown may stop opening; open it with its arrow [observed 2026-10-05 G11-2].
+- G11-2: the Outstanding Cash memos tab lists all open memos of the PJP, including earlier days' memos (10-01's 2004, 2005 with Un Posted Amount = their allocations on unposted slips); Outstanding Outlet showed outlet 04 Net 181,414, Un Posted 4,200 (old allocations) [observed 2026-10-05 G11-2].
+- G11-2b: after posting the slip header is read-only (Save, Update, Delete, Forward, Reject, Save All disabled; only Add) [observed 2026-10-05 G11-2b].
 
 ## 5. Process
 Framework view [db]:
@@ -74,6 +82,15 @@ Observed business steps (2026-10-01 G11-1) [observed]:
 10. [Maker] Add a slip 02112 / Cash / 1000, Save -> "Saved successfully" (slip 1136); enter Deposit-Amount 1000 on COL26000002003, Save All -> "Record saved successfully!". trace 11:46:00140005
 11. [Maker] Reload the screen and verify Adjusted Amount per slip (Adjusted refreshes only on reload). trace 11:46:00140005
 
+G11-2 walk (2026-10-05, slips 1137-1142) [observed 2026-10-05 G11-2]:
+1. [Maker] Cash slip 02112 / 101161 -> "Saved successfully" (1137); Deposit-Amount 101161 on COL26000002010; Save All -> "Record saved successfully!" (11:39:03230001).
+2. [Maker] Add; Cheque slip 02112 / Bank Al-Habib Limited (DHA Branch fills) / 119370 -> 1138; row COL26000002011 Cheque No. 1234501, Cheque Date 2026-10-05, Bank_Name National Bank of Pakistanss, 119370; Save All -> "Record saved successfully!" (11:40:03240001).
+3. [Maker] Cash slip 1,000 (1139); Deposit-Amount 600 on COL26000002009 (deliberately partial); Save All -> "Record saved successfully!"; Adjusted 600 of 1,000 (11:41:03260001).
+4. [Maker] Cheque slip 1,000 (1140); Outstanding Outlet: tick 1000000004, "+", Cheque Details 12444 / 200, 22337 / 300, 12222 / 400, 1234567 / 100 (date 10/05/2026, bank National Bank of Pakistanss); Save Changes; Save All -> "Payment Adjusted Successfully" (11:42:00140001).
+5. [Maker] Cheque slip 1,000 (1141); row COL26000002009 Cheque No. 1234567 (same number as a cheque of 1140), 2026-10-05, National Bank of Pakistanss, 1000; first Save All -> "Required Fields are empty!" (an old row, COL26000002005, was ticked without cheque details); untick it; Save All -> "Record saved successfully!" (11:44:00140004).
+6. [Maker] Cash slip 1,000 (1142); Deposit-Amount 1000 on COL26000002009 (its Un Posted Amount was 1,600); Save All -> "Record saved successfully!" (11:46:00140005).
+7. (G11-2b, after settlement) [Maker] Reopen Deposit Slip; Verify 1137-1142 Posted; open the Outstanding Cash memos of 02112 (11:53:03220001, 11:54:03250001).
+
 ## 6. Outputs and effects
 A slip with detail rows per cash memo; header status starts `I`; a DB sample shows status `A` with a posting date once complete [db, org 0101]. `snd_tr_cmm_cashmemo_payment` references the slip [db].
 - ~~"Unposted" = slip money not yet allocated to cash memos [inferred]~~ (superseded 2026-10-01: on a **cash memo**, "Un Posted Amount" = the amount already allocated to it on OTHER slips that are not yet posted; the open slip's own allocation is not counted [observed 2026-10-01 G11-1]. E.g. 2003 Un Posted went 600 -> 1,600 -> 2,600 as slips 1133, 1134, 1135 allocated to it.)
@@ -94,6 +111,32 @@ A slip with detail rows per cash memo; header status starts `I`; a DB sample sho
 
 - How to check: reopen the screen (reload), read Status and Adjusted Amount per slip in the upper grid; read Net / Received / Balance / Un Posted per cash memo in the Outstanding Cash memos tab; at Route Settlement each slip appears as one Collection Type line (see route_settlement.md) [observed 2026-10-01 G11-1].
 
+G11-2 slips of 2026-10-05 [observed 2026-10-05 G11-2], with the G11-2b state after settlement [observed 2026-10-05 G11-2b]:
+
+| Slip | Type | Amount | Allocated to | Status before -> after settlement |
+|---|---|---|---|---|
+| 1137 | Cash | 101,161 | COL26000002010 | Un Posted -> Posted (Bank shows "demo") |
+| 1138 | Cheque 1234501 | 119,370 | COL26000002011 | Un Posted -> Posted; cheque Clear |
+| 1139 | Cash | 1,000 (600 allocated) | COL26000002009 600 | Un Posted -> Posted; **Deposit Amount trimmed to 600** |
+| 1140 | Cheque x4 (12444/200, 22337/300, 12222/400, 1234567/100) | 1,000 | outlet 1000000004 -> applied to the **oldest open memo COL26000002003 (10-01)** | Un Posted -> Posted; cheques Clear |
+| 1141 | Cheque 1234567 | 1,000 | COL26000002009 | Un Posted -> Posted; cheque Clear |
+| 1142 | Cash | 1,000 | COL26000002009 | Un Posted -> Posted |
+
+Outstanding Cash memos of PJP 02112 after settlement [observed 2026-10-05 G11-2b]:
+
+| Memo | GIN | Net | Received | Balance | Un Posted |
+|---|---|---|---|---|---|
+| COL26000002009 | 507 | 90,707 | 2,600 | 88,107 | 0 |
+| COL26000002005 | 506 | 119,370 | 0 | 119,370 | 119,370 (10-01 slip 1132) |
+| COL26000002004 | 506 | 101,161 | 0 | 101,161 | 101,161 (10-01 slip 1131) |
+| COL26000002003 | 506 | 90,707 | 1,000 | 89,707 | 3,600 (10-01 slips 1133 600 + 1134/1135/1136 1,000 each) |
+
+- **Posting at settlement**: Un Posted -> Posted, Received/Balance updated, Offset filled in Transaction Inquiry; fully received memos (2010, 2011) drop out of the outstanding list (what seq 54 asserts with its "no data" check) [observed 2026-10-05 G11-2b].
+- **Unallocated remainder trimmed at posting**: slip 1139 Deposit Amount 1,000 -> 600 (= Adjusted) [observed 2026-10-05 G11-2b; rule inferred from one slip].
+- **Outlet-level multi-cheque is applied to the OLDEST open memo of the outlet** (1140 -> COL26000002003 of 10-01, not today's 2009) [observed 2026-10-05 G11-2b]; Route Settlement shows it as "Previous" cheque collection.
+- **10-01 slips 1131-1136 still Un Posted** after route 02112 for 10-01 became Complete (1133 still Deposit 1,000 / Adjusted 600); 09-29 slips 1125-1130 Posted [observed 2026-10-05 G11-2b; Q-DS3].
+- Framework expected value for seq 53 (Received Amount, filter GIN 507 + outlet 04): 2,600 on 2009 [observed 2026-10-05 G11-2b].
+
 ## 7. Statuses and transitions
 | from | action | to | by | tag |
 |---|---|---|---|---|
@@ -103,6 +146,8 @@ A slip with detail rows per cash memo; header status starts `I`; a DB sample sho
 | "Un Posted" | Save All (any allocation, full or partial) | "Un Posted" (Adjusted Amount filled) | Maker | [observed 2026-10-01 G11-1] |
 | "Un Posted" | Route Settlement (presumed) | "Posted" | Maker/process | [inferred; older slips 1128-1130 are Posted; Q-DS1] |
 | detail row | Cheque Status update | P/L/R/B/C/A | Maker | [db] see cheque_status.md |
+| "Un Posted" | Route Settlement of the slip's route/date | "Posted" (Received/Balance updated, remainder trimmed, header read-only) | Maker (settlement) | [observed 2026-10-05 G11-2b] (upgrades the [inferred] row above) |
+| "Un Posted" (10-01 slips) | route of 10-01 shown Complete | still "Un Posted" | ? | [observed 2026-10-05 G11-2b; Q-DS3] |
 
 ## 8. Rules and validations
 - PJP-DSR, Type, Deposit Amount mandatory; amount > 0 numeric [db].
@@ -113,6 +158,11 @@ A slip with detail rows per cash memo; header status starts `I`; a DB sample sho
 - **Double-allocation risk**: because Balance only changes at posting, a cash memo already fully allocated on one slip (2004 on 1131) is still offered with its full Balance on the next slip; a second slip can apparently allocate it again. The system only shows the other allocations in "Un Posted Amount" [observed 2026-10-01 G11-1 for the display; the second allocation itself was not tried].
 - In the "Cheque Details" popup every column is required; an empty value (including a date typed in the wrong format) gives "Fill all the values!" [observed 2026-10-01 G11-1].
 - Can one slip mix cash and cheque? One Type per header; the multi-cheque popup holds several cheques under one Cheque slip [observed 2026-10-01 G11-1]; mixing not tried.
+- G11-2: on a cheque slip, every ticked row must carry Cheque No / Cheque Date / Bank, otherwise Save All answers "Required Fields are empty!" (a stray tick on an old row triggers it) [observed 2026-10-05 G11-2].
+- G11-2: duplicate cheque number accepted again (1234567 on 1140 and 1141, same outlet) [observed 2026-10-05 G11-2; Q-DS2].
+- G11-2b: a partly allocated slip CAN be posted; posting trims its amount to the allocation (1139) [observed 2026-10-05 G11-2b].
+- G11-2b: an outlet-level allocation is applied to the outlet's oldest open memo [observed 2026-10-05 G11-2b].
+- G11-2b: a posted slip is locked (header read-only) [observed 2026-10-05 G11-2b].
 
 ## 9. Messages
 "Saved successfully" and "Record saved successfully!" on save; others as in section 8 [db: atlas toast history, not PK-specific]. Confirmed and refined [observed 2026-10-01 G11-1]:
@@ -120,12 +170,14 @@ A slip with detail rows per cash memo; header status starts `I`; a DB sample sho
 - **"Record saved successfully!"**: Save All after allocating on the Outstanding Cash memos tab.
 - **"Payment Adjusted Successfully"**: Save All after a multi-cheque allocation on the Outstanding Outlet tab (framework sheet "Deposit Slip,Outlet" expects "Saved successfully": message drift).
 - **"Fill all the values!"**: row Save in the "Cheque Details" popup with an empty column (e.g. Cheque Date typed yyyy-mm-dd).
+- G11-2: "Saved successfully" (header), "Record saved successfully!" (Save All on Outstanding Cash memos), "Payment Adjusted Successfully" (multi-cheque), **"Required Fields are empty!"** (ticked cheque-slip row without cheque details) [observed 2026-10-05 G11-2].
 
 ## 10. Dependencies
 Reads REPO_GINNO (seq 20; 00140001 reads nothing, selects by outlet). Writes REPO_Deposit_Slip (no later row in group 11 consumes it [db]). Hands cash/cheque amounts to Route Settlement [inferred; observed 2026-10-01 G11-1: Route Settlement lists each slip as one Collection Type line with its allocated amount]. Slips are dated (`tdsl_deposit_slip_date`): same-day cycle [inferred].
 - Needs cash memos in status Delivered/Invoiced for the delivery DSR (Cashmemo Status, seq 33) [observed 2026-10-01 G11-1].
 - Slip-by-slip `Un Posted Amount` depends on the earlier slips of the same day (order of seq 39 -> 46 matters for expected values) [observed 2026-10-01 G11-1].
 - Posting (and therefore Received/Balance change) depends on Route Settlement, which needs every previous working day closed [observed 2026-10-01 G11-1: settlement blocked; see route_settlement.md].
+- G11-2b: posting depends on the route's settlement; the outstanding memos of earlier days (10-01) remain open and are offered on new slips [observed 2026-10-05 G11-2b].
 
 ## 11. Test design hints
 - Positive: full cash, full cheque, multi-cheque across outlets, partial (unposted) then complete.
@@ -142,17 +194,30 @@ New from 2026-10-01 G11-1 [observed]:
 - **Duplicate cheque number** (negative): same cheque no for the same outlet on two slips is accepted today; raise with the BA before asserting either way.
 - **Framework drift**: bank "National Bank of Pakistan" no longer exists (use "National Bank of Pakistanss" or a clean bank); multi-cheque message is "Payment Adjusted Successfully", not "Saved successfully"; the multi-cheque "+" is on the Outstanding Outlet tab (needs a tab switch).
 - Day boundary: Un Posted figures depend on all slips made earlier the same day for the DSR; a re-run on the same day sees the previous run's slips.
+- G11-2 / G11-2b additions [observed 2026-10-05 G11-2, G11-2b]:
+  - Positive (posting): after settlement assert Status Posted, memo Received = posted allocations, Balance = Net - Received, fully paid memos gone from Outstanding Cash memos (seq 54).
+  - Positive (partial slip): after settlement assert Deposit Amount = Adjusted (1,000 -> 600).
+  - Positive (outlet multi-cheque): assert the money lands on the outlet's oldest open memo (may be another day's), not on today's memo.
+  - Negative: tick a row on a cheque slip without cheque details -> "Required Fields are empty!".
+  - Negative: edit a posted slip -> header read-only.
+  - Trap: expected Un Posted / Received values depend on earlier days' open memos and slips of the outlet (10-01 leftovers changed where 1140 went).
+  - Trap: Add may or may not reset PJP-DSR (blank on 10-01, 02111 on 10-05); always set it.
+  - Trap: the grid Bank_Name list differs from the header Bank list; pick by typing and choosing the filtered option.
 
 ## 12. Open questions
 Q: Does a deposit slip need checker approval? | Default: no | Evidence: 00140002 inactive. (2026-10-01: Forward/Reject buttons are on the screen but unused in group 11.)
 Q: What flips status I to A? | Default: ~~Save all with full amount~~ Route Settlement (superseded 2026-10-01: Save All with full amount left 1131/1132 "Un Posted") | Evidence: sample rows only, org 0101; G11-1 slips all Un Posted. See Q-DS1.
 Q: Exact meaning of "Unposted Amount"? | ANSWERED 2026-10-01 [observed G11-1]: on a cash memo, the amount allocated to it on other not-yet-posted slips (old default "slip amount minus amount allocated to cash memos" superseded).
 Q: Can a slip mix cash and cheque? | Default: no, one Type per slip | Evidence: single Type field; not tried 2026-10-01.
-Q-DS1: What is deposit-slip "posting" (who, when: Route Settlement? Forward?), and may a partly allocated slip be posted? | Default: posting happens at Route Settlement | Class: B | Evidence: slips 1131-1136 all Un Posted after Save All; older 1128-1130 Posted; settlement blocked at seq 51 (2026-10-01 G11-1).
-Q-RS1: How is a working day closed, and may 2026-09-30 be closed on cnr1dev1? | Default: ask BA before closing | Class: C | Evidence: Route Settlement blocked, so posting could not be observed (see route_settlement.md).
-Q-SR1: When does an approved sales return reduce the receivable (credit note? settlement?) | Default: at Route Settlement / credit note | Class: B | Evidence: COL26000002003 Balance stayed 90,707 after return COL26000000713 (29,077) was approved and picked (2026-10-01 G11-1).
+Q-DS1: What is deposit-slip "posting" (who, when: Route Settlement? Forward?), and may a partly allocated slip be posted? | Default: posting happens at Route Settlement | Class: B | Evidence: slips 1131-1136 all Un Posted after Save All; older 1128-1130 Posted; settlement blocked at seq 51 (2026-10-01 G11-1). **-> ANSWERED 2026-10-05**: posting happens at Route Settlement (slips 1137-1142 Posted after route 02112 was settled; partly allocated slip trimmed) [observed 2026-10-05 G11-2b].
+Q-RS1: How is a working day closed, and may 2026-09-30 be closed on cnr1dev1? | Default: ask BA before closing | Class: C | Evidence: Route Settlement blocked, so posting could not be observed (see route_settlement.md). **-> PARTLY ANSWERED 2026-10-05**: day close = PJP Daily Inquiry Update, End Of Day + Complete (Current Status E); detailed procedure pending from the QA lead.
+Q-SR1: When does an approved sales return reduce the receivable (credit note? settlement?) | Default: at Route Settlement / credit note | Class: B | Evidence: COL26000002003 Balance stayed 90,707 after return COL26000000713 (29,077) was approved and picked (2026-10-01 G11-1). **-> still open 2026-10-05** (not netted even after the route was settled).
 Q-DS2: Is a duplicate cheque number for the same outlet allowed, and should a cash memo already fully allocated on an unposted slip be blocked on another slip? | Default: both should be blocked (treat current acceptance as a defect candidate) | Class: C | Evidence: cheque 1234567 on 1134 and 1135 accepted; 2004 still offered with full Balance after slip 1131 (2026-10-01 G11-1).
+ANSWERED 2026-10-05 (Q-DS1 and Q45, what flips Un Posted to Posted): Route Settlement of the route/date; a partly allocated slip is posted with its amount trimmed [observed 2026-10-05 G11-2b].
+Q-DS2 (C) re-confirmed: duplicate cheque 1234567 accepted again on 10-05 (1140, 1141) [observed 2026-10-05 G11-2].
+Q-DS3: Why are the 10-01 slips 1131-1136 still Un Posted although route 02112 for 2026-10-01 is Complete? | Default: Complete does not guarantee posting; assert slip Status separately | Class: B | Evidence: Deposit Slip grid vs Route Settlement 2026-10-05 [observed 2026-10-05 G11-2b].
 
 ## 13. Sources
 framework_atlas/flows/03230001, 03240001, 03260001, 00140001, 00140004, 00140005, 03220001, 03250001 (.md/.json); framework_atlas/group_11.md; screens_db/DYL_201802.json; DB snd_tr_dsl_deposit_slip, snd_tr_dsd_deposit_slip_dtl, glb_pr_pym_paymentmode, snd_tr_cmm_cashmemo_payment.
 - Live walk: `learning_sessions/2026-10-01_G11-PK_session1_log.md` (seq 39, 40, 41, 42, 44, 46 and the "Deposit slips today" table) and `learning_sessions/2026-10-01_G11-PK_session1_report.md` (§3 rule 13, §6, §7, §8). Env cnr1dev1, distributor 15108843, slips 1131-1136 left Un Posted.
+- G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 39, 40, 41, 42, 44, 46); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 51, 52, 53, 54). Slips 1137-1142 Posted; 1131-1136 still Un Posted.

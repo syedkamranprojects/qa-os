@@ -28,6 +28,7 @@ environments:
       Automation: { distributor: "15108843" }        # Maker (QA lead, 2026-10-01); framework login serial 28 (group 11 seq 61/63/66, SAN Admin, inactive); login was rejected on 2026-09-29, re-check
       Auto_Multi_Orga: { distributor: "15108843" }   # 15108843-IBRAHIM TRADERS ("Auto KARACHI"); framework login serial 35
       Auto_Tssm: { distributor: "15108843" }         # approve-only; cannot create documents; framework login serial 8
+      headquarter: {}                                # head-office user, framework login serial 30 (group 66 NG_Setup Flow_PK seq 32-34: Section Creation HQ, DSR Profile HQ, DSR Mapping HQ); added 2026-10-05 at the QA lead's request; company/distributor pages after login not yet observed (fill `distributor:` here once seen); not in snd-schema (access layer has only Unilever orgs)
     # Group 11 (Daily Cycle Only Positive Flow) user roles, stated by the QA lead 2026-10-01:
     # company Unilever Pakistan Limited, distributor 15108843 - IBRAHIM TRADERS.
     # There are only TWO roles: Maker and Checker. Each role may have several users; the FIRST user is the default.
@@ -35,9 +36,16 @@ environments:
     roles:                         # role names used in business steps (docs/STEP_VOCABULARY.md) -> users (first = default)
       Maker: [Automation, Auto_Multi_Orga]          # Automation = session-start maker for group 11 (QA lead 2026-10-01)
       Checker: [Auto_Tssm]
+      HeadOffice: [headquarter]                     # only for head-office setup flows (group 66 seq 32-35); group 11 still uses only Maker and Checker
     role_notes:
       Maker: creates and forwards documents (Dispatch Advice, orders, allocation, GIN, sales return, GRN, deposit slips, SAN ...) and runs the stock / transaction inquiries; Automation is the framework user of the SAN (Admin) rows (seq 61, 63, 66)
       Checker: approves only, on the same option as the maker ("Forward" with a comment); has no Stock Inquiry screen; checks for every maker
+      HeadOffice: head-office (HQ) user 'headquarter' (framework serial 30); creates HQ-level masters (Section Creation HQ, DSR Profile HQ, DSR Mapping HQ) in NG_Setup Flow_PK; the following PJP Creation HQ (seq 35) runs as Auto_Multi_Orga
+    framework_logins:              # fct_pr_gtfd plu_serial_no -> user, for group replays (read from the framework atlas)
+      "8": Auto_Tssm
+      "28": Automation
+      "30": headquarter
+      "35": Auto_Multi_Orga
 
 # Access knowledge layer (roles, screens, users, feature flags per market): apps/snd/knowledge/access/README.md
 access:

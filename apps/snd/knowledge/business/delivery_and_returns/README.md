@@ -1,6 +1,6 @@
 # Area: delivery and returns (group 11 seq 20-38)
 
-Updated: 2026-10-01 (consolidated with learning session 1 LEARN-G11-PK/20261001-1611; source `../learning_sessions/2026-10-01_G11-PK_session1_log.md`)
+Updated: 2026-10-05 (consolidated with learning sessions G11-2/2b: GIN 507, return COL26000000714, second day; evidence ../learning_sessions/2026-10-05_G11-PK_session2_log.md, ..._session2b_resume_log.md); 2026-10-01 (consolidated with learning session 1 LEARN-G11-PK/20261001-1611; source `../learning_sessions/2026-10-01_G11-PK_session1_log.md`)
 
 1. Stock leaves the warehouse with the Goods Issue Note (GIN): maker saves and forwards, a different checker approves; approval needs a stock balance for the day. Observed 2026-10-01 (GIN 506): one Checker Forward is the final approval; Allocated moves to Out, Closing unchanged.
 2. Cash memos (CM-01) then get delivered, or rescheduled with a reason, via Cashmemo Status and Cashmemo Reschedule. Observed 2026-10-01: Reschedule (set the new Delivery Date first) -> Reattempt, off the GIN; Cashmemo Status tick + Save -> "Updated successfully", Delivered/Invoiced with the actual delivery time.
@@ -12,6 +12,7 @@ Updated: 2026-10-01 (consolidated with learning session 1 LEARN-G11-PK/20261001-
 8. Order of pages: goods_issue_note.md, cashmemo_reschedule_and_status.md, sales_return.md, delivery_lifecycle.md.
 9. Goods Return Note (seq 48-49), dispatch advice, order booking/allocation and settlement are other analysts' pages. The GRN brings back cancelled, rescheduled, cut and returned quantities (19 CS reconciled exactly on 2026-10-01); see `delivery_lifecycle.md` §6.
 10. Open questions: 5 + 4 + 5 + 4 = 18 (see section 12 of each page). (superseded 2026-10-01: GIN 8, Cashmemo 7, Sales Return 9, Lifecycle 7; many marked ANSWERED/PARTLY; new Q-SR1, Q-RS1, Q-DS1)
+11. Second day 2026-10-05 reproduced every rule and amount (GIN 507, Cashmemo Reschedule 2012 -> 10-06, Cashmemo Status 2009-2011, return 714 Net 29,077, GRN 19 CS). New: a partly returned cash memo stays Delivered/Invoiced, the return reads Picked with Demand Channel "Partial Return" and Invoice Ref = source invoice; a part return re-prices slab promotions on the other lines (Q-SR2); the return is still not netted after the route is settled (Q-SR1) [observed 2026-10-05 G11-2, G11-2b].
 
 Page one-liners:
 - `goods_issue_note.md`: GIN create, forward, Checker approval; stock Allocated -> Out; walked live 2026-10-01 (GIN 506).

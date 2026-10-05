@@ -247,6 +247,14 @@ After the positive cycle (group 11) is completed through its last active flow, *
 - Claude Code auto mode blocked typing amounts on the shared env; the QA lead switched the session to Ask permissions (blocks stopped).
 - Documents added today: SAN 96 (Approved). Browser closed after logout.
 ## Next
-1. Consolidate session 2 + this resume into the knowledge pages (route_settlement, deposit_slips, cheque_status, pjp_daily_inquiry_update, otc_stock_out_and_san, transaction_inquiry, sales_return, stock pages), answer Q-RS1 / Q-DS1 / Q-OB1, renumber OPEN_QUESTIONS, coverage report, G0.
+1. ~~Consolidate~~ DONE 2026-10-05 (pages, OPEN_QUESTIONS renumbered 56 open, FRAMEWORK_DRIFT.md 26 items, coverage report learning_sessions/2026-10-05_G11-PK_coverage_report.md). Next: QA lead G0 review per area (settlement not ready).
 2. Senior QA knowledge check (predict, execute, compare).
 3. Still open: QA lead's detailed day-close note; Q-OE1/Q-OE2 (seq 15); framework drift list for the framework owner; qa-os changes not committed.
+
+---
+# Update: 2026-10-05 evening - NG_Setup Flow_PK (framework group 66) learning walk, paused after seq 18 - RESUME HERE
+**Read first:** `runs/LEARN-G66-PK/20261005/session_log.md` (status table at the end) and `run_sheet.md` (atlas + NG_Dcode_QA_Setup.xlsx, now in framework/casedata-samples/).
+- Method (QA lead): user per row from the group query (memory reference-group-users-query; never select plu_password); per screen follow fct_pr_sef_screen_events_flow active rows + active fields; positive workbook rows.
+- Seq 1-18 done except seq 4 Forward / seq 5 (Prospect Outlet Forward disabled). App pack: user `headquarter` (role HeadOffice) added to apps/snd/app.yaml for seq 32-34.
+- Outlet 1000000001 (group 11 outlet 01) was changed by seq 13-16 with the QA lead's OK: NTN number + now Registered / Tax Payer No -> group 11 tax for outlet 01 may change.
+- Next: session with the QA Team Lead (session-3 plan for group 11 + group 66 questions), then resume group 66 at seq 19 Distributor Mapping (Auto_Multi_Orga).

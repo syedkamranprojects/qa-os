@@ -1,17 +1,17 @@
 # Live learning checklist (class B questions), ordered by the Daily Cycle
 
-Updated: 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
 
 Built from [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) class B (33 questions at the start; 24 still open plus 1 new after live blocks 1-3b). Environment cnr1dev1; Maker = Auto_Multi_Orga, Checker = Auto_Tssm. Logins are triggered by the QA member (Claude never types passwords); every test run starts from a fresh login. Steps use the standard vocabulary [Actor] Verb Object. Record: the exact message text, the ids/labels seen, row counts, and a Stock Inquiry before/after snapshot (same row, same filters).
 
 ## Rules for the whole walk
 - **Never click Generate Opening Balances** (stock-changing, not authorised). **Do not** use Reject/Terminate/Bounce except where a step below says so.
 - Mark: **RO** = read-only, can run any day; **D** = changes data but not stock; **S** = changes stock; **SD** = needs a same-day receive-and-issue cycle (DA approved, orders, GIN approved, all inside ONE calendar day, because balances are keyed by date).
-- On a new day Stock Inquiry shows "No data" until a movement creates the row (observed 2026-10-01: 0 rows before the DA approval, 1 row after). **Learned: the DA approval itself creates the day's row for the received product (Opening 0, In = received), so the SD part can start with the DA** (see section "Start-of-day decision").
+- On a new day Stock Inquiry shows "No data" until a movement creates the row (observed 2026-10-01: 0 rows before the DA approval, 1 row after). **Learned: the DA approval itself creates the day's row for the received product (Opening 0, In = received), so the SD part can start with the DA** (see section "Start-of-day decision"). (2026-10-05: the first movement created ALL 39 rows with Opening = previous Closing + still-Allocated; previous closings are carried [observed 2026-10-05 G11-2].)
 - Run order: RO block first (any day), then D block, then the SD block in one sitting.
 
 ## Start-of-day decision (BA1 ANSWERED 2026-10-01; remainder is BA14)
-No start-of-day step is needed for a received product: the DA approval created the 2026-10-01 row of 62740537 (Opening 0, In 4, Closing 4) without Generate Opening Balances [observed, blocks 3a/3b]. Open (BA14): previous-day closings are NOT carried (62740537 closed 97 CS on 09-30, opened 0 on 10-01), so the SD cycle must use stock received the same day; whether Generate Opening Balances serves other products is unknown. Default: do not run the button; start the SD block with a DA of the day.
+No start-of-day step is needed for a received product: the DA approval created the 2026-10-01 row of 62740537 (Opening 0, In 4, Closing 4) without Generate Opening Balances [observed, blocks 3a/3b]. Open (BA14): previous-day closings are NOT carried (62740537 closed 97 CS on 09-30, opened 0 on 10-01), so the SD cycle must use stock received the same day; whether Generate Opening Balances serves other products is unknown. Default: do not run the button; start the SD block with a DA of the day. (Superseded in part 2026-10-05: previous closings ARE carried once the first movement of the day creates the rows (Q-OB1 answered); the 10-01 single-row anomaly is Q-OB2. Starting the SD block with a DA of the day remains the rule.)
 
 ## Status after live blocks 1-3b (2026-10-01)
 
@@ -46,6 +46,44 @@ DONE = answered and recorded in LIVE_FINDINGS.md and the area pages; PARTLY = pa
 - Same-day cycle L19-L33 (new DA with four framework products, Checker approval, orders with qty = ATP and ATP + 1, Unallocate, Order Editing, Delivery Date Change, GIN with Draft Forward by the Maker and approval by the Checker, Cashmemo Status, Sales Return, GRN, Deposit Slip, Route Settlement, SAN, final snapshot). Open questions it closes: Q08, Q16, Q18 (detail messages), Q21, Q22 (real dropdowns), Q26, Q27, Q31, Q32, Q33, Q34, Q41-Q43, Q45, Q46, Q48, Q50, Q58, N1, and BA3 (loss approval L21).
 - Any-day leftovers: L13 (DA delete/reject), L16 (DSR Adjustment), L17/L18 (delivery date change), L09 Edit-mode read of the PJP dropdowns.
 - Learned helper notes for the cycle: enter the quantity only after stock type and batch have filled (otherwise "The lost quantity does not equal the sum of dispatch and received quantities", nothing saved); after Add pick Warehouse, Vendor and DA Type; use the calendar popup for dates on Order Cancellation; the Maker's Forward only on Drafts, the Checker's Forward only on Pending.
+
+## Status after G11-2 / G11-2b (2026-10-05)
+
+Evidence: [learning_sessions/2026-10-05_G11-PK_session2_log.md](learning_sessions/2026-10-05_G11-PK_session2_log.md) (seq 1-50) and [learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md](learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md) (seq 51-71). [x] = settled, [~] = partly, [ ] = still open.
+
+| Id | Tick | Result 2026-10-05 |
+|---|---|---|
+| L01-L05, L07, L08, L10-L12, L19-L21 | [x] | done earlier; reproduced on a second day where re-walked (DA 1359, loss 640, stock snapshots) |
+| L02 (new day) | [x] | 0 rows before the DA; after DA 1359 approval 39 rows with carried Openings (Q-OB1 answered) |
+| L09 | [x] | PJP Daily Inquiry Update Edit mode read and used: Mark Status End Of Day (only), DSR Files Status Process / Complete; "Record Updated Successfully", Current Status E (Q55 answered; Q-RS1 partly) |
+| L13 | [ ] | DA Delete / Reject still not run (Q02) |
+| L14 | [~] | unchanged (Q18) |
+| L15 | [~] | slip validation messages: "Required Fields are empty!" (ticked cheque row without cheque details) observed; amount 0 / text not tried |
+| L16 | [ ] | DSR Adjustment Amount screen read; save not done: seq 56 bypassed by the QA lead (Q53) |
+| L17 | [ ] | past delivery date not tried (Q29) |
+| L18 | [~] | second move 10-11 -> 10-05: PJP Delivery No 02112 unchanged (Q30 partly) |
+| L22 | [~] | orders booked within ATP only; ATP + 1 not tried (Q16, Q27) |
+| L23 | [~] | one-order Unallocate / Allocate "Process completed successfully" again (Q26 partly) |
+| L24 | [x] | edit after the GIN keeps the Document No, totals = workbook (Q21 answered); edit before Delivery Date Change impossible (Q-OE1, Q-OE4) |
+| L25, L26 | [x] | Delivery Date Change 5 orders; GIN 507 Maker Forward + one Checker Forward; Out +35, Closing unchanged (date variant of Q34 not tried) |
+| L27 | [x] | Cashmemo Status: ticked memos Delivered/Invoiced, "Updated successfully"; partly returned memo stays Delivered/Invoiced (Q32, Q33 answered) |
+| L28 | [x] | Sales return 714: Picked after Save Sale Pick (Q41); slab re-pricing on non-returned lines (Q43 re-answered, Q-SR2); no snapshot between approval and GRN (Q42 partly) |
+| L29 | [x] | GRN 247: Sound, same day, In +19, Out unchanged (Q08 answered) |
+| L30 | [x] | Slips 1137-1142; posting at Route Settlement, Un Posted -> Posted, remainder trimmed (Q-DS1, Q45, Q46 answered) |
+| L31 | [~] | Route Settlement read before (blocked: "...Please close date. 2026-10-01") and after the QA team member settled it (Complete, Cash Shortage 0, Q-RS2 answered); Offset = posted allocations (Q50 answered); the settlement entry itself not seen (Q48 partly) |
+| L32 | [~] | SAN 96 Stock Adjustment Admin -50 CS: Out +50 after approval; no snapshot after the Maker's Forward (Q58 partly) |
+| L33 | [x] | Final snapshot seq 60: Opening 308 / In 99 / Out 85 / Allocated 63 / Closing 259; identity holds (Q31 answered) |
+
+New class B checks from 2026-10-05 (add to the next walk):
+
+| Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
+|---|---|---|---|---|---|
+| L34 | [Maker] Navigate to Stock Inquiry before the first movement of a new day; then let the first movement be something other than a DA (e.g. GIN approval of stock received earlier) and Show Inquiry again | Auto_Multi_Orga | row count, Opening per row (carried or 0) | S (only the movement itself) | Q-OB2 |
+| L35 | [Maker] Navigate to Order Editing; for an order with delivery date tomorrow Choose Date To = tomorrow | Auto_Multi_Orga | whether the order is listed | no (RO) | Q-OE4 |
+| L36 | [Maker] Navigate to Deposit Slip; compare Status of the slips of a Complete route/date; ask the QA lead how that date was completed | Auto_Multi_Orga | Un Posted vs Posted per slip | no (RO) | Q-DS3 |
+| L37 | [Maker] Navigate to Route Settlement; open Total Order / Delivered Orders links of 02112 | Auto_Multi_Orga | which orders make up Total Order | no (RO) | Q-RS3 |
+| L38 | [Maker] On the day after a closed day, open Route Settlement Edit on a route while another zero-activity route of the previous day is Incomplete | Auto_Multi_Orga | blocked or not | D (only if settled) | Q-RS4, Q-RS1 |
+| L39 | [Maker] Navigate to DSR Adjustment Amount; compare 02112 Total Shortage with Route Settlement history | Auto_Multi_Orga | composition of Total Shortage | no (RO) | Q-DJ1 |
 
 ## Block 1: read-only, any day (RO)
 

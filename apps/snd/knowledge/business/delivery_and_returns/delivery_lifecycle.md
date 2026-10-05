@@ -8,13 +8,14 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [dispatch_advice, order_booking, stock_allocation, delivery_date_change]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-01
+updated: 2026-10-05
 ---
 # Delivery lifecycle: from allocated order to delivered or returned (S&D / DCODE)
 
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]**, **[db]**, **[inferred]**, **[unknown]**.
 Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEARN-G11-PK/20261001-1611, seq 12-50)
 Last updated: 2026-10-01. Source flows: group 11 seq 12-38 (atlas `group_11.md`). Seq 12-50 walked live on 2026-10-01 in one calendar day (seq 15 skipped; seq 51 Route Settlement blocked) [observed 2026-10-01 G11-1].
+Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 
 ## 1. Purpose
 Follows one cash memo (order, `CM-01`) from allocation to the end of the delivery day, and shows where stock and documents change. It ties together Goods Issue Note, Cashmemo Reschedule/Status and Sales Return (see their pages).
@@ -76,6 +77,7 @@ At the end of the day the load of each DSR is either delivered (receivable to se
 - Stock identity: Closing = Opening + In - Out - Allocated holds through the day [observed 2026-10-01 G11-1].
 - Receivable: delivered cash memos carry Balance Amount = Net into the deposit slips; the approved sales return was not netted (Route Settlement Adjusted Credit Note 0) [observed 2026-10-01 G11-1].
 - Route Settlement for 02112 on 2026-10-01: Total Order 4 (GIN orders not cancelled), Delivered 3, Undelivered 0 (the rescheduled order is neither), Sale Value 311,238 = the three delivered Nets [observed 2026-10-01 G11-1]. Settlement itself was blocked ("Following previous days not closed! Please close date. 2026-09-30").
+- G11-2/2b: the whole chain reproduced on 2026-10-05 with new documents (GIN 507, return 714, GRN 247: 19 CS again) and, for the first time, past settlement: the delivered memos were settled (slips posted, Offset filled), the day was closed on PJP Daily Inquiry Update, and the cash memo with a partial return stayed Delivered/Invoiced [observed 2026-10-05 G11-2, G11-2b].
 
 ## 7. Statuses and transitions
 Live-verified 2026-10-01 [db + observed]: "Confirmed" is execution status 02 (own status, not Ordered 04); 03 Planning completed is shown for the 8 orders on GIN 505; Transaction Inquiry has one Document Status column that shows the execution status text; codes 04, 06 and 19 do not exist in the execution master of org 010104 (so '19 CM Reschedule' below comes from org 0101 and must be re-read live).
@@ -88,6 +90,8 @@ TI status table 2026-10-01 [observed 2026-10-01 G11-1]:
 | COL26000002006 | Reattempt (rescheduled) | 2026-10-02 | - | none |
 | COL26000002007 | Cancelled (after GIN) | 2026-10-01 | - | 506 kept |
 | COL26000002008 | Cancelled (before GIN) | 2026-10-07 | - | - |
+
+- G11-2b: no Partial Delivered (18) after a partial return; the return document reads Picked, Demand Channel "Partial Return" [observed 2026-10-05 G11-2b].
 
 ## 8. Rules and validations
 - Stock is needed on the day of GIN approval [observed].
@@ -120,10 +124,13 @@ Q: Exact stock effect of each step (reserve at allocation, issue at GIN approval
 Q: Is Cashmemo Status the step that makes the cash memo Delivered/Invoiced? | Default: yes | Evidence: names. ANSWERED 2026-10-01: yes [observed 2026-10-01 G11-1].
 Q: Does a delivered cash memo with a return become Partial Delivered (18)? | Default: yes | Evidence: status exists. Still open 2026-10-01: the cut order (7 -> 4) read Delivered/Invoiced, not Partial Delivered; the status after its sales return was not re-read | Class: B.
 Q: Is the Unallocate failure `stock not found.` a defect or by design? | Default: environment issue | Evidence: ui.md, cause unknown. PARTLY 2026-10-01: not reproduced on a same-day run ("Process completed successfully"); stale-day effect likely [observed 2026-10-01 G11-1].
-Q-SR1: When does an approved sales return reduce the receivable (credit note? settlement?) | Default: at Route Settlement / credit note | Class: B | Evidence: Adjusted Credit Note 0 in Route Settlement 2026-10-01.
-Q-RS1: How is a working day closed (which screen), and may 2026-09-30 be closed on cnr1dev1? | Default: ask the BA before closing | Class: C | Evidence: Route Settlement blocked 2026-10-01.
-Q-DS1: What is deposit-slip "posting" and when does it happen? | Default: at Route Settlement | Class: B | Evidence: all slips Un Posted 2026-10-01.
+Q-SR1: When does an approved sales return reduce the receivable (credit note? settlement?) | Default: at Route Settlement / credit note | Class: B | Evidence: Adjusted Credit Note 0 in Route Settlement 2026-10-01. **-> still open 2026-10-05** (not netted even after the route was settled).
+Q-RS1: How is a working day closed (which screen), and may 2026-09-30 be closed on cnr1dev1? | Default: ask the BA before closing | Class: C | Evidence: Route Settlement blocked 2026-10-01. **-> PARTLY ANSWERED 2026-10-05**: day close = PJP Daily Inquiry Update, End Of Day + Complete (Current Status E); detailed procedure pending from the QA lead.
+Q-DS1: What is deposit-slip "posting" and when does it happen? | Default: at Route Settlement | Class: B | Evidence: all slips Un Posted 2026-10-01. **-> ANSWERED 2026-10-05**: posting happens at Route Settlement (slips 1137-1142 Posted after route 02112 was settled; partly allocated slip trimmed) [observed 2026-10-05 G11-2b].
+- ANSWERED 2026-10-05 (Q33, Partial Delivered after a return): no; COL26000002009 stayed Delivered/Invoiced after return 714 was picked [observed 2026-10-05 G11-2b].
+- Q-DS1 ANSWERED 2026-10-05: posting happens at Route Settlement (slips 1137-1142 Un Posted -> Posted once route 02112 for 10-05 was settled) [observed 2026-10-05 G11-2b]. Q-RS1 PARTLY answered (day close = PJP Daily Inquiry Update End Of Day / Complete). Q-SR1 still open.
 
 ## 13. Sources
 `framework_atlas/group_11.md`, flows `00130001`, `00160001`, `00050001`, `00780001`, `02810001`, `01040001`, `00030001`, `00070001`, `00700001`, `00730001`, `00710001`; `apps/snd/knowledge/ui.md`; `framework_flows/STEP_SHEET_DRAFT_next.md`; DB: glb_pr_exs_execution_status, snd_pr_dos_documentstatus, snd_pr_dcs_doc_cmpltn_status, snd_tr_cmm_cashmemo_master, snd_tr_gnm_gingrn_master.
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 10, 16, 18, 19, 20, 23, 24, Transaction Inquiry checks, seq 29-38, 46, 48-51; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 3-7, 10, 12, 14, §8.
+- G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md, learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md.

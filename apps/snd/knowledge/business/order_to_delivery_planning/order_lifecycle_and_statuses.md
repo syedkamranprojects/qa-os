@@ -8,13 +8,14 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, transaction_inquiry, order_editing_cancellation, delivery_date_change]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-01
+updated: 2026-10-05
 ---
 # Order lifecycle and statuses: how it works (S&D / DCODE)
 
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Every statement carries a confidence tag: **[observed]**, **[db]**, **[inferred]**, **[unknown]**.
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00010001, 00130001/2, 00020001, 00040001, 00160001, 02960001 (group 11 seq 10-19); G11-1 also seq 20, 23 (GIN), 29, 31 (after GIN), 32, 33 (reschedule / status).
+Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 
 ## 1. Purpose
 Explains what an "order" is in DCODE and how it moves from booking to delivery, so every other page in this folder can refer to it. The order and the sale are the same record: a **cash memo** (`snd_tr_cmm_cashmemo_master`) that starts as an Ordered cash memo and becomes Delivered after the GIN/delivery. [db][inferred]
@@ -81,6 +82,7 @@ Standard-vocabulary chain, as walked 2026-10-01 [observed 2026-10-01 G11-1]:
 | GRN approved | - | unchanged | + returned qty | + returned qty |
 
 Closing = Opening + In - Out - Allocated. [observed 2026-10-01 G11-1]
+- G11-2/2b: the whole chain reproduced on 2026-10-05 (orders 2009-2014): Confirmed -> Ready to dispatch/Packed (GIN 507) -> Delivered/Invoiced (2009-2011); Reattempt (2012, new delivery 10-06); Cancelled before (2014) and after (2013) the GIN. After settlement the delivered memos carry Offset = posted slip allocations; a partly returned memo stays Delivered/Invoiced, its return reads Picked with Demand Channel "Partial Return" [observed 2026-10-05 G11-2, G11-2b].
 
 ## 7. Statuses and transitions
 Live-verified 2026-10-01 [db, read-only SQL on master data + Transaction Inquiry]: **"Confirmed" is its own EXECUTION status 02** (identifier ALC = allocated, description with a trailing space), not an alias of document status 04 Ordered. Execution status CM-01 (glb_pr_exs_execution_status, org 010104): 01 Ordered (CRT), 02 Confirmed (ALC), 03 Planning completed (DISPT, identifier GIN, follows 02), 05 Cancelled, 07 PLANNING, 08 EXECUTING, 09 PARKED, 10 Delivered/Invoiced, 11 Dispatched, 12 Sent to Locus, 13 Ready to dispatch/Packed (GINAPPRVD), 14-17 Danone Pending/Blocked/UnBlocked/Completed, 18 Partial Delivered, 20 Out for delivery; codes 04, 06 and 19 do not exist in that master (correction: 19 CM Reschedule, listed elsewhere in these pages from org 0101, is absent from the 010104 execution master; the reschedule status is to be re-read live). CM-02 execution: 01 Authorized Un-Picked, 03 Cancelled, 04 Picked, 05 Un-Authorized Un-Picked. Document status (snd_pr_dos_documentstatus) CM-01: 01 Delivered, 02 Un-Delivered (inactive), 03 Cancelled, 04 Ordered, 05 Amendment (inactive); CM-02: 01 Authorized, 02 Un-Authorized, 03 Cancelled, 04 Picked. Ordered therefore exists twice (document 04, execution 01). The Transaction Inquiry status text comes from the execution table: the 8 orders on GIN 505 show "Planning completed" (exec 03), cancelled ones "Cancelled", delivered ones "Delivered/Invoiced"; "Confirmed" and "Ordered" appear on 2026-10-01 only as filter options [observed]. Caveat: the snd-schema connector is database ng_astrone (newest cash memo 2026-01-30, no COL26000001979-2002), so per-order codes could not be cross-checked.
@@ -99,6 +101,7 @@ Statuses of CM-01 for org 010104 [db]: 01 Delivered (nature DEL), 02 Un-Delivere
 | Ready to dispatch/Packed | Order Cancellation | Cancelled, GIN No kept | Maker | [observed 2026-10-01 G11-1] |
 | Confirmed | Delivery Date Change | Confirmed (new delivery date) | Maker | [observed 2026-10-01 G11-1] |
 Allocation is a separate dimension: Unallocated / Allocated (Allocation Status FULL after save). [observed]
+- G11-2b: no Partial Delivered (18) status appeared on COL26000002009 after its partial return; it stayed Delivered/Invoiced [observed 2026-10-05 G11-2b].
 
 ## 8. Rules and validations
 - Allocated orders are NOT listed in Order Editing / Order Cancellation outlet lists (outlet API returned []). [observed; cause unproven] (superseded 2026-10-01: allocation does not hide orders; Order Editing filters by delivery date and today's orders had delivery 10-05/10-07. Order Cancellation lists allocated orders of the order date. [observed 2026-10-01 G11-1])
@@ -135,8 +138,10 @@ Reads DA stock; hands order numbers (`ORDERNUMBER`) to editing and GIN; GIN hand
 - ANSWERED 2026-10-01 G11-1: why allocated orders were missing from Order Editing (empty outlet list) = the delivery-date filter, not allocation. [observed]
 - Q-OE1: Is the Order Editing date range meant to be the delivery date, default today? | Default: treat as delivery date | Class: C | Evidence: report §8.
 - Q-OE2: Which order should seq 15 edit when outlets 1000000001-03 are not offered? | Default: outlet 1000000004's order | Class: C | Evidence: report §8.
-- Q-OB1: Who or what generated today's opening balances during the day? | Default: unknown | Class: B | Evidence: report §8.
+- Q-OB1: Who or what generated today's opening balances during the day? | Default: unknown | Class: B | Evidence: report §8. **-> ANSWERED 2026-10-05**: openings are created by the first movement of the day (DA approval) = previous Closing + still-Allocated (see stock_inquiry_and_balances.md, OPEN_QUESTIONS.md).
+- Q-OE1 revised 2026-10-05 (Order Editing lists only orders whose delivery date is today; run it after Delivery Date Change?) | Class: C. New Q-OE4 (exact filter rule) | Class: B. ANSWERED 2026-10-05: Q-OB1 (openings at the first movement), Q33 (no Partial Delivered after a return) [observed 2026-10-05].
 
 ## 13. Sources
 snd-schema DB tables `snd_pr_dot_documenttype`, `snd_pr_dos_documentstatus`, `snd_tr_cmm_cashmemo_master` (columns only; no order rows exist in the base DB for org 010104, orders live in the environment overlay); TC-OB-01_executed.md (TC-OB-03 section); ui.md "Verified in the group 11 replay"; atlas flows 02960001, 03190001.
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 10-33 and the two Transaction Inquiry status checks; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 3-7, 10, 11, §5, §8.
+- G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md, learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md.

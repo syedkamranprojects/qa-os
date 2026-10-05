@@ -1,6 +1,6 @@
 # Document lifecycle: the cross-cutting approval pattern (S&D / DCODE)
 
-Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0)
+Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0); 2026-10-05 G11-2/2b consolidation (section 0b)
 
 Consolidated 2026-10-01 from the area pages. Tags as in the pages: [observed], [db], [inferred], [unknown].
 
@@ -14,6 +14,16 @@ Evidence: [learning_sessions/2026-10-01_G11-PK_session1_log.md](learning_session
 - **Stale form after Forward**: the form keeps showing "Draft" until the document is reopened from the grid; reopen before reading the status.
 - **Approval preconditions confirmed**: GIN approval succeeds when the stock was received the same day and the cash memos' delivery date equals the GIN delivery date (the two earlier failure messages came from stale-day data).
 - **Settlement precondition**: Route Settlement needs every earlier working day closed ("Following previous days not closed! Please close date. 2026-09-30").
+
+## 0b. Confirmed and extended in learning sessions G11-2 / G11-2b (2026-10-05) [observed 2026-10-05 G11-2, G11-2b]
+Evidence: [learning_sessions/2026-10-05_G11-PK_session2_log.md](learning_sessions/2026-10-05_G11-PK_session2_log.md), [learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md](learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md).
+- **Second day, same pattern**: DA 1359, loss 640, GIN 507, Sales Return COL26000000714, GRN 247 followed the Maker save -> Maker Forward + comment -> Checker Forward = approval pattern with the same messages as on 10-01.
+- **Sixth document end to end: SAN 96** (Stock Adjustment Admin): Maker Save ("Saved successfully", In-Active / Draft) -> Maker Forward ("Forwarded successfully", Pending for approval) -> Checker Forward ("Forwarded successfully", Active / Approved in ONE step). The Checker also has Reject on the Pending SAN (not clicked).
+- **Posting is a separate lifecycle step for deposit slips**: Un Posted (after Save / Save All) -> Posted at Route Settlement; a posted slip is read-only. A route can show Complete while its slips are still Un Posted (10-01; Q-DS3).
+- **Route and day lifecycle**: Route Settlement row Incomplete -> Complete (green, no Edit) when settled; the day is then closed on PJP Daily Inquiry Update (End Of Day + Complete -> Current Status E, "Record Updated Successfully"). Route Settlement refuses while the oldest earlier day is not closed.
+- **Cheques**: after posting they read "Clear"; the only later transition offered is Bounce (one-way).
+- **Sales return** ends as Picked (Transaction Inquiry, Document Type Sales Return); its source cash memo stays Delivered/Invoiced.
+- **Comment rule**: the comment must really be typed and visible in the box before Save ("Please add comments" otherwise) [stated 2026-10-05 QA lead; observed].
 
 ## 1. The common pattern
 
@@ -40,9 +50,9 @@ Rules that repeat across documents:
 | Goods Issue Note (GN-01) | maker + checker | Draft/In-Active -> Pending for approval -> Approved (doc 01 Authorized); Rejected -> doc 02 Un-Authorized; Cancelled doc 03 / wf 05 | observed (to Pending), db |
 | Goods Return Note (GR-01) | maker + checker | Draft -> Pending -> Approved; Rejected/Terminated | db/inferred |
 | Sales Return (CM-02) | maker + checker, and Status Change after approval | Un-Authorized (02) -> Pending -> Authorized (01) -> Picked (04); Cancelled (03) | inferred/db |
-| SAN stock out | maker + checker | Draft (status I) -> Pending -> Approved (status A) | db |
-| Deposit Slip | none active (approval row 00140002 inactive) | status I -> A with posting date | db |
-| Cashmemo Reschedule / Status, Route Settlement, Cheque Status, DSR Adjustment, PJP Daily Inquiry Update, Transaction Inquiry, Stock Inquiry | none | see pages: execution 19 / 10; no status; instrument P/L/R/B/C/A; AD-07 01-04; n/a | db/inferred |
+| SAN stock out | maker + checker | Draft (status I) -> Pending -> Approved (status A) [db]; observed 2026-10-05: In-Active / Draft -> In-Active / Pending for approval -> Active / Approved, one Checker Forward | db; observed 2026-10-05 G11-2b |
+| Deposit Slip | none active (approval row 00140002 inactive) | status I -> A with posting date [db]; screen Un Posted -> Posted at Route Settlement [observed 2026-10-05 G11-2b] | db; observed 2026-10-05 G11-2b |
+| Cashmemo Reschedule / Status, Route Settlement, Cheque Status, DSR Adjustment, PJP Daily Inquiry Update, Transaction Inquiry, Stock Inquiry | none | see pages: execution 19 / 10; no status; instrument P/L/R/B/C/A; AD-07 01-04; n/a [db]. Observed 2026-10-05: Route Status Incomplete -> Complete; cheques Clear (then only Bounce); PJP daily row Current Status E after End Of Day / Complete | db/inferred; observed 2026-10-05 G11-2b |
 
 ## 3. Known deviations in vocabulary
 
@@ -55,3 +65,5 @@ Rules that repeat across documents:
 7. **Menu names differ from flow names**: Dispatch Advice has no approval menu entry (approval is the same screen, Forward); GIN/GRN approvals are on the same screens; "Dispatch Advice Approval", "OTC Stock Out" and "Opening/Closing Stock" screens were not found in the live menu [observed].
 8. **Loss approval** is a second workflow on the same DA, started by the DA approval: DA Approved does not mean the loss is approved (DA 1356 Approved, loss Serial 638 Pending) and a Pending loss does not block the stock posting of the received quantity [observed].
 9. **Reject/Terminate** transitions are only [db]; none was executed live.
+10. **Cheque "Clear" (2026-10-05)** is shown on screen but is not in the db instrument-status list (P/L/R/B/C/A); assert the screen text "Clear" [observed 2026-10-05 G11-2b].
+11. **Cashmemo Status grid** shows Document Status "Ordered" (document status) for cash memos on an approved GIN, while Transaction Inquiry shows the execution text Ready to dispatch/Packed [observed 2026-10-05 G11-2].

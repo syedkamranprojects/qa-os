@@ -8,13 +8,14 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-01
+updated: 2026-10-05
 ---
 # Stock Allocation and Unallocation: how it works (S&D / DCODE)
 
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. Tags: **[observed]**, **[db]**, **[inferred]**, **[unknown]**.
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00130001 (seq 12), 00130002 (seq 18; seq 25 duplicate inactive).
+Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 
 ## 1. Purpose
 Allocation reserves warehouse stock to booked orders so that the GIN can issue exactly the goods promised. [inferred] Unallocation releases that reservation so the stock can be given to other orders or the order can be edited. [inferred] On cnr1dev1 allocation is automatic at order save, so the manual screen mostly shows the result.
@@ -46,6 +47,8 @@ Stock Unallocation flow 00130002 uses the same layout with tab_1 (Allocated).
 5. [Maker] Open the Allocated tab; Select order COL26000002007 (one order only); Click Unallocate; Accept "Are you sure you want to proceed?" -> toast **"Process completed successfully"**; the order leaves the Allocated tab and appears on the Unallocated tab. [observed 2026-10-01 G11-1] (`11:18:00130002`)
 6. [Maker] Open the Unallocated tab; Select order COL26000002007; Click Allocation; Accept "Are you sure you want to proceed?" -> **"Process completed successfully"**; the order is back on the Allocated tab, FULL (all 5 orders 2003-2007 FULL). [observed 2026-10-01 G11-1] (`11:12:00130001` manual allocation, exercised after `11:18:00130002`)
 
+G11-2 (2026-10-05) [observed 2026-10-05 G11-2]: seq 12 no-op again (Unallocated tab empty, orders 2009-2014 FULL on the Allocated tab); seq 18 unallocate ONE order (COL26000002013) and allocate it again (QA lead option 1), as on 10-01.
+
 ## 6. Outputs and effects
 - Allocated orders move to the Allocated tab; Allocation Status FULL. [observed]
 - Stock effect (reserved/allocated quantity per warehouse): the Stock Inquiry Allocated columns carry it: on 2026-09-30, 13 rows had Allocated > 0 (e.g. 62740537 Auto Main 63 CS = the GIN 505 line) and Closing is net of Allocated [observed 2026-10-01]. Allocation also covers documents other than GIN 505 (20050308 Auto Main allocated 39 CS 96 PC vs GIN line 18 CS 16 PC) [observed]. Opening/Allocated on the new day are 0 for the received product (Allocated 0 on 10-01) [observed]. (superseded 2026-10-01 later in the day: by 16:40 the day had Opening balances and Allocated 63 CS for 62740537 at Auto Main = the pending GIN 505 reservation; who generated the openings is open, Q-OB1. [observed 2026-10-01 G11-1])
@@ -53,6 +56,7 @@ Stock Unallocation flow 00130002 uses the same layout with tab_1 (Allocated).
 - Booking allocates at save: Stock Inquiry Allocated +order quantity, Closing -order quantity (62740537 Allocated 63 -> 98 for 5 open orders x 7 CS, Closing 261 -> 226). Cancellation released 7 CS. Closing = Opening + In - Out - Allocated. [observed 2026-10-01 G11-1]
 - Unallocate / re-allocate stock effect: not snapshotted; expected to be the same release/reserve mechanism as cancellation and booking. [inferred 2026-10-01 G11-1]
 - At GIN approval the issued quantity leaves Allocated and appears as Out; Closing does not change (62740537 Allocated 98 -> 63). [observed 2026-10-01 G11-1; see goods_issue_note]
+- G11-2: a new day's Allocated already holds reservations of old Pending documents (62740537: 63 CS of GIN 505 from 09-30, carried on 10-01 and 10-05) [observed 2026-10-05 G11-2].
 
 ## 7. Statuses and transitions
 | from | action | to | by | tag |
@@ -72,6 +76,7 @@ Stock Unallocation flow 00130002 uses the same layout with tab_1 (Allocated).
 - Unallocate and Allocation both ask for confirmation "Are you sure you want to proceed?". [observed 2026-10-01 G11-1]
 - An unallocated order can be allocated again with the manual Allocation button (FULL). [observed 2026-10-01 G11-1]
 - Partial allocation when stock is short: [unknown].
+- G11-2: auto-allocation at save and the one-order Unallocate/Allocate round trip confirmed on a second day [observed 2026-10-05 G11-2].
 
 ## 9. Messages
 "Are you sure you want to proceed?" (confirm alert); "Process completed successfully" (allocation, key Stock_Allocation_ASSR); "stock not found." (unallocation; framework key Unallocated_ASSR expects something else, [unknown] what). [observed]
@@ -91,13 +96,16 @@ Reads orders from Order Booking and stock from the DA; day-keyed stock balances.
   - Positive round trip: unallocate ONE order (assert it moves to Unallocated, no Allocation Status column), allocate it again (assert FULL), then snapshot Stock Inquiry Allocated before/after to prove the stock effect (not yet measured).
   - Trap (framework drift): flow 00130002 selects ALL rows (filter "Aautomation", select-all) and unallocates everything right before the GIN; run as written it leaves the GIN with no allocated cash memos. Unallocate one order, or re-allocate before the GIN.
   - Trap: the confirm dialog must be accepted, otherwise nothing happens and no toast appears.
+- G11-2: the framework's select-all Unallocate (flow 00130002) was again replaced by a one-order round trip; drift entry in FRAMEWORK_DRIFT.md.
 
 ## 12. Open questions (batched for the BA)
 - Q: Why does Unallocate answer "stock not found." (stock keyed by day, allocation reference missing)? | Default: stock record for the order date missing | Evidence: unexplained. (Update 2026-10-01 G11-1: not reproduced; Unallocate succeeded on a same-day order with stock received that day. Likely stale-day data on 09-29 [inferred]. | Class: B)
 - Q: Is the framework's manual Allocation meant for a configuration without auto-allocation, and should Unallocation run in this cycle? | Default: keep the step but expect no-op | Evidence: draft step sheet questions 2. (Update 2026-10-01 G11-1: QA lead chose to unallocate one order and re-allocate it, so the GIN still has all orders. | Class: C)
 - Q: What does Allocation do on short stock? | Default: partial allocation | Class: B | Evidence: not tested.
-- Q-OB1: Who or what generated the day's opening balances during 2026-10-01 (0 in the morning, rebuilt from the previous day with allocation released by 16:40)? This decides the Allocated and Closing a check starts from. | Default: unknown | Class: B | Evidence: session report §8.
+- Q-OB1: Who or what generated the day's opening balances during 2026-10-01 (0 in the morning, rebuilt from the previous day with allocation released by 16:40)? This decides the Allocated and Closing a check starts from. | Default: unknown | Class: B | Evidence: session report §8. **-> ANSWERED 2026-10-05**: openings are created by the first movement of the day (DA approval) = previous Closing + still-Allocated (see stock_inquiry_and_balances.md, OPEN_QUESTIONS.md).
+- G11-2: Q (Unallocate "stock not found.") not reproduced on a second same-day run (10-05); stays PARTLY (cause [inferred] stale-day data). ANSWERED 2026-10-05 (Q-OB1): see stock_inquiry_and_balances.md.
 
 ## 13. Sources
 atlas flows 00130001, 00130002, group_11.md; TC-OB-01_executed.md (TC-OB-03); ui.md "Order Stock Allocation"; STEP_SHEET_DRAFT_next.md; DB `rpl_pr_sar_stock_alloc_rules`, `snd_tr_cmm_cashmemo_master` (column names).
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 12, 16 (stock effect), 18, 24; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rule 4, §5, §7, §8.
+- G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 12, 18).
