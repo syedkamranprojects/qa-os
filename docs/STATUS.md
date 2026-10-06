@@ -258,3 +258,42 @@ After the positive cycle (group 11) is completed through its last active flow, *
 - Seq 1-18 done except seq 4 Forward / seq 5 (Prospect Outlet Forward disabled). App pack: user `headquarter` (role HeadOffice) added to apps/snd/app.yaml for seq 32-34.
 - Outlet 1000000001 (group 11 outlet 01) was changed by seq 13-16 with the QA lead's OK: NTN number + now Registered / Tax Payer No -> group 11 tax for outlet 01 may change.
 - Next: session with the QA Team Lead (session-3 plan for group 11 + group 66 questions), then resume group 66 at seq 19 Distributor Mapping (Auto_Multi_Orga).
+
+---
+# Update: 2026-10-06 - group 11 PK session 3 COMPLETE (full seq 1-71 with the QA Team Lead) and consolidated - RESUME HERE
+
+**Read first:** `apps/snd/knowledge/business/learning_sessions/2026-10-06_G11-PK_session3_report.md` (walk, documents, rules, questions, drift, G0 readiness per area); raw log `..._session3_log.md` (copy of `runs/LEARN-G11-PK/20261006/session_log.md`).
+
+## State
+- Group 11 (Daily Cycle Only Positive Flow, Pakistan, cnr1dev1) walked **end to end in one calendar day (2026-10-06) WITH the QA Team Lead**: all 46 active rows. Seq 15 Order Editing ran for the first time. **Route Settlement was performed by Claude.** Seq 55 was a check only. Seq 56 was saved. The day was closed (E).
+- **Consolidated 2026-10-06** into the business pages:
+  - all four areas, glossary, document_lifecycle, INDEX, LIVE_FINDINGS (incl. defect D-G11-3-1), FRAMEWORK_DRIFT (section 2b, rows 27-36);
+  - OPEN_QUESTIONS: now 47 open = A 15 + B 19 + C 13 (1a 12, 1b 1).
+- QA Team Lead answers applied:
+  - Q-OE1 / Q-OE2 / Q-OE4: Order Editing lists only unallocated orders with delivery date today. Run Delivery Date Change, then Unallocate. The save re-allocates; after the GIN no unallocation is needed.
+  - Q-RS1 (fully): settlement procedure; a Reattempt order due today must be allocated, put on a GIN, approved and delivered; the day close clears the per-PJP previous-day check (yellow row = not closed, green = closed).
+  - Q-CS1: seq 55 is a check only, no Bounce.
+  - Q-DS2 (fully): duplicate cheque numbers are allowed (no cheque inventory); slips are not blocked before settlement; Route Settlement Save reconciles, posts and adjusts, and fully adjusted invoices leave the collection screens.
+  - Q-DS4: Outstanding Outlet doubled totals are a display defect.
+  - Q-DJ1: DSR Adjustment = a DSR shortage while taking money from the outlet; it increases Total Shortage and Balance.
+  - Q-TI1: Ordered = original order quantity, Allocated = allocated from available stock (expected).
+  - Q-OB2: Opening must carry the previous Closing; 10-06 Opening 0 vs 10-05 Closing 259 = the environment's carry-over job did not run (LIVE_FINDINGS E-G11-3-1; report it to the environment owner).
+  - Q-TX1: outlet 06/07 tax swap = master-data modification; rule: a zero-tax invoice of a non-exempt outlet cannot be delivered.
+  - Q-DS5: Deposit Slip Outstanding Outlet amounts are auto-adjusted FIFO onto the outlet's oldest invoice (intended); Outstanding Cash memos collects per invoice.
+
+## Carry-over on cnr1dev1 (important for the next run)
+- **Order COL26000002018 (Reattempt, delivery 2026-10-07, unallocated) will block the 2026-10-07 settlement of route 02112** ("Un-Deliver Order exists for today delivery!") unless it is handled. Before seq 51:
+  1. Allocate it (Order Stock Allocation, Order Date 2026-10-06).
+  2. Put it on a GIN and have the Checker approve it.
+  3. Mark it Delivered in Cashmemo Status.
+
+  Alternatively, ask the QA team to handle it.
+- Open receivables on 02112: 2012 (108,202, unpaid by the QA Team Lead's choice) and 2015 (73,556). Do not reuse any 2026-10-06 document (list in the report section 2).
+
+## Next (in order)
+1. No open question left from today: Q-DS2, Q-DS4, Q-DJ1, Q-TI1, Q-OB2, Q-TX1, Q-DS5 and Q-RS1 were all answered on 2026-10-06 (Q-RS4's zero-activity detail stays open by the user's choice). For the BA: Q-SR1, Q-OE3, BA11, the rest of section 1a. Environment owner: the stock carry-over job (E-G11-3-1).
+2. Re-run the coverage check (LEARNING_STANDARD section 7) and ask the QA lead for **G0 sign-off** per area. The report rates inbound_stock, order_to_delivery_planning and delivery_and_returns ready for review; settlement_and_finance is close.
+3. **Senior QA knowledge check**: predict, execute, compare. Prerequisite (seq 1-71 walked + consolidated) is now met.
+4. Then prepare for the **QA environment**: app.yaml env, users, data, and the one-day rule including yesterday's Reattempt orders.
+5. **Group 66 (NG_Setup Flow_PK) is still paused after seq 18**; resume at seq 19 Distributor Mapping (Auto_Multi_Orga). See the 2026-10-05 evening update above.
+6. Still open from before: framework owner review of FRAMEWORK_DRIFT.md; qa-os changes not committed to git.

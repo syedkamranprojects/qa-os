@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [dispatch_advice]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 # DA Loss Approval: how it works (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 00760001 (group 11 seq 7); inactive 00750001 (Loss Approval Request, seq 6). G11-1 learning walk: loss record **639** (DA 1358) approved.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 Goods can arrive damaged, expired or lost on the way. When the maker records a loss on a Dispatch Advice line, the loss must be confirmed by an approver. Loss Approval is that second sign-off: a separate document and workflow ("DALossApproval") from the DA approval [db + observed]. It follows DA approval and precedes the stock check (seq 9). Live-verified 2026-10-01: the loss record is created BY THE DA APPROVAL, not by the maker's Forward [observed]. Before: dispatch_advice.md. After: stock_inquiry_and_balances.md.
@@ -55,6 +56,7 @@ G11-1 walk, loss 639 (standard vocabulary, trace keys) [observed 2026-10-01 G11-
 4. [Checker] Open Loss Approval Detail; Verify rows 20050310 | 02 | 70 | 64 | 4, 20050310 | 04 | 70 | 64 | 2, 62690363 | 02 | 60 | 55 | 5 (11:7:00760001).
 5. [Checker] Click Forward; Enter Comments "Automation Approval"; Save -> "Forwarded successfully"; grid Status Approved (11:7:00760001).
 6. [Maker] Verify Stock Inquiry: no 02 Damaged / 04 Lost row created (11:9:02800001).
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: [Checker] Loss Approval (DYL_202026), filter Document No 1360 -> loss record **641** (DA-01, Pending for approval; Reject disabled again) -> Forward "Automation Approval" -> "Forwarded successfully" -> Approved (11:07:00760001).
 
 ## 6. Outputs and effects
 Live-verified 2026-10-01 (DA 1356, loss 1 CS Damaged, reason Area Closed): after the maker's Forward (DA Pending) the Loss Approval filter Document No 1356 gave 0 rows; after the checker approved the DA it gave Serial 638, Document Type DA-01 - Dispatch Advice, Distributor 15108843 Auto KARACHI, Status Pending for approval (serial +1 per DA with loss: 637 -> 638). Detail tab: 62740537, SKU Type 02 (Damaged), Dispatch CS 5, Received CS 4, Loss CS 1 [observed]. A Pending loss does not block the stock posting of the received (net of loss) quantity, and no 02 - Damaged stock row exists for 62740537 on 2026-10-01 or 09-30 [observed]; the loss approval (checklist L21) was not run yet, so the effect of APPROVING a loss remains unknown (superseded 2026-10-01 G11-1: L21 run on loss 639; approving creates no stock row, see below).
@@ -62,6 +64,7 @@ Loss record Approved. The stock effect is NOT confirmed: after approval Stock In
 - **G11-1: approving loss 639 created NO stock row**: no 02 Damaged / 04 Lost rows for 20050310 or 62690363 on 2026-10-01 after approval; Stock Inquiry row count stayed 39; Sound In/Closing moved only by the received quantity of the DA (+64, +55) [observed 2026-10-01 G11-1]. Closes checklist L21.
 - After Forward the grid shows Status **Approved** while the open form still shows Pending until reopened [observed 2026-10-01 G11-1].
 - G11-2: approving loss 640 again created no Damaged/Lost row (Stock Inquiry row count 39) [observed 2026-10-05 G11-2].
+- G11-3: no Damaged/Lost stock row after the loss approval (third day) [observed 2026-10-06 G11-3].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -110,8 +113,10 @@ Q-LA1: Is an approved loss used anywhere else (claim to the supplier, finance, a
 Q-LA2: Why is Reject disabled for the Checker on a Pending loss record while the workflow declares Rejected? | Default: losses cannot be rejected on this screen; do not design a Reject case | Class: B | Evidence: Serial 639 Pending, Forward ON / Reject OFF [observed 2026-10-01 G11-1].
 Q-LA3: Is the duplicate "Lost" entry in the loss Stock list two different stock types? | Default: master-data duplicate; use the first | Class: A | Evidence: list shows Lost twice [observed 2026-10-01 G11-1].
 - G11-2: BA3 (where losses appear) is merged into Q-LA1 in OPEN_QUESTIONS.md: the stock part is answered (none, two days), claims stay open.
+- Q-LA2 evidence 2026-10-06: Reject disabled again on the Pending loss record 641 [observed 2026-10-06 G11-3].
 
 ## 13. Sources
 runs/PILOT-DA-GIN/20260930-1615/exec/learning_block2a.json, learning_block3a.json, learning_block3b.json; LIVE_FINDINGS.md; framework_atlas/flows/00760001.md, 00750001.md; framework_flows/TC-DA-01_executed.md (TC-DA-03 and re-run), DISPATCH_ADVICE.md parts 7-8; DB snd_pr_stt_sku_stocktype, wkf_wf_wfs_workflow_status (DALossApproval), snd_lg_cel_claim_exe_loss_log (name only).
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (seq 2 loss window, seq 7, seq 9) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rules 1-2, §6 defect 5, §7 Loss Approval "first row" drift).
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 7, seq 9).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 7).

@@ -1,6 +1,6 @@
 # Live learning checklist (class B questions), ordered by the Daily Cycle
 
-Updated: 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-06 (G11-3 consolidation: L34, L35, L39 dropped as answered by the QA Team Lead (Q-OB2, Q-OE4, Q-DJ1); Q-TI1 and Q-TX1 answered too; new check L40); 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
 
 Built from [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) class B (33 questions at the start; 24 still open plus 1 new after live blocks 1-3b). Environment cnr1dev1; Maker = Auto_Multi_Orga, Checker = Auto_Tssm. Logins are triggered by the QA member (Claude never types passwords); every test run starts from a fresh login. Steps use the standard vocabulary [Actor] Verb Object. Record: the exact message text, the ids/labels seen, row counts, and a Stock Inquiry before/after snapshot (same row, same filters).
 
@@ -78,12 +78,19 @@ New class B checks from 2026-10-05 (add to the next walk):
 
 | Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
 |---|---|---|---|---|---|
-| L34 | [Maker] Navigate to Stock Inquiry before the first movement of a new day; then let the first movement be something other than a DA (e.g. GIN approval of stock received earlier) and Show Inquiry again | Auto_Multi_Orga | row count, Opening per row (carried or 0) | S (only the movement itself) | Q-OB2 |
-| L35 | [Maker] Navigate to Order Editing; for an order with delivery date tomorrow Choose Date To = tomorrow | Auto_Multi_Orga | whether the order is listed | no (RO) | Q-OE4 |
+| ~~L34~~ | DROPPED 2026-10-06: Q-OB2 answered [stated 2026-10-06 QA Team Lead] (see OPEN_QUESTIONS.md section 2c); original check kept for the record: [Maker] Navigate to Stock Inquiry before the first movement of a new day; then let the first movement be something other than a DA (e.g. GIN approval of stock received earlier) and Show Inquiry again | Auto_Multi_Orga | row count, Opening per row (carried or 0) | S (only the movement itself) | Q-OB2 |
+| ~~L35~~ | DROPPED 2026-10-06: Q-OE4 answered [stated 2026-10-06 QA Team Lead] (see OPEN_QUESTIONS.md section 2c); original check kept for the record: [Maker] Navigate to Order Editing; for an order with delivery date tomorrow Choose Date To = tomorrow | Auto_Multi_Orga | whether the order is listed | no (RO) | Q-OE4 |
 | L36 | [Maker] Navigate to Deposit Slip; compare Status of the slips of a Complete route/date; ask the QA lead how that date was completed | Auto_Multi_Orga | Un Posted vs Posted per slip | no (RO) | Q-DS3 |
 | L37 | [Maker] Navigate to Route Settlement; open Total Order / Delivered Orders links of 02112 | Auto_Multi_Orga | which orders make up Total Order | no (RO) | Q-RS3 |
-| L38 | [Maker] On the day after a closed day, open Route Settlement Edit on a route while another zero-activity route of the previous day is Incomplete | Auto_Multi_Orga | blocked or not | D (only if settled) | Q-RS4, Q-RS1 |
-| L39 | [Maker] Navigate to DSR Adjustment Amount; compare 02112 Total Shortage with Route Settlement history | Auto_Multi_Orga | composition of Total Shortage | no (RO) | Q-DJ1 |
+| L38 | [Maker] On the day after a closed day, open Route Settlement Edit on a route while another zero-activity route of the previous day is Incomplete | Auto_Multi_Orga | blocked or not | D (only if settled) | Q-RS4 (Q-RS1 answered 2026-10-06 [stated 2026-10-06 QA Team Lead]: the day close clears the per-PJP check) |
+| ~~L39~~ | DROPPED 2026-10-06: Q-DJ1 answered [stated 2026-10-06 QA Team Lead] (see OPEN_QUESTIONS.md section 2c); original check kept for the record: [Maker] Navigate to DSR Adjustment Amount; compare 02112 Total Shortage with Route Settlement history | Auto_Multi_Orga | composition of Total Shortage | no (RO) | Q-DJ1 |
+
+New checks from 2026-10-06 (G11-3):
+
+| Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
+|---|---|---|---|---|---|
+| L40 | [Maker] Navigate to Stock Inquiry; Choose yesterday's date; read Closing of the cycle products; Choose today's date before the first movement / after it; compare Opening with yesterday's Closing | Auto_Multi_Orga | Opening = previous Closing (carry-over job ran) or 0 (environment issue, report it) | no (RO) | pre-check from the Q-OB2 ruling |
+| L41 | [Maker] Book (or find) a zero-tax order of a NON-exempt outlet; put it on a GIN and try Cashmemo Status Delivered | Auto_Multi_Orga / Auto_Tssm | where the delivery is blocked and the exact message | D | Q-TX1 rule (stated, not yet observed) |
 
 ## Block 1: read-only, any day (RO)
 

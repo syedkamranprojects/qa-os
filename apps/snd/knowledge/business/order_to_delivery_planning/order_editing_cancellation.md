@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, goods_issue_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Order Editing and Order Cancellation: how it works (S&D / DCODE)
 
@@ -16,17 +16,20 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00020001 (seq 15), 00040001 (seq 16), 00840001 Order Editing After GIN (seq 29), 00850001 Order Cancellation After GIN (seq 31); validation flows 03190001 (seq 68), 03740001 (seq 70).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead. **Seq 15 (Order Editing before the GIN) was executed for the first time.**
 
 ## 1. Purpose
 Order Editing changes quantities of a booked order (e.g. customer wants fewer cases) with a reason, recalculating gross, discount, tax and net. Order Cancellation withdraws an order entirely with a cancellation reason. Both exist before the GIN (seq 15/16) and again after the GIN (seq 29/31), where the business rule is different because stock has been issued. [inferred]
 - Live 2026-10-01: before the GIN, cancellation releases the order's reserved stock. After an approved GIN both editing and cancellation are still allowed, with no warning, and **move no stock**: the goods are with the delivery man and come back through the Goods Return Note. [observed 2026-10-01 G11-1; GRN return observed on the GRN page]
 - G11-2: confirmed on a second day: edit (COL26000002009) and cancel (COL26000002013) after the approved GIN 507, no warning, same totals as 10-01 [observed 2026-10-05 G11-2].
+- G11-3: the QA Team Lead's rules make the before-GIN edit possible: **Order Editing lists only UNALLOCATED orders whose delivery date is today**; so run Delivery Date Change (to today) first, then Unallocate the order, then edit [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]. **Saving the edit re-allocates the order** [observed]. After the GIN is approved, an order can be edited **without** unallocation (its allocation was consumed by the GIN) [stated 2026-10-06 QA Team Lead; observed].
 
 ## 2. Actors and roles
 Auto_Multi_Orga. [observed in group 11] Whether a checker must approve edits: [unknown] (no approval flow in the chain).
 - Maker = Auto_Multi_Orga edits (seq 29) and cancels (seq 16, 31). [observed 2026-10-01 G11-1]
 - Checker: no approval step; an edit and a cancellation take effect on the Maker's Save / Cancel All. (upgraded: [observed 2026-10-01 G11-1], was [unknown])
 - G11-2: Maker Auto_Multi_Orga edited (seq 29) and cancelled (seq 16, 31); no Checker step [observed 2026-10-05 G11-2].
+- G11-3: Maker Auto_Multi_Orga edited (seq 15, 29) and cancelled (seq 16, 31); the order to edit/cancel was chosen by the QA Team Lead (seq 15/29: COL26000002015 outlet 04; seq 16: COL26000002017 outlet 07; seq 31: COL26000002019 outlet 06) [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]. No Checker step.
 
 ## 3. Documents and master data
 Acts on the order cash memo; a successful edit produces `ORDERNUMBEREDIT` repo (an Order Number shown after edit; whether it is a new number or the same: [unknown]). Reasons come from master data: Reason Type (e.g. "Order Change QTY") and Cancellation Reason (e.g. "Shop Closed") [observed in step sheet draft; list [unknown]]. Statuses: Cancelled 03 [db].
@@ -35,6 +38,7 @@ Acts on the order cash memo; a successful edit produces `ORDERNUMBEREDIT` repo (
 - **Cancellation Reason options**: Bad Weather, Credit Exceeded, Law & order Issue, Shop Closed. (upgraded: [observed 2026-10-01 G11-1], was [unknown])
 - Cancelled orders show "Cancelled" in Transaction Inquiry. [observed 2026-10-01 G11-1]
 - G11-2: the edit kept Document No COL26000002009 (second day) [observed 2026-10-05 G11-2]. Reason lists re-read: Reason Type Order Change QTY / Wrong Order /No Order / No Scheme / Stock Already Avl.; Cancellation Reason Bad Weather / Credit Exceeded / Law & order Issue / Shop Closed [observed 2026-10-05 G11-2].
+- G11-3: COL26000002015 kept its Document No through two edits (7 -> 4 -> 3 CS) [observed 2026-10-06 G11-3].
 
 ## 4. Inputs: screens and fields
 **Order Editing** (`/ngui/order-editing`, id ORDER_EDITING): PJP, Selling category, section (dropdowns), Start Date, End Date (date range), Outlet Name; result grid Document No, Document Date, Delivery Date, Outlet, Demand Channel, Gross Amount, Discount, Tax, Net Amount, Balance Amount, Received Amount; click Document No to open. [atlas/step_labels]
@@ -48,6 +52,8 @@ Acts on the order cash memo; a successful edit produces `ORDERNUMBEREDIT` repo (
 - Result window **"Order Cancellation Status"** with columns Index No, Doc No, Status, Message. [observed 2026-10-01 G11-1]
 - G11-2: **Order Editing header PJP defaults to AUTO241602~Auto917248**, not the booking PJP; re-picking 02111~AutomationOB1 clears Section and Selling Category, which must be re-picked; Outlet auto-filled 1000000004 together with the SKU filter 69997598 [observed 2026-10-05 G11-2]. Screenshots of the header filters and the edit page: learning_sessions/screenshots/.
 - G11-2: Order Cancellation opens with PJP 02111 - AutomationOB1 and dates today; the Outlet list held only outlets with open orders (04, 08, 05, 07, 06); the Cancellation Reason column and the row checkbox sit at opposite ends of a horizontally scrolling grid [observed 2026-10-05 G11-2].
+- G11-3 edit page (/order-editing/order-edit-new): lines show ATP (62740537 52-0-0 at seq 15), Demand CS/DZ/PC (read-only), Order CS/PC (editable), Gross, Reason Type, per-line Edit [observed 2026-10-06 G11-3].
+- G11-3 Order Cancellation: click the Cancellation Reason cell to open the in-grid dropdown; tick the row by clicking the checkbox CELL (the checkbox itself has no size) [observed 2026-10-06 G11-3].
 
 ## 5. Process: the business steps in order
 1. [Maker] Navigate to Order Editing; Choose PJP (category, section fill in); Choose Outlet Name; set date range to include the order. (`11:15:00020001`) (2026-10-01: the date range must include the order's DELIVERY date. [observed 2026-10-01 G11-1])
@@ -64,6 +70,14 @@ G11-2 walk (2026-10-05) [observed 2026-10-05 G11-2]:
 2. [Maker] Navigate to Order Cancellation; Cancel COL26000002014 (before the GIN) with a reason -> cancelled, stock released (11:16:00040001).
 3. [Maker] Navigate to Order Editing (after GIN 507, orders' delivery date = today); Choose PJP 02111~AutomationOB1 (re-pick), Selling Category 201-Selling Category 001; Outlet 1000000004; Open COL26000002009; Edit line 62740537 Order 7/0/0 -> 4/0/0, Reason Type Order Change QTY; Save line; Click Validation -> "Validation successfully"; Click Save -> "Order Save successfully" (11:29:00840001).
 4. [Maker] Navigate to Order Cancellation; Choose Outlet 1000000006 (COL26000002013, Net 91,696, order date = delivery date = 2026-10-05); Choose Cancellation Reason Shop Closed; Tick the row; Click Cancel All -> "Order Cancellation Status": COL26000002013 | Successfull | Order Cancelled Successfully (11:31:00850001).
+G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3 unless tagged]:
+1. Seq 15 first attempt (orders' delivery date 2026-10-12): nothing listed. Rule [stated 2026-10-06 QA Team Lead]: change the delivery date BEFORE Order Editing -> Delivery Date Change run first (all 6 orders to 2026-10-06). Order Editing (PJP 02111, SC 201, Section 101010101101, Date From/To today) still listed nothing.
+2. Rule [stated 2026-10-06 QA Team Lead]: **an allocated order must be UNALLOCATED before Order Editing lists it** (Order Stock Allocation -> Allocated tab -> select -> Unallocate). The QA team unallocated 2015 and 2016 during the check.
+3. [Maker] Navigate to Order Editing; Choose PJP 02111~AutomationOB1, SC 201, Section 101010101101, Date From/To today -> **COL26000002015 listed** (outlet 1000000004 auto-filled); Open it; Edit line 62740537 Order CS 7 -> **4**, PC 0, Reason Order Change QTY; row Save (no toast); Click Validation -> "Validation successfully"; Click Save -> "Order Save successfully"; totals **96,840.34 / -20,718.07 / 14,584.79 / 90,707** = workbook Detail2/Detail3 exactly; same Document No, delivery 2026-10-06 (11:15:00020001).
+4. [Maker] Navigate to Order Cancellation; PJP 02111, dates today, Outlet 1000000007 -> COL26000002017 (101,161); Cancellation Reason Shop Closed; tick the row; Cancel All -> "Order Cancellation Status": Successfull / Order Cancelled Successfully (11:16:00040001). (Workbook outlet 07 used, as chosen by the QA Team Lead.)
+5. (Stock Allocation seq 18: 2015 found Allocated again = re-allocated by the edit save.)
+6. [Maker] After GIN 508 approval: Order Editing lists 2015 **without unallocation**; Edit 62740537 4 -> **3 CS**, Order Change QTY -> "Validation successfully" -> "Order Save successfully"; same document; order total **81,417.41 / -17,633.48 / 12,371.66 / 76,155.59** (line sum; header Net 76,156) (11:29:00840001). Second edit chosen by the QA Team Lead, so the workbook's seq 29 data (4 CS -> 90,707) no longer applies.
+7. [Maker] Order Cancellation after GIN: COL26000002019 (outlet 06, on approved GIN 508), Shop Closed -> Successfull / Order Cancelled Successfully; no warning (11:31:00850001).
 
 ## 6. Outputs and effects
 Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 checks Charges Amount and Tax Amount after editing). Cancellation: order status Cancelled 03 [db]; stock effect (release of allocation): [inferred], not observed. Neither step has been executed live. (superseded 2026-10-01: both executed live, effects below. [observed 2026-10-01 G11-1])
@@ -74,6 +88,10 @@ Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 
 - **Cancellation after the GIN (COL26000002007)**: status Cancelled, GIN No 506 kept, Delivery Date 2026-10-01. **No stock effect** (62740537 Out 35 / Allocated 63 / Closing 226 unchanged, same for all five SKUs); the 7 CS remain "out" with the delivery man until the GRN (seq 48 returned them). It is left off the Cashmemo Status list and the Route Settlement order count. [observed 2026-10-01 G11-1]
 - G11-2: edit after GIN (COL26000002009): Gross 96,840.34, Discount -20,718.07, Tax 14,584.79, Net 90,707.00 = workbook and 10-01 exactly; line 1 gross recomputed to 61,691.72, line discount -13,198.36; no stock movement; the 3 CS cut came back on GRN 247 [observed 2026-10-05 G11-2].
 - G11-2: cancel after GIN (COL26000002013): no warning, no stock movement; its 7 CS came back on GRN 247; the order left Cashmemo Reschedule/Status lists [observed 2026-10-05 G11-2].
+- G11-3 edit before the GIN (seq 15, COL26000002015): line 62740537 61,691.72 / -13,198.36 / 8,728.81 / 57,222.17; order **96,840.34 / -20,718.07 / 14,584.79 / 90,707** (= workbook and 10-01/10-05 after-GIN edits); discounts on the other lines re-priced (20050310 -3,922.25 -> -4,006.66) [observed 2026-10-06 G11-3].
+- G11-3: **the edit save re-allocated the order** (2015 back on the Allocated tab, FULL) [observed 2026-10-06 G11-3]; the GIN then issued 4 CS for it (32 CS = 4 + 4 x 7).
+- G11-3 edit after the GIN (seq 29): line 46,268.79 / -10,020.95 / 6,524.61 / 42,772.45; order **81,417.41 / -17,633.48 / 12,371.66 / 76,155.59**; no stock movement; the cut quantity came back on GRN 248 (17 CS) [observed 2026-10-06 G11-3].
+- G11-3 cancel before GIN (2017) and after GIN (2019): both "Order Cancelled Successfully"; 2017 not offered on the GIN; 2019's 7 CS came back on GRN 248 [observed 2026-10-06 G11-3].
 
 ## 7. Statuses and transitions
 | from | action | to | by | tag |
@@ -83,6 +101,8 @@ Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 
 | Delivered / on GIN | Edit or Cancel | [unknown] | | [unknown] (superseded 2026-10-01, rows below) |
 | Ready to dispatch/Packed (on approved GIN) | Edit + Save | Ready to dispatch/Packed, amended amounts, same Document No; later Delivered/Invoiced | Maker | [observed 2026-10-01 G11-1] |
 | Ready to dispatch/Packed (on approved GIN) | Cancel All | Cancelled, GIN No kept | Maker | [observed 2026-10-01 G11-1] |
+| Confirmed, allocated, delivery today | Unallocate (Order Stock Allocation) | listed in Order Editing | Maker | [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3] |
+| Confirmed, unallocated (Order Editing) | Edit + Validation + Save | Confirmed, re-allocated (FULL), same Document No | Maker | [observed 2026-10-06 G11-3] |
 
 ## 8. Rules and validations
 - Outlet Name list is EMPTY for orders that show as Allocated (outlet API `getOultetsForOrderEditing` returned [] for PJP/section/category; a wide range returned older outlets). Correlation with allocation observed, not proven; alternative suspect: date range filters on delivery date (orders had 2026-10-05). [observed/inferred] (superseded 2026-10-01: the cause is the date range, which filters the DELIVERY date; allocation does not hide orders. With the default range (today) an order booked today for delivery 2026-10-07 can never appear; after Delivery Date Change to today the same allocated orders were listed. [observed 2026-10-01 G11-1])
@@ -102,6 +122,11 @@ Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 
 - G11-2 (supersedes the G11-1 rule "Order Editing dates filter the DELIVERY date" in its "Date To must cover the delivery date" form): **Order Editing listed orders only when their delivery date was TODAY** (after Delivery Date Change); a range From 10-05 To 10-11, or From = To = 10-11, did not list the orders whose delivery date was 10-11 [observed 2026-10-05 G11-2]. Wording reconciled: the session-2 report says "only orders whose DELIVERY date is in range (default today)"; the log (primary evidence) shows a future range does not help, so the observed rule is "delivery date = today / the PJP working date"; whether the range matters at all for other dates is [inferred] (Q-OE4). Consequence: seq 15 (before Delivery Date Change at seq 19) can never find a freshly booked order whose delivery date is a future visit [observed 2026-10-05 G11-2].
 - G11-2: the SKU-filter display defect reproduced: grid Gross 76.72 (SKU 69997598 only) with whole-order Discount/Tax -> Net -8,660.8 on COL26000002009 [observed 2026-10-05 G11-2].
 - G11-2: edit/cancel after an approved GIN allowed without warning (second day; Q-OE3) [observed 2026-10-05 G11-2].
+- G11-3 (answers Q-OE1, Q-OE2, Q-OE4; supersedes the G11-1 note "allocation does not hide orders" and the G11-2 wording "delivery date = today" as the only condition): **Order Editing lists only orders that are UNALLOCATED and whose delivery date is today** (the Date From/To range = today). Procedure: Delivery Date Change to today, then Unallocate, then edit [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3: with delivery today but still allocated nothing was listed; after unallocation 2015 was listed]. (superseded 2026-10-06: the G11-1 rule "allocation does not hide orders" was based on orders after Delivery Date Change on an approved GIN, where the allocation had been consumed; see next rule.)
+- G11-3: **after GIN approval an order can be edited without unallocation** (allocation consumed by the GIN; status Ready to dispatch/Packed) [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
+- G11-3: **Order Editing Save re-allocates the edited order** [observed 2026-10-06 G11-3].
+- G11-3: SKU-filter display quirk again after GIN (grid Gross 76.72 beside whole-order discount/tax) [observed 2026-10-06 G11-3].
+- G11-3: edit/cancel after the approved GIN allowed again without warning (third day; Q-OE3) [observed 2026-10-06 G11-3].
 
 ## 9. Messages
 Observed: none (flows not reachable). Framework keys: ORD_EDIT_VALD_ASSR, ORD_EDIT_SAVE_ASSR, row message ELEVAL on the cancellation row, TSTMSG. Draft: "Order Cancelled Successfully" [unverified]. (superseded 2026-10-01: messages observed below.)
@@ -109,12 +134,14 @@ Observed: none (flows not reachable). Framework keys: ORD_EDIT_VALD_ASSR, ORD_ED
 - Cancellation: no toast; result window **"Order Cancellation Status"** row: Doc No | Status **"Successfull"** (sic) | Message **"Order Cancelled Successfully"**. (upgraded: [observed 2026-10-01 G11-1], was [unverified])
 - Order Cancellation Refresh with an uncommitted typed Date To: "Required parameter 'toDate' is not present." [observed 2026-10-01]
 - G11-2: "Validation successfully", "Order Save successfully", "Order Cancellation Status" window with "Successfull" / "Order Cancelled Successfully" confirmed on a second day [observed 2026-10-05 G11-2].
+- G11-3: same messages on the third day, including the first before-GIN edit: "Validation successfully", "Order Save successfully"; cancellation window "Successfull" / "Order Cancelled Successfully" [observed 2026-10-06 G11-3].
 
 ## 10. Dependencies
 Needs an order from Order Booking (order 04 for editing, order 07 for cancellation) in an editable (probably Unallocated) state. Hands edited totals to Transaction Inquiry validation and to GIN. (superseded 2026-10-01: the order does not need to be unallocated; for Order Editing its delivery date must fall in the Date From/To range, normally after Delivery Date Change. [observed 2026-10-01 G11-1])
 - After the GIN, cut and cancelled quantities are handed to the Goods Return Note (Suggested quantity). [observed 2026-10-01 G11-1]
 - Workbook outlets 1000000001-03 are not offered on cnr1dev1, so the workbook's edit/cancel targets need substitutes (QA lead chose COL26000002008 for seq 16 instead of outlet 1000000007's order, and COL26000002003 for the edit). [observed 2026-10-01 G11-1]
 - G11-2: Order Editing needs the order's delivery date = today, i.e. it must run after Delivery Date Change (seq 19); in group 11 only seq 29 meets this [observed 2026-10-05 G11-2].
+- G11-3 (supersedes the 2026-10-01 note "the order does not need to be unallocated" for the before-GIN edit): seq 15 depends on Delivery Date Change (seq 19, run first) and on an Unallocate (Order Stock Allocation) of the order; the edit save re-allocates, so the GIN (seq 20) still takes the order [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]. In group 11 order: 19 -> unallocate -> 15 -> 16 -> 18 (unallocate/allocate) -> 20.
 
 ## 11. Test design hints
 - Positive: edit one line quantity down, check totals recalc and status; cancel one order with reason; verify Transaction Inquiry shows Cancelled.
@@ -135,6 +162,12 @@ Needs an order from Order Booking (order 04 for editing, order 07 for cancellati
   - Trap: the header PJP default AUTO241602 must be re-picked; re-picking clears Section/Category (re-pick them); the outlet and SKU filters auto-fill.
   - Trap (framework drift): seq 15 is placed before Delivery Date Change, so on any day where the booking delivery date is a future visit it finds nothing. Fix in FRAMEWORK_DRIFT.md.
   - Trap: on Order Cancellation the reason column and the checkbox are at opposite ends of the scrolling grid; set the reason, then scroll to tick.
+- G11-3 additions [observed 2026-10-06 G11-3; stated 2026-10-06 QA Team Lead]:
+  - Positive (seq 15): Delivery Date Change to today -> Unallocate -> Order Editing lists the order -> edit 7 -> 4 CS -> 96,840.34 / -20,718.07 / 14,584.79 / 90,707 -> order re-allocated.
+  - Negative: an allocated order with delivery today is NOT listed; an unallocated order with a future delivery date is NOT listed.
+  - Positive (seq 29): after GIN approval the order is listed without unallocation.
+  - Trap (replay): if seq 15 and seq 29 both edit the same order, seq 29's workbook data (4 CS) is already applied; downstream expected values (seq 68-71, return) change (3 CS on 10-06).
+  - Trap (framework drift): seq 15 needs Delivery Date Change and an Unallocate before it; group 11 orders them 15 -> 18 -> 19 (FRAMEWORK_DRIFT.md).
 
 ## 12. Open questions (batched for the BA)
 - Q: How does an allocated order reach Order Editing / Cancellation (unallocate first? delivery-date range?) | Default: unallocate first, range covers delivery date | Evidence: outlet list empty. **ANSWERED 2026-10-01 G11-1**: by the delivery-date range; Order Editing Date From/To filter the delivery date, allocation does not hide orders (the empty list of 2026-09-29 was a default range of today vs delivery 10-05). [observed]
@@ -148,8 +181,13 @@ Needs an order from Order Booking (order 04 for editing, order 07 for cancellati
 - Q-OE1 REVISED 2026-10-05: Order Editing listed only orders whose delivery date is today; is seq 15 meant to run AFTER Delivery Date Change, or should orders be booked with a delivery date of today? | Default: run Order Editing after Delivery Date Change | Class: C | Evidence: seq 15 attempt 2026-10-05 (ranges 10-05..10-11 and 10-11..10-11 empty) [observed 2026-10-05 G11-2]. The G11-1 hypothesis "Date To must cover the delivery date" is superseded.
 - Q-OE4: What exactly does the Order Editing date filter do: list only delivery date = working date, or a range capped at today (e.g. would an order with delivery date tomorrow show with Date To = tomorrow)? | Default: only delivery date = today is listed | Class: B | Evidence: as Q-OE1; request dateFrom=dateTo=2026-10-11 returned no outlets [observed 2026-10-05 G11-2].
 - Q-OE2, Q-OE3 unchanged (seq 15 skipped again; edit/cancel after GIN allowed again). ANSWERED 2026-10-05 (Q-OB1): see stock_inquiry_and_balances.md.
+- Q-OE1 **ANSWERED 2026-10-06**: run Delivery Date Change (to today) BEFORE Order Editing, and unallocate the order; Order Editing lists only unallocated orders whose delivery date is today [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
+- Q-OE2 **ANSWERED 2026-10-06**: the QA Team Lead chose COL26000002015 (outlet 1000000004) for seq 15 (and again for seq 29), COL26000002017 (outlet 07) for seq 16, COL26000002019 (outlet 06) for seq 31 [stated 2026-10-06 QA Team Lead].
+- Q-OE4 **ANSWERED 2026-10-06**: only unallocated orders with delivery date = today are listed (a future delivery date is not listed even inside the range) [stated 2026-10-06 QA Team Lead; observed 2026-10-05, 2026-10-06].
+- Q-OE3 still open: edit/cancel after the approved GIN allowed again on 2026-10-06 (2015, 2019) [observed 2026-10-06 G11-3].
 
 ## 13. Sources
 atlas flows 00020001, 00040001, 00840001, 00850001, 03190001, 03740001; group_11.md; STEP_SHEET_DRAFT_next.md (rows 15, 16); ui.md "Order Editing / Order Cancellation"; step_labels "Order Editing", "Order Cancellation".
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 15 (skipped, filter finding), 16, 29, 31, 48 (GRN reconciliation); `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 7 and 11, §6, §8.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 15 attempt, 16, 29, 31); learning_sessions/2026-10-05_G11-PK_session2_report.md §3; screenshots learning_sessions/screenshots/order_editing_header_filters.png, order_editing_edit_page_line1.png.
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 15 first execution, 16, 18, 19, 29, 31).

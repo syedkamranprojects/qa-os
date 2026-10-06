@@ -1,6 +1,6 @@
 # Inbound stock and stock checks (area summary)
 
-Updated: 2026-10-05 (G11-2/2b consolidation); 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
+Updated: 2026-10-06 (G11-3 consolidation: DA 1360, loss 641, GRN 248; seq 9 opened the day with Opening 0 again, Q-OB2); 2026-10-05 (G11-2/2b consolidation); 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 
 1. Stock enters the distributor warehouse through a Dispatch Advice (DA): maker creates and forwards, checker approves; received quantity (dispatched minus loss) becomes Sound stock. Confirmed on DA 1358 (5 lines, losses on 2): In rose by exactly the received quantity; the Maker still has Forward/Reject on his own Pending DA (Q-DA1) [observed 2026-10-01 G11-1].
 2. A DA with losses creates a DA Loss Approval record that the checker approves; where the loss lands as stock is unknown. (Superseded 2026-10-01 G11-1: one loss record per DA, created at the DA approval; approving it creates NO stock row, L21 closed; any use outside stock, e.g. claims, is open.)

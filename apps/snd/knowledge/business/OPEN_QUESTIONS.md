@@ -1,16 +1,18 @@
 # Open questions: consolidated and classified (S&D / DCODE business knowledge)
 
-Updated: 2026-10-05 (consolidation of learning sessions G11-2 and G11-2b; earlier: 2026-10-01 live blocks 1-3b and G11-1)
+Updated: 2026-10-06 (consolidation of learning session G11-3, full seq 1-71 with the QA Team Lead, and his answers; earlier: 2026-10-05 G11-2 / G11-2b; 2026-10-01 live blocks 1-3b and G11-1)
 
-Consolidated 2026-10-01 from section 12 of the 26 area pages (73 questions as written, 60 unique after merging 13 duplicates; the Q numbers have gaps because merged questions keep the lowest id). Source ids: page code + number, e.g. DA2 = Dispatch Advice question 2 (codes at the end of this file). Questions raised by the learning sessions keep their page ids (Q-OE1, Q-DS1, ...) so references in the pages do not break; since 2026-10-05 they are filed in the class sections below (the former unnumbered section 8 "New from learning session G11-PK 1" is merged in). Live evidence: [LIVE_FINDINGS.md](LIVE_FINDINGS.md) blocks 1, 2a, 3a, 3b (2026-10-01); [learning_sessions/](learning_sessions/README.md) G11-1 (2026-10-01), G11-2 and G11-2b (2026-10-05).
+Consolidated 2026-10-01 from section 12 of the 26 area pages (73 questions as written, 60 unique after merging 13 duplicates; the Q numbers have gaps because merged questions keep the lowest id). Source ids: page code + number, e.g. DA2 = Dispatch Advice question 2 (codes at the end of this file). Questions raised by the learning sessions keep their page ids (Q-OE1, Q-DS1, ...) so references in the pages do not break; since 2026-10-05 they are filed in the class sections below (the former unnumbered section 8 "New from learning session G11-PK 1" is merged in). Live evidence: [LIVE_FINDINGS.md](LIVE_FINDINGS.md) blocks 1, 2a, 3a, 3b (2026-10-01); [learning_sessions/](learning_sessions/README.md) G11-1 (2026-10-01), G11-2 and G11-2b (2026-10-05), G11-3 (2026-10-06, [learning_sessions/2026-10-06_G11-PK_session3_log.md](learning_sessions/2026-10-06_G11-PK_session3_log.md)). Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 Classes: **A** default is fine (no BA time; see appendix), **B** verify live (see [LIVE_LEARNING_CHECKLIST.md](LIVE_LEARNING_CHECKLIST.md)), **C** decision by the BA (section 1a) or by the QA lead / framework owner (section 1b).
 
 **Status after the 2026-10-05 consolidation: open 56 = A 15 + B 22 + C 19** (before: 70 = A 16 + B 32 + C 22, counting the 18 items of the former section 8). Closed in this consolidation: 21 answered (10 by G11-2/2b evidence, 11 by G11-1 evidence that had been written into the pages but not into this file) and 2 merged as duplicates; 9 new questions (B 6, C 3). Exact arithmetic in section 6.
 
-## 1. Class C: decisions (19 open)
+**Status after the 2026-10-06 consolidation: open 47 = A 15 + B 19 + C 13** (1a BA list 12, 1b QA lead list 1). Closed: 11 answered (Q-OE1, Q-OE2, Q-OE4, Q-CS1, Q-DJ1, Q-TI1, Q-OB2, Q-TX1, Q-DS5, Q-RS1, Q-DS2) plus Q-DS4, raised and answered the same day; partly answered and kept open: Q-DS2 (duplicate cheque half answered), BA12 (effect of a positive adjustment). New and answered the same day: Q-TX1, Q-DS5. No question raised or pending from today stays open (Q-RS4 keeps its open zero-activity detail). Exact arithmetic in section 6; answers in section 2c.
 
-### 1a. BA decision list (15 open; hard maximum 15)
+## 1. Class C: decisions (13 open; was 19 before 2026-10-06)
+
+### 1a. BA decision list (12 open; hard maximum 15)
 
 Order follows the Daily Cycle. Each has default, why it matters, evidence. BA1, BA5, BA6, BA7, BA9 were answered by evidence (section 2); BA3 is merged into Q-LA1; the numbers are kept so references do not break.
 
@@ -25,6 +27,7 @@ Order follows the Daily Cycle. Each has default, why it matters, evidence. BA1, 
 - Why: the GIN needs a typed Delivery Date and eligible cash memos; wrong date gives an empty Cash Memo Selection.
 - Evidence: order_booking.md, delivery_date_change.md (draft question 3); live 2026-10-01: the 8 orders on GIN 505 carry 2026-09-30 (moved), cancelled orders 1986/1993 still carry 2026-10-05.
 - 2026-10-05: third data point: bookings of 09-29 -> 10-05, 10-01 -> 10-07, 10-05 -> 10-11 [observed]; Delivery Date Change needed before the GIN on both walk days; Order Editing lists only orders whose delivery date is today (Q-OE1). The "next visit" rule stays [inferred] (PJP calendar not read).
+- 2026-10-06: fourth data point (10-06 booking -> 10-12) [observed 2026-10-06 G11-3]; Delivery Date Change must now run BEFORE Order Editing too [stated 2026-10-06 QA Team Lead].
 
 **BA8. Is a sales return limited to the quantity ordered or the quantity delivered, and may it be made before the cash memo is delivered?** [Q40]
 - Default: limited to delivered quantity; only after delivery.
@@ -37,18 +40,21 @@ Order follows the Daily Cycle. Each has default, why it matters, evidence. BA1, 
 - Why: the approval row 00140002 is inactive; defines whether an approval case exists.
 - Evidence: deposit_slips.md.
 - 2026-10-05: slips were posted by Route Settlement without any approval step [observed 2026-10-05 G11-2b]; Forward/Reject buttons remain unused.
+- 2026-10-06: slips 1143-1148 posted by the settlement Claude performed, again without any approval step [observed 2026-10-06 G11-3].
 
 **BA11. What does a bounced cheque do to the outlet receivable, and which cheque status transitions are allowed?** [Q51]
 - Default: the invoice becomes outstanding again; only P/L to R or B.
 - Why: negative and transition cases of Cheque Status.
 - Evidence: cheque_status.md (no rows, no flow beyond selection).
 - 2026-10-05 (narrows the transition part of the default): after posting the cheques read "Clear" and the screen offers only Bounce (no Realized / Presented / Collected) [observed 2026-10-05 G11-2b]; Bounce not pressed (one-way). Open: the effect of Bounce on the receivable.
+- 2026-10-06: cheques of 1144, 1146, 1147 Clear after settlement; seq 55 is a check only, Bounce is not part of the cycle [stated 2026-10-06 QA Team Lead]. The Bounce effect stays open for the BA.
 
-**BA12. What is the effect of a DSR Adjustment (sign, debit/credit, link to cash shortage) in Route Settlement?** [Q52]
+**BA12. What is the effect of a DSR Adjustment (sign, debit/credit, link to cash shortage) in Route Settlement?** [Q52] **PARTLY ANSWERED 2026-10-06**
 - Default: the sign decides debit or credit and it changes the cash shortage.
 - Why: its assertion is toast plus detail amount only; the finance effect cannot be tested without the rule.
 - Evidence: dsr_adjustment.md.
 - 2026-10-05: screen read: per PJP Total Shortage / Total Adjusted / Balance = Shortage - Adjusted (02112: 2,477,571.11 / 1,649,970.43 / 827,600.68); nothing saved (seq 56 bypassed by the QA lead) [observed 2026-10-05 G11-2b]. See also Q-DJ1.
+- 2026-10-06: a positive adjustment (400) is a DSR shortage (charge to the DSR): Total Shortage +400 and Balance +400, Total Adjusted unchanged [observed 2026-10-06 G11-3; meaning stated 2026-10-06 QA Team Lead, Q-DJ1 answered]. Still open: negative amounts, what reduces the shortage (Total Adjusted), and any link to Route Settlement's Cash Shortage (the route was already Complete).
 
 **BA13. Does a stock write-off through a SAN produce a financial posting (value, moving average price) in addition to the stock change?** [Q59]
 - Default: stock value only, no other posting.
@@ -61,19 +67,25 @@ Order follows the Daily Cycle. Each has default, why it matters, evidence. BA1, 
 - Why: 62740537 closed 97 CS on 2026-09-30 but opened 0 on 2026-10-01 after the DA approval, and GIN 505 approval on 09-30 was refused for stock received 09-29: previous closings are not carried automatically. Any case that issues stock not received that day depends on the answer.
 - Evidence: Stock Inquiry 09-30 vs 10-01 (LIVE_FINDINGS L01, S1, S2); button never clicked (not authorised).
 - 2026-10-05 (answers the carry part, supersedes "previous closings are not carried automatically" in Why): the first movement of a new day (DA 1359 approval) created all 39 rows with Opening = previous Closing + still-Allocated (62740537: 245 + 63 = 308) without the button [observed 2026-10-05 G11-2]. Still open: what the button does, who may run it. New default: never needed in the QA cycle; never click it.
+- 2026-10-06: the first movement (DA 1360 approval) created only the 5 received rows with Opening 0 (no carry, GIN 505's 63 CS not shown), as on 10-01 and unlike 10-05 [observed 2026-10-06 G11-3]. So whether previous closings are carried differs by day; a Generate Opening Balances run or the previous day's close may be involved [inferred]. See Q-OB2.
 
-**Q-OE1 (revised 2026-10-05). Order Editing listed only orders whose delivery date is today: is the edit before the GIN (seq 15) meant to run AFTER Delivery Date Change, or should orders be booked with a delivery date of today?**
+**Q-OE1 (revised 2026-10-05). Order Editing listed only orders whose delivery date is today: is the edit before the GIN (seq 15) meant to run AFTER Delivery Date Change, or should orders be booked with a delivery date of today?** **ANSWERED 2026-10-06 (see 2c), kept here for reference; no longer counted as open.**
 - Default: run Order Editing after Delivery Date Change.
 - Why: as automated, seq 15 can never find a freshly booked order (delivery date = next visit).
 - Evidence: 2026-10-05: ranges 10-05..10-11 and 10-11..10-11 empty for orders delivered 10-11; after Delivery Date Change the orders were listed (seq 29) [observed 2026-10-01, 2026-10-05]. The G11-1 hypothesis "Date To must cover the delivery date" is superseded.
+- **ANSWER 2026-10-06** [stated 2026-10-06 QA Team Lead]: change the delivery date BEFORE Order Editing (Delivery Date Change to today), and unallocate the order: Order Editing lists only UNALLOCATED orders whose delivery date is today. Seq 15 then worked for the first time (2015 7 -> 4 CS = workbook values) [observed 2026-10-06 G11-3].
 
 **Q-OE3. Should editing / cancelling an order on an approved GIN be blocked or warned (business control)?** [absorbs the intent part of BA6]
 - Default: allowed (as observed); record as defect candidate.
 - Evidence: allowed with no warning and no stock movement on 2026-10-01 (2003, 2007) and 2026-10-05 (2009, 2013) [observed].
+- 2026-10-06: again (2015 edited 4 -> 3 CS, 2019 cancelled on approved GIN 508); after the GIN an order can be edited without unallocation [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
 
-**Q-DS2. Is a duplicate cheque number for the same outlet allowed, and should a cash memo already fully allocated on an unposted slip be blocked on another slip?**
+**~~Q-DS2~~. Is a duplicate cheque number for the same outlet allowed, and should a cash memo already fully allocated on an unposted slip be blocked on another slip?** **FULLY ANSWERED 2026-10-06 (2c)**
 - Default: both should be blocked (current acceptance = defect candidate).
 - Evidence: cheque 1234567 accepted twice on 10-01 (1134, 1135) and again on 10-05 (1140, 1141); both visible on Cheque Status [observed].
+- **ANSWER (first half) 2026-10-06** [stated 2026-10-06 QA Team Lead]: a duplicate cheque number is **allowed**, because a cheque inventory is not maintained in DCODE (not a defect). Seen a third time: 1234567 on 1146 and 1147 [observed 2026-10-06 G11-3].
+- Still open (second half): should a cash memo already fully allocated on an unposted slip be blocked on another slip? Default: blocked (defect candidate); not tried.
+- **ANSWER (second half) 2026-10-06** [stated 2026-10-06 QA Team Lead]: no; by design slips are created without blocking; reconciliation happens at Route Settlement, whose Save posts all slips, adjusts the invoices and removes fully adjusted invoices from the collection screens (2016 / 2020 after 10-06 [observed]). Not a defect. **Q-DS2 FULLY ANSWERED; no longer counted as open.**
 
 **Q-DA3. Why does the product label price differ from the Purchase Price / PC (and purchase exceed trade price for some SKUs)?** (page inbound_stock/dispatch_advice.md)
 - Default: label shows another price list; assert amounts on Purchase Price / PC only.
@@ -81,22 +93,27 @@ Order follows the Daily Cycle. Each has default, why it matters, evidence. BA1, 
 **Q-LA1. Is an approved DA loss used anywhere else (claim to the supplier, finance, a claim loss log)?** (page inbound_stock/da_loss_approval.md) [merged 2026-10-05 with BA3 "Where do approved DA losses appear as stock or claims?"; the stock part is answered: no stock row on approval, two days]
 - Default: claim record only, no stock effect.
 
-**Q-TI1 (new 2026-10-05). After an order edit, why does Transaction Inquiry Detail show Allocated = original 7 CS and Ordered = "5 CS 4 PC" for the edited line (Delivered 4 CS, amounts follow the edit)? What should Ordered / Allocated mean after an edit?**
+**~~Q-TI1~~ (new 2026-10-05; ANSWERED 2026-10-06). After an order edit, why does Transaction Inquiry Detail show Allocated = original 7 CS and Ordered = "5 CS 4 PC" for the edited line (Delivered 4 CS, amounts follow the edit)? What should Ordered / Allocated mean after an edit?**
 - Default: they keep the as-booked values; assert Delivered and amounts only.
 - Evidence: COL26000002009 Detail line 1 [observed 2026-10-05 G11-2b].
+- 2026-10-06: COL26000002015 edited twice (7 -> 4 before the GIN, 4 -> 3 after): Detail shows Allocated **4 CS** (the re-allocation made by the first edit's save, not the booked 7), Ordered 5 CS 4 PC, Delivered 3 CS [observed 2026-10-06 G11-3]. Default refined: Allocated = last allocation before the GIN; Ordered unexplained. Still open (QA lead clarification).
+- **ANSWERED 2026-10-06 (2c)** [stated 2026-10-06 QA Team Lead]: Ordered = the outlet's original order quantity; Allocated = what was allocated from available stock (less when stock was short); 5 CS 4 PC / 4 / 3 delivered is expected. No longer counted as open.
 
 **Q-SR2 (new 2026-10-05). Is it intended that a part return re-prices the order's slab promotions, so the credit includes discount/tax reversals on lines that were not returned?**
 - Default: yes, promotions are recomputed on the remaining basket.
 - Evidence: return COL26000000714 lines 2-5 (0 returned) carry -116.35 / -61.23 / -40.31 / -0.48 discount reversals [observed 2026-10-05 G11-2b].
+- 2026-10-06: return 715 lines 2-5 carry -182 / -95.78 / -63.06 / -0.75 [observed 2026-10-06 G11-3].
 
-### 1b. QA lead / framework owner decisions (4 open)
+### 1b. QA lead / framework owner decisions (1 open: Q-SV1; Q-OE2, Q-CS1, Q-TX1, Q-DS5 and Q-RS1 answered 2026-10-06)
 
 | Id | Question | Default | Evidence |
 |---|---|---|---|
-| Q-RS1 | How is a working day closed, in what order with settlement, and may it be done on cnr1dev1? **PARTLY ANSWERED 2026-10-05**: a day is closed on PJP Daily Inquiry Update (Mark Status End Of Day + DSR Files Status Complete -> Current Status E, "Record Updated Successfully"); a QA team member closed the earlier un-closed days this way (10-01 row reads E / End Of Day / Complete); on 10-05 the route was settled first, then the day closed. Open: the detailed procedure promised by the QA lead (order, permissions, whether the close is what clears "Following previous days not closed!") | ask the QA lead before closing days on the shared env | [stated 2026-10-05 QA lead]; [observed 2026-10-05 G11-2b] |
-| Q-OE2 | Which order should group 11 seq 15 edit when workbook outlets 1000000001-03 are not offered on cnr1dev1? | the outlet-04 order | seq 15 skipped by the QA lead on 10-01 and 10-05 |
-| Q-SV1 | May the framework stock checks (seq 9, 24, 50, 60) be changed to before/after deltas (needs a pre-snapshot step)? | yes, deltas | FRAMEWORK_DRIFT.md rows 9-12 |
-| Q-CS1 (new 2026-10-05) | Does framework seq 55 press Bounce (event after selecting the cheque row), and since "Realized" does not exist on the screen, what should seq 55 assert? | keep seq 55 bypassed; never Bounce in group 11 | screen offers only Bounce; cheques already "Clear" [observed 2026-10-05 G11-2b]; QA lead asked for Realized and bypassed seq 55 [stated 2026-10-05] |
+| ~~Q-RS1~~ (**FULLY ANSWERED 2026-10-06 (2c)**) | How is a working day closed, in what order with settlement, and may it be done on cnr1dev1? **PARTLY ANSWERED 2026-10-05**: a day is closed on PJP Daily Inquiry Update (Mark Status End Of Day + DSR Files Status Complete -> Current Status E, "Record Updated Successfully"); a QA team member closed the earlier un-closed days this way (10-01 row reads E / End Of Day / Complete); on 10-05 the route was settled first, then the day closed. Open: the detailed procedure promised by the QA lead (order, permissions, whether the close is what clears "Following previous days not closed!"). **PROCEDURE ANSWERED 2026-10-06** (Claude settled route 02112 with the QA Team Lead): Edit on the route row -> cash Received editable, cheque Received read-only -> row Save "Saved Successfully" -> green / Complete; preconditions: earlier days closed AND no undelivered order due today ("Un-Deliver Order exists for today delivery!": allocate a Reattempt order with Order Date = booking date, new GIN, Checker approval, Cashmemo Status Delivered; it may stay unpaid); order: settlement -> DSR adjustment -> day close. Still open: whether the close is what clears the previous-day check (consistent so far). **REMAINDER ANSWERED 2026-10-06** [stated 2026-10-06 QA Team Lead]: yes; the check is per PJP; yellow = not closed, green = closed | close days only with the QA Team Lead's go-ahead | [stated 2026-10-05 QA lead]; [observed 2026-10-05 G11-2b]; [observed 2026-10-06 G11-3]; [stated 2026-10-06 QA Team Lead] |
+| ~~Q-OE2~~ | Which order should group 11 seq 15 edit when workbook outlets 1000000001-03 are not offered on cnr1dev1? **ANSWERED 2026-10-06 (2c)**: the outlet-04 order (COL26000002015), chosen by the QA Team Lead | the outlet-04 order | seq 15 skipped by the QA lead on 10-01 and 10-05; executed 2026-10-06 [stated 2026-10-06 QA Team Lead] |
+| Q-SV1 | May the framework stock checks (seq 9, 24, 50, 60) be changed to before/after deltas (needs a pre-snapshot step)? | yes, deltas | FRAMEWORK_DRIFT.md rows 9-12; 2026-10-06: openings differed again (Opening 0) and the before-GIN edit changed Out (32 vs 35) [observed 2026-10-06 G11-3] |
+| ~~Q-CS1~~ (new 2026-10-05; **ANSWERED 2026-10-06 (2c)**: seq 55 is a check only, do not click Bounce [stated 2026-10-06 QA Team Lead]) | Does framework seq 55 press Bounce (event after selecting the cheque row), and since "Realized" does not exist on the screen, what should seq 55 assert? | keep seq 55 bypassed; never Bounce in group 11 | screen offers only Bounce; cheques already "Clear" [observed 2026-10-05 G11-2b]; QA lead asked for Realized and bypassed seq 55 [stated 2026-10-05] |
+| ~~Q-TX1~~ (new 2026-10-06; **ANSWERED 2026-10-06 (2c)**: master-data modification of the outlets and tax promotion, not a defect [stated 2026-10-06 QA Team Lead]) | Why did outlets 1000000006 and 1000000007 swap tax behaviour between 2026-10-05 and 2026-10-06 (2017 outlet 07: Tax 0 / Net 101,161, was 18,208.93 / 119,369.65; 2019 outlet 06: Tax 16,505.36 / Net 108,202, was 0 / 91,696.43), while the outlet labels still show the old profiles: outlet flags changed (change-track approval?) or a tax-rule change? | expected tax follows the outlet's current behaviour; re-check per run | seq 10 and 14 [observed 2026-10-06 G11-3]; order_booking.md |
+| ~~Q-DS5~~ (new 2026-10-06; **ANSWERED 2026-10-06 (2c)**: FIFO by design [stated 2026-10-06 QA Team Lead]) | Is it intended that an outlet-level multi-cheque is applied to the outlet's OLDEST open memo (10-05: slip 1140 -> 2003 of 10-01; 10-06: slip 1146 not on today's 2015 / 2009, counted as Previous cheque in settlement) rather than to today's memo? | yes, oldest first; compute expected values from the outlet's open memos | seq 42, 53 [observed 2026-10-05 G11-2b; inferred 2026-10-06 G11-3]; deposit_slips.md; FRAMEWORK_DRIFT.md row 26 |
 
 ## 2. ANSWERED
 
@@ -148,34 +165,53 @@ PARTLY answered (stay open in section 3): Q18 (Order Booking has no header messa
 | (merged) BA3 -> Q-LA1 | C | Where do approved DA losses appear | stock part answered (no Damaged/Lost row on approval, 10-01 and 10-05); claims part stays as Q-LA1 | G11-1, G11-2 | da_loss_approval.md |
 | (merged) Q-DA1 -> BA2 | C | Maker may approve/reject own Pending DA | same decision as BA2 (self-approval) | - | dispatch_advice.md |
 
-## 3. Class B: verify live (22 open)
+### 2c. Closed in the 2026-10-06 consolidation (G11-3, with the QA Team Lead)
+
+| Q | Class | Question | ANSWER (rule) | Source | Pages |
+|---|---|---|---|---|---|
+| Q-OE1 | C (1a) | Is seq 15 meant to run after Delivery Date Change? | Yes: change the delivery date BEFORE Order Editing, and unallocate the order; Order Editing lists only UNALLOCATED orders whose delivery date is today; the edit save re-allocates; after GIN approval no unallocation is needed | [stated 2026-10-06 QA Team Lead]; seq 15 executed, workbook values matched [observed 2026-10-06 G11-3] | order_editing_cancellation.md, stock_allocation.md |
+| Q-OE2 | C (1b) | Which order should seq 15 edit? | The outlet-04 order of the day (COL26000002015); seq 16 cancels the outlet-07 order; seq 31-34 substitutes agreed with the QA Team Lead | [stated 2026-10-06 QA Team Lead] | order_editing_cancellation.md |
+| Q-OE4 | B | Exact Order Editing date filter | Only unallocated orders whose delivery date is today are listed (a future delivery date is not listed even inside the range) | [stated 2026-10-06 QA Team Lead; observed 2026-10-05, 2026-10-06] | order_editing_cancellation.md |
+| Q-CS1 | C (1b) | What should seq 55 do / assert? | A check only: the user checks the cheque status (Clear after settlement); Bounce is not clicked | [stated 2026-10-06 QA Team Lead]; cheques Clear [observed 2026-10-06 G11-3] | cheque_status.md, FRAMEWORK_DRIFT.md row 8 |
+| Q-DJ1 | B | What does a PJP's Total Shortage accumulate? | DSR Adjustment Amount records a DSR shortage arising while the DSR takes money from the outlet (a charge to the DSR): it increases Total Shortage and Balance, not Total Adjusted (400 saved: +400 / +400 / 0) | [stated 2026-10-06 QA Team Lead]; [observed 2026-10-06 G11-3] | dsr_adjustment.md |
+| Q-TI1 | C (1a) | Meaning of Ordered / Allocated after an edit | Ordered = the outlet's original order quantity; Allocated = quantity allocated from available stock (less when stock was short); Ordered 5 CS 4 PC / Allocated 4 / Delivered 3 is expected | [stated 2026-10-06 QA Team Lead] | transaction_inquiry.md |
+| Q-OB2 | B | Why does a day sometimes open with Opening 0 (10-01, 10-06) and sometimes carried (10-05)? | Opening MUST carry the previous day's Closing; Opening 0 after a day with closing stock is a stock carry-over JOB issue of the environment, not business behaviour (10-05 Closing 259 vs 10-06 Opening 0 for 62740537: job likely not run on cnr1dev1) | [stated 2026-10-06 QA Team Lead]; LIVE_FINDINGS E-G11-3-1 | stock_inquiry_and_balances.md |
+| Q-TX1 | C (1b; new and answered 2026-10-06) | Why did outlets 06/07 swap tax behaviour? | Master-data modification of the outlets and the tax promotion (not a defect). Rule: a zero-tax invoice of a NON-exempt outlet cannot be delivered; a tax-exempt outlet's zero-tax invoice is allowed (not exercised: 2017 cancelled at seq 16) | [stated 2026-10-06 QA Team Lead] | order_booking.md, cashmemo_reschedule_and_status.md, delivery_lifecycle.md |
+| Q-DS2 | C (1a) | Duplicate cheque number allowed? Block a memo already fully allocated on an unposted slip? | Both allowed by design: no cheque inventory is maintained; slips are created without blocking and reconciled at Route Settlement, whose Save posts all slips, adjusts the invoices and removes fully adjusted invoices from the collection screens | [stated 2026-10-06 QA Team Lead]; [observed 2026-10-01, 10-05, 10-06] | deposit_slips.md, route_settlement.md |
+| Q-RS1 | C (1b) | How is a working day closed, in what order with settlement, and does the close clear the previous-day check? | Settlement: Edit -> cash Received -> row Save ("Saved Successfully"); preconditions: previous day of the PJP closed and no undelivered order due today. Order: settlement -> DSR adjustment -> day close (PJP Daily Inquiry Update End Of Day + Complete). The day close clears the per-PJP previous-day check ("Following previous days not closed! Please close date <date>"); until then the day cannot be finalized. Route rows: yellow = not closed, green = closed | [observed 2026-10-06 G11-3]; [stated 2026-10-06 QA Team Lead] | route_settlement.md, pjp_daily_inquiry_update.md |
+| Q-DS5 | C (1b; new and answered 2026-10-06) | Is the outlet-level multi-cheque meant to go to the oldest open memo? | Yes. Deposit Slip has two collection modes: Outstanding Cash memos = every delivered invoice with Net > Balance, collected per invoice per the slip's type; Outstanding Outlet = per outlet, cash/cheques auto-adjusted onto the outlet's invoices FIFO (oldest first). 1140 -> 2003 and 1146 -> an older outlet-04 memo are intended | [stated 2026-10-06 QA Team Lead]; [observed 2026-10-05, inferred 2026-10-06] | deposit_slips.md, route_settlement.md, FRAMEWORK_DRIFT.md row 37 |
+| Q-DS4 | C (1b; new and answered 2026-10-06) | Why do Outstanding Outlet totals look doubled (outlet 05: 202,322 vs its only open memo 101,161; outlet 04: Net 257,570 vs 166,863, 2009 counted twice; outlets 07 and 11 correct)? | A **display defect**; do not assert outlet-level totals, use Outstanding Cash memos / Transaction Inquiry for amounts | [observed 2026-10-06 G11-3]; [stated 2026-10-06 QA Team Lead] | deposit_slips.md, LIVE_FINDINGS.md D-G11-3-1 |
+
+Partly answered and kept open: **BA12** (effect of a positive adjustment known).
+
+## 3. Class B: verify live (19 open; Q-OE4, Q-DJ1 and Q-OB2 answered 2026-10-06)
 
 Each is run in [LIVE_LEARNING_CHECKLIST.md](LIVE_LEARNING_CHECKLIST.md). Ordered by Daily Cycle. Status: OPEN, or PARTLY with what is already known.
 
 | Q | Question (merged ids) | Status / live check, area/step, user | Needs same day cycle |
 |---|---|---|---|
-| Q-OB2 (new 2026-10-05) | Why did the first DA approval of 10-01 create ONE row with Opening 0 (rewritten to 160 later), while on 10-05 it created all 39 rows with Openings; does a non-DA first movement (GIN, SAN) open the day the same way? (page stock_inquiry_and_balances.md) | OPEN. Default: the 10-05 rule; 10-01 = environment anomaly. Check: morning snapshot, then first movement of another type. Maker | yes |
+| ~~Q-OB2~~ (new 2026-10-05; **ANSWERED 2026-10-06 (2c)**: carry-over is the rule; Opening 0 = environment carry-over job not run [stated 2026-10-06 QA Team Lead]) | Why did the first DA approval of 10-01 create ONE row with Opening 0 (rewritten to 160 later), while on 10-05 it created all 39 rows with Openings; does a non-DA first movement (GIN, SAN) open the day the same way? (page stock_inquiry_and_balances.md) | OPEN. Default: the 10-05 rule; 10-01 = environment anomaly. Check: morning snapshot, then first movement of another type. Maker. **2026-10-06:** first movement (DA 1360) created only the 5 received rows, Opening 0, as on 10-01 (2 of 3 days); the 10-05 default is weakened; hypothesis: the previous day's close or a Generate Opening Balances run decides it [inferred]; ask the QA Team Lead | yes |
 | Q02 | DA Reject / Terminate / Delete of a Draft (DA2) | OPEN. Inbound > DA: create Draft DA, Delete; second DA forward then Reject; record statuses. Maker, then Checker (L13 not done) **2026-10-05:** no change 2026-10-05. | no (no stock moves unless approved) |
 | Q16 | Quantity above ATP blocked / warned / accepted (OB1) | OPEN (known: pick without stock row gives "Stock not available."; ATP shown 4/0/0). Order Booking: line qty = ATP, ATP + 1. Maker **2026-10-05:** no change 2026-10-05 (ATP again = Closing, 325 -> 290 by 7 per order). | yes (stock for the day) |
 | Q18 | Mandatory fields of Order Booking (OB3) | PARTLY. Header: progressive disclosure, no messages, no Validation button until the detail step. Remaining: messages of the detail step (Validation / Save with a missing quantity). Maker **2026-10-05:** no change 2026-10-05. | yes (needs stock to reach the detail step) |
-| Q26 | Why Unallocate answers "stock not found." (SA1, DL4) | OPEN. Allocation > Unallocate on a same-day order after stock exists **2026-10-05: PARTLY:** not reproduced on 10-01 or 10-05 ("Process completed successfully" both days); cause [inferred] stale-day data; close if a third run agrees. | yes |
+| Q26 | Why Unallocate answers "stock not found." (SA1, DL4) | OPEN. Allocation > Unallocate on a same-day order after stock exists **2026-10-05: PARTLY:** not reproduced on 10-01 or 10-05 ("Process completed successfully" both days); cause [inferred] stale-day data; close if a third run agrees. **2026-10-06:** not reproduced a third time (Unallocate and Allocation "Process completed successfully") [observed 2026-10-06 G11-3]; candidate to close as A. | yes |
 | Q27 | Allocation on short stock (SA3) | OPEN. book an order above stock, read Allocation Status **2026-10-05:** no change 2026-10-05. | yes |
-| Q-OE4 (new 2026-10-05) | Exact Order Editing date filter: only delivery date = working date, or a range capped at today? (page order_editing_cancellation.md) | OPEN. Default: only delivery date = today is listed. Check: an order with delivery date tomorrow with Date To = tomorrow. Maker | no (needs orders) |
+| ~~Q-OE4~~ (new 2026-10-05) | Exact Order Editing date filter: only delivery date = working date, or a range capped at today? (page order_editing_cancellation.md) | **ANSWERED 2026-10-06 (2c)**: only unallocated orders with delivery date today [stated 2026-10-06 QA Team Lead] | no (needs orders) |
 | Q29 | Past delivery date refused (DD2) | OPEN. Delivery Date Change with a past date, check message **2026-10-05:** no change 2026-10-05. | no (needs orders) |
 | Q30 | Date change also moves the delivery PJP (DD3) | PARTLY. Baseline: Transaction Inquiry has no Delivery-PJP column; read the Delivery Man PJP on the GIN header after the change **2026-10-05:** PJP Delivery No stayed 02112 on the 10-01 and 10-05 moves; a move to another route date not tried. | no (needs orders) |
 | Q34 | Date used by GIN approval stock check (GIN2) | OPEN (known: refused for stock received the day before). GIN approval with Delivery Date today vs future **2026-10-05:** GIN Date = Delivery Date = stock date again on 10-05 (GIN 507), still not separable. | yes |
 | Q42 | Stock reversal at approval or at GRN for a return (SR3) | OPEN. Stock Inquiry snapshots around return approval, Picked, GRN **2026-10-05: PARTLY:** returned quantity came back via the GRN on both days; no snapshot between approval and GRN. | yes |
-| Q-SR1 | When does an approved and picked sales return reduce the cash memo receivable (credit note? Route Settlement?) | OPEN, strengthened 2026-10-05: even after the route was settled (Complete) Adjusted Credit Note 0, Fresh Return 0, 2009 Balance 88,107 excludes the 29,077 return | yes |
-| Q-GRN1 | When Actual < Suggested on a GRN, where does the difference go? (page goods_return_note.md) | OPEN (only full returns on both days). Default: shortage charged to the delivery man at Route Settlement | yes |
+| Q-SR1 | When does an approved and picked sales return reduce the cash memo receivable (credit note? Route Settlement?) | OPEN, strengthened 2026-10-05: even after the route was settled (Complete) Adjusted Credit Note 0, Fresh Return 0, 2009 Balance 88,107 excludes the 29,077 return; 2026-10-06: return 715 (29,066) again not netted at the settlement done by Claude; 2015 Balance 73,556 [observed 2026-10-06 G11-3] | yes |
+| Q-GRN1 | When Actual < Suggested on a GRN, where does the difference go? (page goods_return_note.md) | OPEN (only full returns on all three days; GRN 248 Actual = Suggested 17 on 2026-10-06). Default: shortage charged to the delivery man at Route Settlement | yes |
 | Q-GRN2 | Does a sales return booked as Damaged/Expired/Lost come back on the GRN with that stock type? | OPEN. Default: yes | yes |
-| Q-LA2 | Why is Reject disabled for the Checker on a Pending loss record? | OPEN (Reject OFF again on 640). Default: losses cannot be rejected on this screen | no |
-| Q48 | Payable vs Received (RS1) | OPEN. Route Settlement screens **2026-10-05: PARTLY:** Payable = Received per slip line before and after settlement; the settlement entry was done by a QA team member (not seen). | yes |
-| Q-DS3 (new 2026-10-05) | Route 02112 for 2026-10-01 is Complete but its slips 1131-1136 are still Un Posted: how was 10-01 completed, and are its receivables left open? (page deposit_slips.md) | OPEN. Default: Complete does not guarantee posting; assert slip Status separately. Ask the QA lead how 10-01 was closed | no (read only) |
-| Q-RS3 (new 2026-10-05) | What makes up Total Order 13 for 02112 on 2026-10-05 (10-01: 4)? (page route_settlement.md) | OPEN. Default: do not assert Total Order | no (read only) |
-| Q-RS4 (new 2026-10-05) | Does the "previous days not closed" check look only at routes with activity, per PJP or per distributor? (page route_settlement.md) | OPEN. Default: per route with activity (4 zero-activity routes of 10-01 stayed Incomplete and did not block 02112) | next day |
-| Q53 | DSR Adjustment auto-authorized (DJ2) | OPEN. save one adjustment, read status **2026-10-05:** seq 56 bypassed by the QA lead, nothing saved. | no |
-| Q-DJ1 (new 2026-10-05) | What does a PJP's Total Shortage Amount accumulate (02112: 2,477,571.11 while route settlements show Cash Shortage 0)? (page dsr_adjustment.md) | OPEN. Default: historical shortages of all runs; never assert absolutely | no |
-| Q58 | Stock reduces on forward or approval (OT2) | OPEN. SAN type Stock Adjustment Admin: Stock Inquiry snapshot after Forward and after approval **2026-10-05:** PARTLY: after approval Out +50 / Closing -50 (SAN 96); stock after the Maker's Forward alone not read. | yes |
+| Q-LA2 | Why is Reject disabled for the Checker on a Pending loss record? | OPEN (Reject OFF again on 640 and on 641 2026-10-06). Default: losses cannot be rejected on this screen | no |
+| Q48 | Payable vs Received (RS1) | OPEN. Route Settlement screens **2026-10-05: PARTLY:** Payable = Received per slip line before and after settlement; the settlement entry was done by a QA team member (not seen). **2026-10-06:** settlement done by Claude: cash Received editable (prefilled = Payable), cheque Received read-only, Stock Shortage editable; left as prefilled, so Payable = Received; Received < Payable not tried [observed 2026-10-06 G11-3] | yes |
+| Q-DS3 (new 2026-10-05) | Route 02112 for 2026-10-01 is Complete but its slips 1131-1136 are still Un Posted: how was 10-01 completed, and are its receivables left open? (page deposit_slips.md) | OPEN. Default: Complete does not guarantee posting; assert slip Status separately. Ask the QA lead how 10-01 was closed. **2026-10-06:** 2004 / 2005 still Un Posted (10-01 slips 1131 / 1132) after the 10-06 settlement [observed 2026-10-06 G11-3] | no (read only) |
+| Q-RS3 (new 2026-10-05) | What makes up Total Order 13 for 02112 on 2026-10-05 (10-01: 4)? (page route_settlement.md) | OPEN. Default: do not assert Total Order. **2026-10-06:** Total Order 6 (Delivered 4 incl. 10-05's 2012, Undelivered 1 before 2012 was delivered) [observed 2026-10-06 G11-3] | no (read only) |
+| Q-RS4 (new 2026-10-05) | Does the "previous days not closed" check look only at routes with activity, per PJP or per distributor? (page route_settlement.md) | OPEN. Default: per route with activity (4 zero-activity routes of 10-01 stayed Incomplete and did not block 02112). **2026-10-06:** the check is per PJP [stated 2026-10-06 QA Team Lead]; scope part answered, zero-activity detail kept open | next day |
+| Q53 | DSR Adjustment auto-authorized (DJ2) | OPEN. save one adjustment, read status **2026-10-05:** seq 56 bypassed by the QA lead, nothing saved. **2026-10-06: PARTLY:** 400 saved directly after a confirm modal ("Record Saved Successfully", COL26000000211), no approval step, listed at once on the Detail tab; status column not shown [observed 2026-10-06 G11-3] | no |
+| ~~Q-DJ1~~ (new 2026-10-05) | What does a PJP's Total Shortage Amount accumulate (02112: 2,477,571.11 while route settlements show Cash Shortage 0)? (page dsr_adjustment.md) | **ANSWERED 2026-10-06 (2c)**: the DSR shortages recorded on DSR Adjustment Amount (charge to the DSR while taking money from the outlet); +400 observed [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3] | no |
+| Q58 | Stock reduces on forward or approval (OT2) | OPEN. SAN type Stock Adjustment Admin: Stock Inquiry snapshot after Forward and after approval **2026-10-05:** PARTLY: after approval Out +50 / Closing -50 (SAN 96); stock after the Maker's Forward alone not read. **2026-10-06:** Out +50 after approval of SAN 97 again; Forward-only state still not read [observed 2026-10-06 G11-3] | yes |
 
 ## 4. Class A: default is fine (appendix): 15 questions
 
@@ -201,7 +237,7 @@ Each is run in [LIVE_LEARNING_CHECKLIST.md](LIVE_LEARNING_CHECKLIST.md). Ordered
 
 ## 5. Contradictions between sources
 
-Status column updated 2026-10-05. RESOLVED rows keep the old sources for the record.
+Status column updated 2026-10-05 and 2026-10-06. RESOLVED rows keep the old sources for the record.
 
 | # | Topic | Source A says | Source B says | Pages | Status |
 |---|---|---|---|---|---|
@@ -222,13 +258,16 @@ Status column updated 2026-10-05. RESOLVED rows keep the old sources for the rec
 | 15 | Is a start-of-day step needed (BA1) | "a new day has no rows until Generate Opening Balances"; GIN approval refused for earlier-day stock | the DA approval creates the day's row for the received product without the button (Opening 0, In 4, Closing 4) | stock_inquiry_and_balances.md, goods_issue_note.md | **RESOLVED for received products**; the remaining question (carry of previous closings, products not received that day) is BA14 |
 | 16 | GIN workflow name | `StockUpdateGIN4Level` (goods_issue_note.md, glossary) | org 010104 uses `StockUpdateGIN` v53 (4Level only for parent orgs 0101/0102) | goods_issue_note.md | **RESOLVED 2026-10-01**: pages corrected |
 | 17 | Execution status 19 "CM Reschedule" | listed in the delivery pages (from org 0101, Jan 2026 data) | glb_pr_exs_execution_status of org 010104 has no codes 04, 06, 19 | cashmemo_reschedule_and_status.md, delivery_lifecycle.md | OPEN: re-read the reschedule status live after a reschedule 2026-10-05: PARTLY: screens show "Reattempt" after a reschedule on both days; the code behind it not read. |
-| 18 (new) | Are previous closings carried into a new day? | 10-01 morning: DA approval created ONE row with Opening 0 ("not carried") [observed 2026-10-01] | 10-05: first movement created all 39 rows with Opening = previous Closing + still-Allocated [observed 2026-10-05] | stock_inquiry_and_balances.md, dispatch_advice.md | **RESOLVED for the cycle in favour of B** (the 10-01 row itself was rewritten to 160 later that day); the anomaly is Q-OB2 |
+| 18 (new) | Are previous closings carried into a new day? | 10-01 morning: DA approval created ONE row with Opening 0 ("not carried") [observed 2026-10-01] | 10-05: first movement created all 39 rows with Opening = previous Closing + still-Allocated [observed 2026-10-05] | stock_inquiry_and_balances.md, dispatch_advice.md | **RESOLVED for the cycle in favour of B** (the 10-01 row itself was rewritten to 160 later that day); the anomaly is Q-OB2. **REOPENED 2026-10-06**: on 10-06 the DA approval again created only the 5 received rows with Opening 0 (source A pattern) [observed 2026-10-06 G11-3]. **RESOLVED again 2026-10-06 in favour of B** [stated 2026-10-06 QA Team Lead]: carry-over is the business rule; source A days are an environment fault (carry-over job not run) |
 | 19 (new) | Return discount reversal | "reversed proportionally" [observed 2026-10-01] | non-returned lines also carry reversals (slab re-pricing) [observed 2026-10-05] | sales_return.md | **RESOLVED** (refined to B); intent Q-SR2 |
-| 20 (new) | Cheque statuses | db P/L/R/B/C/A; framework/QA lead "Realized" | screen "Clear", only action Bounce | cheque_status.md | OPEN (Q-CS1, BA11) |
+| 20 (new) | Cheque statuses | db P/L/R/B/C/A; framework/QA lead "Realized" | screen "Clear", only action Bounce | cheque_status.md | PARTLY 2026-10-06: Q-CS1 answered (seq 55 = check of "Clear", no Bounce) [stated 2026-10-06 QA Team Lead]; mapping of "Clear" to the db codes and the Bounce effect stay BA11 |
 | 21 (new) | Does "Complete" mean posted? | 10-05: route Complete and slips Posted | 10-01: route Complete, slips still Un Posted | route_settlement.md, deposit_slips.md | OPEN (Q-DS3) |
-| 22 (new) | Order Editing date filter | G11-1: "Date To must cover the delivery date" | G11-2: a range covering the future delivery date lists nothing; only delivery date = today | order_editing_cancellation.md | **RESOLVED** in favour of B (G11-1 hypothesis superseded); exact rule Q-OE4 |
+| 22 (new) | Order Editing date filter | G11-1: "Date To must cover the delivery date" | G11-2: a range covering the future delivery date lists nothing; only delivery date = today | order_editing_cancellation.md | **RESOLVED** in favour of B (G11-1 hypothesis superseded); exact rule Q-OE4 (answered 2026-10-06: unallocated + delivery date today) |
 | 23 (new) | Deposit Slip Add | G11-1: Add gives a blank form (no PJP-DSR) | G11-2: Add brought PJP-DSR back to 02111 | deposit_slips.md | OPEN (minor; always set PJP-DSR) |
 | 24 (new) | Why the workbook return values differ | G11-1: because the source order was edited | G11-2b: the workbook was built 2026-09-21 for outlet 1000000003 (stale) | sales_return.md | **RESOLVED** in favour of B (framework drift) |
+| 25 (new 2026-10-06) | Does allocation hide an order from Order Editing? | G11-1: "allocation does not hide orders" (orders listed after Delivery Date Change) [observed 2026-10-01] | G11-3: an allocated order with delivery today is NOT listed; it must be unallocated first [stated 2026-10-06 QA Team Lead; observed] | order_editing_cancellation.md | **RESOLVED** in favour of B: G11-1's orders were on an approved GIN, whose allocation had been consumed (after GIN no unallocation needed) |
+| 26 (new 2026-10-06) | Effect of a DSR adjustment | G11-2b hint: "Total Adjusted +400, Balance -400" [inferred] | Total Shortage +400, Balance +400, Total Adjusted unchanged [observed 2026-10-06]; a DSR shortage [stated 2026-10-06 QA Team Lead] | dsr_adjustment.md | **RESOLVED** in favour of B |
+| 27 (new 2026-10-06) | Transaction Inquiry Detail Allocated after an edit | 10-05: Allocated = booked 7 CS [observed] | 10-06: Allocated = 4 CS = the re-allocation by the first edit's save [observed] | transaction_inquiry.md | **RESOLVED 2026-10-06**: Allocated = what was allocated from available stock, so it can differ by run [stated 2026-10-06 QA Team Lead] (Q-TI1) |
 
 ## 6. Counts
 
@@ -241,6 +280,22 @@ Status column updated 2026-10-05. RESOLVED rows keep the old sources for the rec
 - New 2026-10-05: B 6 (Q-OB2, Q-OE4, Q-DS3, Q-RS3, Q-RS4, Q-DJ1); C 3 (Q-TI1, Q-SR2, Q-CS1).
 - **Open now: 56 = A 15 (16 - 1) + B 22 (32 - 16 + 6) + C 19 (22 - 4 - 2 + 3).** BA list (1a) 15 = the hard maximum; QA lead / framework owner list (1b) 4.
 - Contradictions: 24 listed; 13 resolved (1, 2, 3, 5, 11, 12, 14, 15, 16, 18, 19, 22, 24), 4 partly (9, 10, 13, 17), 7 open (4, 6, 7, 8, 20, 21, 23).
+- **2026-10-06 consolidation (G11-3):**
+  - Before: 56 open = A 15 + B 22 + C 19 (1a 15, 1b 4).
+  - Closed (answered, section 2c): C 3 (Q-OE1 from 1a; Q-OE2, Q-CS1 from 1b); B 2 (Q-OE4, Q-DJ1). Total 5.
+  - New and still open: C 2 in 1b (Q-TX1, Q-DS5). New and answered the same day: Q-DS4 (C, 1b; not counted as open).
+  - Partly answered, still open (count unchanged): Q-RS1, Q-DS2, BA12. New evidence only: BA4, BA10, BA11, BA14, Q-OE3, Q-TI1, Q-SR2, Q-SV1, Q-OB2, Q26, Q-SR1, Q-GRN1, Q-LA2, Q48, Q-DS3, Q-RS3, Q53, Q58.
+  - Intermediate (before the last three answers): 53 = A 15 + B 20 (22 - 2) + C 18 (19 - 3 + 2); 1a = 14 (15 - Q-OE1), 1b = 4 (4 - Q-OE2 - Q-CS1 + Q-TX1 + Q-DS5).
+  - Contradictions: 27 listed; 14 resolved (1, 2, 3, 5, 11, 12, 14, 15, 16, 19, 22, 24, 25, 26), 5 partly (9, 10, 13, 17, 20), 8 open (4, 6, 7, 8, 18 reopened, 21, 23, 27).
+  - **Later the same day, three more QA Team Lead answers**: Q-TI1 (C, 1a), Q-OB2 (B), Q-TX1 (C, 1b, new) answered (section 2c).
+  - Intermediate: 50 = A 15 + B 19 (20 - Q-OB2) + C 16 (18 - Q-TI1 - Q-TX1); 1a = 13, 1b = 3.
+  - Last answer of the day: Q-DS5 (C, 1b) answered.
+  - Intermediate: 49 = A 15 + B 19 + C 15 (16 - Q-DS5); 1a = 13, 1b = 2.
+  - Q-RS1 remainder answered (day close clears the per-PJP check): Q-RS1 closed (C, 1b).
+  - Intermediate: 48 = A 15 + B 19 + C 14 (15 - Q-RS1); 1a = 13, 1b = 1.
+  - Q-DS2 second half answered (no blocking by design; settlement reconciles and posts): Q-DS2 closed (C, 1a).
+  - **Open now: 47 = A 15 + B 19 + C 13 (14 - Q-DS2); 1a = 12, 1b = 1 (Q-SV1).** No question from today remains open (Q-RS4 keeps its zero-activity detail).
+  - Contradictions (final): 27 listed; 16 resolved (adds 18 and 27), 5 partly (9, 10, 13, 17, 20), 6 open (4, 6, 7, 8, 21, 23).
 
 ## 7. Source code legend
 DA = dispatch_advice, DAL = da_loss_approval, GRN = goods_return_note, SI = stock_inquiry_and_balances, SV = stock_validation_flows, OB = order_booking, OE = order_editing_cancellation, OL = order_lifecycle_and_statuses, SA = stock_allocation, TI = transaction_inquiry, DD = delivery_date_change, DL = delivery_lifecycle, GIN = goods_issue_note, CR = cashmemo_reschedule_and_status, SR = sales_return, DS = deposit_slips, RS = route_settlement, CS = cheque_status, DJ = dsr_adjustment, PJ = pjp_daily_inquiry_update, OT = otc_stock_out_and_san, EO = end_of_day_validations. Number = position in section 12 of that page. Session ids (Q-xx#) use the same page codes, except Q-OB1/Q-OB2 = opening balances and Q-LA = loss approval.

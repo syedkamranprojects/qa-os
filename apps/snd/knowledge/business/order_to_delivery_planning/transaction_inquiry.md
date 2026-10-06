@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, order_editing_cancellation, delivery_date_change]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Transaction Inquiry (order validation): how it works (S&D / DCODE)
 
@@ -16,6 +16,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 02960001 (seq 14, after order booking), 03740001 (seq 70, after editing), 03190001 (seq 68, edited-order charges/tax); sales-return variants 03200001/03770001 belong to the delivery/returns analyst.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 A read-only inquiry over all transaction documents (orders, sales, returns...). In this area it is the cross-check that what Order Booking/Editing saved matches the expected Gross, Discount, Tax and Net, and shows each document's status. [observed]
@@ -62,6 +63,12 @@ G11-2 / G11-2b walk (2026-10-05) [observed 2026-10-05 G11-2, G11-2b]:
 3. [Maker] Filter Outlet Code 1000000004; Select COL26000002009; Verify header Gross 96,840.34 / Discount -20,718.07 / Tax 14,584.79 / Offset 2,600 / Net 90,707; Click Total Tax -> 0001 VAT 11,389.48 + 9000 3rd Schduele 3,195.31 (11:68:03190001).
 4. [Maker] Click Detail and Total Offering on COL26000002009; Verify lines (11:70:03740001).
 5. [Maker] Choose Document Type Sales Return; Verify COL26000000714 header, Total Tax, Detail, Total Offering (11:69:03200001, 11:71:03770001).
+G11-3 reads (2026-10-06) [observed 2026-10-06 G11-3]:
+1. Seq 14: Document Type Sales, today: 6 orders Confirmed, delivery 2026-10-12 (values in order_booking.md; 2017/2019 tax differs, Q-TX1) (11:14:02960001).
+2. Seq 52 (after the settlement by Claude): 2015 Delivered/Invoiced Offset **2,600** (1145 600 + 1147 1,000 + 1148 1,000); 2016 Offset 101,161; 2020 Offset 108,202; 2017 / 2019 Cancelled 0; 2018 Reattempt (delivery 10-07) 0; 2012 (10-05) Delivered/Invoiced, GIN 509, Offset 0 (unpaid) (11:52:03210001).
+3. Seq 68: COL26000002015 (edited 7 -> 4 -> 3 CS): header 81,417.41 / -17,633.48 / **12,371.66** / Offset 2,600 / Net 76,156, Delivered/Invoiced, GIN 508; Total Tax VAT **9,176.35** + 3rd Schedule **3,195.31** = 12,371.66 (11:68:03190001).
+4. Seq 70: Detail line 62740537 Delivered **3 CS**, 46,268.79 / -10,020.95 / 6,524.61 / 42,772.45, **Allocated 4 CS, Ordered 5 CS 4 PC**; 20050310 5 CS 18,727.90 / -4,056.11 / 2,640.92 / 17,312.71; 62690363 3/0/2 9,855.56 / -2,134.53 / 1,873.23 / 9,594.26; 20050308 2/0/10 6,488.44 / -1,405.27 / 1,322.08 / 6,405.25; 69997598 6 PC 76.72 / -16.62 / 10.82 / 70.92. Total Offering: Automation2 -8,141.74, MARCH001 -650, MARCH002 -8,141.74, May001 -650, May003 -50 (sum -17,633.48 = header) (11:70:03740001).
+5. Seq 69 + 71: Document Type Sales Return: **COL26000000715**, outlet 04, -30,845.86 / 6,189.17 / **-4,409.61** / Offset 0 / **-29,066**, **Picked**, Demand Channel "Partial Return", Invoice Ref COL26000002015; Total Tax VAT -4,409.61, 3rd Schedule 0; Detail line 1 2 CS -30,845.86 / 6,530.75 / -4,376.72 / -28,691.83, lines 2-5 qty 0 with small re-priced discounts (-182, -95.78, -63.06, -0.75); Offering Automation2 +3,084.59, MARCH001 +10, MARCH002 +3,084.59, May001 +10, May003 0 (11:69:03200001, 11:71:03770001).
 
 ## 6. Outputs and effects
 None (inquiry only).
@@ -74,6 +81,9 @@ G11-2b values (2026-10-05) [observed 2026-10-05 G11-2b]:
 - Detail (seq 70): 1. 62740537 TP 7,711.47, Delivered 4 CS, Gross 61,691.72, Disc -13,198.36, Tax 8,728.81, Net 57,222.17, **Allocated 7 CS, Ordered 5 CS 4 PC**; 2. 20050310 5 CS 18,727.90 / -4,006.66 / 2,649.82 / 17,371.07; 3. 62690363 3 CS 2 PC 9,855.56 / -2,108.50 / 1,873.23 / 9,620.28; 4. 20050308 2 CS 10 PC 6,488.44 / -1,388.14 / 1,322.08 / 6,422.38; 5. 69997598 6 PC 76.72 / -16.41 / 10.86 / 71.16.
 - Total Offering (2009): Automation2 BONUS2 -9,684.03; MARCH001 BONUS2 -650; MARCH002 TRADEOFFER -9,684.03; May001 BONUS2 -650; May003 BONUS2 -50; Tax 0 each; sum -20,718.06 vs header -20,718.07 (1 paisa).
 - **Sales return COL26000000714** (seq 69/71): outlet 1000000004, Document/Delivery Date 2026-10-05, Actual Delivery 2026-10-05 10:44:25, Gross -30,845.86, Discount 6,189.17, Tax -4,419.93, Offset 0, Net -29,077, Picked, Demand Channel Partial Return, Invoice Ref. No. COL26000002009. Total Tax: VAT -4,419.93, 3rd Schduele 0. Detail: line 1 62740537 2 CS, Gross -30,845.86, Disc 6,407.54, Tax -4,398.90, Net -28,837.22; lines 2-5 return 0 quantity but carry small reversals (20050310 disc -116.35 tax -20.94; 62690363 -61.23; 20050308 -40.31; 69997598 -0.48 / -0.09). Total Offering: Automation2 +3,084.59; MARCH001 +10; MARCH002 +3,084.59; May001 +10; May003 0 (sum 6,189.18 = header Discount).
+- G11-3: Offset = posted slip allocations again (2015: 2,600); the multi-cheque 1146 is not on 2015; a delivered unpaid memo shows Offset 0 [observed 2026-10-06 G11-3].
+- G11-3: tax of the twice-edited order: VAT 9,176.35 + 3rd Schedule 3,195.31; the 3rd Schedule part did not change between 4 CS and 3 CS (3,195.31 on both) [observed 2026-10-05 and 2026-10-06; rule inferred].
+- G11-3: return 715 Tax -4,409.61 / Net -29,066 (10-05: -4,419.93 / -29,077, source order 4 CS); Gross -30,845.86 and Discount 6,189.17 unchanged [observed 2026-10-06 G11-3].
 
 ## 7. Statuses and transitions
 Shows statuses; changes none. Observed status after booking: Confirmed [observed]; DB description for CM-01 04 is Ordered. See order_lifecycle_and_statuses.md.
@@ -92,6 +102,7 @@ Shows statuses; changes none. Observed status after booking: Confirmed [observed
 - Chain: **Confirmed** (after booking) -> **Ready to dispatch/Packed** (after GIN approval) -> **Delivered/Invoiced** (Cashmemo Status save); side exits **Reattempt** (rescheduled) and **Cancelled** (before or after the GIN). "Planning completed" (seen on 09-30's GIN 505 while still Pending) = cash memo on a forwarded but unapproved GIN. [observed 2026-10-01 G11-1; Planning completed meaning inferred]
 - G11-2b: the sales return CM-02 reads **Picked** after Save Sale Pick; the source cash memo COL26000002009 stays **Delivered/Invoiced** after its partial return (no Partial Delivered status shown) [observed 2026-10-05 G11-2b].
 - G11-2: chain Confirmed -> Ready to dispatch/Packed -> Delivered/Invoiced / Reattempt / Cancelled confirmed on a second day [observed 2026-10-05 G11-2].
+- G11-3: chain Confirmed -> Ready to dispatch/Packed -> Delivered/Invoiced / Reattempt / Cancelled seen a third day; return Picked, Demand Channel Partial Return; source memo stays Delivered/Invoiced [observed 2026-10-06 G11-3].
 
 ## 8. Rules and validations
 - The default Document Type hides booked orders (they are Sales, not Demand Captured). [observed]
@@ -110,6 +121,8 @@ Shows statuses; changes none. Observed status after booking: Confirmed [observed
 - G11-2b: Total Tax lines sum to header Tax and Total Offering lines to header Discount also for the edited order and for the return (1 paisa rounding) [observed 2026-10-05 G11-2b].
 - G11-2b: **after an edit the Detail keeps Allocated = original 7 CS and shows Ordered "5 CS 4 PC" for the edited line, while Delivered = 4 CS and the amounts follow the edit**; meaning unclear (Q-TI1) [observed 2026-10-05 G11-2b].
 - G11-2b: the return re-prices the order's slab promotions: lines with 0 returned quantity carry small discount/tax reversals [observed 2026-10-05 G11-2b; rule inferred; see sales_return.md].
+- G11-3: after two edits (7 -> 4 -> 3 CS) the Detail shows **Allocated 4 CS** (the allocation made by the first edit's save, not the booked 7) and **Ordered 5 CS 4 PC** (as on 10-05), Delivered 3 CS; amounts follow the last edit [observed 2026-10-06 G11-3]. (Refines the G11-2b note "Allocated = original 7 CS": Allocated = the order's last allocation before the GIN [inferred].) Meaning of Ordered stays Q-TI1. (superseded 2026-10-06: **Ordered = the outlet's original order quantity; Allocated = what was allocated from available stock (less when stock was short)**; Ordered 5 CS 4 PC / Allocated 4 / Delivered 3 is expected [stated 2026-10-06 QA Team Lead]; Q-TI1 answered.)
+- G11-3: Total Offering sums to header Discount and Total Tax to header Tax again (edited order and return) [observed 2026-10-06 G11-3].
 
 ## 9. Messages
 None observed; assertions are value comparisons (TSTMSG with screenshot_ASSR group). Re-confirmed 2026-10-01: no message on Refresh, Detail, Total Offering or Total Tax. [observed 2026-10-01 G11-1]
@@ -119,6 +132,7 @@ None observed; assertions are value comparisons (TSTMSG with screenshot_ASSR gro
 Reads orders (seq 10), edited orders (seq 15), later sales returns and GIN numbers. Hands nothing.
 - 2026-10-01: seq 15 (edit before the GIN) was skipped, so seq 70 (TI after Order Editing) and seq 68 (edited-order charges/tax) have no edited order from seq 15; the order edited after the GIN (COL26000002003, seq 29) is the only edited order available. [observed 2026-10-01 G11-1]
 - G11-2b: seq 52 needs a completed Route Settlement (posting); seq 68/70 read the order edited after the GIN at seq 29 (seq 15 skipped again); seq 69/71 need the picked return (seq 38) [observed 2026-10-05 G11-2b].
+- G11-3: seq 68/70 read the order edited at seq 15 AND seq 29 (both executed on 10-06), so the workbook values (one edit to 4 CS) do not apply; seq 69/71 read return 715 on that order [observed 2026-10-06 G11-3].
 
 ## 11. Test design hints
 - Positive: for each booked order compare 4 amounts to the Order Booking summary; check status; check Detail line sums equal header; Total Offering discount equals header discount.
@@ -139,6 +153,11 @@ Reads orders (seq 10), edited orders (seq 15), later sales returns and GIN numbe
   - Trap (framework drift): all seq 69/71 return values in the workbook (built 2026-09-21 for outlet 1000000003) differ from the app except Gross -30,845.86 (Discount 6,169.17 vs 6,189.17; Tax -4,425.41 / -4,436.55 vs -4,419.93; Net -29,113 vs -29,077; VAT -4,434.18 + 3rd Schedule -1.95 vs -4,419.93 + 0; line 1 Disc 6,260.28 / Net -29,010.99 vs 6,407.54 / -28,837.22). See FRAMEWORK_DRIFT.md.
   - Trap: after an edit, Detail Allocated/Ordered keep pre-edit values (7 CS / 5 CS 4 PC); assert Delivered and amounts, not Allocated/Ordered, until Q-TI1 is answered.
   - Trap: the default Document Type hides both orders and returns; choose Sales or Sales Return explicitly (confirmed 10-05).
+- G11-3 additions [observed 2026-10-06 G11-3]:
+  - Trap (framework drift): when seq 15 and seq 29 both edit the same order, the seq 68/70 expected values (workbook 11,389.48 / 3,195.31 / 14,584.79) and the seq 69/71 return values change (3 CS: VAT 9,176.35; return Tax -4,409.61 / Net -29,066). Compute expected values from the day's edits.
+  - Trap: Allocated in the Detail reflects the last allocation (re-allocation by the edit save), not the booked quantity.
+  - Rule for assertions [stated 2026-10-06 QA Team Lead]: Ordered = original order quantity, Allocated = allocated from available stock, Delivered = delivered; all three may differ and that is correct.
+  - Positive: a Reattempt order delivered on a later GIN shows Delivered/Invoiced with the new GIN No and actual delivery time of that day.
 
 ## 12. Open questions (batched for the BA)
 - ANSWERED 2026-10-01 (Q23): "Confirmed" is execution status 02 (separate from Ordered 04); the column shows execution status text.
@@ -149,8 +168,10 @@ Reads orders (seq 10), edited orders (seq 15), later sales returns and GIN numbe
 - PARTLY ANSWERED 2026-10-05 (Invoice Ref. No.): filled on a sales return with the source sales invoice; still empty on sales cash memos [observed 2026-10-05 G11-2b].
 - ANSWERED 2026-10-05 (Q50, Offset Amount): sum of posted deposit-slip allocations on the memo; returns not included [observed 2026-10-05 G11-2b].
 - Q-TI1: After an order edit, why does Transaction Inquiry Detail show Allocated = original 7 CS and Ordered = "5 CS 4 PC" for the edited line (Delivered 4 CS)? What should Ordered/Allocated mean after an edit? | Default: they keep the as-booked values; assert Delivered and amounts only | Class: C | Evidence: COL26000002009 Detail line 1 [observed 2026-10-05 G11-2b].
+- Q-TI1 evidence 2026-10-06: after 7 -> 4 -> 3 CS the Detail shows Allocated 4 CS (not 7 as on 10-05 after one edit made after the GIN), Ordered 5 CS 4 PC, Delivered 3 CS [observed 2026-10-06 G11-3]. Still open: what Ordered / Allocated should mean after an edit. **-> ANSWERED 2026-10-06** [stated 2026-10-06 QA Team Lead]: Ordered = the outlet's original order quantity; Allocated = quantity allocated from available stock (lower when stock was short); Delivered = what was delivered. Ordered 5 CS 4 PC / Allocated 4 / Delivered 3 is expected behaviour.
 
 ## 13. Sources
 learning_block1.json (L03), LIVE_FINDINGS.md; atlas flows 02960001, 03740001, 03190001; TC-OB-01_executed.md (TC-OB-03); step_labels "Transaction Inquiry"; DB tables above.
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 14, "Transaction Inquiry after GIN approval (extra check)", "Transaction Inquiry status check after seq 31-33"; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 8-10.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 14); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 52, 68, 69, 70, 71).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 14, 52, 68, 69, 70, 71).

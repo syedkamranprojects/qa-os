@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Stock Allocation and Unallocation: how it works (S&D / DCODE)
 
@@ -16,15 +16,18 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00130001 (seq 12), 00130002 (seq 18; seq 25 duplicate inactive).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 Allocation reserves warehouse stock to booked orders so that the GIN can issue exactly the goods promised. [inferred] Unallocation releases that reservation so the stock can be given to other orders or the order can be edited. [inferred] On cnr1dev1 allocation is automatic at order save, so the manual screen mostly shows the result.
 - Confirmed 2026-10-01: all 6 orders booked that day were already FULL on the Allocated tab; the manual Allocation step only matters for orders that did not get stock at booking (or were unallocated). [observed 2026-10-01 G11-1] (reservation at booking upgraded from [inferred]: booking reserves stock immediately, Allocated up and Closing down; cancellation releases it; see order_booking.md and order_editing_cancellation.md.)
+- G11-3: allocation also gates Order Editing: an order must be **unallocated** before Order Editing lists it (before the GIN) [stated 2026-10-06 QA Team Lead]; and a Reattempt order due today must be **allocated** again before it can go on a GIN [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
 
 ## 2. Actors and roles
 Auto_Multi_Orga (same session as order booking). [observed]
 - Maker = Auto_Multi_Orga: allocates and unallocates. [observed 2026-10-01 G11-1, seq 12 and 18]
 - Checker: no role on this option (no approval step). [observed 2026-10-01 G11-1]
+- G11-3: Maker Auto_Multi_Orga (seq 12, 18 and the extra allocation of the Reattempt order 2012) [observed 2026-10-06 G11-3].
 
 ## 3. Documents and master data
 No new document. Acts on order cash memos (Allocation Status; `tcmm_stock_allocated_status`, `tcmm_alloc_ref_no` columns exist [db]). Allocation rules table `rpl_pr_sar_stock_alloc_rules` exists, empty for org 010104 in the base DB. [db]
@@ -38,6 +41,7 @@ Stock Unallocation flow 00130002 uses the same layout with tab_1 (Allocated).
 - **Allocated** grid columns: Description (the distributor), Document No, Outlet Code, Outlet Name, Document Date, Delivery Date, Net Amount (rounded), Section, Demand Channel, **Allocation Status** (FULL). [observed 2026-10-01 G11-1]
 - **Unallocated** grid columns: Description, Document No, Outlet Code, Outlet Name, Document Date, Delivery Date, Net Amount, Section, Demand Channel; **no Allocation Status column**. [observed 2026-10-01 G11-1]
 - Selecting one order: the row checkbox itself does not react, click its cell. [observed 2026-10-01 G11-1]
+- G11-3: Order Stock Allocation (DYL_201904) filters by **Order Date** (the booking date), not the delivery date: the Reattempt order 2012 (booked 10-05, delivery 10-06) appeared only with Order Date 2026-10-05 [observed 2026-10-06 G11-3]. Tabs Allocated / Unallocated; tick a row by clicking the checkbox CELL; the header checkbox selects all rows of the tab [observed 2026-10-06 G11-3].
 
 ## 5. Process: the business steps in order
 1. [Maker] Navigate to Order Stock Allocation. (`11:12:00130001`)
@@ -48,6 +52,12 @@ Stock Unallocation flow 00130002 uses the same layout with tab_1 (Allocated).
 6. [Maker] Open the Unallocated tab; Select order COL26000002007; Click Allocation; Accept "Are you sure you want to proceed?" -> **"Process completed successfully"**; the order is back on the Allocated tab, FULL (all 5 orders 2003-2007 FULL). [observed 2026-10-01 G11-1] (`11:12:00130001` manual allocation, exercised after `11:18:00130002`)
 
 G11-2 (2026-10-05) [observed 2026-10-05 G11-2]: seq 12 no-op again (Unallocated tab empty, orders 2009-2014 FULL on the Allocated tab); seq 18 unallocate ONE order (COL26000002013) and allocate it again (QA lead option 1), as on 10-01.
+G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3]:
+1. Seq 12 (no-op): Order Date today, PJP 02111 -> Unallocated tab empty; Allocated tab lists the 6 orders 2015-2020 (allocated at save) (11:12:00130001).
+2. Before seq 15 (QA team, during the QA Team Lead's check): 2015 and 2016 unallocated so that Order Editing lists them [stated 2026-10-06 QA Team Lead].
+3. Seq 18: Allocated = 2015 (re-allocated FULL by the edit save), 2018, 2019, 2020; Unallocated = 2016. Tick 2020 -> Unallocate -> "Are you sure you want to proceed?" -> "Process completed successfully"; Unallocated tab: header checkbox (2016 + 2020) -> Allocation -> confirm -> "Process completed successfully"; Unallocated empty (11:18:00130002).
+4. Extra (for the Route Settlement blocker): Order Date **2026-10-05**, PJP 02111 -> Unallocated tab = COL26000002012 (Reattempt, delivery 10-06, 108,202) -> tick -> Allocation -> confirm -> "Process completed successfully" [stated 2026-10-06 QA Team Lead: "Order status reattempt should be allocated in order allocation option for scheduled GIN"].
+5. Order Date 2026-10-06 Unallocated tab then showed 2018 (rescheduled at seq 32 to 10-07): **a Cashmemo Reschedule unallocates the order**.
 
 ## 6. Outputs and effects
 - Allocated orders move to the Allocated tab; Allocation Status FULL. [observed]
@@ -57,6 +67,10 @@ G11-2 (2026-10-05) [observed 2026-10-05 G11-2]: seq 12 no-op again (Unallocated 
 - Unallocate / re-allocate stock effect: not snapshotted; expected to be the same release/reserve mechanism as cancellation and booking. [inferred 2026-10-01 G11-1]
 - At GIN approval the issued quantity leaves Allocated and appears as Out; Closing does not change (62740537 Allocated 98 -> 63). [observed 2026-10-01 G11-1; see goods_issue_note]
 - G11-2: a new day's Allocated already holds reservations of old Pending documents (62740537: 63 CS of GIN 505 from 09-30, carried on 10-01 and 10-05) [observed 2026-10-05 G11-2].
+- G11-3: **Order Editing save re-allocates the edited order** (2015 FULL on the Allocated tab after the edit) [observed 2026-10-06 G11-3].
+- G11-3: **Cashmemo Reschedule unallocates the order** (2018 on the Unallocated tab after seq 32) [observed 2026-10-06 G11-3]; to deliver it on its new date it must be allocated again (Order Date = booking date) and put on a new GIN [stated 2026-10-06 QA Team Lead; observed for 2012].
+- G11-3: allocation alone of a Reattempt order due today does not clear Route Settlement's "Un-Deliver Order exists for today delivery!" [observed 2026-10-06 G11-3].
+- G11-3: GIN approval moved Allocated to Out (Allocated 0 everywhere at seq 24) [observed 2026-10-06 G11-3]; the 63 CS of the old Pending GIN 505 did not appear on 10-06 (no carry-over rows, Q-OB2).
 
 ## 7. Statuses and transitions
 | from | action | to | by | tag |
@@ -66,6 +80,10 @@ G11-2 (2026-10-05) [observed 2026-10-05 G11-2]: seq 12 no-op again (Unallocated 
 | Allocated | Unallocate | (expected Unallocated) | Maker | [inferred]; observed result "stock not found." (superseded 2026-10-01) |
 | Allocated | Unallocate | Unallocated (order moves to the Unallocated tab) | Maker | [observed 2026-10-01 G11-1] (was [inferred]) |
 | Allocated | GIN approved | allocation consumed (Allocated -> Out) | Checker (GIN) | [observed 2026-10-01 G11-1] |
+| Allocated (FULL) | Unallocate | Unallocated (order becomes editable in Order Editing if delivery today) | Maker | [observed 2026-10-06 G11-3] |
+| Unallocated (edited in Order Editing) | Order Editing Save | Allocated FULL | Maker | [observed 2026-10-06 G11-3] |
+| Allocated / on GIN | Cashmemo Reschedule | Unallocated (Reattempt, new delivery date) | Maker | [observed 2026-10-06 G11-3] |
+| Unallocated Reattempt (Order Date = booking date) | Allocation | Allocated; offered on a GIN for its delivery date | Maker | [observed 2026-10-06 G11-3] |
 
 ## 8. Rules and validations
 - Orders are auto-allocated at save (all 8 new orders already Allocated). [observed] Again all 6 orders of 2026-10-01. [observed 2026-10-01 G11-1]
@@ -77,15 +95,19 @@ G11-2 (2026-10-05) [observed 2026-10-05 G11-2]: seq 12 no-op again (Unallocated 
 - An unallocated order can be allocated again with the manual Allocation button (FULL). [observed 2026-10-01 G11-1]
 - Partial allocation when stock is short: [unknown].
 - G11-2: auto-allocation at save and the one-order Unallocate/Allocate round trip confirmed on a second day [observed 2026-10-05 G11-2].
+- G11-3: the Unallocate / Allocation round trip worked again ("Process completed successfully", both directions) [observed 2026-10-06 G11-3]; "stock not found." not seen (Q26).
+- G11-3: the screen's Order Date is the booking date; a rescheduled order is found under its original booking date [observed 2026-10-06 G11-3].
 
 ## 9. Messages
 "Are you sure you want to proceed?" (confirm alert); "Process completed successfully" (allocation, key Stock_Allocation_ASSR); "stock not found." (unallocation; framework key Unallocated_ASSR expects something else, [unknown] what). [observed]
 - 2026-10-01: Unallocate answered **"Process completed successfully"** (toast) after the confirm; Allocation of the same order answered the same text. [observed 2026-10-01 G11-1] ("stock not found." superseded 2026-10-01 for this data; kept as the 09-29 observation.)
+- G11-3: alert "Are you sure you want to proceed?" then "Process completed successfully" (Unallocate and Allocation) [observed 2026-10-06 G11-3].
 
 ## 10. Dependencies
 Reads orders from Order Booking and stock from the DA; day-keyed stock balances. Hands allocated orders to Order Editing/Cancellation (hidden when allocated, see order_editing_cancellation.md) and to GIN (cash memo selection).
 - (superseded 2026-10-01: allocated orders are NOT hidden from Order Editing/Cancellation; the empty outlet list was caused by the Order Editing date filter working on the delivery date. See order_editing_cancellation.md. [observed 2026-10-01 G11-1])
 - The GIN issues allocated cash memos only; an unallocate of all orders right before the GIN would leave nothing to issue. [inferred 2026-10-01 G11-1]
+- G11-3: Order Editing (before GIN) depends on Unallocate here; the GIN (seq 20) needs the orders allocated again (seq 18); a Reattempt order needs Allocation here before its GIN [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
 
 ## 11. Test design hints
 - Positive: save an order and verify Allocated tab shows it (FULL); allocate an old Unallocated order.
@@ -97,6 +119,10 @@ Reads orders from Order Booking and stock from the DA; day-keyed stock balances.
   - Trap (framework drift): flow 00130002 selects ALL rows (filter "Aautomation", select-all) and unallocates everything right before the GIN; run as written it leaves the GIN with no allocated cash memos. Unallocate one order, or re-allocate before the GIN.
   - Trap: the confirm dialog must be accepted, otherwise nothing happens and no toast appears.
 - G11-2: the framework's select-all Unallocate (flow 00130002) was again replaced by a one-order round trip; drift entry in FRAMEWORK_DRIFT.md.
+- G11-3 additions [observed 2026-10-06 G11-3]:
+  - Positive: Unallocate an order with delivery today -> it appears in Order Editing; save the edit -> it is Allocated again.
+  - Positive: reschedule an order -> it is on the Unallocated tab under its booking date; allocate it -> it is offered on the GIN of its new delivery date.
+  - Trap: search a rescheduled order under its ORDER (booking) date, not today's.
 
 ## 12. Open questions (batched for the BA)
 - Q: Why does Unallocate answer "stock not found." (stock keyed by day, allocation reference missing)? | Default: stock record for the order date missing | Evidence: unexplained. (Update 2026-10-01 G11-1: not reproduced; Unallocate succeeded on a same-day order with stock received that day. Likely stale-day data on 09-29 [inferred]. | Class: B)
@@ -104,8 +130,10 @@ Reads orders from Order Booking and stock from the DA; day-keyed stock balances.
 - Q: What does Allocation do on short stock? | Default: partial allocation | Class: B | Evidence: not tested.
 - Q-OB1: Who or what generated the day's opening balances during 2026-10-01 (0 in the morning, rebuilt from the previous day with allocation released by 16:40)? This decides the Allocated and Closing a check starts from. | Default: unknown | Class: B | Evidence: session report §8. **-> ANSWERED 2026-10-05**: openings are created by the first movement of the day (DA approval) = previous Closing + still-Allocated (see stock_inquiry_and_balances.md, OPEN_QUESTIONS.md).
 - G11-2: Q (Unallocate "stock not found.") not reproduced on a second same-day run (10-05); stays PARTLY (cause [inferred] stale-day data). ANSWERED 2026-10-05 (Q-OB1): see stock_inquiry_and_balances.md.
+- Q26 evidence 2026-10-06: not reproduced on a third day; close if confirmed once more [observed 2026-10-06 G11-3].
 
 ## 13. Sources
 atlas flows 00130001, 00130002, group_11.md; TC-OB-01_executed.md (TC-OB-03); ui.md "Order Stock Allocation"; STEP_SHEET_DRAFT_next.md; DB `rpl_pr_sar_stock_alloc_rules`, `snd_tr_cmm_cashmemo_master` (column names).
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 12, 16 (stock effect), 18, 24; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rule 4, §5, §7, §8.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 12, 18).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 12, 15 preparation, 18, seq 51 resolution).

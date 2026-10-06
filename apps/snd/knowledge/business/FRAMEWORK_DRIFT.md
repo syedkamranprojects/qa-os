@@ -1,6 +1,6 @@
 # Framework drift: group 11 (PK) workbook / framework vs the live app
 
-For the framework owner. Created 2026-10-05 from the learning walks G11-1 (2026-10-01, seq 1-50) and G11-2 / G11-2b (2026-10-05, seq 1-71) on cnr1dev1, distributor 15108843. Every row is a place where the legacy framework rows (CTA_CONFIG_ASSERTION) or the case-data workbook (NG_Dcode_QA_OTC (Pak) and sheets named below) no longer match what the app does. In most rows the app is consistent and the expected value is stale; a run would fail (or pass by coincidence) for the wrong reason.
+For the framework owner. Created 2026-10-05 from the learning walks G11-1 (2026-10-01, seq 1-50) and G11-2 / G11-2b (2026-10-05, seq 1-71) on cnr1dev1, distributor 15108843. Updated 2026-10-06 with the full walk G11-3 (seq 1-71 WITH the QA Team Lead; evidence [learning_sessions/2026-10-06_G11-PK_session3_log.md](learning_sessions/2026-10-06_G11-PK_session3_log.md)): section 2b adds evidence to existing rows (rows themselves are kept unchanged), section 2c adds new rows 27-37. Every row is a place where the legacy framework rows (CTA_CONFIG_ASSERTION) or the case-data workbook (NG_Dcode_QA_OTC (Pak) and sheets named below) no longer match what the app does. In most rows the app is consistent and the expected value is stale; a run would fail (or pass by coincidence) for the wrong reason.
 
 Evidence files: [learning_sessions/2026-10-01_G11-PK_session1_report.md](learning_sessions/2026-10-01_G11-PK_session1_report.md) §7, [learning_sessions/2026-10-05_G11-PK_session2_log.md](learning_sessions/2026-10-05_G11-PK_session2_log.md), [learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md](learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md). The pages named in the last column hold the business detail (section 11 traps).
 
@@ -42,7 +42,42 @@ Tags: [observed] seen live; [db] read from the framework tables or workbook. Not
 | 25 | 51 | 00680001 | Route Settlement precondition | assumes the day can be settled | refused while any earlier day is open ("Following previous days not closed! Please close date. <date>") | G11-1, G11-2 [observed] | Add a precondition check (all earlier days Complete / closed on PJP Daily Inquiry Update) before seq 51 | route_settlement.md |
 | 26 | 52-54 | 03210001, 03220001, 03250001 | expected Offset / Received | (values from the workbook day) | Offset = posted slip allocations (2009: 2,600); outlet-level multi-cheque goes to the outlet's oldest open memo, so expected values depend on earlier days' open memos | G11-2b [observed 2026-10-05] | Compute from the day's slips and the outlet's open memos | deposit_slips.md, transaction_inquiry.md |
 
+## 2b. G11-3 (2026-10-06) evidence on existing rows
+
+| Row | Seq | G11-3 evidence | Effect on the suggested fix |
+|---|---|---|---|
+| 1 | 70 | header Tax 12,371.66 (order edited twice, 7 -> 4 -> 3 CS); Detail line 1 Delivered 3 CS 46,268.79 / -10,020.95 / 6,524.61 / 42,772.45 [observed 2026-10-06] | expected values must follow the day's edits (see row 27) |
+| 2-6 | 34, 69, 71 | return 715 on a 3 CS order: Gross -30,845.86 (= workbook), Discount 6,189.17 (= 10-05), Tax -4,409.61, Net -29,066; VAT -4,409.61, 3rd Schedule 0; detail line 1 6,530.75 / -4,376.72 / -28,691.83 [observed 2026-10-06] | as before: rebuild from the day's return |
+| 7 | 56 | saved 400 / AUTO: "Record Saved Successfully" after a confirm modal "Are you sure you want to save transaction?"; doc COL26000000211; **Total Shortage +400, Balance +400, Total Adjusted unchanged** [observed 2026-10-06]; meaning: a DSR shortage while taking money from the outlet [stated 2026-10-06 QA Team Lead] | **suggested fix corrected (superseded 2026-10-06)**: assert Total Shortage +Amount and Balance +Amount (not Total Adjusted +, Balance -); handle the confirm modal |
+| 8 | 55 | **Q-CS1 answered: seq 55 is a check only; do not click Bounce** [stated 2026-10-06 QA Team Lead]; cheques read Clear [observed 2026-10-06] | fix: assert Cheque Status "Clear" read-only; remove any Bounce event |
+| 9 | 9 | 5 rows only, Opening 0, In = received (matches, again by coincidence) [observed 2026-10-06] | deltas still needed (openings differ by day, Q-OB2) |
+| 10 | 24 | GIN 508 Out 32 (not 35): seq 15 had edited an order to 4 CS before the GIN [observed 2026-10-06] | deltas |
+| 11 | 60 | Opening 0, Out 89 (32 GIN 508 + 7 GIN 509 + 50 SAN), Closing 8 [observed 2026-10-06] | Opening assumption differs by day; use deltas |
+| 17 | 48 | GRN 248 Suggested 17 CS (not 19): 7 cancel after GIN + 7 reschedule + 1 cut + 2 return [observed 2026-10-06; breakdown inferred] | derive from the day's documents |
+| 19 | 19 | "processed orders: 6" (all six orders, run before seq 15) [observed 2026-10-06] | assert ticked-row count |
+| 20 | 15 | **executed for the first time**: Order Editing lists only UNALLOCATED orders whose delivery date is today; Delivery Date Change first, then Unallocate [stated 2026-10-06 QA Team Lead]; workbook values (4 CS -> 90,707) matched exactly [observed 2026-10-06] | fix: order 19 -> unallocate the order -> 15 (Q-OE1 answered) |
+| 22 | 18 | one-order Unallocate (2020) + Allocation of the unallocated orders (2016, 2020) again [observed 2026-10-06] | unchanged |
+| 25 | 51 | new blocker "Un-Deliver Order exists for today delivery!" (see row 31) [observed 2026-10-06] | add both preconditions |
+| 26 | 52-54 | Offset 2015 = 2,600; multi-cheque 1146 counted as Previous (not on 2015/2009) [observed 2026-10-06]; FIFO adjustment is intended [stated 2026-10-06 QA Team Lead, Q-DS5] | compute expected Offset/Received with the FIFO rule |
+
+## 2c. New rows from G11-3 (2026-10-06)
+
+| # | Seq | Flow id | Item | Workbook / framework | Observed | Evidence | Suggested fix | Page |
+|---|---|---|---|---|---|---|---|---|
+| 27 | 68 | 03190001 | Edited order Total Tax (VAT / 3rd Schedule / header) | 11,389.48 / 3,195.31 / 14,584.79 (one edit to 4 CS) | 9,176.35 / 3,195.31 / 12,371.66 (edited twice, 3 CS) | G11-3 seq 68 [observed 2026-10-06] | Compute from the order's final quantities; or make seq 29 use different data (row 28) | transaction_inquiry.md |
+| 28 | 29 | 00840001 | Order Editing After GIN data | same data as seq 15 (outlet 04, 4 CS) | once seq 15 runs, the after-GIN edit to 4 CS is a no-op; QA Team Lead edited to 3 CS instead | G11-3 seq 29 [observed; stated 2026-10-06 QA Team Lead] | Give seq 29 its own quantity (e.g. 3 CS) and re-derive seq 34, 68-71 expectations | order_editing_cancellation.md |
+| 29 | 16 | 00040001 | Order Cancellation expected Net | 134,535 for the outlet-07 order | 101,161 (outlet 07 order untaxed on 10-06, Q-TX1) | G11-3 seq 16 [observed 2026-10-06] | Take Net from the booked order | order_editing_cancellation.md |
+| 30 | 40 | 03240001 | Full Amount Cheque amount | 119,370 | the 119,370 order (outlet 07) is cancelled at seq 16; 108,202 used for COL26000002020 | G11-3 seq 40 [observed 2026-10-06] | Pick an open delivered memo and use its Balance | deposit_slips.md |
+| 31 | 51 | 00680001 | Route Settlement precondition (2) | none | "Un-Deliver Order exists for today delivery!" while yesterday's Reattempt order (due today) is undelivered; resolution: allocate it (Order Date = booking date), new GIN, Checker approval, Cashmemo Status Delivered | G11-3 seq 51 [observed 2026-10-06; stated 2026-10-06 QA Team Lead] | Add pre-steps for any Reattempt order due today, or avoid rescheduling to a working day that will be settled | route_settlement.md, cashmemo_reschedule_and_status.md |
+| 32 | 51 | 00680001 | settlement entry | (validation screens 006801-006806) | Edit -> cash Received editable, cheque Received read-only, Stock Shortage editable -> row Save "Saved Successfully" -> row green, no Edit | G11-3 seq 51 [observed 2026-10-06] | Assert "Saved Successfully" and Route Status Complete | route_settlement.md |
+| 33 | 10, 14 | 00010001, 02960001 | outlet 06 / 07 tax | (workbook built for outlet 03 etc.) | outlets 06 and 07 swapped tax behaviour vs 10-05 (07 Tax 0, 06 Tax 16,505.36) | G11-3 seq 10, 14 [observed 2026-10-06] | Derive expected tax from the outlet's current profile (Q-TX1) | order_booking.md |
+| 34 | 15 | 00020001 | precondition | none | the order must be unallocated before Order Editing lists it; the edit save re-allocates it | G11-3 [stated 2026-10-06 QA Team Lead; observed] | Add an Unallocate step before seq 15 | order_editing_cancellation.md, stock_allocation.md |
+| 35 | 42 | 00140001 | Outstanding Outlet totals | (none asserted) | doubled totals on some outlets (outlet 05 202,322 vs 101,161) = known display defect | G11-3 [observed; stated 2026-10-06 QA Team Lead, Q-DS4] | Never assert outlet-level totals | deposit_slips.md |
+| 37 | 42 | 00140001 | Multi-cheque expected allocation | workbook expects the outlet amount on today's memo | the Outstanding Outlet amount is auto-adjusted FIFO onto the outlet's OLDEST open invoice (1140 -> 2003 of 10-01; 1146 -> an older outlet-04 memo) | G11-2b, G11-3 [observed]; rule [stated 2026-10-06 QA Team Lead, Q-DS5] | Expect the allocation on the outlet's oldest open memo, not today's; seq 52-54 expectations follow | deposit_slips.md |
+| 36 | 70 | 03740001 | Detail Allocated / Ordered after edits | (workbook as booked) | Allocated 4 CS (last allocation), Ordered 5 CS 4 PC, Delivered 3 CS | G11-3 seq 70 [observed 2026-10-06] | Assert Delivered and amounts only (Q-TI1) | transaction_inquiry.md |
+
 ## 3. Notes
 - Rows 1-8, 11, 21 and 26 are new from G11-2 / G11-2b (2026-10-05); the others were found in G11-1 and re-observed where marked.
 - Framework flows for seq 55 and 56 were not executed (bypassed by the QA lead); rows 7-8 describe the screens and workbook, not an engine run.
 - Decision items for the QA lead / framework owner: Q-SV1 (deltas), Q-OE1 / Q-OE2 (seq 15), Q-CS1 (seq 55) in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).
+- 2026-10-06: Q-OE1 / Q-OE2 (seq 15) and Q-CS1 (seq 55) are answered by the QA Team Lead (see 2b rows 8 and 20); Q-SV1 still open. Seq 55 and 56 were executed in G11-3 (55 as a check, 56 saved).

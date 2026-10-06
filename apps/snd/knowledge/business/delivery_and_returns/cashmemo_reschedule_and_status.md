@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [goods_issue_note, delivery_date_change, order_editing_cancellation]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Cashmemo Reschedule and Cashmemo Status: how it works (S&D / DCODE)
 
@@ -16,9 +16,11 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEARN-G11-PK/20261001-1611, seq 29/31/32/33)
 Last updated: 2026-10-01. Source flows: atlas `01040001` (group 11 seq 32), `00030001` (seq 33); also seq 29 `00840001` Order Editing After GIN and seq 31 `00850001` Order Cancellation After GIN. None of these has been replayed live yet (the GIN approval blocks the chain). (superseded 2026-10-01: all four were walked live on 2026-10-01 after GIN 506 was approved: COL26000002006 rescheduled to 2026-10-02, COL26000002003/2004/2005 delivered, 2003 edited and 2007 cancelled after the GIN [observed 2026-10-01 G11-1])
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 A cash memo (document type `CM-01` "Sales", the confirmed order that is the delivery document) is delivered by the DSR. After the GIN, either the DSR could not deliver on the planned day (Cashmemo Reschedule moves it to another delivery date with a reason) or he reports the outcome of the day (Cashmemo Status records cash memos as delivered / not delivered). [inferred from names, execution statuses and screens; confirmed 2026-10-01: Reschedule moves the cash memo to a new delivery date with a reason and takes it off the GIN (status Reattempt); Cashmemo Status marks the ticked cash memos Delivered/Invoiced with the actual delivery time [observed 2026-10-01 G11-1]]
+- G11-3: a rescheduled order becomes due on its new date and **blocks Route Settlement of that date** until it is delivered ("Un-Deliver Order exists for today delivery!") [observed 2026-10-06 G11-3]. It must be re-allocated, put on a new GIN, approved and marked Delivered here [stated 2026-10-06 QA Team Lead].
 
 ## 2. Actors and roles
 Maker = Stock Controller / order user `Auto_Multi_Orga` runs all four flows, no user switch in seq 29-33 [atlas]. No approval configured [atlas]. Confirmed 2026-10-01: the Maker ran seq 29, 31, 32 and 33 in one login; neither screen has a Forward or approval step, so the Checker has no part here [observed 2026-10-01 G11-1].
@@ -61,6 +63,10 @@ Walked live 2026-10-01 (business steps in the standard vocabulary):
 G11-2 walk (2026-10-05) [observed 2026-10-05 G11-2]:
 1. [Maker] Navigate to Cashmemo Reschedule; Choose Delivery Date 2026-10-06 FIRST; Choose PJP 02112~AutomationDSR; grid lists the 4 non-cancelled cash memos of GIN 507 (2009-2012, Ready to dispatch/Packed; 2009 at its edited Net 90,707); Tick COL26000002012; Choose Reschedule Reason Shop Closed; Click Process; Accept "Are you sure you want to proceed?" -> "Process completed successfully"; the row leaves the list (11:32:01040001).
 2. [Maker] Navigate to Cashmemo Status; Choose PJP 02112-AutomationDSR (GIN GN-01~507 fills); grid 2009 (Gross 96,840.34), 2010 (126,688.41 / Net 101,160.73), 2011 (126,688.41 / Tax 18,208.93 / Net 119,369.66); Select all; Click Save -> "Updated successfully"; rows leave the list (11:33:00030001).
+G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3]:
+1. [Maker] Cashmemo Reschedule: PJP 02112; set the new Delivery Date **2026-10-07 first**, then reason Shop Closed on COL26000002018 + tick; Process -> confirm -> "Process completed successfully"; 2018 leaves the GIN 508 list (11:32:01040001).
+2. [Maker] Cashmemo Status: PJP 02112 -> GIN GN-01~508 auto-filled -> 2015 (81,417.41 / 12,371.66 / 76,155.59), 2016 (126,688.41 / 0 / 101,160.73), 2020 (107,960.51 / 16,505.36 / 108,201.79), status "Ordered"; header checkbox; Save -> "Updated successfully"; list empty (11:33:00030001).
+3. Extra [Maker] (after GIN 509): Cashmemo Status PJP 02112 -> GIN GN-01~509 -> COL26000002012 (2026-10-05, 107,960.51 / 16,505.36 / 108,201.79, Ordered); tick; Save -> "Updated successfully" (Delivered; left unpaid on the QA Team Lead's instruction).
 
 ## 6. Outputs and effects
 - Reschedule: cash memo gets execution status 19 "CM Reschedule" and a new delivery date; it probably leaves the GIN [inferred; status 25 "adhoc removal from GIN" exists]. (superseded 2026-10-01: Transaction Inquiry shows Document Status **Reattempt** (not "CM Reschedule"), Delivery Date = the new date 2026-10-02, and **no GIN number**: rescheduling takes the cash memo off the GIN [observed 2026-10-01 G11-1])
@@ -69,6 +75,7 @@ G11-2 walk (2026-10-05) [observed 2026-10-05 G11-2]:
 - Order Editing after the GIN keeps the same Document No (COL26000002003) and re-applies promotions on the smaller basket (Net 90,707.00 = workbook) [observed 2026-10-01 G11-1].
 - A cash memo cancelled after the GIN keeps its GIN number (506) in Transaction Inquiry; one cancelled before the GIN has none [observed 2026-10-01 G11-1].
 - G11-2: 2012 -> Reattempt with delivery 2026-10-06, off GIN 507, its 7 CS returned on GRN 247; 2009-2011 -> Delivered/Invoiced with Actual Delivery Date 2026-10-05 10:37 (second day) [observed 2026-10-05 G11-2, G11-2b].
+- G11-3: **a Reschedule unallocates the order** (2018 found on the Unallocated tab of Order Stock Allocation) [observed 2026-10-06 G11-3]; the order stays Reattempt with delivery date 2026-10-07 and will be due on that day.
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -88,17 +95,22 @@ Status chain observed 2026-10-01: Confirmed -> Ready to dispatch/Packed (GIN app
 - Cashmemo Status marks every ticked cash memo Delivered; there is no Un-Delivered or partial choice on this screen [observed 2026-10-01 G11-1] ("Cashmemo Status Change" may offer more; not walked).
 - Orders on an approved GIN can be edited and cancelled with no warning (business control question) [observed 2026-10-01 G11-1].
 - G11-2: Reschedule and Status list only cash memos still on the GIN (2013 cancelled after the GIN and 2012 rescheduled were absent from Status); confirmed on a second day [observed 2026-10-05 G11-2].
+- G11-3: set the new Delivery Date before ticking the row on Cashmemo Reschedule [observed 2026-10-06 G11-3].
+- G11-3: Cashmemo Status picks the GIN from the PJP (latest GIN auto-filled: 508, later 509) [observed 2026-10-06 G11-3].
+- G11-3: **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown].
 
 ## 9. Messages
 `Updated successfully`; `Please Select Any Record`; reschedule success text [unknown]; one empty toast on Cashmemo Status [atlas].
 - Observed 2026-10-01: Reschedule confirm `Are you sure you want to proceed?` and toast `Process completed successfully` (supersedes "reschedule success text [unknown]"); Cashmemo Status `Updated successfully` [observed 2026-10-01 G11-1].
 - Order Editing After GIN: `Validation successfully`, `Order Save successfully`; Order Cancellation After GIN: result window "Order Cancellation Status", status `Successfull` (sic), message `Order Cancelled Successfully`, no toast [observed 2026-10-01 G11-1].
 - G11-2: "Process completed successfully" (Reschedule, after the confirm) and "Updated successfully" (Cashmemo Status Save) confirmed on a second day [observed 2026-10-05 G11-2].
+- G11-3: "Process completed successfully" (Reschedule), "Updated successfully" (Status) [observed 2026-10-06 G11-3].
 
 ## 10. Dependencies
 Reads `REPO_GINNO` (Reschedule) and needs an approved GIN with cash memos. Hands over delivered cash memos to Sales Return (the same outlets) and to settlement. Cannot run live until the GIN approval works (stock day boundary). (superseded 2026-10-01: ran live after GIN 506 was approved on the same day [observed 2026-10-01 G11-1])
 - Hands over: delivered cash memos to Sales Return (only delivered ones are offered there), Deposit Slip and Route Settlement; the rescheduled cash memo to the next day's planning (delivery 2026-10-02); the cancelled, cut and rescheduled quantities to the Goods Return Note (seq 48) [observed 2026-10-01 G11-1].
 - Route Settlement counted the GIN's 4 non-cancelled orders as Total Order 4, Delivered 3, Undelivered 0: the rescheduled order is neither delivered nor undelivered there [observed 2026-10-01 G11-1].
+- G11-3: hand-over to the next day: COL26000002018 (Reattempt, due 2026-10-07, unallocated) must be allocated (Order Date 2026-10-06), put on a GIN, approved and delivered before the 2026-10-07 settlement [observed 2026-10-06 G11-3; procedure stated 2026-10-06 QA Team Lead].
 
 ## 11. Test design hints
 Positive: reschedule one cash memo of the GIN with a reason and check status 19; mark all delivered. Negative: Save All with nothing selected; reschedule without reason; to a past date; an already delivered cash memo. Boundary: partial delivery (18); a PJP with one cash memo. A green run does not prove the DB status; add a DB check of `pdos_docmstatus` / `pexs_execution_status`.
@@ -112,6 +124,8 @@ Positive: reschedule one cash memo of the GIN with a reason and check status 19;
 - G11-2 additions [observed 2026-10-05 G11-2]:
   - Trap: both screens default to the PJP AutoPJGIN2; choose the delivery PJP explicitly.
   - Trap: Cashmemo Status shows Document Status "Ordered" for cash memos on an approved GIN (document status), not the execution text; assert the column you mean.
+- G11-3 trap (replay across days): every seq 32 reschedule creates tomorrow's settlement blocker; a daily cycle must include the delivery of yesterday's Reattempt order (or not reschedule to a working day that will be settled) [observed 2026-10-06 G11-3].
+- Negative (2026-10-06 ruling [stated 2026-10-06 QA Team Lead]): mark Delivered a zero-tax invoice of a non-exempt outlet -> expect the delivery to be blocked (message to be recorded); positive: zero-tax invoice of a tax-exempt outlet (e.g. 1000000005) -> Delivered.
 
 ## 12. Open questions (batched for the BA; each with a default)
 Q: Does Cashmemo Status mean delivered only, or delivered/undelivered per row? | Default: Save All marks selected cash memos Delivered | Evidence: only Select All and Save All in the flow. ANSWERED 2026-10-01: delivered only; ticked rows become Delivered/Invoiced, no per-row choice [observed 2026-10-01 G11-1].
@@ -122,8 +136,10 @@ Q: Which reschedule reasons exist (workbook "Auto1")? | Default: first active re
 Q: Are the duplicate reschedule reasons (Law & Order Issue x5, Shop Closed x2, Test Reason 716) a master-data clean-up item? | Default: yes, data issue; select by exact text | Class: C | Evidence: dropdown 2026-10-01.
 Q: Does the rescheduled cash memo (Reattempt, delivery 2026-10-02) get picked up by the next day's GIN without a Delivery Date Change? | Default: yes, it is offered on the GIN of its new delivery date | Class: B | Evidence: not walked (needs a second day).
 - G11-2: the rescheduled COL26000002012 (delivery 2026-10-06) was not followed to the next day; the next-day pickup question stays open (B).
+- Q-TX1 ANSWERED 2026-10-06 [stated 2026-10-06 QA Team Lead]: outlet 06/07 tax swap = master-data modification of outlets and tax promotion; the zero-tax delivery rule above follows from it. Open detail: where exactly the block fires (GIN, Cashmemo Status) and its message [unknown], class B.
 
 ## 13. Sources
 `framework_atlas/flows/01040001.md`, `00030001.md`, `00840001.md`, `00850001.md`, `group_11.md`; DB: snd_pr_dos_documentstatus, glb_pr_exs_execution_status, snd_tr_cmm_cashmemo_master, snd_tr_gnm_gingrn_refinfo.
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 29, 31, 32, 33, "Transaction Inquiry status check after seq 31-33", seq 48, seq 51; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 7 and 10, §6 items 3 and 5.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 29, 31, 32, 33).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 32, 33; 2012 delivery at seq 51).

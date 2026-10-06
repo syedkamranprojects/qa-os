@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, delivery_date_change, dispatch_advice]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Goods Issue Note (GIN): how it works (S&D / DCODE)
 
@@ -16,10 +16,12 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEARN-G11-PK/20261001-1611, seq 20/23/24)
 Last updated: 2026-10-01. Source flows: atlas `00050001` (group 11 seq 20), `00780001` (seq 23), `02810001` (seq 24). Walked end to end live on 2026-10-01 (GIN **506**) [observed 2026-10-01 G11-1].
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 A GIN is the document by which the distributor's Maker (stock controller) issues stock out of the warehouse to a delivery man (DSR) for the cash memos (orders) he will deliver that day. It turns allocated orders into a load list: the cash memos of one PJP/DSR are picked, the SKU totals are summed, and the stock leaves the warehouse once the checker approves. [inferred from names and observed screens; confirmed 2026-10-01: Detail = per-SKU sum of the selected cash memos, approval moves the quantities to Out [observed 2026-10-01 G11-1] (was [inferred])]. Position in the Daily Cycle: after Stock Allocation / Delivery Date Change (seq 12-19), before delivery (Cashmemo Status seq 33), returns (seq 34-38) and settlement; quantities not delivered come back on the Goods Return Note (seq 48).
 - G11-2: confirmed on a second day (GIN 507, 2026-10-05): same-day stock, delivery date = today, one Checker Forward approves, Allocated -> Out [observed 2026-10-05 G11-2].
+- G11-3: two GINs on 2026-10-06: **GIN 508** (the day's 5 open orders) and **GIN 509** (only COL26000002012, the 10-05 order rescheduled to 10-06, needed to unblock Route Settlement) [observed 2026-10-06 G11-3; stated 2026-10-06 QA Team Lead].
 
 ## 2. Actors and roles
 - Maker = user `Auto_Multi_Orga` (earlier wording "Stock Controller"; only Maker/Checker roles exist) [observed, atlas group 11]. Checker = `Auto_Tssm` [observed]. Maker and checker are different users in the framework [switch point at seq 23]; the app does not declare it (see below) [corrected 2026-10-01: was tagged observed].
@@ -28,6 +30,7 @@ A GIN is the document by which the distributor's Maker (stock controller) issues
 - Workflow definition `StockUpdateGIN4Level` (event `GIN`, parent orgs), with sagas `ginApprovalSaga`, `ginManualApprovalSaga`, `ginGrnCancelSaga`, `AUTO_GIN_SAGA` declared [db: wkf_wf_weo_wrkflw_event_orga, wkf_wf_wfs_workflow_status.wwes_event_id]. "4Level" gives four approval levels for the parent orgs only; org 010104 has two (Verify, Approve), one checker click was used in the framework [db 2026-10-01; (superseded 2026-10-01: "whether a second Forward is needed after Verify was never observed because GIN 505 approval was refused") -> one Checker Forward completes approval of GIN 506 [observed 2026-10-01 G11-1]].
 - Hand-off note: the Checker must log in in the browser window that the automation controls; a login in another window leaves the automated window on the Maker [observed 2026-10-01 G11-1].
 - G11-2: Maker Auto_Multi_Orga created and forwarded GIN 507; Checker Auto_Tssm approved it with one Forward [observed 2026-10-05 G11-2].
+- G11-3: Maker Auto_Multi_Orga saved and forwarded GIN 508 and 509; Checker Auto_Tssm approved each with one Forward [observed 2026-10-06 G11-3].
 
 ## 3. Documents and master data
 - Document type `GN-01` "Goods Issue Note" (group GN), statuses 01 Authorized, 02 Un-Authorized, 03 Cancelled [db: snd_pr_dot_documenttype, snd_pr_dos_documentstatus]. Header table `snd_tr_gnm_gingrn_master` (shared with the Goods Return Note `GR-01`), lines `snd_tr_gnm_gingrn_detail`, links to cash memos in `snd_tr_gnm_gingrn_refinfo` (refdoctype `CM-01`) [db].
@@ -62,6 +65,11 @@ G11-2 walk, GIN 507 (2026-10-05) [observed 2026-10-05 G11-2]:
 3. [Maker] Reopen 507; Click Forward; Enter Comments "Automation Approval"; Save -> "Forwarded successfully"; Pending for approval (11:20:00050001).
 4. [Checker] Open 507 (Pending); Click Forward; Enter Comments; Save -> "Forwarded successfully"; 507 leaves the pending list (11:23:00780001).
 5. [Maker] Stock Inquiry: 62740537 Out 35, Allocated 63, Closing 290 (11:24:02810001).
+G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3]:
+1. [Maker] Goods Issue Note; Add; Delivery Man PJP 02112-AutomationDSR (fills DSR ITB0189, Auto Main Warehouse, vehicle 0040-Automation211206); Delivery Date (a dropdown of dates) 2026-10-06; Cash Memo Selection lists exactly the 5 open orders 2015, 2016, 2018, 2019, 2020 (cancelled 2017 absent); select all; Detail per SKU: 20050308 2/0/10 6,488.44; 20050310 10/0/0 37,455.80; 62690363 3/0/2 9,855.56; 62740537 **32**/0/0 493,533.76 (edited order counted at 4 CS); 69997598 0/0/6 76.72; Actual = Suggest; Save All -> "Saved successfully."; GIN **508** Draft; reopen; Forward "Automation Approval" -> "Forwarded successfully"; Pending for approval (11:20:00050001).
+2. [Checker] GIN 508 Forward "Automation Approval" -> "Forwarded successfully"; 508 leaves the list (approved, one step) (11:23:00780001).
+3. Extra [Maker] (Route Settlement blocker, QA Team Lead): Add; PJP 02112, Delivery Date 2026-10-06 -> Cash Memo Selection lists only COL26000002012 (order date 10-05, allocated just before); Detail 62740537 7 CS 107,960.51; Save All "Saved successfully."; GIN **509**; Forward -> Pending.
+4. Extra [Checker] GIN 509 Forward "Automation Approval" -> Save; toast not captured (slow); after ~4 s 509 left the pending list = approved.
 
 ## 6. Outputs and effects
 - A GIN header in Draft/In-Active, then Pending for approval, then Active/Approved [observed for the first two; third [inferred] from the Dispatch Advice analogy and atlas]. 2026-10-01: after the Checker Forward the GIN leaves the GIN grid (approved GINs are not listed) and the cash memos read GIN No 506 in Transaction Inquiry [observed 2026-10-01 G11-1].
@@ -69,6 +77,8 @@ G11-2 walk, GIN 507 (2026-10-05) [observed 2026-10-05 G11-2]:
 - Linked cash memos advance their execution status: `03 Planning completed` (identifier GIN) when put on a GIN, `13 Ready to dispatch/Packed` (identifier GINAPPRVD) after GIN approval; `24 CM adhoc addition in GIN` and `25 CM adhoc removal from GIN` exist for changes [db: glb_pr_exs_execution_status CM-01; the mapping to the GIN steps is [inferred]]. 2026-10-01: Confirmed (after booking) -> **Ready to dispatch/Packed** after GIN 506 approval [observed 2026-10-01 G11-1] (13 mapping was [inferred]). "Planning completed" was seen on GIN 505 while it was still Pending = cash memo on a forwarded but unapproved GIN [inferred].
 - After approval, changes to the cash memos (edit, cancel, reschedule) do not move warehouse stock; the undelivered quantities come back through the Goods Return Note (19 CS reconciled exactly on 2026-10-01) [observed 2026-10-01 G11-1].
 - G11-2: GIN 507 approval: Out = 35 CS (5 x 7) for 62740537, Allocated back to 63 (old GIN 505), Closing unchanged 290; cash memos then Ready to dispatch/Packed (second day) [observed 2026-10-05 G11-2].
+- G11-3: GIN 508 approval moved Allocated to Out: 62740537 Out 32, Allocated 0 (seq 24) [observed 2026-10-06 G11-3]; GIN 509 approval moved 2012's 7 CS to Out (seq 60: Out 89 = 32 + 7 + 50 SAN) [observed 2026-10-06 G11-3].
+- G11-3: an order allocated on an earlier Order Date (booking 10-05) is offered on the GIN of its (new) delivery date [observed 2026-10-06 G11-3].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -95,15 +105,20 @@ Workflow statuses: 01 Draft, 02 Pending for approval, 03 Approved, 04 Rejected, 
 - GIN header holds `tgnm_stock_date` and `tgnm_delivery_date` [db]; which one the check uses is [inferred] (stock date).
 - Orders on an approved GIN can still be edited and cancelled without any warning (defect candidate / business control question) [observed 2026-10-01 G11-1].
 - G11-2: Cash Memo Selection again offered exactly the cash memos whose delivery date = the GIN delivery date (the 5 moved orders; cancelled 2014 absent) [observed 2026-10-05 G11-2].
+- G11-3: Cash Memo Selection offers only **allocated** orders whose delivery date = the GIN Delivery Date; a rescheduled (unallocated) order is offered only after it is allocated again [observed 2026-10-06 G11-3; stated 2026-10-06 QA Team Lead].
+- G11-3: the GIN Delivery Date is a dropdown of dates, not a typed field [observed 2026-10-06 G11-3].
+- G11-3 (related): **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown]. Whether the GIN or only Cashmemo Status refuses it is [unknown].
 
 ## 9. Messages
 `Saved successfully.` (Save All) [observed; again 2026-10-01 G11-1]; `Forwarded successfully` (Forward and Approve) [observed 2026-10-01 G11-1 for both Maker forward and Checker approval]; `No stock balance found for products: [...]` (approval, stale day); `cashmemo(s) found with delivery date earlier than the pjp working date` (approval, stale day) [observed earlier, per log]; `actual quantity could not be beyond the suggested quantity.`; `gin detail bean is going to be empty.`; `Do not use Special charters.` (comment popup); `Updated successfully` x1 and raw key `workflow.messages.forward` x2 on the approval screen (atlas toast history).
 Framework drift: sheet GIN_DTL_SAVE_ASSR expects "Saved Succesfully." vs the real "Saved successfully." [observed 2026-10-01 G11-1].
 - G11-2: "Saved successfully." (Save All, with full stop), "Forwarded successfully" (Maker and Checker). A script-fired click on the comment Save gave "Please add comments" although text was typed (the typed value was not registered); a real click worked [observed 2026-10-05 G11-2].
+- G11-3: "Saved successfully." (Save All), "Forwarded successfully" (Maker Forward and Checker approval) [observed 2026-10-06 G11-3].
 
 ## 10. Dependencies
 Reads: cash memos allocated by Stock Allocation / auto-allocation and re-dated by Delivery Date Change (see the order planning pages); stock received by Dispatch Advice (see the inbound stock pages). Hands over: `REPO_GINNO` to Cashmemo Reschedule (seq 32), Cashmemo Status (33, GIN Number fills by itself), Sales Return Status Change (38), Deposit Slip (39) and the Goods Return Note (48, GIN Number fills by itself) [atlas; observed 2026-10-01 G11-1 for 32, 33, 38, 48]; approval is the point at which stock is out for delivery. Day boundary: stock must exist on the balance date of the approval; run receive, order, GIN, approve inside one calendar day [confirmed 2026-10-01 G11-1].
 - G11-2: GIN 507 depended on DA 1359 approved the same day and on Delivery Date Change (10-11 -> 10-05) [observed 2026-10-05 G11-2].
+- G11-3: a Reattempt order due today needs its own GIN (after re-allocation) and approval before Route Settlement [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
 
 ## 11. Test design hints
 - Positive: create a GIN for PJP 02112 with all 9 cash memos, Save All, Forward, approve as another user, check Out CS in Stock Inquiry rises by the issued quantity. Done 2026-10-01 with 5 cash memos: Out +35 CS of 62740537, Allocated -35, Closing unchanged [observed 2026-10-01 G11-1]. Assert all three (Out, Allocated, Closing), not Out only.
@@ -119,6 +134,7 @@ Reads: cash memos allocated by Stock Allocation / auto-allocation and re-dated b
 - G11-2 additions [observed 2026-10-05 G11-2]:
   - Trap: "Please add comments" can appear although the comment box shows text when the text was set by script; type it and verify the box before Save (QA lead rule: always enter the comment and verify it) [stated 2026-10-05 QA lead].
   - Trap: an old Pending GIN (505 of 09-30) keeps its reservation across days; absolute Allocated checks after the GIN fail.
+- G11-3: Positive: re-allocated Reattempt order on a second GIN of the day -> approve -> Cashmemo Status Delivered -> settlement unblocked [observed 2026-10-06 G11-3]. Trap: the Checker toast may come late; confirm approval by the document leaving the pending list.
 
 ## 12. Open questions (batched for the BA; each with a default)
 Q: Does GIN approval deduct warehouse stock immediately, or only reserve it until dispatch? | Default: deducts Sound stock on approval | Evidence: only the refusal message is observed. ANSWERED 2026-10-01: approval posts the quantity as Out and releases the same quantity from Allocated; Closing already fell at booking [observed 2026-10-01 G11-1].
@@ -135,3 +151,4 @@ Q: Is the 0.67 kg weight for 35 CS of 62740537 a master-data error? | Default: y
 `framework_atlas/flows/00050001.md`, `00780001.md`, `02810001.md`, `group_11.md`; `apps/snd/knowledge/ui.md` section "Verified in the group 11 replay"; `framework_flows/STEP_SHEET_DRAFT_next.md`; learning_block1.json, learning_block3a.json (live 2026-10-01), LIVE_FINDINGS.md L05, L10, C3; DB wkf_wf_weo_wrkflw_event_orga, act_re_procdef (StockUpdateGIN v53), srol roles; DB tables snd_tr_gnm_gingrn_master/detail/refinfo, snd_pr_dot_documenttype, snd_pr_dos_documentstatus, snd_pr_trn_trans_nature, glb_pr_sgt_suggested_types, glb_pr_exs_execution_status, wkf_wf_weo_wrkflw_event_orga, wkf_wf_wfs_workflow_status, snd_tr_ssb_salestock_balance. Note: transactional rows exist only for org 0101 in snd-schema (143k authorized GINs); org 010104 has the same document types and statuses.
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 20, 23, 24, Transaction Inquiry after GIN approval, seq 29/31, seq 48-50; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 5-7, §5, §6, §7.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 20, 23, 24).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 20, 23, 24; GIN 509 at seq 51).

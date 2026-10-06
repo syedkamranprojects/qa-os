@@ -1,6 +1,6 @@
 # Area: order_to_delivery_planning (S&D / DCODE)
 
-Updated: 2026-10-05 (G11-2/2b consolidation: orders COL26000002009-2014 on a second day, Transaction Inquiry after settlement); 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
+Updated: 2026-10-06 (G11-3 consolidation: orders COL26000002015-2020; seq 15 executed for the first time: Order Editing lists only UNALLOCATED orders whose delivery date is today, the save re-allocates (Q-OE1/Q-OE2/Q-OE4 answered by the QA Team Lead); outlets 06/07 tax swap (Q-TX1); Transaction Inquiry seq 68-71 on an order edited twice); 2026-10-05 (G11-2/2b consolidation: orders COL26000002009-2014 on a second day, Transaction Inquiry after settlement); 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 
 Status: DRAFT 2026-10-01. Tags [observed]/[db]/[inferred]/[unknown] as in _TEMPLATE.md. Roles: Maker (Auto_Multi_Orga) and Checker (Auto_Tssm) only. Evidence of the 2026-10-01 walk: `../learning_sessions/2026-10-01_G11-PK_session1_log.md`.
 

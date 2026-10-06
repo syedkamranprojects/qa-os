@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, transaction_inquiry, order_editing_cancellation, delivery_date_change]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Order lifecycle and statuses: how it works (S&D / DCODE)
 
@@ -16,6 +16,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00010001, 00130001/2, 00020001, 00040001, 00160001, 02960001 (group 11 seq 10-19); G11-1 also seq 20, 23 (GIN), 29, 31 (after GIN), 32, 33 (reschedule / status).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 Explains what an "order" is in DCODE and how it moves from booking to delivery, so every other page in this folder can refer to it. The order and the sale are the same record: a **cash memo** (`snd_tr_cmm_cashmemo_master`) that starts as an Ordered cash memo and becomes Delivered after the GIN/delivery. [db][inferred]
@@ -66,6 +67,7 @@ Standard-vocabulary chain, as walked 2026-10-01 [observed 2026-10-01 G11-1]:
 12. [Maker] Reschedule Cashmemo -> Reattempt, off the GIN, new delivery date. (`11:32:01040001`)
 13. [Maker] Save Cashmemo Status for delivered cash memos -> Delivered/Invoiced, Actual Delivery Date set. (`11:33:00030001`)
 14. Not delivered quantities (cancelled, cut, rescheduled, returned) come back on the Goods Return Note (delivery area, seq 48).
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: 2015 Confirmed -> (unallocated, edited, re-allocated) -> Ready to dispatch/Packed (GIN 508) -> edited again -> Delivered/Invoiced -> partly returned (715); 2017 cancelled before GIN; 2019 cancelled after GIN; 2018 rescheduled -> Reattempt (delivery 10-07, unallocated); 2012 (10-05 Reattempt, due 10-06) -> allocated -> GIN 509 -> Delivered/Invoiced (unpaid).
 
 ## 6. Outputs and effects
 - At save: order header + lines + charges/offerings rows [db: tables `snd_tr_cmm_cashmemo_detail`, `_charges`, `_offering`, `_offritem`]; stock allocation flag `tcmm_stock_allocated_status` and `tcmm_alloc_ref_no` [db column names; semantics inferred].
@@ -102,6 +104,7 @@ Statuses of CM-01 for org 010104 [db]: 01 Delivered (nature DEL), 02 Un-Delivere
 | Confirmed | Delivery Date Change | Confirmed (new delivery date) | Maker | [observed 2026-10-01 G11-1] |
 Allocation is a separate dimension: Unallocated / Allocated (Allocation Status FULL after save). [observed]
 - G11-2b: no Partial Delivered (18) status appeared on COL26000002009 after its partial return; it stayed Delivered/Invoiced [observed 2026-10-05 G11-2b].
+- G11-3: a **Reattempt order due today blocks Route Settlement** until it is allocated (Order Date = booking date), put on a new GIN, the GIN approved and the memo marked Delivered [observed 2026-10-06 G11-3; stated 2026-10-06 QA Team Lead]. Reschedule unallocates the order [observed 2026-10-06 G11-3].
 
 ## 8. Rules and validations
 - Allocated orders are NOT listed in Order Editing / Order Cancellation outlet lists (outlet API returned []). [observed; cause unproven] (superseded 2026-10-01: allocation does not hide orders; Order Editing filters by delivery date and today's orders had delivery 10-05/10-07. Order Cancellation lists allocated orders of the order date. [observed 2026-10-01 G11-1])
@@ -118,6 +121,7 @@ Allocation is a separate dimension: Unallocated / Allocated (Allocation Status F
 ## 10. Dependencies
 Reads DA stock; hands order numbers (`ORDERNUMBER`) to editing and GIN; GIN hands `REPO_GINNO` to cashmemo reschedule/status, deposit slips, sales returns, route settlement (other analysts).
 - Same-day chain: DA approved today -> orders booked -> Delivery Date Change to today -> GIN same day. The GIN refuses cash memos with a delivery date earlier than the PJP working date. [observed 2026-10-01 G11-1]
+- G11-3: a Reattempt order carries over to its new delivery day; the next day's cycle must deliver it before settlement (COL26000002018 due 2026-10-07) [observed 2026-10-06 G11-3].
 
 ## 11. Test design hints
 - Verify status text in Transaction Inquiry after each lifecycle step (Confirmed after booking). Check DB `pdos_docmstatus` of the cash memo moves 04 -> 03 after cancel.
@@ -145,3 +149,4 @@ Reads DA stock; hands order numbers (`ORDERNUMBER`) to editing and GIN; GIN hand
 snd-schema DB tables `snd_pr_dot_documenttype`, `snd_pr_dos_documentstatus`, `snd_tr_cmm_cashmemo_master` (columns only; no order rows exist in the base DB for org 010104, orders live in the environment overlay); TC-OB-01_executed.md (TC-OB-03 section); ui.md "Verified in the group 11 replay"; atlas flows 02960001, 03190001.
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 10-33 and the two Transaction Inquiry status checks; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 3-7, 10, 11, §5, §8.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md, learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md.
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md.

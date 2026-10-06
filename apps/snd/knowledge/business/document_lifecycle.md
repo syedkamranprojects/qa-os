@@ -1,6 +1,6 @@
 # Document lifecycle: the cross-cutting approval pattern (S&D / DCODE)
 
-Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0); 2026-10-05 G11-2/2b consolidation (section 0b)
+Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0); 2026-10-05 G11-2/2b consolidation (section 0b); 2026-10-06 G11-3 consolidation (section 0c)
 
 Consolidated 2026-10-01 from the area pages. Tags as in the pages: [observed], [db], [inferred], [unknown].
 
@@ -24,6 +24,15 @@ Evidence: [learning_sessions/2026-10-05_G11-PK_session2_log.md](learning_session
 - **Cheques**: after posting they read "Clear"; the only later transition offered is Bounce (one-way).
 - **Sales return** ends as Picked (Transaction Inquiry, Document Type Sales Return); its source cash memo stays Delivered/Invoiced.
 - **Comment rule**: the comment must really be typed and visible in the box before Save ("Please add comments" otherwise) [stated 2026-10-05 QA lead; observed].
+
+## 0c. Confirmed and extended in learning session G11-3 (2026-10-06, with the QA Team Lead) [observed 2026-10-06 G11-3]
+Evidence: [learning_sessions/2026-10-06_G11-PK_session3_log.md](learning_sessions/2026-10-06_G11-PK_session3_log.md).
+- **Third day, same pattern**: DA 1360, loss 641, GIN 508 and GIN 509, Sales Return COL26000000715, GRN 248, SAN 97: Maker save -> Maker Forward + comment -> Checker Forward = approval, same messages.
+- **Allocation is part of the order lifecycle**: Order Editing before the GIN needs the order unallocated; the edit save re-allocates it; a Cashmemo Reschedule unallocates it; a Reattempt order must be allocated again before a new GIN [stated 2026-10-06 QA Team Lead; observed].
+- **Route lifecycle, full**: Incomplete (yellow) -> Edit refused while an order due today is undelivered ("Un-Deliver Order exists for today delivery!") -> Edit + row Save ("Saved Successfully") -> Complete (green, no Edit); slips Posted; cheques Clear. Day order: settlement -> DSR adjustment -> day close (E).
+- **DSR Adjustment (AD-07)** is saved directly by the Maker after a confirm modal ("Are you sure you want to save transaction?" -> "Record Saved Successfully"); no approval step seen; status column not shown (Q53).
+- **Cheque Status in the cycle** is a check only; Bounce is never pressed [stated 2026-10-06 QA Team Lead].
+- **Deposit slip states** [stated 2026-10-06 QA Team Lead]: Un Posted slips are never blocked against each other (a memo may be allocated on several unposted slips); Route Settlement Save posts all the route's cash and cheque slips (Un Posted -> Posted) and adjusts the invoices; fully adjusted invoices leave the collection screens.
 
 ## 1. The common pattern
 
@@ -52,7 +61,7 @@ Rules that repeat across documents:
 | Sales Return (CM-02) | maker + checker, and Status Change after approval | Un-Authorized (02) -> Pending -> Authorized (01) -> Picked (04); Cancelled (03) | inferred/db |
 | SAN stock out | maker + checker | Draft (status I) -> Pending -> Approved (status A) [db]; observed 2026-10-05: In-Active / Draft -> In-Active / Pending for approval -> Active / Approved, one Checker Forward | db; observed 2026-10-05 G11-2b |
 | Deposit Slip | none active (approval row 00140002 inactive) | status I -> A with posting date [db]; screen Un Posted -> Posted at Route Settlement [observed 2026-10-05 G11-2b] | db; observed 2026-10-05 G11-2b |
-| Cashmemo Reschedule / Status, Route Settlement, Cheque Status, DSR Adjustment, PJP Daily Inquiry Update, Transaction Inquiry, Stock Inquiry | none | see pages: execution 19 / 10; no status; instrument P/L/R/B/C/A; AD-07 01-04; n/a [db]. Observed 2026-10-05: Route Status Incomplete -> Complete; cheques Clear (then only Bounce); PJP daily row Current Status E after End Of Day / Complete | db/inferred; observed 2026-10-05 G11-2b |
+| Cashmemo Reschedule / Status, Route Settlement, Cheque Status, DSR Adjustment, PJP Daily Inquiry Update, Transaction Inquiry, Stock Inquiry | none (2026-10-06: DSR Adjustment saved by the Maker without approval; Route Settlement performed by the Maker) | see pages: execution 19 / 10; no status; instrument P/L/R/B/C/A; AD-07 01-04; n/a [db]. Observed 2026-10-05: Route Status Incomplete -> Complete; cheques Clear (then only Bounce); PJP daily row Current Status E after End Of Day / Complete | db/inferred; observed 2026-10-05 G11-2b |
 
 ## 3. Known deviations in vocabulary
 

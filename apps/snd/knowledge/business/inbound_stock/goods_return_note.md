@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [goods_issue_note, order_editing_cancellation, cashmemo_reschedule_and_status, sales_return, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 # Goods Return Note (GRN): how it works (S&D / DCODE)
@@ -16,6 +16,7 @@ updated: 2026-10-05
 Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and observed live replays. No user guide exists. GRN was NOT replayed live: most statements are [db]/[inferred]. (Superseded 2026-10-01 G11-1: GRN 246 was created, forwarded, approved and stock-checked live; observed facts are tagged [observed 2026-10-01 G11-1].) Confidence tags: **[observed]**, **[db]**, **[inferred]**, **[unknown]**.
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 00090001 (group 11 seq 48), 00810001 (seq 49), 02820001 (seq 50). G11-1 learning walk: GRN **246** (19 CS, GIN 506).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 After goods were issued to a delivery man (GIN) and the day's deliveries are done, goods not delivered or brought back physically return to the warehouse. The Goods Return Note records that return so the quantity goes back into warehouse stock, and an approver confirms it [inferred from names, GIN/GRN share table snd_tr_gnm_gingrn_master with a "suggested qty" and "actual qty"]. In the Daily Cycle it sits after sales returns and deposit slips and before Route Settlement; then Stock Inquiry (seq 50) checks the stock.
@@ -61,6 +62,7 @@ G11-1 walk, GRN 246 (standard vocabulary, trace keys) [observed 2026-10-01 G11-1
 7. [Maker] Navigate to Stock Inquiry; Verify 62740537 Auto Main Sound In +19, Out unchanged, Closing +19 (11:50:02820001).
 
 G11-2 walk, GRN 247 (2026-10-05): same steps as GRN 246 (11:48:00090001, 11:49:00810001, 11:50:02820001); Save All -> "Record Saved Successfully" (Draft, In-Active); Maker Forward -> "Forwarded successfully" (Pending); Checker Forward -> "Forwarded successfully", 247 leaves the pending list; old pending GRNs 231/232 of 08-21 still listed for the Checker [observed 2026-10-05 G11-2].
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: [Maker] Goods Return Notes; Add; Delivery Man PJP 02112 -> DSR ITB0189-AutomationQADSR, warehouse C0000000055, vehicle 0040-Automation211206, GIN 508 auto-filled; Detail 62740537 Suggested **17 CS**, Actual 17, 7,711.47; Save All -> "Record Saved Successfully", GRN **248** Draft; reopen (double-click); Forward, comment "Automation Approval" (verified), Save -> "Forwarded successfully". [Checker] open 248 (Pending, GIN 508), Forward, comment, Save -> "Forwarded successfully"; 248 leaves the pending list (11:48:00090001, 11:49:00810001).
 
 ## 6. Outputs and effects
 Approved GRN: workflow GRN is bound to StockUpdateGRN and a "GRNApprovalSaga" [db], so approval updates stock: returned quantities go back In to the warehouse stock of the day [inferred]. Which stock type receives them (Sound or per detail line) is [unknown]. (Superseded 2026-10-01 G11-1: both now observed, see below.)
@@ -70,6 +72,7 @@ Approved GRN: workflow GRN is bound to StockUpdateGRN and a "GRNApprovalSaga" [d
 - The rescheduled order's quantity (COL26000002006, Reattempt, delivery 2026-10-02) returns to stock via the GRN, and is to be issued again on its new delivery date [observed 2026-10-01 G11-1 for the return; re-issue inferred].
 - The GRN reconciles exactly with the day's post-GIN changes (19 CS), so it is the point where orders edited/cancelled after the GIN finally give stock back [observed 2026-10-01 G11-1].
 - G11-2: GRN 247 approval: 62740537 In 80 -> 99 (+19), Out 35 unchanged, Closing 290 -> 309 (confirmed on a second day) [observed 2026-10-05 G11-2].
+- G11-3: GRN 248 = **17 CS** of 62740537 = 7 (2019 cancelled after GIN) + 7 (2018 rescheduled) + 1 (2015 cut 4 -> 3 after GIN) + 2 (return 715) [observed total 2026-10-06 G11-3; breakdown inferred]; on approval In +17, Out unchanged (seq 50) [observed 2026-10-06 G11-3]. The before-GIN edit (7 -> 4) and the before-GIN cancel (2017) are not on the GRN because they were never issued [inferred].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -127,3 +130,4 @@ Q-GRN2: Does a sales return booked as Damaged/Expired/Lost come back on the GRN 
 framework_atlas/flows/00090001.md, 00810001.md, 02820001.md, group_11.md (seq 48-50); DB snd_pr_dot_documenttype, snd_tr_gnm_gingrn_master/detail, wkf_wf_weo_wrkflw_event_orga (GRN, grnApprovalSaga), wkf_wf_wfs_workflow_status.
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (seq 29, 31, 32, 34, 38, 48, 49, 50) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§1, §2, §3 rule 7).
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 48, 49, 50).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 48, 49, 50).

@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [otc_stock_out_and_san, order_editing_cancellation, sales_return, transaction_inquiry, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 # End-of-day validations: stock and Transaction Inquiry checks (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the framework atlas and the snd-schema DB. 
 Updated: 2026-10-01 (live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 02830001 (seq 60), 03190001 (68), 03200001 (69), 03740001 (70), 03770001 (71); finance check 03210001 (52, see route_settlement.md). No live replay. (superseded 2026-10-05: seq 60 and 68-71 walked live in G11-2b, read only.)
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 These read-only flows prove that the day's financial and stock effects are right: opening and closing stock after the SAN, and invoice amounts, discounts, tax and charges in Transaction Inquiry after order editing and sales return. They change nothing.
@@ -49,10 +50,12 @@ G11-2b results (2026-10-05) [observed 2026-10-05 G11-2b]:
 | 70 | Edited order header / detail / offering | Gross 96,840.34, Disc -20,718.07, Tax 14,584.79, Net 90,707; detail lines 1-3 and offering rows 1-3 equal the workbook | header Tax **8,728.81** | header Tax in workbook wrong (= line 1 tax); rest matches |
 | 69 | Sales return charges/tax | VAT -4,419.93, 3rd Schedule 0 | VAT -4,434.18, 3rd Schedule -1.95 | workbook stale |
 | 71 | Sales return header/detail/offering | Gross -30,845.86, Disc 6,189.17, Tax -4,419.93, Net -29,077; line 1 Disc 6,407.54 / Net -28,837.22 | Gross -30,845.86 (match); Disc 6,169.17, Tax -4,425.41 / -4,436.55, Net -29,113, line 1 6,260.28 / -29,010.99 | workbook stale except Gross |
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: seq 60 Stock Inquiry DAILY 2026-10-06: 62740537 Auto Main Sound Opening 0 / In 97 / Out **89** (32 GIN 508 + 7 GIN 509 + 50 SAN 97) / Allocated 0 / Closing **8**; other 4 rows unchanged (11:60:02830001). Seq 68-71 Transaction Inquiry values: see transaction_inquiry.md.
 
 ## 6. Outputs and effects
 None; assertions only.
 - G11-2b: none (read only) [observed 2026-10-05 G11-2b].
+- G11-3: SAN approval posts as Out; the extra GIN 509 (Reattempt order) also contributes to the day's Out [observed 2026-10-06 G11-3].
 
 ## 7. Statuses and transitions
 None.
@@ -79,6 +82,7 @@ Positive: closing stock equals opening minus SAN qty (and plus receipts, less is
   - Seq 69/71: workbook return values built 2026-09-21 for outlet 1000000003 are stale in every field except Gross.
   - Seq 60: absolute Opening/Closing from the workbook day cannot match; Opening is the carried balance (308 on 10-05).
   - Recommendation: compute expected values from the day's documents (header = sum of lines; stock deltas) instead of fixed workbook numbers.
+- G11-3 trap: the day's Out at seq 60 includes any extra GIN made to deliver a previous day's Reattempt order (+7 on 10-06); compute expected values from the day's documents [observed 2026-10-06 G11-3].
 
 ## 12. Open questions
 Q: Rounding rule of tax/charges? | Default: document-type rounding (pdot_rounding_decimal) | Evidence: field exists, values unread.
@@ -88,3 +92,4 @@ Q: Is the closing stock check restricted to SAN products? | Default: filtered by
 ## 13. Sources
 framework_atlas/flows/02830001, 03190001, 03200001, 03740001, 03770001, 03210001; group_11.md; screens_db/DYL_BG1015.json; DB snd_tr_ssb_salestock_balance, snd_pr_dot_documenttype.
 - G11-2b: learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 60, 68, 69, 70, 71).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 60, 68-71).

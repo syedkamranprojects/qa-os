@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: []
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 # Dispatch Advice (DA): how it works (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 00100001 (group 11 seq 2), 00740001 (seq 5); inactive 00100002 (negative/delete), 00740002 (reject). G11-1 learning walk: DA **1358** created, forwarded and approved.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 A Dispatch Advice is the distributor's record that a vendor (the company supply point "UPL WH") has dispatched goods to the distributor's warehouse. When it is approved, the quantities RECEIVED become stock in that warehouse, so orders can later be allocated and issued (GIN). It is the first business step of the Daily Cycle: nothing can be sold until a DA is approved [observed: before DA 1356 was approved on 2026-10-01 every product pick in Order Booking answered "Stock not available."; after approval 62740537 became orderable]. Next: DA Loss Approval, then Stock Inquiry (see da_loss_approval.md, stock_inquiry_and_balances.md).
@@ -86,6 +87,7 @@ G11-1 walk, DA 1358 (standard vocabulary, trace keys) [observed 2026-10-01 G11-1
 DA 1358 net (header/grid) PKR 2,227,455.842, Tax 0, Discount 0 [observed 2026-10-01 G11-1].
 
 G11-2 walk, DA 1359 (2026-10-05): same steps as DA 1358 (11:2:00100001 save + 5 lines + losses + Forward; 11:5:00740001 Checker Forward); same five lines 80 / 70 (loss 6) / 60 (loss 5) / 50 / 40 CS; line nets 1,233,834.40 / 34,597.38 / 173,397.25 / 190,290.50 / 595,336.32; DA net 2,227,455.842 [observed 2026-10-05 G11-2].
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: [Maker] DA **1360**: Auto Main Warehouse, Vendor UPL WH, DA Type Dispatch Advice, SO Automation_06-10-2026, Shipment 123, Deliver 12312, Tax Invoice 123, Comments Positive_QA_Learning_03, Ref 1116 -> "Saved successfully" (Draft); lines 62740537 80 CS; 20050310 70 CS with loss Damaged 4 (Area Closed) + Lost 2 (On Customer Behalf) -> received 64; 62690363 60 CS loss Damaged 5 -> 55; 20050308 50; 69997598 40 (each line "Saved Successfully!"); net **2,227,455.842** (identical to 10-01 and 10-05); reopen, Forward "Automation Approval" -> "Forwarded successfully" -> In-Active / Pending. [Checker] Forward -> "Forwarded successfully" -> Active / Approved (11:02:00100001, 11:05:00740001).
 
 ## 6. Outputs and effects
 Approved DA: received quantities (dispatched minus loss) are added to Sound stock of the warehouse for that day (closing of 62740537 = 80 CS = DA 1350 quantity) [observed].
@@ -96,6 +98,7 @@ Live-verified 2026-10-01 (DA 1356: 62740537, dispatch 5 CS, loss 1 CS, received 
 - After approval all fields are read-only and only Add is enabled [observed 2026-10-01 G11-1].
 - G11-2 (supersedes the note above that previous-day stock is not carried): on 2026-10-05 the approval of DA 1359 was the first movement of the day and created ALL 39 stock rows with Opening = previous Closing + still-Allocated (62740537 Opening 308), then added the received quantities as In (+80 / +64 / +55 / +50 / +40) [observed 2026-10-05 G11-2]. See stock_inquiry_and_balances.md (new-day rule, Q-OB2 for the 10-01 difference).
 - G11-2: the approval created loss record **640** (one per DA, serial +1) [observed 2026-10-05 G11-2].
+- G11-3: DA approval posted In = received quantities and created loss record 641; on 10-06 the day's stock rows were only these 5, Opening 0 (see stock_inquiry_and_balances.md, Q-OB2) [observed 2026-10-06 G11-3].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -123,6 +126,7 @@ Live-verified 2026-10-01 (DA 1356: 62740537, dispatch 5 CS, loss 1 CS, received 
 - Correction 2026-10-01: earlier text said duplicate SO Number was untested; it is allowed.
 - The app does not stop the Maker from acting on his own Pending DA (Forward / Reject enabled for him) [observed 2026-10-01 G11-1; Q-DA1].
 - G11-2: amounts are reproducible: the same lines on 2026-10-01 and 2026-10-05 gave the same line and DA totals [observed 2026-10-05 G11-2].
+- G11-3 gotchas: quantity cells need focus and single key presses; the line Save link is off-screen to the right (scroll it into view); the loss Stock list has two "Lost" entries (use the first, Q-LA3) [observed 2026-10-06 G11-3].
 
 ## 9. Messages
 "Saved successfully" (header); "Saved Successfully!" (line); "Forwarded successfully"; "Please add comments"; "Detail is not available"; "Current user is not authorized to save this record!". The loss-modal row save shows no toast, but picking the stock type in the modal raises "Reason Type is required" before the reason is chosen (the row still saves) [observed 2026-10-01]. Silent Save with a missing mandatory field: no message at all [observed].
@@ -168,3 +172,4 @@ Q-DA3: Why does the product label price differ from the Purchase Price / PC (and
 runs/PILOT-DA-GIN/20260930-1615/exec/learning_block2a.json, learning_block3a.json, learning_block3b.json (live 2026-10-01); LIVE_FINDINGS.md; framework_atlas/flows/00100001.md, 00740001.md, 00100002.md, 00740002.md; framework_flows/DISPATCH_ADVICE.md, TC-DA-01_executed.md; runs/PILOT-DA-GIN/20260930-1615/friction.md, PILOT_REPORT.md; DB snd_pr_dot_documenttype, wkf_wf_wfs_workflow_status, wkf_wf_weo_wrkflw_event_orga, snd_tr_stm_stock_master/detail (names only); step_labels.json.
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (seq 2, seq 5, Stock Inquiry before/after, seq 9) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rule 1, §6 defect 1, §8 Q-DA1).
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 2, 5, 9).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 2, 5).

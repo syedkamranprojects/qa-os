@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [cashmemo_reschedule_and_status, goods_issue_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Sales Return: how it works (S&D / DCODE)
 
@@ -16,6 +16,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (consolidated with learning session 1 LEARN-G11-PK/20261001-1611, seq 34/36/37/38)
 Last updated: 2026-10-01. Source flows: atlas `00070001` (group 11 seq 34 Sales Return), `00700001` (seq 36 Sales Return View), `00730001` (seq 37 Sales Return View Approval), `00710001` (seq 38 Sales Return Status Change). Not yet replayed live. (superseded 2026-10-01: all four walked live; return **COL26000000713** against cash memo COL26000002003, 2 CS of 62740537, reason No Cash, forwarded, approved and picked [observed 2026-10-01 G11-1]) Goods Return Note (seq 48-49) is in the inbound-stock pages.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 A sales return records goods an outlet gives back after delivery (rejected, damaged, wrong, price dispute). It reverses part of a delivered cash memo: the returned quantities and amount are authorised by a checker and later picked up and received into the warehouse. [inferred from document types and names; confirmed 2026-10-01: created only from a delivered cash memo, approved by the Checker, picked by the Maker, and the returned quantity came back into warehouse stock on the Goods Return Note [observed 2026-10-01 G11-1]]
@@ -71,6 +72,11 @@ G11-2 walk (2026-10-05) [observed 2026-10-05 G11-2]:
 3. [Maker] Navigate to Sales Return View; Tick COL26000000714; Click Forward; Enter Comments "Automation Approval" (verify the box is filled); Save -> "Sales Return Status": COL26000000714 | Sales Return | Success (11:36:00700001).
 4. [Checker] Navigate to Sales Return View; Choose PJP 02112-AutomationDSR; Tick COL26000000714; Forward with comment -> "Success" (11:37:00730001).
 5. [Maker] Navigate to Sales Return Status Change; Open COL26000000714 (double-click); Click Validation -> "Validation successfully"; Click Save Sale Pick -> "Save successfully" (11:38:00710001).
+G11-3 walk (2026-10-06, return COL26000000715) [observed 2026-10-06 G11-3]:
+1. [Maker] Sales Return: PJP 02112 -> delivered memos 2015 / 2016 / 2020 -> select 2015 (outlet cell) -> Save -> "Record Saved Successfully!" -> 715; Detail: invoice qty 62740537 **3** CS (order edited twice); Edit -> Return 2 CS, Sound, No Cash; row Save (no toast); validation -> "Validation successfully"; Save -> "Save successfully" (11:34:00070001).
+2. [Maker] Sales Return View: 02112 -> 715 (Principle Invoice COL26000002015) -> tick -> Forward 'Automation Approval' -> "Sales Return Status": 715 | Sales Return | Success (11:36:00700001).
+3. [Checker] same screen -> 715 -> Forward -> Success (approved) (11:37:00730001).
+4. [Maker] Sales Return Status Change: PJP 02112 (Gin Number auto-filled GN-01~507 = yesterday's GIN, list still shows 715) -> double-click 715 -> Detail (Order 3, Return 2, 30,845.86, No Cash) -> Validation -> "Validation successfully" -> Save Sale Pick -> "Save successfully" (11:38:00710001).
 
 ## 6. Outputs and effects
 - A CM-02 document with returned quantities and reversed amounts linked to the delivered cash memo [db/inferred]. Confirmed: own number, Principle Invoice = the source cash memo [observed 2026-10-01 G11-1].
@@ -82,6 +88,9 @@ G11-2 walk (2026-10-05) [observed 2026-10-05 G11-2]:
 - G11-2b (refines "discount and tax are reversed proportionally"): in Transaction Inquiry the return's line 1 (2 CS returned) carries Disc 6,407.54 / Tax -4,398.90 / Net -28,837.22, and **lines 2-5 (0 returned) carry small reversals** (20050310 disc -116.35 tax -20.94; 62690363 -61.23; 20050308 -40.31; 69997598 -0.48 / -0.09), netting to the header Discount 6,189.17. **Returning part of the order re-prices its slab promotions on the remaining basket**, so the credit is not a simple pro-rata of the returned line [observed values 2026-10-05 G11-2b; rule inferred; Q-SR2]. Total Offering of the return: Automation2 +3,084.59, MARCH001 +10, MARCH002 +3,084.59, May001 +10, May003 0. Total Tax: VAT -4,419.93, 3rd Schedule 0.
 - G11-2b: **still not netted after settlement**: route 02112 for 10-05 is Complete with Adjusted Credit Note 0 and Fresh Return 0; COL26000002009 Balance 88,107 = 90,707 - 2,600 slip receipts (the 29,077 return is not deducted); return Offset 0 [observed 2026-10-05 G11-2b; Q-SR1 still open].
 - G11-2: the returned 2 CS came back on GRN 247 (part of the 19 CS) [observed 2026-10-05 G11-2].
+- G11-3 return 715 totals: Gross **30,845.86**, Discount 6,189.17, Tax **4,409.61**, Net **29,066.00** (10-05: Tax 4,419.93 / Net 29,077 with a 4 CS source order; workbook 6,169.17 / 4,436.55 / 29,113) [observed 2026-10-06 G11-3]. Gross and Discount equal 10-05; Tax/Net differ because the source order is 3 CS now.
+- G11-3: the picked return came back on GRN 248 (17 CS = 2 return + the undelivered/cut/cancelled quantities) [observed 2026-10-06 G11-3]; not netted in Route Settlement (Q-SR1).
+- G11-3: lines with 0 returned carry small re-priced discount reversals again (-182, -95.78, -63.06, -0.75) [observed 2026-10-06 G11-3] (Q-SR2).
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -106,11 +115,14 @@ G11-2 walk (2026-10-05) [observed 2026-10-05 G11-2]:
 - G11-2b: the return's Invoice Ref. No. = the source sales invoice; Demand Channel "Partial Return" for a part return [observed 2026-10-05 G11-2b].
 - G11-2b: a part return re-prices slab promotions on non-returned lines (see section 6) [observed values; rule inferred].
 - QA lead rule: always type the Forward comment and verify the textarea holds it before Save (an empty box was sent once on 10-05) [stated 2026-10-05 QA lead].
+- G11-3: Invoice Qty = the delivered quantity after all edits (3 CS) [observed 2026-10-06 G11-3]. A "Partial / Full" choice is shown at the bottom of the Detail [observed 2026-10-06 G11-3].
+- G11-3: Sales Return Status Change auto-fills the previous day's GIN (507) but still lists today's return [observed 2026-10-06 G11-3].
 
 ## 9. Messages
 `Validation successfully`; `Save successfully`; `Forwarded successfully` (8 times on the detail screen); `Return quantity should not greater than ordered quantity.`; `Please Enter the Comments` [atlas toast history, all recorded by the framework, none observed live yet].
 - Observed 2026-10-01 [observed 2026-10-01 G11-1]: `Record Saved Successfully!` (header Save; once also while tabbing on a line), `Validation successfully`, `Save successfully` (detail Save and Save Sale Pick); Sales Return View Forward (Maker and Checker): result window "Sales Return Status" (Document No, Sales Return Status, Status, Error Message) with Status `Success` (= workbook SaleRetrunView_ASSR), no toast. `Forwarded successfully` was not shown on Sales Return View.
 - G11-2: "Record Saved Successfully!" (header), "Validation successfully", "Save successfully" (detail and Save Sale Pick), result window "Sales Return Status ... Success" for Maker and Checker Forward (second day) [observed 2026-10-05 G11-2].
+- G11-3: "Record Saved Successfully!", "Validation successfully", "Save successfully", "Sales Return Status" window "Success" [observed 2026-10-06 G11-3].
 
 ## 10. Dependencies
 Reads a delivered cash memo of the PJP and outlet (so seq 33 or an equivalent delivery state must come first) and `REPO_GINNO` (Status Change). Hands over a Picked return to the Goods Return Note (seq 48-49), and credit/value to settlement. Confirmed 2026-10-01: Cashmemo Status (seq 33) must come first; the picked return's quantity is on the GRN Suggested; the credit value did not reach Route Settlement (Adjusted Credit Note 0) [observed 2026-10-01 G11-1].
@@ -130,6 +142,7 @@ Positive: return 1 CS of one line, validate, save, forward, approve, status chan
   - Trap (framework drift): the workbook return values (built 2026-09-21 for outlet 1000000003) differ from the app in every field except Gross (Discount 6,169.17, Tax -4,425.41 / -4,436.55, Net -29,113, VAT -4,434.18, 3rd Schedule -1.95, line 1 Disc 6,260.28 / Net -29,010.99). The G11-1 explanation "the source order was edited" is superseded: the workbook was built for another outlet and promotion state. See FRAMEWORK_DRIFT.md.
   - Trap: typing a digit into a grid cell holding 0 can give "02"; clear the cell first.
   - Trap: the return is not netted at settlement; a test expecting Adjusted Credit Note = 29,077 fails today (Q-SR1).
+- G11-3 trap: return expected Tax/Net depend on the source order's delivered quantity after all edits (3 CS on 10-06 -> Tax 4,409.61 / Net 29,066); the workbook values are stale (FRAMEWORK_DRIFT.md) [observed 2026-10-06 G11-3].
 
 ## 12. Open questions (batched for the BA; each with a default)
 Q: Is the return limited to quantity ordered or quantity delivered? | Default: delivered | Evidence: message says "ordered quantity". PARTLY 2026-10-01: Invoice Quantity shown = the delivered/edited quantity (4 CS); the over-return refusal was not tried [observed 2026-10-01 G11-1].
@@ -146,8 +159,10 @@ Q: Does a non-Sound return stock type (Damaged/Expired/Lost) post to the matchin
 - ANSWERED 2026-10-05 (Q33): the source cash memo stays Delivered/Invoiced after a partial return; the return carries Demand Channel "Partial Return" [observed 2026-10-05 G11-2b].
 - Q43 (discount reversal) RE-ANSWERED 2026-10-05: not purely proportional; the slab promotions are re-priced on the remaining basket (lines 2-5 reversals) [observed values; rule inferred].
 - Q-SR2: Is it intended that a part return re-prices the order's slab promotions on the non-returned lines (credit includes discount reversals on lines that were not returned)? | Default: yes, promotions are recomputed on the remaining basket | Class: C | Evidence: COL26000000714 Detail lines 2-5 [observed 2026-10-05 G11-2b].
+- Q-SR1, Q-SR2 evidence 2026-10-06: return 715 not netted at settlement; re-priced reversals on 0-quantity lines [observed 2026-10-06 G11-3]. Both stay open.
 
 ## 13. Sources
 `framework_atlas/flows/00070001.md`, `00700001.md`, `00730001.md`, `00710001.md`, `group_11.md`; DB: snd_pr_dot_documenttype, snd_pr_dos_documentstatus, glb_pr_rnt_reason_type, wkf_wf_weo_wrkflw_event_orga, snd_tr_cmm_cashmemo_master. No SR table of its own exists (CM-02 lives in the cash memo tables).
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 34, 36, 37, 38, seq 39-46 (Balance Amount), seq 48-50 (GRN), seq 51 (Route Settlement); `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 12 and 15, §8 Q-SR1.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 34, 36, 37, 38, 48, 51); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 51, 53, 69, 71).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 34, 36, 37, 38, 69, 71).

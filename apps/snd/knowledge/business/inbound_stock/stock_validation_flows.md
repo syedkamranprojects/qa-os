@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [stock_inquiry_and_balances, dispatch_advice, da_loss_approval, goods_issue_note, goods_return_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 
 # Stock validation flows: how they work (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 02800001 (seq 9, after DA), 02810001 (seq 24, after GIN), 02820001 (seq 50, after GRN), 02830001 (seq 60, opening and closing). Inactive: 02840001, 02850001, 02860001 (after SAN), 02950001 / 03500001 (OTC stock out and SAN approval). G11-1 learning walk: seq 9, 24 and 50 walked; seq 60 not walked.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 These flows are checkpoints in the Daily Cycle: after a stock-moving document is approved, the stock controller opens Stock Inquiry and checks that the stock figures moved as expected (superseded 2026-10-01 G11-1: role wording; the Maker Auto_Multi_Orga opens Stock Inquiry, there is no stock-controller role). They are tests of stock, not business operations (read-only). See stock_inquiry_and_balances.md for the screen and the meaning of columns.
@@ -50,6 +51,7 @@ G11-1 walk (standard vocabulary, trace keys) [observed 2026-10-01 G11-1]:
 G11-2 / G11-2b walk (2026-10-05): seq 9 (after DA 1359), 24 (after GIN 507), 50 (after GRN 247), **60 (after SAN 96, first walk)** [observed 2026-10-05 G11-2, G11-2b]:
 1. [Maker] Navigate to Stock Inquiry; Choose Period DAILY, Balance Date 2026-10-05, Category All; Click Show Inquiry; Filter 62740537 / Auto Main Warehouse / 01 - Sound (11:60:02830001).
 2. [Maker] Verify Opening 308 / In 99 / Out 85 / Allocated 63 / Closing 259; Out +50 and Closing -50 vs seq 50 = SAN 96 (11:60:02830001).
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: seq 9 (after DA): 5 rows, Opening 0, In = received (80 / 64 / 55 / 50 / 40) -> expected In matched; seq 24 (after GIN 508): 62740537 Out 32, Allocated 0, Closing 48; seq 50 (after GRN 248): In 97, Closing 65; seq 60 (after SAN 97): Out 89, Closing 8.
 
 ## 6. Outputs and effects
 None (read only). They produce a pass/fail on stock correctness and screenshots.
@@ -66,6 +68,7 @@ None (read only). They produce a pass/fail on stock correctness and screenshots.
   | 24 | after GIN | Out 35 = GIN 507; Allocated 63 (old GIN 505); Closing 290 | pass for Out (no other GIN that day) |
   | 50 | after GRN | In 99 (+19), Out 35 | fails if it expects absolute In 80 / Out 0 |
   | 60 | opening/closing | Opening 308, Closing 259 | Opening is the carried balance, not 0: an "Opening 0" expectation fails |
+- G11-3: the absolute workbook checks matched again for seq 9 only because the DA was the day's only receipt and Opening was 0 [observed 2026-10-06 G11-3]; seq 24 Out 32 (not the workbook's 35) because seq 15 edited an order to 4 CS before the GIN.
 
 ## 7. Statuses and transitions
 Not applicable.
@@ -81,6 +84,8 @@ Not applicable.
 - Approved DA losses add no Damaged/Lost row, so no check for them belongs in seq 9 [observed 2026-10-01 G11-1].
 - G11-2 (supersedes "Opening 0 for a product first moved today"): on 2026-10-05 the first movement created every row with Opening = previous Closing + still-Allocated (62740537: 308), so flow 60 must expect the carried Opening [observed 2026-10-05 G11-2].
 - G11-2b: after the SAN approval the correct expectation is Out + SAN quantity and Closing - SAN quantity [observed 2026-10-05 G11-2b].
+- G11-3: stock posting rules confirmed a third day: GIN approval Allocated -> Out; GRN approval In +; SAN approval Out + [observed 2026-10-06 G11-3].
+- 2026-10-06 ruling [stated 2026-10-06 QA Team Lead] (Q-OB2 answered): Opening must carry the previous day's Closing; Opening 0 after a day with closing stock is a stock carry-over job issue of the environment (10-05 Closing 259 vs 10-06 Opening 0 for 62740537: job likely not run on cnr1dev1), not business behaviour. (superseded 2026-10-06: "openings differ by day" is an environment fault, not a business variant.)
 
 ## 9. Messages
 None on Show Inquiry; "No data" for an empty day [observed]. G11-1: no message on seq 9, 24, 50 [observed 2026-10-01 G11-1].
@@ -105,6 +110,7 @@ Needs the preceding document approved the same calendar day (balances keyed by d
 - G11-2/2b additions [observed 2026-10-05 G11-2, G11-2b]:
   - Positive (seq 60): Opening = previous Closing + previous still-Allocated; Closing = Opening + In - Out - Allocated; SAN delta Out +N.
   - Trap: a green seq 9 on a quiet day (one DA) does not prove the check is right; on a busy day it fails (10-01: 164 vs 80). See FRAMEWORK_DRIFT.md.
+- Pre-check before the stock validations (2026-10-06 ruling [stated 2026-10-06 QA Team Lead]): compare today's Opening with the previous day's Closing; if Opening is 0 while yesterday had closing stock, stop and report the carry-over job issue; expected seq 60 Opening = previous Closing.
 
 ## 12. Open questions
 Q: Should validation compare absolute values or the change from a pre-snapshot? | Default: change from a snapshot | Evidence: busy-day failure. (G11-1: second busy-day failure, In 164 vs 80 [observed 2026-10-01 G11-1]; kept for the framework owner as drift, report §7.)
@@ -113,8 +119,10 @@ Q: Are the SAN stock validations (02850001, 02860001) part of the cycle? | Defau
 Q-OB1: Who or what generated the 2026-10-01 opening balances during the day (morning: none; 16:40: present)? | Default: unknown; do not assert Opening | Class: B | Evidence: G11-1 before snapshot [observed 2026-10-01 G11-1]. **-> ANSWERED 2026-10-05**: openings are created by the first movement of the day (DA approval) = previous Closing + still-Allocated (see stock_inquiry_and_balances.md, OPEN_QUESTIONS.md).
 Q-SV1: May the framework stock checks (seq 9, 24, 50) be changed to before/after deltas (needs a pre-snapshot step)? | Default: yes, deltas | Class: C | Evidence: report §7 framework drift "Stock validation asserts absolute In" [observed 2026-10-01 G11-1].
 - ANSWERED 2026-10-05 (Q-OB1): see stock_inquiry_and_balances.md; flow 60 default now "Opening = previous Closing + previous still-Allocated" [observed 2026-10-05 G11-2]. New Q-OB2 (10-01 anomaly) | Class: B.
+- Q-SV1 evidence 2026-10-06: day openings differed again (Opening 0 on 10-06 vs carried on 10-05) and the edit before the GIN changed Out (32 vs 35); deltas remain the safe default [observed 2026-10-06 G11-3]. Q-OB2 open. (superseded 2026-10-06: Q-OB2 answered, the Opening 0 days are an environment carry-over job issue [stated 2026-10-06 QA Team Lead].)
 
 ## 13. Sources
 framework_atlas/flows/02800001.md, 02810001.md, 02820001.md, 02830001.md, group_11.md; framework_flows/TC-DA-01_executed.md, DISPATCH_ADVICE.md; ui.md (Verified in the group 11 replay).
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (Stock Inquiry before DA 1358, seq 9, seq 24, seq 50) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rules 1, 6, 7; §5; §7 drift "Stock validation asserts absolute In"; §8 Q-OB1).
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 9, 24, 50); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 60).
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 9, 24, 50, 60).

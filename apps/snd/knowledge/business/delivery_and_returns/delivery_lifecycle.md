@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [dispatch_advice, order_booking, stock_allocation, delivery_date_change]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-05
+updated: 2026-10-06
 ---
 # Delivery lifecycle: from allocated order to delivered or returned (S&D / DCODE)
 
@@ -16,6 +16,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEARN-G11-PK/20261001-1611, seq 12-50)
 Last updated: 2026-10-01. Source flows: group 11 seq 12-38 (atlas `group_11.md`). Seq 12-50 walked live on 2026-10-01 in one calendar day (seq 15 skipped; seq 51 Route Settlement blocked) [observed 2026-10-01 G11-1].
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
+Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
 
 ## 1. Purpose
 Follows one cash memo (order, `CM-01`) from allocation to the end of the delivery day, and shows where stock and documents change. It ties together Goods Issue Note, Cashmemo Reschedule/Status and Sales Return (see their pages).
@@ -70,6 +71,7 @@ Role steps (trace keys):
 5. [Maker] Save Sale Pick; Deposit slips; Create and forward the GRN. (11:38:00710001, 11:48:00090001)
 6. [Checker] Approve the GRN. (11:49:00810001)
 7. [Maker] Check stock after the GRN. (11:50:02820001)
+- G11-3 (2026-10-06) [observed 2026-10-06 G11-3]: GIN 508 (2015, 2016, 2018, 2019, 2020) -> approval -> after-GIN edit 2015 (3 CS), cancel 2019, reschedule 2018 to 10-07 -> Cashmemo Status 2015, 2016, 2020 Delivered -> return 715 on 2015 -> slips -> GRN 248 (17 CS) -> **settlement blocked by the 10-05 Reattempt 2012 due today** -> allocate 2012, GIN 509, approve, Delivered -> settlement Complete -> DSR adjustment -> day close.
 
 ## 6. Outputs and effects
 At the end of the day the load of each DSR is either delivered (receivable to settle), rescheduled (to another day) or returned (to the warehouse). Daily cycle must run inside one calendar day because stock balances are keyed by date [observed].
@@ -101,6 +103,8 @@ TI status table 2026-10-01 [observed 2026-10-01 G11-1]:
 - After GIN approval, edit, cancel and reschedule do not move stock; the quantities come back only on the GRN [observed 2026-10-01 G11-1].
 - Sales Return offers delivered cash memos only; Cashmemo Status offers only cash memos still on the GIN [observed 2026-10-01 G11-1].
 - Route Settlement requires every earlier working day to be closed [observed 2026-10-01 G11-1].
+- G11-3: **an undelivered order due today on the route blocks Route Settlement** ("Un-Deliver Order exists for today delivery!"); a Reattempt from the previous day is such an order on its new date [observed 2026-10-06 G11-3]. A delivered memo may remain unpaid (not a cash shortage) [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
+- G11-3: **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown].
 
 ## 9. Messages
 See the individual pages. Chain-level: `Delivery Date has been changed successfully, processed orders: 9`; `stock not found.` on Unallocate [observed, ui.md].
@@ -118,6 +122,7 @@ End-to-end positive: allocate, GIN, approve, deliver, partial return, GRN; check
 - **Trap, receivable:** the sales return is not netted from the receivable nor in Route Settlement (Q-SR1) [observed 2026-10-01 G11-1].
 - **Trap, status chain:** assert Confirmed -> Ready to dispatch/Packed -> Delivered/Invoiced | Reattempt | Cancelled as shown in Transaction Inquiry; "CM Reschedule" and "Partial Delivered" were not shown [observed 2026-10-01 G11-1].
 - **Trap, stock timing:** booking reserves (Closing down), GIN approval moves Allocated to Out (Closing unchanged), GRN approval adds In (Closing up); a check of Out alone misses most of it [observed 2026-10-01 G11-1].
+- Negative (2026-10-06): deliver a zero-tax invoice of a non-exempt outlet -> blocked [stated 2026-10-06 QA Team Lead]; message not yet observed.
 
 ## 12. Open questions (batched for the BA; each with a default)
 Q: Exact stock effect of each step (reserve at allocation, issue at GIN approval, return at GRN)? | Default: as in the table | Evidence: only names and one error message. ANSWERED 2026-10-01: reserve at booking, Allocated -> Out at GIN approval, In at GRN approval (see §5 observed table) [observed 2026-10-01 G11-1].
@@ -129,8 +134,10 @@ Q-RS1: How is a working day closed (which screen), and may 2026-09-30 be closed 
 Q-DS1: What is deposit-slip "posting" and when does it happen? | Default: at Route Settlement | Class: B | Evidence: all slips Un Posted 2026-10-01. **-> ANSWERED 2026-10-05**: posting happens at Route Settlement (slips 1137-1142 Posted after route 02112 was settled; partly allocated slip trimmed) [observed 2026-10-05 G11-2b].
 - ANSWERED 2026-10-05 (Q33, Partial Delivered after a return): no; COL26000002009 stayed Delivered/Invoiced after return 714 was picked [observed 2026-10-05 G11-2b].
 - Q-DS1 ANSWERED 2026-10-05: posting happens at Route Settlement (slips 1137-1142 Un Posted -> Posted once route 02112 for 10-05 was settled) [observed 2026-10-05 G11-2b]. Q-RS1 PARTLY answered (day close = PJP Daily Inquiry Update End Of Day / Complete). Q-SR1 still open.
+- G11-3: no new delivery-lifecycle question; the carry-over of Reattempt orders between days is now a stated procedure (see cashmemo_reschedule_and_status.md).
 
 ## 13. Sources
 `framework_atlas/group_11.md`, flows `00130001`, `00160001`, `00050001`, `00780001`, `02810001`, `01040001`, `00030001`, `00070001`, `00700001`, `00730001`, `00710001`; `apps/snd/knowledge/ui.md`; `framework_flows/STEP_SHEET_DRAFT_next.md`; DB: glb_pr_exs_execution_status, snd_pr_dos_documentstatus, snd_pr_dcs_doc_cmpltn_status, snd_tr_cmm_cashmemo_master, snd_tr_gnm_gingrn_master.
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 10, 16, 18, 19, 20, 23, 24, Transaction Inquiry checks, seq 29-38, 46, 48-51; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 3-7, 10, 12, 14, §8.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md, learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md.
+- G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 20-38, 48, 51).
