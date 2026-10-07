@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "qa-os": { "source": { "source": "directory", "path": "./" } }
+  },
+  "enabledPlugins": { "qa-os@qa-os": true },
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "mcp__selenium",
+      "mcp__snd-schema",
+      "mcp__selenium-framework-db"
+    ]
+  }
+}

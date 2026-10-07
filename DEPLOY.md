@@ -18,7 +18,7 @@ Pick whichever matches how your team shares code:
 
 ## 2. Register the plugin in that workspace
 
-In the **workspace root** (the folder that contains `qa-os/`), `.claude/settings.json` needs:
+**Standard layout (v0.5.0+):** `qa-os` itself is the workspace (`<drive>:\qa-os`) and already contains `.claude/settings.json` with `"path": "./"` - nothing to do. **Nested layout:** in the workspace root (the folder that contains `qa-os/`), `.claude/settings.json` needs:
 
 ```json
 {

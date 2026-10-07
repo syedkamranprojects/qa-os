@@ -15,19 +15,30 @@ You can train it any way you like, and mix the methods:
 
 **Prerequisites:** Windows, Google Chrome, Python 3.10+ (tick "Add to PATH"), Node.js LTS, the **Claude desktop app** (Code tab) signed in with your account, and **read-only logins for the two databases** (S&D application DB and the framework DB `CTA_CONFIG_ASSERTION`) from the DBA or Syed.
 
-1. **Get the files.** Make a workspace folder (e.g. `C:\QA\snd-training`) and put `qa-os` inside it:
-   - Git: `git clone --branch v0.5.0 https://github.com/syedkamranprojects/qa-os.git` inside the workspace folder, or
-   - Zip: unzip `qa-os-v0.5.0.zip` into the workspace folder (you get `...\snd-training\qa-os\`).
-2. **Configure the MCP connectors:** double-click `qa-os\connectors\setup_mcp.bat`. It checks Python/Node/Chrome, installs the read-only DB connector, asks for the two database logins (password input is hidden; it tests each connection) and writes Selenium + `snd-schema` + `selenium-framework-db` into your Claude desktop config (a backup is taken first). Details: `connectors/db-mcp/README.md`.
-3. **Register the plugin in the workspace:** create `<workspace>\.claude\settings.json` with the content of `qa-os\connectors\workspace_settings.example.json` (it registers the `qa-os` plugin and allows the browser and the two read-only DB connectors).
-4. **Python packages for the runtime tools:** in `qa-os`, run `python -m pip install -r requirements.txt`.
-5. **Fully quit and restart the Claude desktop app** (system tray -> Quit). Open the workspace folder in the Code tab. When asked to trust the folder and install the plugin, accept.
+**Layout:** one folder, `<drive>:\qa-os` (any drive: `C:\qa-os`, `D:\qa-os`, ...; nothing in the release depends on the drive letter). It is both the release and the folder you open in Claude. The examples below use `C:\qa-os`; replace `C:` with your drive.
+
+```
+C:\qa-os\                 <- open this folder in Claude
+├── .claude\settings.json <- ships with the release (registers the plugin, allows the connectors)
+├── CLAUDE.md             <- Claude reads it automatically every session
+├── apps\  connectors\  docs\  plugins\  runtime\  ...
+└── runs\                 <- created by your sessions
+```
+
+1. **Get the files** into the root of the drive:
+   - Zip: extract `qa-os-v0.5.0.zip` **to `C:\`** (the zip already contains the `qa-os` folder, so you get `C:\qa-os\`; extracting into `C:\qa-os` would give `C:\qa-os\qa-os` - wrong), or
+   - Git: `cd /d C:\` then `git clone --branch v0.5.0 https://github.com/syedkamranprojects/qa-os.git`.
+   Check: `C:\qa-os\CLAUDE.md` and `C:\qa-os\.claude\settings.json` exist.
+2. **Configure the MCP connectors:** double-click `C:\qa-os\connectors\setup_mcp.bat`. It checks Python/Node/Chrome, installs the read-only DB connector, asks for the two database logins (password input is hidden; it tests each connection) and writes Selenium + `snd-schema` + `selenium-framework-db` into your Claude desktop config (a backup is taken first). Details: `connectors/db-mcp/README.md`.
+3. **Plugin registration:** nothing to do - `C:\qa-os\.claude\settings.json` is part of the release. (Only if you keep `qa-os` inside another folder and open that parent folder instead: see `connectors\workspace_settings.example.json`.)
+4. **Python packages for the runtime tools:** in a Command Prompt, `cd /d C:\qa-os` then `python -m pip install -r requirements.txt`.
+5. **Fully quit and restart the Claude desktop app** (system tray -> Quit). In the Code tab open the folder **`C:\qa-os`**. When asked to trust the folder and install the `qa-os` plugin, accept.
 6. **Permission mode:** in the mode selector under the message box choose **Ask permissions** (not Auto). Approve "always allow" for the selenium tools the first time they are used.
 7. **Optional - Jira:** claude.ai -> Settings -> Connectors -> Atlassian -> Connect, sign in with an Atlassian account that can open SDMS tickets, then switch it on for the session (message box `+` -> Connectors). Not needed for training.
 
 **Check it worked** - ask in a new session:
 - "Which connectors does this session have?" -> selenium, snd-schema, selenium-framework-db connected.
-- "What do you know about this QA OS setup so far?" -> it should cite `docs/STATUS.md` and the business INDEX without being told. If not, say once: "read qa-os/docs/STATUS.md, qa-os/docs/OPERATING_RULES.md and apps/snd/knowledge/business/INDEX.md".
+- "What do you know about this QA OS setup so far?" -> it should cite `docs/STATUS.md` and the business INDEX without being told. If not, say once: "read docs/STATUS.md, docs/OPERATING_RULES.md and apps/snd/knowledge/business/INDEX.md".
 - Type `/qa-os:status` -> it lists runs and the S&D knowledge summary.
 
 ## 2. Start a training session
@@ -62,17 +73,17 @@ At the end say "close the training session". Claude consolidates the log into th
 
 ## 6. Sending your training back
 So everyone (and every Claude account) learns from your sessions:
-- **Git (preferred):** commit and push to a branch, e.g. `git checkout -b training/<your-name>-<date>`, `git add -A`, `git commit -m "S&D training <date> <topic>"`, `git push -u origin HEAD`, then tell Syed. Never commit `credentials.json`, `.claude/settings.local.json` or client-restricted documents.
-- **Zip (if you only share the S&D pack):** zip `qa-os\apps\snd\`, `qa-os\docs\STATUS.md` and your `qa-os\runs\TRAIN-SND-*` folder and send it. It is merged centrally.
+- **Git (preferred):** in `C:\qa-os`, commit and push to a branch, e.g. `git checkout -b training/<your-name>-<date>`, `git add -A`, `git commit -m "S&D training <date> <topic>"`, `git push -u origin HEAD`, then tell Syed. Never commit `credentials.json`, `.claude/settings.local.json` or client-restricted documents.
+- **Zip (if git is not available):** zip `C:\qa-os\apps\snd\`, `C:\qa-os\docs\STATUS.md` and your `C:\qa-os\runs\TRAIN-SND-*` folder and send it. It is merged centrally.
 
-## 7. The S&D-only pack
-`qa-os-snd-pack-v0.5.0.zip` contains just the S&D knowledge (`apps/snd/`) plus this guide and the operating rules. Use it to **read and review** what Claude has learned (start at `apps/snd/knowledge/business/INDEX.md`; open questions in `OPEN_QUESTIONS.md`; the QA team review sheet in `learning_sessions/`). To **train** Claude you need the full release (section 1), because the plugin, the connectors and the runtime tools live outside `apps/snd/`.
+## 7. Reading what Claude has learned
+Start at `apps/snd/knowledge/business/INDEX.md`; open questions are in `OPEN_QUESTIONS.md`; session logs, reports and the QA team review sheet are in `learning_sessions/`.
 
 ## 8. Troubleshooting
 | Symptom | Fix |
 |---|---|
 | A connector shows "failed" | Re-run `setup_mcp.bat`; check the DB host is reachable on your network/VPN; restart the desktop app |
-| `/qa-os:train` not found | The plugin is not registered: check `<workspace>\.claude\settings.json` (section 1 step 3), restart, accept the plugin install |
+| `/qa-os:train` not found | The plugin is not registered: check that you opened `C:\qa-os` itself (not its parent or a subfolder) and that `C:\qa-os\.claude\settings.json` exists; restart and accept the plugin install |
 | Claude asks for passwords | It should not. Say "type nothing - I will log in" and report it |
 | Typing amounts is blocked | Switch the mode selector from Auto to **Ask permissions** |
 | Login page says "Invalid username and password" | Retype in the browser yourself; Claude does not see the password |

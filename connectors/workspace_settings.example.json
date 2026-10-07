@@ -1,6 +1,7 @@
 {
+  "_readme": "Standard layout: the release unzipped to C:\\qa-os and C:\\qa-os opened in Claude. The release already ships this as qa-os/.claude/settings.json, so nothing to do. Only if qa-os sits INSIDE another workspace folder (e.g. C:\\QA\\work\\qa-os) and you open that parent folder: copy this file to <parent>\\.claude\\settings.json and change the path below to \"./qa-os\".",
   "extraKnownMarketplaces": {
-    "qa-os": { "source": { "source": "directory", "path": "./qa-os" } }
+    "qa-os": { "source": { "source": "directory", "path": "./" } }
   },
   "enabledPlugins": { "qa-os@qa-os": true },
   "permissions": {

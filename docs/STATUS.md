@@ -312,5 +312,5 @@ Concept for a QA web app on top of QA OS (Jira dashboard, AI cases/steps, gated 
 # Release v0.5.0 (2026-10-07): S&D training release for the QA team
 - Purpose: a QA lead trains Claude on S&D with their own Claude account (documents, verbal explanation, Q&A, or live walks of group 11 / 61 / 66). Guide: `docs/TRAINING_GUIDE.md`. Workflow: skill `knowledge-intake`, command `/qa-os:train snd`; sessions log to `runs/TRAIN-SND-<market>/<date>-<trainer>/` and consolidate into `apps/snd/knowledge/business/`.
 - Setup: `connectors/setup_mcp.bat` (Selenium + bundled read-only `connectors/db-mcp` for snd-schema and selenium-framework-db) + `connectors/workspace_settings.example.json`.
-- Packages: `qa-os-v0.5.0.zip` (full) and `qa-os-snd-pack-v0.5.0.zip` (apps/snd + guide, review only).
+- Package: `qa-os-v0.5.0.zip` (full; extract to the root of any drive -> `<drive>:\qa-os`, which is also the workspace; `.claude/settings.json` ships inside).
 - Training results come back as a git branch `training/<name>-<date>` or a zip of `apps/snd` + STATUS.md + `runs/TRAIN-SND-*`; merge them centrally (consolidation rules in the knowledge-intake skill).

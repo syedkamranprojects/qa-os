@@ -8,8 +8,8 @@ For QA leads who want to train Claude on the S&D (DCODE) business **with their o
 - **Training workflow:** skill `knowledge-intake` + command `/qa-os:train <app>`. One way to take in any training method — documents (user guide, manual, SOP, deck, spreadsheet in `apps/snd/knowledge/sources/inbox/`), verbal explanation, Q&A / quiz, or a live walk of a framework group (11 Daily Cycle PK, 61 BD, 66 Setup PK). Every fact is tagged (`[stated <date> <name>]`, `doc:<file> p.<n>`, `[observed]`), earlier statements are never overwritten, conflicts become open questions, and each session ends with consolidation, a report and a STATUS resume point.
 - **Connector setup in one step:** `connectors/setup_mcp.bat` configures Selenium, `snd-schema` and `selenium-framework-db` in the Claude desktop config (backup first, hidden password input, live connection test; `-ClaudeCode` also registers them for the CLI).
 - **Bundled read-only DB connector** `connectors/db-mcp/` (trimmed from the team's nl2sql MCP server: SELECT-only, LLM parts removed, one schema cache per database, Oracle client path configurable).
-- `connectors/workspace_settings.example.json` — plugin registration + permission allow list for a new workspace.
-- **Release packages:** full `qa-os-v0.5.0.zip` and an S&D-only review pack `qa-os-snd-pack-v0.5.0.zip`.
+- `.claude/settings.json` ships with the release (plugin registration + allow list): unzip to `<drive>:\qa-os`, open that folder, done. `connectors/workspace_settings.example.json` covers the nested-folder layout.
+- **Release package:** `qa-os-v0.5.0.zip` (extract to the root of any drive -> `<drive>:\qa-os`).
 
 ### Knowledge in this release (S&D)
 - Group 11 Daily Cycle PK walked end to end three times; the 2026-10-06 run (with the QA Team Leads) covered all 46 active rows including Order Editing and the first Route Settlement done by Claude. 12 questions answered that day; 47 open (`OPEN_QUESTIONS.md`).
