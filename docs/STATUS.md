@@ -297,3 +297,13 @@ After the positive cycle (group 11) is completed through its last active flow, *
 4. Then prepare for the **QA environment**: app.yaml env, users, data, and the one-day rule including yesterday's Reattempt orders.
 5. **Group 66 (NG_Setup Flow_PK) is still paused after seq 18**; resume at seq 19 Distributor Mapping (Auto_Multi_Orga). See the 2026-10-05 evening update above.
 6. Still open from before: framework owner review of FRAMEWORK_DRIFT.md; qa-os changes not committed to git.
+
+### 2026-10-06 (end of day) — next topic: bulk-data-factory
+- Approach agreed with the QA lead (not started): generate bulk case-data workbooks from the flow definition in CTA_CONFIG_ASSERTION (sheets/headers/_ASSR) + data pools from snd-schema (active outlets on PJP/section with tax flag, SKUs in stock with price) + case matrix from the knowledge pages (positive, ATP boundary, negative; stock budget); messages only from the observed catalog; downstream values via repo_* columns; validator before delivery. Template: framework/casedata-samples/NG_Dcode_QA_OTC (Pak).xlsx; contract: framework/cta_config_assertion.md §5/5.1.
+- First slice: Order Booking + Order Booking Detail + its _ASSR sheet (group 11 PK), ~20 outlets x 3-5 SKUs, then one legacy-engine run by QA.
+- Pending decisions (QA lead): scope; amount assertions (captured / runtime repo_*+CHECK_VALIDATION / skipped); rows per run; who runs it and where.
+- Also pending: QA team answers to learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx; close Q-RS4/BA14 in OPEN_QUESTIONS (user to confirm).
+
+---
+# Note 2026-10-07: future web app (parked)
+Concept for a QA web app on top of QA OS (Jira dashboard, AI cases/steps, gated execution, downloads) saved in `docs/WEB_APP_CONCEPT.md`. **Parked** until S&D training is done and the QA team has produced one final output end to end. Not the current resume point.

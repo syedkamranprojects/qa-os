@@ -28,6 +28,8 @@ environments:
       Automation: { distributor: "15108843" }        # Maker (QA lead, 2026-10-01); framework login serial 28 (group 11 seq 61/63/66, SAN Admin, inactive); login was rejected on 2026-09-29, re-check
       Auto_Multi_Orga: { distributor: "15108843" }   # 15108843-IBRAHIM TRADERS ("Auto KARACHI"); framework login serial 35
       Auto_Tssm: { distributor: "15108843" }         # approve-only; cannot create documents; framework login serial 8
+      Auto_Bangla: { distributor: "05108843", company: "010105" }   # BD Maker (user, 2026-10-07); see markets.BD.roles
+      AutoBD_tssm: { distributor: "05108843", company: "010105" }   # BD Checker (user, 2026-10-07); see markets.BD.roles
       headquarter: {}                                # head-office user, framework login serial 30 (group 66 NG_Setup Flow_PK seq 32-34: Section Creation HQ, DSR Profile HQ, DSR Mapping HQ); added 2026-10-05 at the QA lead's request; company/distributor pages after login not yet observed (fill `distributor:` here once seen); not in snd-schema (access layer has only Unilever orgs)
     # Group 11 (Daily Cycle Only Positive Flow) user roles, stated by the QA lead 2026-10-01:
     # company Unilever Pakistan Limited, distributor 15108843 - IBRAHIM TRADERS.
@@ -78,6 +80,11 @@ markets:
     framework_app_id: "7"
     group: "61"
     casedata: NG_Dcode_QA_OTC (Bangla)
+    company: "010105"              # login Company selection (user, 2026-10-07)
+    distributor: "05108843"
+    roles:                         # BD Maker/Checker on cnr1dev1 (confirmed by user 2026-10-07); env-level roles above are the PK ones
+      Maker: [Auto_Bangla]
+      Checker: [AutoBD_tssm]
   PH:
     name: Unilever Philippines
     env: cnr2dev3
