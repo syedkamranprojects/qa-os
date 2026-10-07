@@ -34,6 +34,15 @@ Sources verified against the engine code (NGSelenium-Testing) and the live table
 - No blank header cells. Dates as text `yyyy-mm-dd` (or `TEXT(TODAY(),...)`), no numeric formulas. **Never leave a dropdown cell blank**: the engine types "Test Value".
 - `PK` is hierarchical (`01`, `01-01`), matched by prefix; keep PKs aligned across the group's sheets. `CASE_TYPE`: the team uses `TN`; `TP` only enables the ELEVLD input check. `STPONERR` = `N`.
 - `EXPECTED_MESSAGE` is compared with the toast; a `#` means pattern match; **blank means not checked**. Fill it only with text observed live.
+- **Every observed message becomes an assertion** (QA lead, 2026-10-07). Map by type (`observed.messages` in the recording):
+
+  | Message type | Framework events | Workbook |
+  |---|---|---|
+  | `toast` | assertion `0000/0013` with `psef_fixed_value = TSTMSG,<NAME>_ASSR` right after the click that raises it (child of Load Data) | `<NAME>_ASSR` sheet row: `PK`, `EXPECTED_MESSAGE` = exact text |
+  | `popup` (in-page modal) | assertion `0000/0013` `ELEVAL,<NAME>_ASSR` on the modal's message element (field locator = the observed `locator`), then a click `0004/0002` on the button used (e.g. Continue, Save changes) | `<NAME>_ASSR` row with the modal text in `EXPECTED_MESSAGE` |
+  | `alert` (browser dialog) | `0005/0002` with field id `accept` or `dismiss` | none: **the engine reads the alert text but does not assert it** (`Main.java`, "Click Alert" only prints it). Put the observed text in `review_note.md` under "Not asserted by the engine" and propose the engine change to the framework owner |
+  | `inline` validation | `0000/0013` `ELEVLD,<NAME>_ASSR`; row `CASE_TYPE = TP`, `EXPECTED_INPUT = REQ_FIELD` or `INVALID_INPUT` | as named |
+  A message that appears but is not asserted is listed in `review_note.md` with the reason.
 - Repos (`REPO_DOCUMENTNO`, `ORDERNUMBER`, `REPO_GINNO` ...) are keyed by PK and shared across the group; they persist in `RepoValues.csv` between runs, so clear it before each run. Repo id spellings differ in the data (`REPO_DOCUMENTNO` / `REPO_DocumentNo`); use the spelling the writing flow uses.
 
 ## 5. The engine's silent-failure traps (why a green run is not proof)

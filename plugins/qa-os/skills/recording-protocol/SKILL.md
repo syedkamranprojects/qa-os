@@ -31,7 +31,13 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - **Async results.** After `qaos.pick`, `options` or `open`, read the outcome in a second call; the first call returns before the UI settles.
 - **Navigate** through the sidebar search box (`qaos.open('<Screen name>')`), not by URL; URL tricks fail on some environments.
 - **Toasts vanish in under a second.** Use `qaos.clickCapture(id)` for every Save / Forward / Process and record the text. Assert only messages you have observed; a message you did not see is `not observed`, never guessed.
-- **Alerts** ("Are you sure you want to proceed?") are browser dialogs: accept with the alert tool, then read the toast.
+- **Alerts** ("Are you sure you want to proceed?") are browser dialogs: **read the text first** (alert tool `get_text`), then accept (or dismiss, as the sheet says), then read the toast.
+- **Capture every message the app shows, with its type** - they become the assertions of the generated flow (QA lead, 2026-10-07):
+  - `toast` - success/error toast (`.dx-toast-message`), via `qaos.clickCapture`;
+  - `alert` - browser dialog (text from `get_text`, the button used: accept/dismiss);
+  - `popup` - an in-page modal/dialog (e.g. "Error  Un-Deliver Order exists for today delivery!", "Are you sure you want to save transaction?"): its title, message text, buttons, and a stable locator of the message element (`.modal-content` body, dx-popup content);
+  - `inline` - field validation text or a red/required field (`aria-invalid`), with the field label.
+  Record them in `observed.messages` as a list: `[{"type": "toast|alert|popup|inline", "text": "...", "buttons": [...], "locator": "...", "after": "<step>"}]`. Exact text, never paraphrased.
 - **Real clicks vs script clicks.** Use a real Selenium click for: tabs, grid checkboxes (the header select-all too), the `#forward` dx-button, Save in the Comments popup. A scripted `.click()` on those does nothing. Scripted clicks are fine for plain buttons.
 - **Typing.** Text and product type-ahead need key events (the Selenium send-keys tool, then Tab/Enter). Setting `value` in the DOM does not reach the app's model (a date typed that way was ignored). Do not use the tool's clear option: it causes stale elements; send the full text instead.
 - **Comments popups** need a blur (Tab) before Save, or the app answers "Please add comments".
@@ -50,7 +56,8 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 { "trace": "<group>:<seq>:<flow>:<screen>:e<event serial>",   // only when replaying a framework flow; else the step number
   "actor": "Maker", "step": "Forward Dispatch Advice DA1 with comment \"Auto\"",
   "result": "pass|fail|blocked|skipped|unverified",
-  "observed": {"toast": "Forwarded successfully", "status": "Pending for approval", "document": "1350"},
+  "observed": {"toast": "Forwarded successfully", "status": "Pending for approval", "document": "1350",
+               "messages": [{"type": "toast", "text": "Forwarded successfully", "after": "Save"}]},
   "evidence": "element ids used, screen, grid row" }
 ```
 - Copy each step's text **exactly** as written in the sheet into the results (the Excel record attaches results by step number and leading verb). Inject the **full** helper file, not a trimmed copy: a trimmed helper does not log the real clicks and the recording cannot become framework rows.

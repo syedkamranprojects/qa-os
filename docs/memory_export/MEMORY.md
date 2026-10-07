@@ -33,3 +33,6 @@
 - [Ticket work parked for training](project_sdms2990_parked.md) — SDMS-2990 (G2) and SDMS-12390 (G1) parked 2026-10-07; finish R1 system training first.
 - [S&D regions](reference_snd_regions.md) — R1 = Pakistan + Bangladesh (PKBD); BD tickets are in scope with PK training; BD org 010105.
 - [S&D BD users](reference_snd_bd_users.md) — BD Maker Auto_Bangla, Checker AutoBD_tssm, company 010105, distributor 05108843.
+- [Quick mode](project_qaos_quick_mode.md) — /qa-os:quick built 2026-10-07: one-liner without ticket -> 1 case, 1 approval, 1 recording -> case-data rows (existing flow) or new SQL; intake keeps named Auto_* users; not tried live yet.
+- [Post-training workflow](feedback_post_training_workflow.md) — after training: one-liner requests (no Jira) via /qa-os:quick; AI cycle runs ONE case only (to find screens/elements/ids/tab ids); N cases = N data rows; never existing framework data; output Regress Master SQL.
+- [Messages as assertions](feedback_messages_as_assertions.md) — capture toast/alert/popup/inline (type+exact text) in training & recordings; all become assertions; engine cannot assert alert text (flag it).

@@ -143,6 +143,11 @@ def parse(a):
             mine = next((x for x in accts if x['env'] == want_env and x['user'].lower() == want_user.lower()), None)
             if mine and not mine['missing']:
                 chosen = mine
+            elif not mine:
+                # No menu data was harvested for this account (e.g. the group-flow users Auto_*):
+                # the access data cannot judge it, so keep the account the story named.
+                warn.append(f"{want_env}/{want_user} has no harvested menu data; kept as named - confirm the screens live")
+                chosen = {'env': want_env, 'user': want_user}
             else:
                 alt = pick([x for x in full if x['env'] == want_env]) or pick(full)
                 warn.append(f"{want_env}/{want_user} does not reach every screen" + (f"; using {alt['env']}/{alt['user']}" if alt else '; no account reaches all of them: split the story or ask Q-ENV-1'))

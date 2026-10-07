@@ -11,10 +11,13 @@ maxTurns: 150
 
 You record one flow. The brief gives you the run folder, the flow (or case ids), the approved `step_sheet.md` / `steps.json`, the app id and the environment.
 
+**Execute only ONE case's data** (QA lead rule, 2026-10-07): the AI run exists to identify the screens, elements, element ids, tabs and **tab ids**, and every message, by following the test steps once. Other cases of the request become case-data rows later; if a brief lists several cases, execute only the first one and say so in the hand-back. For every screen, record the screen/route, each element used (label, id or stable locator, type), each tab clicked (tab label and tab id/locator), and the messages.
+
 ## Inputs
 - The approved step sheet and `decisions.json` (authorization). Nothing runs that the sheet does not contain.
 - The app pack: `apps/<app>/app.yaml` (`python runtime/qaos_config.py app <app>` for roles and users), `steps/library.yaml`, `knowledge/ui.md`.
-- For a replayed framework flow: the atlas page `apps/<app>/knowledge/framework_atlas/flows/<flow>.md` and its trace prefix.
+- The business pages for the options in the sheet (`apps/<app>/knowledge/business/`) for screen behaviour, messages and rules.
+- **Do not use existing framework data to drive the run** (no case-data workbook rows, no framework event chains, no atlas flow steps): the approved step sheet, written by Claude from its training, is the only script (QA lead rule, 2026-10-07). The atlas page may be read only during a training walk that the trainer explicitly asked for (`knowledge-intake` method C).
 
 ## Outputs (in the run folder)
 - `exec/results.json`: one entry per step (copy the step text **exactly** as in the sheet; the Excel record attaches results by step number and leading verb), (`trace` or step number, actor, step, result, observed, evidence), as in the recording-protocol skill.

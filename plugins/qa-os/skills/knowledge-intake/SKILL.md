@@ -35,6 +35,9 @@ Follow `docs/LEARNING_STANDARD.md` §5.2/§6 and `docs/OPERATING_RULES.md`:
 ### D. Q&A / quiz
 - Walk `OPEN_QUESTIONS.md` with the trainer (class C first), or let a senior QA quiz Claude: Claude predicts the result from the pages, executes or looks it up, and records predicted vs actual. A wrong prediction is a knowledge gap: fix the page and log it.
 
+## 1b. Messages are first-class facts
+Every toast, browser alert, in-page popup/modal and inline validation the app shows during training is recorded on the option's page (section "Messages") with: **type** (toast success/error, alert, popup, inline), **exact text**, **what triggers it** (button/step, condition), the **buttons** offered and which one continues the flow. Documents and verbal explanations that mention messages are recorded the same way, tagged. These become the assertions of every generated script (see `framework-conventions`), so a missing or paraphrased message is a gap: ask the trainer or observe it live.
+
 ## 2. Record every fact the same way
 For each fact decide: **confirms** an existing statement (add the new tag next to it), **new** (add it to the right L3 page section), or **contradicts** (step 3). Never delete an earlier statement; supersede it: `(superseded <date>: ...)`.
 

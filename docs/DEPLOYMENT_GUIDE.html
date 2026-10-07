@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QA OS Setup Guide</title>
+<style>
+:root{
+  --bg:#ffffff; --fg:#1d2420; --muted:#5b665f; --line:#d9ded9; --soft:#f3f6f4;
+  --accent:#1f6b52; --accent-soft:#e3efe9; --code:#f1f3f1; --warn:#7a5a12; --warn-soft:#f6efd9;
+  --body:"Segoe UI", Calibri, Arial, sans-serif; --mono:Consolas, "Cascadia Mono", "Courier New", monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+body{margin:0;font-family:var(--body);font-size:15px;line-height:1.6}
+.wrap{max-width:820px;margin:0 auto;padding:32px 24px 56px}
+header{border-bottom:3px solid var(--accent);padding-bottom:14px;margin-bottom:22px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:28px;margin:6px 0 8px;color:var(--accent)}
+h2{font-size:19px;margin:30px 0 10px;padding-top:8px;border-top:1px solid var(--line);color:var(--accent)}
+h3{font-size:15.5px;margin:16px 0 6px}
+p{margin:6px 0}
+code{font-family:var(--mono);font-size:.92em;background:var(--code);padding:1px 5px;border-radius:3px}
+pre{font-family:var(--mono);font-size:13.5px;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:8px 0;white-space:pre-wrap}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.step{display:grid;grid-template-columns:38px 1fr;gap:12px;margin:14px 0;align-items:start}
+.num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:15px}
+.step h3{margin:4px 0 4px}
+.ok{background:var(--accent-soft);border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 4px 4px 0;margin:8px 0}
+.warn{background:var(--warn-soft);border-left:3px solid var(--warn);padding:8px 12px;border-radius:0 4px 4px 0;margin:8px 0}
+.check{list-style:none;margin:6px 0;padding:0}
+.check li{padding-left:26px;position:relative;margin:4px 0}
+.check li::before{content:"";position:absolute;left:2px;top:4px;width:13px;height:13px;border:1.6px solid var(--accent);border-radius:3px}
+ol,ul{margin:6px 0 6px 22px;padding:0}
+li{margin:3px 0}
+footer{margin-top:34px;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--muted)}
+@media print{
+  .wrap{padding:0;max-width:none}
+  h2{break-after:avoid}
+  .step,pre,table,.ok,.warn{break-inside:avoid}
+}
+@page{size:A4;margin:16mm 15mm}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">QA OS v0.5.0 · S&amp;D / DCODE</div>
+  <h1>QA OS Setup Guide</h1>
+  <p>How to install QA OS on your own PC so you can train and use Claude for S&amp;D testing. It takes about 20 minutes. Do it once per PC.</p>
+</header>
+
+<h2>Before you start: what you need</h2>
+<ul class="check">
+  <li>A Windows PC.</li>
+  <li><b>Google Chrome</b>.</li>
+  <li><b>Python 3.10 or newer</b> (python.org). During install, tick <b>“Add Python to PATH”</b>.</li>
+  <li><b>Node.js LTS</b> (nodejs.org). Use the default options.</li>
+  <li>The <b>Claude desktop app</b>, signed in with your own Claude account.</li>
+  <li>The release file <b>qa-os-v0.5.0.zip</b>.</li>
+  <li>The <b>database logins</b> from the QA Team Lead: one for the S&amp;D database, one for the framework database. For each you need host, port, database name, user, password and schema.</li>
+</ul>
+<div class="warn"><b>Never share passwords in chat or email.</b> You type them only on your own PC, when the setup asks.</div>
+
+<h2>Step by step</h2>
+<p>The examples use drive <code>C:</code>. You can use any drive (for example <code>D:</code>); just change the letter.</p>
+
+<div class="step"><div class="num">1</div><div>
+  <h3>Put QA OS on your drive</h3>
+  <p>Right-click <b>qa-os-v0.5.0.zip</b> → <b>Extract All</b> → choose <code>C:\</code> (the root of the drive) → Extract.</p>
+  <p>You now have the folder <code>C:\qa-os</code>.</p>
+  <div class="ok">Check: the file <code>C:\qa-os\CLAUDE.md</code> exists.</div>
+  <div class="warn">Do not extract into <code>C:\qa-os</code>, or you get <code>C:\qa-os\qa-os</code>. If that happens, move the inner folder up one level.</div>
+</div></div>
+
+<div class="step"><div class="num">2</div><div>
+  <h3>Connect the tools (browser and databases)</h3>
+  <p>Open <code>C:\qa-os\connectors</code> and double-click <b>setup_mcp.bat</b>. The setup:</p>
+  <ol>
+    <li>checks Python, Node.js and Chrome;</li>
+    <li>installs the database tool (it can only <b>read</b> data, never change it);</li>
+    <li>asks for the <b>S&amp;D database</b> login, then the <b>framework database</b> login. The password is hidden while you type. Press Enter to accept a default shown in [brackets];</li>
+    <li>tests each connection;</li>
+    <li>saves everything into your Claude app settings, after making a backup.</li>
+  </ol>
+  <div class="ok">Check: you see <b>“connected (… tables visible)”</b> for both databases and <b>“Saved …claude_desktop_config.json”</b>.</div>
+</div></div>
+
+<div class="step"><div class="num">3</div><div>
+  <h3>Install the Python packages</h3>
+  <p>Open <b>Command Prompt</b> and type:</p>
+  <pre>cd /d C:\qa-os
+python -m pip install -r requirements.txt</pre>
+  <div class="ok">Check: it ends with “Successfully installed …” or “Requirement already satisfied”.</div>
+</div></div>
+
+<div class="step"><div class="num">4</div><div>
+  <h3>Restart the Claude app</h3>
+  <p>Close the Claude desktop app <b>completely</b>: right-click its icon near the clock (system tray) → <b>Quit</b>. Then open it again.</p>
+</div></div>
+
+<div class="step"><div class="num">5</div><div>
+  <h3>Open the QA OS folder in Claude</h3>
+  <ol>
+    <li>Go to the <b>Code</b> tab.</li>
+    <li>Open the folder <code>C:\qa-os</code> itself, not a folder inside it and not <code>C:\</code>.</li>
+    <li>When Claude asks to <b>trust the folder</b>, choose Yes.</li>
+    <li>When it asks to <b>install the qa-os plugin</b>, accept.</li>
+  </ol>
+</div></div>
+
+<div class="step"><div class="num">6</div><div>
+  <h3>Choose the right permission mode</h3>
+  <p>Under the message box, set the mode selector to <b>Ask permissions</b> (not Auto). The first time Claude uses the browser, choose <b>Always allow</b> for the selenium tools.</p>
+</div></div>
+
+<div class="step"><div class="num">7</div><div>
+  <h3>Optional: connect Jira</h3>
+  <p>Only needed for ticket work, not for training. On <b>claude.ai</b>: Settings → Connectors → <b>Atlassian</b> → Connect. Sign in with an Atlassian account that can open SDMS tickets. Then, in the app, turn it on with <b>+</b> (next to the message box) → Connectors → Atlassian.</p>
+</div></div>
+
+<h2>Test that it works</h2>
+<p>Start a new chat in <code>C:\qa-os</code> and try these three things:</p>
+<table>
+  <thead><tr><th>Type this</th><th>You should see</th></tr></thead>
+  <tbody>
+    <tr><td>Which connectors does this session have?</td><td><b>selenium</b>, <b>snd-schema</b> and <b>selenium-framework-db</b> as connected</td></tr>
+    <tr><td>What do you know about this QA OS setup so far?</td><td>An answer that mentions <code>docs/STATUS.md</code> and the S&amp;D business knowledge</td></tr>
+    <tr><td><code>/qa-os:status</code></td><td>A list of runs and a summary of the S&amp;D app</td></tr>
+  </tbody>
+</table>
+<p>If all three work, you are ready. Start training with <code>/qa-os:train snd</code> (see the <b>User Manual</b>).</p>
+
+<h2>If something goes wrong</h2>
+<table>
+  <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+  <tbody>
+    <tr><td>Setup says “Python not found”</td><td>Reinstall Python and tick “Add Python to PATH”. Close and reopen the window, then run the setup again.</td></tr>
+    <tr><td>Setup says “Node.js (npx) not found”</td><td>Install Node.js LTS, restart the PC, run the setup again.</td></tr>
+    <tr><td>A database “could not connect”</td><td>Check you are on the office network or VPN, and check the host, port and password with the QA Team Lead. Run the setup again; it replaces the old values.</td></tr>
+    <tr><td>A connector shows “failed” in Claude</td><td>Quit Claude fully (system tray → Quit) and open it again. If it still fails, run the setup again.</td></tr>
+    <tr><td><code>/qa-os:train</code> is not found</td><td>Make sure you opened <code>C:\qa-os</code> itself, and that <code>C:\qa-os\.claude\settings.json</code> exists. Restart Claude and accept the plugin install.</td></tr>
+    <tr><td>Claude is blocked from typing values in the app</td><td>Switch the mode selector from Auto to <b>Ask permissions</b>.</td></tr>
+    <tr><td>Claude asks you for a password</td><td>It should never do that. Say: “I will log in myself.” Type passwords only in the browser window.</td></tr>
+  </tbody>
+</table>
+
+<h2>Updating to a new version later</h2>
+<ol>
+  <li>Keep your work: if you trained Claude, send your changes back first (Training Guide, section 6).</li>
+  <li>Rename the old folder (for example <code>C:\qa-os-old</code>) and extract the new zip to <code>C:\</code>.</li>
+  <li>You do <b>not</b> need to run the setup again, unless the release notes say so or a database login changed. If you do run it, point it at the new folder.</li>
+  <li>Restart Claude and open <code>C:\qa-os</code> again.</li>
+</ol>
+
+<h2>Safety rules</h2>
+<ul>
+  <li>Claude never types user names or passwords. You log in yourself in the browser.</li>
+  <li>The database tools can only read. Claude never runs changes on any database.</li>
+  <li>Your passwords stay in your own Claude settings on your PC. Never put them in the qa-os folder, in git, or in chat.</li>
+  <li>On the shared test environment, only one person runs the daily cycle for a distributor on a given day.</li>
+</ul>
+
+<footer>QA OS v0.5.0 · 2026-10-07 · More detail: <code>docs/TRAINING_GUIDE.md</code>, <code>connectors/db-mcp/README.md</code> · How to use: <code>docs/USER_MANUAL.pdf</code></footer>
+
+</div>
+</body>
+</html>

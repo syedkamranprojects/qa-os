@@ -8,6 +8,12 @@ Last updated: 2026-10-07 (release v0.5.0).
 - There are no vendor user guides: learn from DB metadata, the live app, Jira, the framework DB and the QA team's own training (documents, verbal explanation, live walks). Business knowledge lives in `apps/snd/knowledge/business/` (start at INDEX.md).
 - **Current activity: S&D training** (`docs/TRAINING_GUIDE.md`, skill `knowledge-intake`, command `/qa-os:train`). Region R1 first = **Pakistan + Bangladesh** (BD tickets are in scope). Ticket work (SDMS-2990, SDMS-12390) is parked until the QA lead says training is complete. Resume point: the latest section of `docs/STATUS.md`.
 
+## After training: how QA OS is used (QA lead, 2026-10-07)
+- **No Jira tickets as the starting point.** QA members give a **short request or one-liner** (e.g. "create one order and order detail with two products"); Claude runs the AI cycle with `/qa-os:quick` (skill `quick-script`) and generates the **Regress Master** scripts (`selenium-framework-db` / `CTA_CONFIG_ASSERTION` SQL + rollback + case-data workbook).
+- **AI execution uses Claude's training and its own test steps**, not existing Selenium framework data: no case-data workbook rows, no framework event chains, no atlas flow steps drive the run. The framework DB is read only when generating the SQL (ids, conventions, reuse of an identical screen/field definition).
+- **One live run per request:** the AI cycle executes a single case's data, following the test steps, only to identify screens, elements, element ids, tabs (tab ids) and messages; all requested cases are generated as case-data rows for Regress Master.
+- Training walks of framework groups (`/qa-os:train`, method C) are the one exception: there the trainer explicitly asks Claude to follow a group's flows to learn the business.
+
 ## Markets and users (cnr1dev1, non_production)
 | Market | Company | Distributor | Maker | Checker | Daily cycle group |
 |---|---|---|---|---|---|

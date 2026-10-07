@@ -1,6 +1,6 @@
 # Training Claude on S&D with QA OS — guide for the QA lead
 
-Release v0.5.0 (2026-10-07). For a QA lead who wants to train Claude on the S&D (DCODE) business with **their own Claude account and machine**. Claude starts with no memory of earlier sessions; everything it knows comes from this folder: the business pages, the session logs, `docs/STATUS.md`, `docs/OPERATING_RULES.md` and `docs/memory_export/`.
+Release v0.5.0 (2026-10-07). Quick reference of all commands with examples: `docs/USER_MANUAL.md`. For a QA lead who wants to train Claude on the S&D (DCODE) business with **their own Claude account and machine**. Claude starts with no memory of earlier sessions; everything it knows comes from this folder: the business pages, the session logs, `docs/STATUS.md`, `docs/OPERATING_RULES.md` and `docs/memory_export/`.
 
 You can train it any way you like, and mix the methods:
 
