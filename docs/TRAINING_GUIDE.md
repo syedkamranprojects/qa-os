@@ -27,7 +27,7 @@ C:\qa-os\                 <- open this folder in Claude
 
 1. **Get the files** into the root of the drive:
    - Zip: extract `qa-os-v0.5.0.zip` **to `C:\`** (the zip already contains the `qa-os` folder, so you get `C:\qa-os\`; extracting into `C:\qa-os` would give `C:\qa-os\qa-os` - wrong), or
-   - Git: `cd /d C:\` then `git clone --branch v0.5.0 https://github.com/syedkamranprojects/qa-os.git`.
+   - Git: `cd /d C:\` then `git clone --branch v0.5.0  http://syed.kamran@128.1.110.17:8080/scm/git/QA-OS`.
    Check: `C:\qa-os\CLAUDE.md` and `C:\qa-os\.claude\settings.json` exist.
 2. **Configure the MCP connectors:** double-click `C:\qa-os\connectors\setup_mcp.bat`. It checks Python/Node/Chrome, installs the read-only DB connector, asks for the two database logins (password input is hidden; it tests each connection) and writes Selenium + `snd-schema` + `selenium-framework-db` into your Claude desktop config (a backup is taken first). Details: `connectors/db-mcp/README.md`.
 3. **Plugin registration:** nothing to do - `C:\qa-os\.claude\settings.json` is part of the release. (Only if you keep `qa-os` inside another folder and open that parent folder instead: see `connectors\workspace_settings.example.json`.)
