@@ -15,4 +15,6 @@ different account, no shared memory — still finds its footing automatically. S
 `RELEASE_NOTES.md` for what the platform does and `DEPLOY.md` for one-time setup
 (MCP connectors, credentials, plugin registration) before anything here will work.
 
-Standing preferences and run rules of the QA lead (account-independent): read `docs/OPERATING_RULES.md` (copies of the assistant memory notes are in `docs/memory_export/`). Latest resume point: end of `docs/STATUS.md` (2026-10-05, stopped at seq 51 Route Settlement, waiting for QA).
+Standing preferences and run rules of the QA lead (account-independent): read `docs/OPERATING_RULES.md` (copies of the assistant memory notes are in `docs/memory_export/`). Latest resume point: end of `docs/STATUS.md`.
+
+**Current phase (v0.5.0): S&D training.** When someone wants to teach you the business (documents, verbal explanation, Q&A, or "run group 11 / 66 / 61"), use the `knowledge-intake` skill (`/qa-os:train snd`); the trainer's guide is `docs/TRAINING_GUIDE.md`. Never type credentials; never apply SQL.

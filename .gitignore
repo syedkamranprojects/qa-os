@@ -17,3 +17,6 @@ desktop.ini
 # scratch imports used only during Excel round-trip testing
 _test_edit_*.xlsx
 .import_*.json
+
+# release packages
+dist/

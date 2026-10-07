@@ -1,5 +1,32 @@
 # QA OS release notes
 
+## v0.5.0 — 2026-10-07 (S&D training release)
+
+For QA leads who want to train Claude on the S&D (DCODE) business **with their own Claude account**. Start with `docs/TRAINING_GUIDE.md`.
+
+### New
+- **Training workflow:** skill `knowledge-intake` + command `/qa-os:train <app>`. One way to take in any training method — documents (user guide, manual, SOP, deck, spreadsheet in `apps/snd/knowledge/sources/inbox/`), verbal explanation, Q&A / quiz, or a live walk of a framework group (11 Daily Cycle PK, 61 BD, 66 Setup PK). Every fact is tagged (`[stated <date> <name>]`, `doc:<file> p.<n>`, `[observed]`), earlier statements are never overwritten, conflicts become open questions, and each session ends with consolidation, a report and a STATUS resume point.
+- **Connector setup in one step:** `connectors/setup_mcp.bat` configures Selenium, `snd-schema` and `selenium-framework-db` in the Claude desktop config (backup first, hidden password input, live connection test; `-ClaudeCode` also registers them for the CLI).
+- **Bundled read-only DB connector** `connectors/db-mcp/` (trimmed from the team's nl2sql MCP server: SELECT-only, LLM parts removed, one schema cache per database, Oracle client path configurable).
+- `connectors/workspace_settings.example.json` — plugin registration + permission allow list for a new workspace.
+- **Release packages:** full `qa-os-v0.5.0.zip` and an S&D-only review pack `qa-os-snd-pack-v0.5.0.zip`.
+
+### Knowledge in this release (S&D)
+- Group 11 Daily Cycle PK walked end to end three times; the 2026-10-06 run (with the QA Team Leads) covered all 46 active rows including Order Editing and the first Route Settlement done by Claude. 12 questions answered that day; 47 open (`OPEN_QUESTIONS.md`).
+- New rules: Order Editing needs unallocated orders due today; Reattempt orders due today must be covered in a GIN before settlement; yellow/green settlement rows; settlement Save posts slips and adjusts invoices; cheque step is check-only; DSR adjustment = DSR shortage; Outstanding Outlet amounts adjust FIFO; tax master-data rule for zero-tax invoices.
+- Group 66 Setup PK walked to seq 18. BD (region R1) users added: Auto_Bangla / AutoBD_tssm, company 010105, distributor 05108843.
+- QA team review sheet: `learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx`.
+
+### Changed
+- `docs/OPERATING_RULES.md` rewritten for the current rules (markets/users table, group run rules, permissions); `CLAUDE.md` points cold-start sessions at the training workflow; `docs/memory_export/` refreshed (36 notes); `credentials.example.json` lists the BD users.
+
+### Known issues
+1. Generated framework SQL has still never been applied/replayed in the legacy engine.
+2. cnr1dev1 stock carry-over job did not run on 2026-10-06 (Opening 0) — environment owner.
+3. Order COL26000002018 (Reattempt, due 2026-10-07) blocks the PK route 02112 settlement until it is covered in a GIN.
+4. Only one person should run a daily cycle per distributor per day on the shared environment.
+5. Ticket runs SDMS-2990 / SDMS-12390 are parked until training is complete.
+
 ## v0.4.0 — 2026-10-01 (first team release)
 
 This is the first version meant to go to the whole QA team, not just the one machine it was built on. Everything below was verified live on cnr1dev1 (S&D / DCODE, Unilever Pakistan) unless marked otherwise.

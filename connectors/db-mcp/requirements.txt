@@ -1,0 +1,6 @@
+mcp>=1.28
+python-dotenv>=1.0
+psycopg2-binary>=2.9
+# Only if a connector points at Oracle or SQL Server:
+# oracledb>=2.0
+# pyodbc>=5.0

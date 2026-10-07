@@ -23,3 +23,13 @@
 - [S&D knowledge check](project_snd_knowledge_check.md) — after group 11 reaches seq 71, a Senior QA tests Claude with cases: predict, execute, compare.
 - [Always enter comments / login hand-off](feedback_always_enter_comments.md) — verify comment textarea before Save; Claude does logout + company/distributor selection, user types credentials.
 - [G11 learning session 2](project_learn_g11_session2.md) - 2026-10-05 fresh run, seq 1-50 done, stopped at seq 51 (2026-10-01 not closed); waiting for QA answers.
+- [S&D day close](reference_snd_day_close.md) — close a day = PJP Daily Inquiry Update End Of Day + Complete (Current Status E); settlement posts slips, cheques Clear; seq 55/56 bypassed by QA lead.
+- [G11 session 3 plan](project_g11_session3_plan.md) — next: full seq 1-71 run on this machine with the QA Team Lead (run sheet in learning_sessions), then prepare for QA env; check permission mode first.
+- [Group users query](reference_group_users_query.md) — QA lead query for user per group row (never select plu_password); group 66 seq 1-4 = Automation, atlas mislabels it.
+- [G66 setup walk](project_learn_g66_setup.md) — NG_Setup Flow_PK learning walk paused after seq 18 (2026-10-05); resume seq 19 as Auto_Multi_Orga; outlet 01 tax flags changed.
+- [G11 session 3 done](project_g11_session3_done.md) — 2026-10-06 full seq 1-71 with QA lead; Reattempt-order settlement unblock rule; Q-DS2/Q-CS1 answered; 2018 will block 10-07 settlement.
+- [Bulk-data-factory plan](project_bulk_data_factory_plan.md) — 2026-10-06 approach agreed: start with Order Booking (+Detail +_ASSR) group 11 PK from framework DB + snd-schema; 4 decisions pending.
+- [QA OS web app concept (parked)](project_qaos_web_app_concept.md) — Jira+AI cases/steps+gated execution web app on qa-os; start only after training + one final output with QA team; concept in qa-os/docs/WEB_APP_CONCEPT.md.
+- [Ticket work parked for training](project_sdms2990_parked.md) — SDMS-2990 (G2) and SDMS-12390 (G1) parked 2026-10-07; finish R1 system training first.
+- [S&D regions](reference_snd_regions.md) — R1 = Pakistan + Bangladesh (PKBD); BD tickets are in scope with PK training; BD org 010105.
+- [S&D BD users](reference_snd_bd_users.md) — BD Maker Auto_Bangla, Checker AutoBD_tssm, company 010105, distributor 05108843.

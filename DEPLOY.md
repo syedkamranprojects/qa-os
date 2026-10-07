@@ -38,6 +38,10 @@ claude plugin install qa-os@qa-os --scope project
 ```
 (or just restart Claude Code in that workspace if `settings.json` already has the block above — it will pick it up on trust).
 
+## 2a. MCP connectors (Selenium + read-only databases)
+
+Run `connectors\setup_mcp.bat` on each machine (details: `connectors/db-mcp/README.md`). It configures `selenium`, `snd-schema` and `selenium-framework-db` in the Claude desktop config. For a QA lead who only trains Claude on the business, `docs/TRAINING_GUIDE.md` is the complete walkthrough.
+
 ## 3. Per-person one-time setup
 
 Each QA member, on their own machine, does the steps in `README.md` → "Setup on a QA member's PC":
