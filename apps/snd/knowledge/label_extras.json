@@ -102,5 +102,25 @@
    "Allocation": "changes-stock",
    "Unallocate": "changes-stock"
   }
+ },
+ "Order Booking": {
+  "buttons": [
+   "New Order",
+   "Order Detail",
+   "Save",
+   "Validation"
+  ],
+  "tabs": [],
+  "columns": [
+   "Order CS",
+   "Order PC",
+   "Product Desc CS"
+  ],
+  "source": "seen live 2026-10-08 (QUICK-20261008-OB, cnr1dev1): detail page buttons Validation / Save (toolbar), New Order (Order View summary), grid columns Product Desc CS / Order CS / Order PC (HARDENING B4)",
+  "button_risk": {
+   "Validation": "read-only",
+   "Save": "changes-data",
+   "New Order": "read-only"
+  }
  }
 }

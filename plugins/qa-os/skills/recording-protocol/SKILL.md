@@ -21,7 +21,14 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - A login clears the injected helper and localStorage. After every login: re-inject the helper (section 2).
 
 ## 2. The helper (inject once per login)
-`plugins/qa-os/runtime/qaos_helpers.js` gives `window.qaos` with `open`, `pick`, `text`, `click`, `clickCapture`, `tab`, `options`, `read`, `rows`, `headers`, `crumb`, `session`, `note`. Install: set `localStorage.qaos_src` to the file text and `eval` it; after a page reload only `eval(localStorage.qaos_src)`. It logs every action to `qaos.log`, which the recorder turns into `flow_spec.json`.
+`plugins/qa-os/runtime/qaos_helpers.js` gives `window.qaos` with `open`, `pick`, `text`, `click`, `clickCapture`, `tab`, `options`, `read`, `rows`, `headers`, `crumb`, `session`, `note`, `remember`, and the **passive watcher** (`watch`, on by default), which logs real Selenium typing and clicks, menu navigation, grid cells (with column captions), tabs, toasts, popups and alerts by itself.
+- **Inject the built file, as an argument** (no pasting into the script text, no escaping): read `plugins/qa-os/runtime/qaos_helpers.min.js` (built by `python plugins/qa-os/runtime/build_helper.py`; rebuild after any change to the source) and call execute_script with
+  `script: "localStorage.qaos_src = arguments[0]; eval(arguments[0]); qaos.reset(); return qaos.watch();"` and `args: ["<file text>"]`.
+  Do this **before the first step** (so the menu navigation is logged). If a helper was already injected on this page earlier (a previous attempt, a precondition check, an older build), **reload the page first** (`location.reload()`, the login survives): an existing watcher keeps its old listeners and `watch()` only answers "already on". After a full page reload: `eval(localStorage.qaos_src); return qaos.watch();` (the log survives in localStorage; do NOT reset again).
+- **Never hand-edit the log.** If the watcher misses something, write it to `exec/results.json` and `friction.md`; the recording stays exactly as logged.
+- **Remember steps:** for `Remember <Field> as <NAME>` call `qaos.remember('#<id>' or '<label>', '<NAME>')` after the value is shown; it logs the value and becomes a fill-repository event.
+- **Grid number cells** (DevExtreme): real click on the cell, then `document.activeElement.select()` via execute_script, then press the digit keys one by one, then Tab. Never send_keys (the editor re-renders and goes stale) and never type after a caret (a cell holding 0 becomes "20").
+- **Long dropdown / type-ahead lists:** type the code or text into the field, then immediately click the single remaining option. Never scroll-click a long list (it picks the wrong row) and never leave the field before picking (the typed text is discarded).
 - Probe `qaos.session()` before each flow. Expired session: ask for one re-login and stop.
 
 ## 3. Running steps
@@ -66,7 +73,7 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - Write `exec/results.json` and the helper log (`qaos.dump()`) into the run folder as you go, so a run can resume.
 - **Before every Logout (switch point), dump the action log**: call `qaos.dump()` and write it to `<run>/recording_<case>_<part>.json`. The log lives in page memory and is lost at logout and login (a recording had to be rebuilt by hand once).
 - Screenshots: save only into a folder that already exists (for example the run folder's `evidence/`); create it first.
-- Convert the log with `python framework/tools/qaos_record.py <recording.json> <flow_spec.json>` only after the flow passed. A failed or blocked step is never turned into framework rows.
+- The log is converted later (framework-generator, `framework/tools/qaos_record_multi.py`) only after the flow passed. Start the watcher before the first step, so the sidebar menu click is logged (it becomes the flow navigation). A failed or blocked step is never turned into framework rows.
 
 ## 6. Never
 - Enter credentials, read the credentials file, or ask for a password in chat.

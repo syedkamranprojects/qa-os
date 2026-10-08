@@ -81,7 +81,7 @@ Applied before writing steps, before execution and before generation.
 - **One** run; never one per case. A failure (blocked step, unexpected message) stops the run and is reported.
 
 ## 9. Generation (phase 5) and verification (phase 6)
-- The converter (`framework/tools/qaos_record.py`) turns the watcher log into a flow spec; the generator writes the SQL with a pre-flight id check, one transaction, a rollback, and the case-data workbook for all N cases.
+- The converter (`framework/tools/qaos_record_multi.py`) turns the watcher log into a multi-screen flow spec (child screens, navigation, waits, repo fields, case-data rows bound by exact value); the generator writes the SQL with a pre-flight id check, one transaction, a rollback, and the case-data workbook for all N cases.
 - **Screen structure:** header screen with its detail and summary screens as **child screens**, so each case row runs header → lines → save → result. Grid lines are rows of the child sheet (PK `01-01`, `01-02` …). Repeated row buttons are one event.
 - **Message mapping:** toast → group assertion `0000/0014 TSTMSG,<sheet>`; popup → `ELEVAL` check on its message, then its button; inline validation → `ELEVLD`; browser alert → accept/dismiss event, text listed as *not asserted by the engine*. A stale repeat of an earlier toast is not asserted.
 - Conventions: `master_app_id` NULL, `created_by` = run tag, `modified_*` NULL, new repository ids per flow (e.g. `QUICK_ORDERNUMBER`).
@@ -93,7 +93,7 @@ Applied before writing steps, before execution and before generation.
 | Commands | `/qa-os:train`, `/qa-os:quick`, `/qa-os:status`, `/qa-os:learn`; story mode `/qa-os:cases`, `/qa-os:steps`, `/qa-os:run`; `/qa-os:play` | entry points |
 | Skills | `knowledge-intake`, `quick-script`, `qa-orchestrator`, `case-format`, `step-vocabulary`, `step-authoring`, `step-dsl`, `recording-protocol`, `framework-conventions` | standards and procedures |
 | Agents | `recorder`, `framework-generator`, `verifier`; story mode `story-analyst`, `test-designer`, `step-author`, `data-engineer`; `app-cartographer` | phase workers with restricted tools |
-| Runtime | `plugins/qa-os/runtime/qaos_helpers.js` (page helper + passive watcher), `runtime/qaos_run.py`, `qaos_intake.py`, `qaos_steps.py`, `qaos_export.py` / `qaos_import.py`, `framework/tools/qaos_record.py`, `gen_framework_sql.py` | deterministic tools |
+| Runtime | `plugins/qa-os/runtime/qaos_helpers.js` (page helper + passive watcher), `runtime/qaos_run.py`, `qaos_intake.py`, `qaos_steps.py`, `qaos_export.py` / `qaos_import.py`, `framework/tools/qaos_record_multi.py`, `gen_framework_sql.py` | deterministic tools |
 | Connectors | Selenium MCP; read-only DB MCP (`snd-schema`, `selenium-framework-db`); Atlassian (optional) | access boundary |
 
 ## 11. Environments and modes

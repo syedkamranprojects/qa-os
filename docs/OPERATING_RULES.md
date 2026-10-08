@@ -23,6 +23,9 @@ Last updated: 2026-10-07 (release v0.5.0).
 - In the QA environment QA OS runs **strictly to the design**: never change the framework design, tools, skills or recordings during a run, never hand-edit a recording, no long investigations. A failure STOPS the run and is reported (step, message, evidence); fixes happen in development, not in the run.
 - Before release, every issue in `docs/HARDENING.md` must be fixed or accepted, and the release gate there (acceptance run, verifier verdict, one engine replay) must pass.
 
+## Run context is confirmed first (QA lead, 2026-10-08)
+Before running any QA OS flow (quick request, recording or script generation), ask and confirm: market, environment, who is running it, the Maker/Checker users, and anything else the request leaves open. No silent defaults. `qaos_run.py init` checks the answers against `app.yaml`; they are stored in `run.json` and printed in the header of `framework.sql` and `framework_rollback.sql`.
+
 ## Markets and users (cnr1dev1, non_production)
 | Market | Company | Distributor | Maker | Checker | Daily cycle group |
 |---|---|---|---|---|---|

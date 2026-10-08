@@ -97,7 +97,7 @@ Workbook/SQL paths; core vs backlog counts; what was recorded vs authored-unveri
 |---|---|
 | `apps/<app>/tools/access_lookup.py` | `plan-user`, `screen`, `user --can`, `who`, `features`, `diff-features`, `validate-live` |
 | `plugins/qa-os/runtime/qaos_helpers.js` | page helper injected via the browser MCP |
-| `framework/tools/qaos_record.py`, `gen_framework_sql.py` | recording -> flow spec -> SQL + workbook |
+| `framework/tools/qaos_record_multi.py`, `gen_framework_sql.py` | recording + rows.json -> multi-screen flow spec + case data -> SQL + workbook |
 | `runtime/qaos_run.py` | run folder, `validate` (also checks `decisions.json` and the 10-core-case cap), stage state |
 | `runtime/qaos_intake.py` | `parse` the intake block -> `decisions.json`; `answer`; `show` |
 | `runtime/qaos_export.py` / `runtime/qaos_import.py` | draft -> Excel record; edited Excel -> checked draft (round trip) |

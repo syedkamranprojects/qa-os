@@ -245,7 +245,12 @@ def check_label(kind, label, scr, problems, warnings, app=None):
 
 def check(step, app, screen=None):
     step = step.strip()
+    m = re.match(r'^\[([^\]]+)\]\s*', step)          # step sheets write the actor first: "[Maker] Click Save"
+    actor = m.group(1).strip() if m else None
+    step = step[m.end():] if m else step
     res = {'step': step, 'ok': False, 'verb': None, 'slots': {}, 'risk': None, 'expect_needed': False, 'problems': [], 'warnings': [], 'screen': screen}
+    if actor:
+        res['actor'] = actor
     v = vocab()
     for vid, spec in v.items():
         m = re.match(spec['pattern'], step)
@@ -366,8 +371,8 @@ def add(p, step, app, actor=None, expect=None, note=None, raw=None):
         return r
     if r['verb'] in ('login', 'switch_user'):
         actor = r['slots']['role']
-    actor = actor or (steps[-1]['actor'] if steps else None)
-    steps.append({'n': len(steps) + 1, 'actor': actor, 'step': step, 'verb': r['verb'], 'slots': r['slots'], 'risk': r['risk'],
+    actor = actor or r.get('actor') or (steps[-1]['actor'] if steps else None)
+    steps.append({'n': len(steps) + 1, 'actor': actor, 'step': r['step'], 'verb': r['verb'], 'slots': r['slots'], 'risk': r['risk'],
                   'screen': r['screen'] or ctx, 'expect': expect, 'note': note, 'raw': raw,
                   'state': 'clear' if not r['warnings'] else 'unverified', 'warnings': r['warnings']})
     save(p, d)

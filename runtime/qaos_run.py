@@ -1,6 +1,11 @@
 """QA OS run manifest: create a run folder, record stage states, validate stage outputs and traceability.
 
   python runtime/qaos_run.py init SDMS-10351 --app snd [--env cnr2dev3] [--story path/to/export.html|.md]
+  python runtime/qaos_run.py init QUICK-20261008-1120 --app snd --env cnr1dev1 --request "<the one-liner>" [--screens "Order Booking"]
+         --market PK --run-by "<QA member name>" --maker Auto_Multi_Orga [--checker Auto_Tssm] [--allow "save"]
+         (quick run: the run context is REQUIRED - confirmed with the QA member first (quick-script Q0) - and checked
+          against apps/<app>/app.yaml; it is stored in run.json "context" and printed in the generated SQL header.
+          Also writes requirement.json with R1 = the request, and marks stage analyse done)
   python runtime/qaos_run.py stage <run_dir> <stage> <state> [--out file] [--note text]
   python runtime/qaos_run.py validate <run_dir>
   python runtime/qaos_run.py status [KEY]
@@ -29,7 +34,47 @@ def save(p, d):
     json.dump(d, open(p, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 
 
+def run_context(a):
+    """Quick-run context (market, env, who runs it, users), checked against the app pack. Exits on any mismatch."""
+    import yaml
+    missing = [n for n in ('market', 'env', 'run_by', 'maker') if not getattr(a, n)]
+    if missing:
+        sys.exit('quick run needs the confirmed run context: ' + ', '.join('--' + m.replace('_', '-') for m in missing)
+                 + ' (ask the QA member first, quick-script Q0)')
+    app = yaml.safe_load(open(os.path.join(QA_OS, 'apps', a.app, 'app.yaml'), encoding='utf-8'))
+    mk, env = (app.get('markets') or {}).get(a.market), (app.get('environments') or {}).get(a.env)
+    errs = []
+    if not mk:
+        errs.append(f"market {a.market!r} not in app.yaml (known: {', '.join(app.get('markets') or {})})")
+    if not env:
+        errs.append(f"env {a.env!r} not in app.yaml (known: {', '.join(app.get('environments') or {})})")
+    if errs:
+        sys.exit('; '.join(errs))
+    if mk.get('env') and mk['env'] != a.env:
+        errs.append(f"market {a.market} runs on env {mk['env']}, not {a.env}")
+    if not env.get('non_production'):
+        errs.append(f'env {a.env} is not marked non_production: data-changing runs are not allowed')
+    roles = mk.get('roles') or env.get('roles') or {}
+    users = {}
+    for role, u in (('Maker', a.maker), ('Checker', a.checker)):
+        if not u:
+            continue
+        if u not in (env.get('users') or {}):
+            errs.append(f'user {u!r} is not configured on env {a.env}')
+        elif roles.get(role) and u not in roles[role]:
+            errs.append(f"user {u!r} is not a {role} of market {a.market} (configured: {', '.join(roles[role])})")
+        cfg = (env.get('users') or {}).get(u) or {}
+        users[role] = {'user': u, 'company': cfg.get('company') or mk.get('company') or env.get('company'),
+                       'distributor': cfg.get('distributor') or mk.get('distributor')}
+    if errs:
+        sys.exit('run context rejected: ' + '; '.join(errs))
+    return {'market': a.market, 'market_name': mk.get('name'), 'org': mk.get('org'), 'env': a.env, 'url': env.get('url'),
+            'framework_app_id': mk.get('framework_app_id'), 'group': mk.get('group'), 'run_by': a.run_by, 'users': users,
+            'allow': [x.strip() for x in (a.allow or '').split(',') if x.strip()], 'confirmed': now()}
+
+
 def init(a):
+    ctx = run_context(a) if a.request else None
     run = os.path.join(QA_OS, 'runs', a.key, dt.datetime.now().strftime('%Y%m%d-%H%M'))
     os.makedirs(os.path.join(run, 'inputs'), exist_ok=True)
     if a.story:
@@ -37,6 +82,22 @@ def init(a):
     save(os.path.join(run, 'run.json'), {
         'key': a.key, 'app': a.app, 'env': a.env, 'created': now(), 'user': os.environ.get('USERNAME'),
         'stages': {s: {'state': 'pending'} for s in STAGES}})
+    if a.request:                                         # quick run: the one-liner IS the requirement (R1)
+        screens = [x.strip() for x in (a.screens or '').split(';') if x.strip()]
+        save(os.path.join(run, 'requirement.json'), {
+            'key': a.key, 'title': a.request[:200], 'app': a.app,
+            'source': {'kind': 'pasted-text', 'ref': 'quick one-liner', 'retrieved': now()},
+            'rules': [{'id': 'R1', 'text': a.request, 'quote': a.request, 'source': 'request'}],
+            'acceptance_criteria': [],
+            'screens': [{'story_term': x, 'status': 'in-menu-not-learned', 'note': 'set by qaos_intake.py parse'} for x in screens],
+            'ambiguities': []})
+        d = load(os.path.join(run, 'run.json'))
+        d['quick'] = True
+        d['context'] = ctx
+        d['env'] = ctx['env']
+        d['stages']['analyse'].update({'state': 'done', 'updated': now(), 'out': 'requirement.json', 'note': 'quick: R1 = request'})
+        d['stages']['bulk'].update({'state': 'skipped', 'note': 'not part of a quick run'})
+        save(os.path.join(run, 'run.json'), d)
     print(os.path.relpath(run, QA_OS))
 
 
@@ -110,8 +171,11 @@ def status(a):
 ap = argparse.ArgumentParser()
 sp = ap.add_subparsers(dest='cmd', required=True)
 p = sp.add_parser('init'); p.add_argument('key'); p.add_argument('--app', required=True); p.add_argument('--env'); p.add_argument('--story')
+p.add_argument('--request'); p.add_argument('--screens')
+for n in ('--market', '--run-by', '--maker', '--checker', '--allow'):
+    p.add_argument(n)
 p = sp.add_parser('stage'); p.add_argument('run_dir'); p.add_argument('stage', choices=STAGES)
-p.add_argument('state', choices=['pending', 'running', 'done', 'needs-input', 'failed']); p.add_argument('--out'); p.add_argument('--note')
+p.add_argument('state', choices=['pending', 'running', 'done', 'needs-input', 'failed', 'skipped']); p.add_argument('--out'); p.add_argument('--note')
 p = sp.add_parser('validate'); p.add_argument('run_dir')
 p = sp.add_parser('status'); p.add_argument('key', nargs='?')
 a = ap.parse_args()

@@ -2,7 +2,7 @@
 
   python framework/tools/test_gen_framework_sql.py
 
-Regenerates from runs/QUICK-20261008-OB/20261008-1120/framework/flow_spec.json (3 screens, written by the
+Regenerates from runs/QUICK-20261008-OB/20261008-1120/attempt2_superseded/framework/flow_spec.json (3 screens, written by the
 framework-generator agent with a one-off script) and compares with that run's framework.sql, rollback and workbook:
 the INSERT rows must be the same set (column -> value, ignoring statement order and comments), the pre-flight must
 check the same ids and event pairs, and the workbook must have the same sheets and cells. The case-data rows are not in
@@ -15,7 +15,7 @@ import openpyxl
 
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(TOOLS))
-RUN = os.path.join(ROOT, 'runs', 'QUICK-20261008-OB', '20261008-1120', 'framework')
+RUN = os.path.join(ROOT, 'runs', 'QUICK-20261008-OB', '20261008-1120', 'attempt2_superseded', 'framework')
 GEN = os.path.join(TOOLS, 'gen_framework_sql.py')
 BOOK = 'NG_Dcode_QA_QUICK_OrderBooking (Pak).xlsx'
 

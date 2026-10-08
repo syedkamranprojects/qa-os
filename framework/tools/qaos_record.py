@@ -73,7 +73,7 @@ for a in log:
     if act == 'screen':
         screens.append({k: a.get(k) for k in ('url', 'title', 'crumb')})
         continue
-    if act in ('text', 'pick', 'date', 'option', 'cell'):
+    if act in ('text', 'pick', 'date', 'option', 'cell'):   # several values for one cell: the field is defined once; values come from case data
         label = a.get('label') or a.get('column') or ''
         key = (label, a.get('grid') or '')
         if not label:
@@ -92,7 +92,7 @@ for a in log:
         f = {'id': fid, 'caption': label, 'type': kind, 'mandatory': meta.get('mandatory', {}).get(label),
              'locateby': by, 'evidence': ev.get(label, f"recorded: {act} '{a.get('value', '')}' ({a.get('widget', '')})")}
         if a.get('grid'):
-            f.update({'grid': a['grid'], 'column': a.get('column'), 'rowindex': a.get('rowindex')})
+            f.update({'grid': a['grid'], 'column': a.get('column'), 'colindex': a.get('colindex'), 'rowindex': a.get('rowindex')})
         fields.append(f)
     elif act in ('click', 'tab'):
         by, fid = locate(a)
@@ -107,6 +107,13 @@ for a in log:
                                locateby=by, field=fid,
                                evidence=ev.get(name, f"recorded {act} on {a.get('locator') or fid}" + (f" (controls {a['controls']})" if a.get('controls') else '')))
         last_click_text = name
+    elif act == 'remember':
+        by, fid = locate(a)
+        if fid:
+            add_event(desc=f"Remember {a.get('label') or fid} as {a.get('name')}", type='0000', event='0012', locateby=by, field=fid,
+                      fixed=a.get('name'), evidence=f"read {a.get('value')!r} from {a.get('locator') or fid}")
+        else:
+            gaps.append(f"remember {a.get('name')!r}: no id/locator for {a.get('label')!r}")
     elif act == 'check':
         by, fid = locate(a)
         if fid:
@@ -143,6 +150,10 @@ for a in log:
     elif act == 'alert_result':
         add_event(desc=f"{a.get('dialog', 'alert').title()} Alert", type='0005', event='0002', locateby='id',
                   field='accept' if a.get('result') else 'dismiss', evidence=f"browser {a.get('dialog')} answered {a.get('result')}")
+
+# grid fields in column order (the executor may have typed them in another order, e.g. PC before CS)
+grid_fields = sorted([f for f in fields if f.get('grid')], key=lambda f: (f['grid'], int(f.get('colindex') or 999)))
+fields = [f for f in fields if not f.get('grid')] + grid_fields
 
 spec = {k: meta[k] for k in ('story', 'master_app_id', 'tag', 'menu_group', 'screen', 'flow', 'casedata', 'not_covered', 'risks') if k in meta}
 spec['fields'], spec['events'] = fields, events

@@ -11135,18 +11135,29 @@
 "Selling Category"
 ],
 "buttons": [
+"New Order",
 "Order Detail",
-"Select"
+"Save",
+"Select",
+"Validation"
 ],
 "tabs": [],
-"columns": [],
+"columns": [
+"Order CS",
+"Order PC",
+"Product Desc CS"
+],
 "sources": [
+"extras",
 "framework-atlas",
 "live",
 "observed"
 ],
 "button_risk": {
-"Select": "read-only"
+"Select": "read-only",
+"Validation": "read-only",
+"Save": "changes-data",
+"New Order": "read-only"
 }
 },
 {

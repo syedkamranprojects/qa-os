@@ -25,7 +25,7 @@ For every step, in `exec/results.json` and the recording: the **screen** (title,
 
 ## Outputs (in the run folder)
 - `exec/results.json`: one entry per step (copy the step text **exactly** as in the sheet; the Excel record attaches results by step number and leading verb), (`trace` or step number, actor, step, result, observed, evidence), as in the recording-protocol skill.
-- `recording_<flow>.json`: `{ "meta": {...}, "log": <qaos.dump()> }` for `framework/tools/qaos_record.py`; written only for flows that passed.
+- `recording_<flow>.json`: `{ "meta": {"story": "<KEY>", "case": "<the executed case id>", ...}, "log": <qaos.dump()> }` for `framework/tools/qaos_record_multi.py` (the case id binds the recorded values to `rows.json`); written only for flows that passed.
 - `friction.md`: every obstacle with the software fix.
 - A short hand-back message: passed / failed / blocked counts, the observed messages, values remembered (document numbers), and anything that needs a person.
 
