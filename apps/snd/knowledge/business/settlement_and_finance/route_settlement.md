@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [goods_issue_note, cashmemo_reschedule_and_status, sales_return, goods_return_note, deposit_slips, pjp_daily_inquiry_update]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Route settlement: closing a DSR's day (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Last updated: 2026-10-01 (consolidated with learning session G11-1, seq 51). Source flows: 00680001 (seq 51), 03210001 (52), 03220001 (53), 03250001 (54). ~~No live replay.~~ (superseded 2026-10-01: seq 51 opened live in G11-1 and the grid was read; the settlement itself was BLOCKED by an unclosed previous day; seq 52-54 not walked.) DB has 35 settlement rows, all org 0101, none for 010104 [db, before the walk].
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md and 2026-10-06_G11-PK_session3_report.md. **The settlement was performed live by Claude for the first time** (route 02112, 2026-10-06). Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Route settlement is the end-of-day reconciliation of one PJP (a DSR's route) for one working date: what was sold and delivered, what was returned, what cash and cheque was collected (previous days plus today), what stock was short, and the resulting cash shortage. It follows delivery, returns and deposit slips and precedes closing the day (PJP Daily Inquiry Update). [inferred from field and table names]
@@ -24,11 +25,14 @@ Route settlement is the end-of-day reconciliation of one PJP (a DSR's route) for
 - Settlement is a **day-ordered** process: a route cannot be settled while any earlier working day is still open [observed 2026-10-01 G11-1].
 - G11-2b: settlement is followed by the day close on PJP Daily Inquiry Update (End Of Day / Complete); on 2026-10-05 the route was settled first, then the day was closed [observed 2026-10-05 G11-2b]. Settlement is also the moment deposit slips are **posted** (see deposit_slips.md) [observed 2026-10-05 G11-2b].
 - G11-3: the day's order was settlement (seq 51) -> DSR Adjustment Amount (seq 56) -> day close (seq 57) [observed 2026-10-06 G11-3]. Settlement also requires that **no order due today on the route is undelivered** (see section 8) [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (rule 16, meaning): Route Settlement is the **final settlement of the DSR**, done by the accounts person (accountant) from the actual payment received from the outlets against the invoices, in cash or by cheque [stated 2026-10-08 QA Team]. It is a consolidated record of everything the DSR did that day: delivering orders and receiving cash or cheques; stock out and stock in against the delivered invoices, including products returned by outlets; collecting outstanding payments of earlier credit invoices; depositing the collected cash in the nearest bank; a **cash shortage** when the DSR used collected cash for personal or unauthorised expenses; a **stock shortage** when the DSR does not return the complete quantity. The distributor/depot keeps DSR/PJP-wise daily collection records and updates the outlet ledger from them [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 12, the real collection process): (1) the DSR collects cash or cheques from the outlets in the **Delivery App** (mobile); (2) at the end of the working day he **syncs** the device with the Back Office; (3) the system then **auto-creates Cash / Cheque Deposit Slips with status Unposted**; (4) the DSR closes the day with the accountant at **Route Settlement**, where collections and any stock/cash shortages are reconciled; (5) once the settlement completes, the related slips change **Unposted -> Posted** [stated 2026-10-08 QA Team]. Group 11 uses the manual Back Office path instead (slips typed on the Deposit Slip screen, deposit_slips.md).
 
 ## 2. Actors and roles
 Auto_Multi_Orga (same session) [db; observed 2026-10-01 G11-1, segment 9]. No approval step [db]. Checker behaviour not walked [unknown].
 - G11-2b: the 2026-10-01 and 2026-10-05 settlements of route 02112 were done by a QA team member (not by Claude), so the settlement action itself, its screens and its message were not observed [stated 2026-10-05 QA lead; observed result only].
 - G11-3: the Maker (Auto_Multi_Orga) settled route 02112 for 2026-10-06 (Edit -> row Save); no approval step followed [observed 2026-10-06 G11-3]. (superseded 2026-10-06: the settlement action is now observed, see section 5.)
+- QA team 2026-10-08: the settlement is done by the accounts person (accountant) together with the DSR, who closes his day's activities with him [stated 2026-10-08 QA Team]. On cnr1dev1 the Maker (Auto_Multi_Orga) plays the accountant.
 
 ## 3. Documents and master data
 - `snd_tr_rsl_dsr_route_settlem` (one row per PJP code + working date): total/delivered/undelivered order counts, return picked up, sales value, return value, adjusted credit note amount, previous/today/total cash and cheque, stock shortage, stock shortage received amount, cash shortage, settlement datetime [db].
@@ -44,8 +48,10 @@ Menu: Transaction > Receivable > Route Settlement (`ROUTE_SETTLEMENT`, /content-
 - Validation screens (read-only, compared with workbook/DB): 006802 Sale Value, Adjusted Credit Note Amount, Fresh Return Value; 006803 Previous Cash, Today Cash, Total Cash, Previous Cheque, Today Cheque, Total Cheque; 006804 Payable Amount, Received Amount, Stock Shortage Payable Amt, Stock shortage Received Amt; 006805 Cash Shortage, Total Payable Amount, Total Received Amount (row edit and save); 006806 Total Received Amount, Total Payable Amount, Total Cash Shortage [db: atlas].
 - G11-2b: **Route Status filter values: All / Complete / Incomplete** [observed 2026-10-05 G11-2b]. A settled route row is shown **green and has no Edit link** (other rows keep Edit) [observed 2026-10-05 G11-2b]. Header totals (Total Payable / Received / Cash Shortage) are computed over the rows the filter shows (Incomplete filter on 10-01 -> 0 / 0 / 0) [observed 2026-10-05 G11-2b].
 - G11-3 edit mode of a row [observed 2026-10-06 G11-3]: after Edit the row's Collection lines are editable per type: **CASH lines: Received editable** (prefilled = Payable); **CHEQUE lines: Received read-only**; **Stock Shortage line: Received editable** (0). The row Save sits at the right of the scrolled grid (scroll it into view first).
-- G11-3: an unsettled route row with activity is shown yellow; a settled one green [observed 2026-10-06 G11-3].
-- **Colour legend** [stated 2026-10-06 QA Team Lead]: per PJP row, **yellow = route not closed yet, green = route closed** (02112 was yellow before the 10-06 settlement and green after the row Save) [observed 2026-10-06 G11-3].
+- G11-3: an unsettled route row with activity is shown yellow; a settled one green [observed 2026-10-06 G11-3]. (superseded 2026-10-08: ignore colours; the Edit link decides, see the next-but-one bullet [stated 2026-10-08 QA Team])
+- **Colour legend** [stated 2026-10-06 QA Team Lead]: per PJP row, **yellow = route not closed yet, green = route closed** (02112 was yellow before the 10-06 settlement and green after the row Save) [observed 2026-10-06 G11-3]. (superseded 2026-10-08 (rule 17): "Kindly ignore the color themes": an unsettled route shows an **Edit link at the end of the row**, a settled route shows the field **blank** [stated 2026-10-08 QA Team])
+- QA team 2026-10-08 (rule 17, replaces the colour legend): **ignore the row colours**. If the route is not settled, an **Edit link** is shown at the end of the row; otherwise that field is **blank** [stated 2026-10-08 QA Team]. Consistent with every observation (Edit gone after the row Save on 10-05 and 10-06) [observed 2026-10-05, 2026-10-06].
+- QA team 2026-10-08 (rule 15, editable fields): the **settlement amount cannot be edited**; certain fields stay editable for the accountant's adjustments, e.g. cash the DSR used for **fuel or challan expenses** [stated 2026-10-08 QA Team]. Cash Received may be reduced but **not below zero** (the difference goes to Cash Shortage); the **cheque amount cannot be modified** [stated 2026-10-08 QA Team] (matches the observed read-only cheque lines [observed 2026-10-06 G11-3]).
 
 ## 5. Process
 Framework view [db]:
@@ -139,7 +145,10 @@ G11-3 values of the settlement of 02112 for 2026-10-06 [observed 2026-10-06 G11-
 | Memo balances | - | 2015 Received 2,600 / Balance 73,556; 2016 and 2020 paid (leave the outstanding list); 2012 0 / 108,202 | deposit_slips.md, transaction_inquiry.md |
 
 - **Uncovered Sale Value is not a cash shortage**: 311,238 sold vs 224,131 collected, yet Cash Shortage 0 after settlement; the uncovered part stays open on the cash memos (2009 Balance 88,107 still in the outstanding list) [observed 2026-10-05 G11-2b]. Answers Q-RS2.
-- **10-01 route Complete but its slips not posted**: 02112 for 2026-10-01 shows Complete, yet slips 1131-1136 are still Un Posted (1133 still 1,000 / 600 adjusted) [observed 2026-10-05 G11-2b]; so "Complete" does not guarantee posting; how the QA member completed 10-01 must come from the QA lead (Q-DS3).
+- **10-01 route Complete but its slips not posted**: 02112 for 2026-10-01 shows Complete, yet slips 1131-1136 are still Un Posted (1133 still 1,000 / 600 adjusted) [observed 2026-10-05 G11-2b]; so "Complete" does not guarantee posting; how the QA member completed 10-01 must come from the QA lead (Q-DS3). (superseded 2026-10-08: "This should not be possible": once a route is settled all its deposit slips must be Posted and adjusted against the invoices; the 10-01 state is a **DEFECT** (LIVE_FINDINGS.md D-G11-2b-1) [stated 2026-10-08 QA Team], Q-DS3 answered)
+- QA team 2026-10-08 (Q48): any difference between **Payable** and **Received** must show as the **DSR Cash Shortage** [stated 2026-10-08 QA Team]. (Upgrades the [inferred] "Cash shortage = payable minus received" above to [stated]; still not observed, Received was always left = Payable.)
+- QA team 2026-10-08 (rule 15, BA12, Q-GRN1, stock shortage): the expected return (GRN) quantity = **GIN quantity - delivered order quantity + picked sales return quantity**; the warehouse in-charge enters the actual received quantity per product; a difference is the **DSR Stock Shortage** [stated 2026-10-08 QA Team]. If the DSR does not hand in the actual returned quantity, the shortage amount = **product sale price x shortage quantity (in UOM) + the tax % configured on the Product Configuration screen** [stated 2026-10-08 QA Team]. On **GRN approval** the system auto-creates the DSR adjustment amount, which is shown on Route Settlement (Stock Shortage line) [stated 2026-10-08 QA Team]. Not yet observed (every GRN so far had Actual = Suggested).
+- QA team 2026-10-08 (Q-SR1, partly): Adjusted Credit Note = approved credit notes adjusted at outlet level, applied where the **invoice net amount > credit note amount**; **Fresh Return** = modification of current-order quantities, a **Bangladesh** feature **not used in Pakistan**; not every scenario appears for every DSR/PJP [stated 2026-10-08 QA Team]. Still unexplained: the approved and picked returns 713 / 714 / 715 were not netted on any of the three days (Q-SR1 stays open).
 
 ## 7. Statuses and transitions
 No document status column in the settlement tables [db]; "settled" is implied by row existence [inferred].
@@ -161,6 +170,7 @@ No document status column in the settlement tables [db]; "settled" is implied by
 | Incomplete, nothing due today undelivered | Edit, check cash Received, row Save | Complete: "Saved Successfully", green, Edit hidden; slips Posted | Maker | [observed 2026-10-06 G11-3] (supersedes the [inferred] "Edit and save" row above) |
 | Incomplete (yellow), the same PJP's previous day not closed | Edit | blocked ("Following previous days not closed! Please close date <date>"); the day cannot be finalized | Maker | [observed 2026-10-01, 2026-10-05]; per-PJP scope [stated 2026-10-06 QA Team Lead] |
 | previous day's route of the PJP closed on PJP Daily Inquiry Update (End Of Day + Complete) | (next day) Edit | previous-day check passes | Maker | [stated 2026-10-06 QA Team Lead]; consistent with 10-05 close -> 10-06 settled [observed 2026-10-06 G11-3] |
+- QA team 2026-10-08: route state is read from the **Edit link** (present = not settled, blank = settled), not from the row colour [stated 2026-10-08 QA Team]; a settled route must have **all its slips Posted** [stated 2026-10-08 QA Team].
 
 ## 8. Rules and validations
 - Total cash/cheque = previous + today [inferred from the column triple; observed 2026-10-01 G11-1 (0 + today = total)].
@@ -185,6 +195,10 @@ No document status column in the settlement tables [db]; "settled" is implied by
 - G11-3: preconditions of a settlement together: previous days closed (G11-1/2) and no undelivered order due today on the route [observed 2026-10-06 G11-3; stated 2026-10-06 QA Team Lead].
 - **Previous-day check is per PJP** [stated 2026-10-06 QA Team Lead]: the check looks at the previous day's route of the same PJP; the day close on PJP Daily Inquiry Update (End Of Day + Complete) is what clears it. (superseded 2026-10-06: the earlier [inferred] "presumably per route with activity" and "whether the day close clears it is [inferred]" notes.)
 - G11-3: return 715 (approved, picked, on GRN 248) again not netted as Adjusted Credit Note / Fresh Return [observed 2026-10-06 G11-3; Q-SR1].
+- QA team 2026-10-08 (rule 18): the previous-day check is system-controlled: when the accountant settles the current route the system checks that the previous stock was settled by verifying that the **PJP working date is the current date and the closing date = N-1** (the previous day) [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 19): every unsettled transaction of today must be reconciled; the **GIN quantity must match the GRN quantity**, otherwise the system shows a **"Stock Mismatch"** error [stated 2026-10-08 QA Team] (not yet observed). This adds a third precondition to the two observed ones (previous day closed; no undelivered order due today).
+- QA team 2026-10-08 (Q48, rule 15): Received below Payable -> difference = DSR Cash Shortage; Received cannot go below zero; cheque amounts are fixed; the settlement amount itself is not editable, only adjustment fields (fuel / challan expenses) [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (Q-DS3): a settled route must have ALL its deposit slips Posted and adjusted onto the invoices; a Complete route with Un Posted slips is a defect [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 None recorded for 00680001 [unknown]. (superseded 2026-10-01:)
@@ -194,6 +208,7 @@ None recorded for 00680001 [unknown]. (superseded 2026-10-01:)
 - Success message of a completed settlement: still [unknown] (settled by the QA team member).
 - G11-3: **"Un-Deliver Order exists for today delivery!"** (modal Error with Show details / Continue) on Edit when an order due today on the route is undelivered [observed 2026-10-06 G11-3].
 - G11-3: **"Saved Successfully"** on the row Save of a settlement [observed 2026-10-06 G11-3] (superseded 2026-10-06: success message no longer [unknown]).
+- QA team 2026-10-08: **"Stock Mismatch"** (error) when today's GIN quantity does not match the GRN quantity at settlement [stated 2026-10-08 QA Team]. Exact text, casing and form (toast or modal) not observed.
 
 ## 10. Dependencies
 Reads delivered cash memos (GIN seq 20), sales returns (seq 34-38), deposit slips (seq 39-46). Hands Offset Amount and Received Amount checks to seq 52-54. Keyed by PJP + working date (same-day).
@@ -204,6 +219,7 @@ Reads delivered cash memos (GIN seq 20), sales returns (seq 34-38), deposit slip
 - G11-2b: hands posted slips to Deposit Slip (Posted, Received) and Cheque Status (Clear cheques), Offset Amount to Transaction Inquiry [observed 2026-10-05 G11-2b].
 - G11-3: depends on every order due today on the route being delivered: a rescheduled (Reattempt) order due today needs allocation (Order Date = booking date), a new GIN, the Checker's GIN approval and Cashmemo Status Delivered before settlement [stated 2026-10-06 QA Team Lead; observed]. **Order COL26000002018 (rescheduled 10-06 -> 10-07, unallocated) will block the 2026-10-07 settlement of 02112 unless handled the same way.**
 - G11-3: followed by DSR Adjustment Amount (seq 56) and the day close (seq 57) [observed 2026-10-06 G11-3].
+- QA team 2026-10-08: depends on the GRN of the day being complete and approved (GIN quantity = GRN quantity, else "Stock Mismatch") [stated 2026-10-08 QA Team]; a GRN with Actual < expected creates a DSR stock-shortage adjustment at GRN approval that settlement shows [stated 2026-10-08 QA Team]. In production it depends on the DSR's mobile sync, which creates the Unposted slips [stated 2026-10-08 QA Team].
 
 ## 11. Test design hints
 - Positive: PJP with full cash delivery; with returns and credit notes; with cheque collection.
@@ -223,7 +239,7 @@ New from 2026-10-01 G11-1 [observed]:
   - Positive: after settling, assert Route Status Complete (green, no Edit), slips Posted, Received/Offset on the memos = posted allocations, cheques Clear.
   - Positive: an under-collected route settles with Cash Shortage 0; assert the uncovered amount as the memo's open Balance, not as shortage.
   - Negative: a Complete route offers no Edit (cannot be settled twice from the screen).
-  - Trap: a route can be Complete while its slips are still Un Posted (10-01); assert slip Status separately (Q-DS3).
+  - Trap: a route can be Complete while its slips are still Un Posted (10-01); assert slip Status separately (Q-DS3). (superseded 2026-10-08: by design Complete implies every slip Posted; turn this into a defect check, D-G11-2b-1 [stated 2026-10-08 QA Team])
   - Trap: Total Order (13 on 10-05) is not explained; do not assert it (Q-RS3).
   - Trap: "Previous" cash/cheque columns fill when money is applied to an earlier day's memo (outlet-level multi-cheque goes to the oldest open memo of the outlet), so expected Previous = 0 is wrong when old memos are open.
   - Trap (replay): the oldest open day blocks every later settlement; check Route Status Complete for all earlier days of the distributor before seq 51.
@@ -232,8 +248,15 @@ New from 2026-10-01 G11-1 [observed]:
   - Positive: settle = Edit -> cash Received (prefilled) -> row Save -> "Saved Successfully", green, no Edit; header Payable = Received, Cash Shortage 0.
   - Positive: a delivered but unpaid memo leaves Cash Shortage 0 (stays open on the memo).
   - Positive (Q-DS2 ruling [stated 2026-10-06 QA Team Lead]): after Save, every slip of the route is Posted and fully adjusted memos no longer appear on Deposit Slip collection tabs.
-  - Boundary candidate (not tried): cash Received below Payable -> expect a Cash Shortage; cheque Received cannot be changed.
+  - Boundary candidate (not tried): cash Received below Payable -> expect a Cash Shortage; cheque Received cannot be changed. (answered 2026-10-08: the difference is the DSR Cash Shortage; Received cannot go below zero; cheques cannot be modified [stated 2026-10-08 QA Team])
   - Trap (replay): a Cashmemo Reschedule at seq 32 creates an order due the next working day; the next day's run must allocate, GIN, approve and deliver it before seq 51.
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Positive: after the row Save assert the **Edit link is gone (blank)** and Route Status Complete; never assert a colour (rule 17).
+  - Positive: after settlement assert **every** slip of the route/date is Posted (Q-DS3: anything else is a defect).
+  - Boundary: cash Received = Payable - 1 -> Cash Shortage 1 (DSR Cash Shortage); cash Received 0 accepted, negative refused; cheque Received not editable.
+  - Negative: settle while today's GIN quantity is not matched by the GRN (e.g. GRN not yet approved) -> expect "Stock Mismatch".
+  - Stock shortage: GRN Actual < expected -> after GRN approval the Stock Shortage line shows sale price x shortage qty (UOM) + tax % (Product Configuration); the DSR's Total Shortage on DSR Adjustment Amount rises by the same value [inferred link].
+  - Trap: Fresh Return Value is a Bangladesh feature; in a PK run expect 0.
 
 ## 12. Open questions
 Q: Payable vs Received Amount exactly? | Default: payable = system-suggested, received = entered | Evidence: rsd suggested/entered columns. (2026-10-01: before settlement Payable = Received per slip line; the entry step was not reached.)
@@ -256,9 +279,16 @@ Q-RS1 ANSWERED (procedure part) 2026-10-06: settle = Edit on the route row -> ch
 Q-RS4 evidence 2026-10-06: the QA Team Lead states the check is per PJP [stated 2026-10-06 QA Team Lead]; consistent with zero-activity routes not blocking 02112. Kept open only for the zero-activity detail | Class: B.
 Q-SR1 STILL OPEN 2026-10-06: return 715 not netted at the 10-06 settlement either | Class: B.
 Q-RS3 evidence 2026-10-06: Total Order 6 on 10-06 (Delivered 4 incl. 2012 of 10-05; 2017/2019 cancelled, 2018 rescheduled); composition still not explained | Class: B.
+- **Q-DS3 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: not possible by design; once a route is settled, all associated deposit slips must be Posted and their amounts adjusted against the invoices / cash memos; if not, it is a defect. The 10-01 state (02112 Complete, slips 1131-1136 Un Posted, memos 2004 / 2005 still open) is recorded as defect D-G11-2b-1 (LIVE_FINDINGS.md).
+- **Q48 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: a difference between Payable and Received must show as the DSR Cash Shortage.
+- Q-SR1 PARTLY ANSWERED 2026-10-08 [stated 2026-10-08 QA Team]: credit notes are adjusted at outlet level where the invoice net amount > the credit note amount; Fresh Return (current-order quantity modification) is used in Bangladesh, not in Pakistan; not every scenario appears for every DSR/PJP; the QA team will add these scenarios to the Regress Master test flow. Still open: why the approved, picked returns 713 / 714 / 715 were never netted (3 days) | Class: B.
+- Q-RS4 evidence 2026-10-08 [stated 2026-10-08 QA Team]: the check verifies PJP working date = current date and closing date = N-1; the zero-activity detail is still open | Class: B.
+- Q-RS1 note 2026-10-08: the colour part of the 2026-10-06 answer is superseded by rule 17 (Edit link, not colour) [stated 2026-10-08 QA Team].
 
 ## 13. Sources
 framework_atlas/flows/00680001, 03210001, 03220001, 03250001; group_11.md; DB snd_tr_rsl_dsr_route_settlem, snd_tr_rsd_dsr_route_setl_dt; snd_menu_outline.md.
 - Live walk: `learning_sessions/2026-10-01_G11-PK_session1_log.md` (seq 51) and `learning_sessions/2026-10-01_G11-PK_session1_report.md` (§1, §2, §3 rule 14, §8, §9). Env cnr1dev1, distributor 15108843, route 02112 for 2026-10-01 left unsettled; 2026-09-30 still open.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 51 blocked, 10-05 morning); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 51 Complete, 52, 53, 54, 57). Route 02112 for 2026-10-01 and 2026-10-05 settled (Complete) and closed.
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 51 blocked by the undelivered Reattempt 2012, resolved with GIN 509, then settled by Claude; seq 52-57). Route 02112 for 2026-10-06 settled (Complete) and closed (E).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 12, 15-19; Q48, Q-DS3, Q-SR1, Q-GRN1, BA12).

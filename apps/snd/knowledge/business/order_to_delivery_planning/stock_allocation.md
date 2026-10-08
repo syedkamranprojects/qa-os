@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Stock Allocation and Unallocation: how it works (S&D / DCODE)
 
@@ -17,11 +17,13 @@ Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00130001 (seq 12), 00130002 (seq 18; seq 25 duplicate inactive).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Allocation reserves warehouse stock to booked orders so that the GIN can issue exactly the goods promised. [inferred] Unallocation releases that reservation so the stock can be given to other orders or the order can be edited. [inferred] On cnr1dev1 allocation is automatic at order save, so the manual screen mostly shows the result.
 - Confirmed 2026-10-01: all 6 orders booked that day were already FULL on the Allocated tab; the manual Allocation step only matters for orders that did not get stock at booking (or were unallocated). [observed 2026-10-01 G11-1] (reservation at booking upgraded from [inferred]: booking reserves stock immediately, Allocated up and Closing down; cancellation releases it; see order_booking.md and order_editing_cancellation.md.)
 - G11-3: allocation also gates Order Editing: an order must be **unallocated** before Order Editing lists it (before the GIN) [stated 2026-10-06 QA Team Lead]; and a Reattempt order due today must be **allocated** again before it can go on a GIN [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (Q16 / Q27): in Region 1 both countries allocate stock automatically when an Order / Cash Memo / Invoice is created [stated 2026-10-08 QA Team].
 
 ## 2. Actors and roles
 Auto_Multi_Orga (same session as order booking). [observed]
@@ -93,10 +95,13 @@ G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3]:
 - Unallocate failed for all 9 orders, also for the 8 new ones alone, nothing changed. [observed] (superseded 2026-10-01: Unallocate of one order succeeded with "Process completed successfully" and moved it to the Unallocated tab; the 09-29 failure was not reproduced [observed 2026-10-01 G11-1].)
 - Unallocate and Allocation both ask for confirmation "Are you sure you want to proceed?". [observed 2026-10-01 G11-1]
 - An unallocated order can be allocated again with the manual Allocation button (FULL). [observed 2026-10-01 G11-1]
-- Partial allocation when stock is short: [unknown].
+- Partial allocation when stock is short: [unknown]. (superseded 2026-10-08: order qty <= available -> the required qty is allocated; order qty > available -> **only the available qty** is allocated; no stock -> the order stays **unallocated** and the Cash Memo status is **Order** [stated 2026-10-08 QA Team])
 - G11-2: auto-allocation at save and the one-order Unallocate/Allocate round trip confirmed on a second day [observed 2026-10-05 G11-2].
 - G11-3: the Unallocate / Allocation round trip worked again ("Process completed successfully", both directions) [observed 2026-10-06 G11-3]; "stock not found." not seen (Q26).
 - G11-3: the screen's Order Date is the booking date; a rescheduled order is found under its original booking date [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (Q16 / Q27, allocation logic) [stated 2026-10-08 QA Team]: the system checks the booked quantity against the available stock: <= available -> allocated in full; > available -> the available quantity only (partial); none available -> unallocated, Cash Memo status **Order**.
+- QA team 2026-10-08 (rule 2): after an Order Editing save the system automatically allocates the available stock against the modified order [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 4, confirmed): a Cashmemo Reschedule unallocates the order [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 "Are you sure you want to proceed?" (confirm alert); "Process completed successfully" (allocation, key Stock_Allocation_ASSR); "stock not found." (unallocation; framework key Unallocated_ASSR expects something else, [unknown] what). [observed]
@@ -123,6 +128,9 @@ Reads orders from Order Booking and stock from the DA; day-keyed stock balances.
   - Positive: Unallocate an order with delivery today -> it appears in Order Editing; save the edit -> it is Allocated again.
   - Positive: reschedule an order -> it is on the Unallocated tab under its booking date; allocate it -> it is offered on the GIN of its new delivery date.
   - Trap: search a rescheduled order under its ORDER (booking) date, not today's.
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Boundary: book qty = available -> allocated FULL; available + 1 -> only the available qty allocated (partial); product with 0 available -> unallocated, status Order.
+  - Assert Transaction Inquiry Allocated = min(Ordered, available) (consistent with Q-TI1).
 
 ## 12. Open questions (batched for the BA)
 - Q: Why does Unallocate answer "stock not found." (stock keyed by day, allocation reference missing)? | Default: stock record for the order date missing | Evidence: unexplained. (Update 2026-10-01 G11-1: not reproduced; Unallocate succeeded on a same-day order with stock received that day. Likely stale-day data on 09-29 [inferred]. | Class: B)
@@ -131,9 +139,12 @@ Reads orders from Order Booking and stock from the DA; day-keyed stock balances.
 - Q-OB1: Who or what generated the day's opening balances during 2026-10-01 (0 in the morning, rebuilt from the previous day with allocation released by 16:40)? This decides the Allocated and Closing a check starts from. | Default: unknown | Class: B | Evidence: session report §8. **-> ANSWERED 2026-10-05**: openings are created by the first movement of the day (DA approval) = previous Closing + still-Allocated (see stock_inquiry_and_balances.md, OPEN_QUESTIONS.md).
 - G11-2: Q (Unallocate "stock not found.") not reproduced on a second same-day run (10-05); stays PARTLY (cause [inferred] stale-day data). ANSWERED 2026-10-05 (Q-OB1): see stock_inquiry_and_balances.md.
 - Q26 evidence 2026-10-06: not reproduced on a third day; close if confirmed once more [observed 2026-10-06 G11-3].
+- **Allocation on short stock (Q27) ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: partial allocation of the available quantity; nothing available -> unallocated, status Order.
 
 ## 13. Sources
 atlas flows 00130001, 00130002, group_11.md; TC-OB-01_executed.md (TC-OB-03); ui.md "Order Stock Allocation"; STEP_SHEET_DRAFT_next.md; DB `rpl_pr_sar_stock_alloc_rules`, `snd_tr_cmm_cashmemo_master` (column names).
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 12, 16 (stock effect), 18, 24; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rule 4, §5, §7, §8.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 12, 18).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 12, 15 preparation, 18, seq 51 resolution).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 2, 4; Q16 / Q27).

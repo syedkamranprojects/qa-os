@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [goods_issue_note, cashmemo_reschedule_and_status, sales_return]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Deposit slips: banking the cash and cheques collected (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Last updated: 2026-10-01 (consolidated with learning session G11-1, seq 39-46). Source flows: 03230001 (seq 39), 03240001 (40), 03260001 (41), 00140001 (42), 00140004 (44), 00140005 (46); related 03220001 (53), 03250001 (54). ~~No live replay of any exists~~ (superseded 2026-10-01: all six walked live in G11-1 on cnr1dev1, slips 1131-1136). The DB holds no 010104 deposit-slip rows (4 rows, all org 0101) [db, before the walk].
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 WITH the QA Team Lead, slips 1143-1148, posted by the settlement Claude performed); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A deposit slip records the money a DSR (salesman, identified by his daily PJP) hands in after delivering: how much of the cash and/or cheques collected on cash memos (invoices) is being banked. It ties collected money to specific cash memos so each outlet's receivable is reduced [inferred from table links: slip detail -> snd_tr_cmm_cashmemo_master]. It follows GIN/delivery and sales return and precedes Route Settlement (seq 51), which reconciles the day's collection per PJP. [inferred; order confirmed observed 2026-10-01 G11-1: slips made after Cashmemo Status (delivered) and Sales Return pick, and each slip appears as a collection line in Route Settlement]
@@ -24,6 +25,8 @@ A deposit slip records the money a DSR (salesman, identified by his daily PJP) h
 - Receivable balances do not move when a slip is saved or allocated; they move at "posting", which has not been seen yet and is presumed to happen at Route Settlement [observed 2026-10-01 G11-1 for "no movement"; posting moment inferred, Q-DS1].
 - G11-2b (answers Q-DS1): **posting happens at Route Settlement**: the six 2026-10-05 slips turned from Un Posted to Posted once route 02112 was settled; only then did the cash memos' Received / Balance and Transaction Inquiry Offset change [observed 2026-10-05 G11-2b].
 - G11-3: same again on 2026-10-06: slips 1143-1148 Un Posted until route 02112 was settled, then Posted [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (rule 12, correction of the process; the QA team answered N to "slips are not blocked ... reconciliation happens at Route Settlement"): in production the slips are **not typed by hand**: the DSR collects cash/cheques in the **Delivery App**, syncs the device at the end of the day, and the system **auto-creates Cash / Cheque Deposit Slips (Unposted)** in the Back Office; the accountant reconciles them with the DSR at Route Settlement, after which they turn **Posted** [stated 2026-10-08 QA Team]. The Back Office Deposit Slip screen is the feature to **enter collections manually** [stated 2026-10-08 QA Team] (rule 10); group 11 exercises only this manual path. (superseded 2026-10-08 in part: the Purpose above, "the money a DSR hands in after delivering", describes the manual path only.)
+- Reading of the rule-12 disagreement [inferred]: the QA team's comment corrects the process description; it does not say that the manual screen blocks a memo already allocated on another unposted slip. The observed non-blocking (10-01, 10-05, 10-06) and the 2026-10-06 Team Lead ruling (Q-DS2) are kept; see OPEN_QUESTIONS.md contradiction 32.
 
 ## 2. Actors and roles
 Maker Auto_Multi_Orga on all six flows (same session, no user switch) [db: group 11; observed 2026-10-01 G11-1, segment 7]. An approval row "Deposit Slip Approval" (00140002) exists but is inactive (seq 43/45/47) [db], so no approval step is exercised; whether slips need approval is [unknown].
@@ -31,6 +34,7 @@ Maker Auto_Multi_Orga on all six flows (same session, no user switch) [db: group
 - Checker behaviour on this screen not walked [unknown].
 - G11-2: Maker Auto_Multi_Orga made all six slips of 2026-10-05 (seq 39-46) in one login [observed 2026-10-05 G11-2].
 - G11-3: Maker Auto_Multi_Orga made slips 1143-1148 (seq 39-46) in one login; no approval step [observed 2026-10-06 G11-3]. The amounts were chosen by Claude (the user said "proceed" without amounts), adapted from the 10-05 pattern.
+- QA team 2026-10-08: in production the slips are created by the system from the DSR's mobile sync (role 0003 DSR/PJP mobile user); the Back Office screen is used for manual entry [stated 2026-10-08 QA Team].
 
 ## 3. Documents and master data
 - Header `snd_tr_dsl_deposit_slip`: org, entity type, distributor code, serial `tdsl_deposit_slip_srno` (auto-generated, shown as "Deposit Slip"). Holds PJP daily number, instrument type, bank, branch, amount, date, status (default `I`) [db]. Serial is a plain running number per distributor: 1128-1130 existed, today 1131-1136 [observed 2026-10-01 G11-1].
@@ -67,7 +71,11 @@ Menu: Transaction > Receivable > Deposit Slip (`DYL_201802`) [db; observed 2026-
 - G11-3: setting header dropdowns quickly one after another (PJP-DSR, Type) cleared earlier ones; set them one at a time with the dropdown arrow. Bank_Name in the grid: type part of the name, then pick the option from the opened list [observed 2026-10-06 G11-3].
 - G11-3: Tab on a Deposit-Amount cell can tick the next row too; untick stray rows before Save All [observed 2026-10-06 G11-3].
 - G11-3: a page reload sends the app back to the menu; reopen Deposit Slip from the menu [observed 2026-10-06 G11-3].
-- G11-3 **Outstanding Outlet totals look doubled** for some outlets: outlet 05 Net / Balance / Un Posted 202,322 although its only open memo (2016) is 101,161; outlet 04 Net 257,570 vs its open memos 2015 76,156 + 2009 90,707 = 166,863 (257,570 = 166,863 + 90,707, as if 2009 counted twice); outlets 07 and 11 correct [observed 2026-10-06 G11-3]. **This is a known DISPLAY DEFECT** [stated 2026-10-06 QA Team Lead; Q-DS4 answered]: do not assert outlet-level totals (Net / Balance / Un Posted on Outstanding Outlet); take amounts from Outstanding Cash memos or Transaction Inquiry.
+- G11-3 **Outstanding Outlet totals look doubled** for some outlets: outlet 05 Net / Balance / Un Posted 202,322 although its only open memo (2016) is 101,161; outlet 04 Net 257,570 vs its open memos 2015 76,156 + 2009 90,707 = 166,863 (257,570 = 166,863 + 90,707, as if 2009 counted twice); outlets 07 and 11 correct [observed 2026-10-06 G11-3]. **This is a known DISPLAY DEFECT** [stated 2026-10-06 QA Team Lead; Q-DS4 answered]: do not assert outlet-level totals (Net / Balance / Un Posted on Outstanding Outlet); take amounts from Outstanding Cash memos or Transaction Inquiry. (under clarification 2026-10-08: the QA team answered N to this rule, with a comment about Transaction Inquiry ("the offset amount has been fully adjusted, but it does not impact the net amount ... showing the correct behavior") that does not address the outlet totals; follow-up sent 2026-10-08; the display-defect ruling and the "do not assert outlet totals" rule are kept until clarified, Q-DS4)
+- QA team 2026-10-08 (rule 10, tabs after a slip is created) [stated 2026-10-08 QA Team]:
+  1. **Outstanding Cash Memos**: all delivered orders whose net amount is not yet fully adjusted; search by Cash Memo number and record the payment received by cash or cheque.
+  2. **Outstanding Outlets**: outlets that have outstanding cash memos; enter the collection amount at outlet level; on Save the system adjusts it automatically against that outlet's outstanding cash memos (FIFO per the 2026-10-06 ruling).
+  3. **Deposit Slip Detail**: the collections entered and assigned to the slip, for review.
 
 ## 5. Process
 Framework view [db]:
@@ -152,7 +160,7 @@ Outstanding Cash memos of PJP 02112 after settlement [observed 2026-10-05 G11-2b
 - **Posting at settlement**: Un Posted -> Posted, Received/Balance updated, Offset filled in Transaction Inquiry; fully received memos (2010, 2011) drop out of the outstanding list (what seq 54 asserts with its "no data" check) [observed 2026-10-05 G11-2b].
 - **Unallocated remainder trimmed at posting**: slip 1139 Deposit Amount 1,000 -> 600 (= Adjusted) [observed 2026-10-05 G11-2b; rule inferred from one slip].
 - **Outlet-level multi-cheque is applied to the OLDEST open memo of the outlet** (1140 -> COL26000002003 of 10-01, not today's 2009) [observed 2026-10-05 G11-2b]; Route Settlement shows it as "Previous" cheque collection.
-- **10-01 slips 1131-1136 still Un Posted** after route 02112 for 10-01 became Complete (1133 still Deposit 1,000 / Adjusted 600); 09-29 slips 1125-1130 Posted [observed 2026-10-05 G11-2b; Q-DS3].
+- **10-01 slips 1131-1136 still Un Posted** after route 02112 for 10-01 became Complete (1133 still Deposit 1,000 / Adjusted 600); 09-29 slips 1125-1130 Posted [observed 2026-10-05 G11-2b; Q-DS3]. (superseded 2026-10-08: not a valid state: a settled route must have all its slips Posted; recorded as DEFECT D-G11-2b-1 [stated 2026-10-08 QA Team], Q-DS3 answered)
 - Framework expected value for seq 53 (Received Amount, filter GIN 507 + outlet 04): 2,600 on 2009 [observed 2026-10-05 G11-2b].
 
 G11-3 slips of 2026-10-06 [observed 2026-10-06 G11-3], with the state after the settlement:
@@ -188,7 +196,7 @@ Outstanding Cash memos of PJP 02112 after settlement (seq 54) [observed 2026-10-
 | "Un Posted" | Route Settlement (presumed) | "Posted" | Maker/process | [inferred; older slips 1128-1130 are Posted; Q-DS1] |
 | detail row | Cheque Status update | P/L/R/B/C/A | Maker | [db] see cheque_status.md |
 | "Un Posted" | Route Settlement of the slip's route/date | "Posted" (Received/Balance updated, remainder trimmed, header read-only) | Maker (settlement) | [observed 2026-10-05 G11-2b] (upgrades the [inferred] row above) |
-| "Un Posted" (10-01 slips) | route of 10-01 shown Complete | still "Un Posted" | ? | [observed 2026-10-05 G11-2b; Q-DS3] |
+| "Un Posted" (10-01 slips) | route of 10-01 shown Complete | still "Un Posted" | ? | [observed 2026-10-05 G11-2b; Q-DS3] (2026-10-08: invalid by design = defect D-G11-2b-1 [stated 2026-10-08 QA Team]) |
 | "Un Posted" (slips 1143-1148) | Route Settlement of 02112 for 2026-10-06 (by Claude) | "Posted" (1145 trimmed to 600) | Maker (settlement) | [observed 2026-10-06 G11-3] |
 
 ## 8. Rules and validations
@@ -209,6 +217,9 @@ Outstanding Cash memos of PJP 02112 after settlement (seq 54) [observed 2026-10-
 - G11-3: **duplicate cheque numbers are allowed because a cheque inventory is not maintained** in DCODE (not a defect) [stated 2026-10-06 QA Team Lead]; observed a third time (1234567 on 1146 and 1147) [observed 2026-10-06 G11-3]. (superseded 2026-10-06: the "Defect candidate" note on duplicate cheque numbers above no longer applies; the double-allocation half stays open, Q-DS2.)
 - G11-3: the outlet multi-cheque (1146) again did not land on today's memos of the outlet (2015, 2009 unchanged by it) and showed as Previous cheque in settlement: consistent with the oldest-open-memo rule [inferred 2026-10-06; observed 2026-10-05]; whether intended is Q-DS5. (superseded 2026-10-06: intended, FIFO by design, see next line.)
 - **Two collection modes** [stated 2026-10-06 QA Team Lead] (Q-DS5 answered): (1) **Outstanding Cash memos** tab = every delivered invoice whose Net Amount > Balance (still open); the user collects per invoice according to the slip's deposit type (Cash / Cheque). (2) **Outstanding Outlet** tab = every outlet with outstanding delivered invoices; the user enters cash or cheques per outlet and the system **auto-adjusts the amount onto that outlet's invoices FIFO (oldest invoice first)**. So 1140 -> COL26000002003 (10-05) and 1146 -> an older outlet-04 memo (10-06) are intended behaviour.
+- QA team 2026-10-08 (rule 11): the system allows a duplicate cheque number [stated 2026-10-08 QA Team] (confirms the 2026-10-06 ruling).
+- QA team 2026-10-08 (Q-DS3): once a route is settled, ALL its deposit slips must be Posted and their amounts adjusted against the invoices / cash memos; otherwise it is a defect [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 14): when a slip with cheques is posted the cheque amount is adjusted against the invoice; PK and BD mark the cheques Cleared/Realized immediately at posting (cheque_status.md) [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 "Saved successfully" and "Record saved successfully!" on save; others as in section 8 [db: atlas toast history, not PK-specific]. Confirmed and refined [observed 2026-10-01 G11-1]:
@@ -255,8 +266,12 @@ New from 2026-10-01 G11-1 [observed]:
   - Do NOT expect a second allocation of an already fully allocated memo to be blocked before settlement (by design [stated 2026-10-06 QA Team Lead]); instead assert its Un Posted Amount, and after settlement assert that fully adjusted memos disappear from the collection screens (Outstanding Cash memos / Outstanding Outlet).
   - Expected seq 40 amount follows the day's data: the workbook's 119,370 belongs to the cancelled outlet-07 order; use the remaining open memo (108,202 on 10-06).
   - Positive (Outstanding Outlet, 2026-10-06 ruling [stated 2026-10-06 QA Team Lead]): assert the FIFO target memo: the outlet amount is adjusted onto the outlet's OLDEST open invoice first (may be another day's), then the next; today's memo receives nothing while older ones are open.
-  - Known defect (display): Outstanding Outlet totals can be doubled [stated 2026-10-06 QA Team Lead, Q-DS4]; never assert outlet-level totals, assert per memo on Outstanding Cash memos or in Transaction Inquiry.
+  - Known defect (display): Outstanding Outlet totals can be doubled [stated 2026-10-06 QA Team Lead, Q-DS4]; never assert outlet-level totals, assert per memo on Outstanding Cash memos or in Transaction Inquiry. (under clarification 2026-10-08, Q-DS4; rule kept)
   - Trap: Tab in the Deposit-Amount cell may tick the next row; check ticks before Save All.
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Positive: after Route Settlement, every slip of that route/date is Posted (Q-DS3; Un Posted after Complete = defect D-G11-2b-1).
+  - Coverage note: the production path (mobile sync -> auto Unposted slips) is not exercised by group 11, which types slips on the manual screen; a case for auto-created slips needs a DSR mobile sync [inferred].
+  - Outstanding Outlet totals: still do not assert them (Q-DS4 under clarification).
 
 ## 12. Open questions
 Q: Does a deposit slip need checker approval? | Default: no | Evidence: 00140002 inactive. (2026-10-01: Forward/Reject buttons are on the screen but unused in group 11.)
@@ -274,9 +289,14 @@ Q-DS2 PARTLY ANSWERED 2026-10-06: duplicate cheque numbers are allowed because a
 Q-DS3 evidence 2026-10-06: 2005 and 2004 still carry Un Posted 119,370 / 101,161 from the 10-01 slips after the 10-06 settlement [observed 2026-10-06 G11-3].
 Q-DS4 (new 2026-10-06): Why do Outstanding Outlet totals look doubled (outlet 05: 202,322 vs its only open memo 101,161; outlet 04: Net 257,570 vs 166,863 = 2015 + 2009, i.e. 2009 counted twice; outlets 07 and 11 correct)? | Class: C (QA lead) | Evidence: seq 42 Outstanding Outlet tab [observed 2026-10-06 G11-3]. **-> ANSWERED 2026-10-06: a DISPLAY DEFECT** [stated 2026-10-06 QA Team Lead]; rule: do not assert outlet-level totals, use Outstanding Cash memos / Transaction Inquiry for amounts.
 Q-DS5 (new 2026-10-06; **ANSWERED 2026-10-06** [stated 2026-10-06 QA Team Lead]: yes, the Outstanding Outlet mode auto-adjusts FIFO, oldest invoice first; the Outstanding Cash memos mode collects per invoice): Is it intended that an outlet-level multi-cheque is applied to the outlet's OLDEST open memo (10-05: 1140 -> 2003 of 10-01; 10-06: 1146 not on 2015/2009, counted as Previous) rather than today's memo? | Default: yes, oldest first; expected values computed from the outlet's open memos | Class: C (QA lead) | Evidence: seq 53 10-05 [observed]; 10-06 [inferred from Outstanding Cash memos page 1 and Route Settlement Previous 1,000].
+- **Q-DS3 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: not possible by design; a settled route must have all slips Posted and adjusted; the 10-01 state (1131-1136 Un Posted, 2004 / 2005 open) is a DEFECT (LIVE_FINDINGS.md D-G11-2b-1).
+- Q-DS4 **answer under clarification (follow-up sent 2026-10-08)**: the QA team answered N to "doubled totals = display defect" with a comment about the Transaction Inquiry offset (offset fully adjusted, net not impacted, current logic correct), which does not explain the doubled outlet totals. The 2026-10-06 display-defect ruling is kept until clarified | Class: C (QA lead).
+- Rule 12 (QA team N) recorded as a process correction (mobile sync creates the slips); the non-blocking of manual slips is unchanged (contradiction 32 in OPEN_QUESTIONS.md).
 
 ## 13. Sources
 framework_atlas/flows/03230001, 03240001, 03260001, 00140001, 00140004, 00140005, 03220001, 03250001 (.md/.json); framework_atlas/group_11.md; screens_db/DYL_201802.json; DB snd_tr_dsl_deposit_slip, snd_tr_dsd_deposit_slip_dtl, glb_pr_pym_paymentmode, snd_tr_cmm_cashmemo_payment.
 - Live walk: `learning_sessions/2026-10-01_G11-PK_session1_log.md` (seq 39, 40, 41, 42, 44, 46 and the "Deposit slips today" table) and `learning_sessions/2026-10-01_G11-PK_session1_report.md` (§3 rule 13, §6, §7, §8). Env cnr1dev1, distributor 15108843, slips 1131-1136 left Un Posted.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 39, 40, 41, 42, 44, 46); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 51, 52, 53, 54). Slips 1137-1142 Posted; 1131-1136 still Un Posted.
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 39, 40, 41, 42, 44, 46, 51, 53, 54). Slips 1143-1148 Posted; 1131-1136 still Un Posted.
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 10-14; Q-DS3; Q-DS4 follow-up).

@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, goods_issue_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Order Editing and Order Cancellation: how it works (S&D / DCODE)
 
@@ -17,12 +17,14 @@ Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 00020001 (seq 15), 00040001 (seq 16), 00840001 Order Editing After GIN (seq 29), 00850001 Order Cancellation After GIN (seq 31); validation flows 03190001 (seq 68), 03740001 (seq 70).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead. **Seq 15 (Order Editing before the GIN) was executed for the first time.**
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Order Editing changes quantities of a booked order (e.g. customer wants fewer cases) with a reason, recalculating gross, discount, tax and net. Order Cancellation withdraws an order entirely with a cancellation reason. Both exist before the GIN (seq 15/16) and again after the GIN (seq 29/31), where the business rule is different because stock has been issued. [inferred]
 - Live 2026-10-01: before the GIN, cancellation releases the order's reserved stock. After an approved GIN both editing and cancellation are still allowed, with no warning, and **move no stock**: the goods are with the delivery man and come back through the Goods Return Note. [observed 2026-10-01 G11-1; GRN return observed on the GRN page]
 - G11-2: confirmed on a second day: edit (COL26000002009) and cancel (COL26000002013) after the approved GIN 507, no warning, same totals as 10-01 [observed 2026-10-05 G11-2].
 - G11-3: the QA Team Lead's rules make the before-GIN edit possible: **Order Editing lists only UNALLOCATED orders whose delivery date is today**; so run Delivery Date Change (to today) first, then Unallocate the order, then edit [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]. **Saving the edit re-allocates the order** [observed]. After the GIN is approved, an order can be edited **without** unallocation (its allocation was consumed by the GIN) [stated 2026-10-06 QA Team Lead; observed].
+- QA team 2026-10-08 (rules 1-3, Q-OE3): Order Editing lists only unallocated orders (delivery date today); the user can **only reduce** the order quantity; after Save the system automatically allocates the available stock against the modified order/invoice [stated 2026-10-08 QA Team]. Editing a cash memo **after the GIN approval** is a Pakistan feature controlled by the ORGA parameter **CASHMEMO_EDIT** (CM_Edit): **Y** = editing allowed (quantity reduction only, modification reason mandatory) and on Save the system **reduces the corresponding quantity in the approved GIN**, so the stock-out quantity matches the modified order; **N** = cash memo editing disabled [stated 2026-10-08 QA Team]. Bangladesh handles editing before/after the GIN differently (not described) [stated 2026-10-08 QA Team].
 
 ## 2. Actors and roles
 Auto_Multi_Orga. [observed in group 11] Whether a checker must approve edits: [unknown] (no approval flow in the chain).
@@ -82,7 +84,7 @@ G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3 unless tagged]:
 ## 6. Outputs and effects
 Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 checks Charges Amount and Tax Amount after editing). Cancellation: order status Cancelled 03 [db]; stock effect (release of allocation): [inferred], not observed. Neither step has been executed live. (superseded 2026-10-01: both executed live, effects below. [observed 2026-10-01 G11-1])
 - **Edit after the GIN (COL26000002003)**: new totals **Gross 96,840.34, Discount -20,718.07, Tax 14,584.79, Net 90,707.00 = workbook Order Editing Detail3 exactly**; promotions are re-applied on the smaller basket (line 1 discount -13,198.30); Demand stays 5/0/4, Order 4/0/0; same Document No. [observed 2026-10-01 G11-1]
-- **Edit after the GIN: no stock effect**: 62740537 at Auto Main still Out 35, Allocated 63, Closing 226. The 3 CS cut are with the delivery man and come back on the GRN (seq 48 suggested 19 CS = 7 + 7 + 3 + 2, including this 3). [observed 2026-10-01 G11-1]
+- **Edit after the GIN: no stock effect**: 62740537 at Auto Main still Out 35, Allocated 63, Closing 226. The 3 CS cut are with the delivery man and come back on the GRN (seq 48 suggested 19 CS = 7 + 7 + 3 + 2, including this 3). [observed 2026-10-01 G11-1] (contradicted 2026-10-08: with CASHMEMO_EDIT = Y the save should reduce the approved GIN quantity [stated 2026-10-08 QA Team]; observation kept; contradiction 28 / Q-OE5)
 - The edited Net shows elsewhere: Order Cancellation lists COL26000002003 with Net 90,707; Cashmemo Status shows 90,707.06 (line sum). [observed 2026-10-01 G11-1]
 - **Cancellation before the GIN (COL26000002008)**: status Cancelled; Delivery Date stays 2026-10-07; no GIN. **Reserved stock is released**: 62740537 Allocated rose only by 5 open orders x 7 CS (63 -> 98) and Closing went 261 -> 226; the cancelled order's 7 CS returned to available stock. (stock release upgraded: [observed 2026-10-01 G11-1], was [inferred])
 - **Cancellation after the GIN (COL26000002007)**: status Cancelled, GIN No 506 kept, Delivery Date 2026-10-01. **No stock effect** (62740537 Out 35 / Allocated 63 / Closing 226 unchanged, same for all five SKUs); the 7 CS remain "out" with the delivery man until the GRN (seq 48 returned them). It is left off the Cashmemo Status list and the Route Settlement order count. [observed 2026-10-01 G11-1]
@@ -90,8 +92,9 @@ Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 
 - G11-2: cancel after GIN (COL26000002013): no warning, no stock movement; its 7 CS came back on GRN 247; the order left Cashmemo Reschedule/Status lists [observed 2026-10-05 G11-2].
 - G11-3 edit before the GIN (seq 15, COL26000002015): line 62740537 61,691.72 / -13,198.36 / 8,728.81 / 57,222.17; order **96,840.34 / -20,718.07 / 14,584.79 / 90,707** (= workbook and 10-01/10-05 after-GIN edits); discounts on the other lines re-priced (20050310 -3,922.25 -> -4,006.66) [observed 2026-10-06 G11-3].
 - G11-3: **the edit save re-allocated the order** (2015 back on the Allocated tab, FULL) [observed 2026-10-06 G11-3]; the GIN then issued 4 CS for it (32 CS = 4 + 4 x 7).
-- G11-3 edit after the GIN (seq 29): line 46,268.79 / -10,020.95 / 6,524.61 / 42,772.45; order **81,417.41 / -17,633.48 / 12,371.66 / 76,155.59**; no stock movement; the cut quantity came back on GRN 248 (17 CS) [observed 2026-10-06 G11-3].
+- G11-3 edit after the GIN (seq 29): line 46,268.79 / -10,020.95 / 6,524.61 / 42,772.45; order **81,417.41 / -17,633.48 / 12,371.66 / 76,155.59**; no stock movement; the cut quantity came back on GRN 248 (17 CS) [observed 2026-10-06 G11-3]. (contradicted 2026-10-08, see Q-OE5)
 - G11-3 cancel before GIN (2017) and after GIN (2019): both "Order Cancelled Successfully"; 2017 not offered on the GIN; 2019's 7 CS came back on GRN 248 [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (stated effect, not yet observed): edit after GIN approval with CASHMEMO_EDIT = Y -> approved GIN quantity reduced by the cut, stock-out = modified order quantity [stated 2026-10-08 QA Team]. **Contradiction**: on three walks (10-01 COL26000002003 cut 3 CS, 10-05 COL26000002009 cut 3 CS, 10-06 COL26000002015 cut 1 CS) Stock Inquiry Out / Allocated / Closing did not move and the cut quantity came back on the GRN Suggested [observed 2026-10-01, 2026-10-05, 2026-10-06]. Either CASHMEMO_EDIT is not Y on cnr1dev1 (but editing after the GIN was allowed), the GIN adjustment is not visible in Stock Inquiry, or the stated behaviour differs from the build. Check: Q-OE5 (OPEN_QUESTIONS.md contradiction 28).
 
 ## 7. Statuses and transitions
 | from | action | to | by | tag |
@@ -113,7 +116,7 @@ Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 
 - Cancellation needs a reason per order row. [atlas]
 - Order edit must be validated before save (ORD_EDIT_VALD_ASSR then ORD_EDIT_SAVE_ASSR). [atlas] (upgraded: [observed 2026-10-01 G11-1]: Validation is followed by Save.)
 - **Order Cancellation dates filter the ORDER date; Order Editing dates filter the DELIVERY date.** [observed 2026-10-01 G11-1]
-- **Editing and cancelling are allowed after the GIN is approved, with no warning**, and move no stock. [observed 2026-10-01 G11-1; business control question Q-OE3]
+- **Editing and cancelling are allowed after the GIN is approved, with no warning**, and move no stock. [observed 2026-10-01 G11-1; business control question Q-OE3] (superseded 2026-10-08 as a rule: editing after the GIN is allowed only when ORGA parameter CASHMEMO_EDIT = Y, quantity reduction only, reason required, and the save reduces the approved GIN quantity [stated 2026-10-08 QA Team]; the "move no stock" observation conflicts with the stated GIN adjustment, Q-OE5)
 - Orders on an approved GIN (Ready to dispatch/Packed) are still offered for cancellation. [observed 2026-10-01 G11-1]
 - The SKU filter on Order Editing does not limit the edit page (all lines are shown). [observed 2026-10-01 G11-1]
 - **Display defect**: with the auto-filled SKU filter (69997598) the Order Editing grid shows Gross of that SKU only (76.72) beside the whole-order Discount -29,971.83 and Tax 21,234.24, giving **Net -8,660.87**. [observed 2026-10-01 G11-1]
@@ -123,10 +126,13 @@ Edit: new amounts on the order, reason recorded; tax/charges recomputed (seq 68 
 - G11-2: the SKU-filter display defect reproduced: grid Gross 76.72 (SKU 69997598 only) with whole-order Discount/Tax -> Net -8,660.8 on COL26000002009 [observed 2026-10-05 G11-2].
 - G11-2: edit/cancel after an approved GIN allowed without warning (second day; Q-OE3) [observed 2026-10-05 G11-2].
 - G11-3 (answers Q-OE1, Q-OE2, Q-OE4; supersedes the G11-1 note "allocation does not hide orders" and the G11-2 wording "delivery date = today" as the only condition): **Order Editing lists only orders that are UNALLOCATED and whose delivery date is today** (the Date From/To range = today). Procedure: Delivery Date Change to today, then Unallocate, then edit [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3: with delivery today but still allocated nothing was listed; after unallocation 2015 was listed]. (superseded 2026-10-06: the G11-1 rule "allocation does not hide orders" was based on orders after Delivery Date Change on an approved GIN, where the allocation had been consumed; see next rule.)
-- G11-3: **after GIN approval an order can be edited without unallocation** (allocation consumed by the GIN; status Ready to dispatch/Packed) [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
+- G11-3: **after GIN approval an order can be edited without unallocation** (allocation consumed by the GIN; status Ready to dispatch/Packed) [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]. (superseded 2026-10-08: the QA team disagreed (rule 3, N): editing after GIN approval is governed by CASHMEMO_EDIT (Y = allowed with quantity reduction and reason; the approved GIN quantity is adjusted on save; N = disabled) [stated 2026-10-08 QA Team])
 - G11-3: **Order Editing Save re-allocates the edited order** [observed 2026-10-06 G11-3].
 - G11-3: SKU-filter display quirk again after GIN (grid Gross 76.72 beside whole-order discount/tax) [observed 2026-10-06 G11-3].
 - G11-3: edit/cancel after the approved GIN allowed again without warning (third day; Q-OE3) [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (rule 1, confirmed): only unallocated orders with delivery date today appear on Order Editing [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 2): the user can **only reduce** the order quantity; after Save the system automatically allocates the available stock against the modified order/invoice [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 3 correction, Q-OE3): editing after the GIN approval depends on ORGA parameter **CASHMEMO_EDIT** (CM_Edit): Y = allowed, quantity reduction only, modification reason mandatory, Save reduces the approved GIN quantity; N = cash memo editing disabled [stated 2026-10-08 QA Team]. Pakistan uses it (Y).
 
 ## 9. Messages
 Observed: none (flows not reachable). Framework keys: ORD_EDIT_VALD_ASSR, ORD_EDIT_SAVE_ASSR, row message ELEVAL on the cancellation row, TSTMSG. Draft: "Order Cancelled Successfully" [unverified]. (superseded 2026-10-01: messages observed below.)
@@ -168,6 +174,11 @@ Needs an order from Order Booking (order 04 for editing, order 07 for cancellati
   - Positive (seq 29): after GIN approval the order is listed without unallocation.
   - Trap (replay): if seq 15 and seq 29 both edit the same order, seq 29's workbook data (4 CS) is already applied; downstream expected values (seq 68-71, return) change (3 CS on 10-06).
   - Trap (framework drift): seq 15 needs Delivery Date Change and an Unallocate before it; group 11 orders them 15 -> 18 -> 19 (FRAMEWORK_DRIFT.md).
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Negative: increase an order quantity on Order Editing -> expected to be refused (only reduction allowed); message not yet observed.
+  - Negative (after GIN): Save without a modification reason -> refused.
+  - Configuration case: with CASHMEMO_EDIT = N the after-GIN edit is disabled; with Y it is allowed. Record the parameter value of the environment before any after-GIN case.
+  - Stock check after an after-GIN edit: expected (stated) approved GIN quantity reduced; observed so far no Stock Inquiry movement and the cut back on the GRN. Do not assert either until Q-OE5 is settled.
 
 ## 12. Open questions (batched for the BA)
 - Q: How does an allocated order reach Order Editing / Cancellation (unallocate first? delivery-date range?) | Default: unallocate first, range covers delivery date | Evidence: outlet list empty. **ANSWERED 2026-10-01 G11-1**: by the delivery-date range; Order Editing Date From/To filter the delivery date, allocation does not hide orders (the empty list of 2026-09-29 was a default range of today vs delivery 10-05). [observed]
@@ -185,9 +196,13 @@ Needs an order from Order Booking (order 04 for editing, order 07 for cancellati
 - Q-OE2 **ANSWERED 2026-10-06**: the QA Team Lead chose COL26000002015 (outlet 1000000004) for seq 15 (and again for seq 29), COL26000002017 (outlet 07) for seq 16, COL26000002019 (outlet 06) for seq 31 [stated 2026-10-06 QA Team Lead].
 - Q-OE4 **ANSWERED 2026-10-06**: only unallocated orders with delivery date = today are listed (a future delivery date is not listed even inside the range) [stated 2026-10-06 QA Team Lead; observed 2026-10-05, 2026-10-06].
 - Q-OE3 still open: edit/cancel after the approved GIN allowed again on 2026-10-06 (2015, 2019) [observed 2026-10-06 G11-3].
+- **Q-OE3 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: editing after the GIN approval is a business feature in Pakistan, controlled by CASHMEMO_EDIT (CM_Edit) = Y (otherwise disabled): quantity reduction only, reason mandatory, and on Save the system reduces the corresponding stock quantity in the approved GIN so the stock-out matches the modified order. Not a defect. (Cancellation after the GIN was not addressed by the answer.)
+- **Q-OE5 (new 2026-10-08)**: Is CASHMEMO_EDIT = Y on cnr1dev1 (org 010104), and does an after-GIN edit really reduce the approved GIN quantity? Three walks saw no stock movement and the cut quantity returned on the GRN. | Default: the stated rule (GIN reduced) is the business intent; until re-observed, assert only the order totals | Class: B | Evidence: 2026-10-01 (2003), 2026-10-05 (2009), 2026-10-06 (2015) [observed]; rule [stated 2026-10-08 QA Team]; LIVE_LEARNING_CHECKLIST L42.
 
 ## 13. Sources
 atlas flows 00020001, 00040001, 00840001, 00850001, 03190001, 03740001; group_11.md; STEP_SHEET_DRAFT_next.md (rows 15, 16); ui.md "Order Editing / Order Cancellation"; step_labels "Order Editing", "Order Cancellation".
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 15 (skipped, filter finding), 16, 29, 31, 48 (GRN reconciliation); `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 7 and 11, §6, §8.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 15 attempt, 16, 29, 31); learning_sessions/2026-10-05_G11-PK_session2_report.md §3; screenshots learning_sessions/screenshots/order_editing_header_filters.png, order_editing_edit_page_line1.png.
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 15 first execution, 16, 18, 19, 29, 31).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 1-3; Q-OE3).

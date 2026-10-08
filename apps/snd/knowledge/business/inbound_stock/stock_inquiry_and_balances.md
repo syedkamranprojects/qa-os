@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [dispatch_advice, da_loss_approval, order_booking, stock_allocation, goods_issue_note, goods_return_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Stock Inquiry and stock balances: how it works (S&D / DCODE)
@@ -18,6 +18,7 @@ Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 02800001 (group 11 seq 9), 02810001 (seq 24), 02820001 (seq 50), 02830001 (seq 60). G11-1 learning walk: snapshots before/after DA 1358, after orders, after GIN 506, after GRN 246.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Stock Inquiry shows, per warehouse, product, batch and stock type, how much stock the distributor holds on a chosen day: what it opened with, what came in, went out, is promised to orders (Allocated) and what remains. It is the stock controller's check that DA, GIN, GRN and adjustments did what they should (superseded 2026-10-01 G11-1: role wording; the check is done by the Maker Auto_Multi_Orga, there is no separate stock-controller role). It is read-only except for the button Generate Opening Balances [observed].
@@ -155,6 +156,10 @@ No document status. Day states: balances exist for a day or not. 2026-09-30 had 
 - Rules of G11-1 (DA In = received, cancel before GIN releases, GIN Allocated -> Out with Closing unchanged, GRN In with Out unchanged, loss approval no row) all confirmed on 2026-10-05 [observed 2026-10-05 G11-2].
 - G11-3: with Opening 0 the day's ATP equals only the day's receipts (62740537 ATP 80 at booking) [observed 2026-10-06 G11-3]; earlier days' closings were not usable that day.
 - G11-3: an extra allocation (Reattempt order) lowers the ATP before its GIN is approved (65 -> 58) [observed ATP 2026-10-06 G11-3].
+- QA team 2026-10-08 (rule 6, confirmed): GIN approval moves Allocated to Out; GRN approval posts In; SAN approval posts Out. **Stock Reconciliation**: the current day's stock is reconciled and cleared so that the correct opening stock is carried forward to the next day [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 7, confirmed): **Stock Carry Forward**: the closing stock of the previous working day is carried forward as the opening stock of the next working day [stated 2026-10-08 QA Team] (confirms the 2026-10-06 ruling; Opening 0 after a day with closing stock remains the environment issue E-G11-3-1).
+- QA team 2026-10-08 (Q58): stock is added or deducted on the document's approval action [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (Q-OE5): an edit after the GIN approval (CASHMEMO_EDIT = Y) is stated to reduce the approved GIN quantity [stated 2026-10-08 QA Team]; three walks saw no Stock Inquiry movement [observed]; open.
 
 ## 9. Messages
 No toast on Show Inquiry. Grid text "No data" when empty [observed]. G11-1: no toast on any of the six Show Inquiry clicks [observed 2026-10-01 G11-1].
@@ -199,9 +204,12 @@ ANSWERED 2026-10-05 (Q-OB1, G11-2): openings are created by the first movement o
 Q-OB2: Why did the first DA approval of 2026-10-01 create a single row with Opening 0 (rewritten to 160 = 97 + 63 later that day), while on 2026-10-05 it created all 39 rows with Openings at once; and does a non-DA first movement (GIN approval, SAN) create the day's rows the same way? | Default: rule of 2026-10-05 (first movement creates all rows with carried openings); treat 10-01 as an environment anomaly | Class: B | Evidence: 10-01 morning 1 row Opening 0 vs 10-05 39 rows Opening 308 [observed 2026-10-01, 2026-10-05].
 Q-RS1 (day close) PARTLY ANSWERED 2026-10-05: a day is closed on PJP Daily Inquiry Update (Mark Status End Of Day + DSR Files Status Complete); it moved no stock [observed 2026-10-05 G11-2b]. See pjp_daily_inquiry_update.md.
 - Q-OB2 evidence 2026-10-06: the DA 1360 approval created only 5 rows, Opening 0, no carry of 10-05's closings or GIN 505's allocation [observed 2026-10-06 G11-3]; 2 of 3 walk days (10-01, 10-06) show this pattern, so the 10-05 default is weakened. Hypothesis to ask the QA Team Lead: the previous day's settlement + End Of Day close, or a Generate Opening Balances run, decides it. Still open (needs the QA Team Lead). **-> ANSWERED 2026-10-06** [stated 2026-10-06 QA Team Lead]: Opening must carry the previous day's Closing; Opening 0 after a day with closing stock = the environment's stock carry-over job did not run (environment issue, not business behaviour). Follow-up: 10-05 Closing 259 vs 10-06 Opening 0 for 62740537 -> job likely not run on cnr1dev1; report to the environment owner.
+- 2026-10-08 [stated 2026-10-08 QA Team]: carry forward and reconciliation confirmed (rules 6, 7); stock moves on approval (Q58). BA14 (Generate Opening Balances) is not addressed by the answers and stays open.
 
 ## 13. Sources
 framework_atlas/flows/02800001.md, 02810001.md, 02820001.md, 02830001.md; framework_flows/TC-DA-01_executed.md (TC-DA-02), DISPATCH_ADVICE.md; ui.md section "Verified in the group 11 replay"; runs/PILOT-DA-GIN/20260930-1615/exec/stock_inquiry_harvest.json, learning_block1.json, learning_block3b.json (live 2026-10-01); DB snd_tr_ssb_salestock_balance, snd_pr_stt_sku_stocktype.
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (Stock Inquiry BEFORE DA 1358, seq 9, seq 10, seq 16, seq 24, seq 29, seq 31, seq 50, seq 51) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rules 1-3, 6-7; §5 opening-balance contradiction; §8 Q-OB1, Q-RS1).
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (morning baseline, seq 9, 24, 50) and learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 58 ATP, seq 60).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 9, 24, 50, 58, 60).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 6, 7; Q58).

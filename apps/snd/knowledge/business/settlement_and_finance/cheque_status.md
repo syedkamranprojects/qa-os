@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [deposit_slips, route_settlement]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Cheque status: tracking a deposited cheque (S&D / DCODE)
@@ -17,11 +17,13 @@ Status: DRAFT written by Claude from the framework atlas and the snd-schema DB. 
 Last updated: 2026-10-01. Source flow: 00660001 (seq 55). No live replay. (superseded 2026-10-05: screen read live in G11-2b; seq 55 itself BYPASSED by the QA lead, nothing changed.)
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Once cheques are banked on a deposit slip they are not yet money: the bank may realize or bounce them. Cheque Status lets finance mark each cheque with its outcome so the outlet's receivable is restored if it bounces. [inferred]
 - G11-2b: the screen lists only **Posted** cheque slips; after posting at Route Settlement the cheques already read **"Clear"**; the only action offered is **Bounce** [observed 2026-10-05 G11-2b]. So in this environment a banked cheque is cleared by posting and Cheque Status is used only to bounce it [inferred].
 - G11-3: **seq 55 is a check only**: "The purpose of Step 55 is for the user to check the status; you don't need to click Bounce" [stated 2026-10-06 QA Team Lead]. Today's cheques read Clear after the settlement [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (rule 14, BA11): cheque statuses in business terms [stated 2026-10-08 QA Team]: **Cleared/Realized**: once the cheque is received and its deposit slip is posted, the system adjusts the cheque amount against the invoice (the realization/clearance date may be a future date). **Bounced**: if the cheque is not cleared on the expected date, the user processes it through the **Bounced Cheque** option in the Back Office, which lists all deposit slips containing cheques against invoices; selecting the cheque and clicking **Bounced** reverses the payment against the invoice and the reversed amount becomes an **outstanding amount at outlet level**. **Pakistan and Bangladesh mark cheques Cleared/Realized immediately when the deposit slip is posted** [stated 2026-10-08 QA Team]. (superseded 2026-10-08: the [inferred] "a banked cheque is cleared by posting" is now [stated]; the screen label "Clear" = Cleared/Realized.) The answer announces three statuses but names two.
 
 ## 2. Actors and roles
 Auto_Multi_Orga (same session) [db]. No approver [db].
@@ -65,12 +67,14 @@ Instrument status and date updated on the slip detail; a bounce presumably reope
 | any | cancel | C Cancelled | [inferred] |
 Allowed transitions: [unknown].
 - G11-2b: observed status after posting = **Clear**; only transition offered on screen = **Bounce** (not executed) [observed 2026-10-05 G11-2b]. Realized/Presented/Collected are not offered.
+- QA team 2026-10-08: Posted -> **Clear** (Cleared/Realized, immediately at posting in PK/BD) -> **Bounced** (Bounced Cheque option; payment reversed, amount outstanding at outlet level) [stated 2026-10-08 QA Team]. (supersedes the [inferred] P/L -> R row and the [db] Bounce target as business meaning; db letters kept.)
 
 ## 8. Rules and validations
 None declared beyond the status master [unknown]. The slip detail table has 0 rows in this DB, so status usage is unobserved.
 - G11-2b: Un Posted cheque slips are not offered (10-01 slips 1132/1134/1135 absent) [observed 2026-10-05 G11-2b].
 - G11-2b: duplicate cheque number 1234567 visible on two slips (1140, 1141) [observed 2026-10-05 G11-2b; Q-DS2].
 - G11-3: duplicate cheque number 1234567 on 1146 and 1147 again; **allowed by design, no cheque inventory is maintained** [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]. (superseded 2026-10-06: not a defect candidate.)
+- QA team 2026-10-08: a bounce reverses the payment against the invoice and creates the reversed amount as an outstanding amount at **outlet** level [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 Not recorded [unknown].
@@ -91,6 +95,9 @@ Positive: mark Realized; Bounce. Negative: bounce a cash row; change status of a
 - G11-3 additions [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3]:
   - Seq 55 = assert the status only: today's cheques of the posted slips read Clear with today's Status Date; no Bounce, no toast to assert.
   - Trap: the grid is oldest-first over many pages; filter by date or go to the last page to find today's slips.
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Negative / finance case (only in a case about bouncing, never in the cycle): Bounce a cleared cheque -> its invoice payment is reversed and the amount shows as outstanding at outlet level (assert on Deposit Slip Outstanding Outlets / Transaction Inquiry Received).
+  - Positive: in PK a cheque reads Clear right after posting; the clearance date may be in the future.
 
 ## 12. Open questions
 Q: Effect of Bounce on the outlet balance? | Default: invoice becomes outstanding again | Evidence: none.
@@ -98,8 +105,11 @@ Q: Allowed status transitions? | Default: P/L to R or B only | Evidence: none.
 - Q (allowed transitions) PARTLY ANSWERED 2026-10-05: after posting the cheque is Clear; the screen offers only Bounce [observed 2026-10-05 G11-2b]. Bounce effect stays BA11.
 - Q-CS1: Does framework seq 55 press Bounce (event after selecting the cheque row), and since "Realized" does not exist on the screen, what should seq 55 assert? | Default: seq 55 stays bypassed; do not press Bounce in group 11 | Class: C (QA lead / framework owner) | Evidence: screen offers only Bounce; QA lead asked for Realized [stated 2026-10-05 QA lead; observed 2026-10-05 G11-2b].
 - Q-CS1 **ANSWERED 2026-10-06**: seq 55 is a check only (the user checks the status; Bounce is not clicked) [stated 2026-10-06 QA Team Lead]. Assert cheque status Clear after settlement. The framework row should be adjusted so it does not press Bounce (FRAMEWORK_DRIFT.md).
+- **BA11 / Q (effect of Bounce) ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: Bounce (Bounced Cheque option) reverses the payment against the invoice; the reversed amount becomes outstanding at outlet level. Statuses: Cleared/Realized (PK/BD set immediately at posting; screen "Clear") and Bounced.
 
 ## 13. Sources
 framework_atlas/flows/00660001; screens_db/DYL_202020.json; DB glb_pr_ins_instrument_status, snd_tr_dsd_deposit_slip_dtl; snd_menu_outline.md.
 - G11-2b: learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 55).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 55, check only).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rule 14, BA11).

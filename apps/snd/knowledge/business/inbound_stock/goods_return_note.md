@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [goods_issue_note, order_editing_cancellation, cashmemo_reschedule_and_status, sales_return, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Goods Return Note (GRN): how it works (S&D / DCODE)
@@ -17,17 +17,20 @@ Status: DRAFT written by Claude from the framework atlas, the snd-schema DB and 
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 00090001 (group 11 seq 48), 00810001 (seq 49), 02820001 (seq 50). G11-1 learning walk: GRN **246** (19 CS, GIN 506).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 After goods were issued to a delivery man (GIN) and the day's deliveries are done, goods not delivered or brought back physically return to the warehouse. The Goods Return Note records that return so the quantity goes back into warehouse stock, and an approver confirms it [inferred from names, GIN/GRN share table snd_tr_gnm_gingrn_master with a "suggested qty" and "actual qty"]. In the Daily Cycle it sits after sales returns and deposit slips and before Route Settlement; then Stock Inquiry (seq 50) checks the stock.
 - Confirmed live: **everything that left on the GIN and was not delivered, or was returned, comes back on the GRN**: orders cancelled after the GIN, orders rescheduled off the GIN (Reattempt), quantities cut by an order edit after the GIN, and picked sales returns. GRN 246 suggested exactly 19 CS of 62740537 = 7 (COL26000002007 cancelled after GIN) + 7 (COL26000002006 rescheduled) + 3 (COL26000002003 cut 7 -> 4) + 2 (sales return COL26000000713) [observed 2026-10-01 G11-1] (was [inferred]).
 - G11-2: confirmed on a second day: GRN **247** suggested 19 CS of 62740537 = 7 (COL26000002013 cancelled after GIN 507) + 3 (COL26000002009 cut 7 -> 4) + 7 (COL26000002012 rescheduled) + 2 (sales return COL26000000714) [observed 2026-10-05 G11-2].
+- QA team 2026-10-08 (BA12, Q-GRN1): the GRN is where the DSR returns the remaining stock to the distributor/depot warehouse; **expected GRN quantity = GIN quantity - delivered order quantity + picked sales return quantity**; the warehouse in-charge enters the actual received quantity per product; a difference is the **DSR Stock Shortage**, and on GRN approval the system automatically creates the DSR adjustment amount shown on Route Settlement [stated 2026-10-08 QA Team].
 
 ## 2. Actors and roles
 Maker = Auto_Multi_Orga (seq 48, same session) ; Checker = Auto_Tssm (seq 49, switch point); stock check by Auto_Multi_Orga (seq 50, switch point) [atlas].
 - G11-1: Maker Auto_Multi_Orga created and forwarded GRN 246; Checker Auto_Tssm approved it; Maker Auto_Multi_Orga checked stock [observed 2026-10-01 G11-1] (was [atlas]).
 - Maker on a Draft GRN: Forward ON, Reject OFF. Checker on a Pending GRN: Forward + Reject enabled [observed 2026-10-01 G11-1].
 - G11-2: Maker Auto_Multi_Orga created and forwarded GRN 247, Checker Auto_Tssm approved it on the same Goods Return Notes screen [observed 2026-10-05 G11-2].
+- QA team 2026-10-08 (BA2): in production GIN and GRN are done by the **Warehouse User (role 0004)** on the mobile application at the warehouse premises (also Dispatch Advice, inventory management, verification, inventory audit); Authorized flag N [stated 2026-10-08 QA Team]. On cnr1dev1 the Back Office Maker / Checker pair is used.
 
 ## 3. Documents and master data
 Document type GR-01 "Goods Return Note" (also GR) [db snd_pr_dot_documenttype]. Stored with GINs in snd_tr_gnm_gingrn_master / _detail (columns suggested qty tgnd_sugg_qty_1..3, actual qty tgnd_qty_1..3, stock type, loss reason tgnd_loss_reason) [db]. GRN No is a number (an earlier test run recorded GRN No 225 in an error message) [atlas observed toast]. Needs a Delivery Man PJP (route/DSR) [atlas].
@@ -90,6 +93,10 @@ A GIN/GRN cancel saga (ginGrnCancelSaga) also exists [db].
 - Suggested quantity = sum of what left on the GIN and was not delivered or was returned (cancelled after GIN, rescheduled, cut by edit, picked sales return) per SKU [observed 2026-10-01 G11-1].
 - The GIN Number comes from the selected Delivery Man PJP's open GIN of the working date (not chosen separately) [observed 2026-10-01 G11-1].
 - Only SKUs with a return quantity appear on the Detail (2006 and 2007 were single-line orders of 62740537, so only one row) [observed 2026-10-01 G11-1].
+- QA team 2026-10-08: expected (Suggested) qty = GIN qty - delivered qty + picked sales return qty [stated 2026-10-08 QA Team] (matches the observed 19 / 19 / 17 CS reconciliations).
+- QA team 2026-10-08 (Q-GRN1): Actual < Suggested (in UOM) -> the difference is a **DSR Stock Shortage**; GRN approval auto-creates the DSR adjustment amount shown on Route Settlement [stated 2026-10-08 QA Team]; valued at sale price x shortage qty + tax % (Product Configuration) [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 19): at Route Settlement the GIN quantity must match the GRN quantity, otherwise "Stock Mismatch" [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (Q58): stock moves on the approval action [stated 2026-10-08 QA Team] (GRN In on approval, as observed).
 
 ## 9. Messages
 "Actual Qty cannot be greater than the suggested Qty"; "An Error Occurred! no detail found against the GRN No.:225"; "An Error Occurred! incomplete data received."; "Forwarded successfully"; "Do not use Special charters."; "input parameters are going to be empty. ginDetailBeans:[]" [all from past framework runs, not replayed by us].
@@ -113,6 +120,9 @@ Reads the GIN issued to the delivery man (suggested quantities) and the Delivery
   - Traps: the workbook GRN detail (1 CS 5 PC / 2 CS 1 PC, rates 118.93 / 33.79) belongs to its own order mix and is not valid on another day's data: derive Suggested from the day's documents; the GRN tab resets to a blank form after Save All, reopen from the grid before Forward.
 - G11-2: the 19 CS reconciliation (cancel-after-GIN 7 + edit cut 3 + reschedule 7 + return 2) reproduced exactly with new documents on 2026-10-05; it is a stable, data-driven regression check [observed 2026-10-05 G11-2].
 - Trap: the Checker's grid also lists stale pending GRNs (231/232 from 08-21); filter by GRN No [observed 2026-10-05 G11-2].
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Boundary: Actual = Suggested - 1 -> after approval In +Actual, and a DSR stock-shortage adjustment of 1 x sale price + tax % appears on Route Settlement (Stock Shortage line).
+  - Negative at settlement: GRN not approved / not matching the GIN -> "Stock Mismatch" at Route Settlement.
 
 ## 12. Open questions
 Q: What business situation creates a GRN (undelivered goods, return to supplier, or both)? | Default: undelivered goods returned by the delivery man | Evidence: names and shared GIN table only.
@@ -125,9 +135,13 @@ ANSWERED 2026-10-01 (Q42 part, G11-1): a picked sales return's quantity comes ba
 Q-GRN1: When Actual < Suggested on a GRN, where does the difference go (loss record, shortage at Route Settlement)? | Default: shortage charged to the delivery man at Route Settlement | Class: B | Evidence: only a full return (Actual = Suggested) was walked [observed 2026-10-01 G11-1].
 Q-GRN2: Does a sales return booked as Damaged/Expired/Lost come back on the GRN with that stock type? | Default: yes, per line stock type | Class: B | Evidence: only a Sound return walked; Sales Return offers Damaged, Expired, Lost, Sound [observed 2026-10-01 G11-1].
 - G11-2: Q-GRN1 and Q-GRN2 still open (again only a full Sound return walked).
+- **Q-GRN1 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: the difference between the suggested quantity (UOM) and the actual returned quantity is a DSR Stock Shortage; GRN approval automatically creates the DSR adjustment amount, displayed on Route Settlement.
+- **Q-GRN2 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: sales returns (with reference to an old cash memo) can be processed for Sound, Damaged and Expired stock; default kept: the GRN carries the line's stock type (not yet observed).
 
 ## 13. Sources
 framework_atlas/flows/00090001.md, 00810001.md, 02820001.md, group_11.md (seq 48-50); DB snd_pr_dot_documenttype, snd_tr_gnm_gingrn_master/detail, wkf_wf_weo_wrkflw_event_orga (GRN, grnApprovalSaga), wkf_wf_wfs_workflow_status.
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (seq 29, 31, 32, 34, 38, 48, 49, 50) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§1, §2, §3 rule 7).
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 48, 49, 50).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 48, 49, 50).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (BA12, Q-GRN1, Q-GRN2, rule 19).

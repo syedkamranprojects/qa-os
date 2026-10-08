@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [goods_return_note, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # OTC Stock Out (SAN) and its approval (S&D / DCODE)
@@ -18,6 +18,7 @@ Updated: 2026-10-01 (live blocks 1-3b)
 Last updated: 2026-10-01. Source flows: 02950001 (seq 58), 03500001 (seq 59). Inactive siblings: SAN (Admin) 02840001, W-to-W 00120001, approvals seq 62/65, validations 02850001/02860001. No live replay; no 010104 stock-master rows in DB. (superseded 2026-10-05: walked live in G11-2b, SAN **96** created, forwarded, approved and stock-checked.)
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A Stock Adjustment Note (SAN) changes stock without an order: here an "OTC stock out" removes stock from a warehouse for a stated reason (damage, expiry, loss, over-limit and the like [inferred]). It is the finance-relevant stock write-off of the day, reviewed by an approver before it hits stock.
@@ -72,6 +73,7 @@ After approval, stock of the product/batch/stock type in the From Warehouse is r
 - G11-2b: line value Gross -771,146.50 = 100 PC x 7,711.47: the SAN **Price is per PC** (1 CS = 2 PC for this 2X10L pack); Tax 0 [observed 2026-10-05 G11-2b]. A finance posting of this value was not looked for [unknown; BA13].
 - G11-2b: the approved SAN reads Status Active, Approval Status Approved [observed 2026-10-05 G11-2b].
 - G11-3: SAN approval again posted as **Out +50** (no change at the Maker's Forward was read); Gross -771,146.5 again (price per PC) [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (Q58): stock is added or deducted **on the document approval action** [stated 2026-10-08 QA Team]; answers Q58: the Maker's Forward alone moves no stock (consistent with Out +50 seen only after approval, SAN 96 and 97 [observed]).
 
 ## 7. Statuses and transitions
 | from | action | to | by | tag |
@@ -127,8 +129,11 @@ Q: Is there a financial posting (write-off value, moving average price)? | Defau
 - Q57 mapping confirmed by the walk: OTC Stock Out R1 = Stock Adjustment SAN, type Stock Adjustment Admin (the run matched the workbook approval message) [observed 2026-10-05 G11-2b; workbook SAN Type value not re-read].
 - BA13 (financial posting of a SAN) still open; line Gross -771,146.50 observed.
 - Q58 evidence 2026-10-06: Out +50 after approval again (SAN 97); stock after the Forward alone still not read [observed 2026-10-06 G11-3].
+- **Q58 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: a SAN (as any stock document) changes stock on approval, not at Forward.
 
 ## 13. Sources
 framework_atlas/flows/02950001, 03500001; group_11.md; screens_db/DYL_201045.json; DB snd_pr_dot_documenttype, wkf_wf_wfs_workflow_status, snd_tr_stm_stock_master.
 - G11-2b: learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 58, 59, 60).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 58, 59, 60; SAN 97).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (Q58).

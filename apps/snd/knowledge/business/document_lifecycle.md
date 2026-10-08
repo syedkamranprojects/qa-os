@@ -1,6 +1,6 @@
 # Document lifecycle: the cross-cutting approval pattern (S&D / DCODE)
 
-Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0); 2026-10-05 G11-2/2b consolidation (section 0b); 2026-10-06 G11-3 consolidation (section 0c)
+Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0); 2026-10-05 G11-2/2b consolidation (section 0b); 2026-10-06 G11-3 consolidation (section 0c); 2026-10-08 QA team written answers (section 0d)
 
 Consolidated 2026-10-01 from the area pages. Tags as in the pages: [observed], [db], [inferred], [unknown].
 
@@ -19,7 +19,7 @@ Evidence: [learning_sessions/2026-10-01_G11-PK_session1_log.md](learning_session
 Evidence: [learning_sessions/2026-10-05_G11-PK_session2_log.md](learning_sessions/2026-10-05_G11-PK_session2_log.md), [learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md](learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md).
 - **Second day, same pattern**: DA 1359, loss 640, GIN 507, Sales Return COL26000000714, GRN 247 followed the Maker save -> Maker Forward + comment -> Checker Forward = approval pattern with the same messages as on 10-01.
 - **Sixth document end to end: SAN 96** (Stock Adjustment Admin): Maker Save ("Saved successfully", In-Active / Draft) -> Maker Forward ("Forwarded successfully", Pending for approval) -> Checker Forward ("Forwarded successfully", Active / Approved in ONE step). The Checker also has Reject on the Pending SAN (not clicked).
-- **Posting is a separate lifecycle step for deposit slips**: Un Posted (after Save / Save All) -> Posted at Route Settlement; a posted slip is read-only. A route can show Complete while its slips are still Un Posted (10-01; Q-DS3).
+- **Posting is a separate lifecycle step for deposit slips**: Un Posted (after Save / Save All) -> Posted at Route Settlement; a posted slip is read-only. A route can show Complete while its slips are still Un Posted (10-01; Q-DS3). (superseded 2026-10-08: a Complete route with Un Posted slips is not a valid state; defect D-G11-2b-1 [stated 2026-10-08 QA Team])
 - **Route and day lifecycle**: Route Settlement row Incomplete -> Complete (green, no Edit) when settled; the day is then closed on PJP Daily Inquiry Update (End Of Day + Complete -> Current Status E, "Record Updated Successfully"). Route Settlement refuses while the oldest earlier day is not closed.
 - **Cheques**: after posting they read "Clear"; the only later transition offered is Bounce (one-way).
 - **Sales return** ends as Picked (Transaction Inquiry, Document Type Sales Return); its source cash memo stays Delivered/Invoiced.
@@ -33,6 +33,16 @@ Evidence: [learning_sessions/2026-10-06_G11-PK_session3_log.md](learning_session
 - **DSR Adjustment (AD-07)** is saved directly by the Maker after a confirm modal ("Are you sure you want to save transaction?" -> "Record Saved Successfully"); no approval step seen; status column not shown (Q53).
 - **Cheque Status in the cycle** is a check only; Bounce is never pressed [stated 2026-10-06 QA Team Lead].
 - **Deposit slip states** [stated 2026-10-06 QA Team Lead]: Un Posted slips are never blocked against each other (a memo may be allocated on several unposted slips); Route Settlement Save posts all the route's cash and cheque slips (Un Posted -> Posted) and adjusts the invoices; fully adjusted invoices leave the collection screens.
+## 0d. QA team written answers (2026-10-08) [stated 2026-10-08 QA Team]
+Evidence: [learning_sessions/2026-10-08_QA_Team_Review_answers.md](learning_sessions/2026-10-08_QA_Team_Review_answers.md).
+- **Approval is by role through a workflow**: each setup and transaction has a predefined workflow naming the Submit and Approve role codes; R1 = two levels: 0001 NG User submits (Authorized N), 0002 TSSM approves; 0003 DSR and 0004 Warehouse are mobile roles (Authorized N); 9999 HQ bypasses the workflow where no approval is needed (BA2). Open: cnr1dev1 users' role codes and the KPO_mp self-approval (Q-RL1).
+- **Stock moves on approval** of the document (add or deduct), never at Forward (Q58).
+- **DSR Adjustment has no workflow** (Q53).
+- **Deposit slips (production)**: auto-created Unposted from the DSR's mobile sync -> Posted when Route Settlement completes; the Back Office screen is the manual path. A settled route with Un Posted slips is a defect (Q-DS3, D-G11-2b-1).
+- **Route**: settled state = Edit link gone (blank); colours are to be ignored (rule 17).
+- **Cheques**: Cleared/Realized at posting (PK/BD) -> Bounced (Bounced Cheque option) reverses the invoice payment, outstanding at outlet level (BA11).
+- **Cash memo after the GIN**: editable only when ORGA parameter CASHMEMO_EDIT = Y (quantity reduction, reason); Save reduces the approved GIN quantity (stated; not seen on three walks, Q-OE5).
+- **Allocation** at Order / Cash Memo / Invoice creation: full, partial (available only) or none (unallocated, status Order) (Q16 / Q27).
 
 ## 1. The common pattern
 

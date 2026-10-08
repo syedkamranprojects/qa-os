@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [dispatch_advice, order_booking, stock_allocation, delivery_date_change]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Delivery lifecycle: from allocated order to delivered or returned (S&D / DCODE)
 
@@ -17,6 +17,7 @@ Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEAR
 Last updated: 2026-10-01. Source flows: group 11 seq 12-38 (atlas `group_11.md`). Seq 12-50 walked live on 2026-10-01 in one calendar day (seq 15 skipped; seq 51 Route Settlement blocked) [observed 2026-10-01 G11-1].
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Follows one cash memo (order, `CM-01`) from allocation to the end of the delivery day, and shows where stock and documents change. It ties together Goods Issue Note, Cashmemo Reschedule/Status and Sales Return (see their pages).
@@ -104,7 +105,8 @@ TI status table 2026-10-01 [observed 2026-10-01 G11-1]:
 - Sales Return offers delivered cash memos only; Cashmemo Status offers only cash memos still on the GIN [observed 2026-10-01 G11-1].
 - Route Settlement requires every earlier working day to be closed [observed 2026-10-01 G11-1].
 - G11-3: **an undelivered order due today on the route blocks Route Settlement** ("Un-Deliver Order exists for today delivery!"); a Reattempt from the previous day is such an order on its new date [observed 2026-10-06 G11-3]. A delivered memo may remain unpaid (not a cash shortage) [stated 2026-10-06 QA Team Lead; observed 2026-10-06 G11-3].
-- G11-3: **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown].
+- G11-3: **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown]. (refined 2026-10-08: controlled by ORGA parameter ZERO_TAX_ORDER_EXEMPTION, Y = zero-tax delivery allowed, N = not allowed [stated 2026-10-08 QA Team])
+- QA team 2026-10-08: stock is added or deducted on document approval (GIN, GRN, SAN, ...) [stated 2026-10-08 QA Team]; editing after the GIN reduces the approved GIN quantity when CASHMEMO_EDIT = Y [stated 2026-10-08 QA Team] (not observed, Q-OE5).
 
 ## 9. Messages
 See the individual pages. Chain-level: `Delivery Date has been changed successfully, processed orders: 9`; `stock not found.` on Unallocate [observed, ui.md].
@@ -141,3 +143,5 @@ Q-DS1: What is deposit-slip "posting" and when does it happen? | Default: at Rou
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 10, 16, 18, 19, 20, 23, 24, Transaction Inquiry checks, seq 29-38, 46, 48-51; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 3-7, 10, 12, 14, §8.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md, learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md.
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 20-38, 48, 51).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 3, 9; Q58).

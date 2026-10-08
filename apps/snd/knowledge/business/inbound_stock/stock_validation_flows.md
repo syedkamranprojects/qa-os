@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [stock_inquiry_and_balances, dispatch_advice, da_loss_approval, goods_issue_note, goods_return_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Stock validation flows: how they work (S&D / DCODE)
@@ -18,6 +18,7 @@ Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 02800001 (seq 9, after DA), 02810001 (seq 24, after GIN), 02820001 (seq 50, after GRN), 02830001 (seq 60, opening and closing). Inactive: 02840001, 02850001, 02860001 (after SAN), 02950001 / 03500001 (OTC stock out and SAN approval). G11-1 learning walk: seq 9, 24 and 50 walked; seq 60 not walked.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 These flows are checkpoints in the Daily Cycle: after a stock-moving document is approved, the stock controller opens Stock Inquiry and checks that the stock figures moved as expected (superseded 2026-10-01 G11-1: role wording; the Maker Auto_Multi_Orga opens Stock Inquiry, there is no stock-controller role). They are tests of stock, not business operations (read-only). See stock_inquiry_and_balances.md for the screen and the meaning of columns.
@@ -120,9 +121,12 @@ Q-OB1: Who or what generated the 2026-10-01 opening balances during the day (mor
 Q-SV1: May the framework stock checks (seq 9, 24, 50) be changed to before/after deltas (needs a pre-snapshot step)? | Default: yes, deltas | Class: C | Evidence: report §7 framework drift "Stock validation asserts absolute In" [observed 2026-10-01 G11-1].
 - ANSWERED 2026-10-05 (Q-OB1): see stock_inquiry_and_balances.md; flow 60 default now "Opening = previous Closing + previous still-Allocated" [observed 2026-10-05 G11-2]. New Q-OB2 (10-01 anomaly) | Class: B.
 - Q-SV1 evidence 2026-10-06: day openings differed again (Opening 0 on 10-06 vs carried on 10-05) and the edit before the GIN changed Out (32 vs 35); deltas remain the safe default [observed 2026-10-06 G11-3]. Q-OB2 open. (superseded 2026-10-06: Q-OB2 answered, the Opening 0 days are an environment carry-over job issue [stated 2026-10-06 QA Team Lead].)
+- Q-SV1 2026-10-08: the QA team answered "Yes" and described their daily smoke testing (DA, cash memo create/edit/cancel, GIN, delivery, GRN; daily and sometimes several times a day before a release) [stated 2026-10-08 QA Team], but did not say whether seq 9, 24, 50, 60 may become before/after deltas. **Still open; follow-up sent 2026-10-08** | Class: C (QA lead). Note for the delta design: the stock checks run on a shared environment exercised several times a day by smoke tests, which strengthens the case for deltas [inferred].
 
 ## 13. Sources
 framework_atlas/flows/02800001.md, 02810001.md, 02820001.md, 02830001.md, group_11.md; framework_flows/TC-DA-01_executed.md, DISPATCH_ADVICE.md; ui.md (Verified in the group 11 replay).
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (Stock Inquiry before DA 1358, seq 9, seq 24, seq 50) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rules 1, 6, 7; §5; §7 drift "Stock validation asserts absolute In"; §8 Q-OB1).
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 9, 24, 50); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 60).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 9, 24, 50, 60).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (Q-SV1, not answered).

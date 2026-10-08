@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Delivery Date Change: how it works (S&D / DCODE)
 
@@ -17,6 +17,7 @@ Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01. Source flow: 00160001 (group 11 seq 19).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Moves the promised delivery date of booked orders (cash memos) to another day, in bulk for one PJP, so the distributor can plan the delivery run (GIN) for a different day. [inferred from labels] It sits between booking/allocation and the GIN; the GIN picks orders by delivery date. [observed: GIN header needs a Delivery Date]
@@ -68,13 +69,14 @@ No document status change [inferred]; only the delivery date (and PJP delivery a
 ## 8. Rules and validations
 - PJP resets on Order Date change. [observed]
 - All grid rows for the Order Date + PJP are processed when select-all is used. [observed] (Again 5 of 5 on 2026-10-01. [observed 2026-10-01 G11-1])
-- Delivery date earlier than order date / in the past: [unknown]. The workbook dates (2026-09-21) were stale vs today 2026-09-29, so the dates must be updated before a run. [observed]
+- Delivery date earlier than order date / in the past: [unknown]. The workbook dates (2026-09-21) were stale vs today 2026-09-29, so the dates must be updated before a run. [observed] (superseded 2026-10-08: a cash memo / invoice delivery date **cannot be earlier than the order creation date** [stated 2026-10-08 QA Team]; a past date between the order date and today is not covered by the answer)
 - Whether allocated orders can be moved: yes (9 processed after allocation). [observed] (Again: 5 FULL-allocated orders moved. [observed 2026-10-01 G11-1])
 - Live baseline 2026-10-01: the 8 orders COL26000001995-2002 now carry Delivery Date 2026-09-30 (moved from the PJP date), cancelled orders 1986 and 1993 still carry 2026-10-05; Transaction Inquiry has no Delivery-PJP column, so the effect on the delivery PJP can only be read on the GIN (Delivery Man PJP 02112) [observed]. The change itself (Q29, Q30) was not re-run. (superseded 2026-10-01: re-run live at seq 19, see sections 5-6. [observed 2026-10-01 G11-1])
 - Cancelled orders are not listed and are not moved. [observed 2026-10-01 G11-1]
 - **Same-day GIN needs delivery date = today**: the GIN refuses cash memos with a delivery date earlier than the PJP working date, and Cash Memo Selection only offers cash memos whose delivery date = the GIN delivery date. [observed 2026-10-01 G11-1 + earlier finding]
 - The header Delivery Date is the NEW date, not a filter (the grid is chosen by Order Date + PJP). [observed 2026-10-01 G11-1]
 - G11-2: PJP Delivery No stayed 02112; status stayed Confirmed (second day) [observed 2026-10-05 G11-2].
+- QA team 2026-10-08 (Q29): delivery date < order creation date is refused [stated 2026-10-08 QA Team] (message not yet observed).
 
 ## 9. Messages
 "Delivery Date has been changed successfully, processed orders: 9" (key DELIVERYDATE_CHNG_ASSR); confirmation alert (text [unknown]; accepted via browser). [observed]
@@ -102,6 +104,7 @@ Reads orders from Order Booking. Hands the new Delivery Date to the GIN (Deliver
   - Trap: a Delivery Date Change run after a cancellation does not list the cancelled order; a test that expects "processed orders: N" must subtract cancellations.
 - G11-2: past-date refusal (Q29) still not tried; the 10-11 -> 10-05 move is a second positive data point [observed 2026-10-05 G11-2].
 - G11-3 trap (framework drift): seq 19 sits after seq 15 in group 11; on cnr1dev1 it must run first [stated 2026-10-06 QA Team Lead].
+- QA team 2026-10-08: negative case: new delivery date earlier than the order date -> refused [stated 2026-10-08 QA Team]; boundary: delivery date = order date -> accepted [inferred].
 
 ## 12. Open questions (batched for the BA)
 - Q: Which delivery date should orders have before the GIN (today or the PJP's date 2026-10-05)? | Default: today | Evidence: draft question 3. (ANSWERED 2026-10-01 G11-1 for the same-day cycle: today; the GIN refuses earlier dates and offers only cash memos with delivery date = the GIN delivery date. [observed])
@@ -109,9 +112,12 @@ Reads orders from Order Booking. Hands the new Delivery Date to the GIN (Deliver
 - Q: Does the change also move the delivery PJP? | Default: yes if the new date maps to another visit | Evidence: column PJP Delivery No only on this screen; Transaction Inquiry has no such column (live 2026-10-01), read it on the GIN. (Update 2026-10-01 G11-1: moving 10-07 -> 10-01 kept PJP Delivery No 02112 [observed]; a move to a date of another route not tried. | Class: B)
 - G11-2: no answer for the past-date or delivery-PJP questions (Q29, Q30 stay open/PARTLY).
 - G11-3: fourth data point for the delivery date (10-06 booking -> 10-12); Q29, Q30 unchanged.
+- **Q29 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: the delivery date cannot be earlier than the order creation date. Not covered: a date after the order date but before today (default: accepted; the GIN then refuses memos dated before the PJP working date [observed 2026-10-01]).
 
 ## 13. Sources
 atlas flow 00160001, group_11.md; ui.md "Delivery Date Change"; STEP_SHEET_DRAFT_next.md row 19; step_labels "Delivery Date Change"; DB `snd_tr_cmm_cashmemo_master` columns.
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 19, 20 (GIN selection), 23, "Transaction Inquiry after GIN approval"; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rule 5.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 19).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 15, 19).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (Q29).

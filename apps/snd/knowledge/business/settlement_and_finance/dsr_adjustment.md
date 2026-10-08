@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [route_settlement]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # DSR adjustment amount: manual correction of a DSR balance (S&D / DCODE)
@@ -17,12 +17,15 @@ Status: DRAFT written by Claude from the framework atlas and the snd-schema DB. 
 Last updated: 2026-10-01. Source flow: 00670001 (seq 56). No live replay. (superseded 2026-10-05: screen opened live in G11-2b; seq 56 BYPASSED by the QA lead, values typed and discarded, nothing saved.)
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 (superseded 2026-10-06: seq 56 was SAVED for the first time in G11-3, Amount 400 / AUTO, document COL26000000211.)
 
 ## 1. Purpose
 Lets finance post a manual amount against a DSR/PJP (for example a shortage or a write-off) with a comment, so the DSR's account balances after route settlement. [inferred from doc type names] (superseded 2026-10-06: it records a **DSR shortage** found while the DSR collects money from the outlet (a charge to the DSR, not a write-off) [stated 2026-10-06 QA Team Lead].)
 - G11-2b: the screen shows, per delivery PJP, a running **Total Shortage Amount**, **Total Adjusted Amount** and **Balance Amount** (= Shortage - Adjusted); an adjustment is entered against the selected PJP [observed 2026-10-05 G11-2b].
 - G11-3: a saved adjustment **adds to the PJP's Total Shortage** (400 -> Total Shortage +400, Balance +400, Total Adjusted unchanged) [observed 2026-10-06 G11-3]; so a manual DSR adjustment looks like a charge to the DSR, not a write-off [inferred; meaning to be confirmed, Q-DJ1]. (superseded 2026-10-06: **DSR Adjustment Amount records a shortage of the DSR that arises while he collects (takes) money from the outlet**, i.e. a charge to the DSR: "yes, it is DSR shortage while taking amount from outlet" [stated 2026-10-06 QA Team Lead; Q-DJ1 answered]; it increases Total Shortage and Balance, not Total Adjusted, matching the observed +400.)
+- QA team 2026-10-08 (Q-GRN1): on **GRN approval** the system automatically creates the DSR adjustment amount for a stock shortage (suggested quantity in UOM minus actual returned quantity), which is then shown on Route Settlement [stated 2026-10-08 QA Team]. So DSR shortages come from two sources: the stock shortage created by the GRN and the manual DSR Adjustment Amount [inferred combination].
+- QA team 2026-10-08 (rule 20): "it couldn't be allowed to change the stock shortage" [stated 2026-10-08 QA Team]: the stock shortage cannot be changed by the user (scope of the remark not fully clear; read as: a GRN-generated stock shortage is not editable here).
 
 ## 2. Actors and roles
 Auto_Multi_Orga (same session) [db]. No approver in the flow; the document status list suggests an Authorized / Un-Authorized state (below).
@@ -67,6 +70,7 @@ An adjustment document (AD-07) against the PJP and an amount shown on the Detail
 | new | Save | 02 Un-Authorized or 01 Authorized | [unknown which] |
 | any | adjust / cancel | 03 / 04 | [db names, rules unknown] |
 | new | Save (confirm modal) | saved directly, listed on the Detail tab; no approval step seen (status column not shown) | [observed 2026-10-06 G11-3]; Authorized vs Un-Authorized still [unknown] (Q53) |
+- QA team 2026-10-08 (Q53): **there is no workflow on the DSR adjustment document** [stated 2026-10-08 QA Team]: it is final at Save (no approval); answers Q53, consistent with the observed direct save [observed 2026-10-06 G11-3]. (superseded 2026-10-08: "02 Un-Authorized or 01 Authorized [unknown which]" - no approval step exists; the stored status code itself is still not read.)
 
 ## 8. Rules and validations
 Amount and Comments are mandatory [inferred from toast]; no regex declared in sources.
@@ -74,6 +78,8 @@ Amount and Comments are mandatory [inferred from toast]; no regex declared in so
 - G11-3: Balance = Shortage - Adjusted still holds after the save (2,477,971.11 - 1,649,970.43 = 828,000.68) [observed 2026-10-06 G11-3].
 - G11-3: an adjustment amount is added to Total Shortage, not to Total Adjusted [observed 2026-10-06 G11-3].
 - G11-3: the Amount field is prefilled with the Balance; it must be replaced (select all, then type) [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (BA12, settlement adjustment types) [stated 2026-10-08 QA Team]: **Cash**: the receivable can be reduced but cannot become negative; the difference shows in the Cash Shortage column. **Cheque**: the cheque amount cannot be modified. **Stock shortage**: generated when the DSR returns the remaining stock to the warehouse; expected GRN qty = GIN qty - delivered order qty + picked sales return qty; the warehouse in-charge enters the actual received qty; the difference is the Stock Shortage.
+- QA team 2026-10-08 (rule 20): the stock shortage cannot be changed [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 Historic atlas toast: "Please fill all the values" (x3) on 006701 when the popup is saved incomplete [db: atlas].
@@ -94,6 +100,10 @@ Positive: positive amount with comment. Negative: empty Amount, empty Comments (
   - Positive: save 400 / AUTO on 02112 -> confirm modal -> "Record Saved Successfully"; assert **Total Shortage +400, Balance +400, Total Adjusted unchanged** (supersedes the G11-2b hint above) and the Detail row (Amount 400, Comments AUTO, today).
   - Trap: the Amount field is prefilled with the Balance (827,600.68); a replay that appends instead of replacing saves a huge amount.
   - Trap: every replay adds 400 to 02112's Total Shortage; assert deltas, never absolute values.
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Positive: approve a GRN with Actual < expected -> a DSR adjustment for the stock shortage is created automatically (value = sale price x qty + tax %) and shows on Route Settlement; assert the PJP's Total Shortage delta [inferred link].
+  - Negative: try to change a GRN-generated stock shortage -> not allowed.
+  - No approval case exists for a DSR adjustment (no workflow).
 
 ## 12. Open questions
 Q: Can the amount be negative? | Default: yes (sign decides debit/credit) | Evidence: none.
@@ -103,8 +113,12 @@ Q: Is the Amount field maximum-limited? | Default: none | Evidence: none.
 - Q53 (auto-authorized) still open: nothing was saved.
 - Q-DJ1 evidence 2026-10-06: saving 400 increased Total Shortage and Balance by 400, Total Adjusted unchanged [observed 2026-10-06 G11-3]. **-> ANSWERED 2026-10-06**: "yes, it is DSR shortage while taking amount from outlet": the option records a shortage of the DSR arising when he collects money from the outlet (a charge to the DSR), so it increases Total Shortage and Balance, not Total Adjusted [stated 2026-10-06 QA Team Lead]. BA12 (sign / debit-credit) is answered for a positive amount; a negative amount was not tried.
 - Q53 evidence 2026-10-06: the save went through without any approval step and the row is listed at once on the Detail tab (status column not shown) [observed 2026-10-06 G11-3]; Authorized vs Un-Authorized not visible, still open.
+- **Q53 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: no workflow on the DSR adjustment document (no approval; final at Save).
+- **BA12 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: the adjustment types are cash (reducible, never negative, difference = Cash Shortage), cheque (not modifiable) and stock shortage (expected GRN qty = GIN - delivered + picked returns; difference to the warehouse's actual = Stock Shortage; GRN approval auto-creates the DSR adjustment). Residual not covered by the answer: what feeds **Total Adjusted** and whether a negative DSR Adjustment Amount is accepted; default: never assert Total Adjusted, never enter a negative amount (ask only if a case needs it).
 
 ## 13. Sources
 framework_atlas/flows/00670001; group_11.md; DB snd_pr_dot_documenttype, snd_pr_dos_documentstatus; snd_menu_outline.md.
 - G11-2b: learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 56).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 56, saved: COL26000000211, 400).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rule 20; BA12, Q53, Q-GRN1).

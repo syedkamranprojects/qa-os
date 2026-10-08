@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: []
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # Dispatch Advice (DA): how it works (S&D / DCODE)
@@ -18,6 +18,7 @@ Updated: 2026-10-01 (G11-1 consolidation; earlier: live blocks 1-3b)
 Last updated: 2026-10-01 (G11-1 consolidation). Source flows: 00100001 (group 11 seq 2), 00740001 (seq 5); inactive 00100002 (negative/delete), 00740002 (reject). G11-1 learning walk: DA **1358** created, forwarded and approved.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A Dispatch Advice is the distributor's record that a vendor (the company supply point "UPL WH") has dispatched goods to the distributor's warehouse. When it is approved, the quantities RECEIVED become stock in that warehouse, so orders can later be allocated and issued (GIN). It is the first business step of the Daily Cycle: nothing can be sold until a DA is approved [observed: before DA 1356 was approved on 2026-10-01 every product pick in Order Booking answered "Stock not available."; after approval 62740537 became orderable]. Next: DA Loss Approval, then Stock Inquiry (see da_loss_approval.md, stock_inquiry_and_balances.md).
@@ -34,6 +35,7 @@ A Dispatch Advice is the distributor's record that a vendor (the company supply 
 - A Checker opening the screen sees a blank new-DA form with Save enabled, but cannot actually save (authorization message above) [observed 2026-10-01 G11-1]. The Checker's button set on the Pending DA is Add, Forward, Reject = the same set the Maker had [observed 2026-10-01 G11-1].
 - After login Auto_Tssm landed directly on the menu (no Company / Distributor pages) [observed 2026-10-01 G11-1; cause unknown].
 - G11-2 (DA 1359): Maker Auto_Multi_Orga created and forwarded; Checker Auto_Tssm approved with Forward ("Forwarded successfully"); confirmed on a second day [observed 2026-10-05 G11-2]. Q-DA1 (Maker buttons on his own Pending DA) not re-checked.
+- QA team 2026-10-08 (BA2, roles and workflow) [stated 2026-10-08 QA Team]: the application roles are **0001 NG User** (Distributor User: Back Office, creates and submits transactions and setup changes; Authorized flag N in Profile), **0002 TSSM** (Authorizer: reviews and approves what 0001 submits), **0003 DSR/PJP** (Mobile User, Authorized N), **0004 Warehouse User** (mobile: Dispatch Advice, inventory management, verification, GIN, GRN, inventory audit; Authorized N) and **9999 HQ (Global)** (setup and activities without approval; bypasses the standard workflow). In R1 a **two-level approval** (submit, approve) is configured for transactions and setup screens; each setup and transaction has a predefined workflow that names the role codes of its Submit and Approve stages. So maker / checker separation is enforced **by role through the workflow**, not by comparing user names. Open detail (Q-RL1): KPO_mp approved its own DA 570 and the org 010104 GIN workflow names role 0005 for both Verify and Approve [observed / db], which does not match the 0001 / 0002 picture.
 
 ## 3. Documents and master data
 - Document type DA-01 "Dispatch Advice" (also DA, DA-05 "Dispatch Advice Auto") [db snd_pr_dot_documenttype]. Header table snd_tr_stm_stock_master, lines snd_tr_stm_stock_detail [db]. Document No is a plain number (570, 1350, 1351, 1352) shown in DOCUMENTNO after save [observed]. G11-1: Document No 1358 [observed 2026-10-01 G11-1].
@@ -167,9 +169,12 @@ Q-DA1: May the Maker approve or reject his own Pending Dispatch Advice (Forward/
 Q-DA2: What are "Dispatch Advice NUP" and "Dispatch Advice II" in the menu, and are they in scope? | Default: out of scope; only "Dispatch Advice" is tested | Class: A | Evidence: menu search results only [observed 2026-10-01 G11-1].
 Q-DA3: Why does the product label price differ from the Purchase Price / PC (and purchase exceed trade price for some SKUs)? | Default: label shows another price list; assert amounts on Purchase Price / PC only | Class: C | Evidence: 20050310 label 31.25 vs purchase 33.79; 20050308 purchase 118.93 vs trade 87.68 [observed 2026-10-01 G11-1].
 - G11-2 (2026-10-05): no change to Q-DA1/Q-DA2/Q-DA3; Q-DA1 is merged into BA2 in OPEN_QUESTIONS.md (self-approval).
+- **BA2 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: separation of duty is by role and workflow (0001 NG User submits, Authorized N; 0002 TSSM approves; two-level approval in R1; 9999 HQ bypasses the workflow). New Q-RL1 (class B): which role codes the cnr1dev1 users hold and why KPO_mp could approve his own DA 570.
 
 ## 13. Sources
 runs/PILOT-DA-GIN/20260930-1615/exec/learning_block2a.json, learning_block3a.json, learning_block3b.json (live 2026-10-01); LIVE_FINDINGS.md; framework_atlas/flows/00100001.md, 00740001.md, 00100002.md, 00740002.md; framework_flows/DISPATCH_ADVICE.md, TC-DA-01_executed.md; runs/PILOT-DA-GIN/20260930-1615/friction.md, PILOT_REPORT.md; DB snd_pr_dot_documenttype, wkf_wf_wfs_workflow_status, wkf_wf_weo_wrkflw_event_orga, snd_tr_stm_stock_master/detail (names only); step_labels.json.
 - G11-1 learning walk: learning_sessions/2026-10-01_G11-PK_session1_log.md (seq 2, seq 5, Stock Inquiry before/after, seq 9) and learning_sessions/2026-10-01_G11-PK_session1_report.md (§3 rule 1, §6 defect 1, §8 Q-DA1).
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 2, 5, 9).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 2, 5).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (BA2).

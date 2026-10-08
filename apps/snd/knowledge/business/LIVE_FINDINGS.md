@@ -247,3 +247,27 @@ Headline findings (observed 2026-10-06 unless tagged):
 ### QA Team Lead rulings added after the run (2026-10-06)
 - Q-TI1: Transaction Inquiry Detail Ordered = original order quantity; Allocated = allocated from available stock (lower when stock is short); 5 CS 4 PC / 4 / 3 delivered is expected.
 - Q-TX1: outlet 06/07 tax swap came from master-data modification of the outlets and the tax promotion (not a defect). Rule: a zero-tax invoice of a non-exempt outlet cannot be delivered; tax-exempt outlets' zero-tax invoices are allowed (not exercised: 2017 was cancelled).
+
+## QA team written answers to the 2026-10-06 review (received 2026-10-08)
+Source: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). No new walk; this block records the findings the answers create. Tag [stated 2026-10-08 QA Team].
+
+### D-G11-2b-1 DEFECT: route 02112 for 2026-10-01 is Complete but its deposit slips were never posted
+- Observed 2026-10-05 (G11-2b): Route Settlement, Route Status Complete, shows 02112 for 2026-10-01 as Complete (values as G11-1: Sale Value 311,238, Payable = Received 224,131, Cash Shortage 0); the Deposit Slip grid still shows that day's slips **1131-1136 Un Posted** (1133 still Deposit 1,000 / Adjusted 600). The 09-29 slips (1125-1130) are Posted.
+- Observed 2026-10-06 (G11-3): after the 10-06 settlement the Outstanding Cash memos tab still shows COL26000002004 / COL26000002005 with Un Posted 101,161 / 119,370 (their 10-01 slips 1131 / 1132): the 10-01 receivables were never adjusted.
+- Contrast: the settlements of 2026-10-05 and 2026-10-06 posted all their slips (1137-1142, 1143-1148) [observed].
+- Ruling [stated 2026-10-08 QA Team] (Q-DS3): "This should not be possible. Once the route is settled, all associated deposit slips must be posted, and their amounts must be adjusted against the respective invoices/cash memos. If this does not happen, it should be considered a defect."
+- Unknown: how the 10-01 route was completed (done by a QA team member on 10-05, action not seen). Action: report to the QA team / development with this evidence; ask whether the 10-01 route was completed through a path other than the row Save. Regression check: after every settlement assert that every slip of the route/date is Posted.
+
+### Q-OE5 CONTRADICTION: edit after GIN approval vs stock (stated GIN reduction, observed none)
+- Stated [stated 2026-10-08 QA Team] (rule 3, Q-OE3): with ORGA parameter CASHMEMO_EDIT (CM_Edit) = Y an approved cash memo may be edited (quantity reduction, reason required) and on Save the system reduces the corresponding quantity in the approved GIN.
+- Observed on three walks: COL26000002003 (10-01, 7 -> 4 CS), COL26000002009 (10-05, 7 -> 4 CS), COL26000002015 (10-06, 4 -> 3 CS) edited after GIN approval: Stock Inquiry Out / Allocated / Closing unchanged and the cut quantity came back on the GRN Suggested quantity (19 / 19 / 17 CS).
+- Open (Q-OE5, class B): read CASHMEMO_EDIT on cnr1dev1 and re-observe the GIN detail and stock after an after-GIN edit (LIVE_LEARNING_CHECKLIST L42).
+
+### Q-DS4 UNDER CLARIFICATION: Outstanding Outlet doubled totals (D-G11-3-1)
+- The QA team answered N to "doubled totals = display defect" but the comment talks about Transaction Inquiry (offset fully adjusted, net not impacted, current logic correct) [stated 2026-10-08 QA Team]. Follow-up sent 2026-10-08. D-G11-3-1 and the rule "never assert outlet-level totals" stay until clarified.
+
+### New stated messages and rules (not yet observed)
+- "Stock Mismatch" at Route Settlement when today's GIN quantity does not match the GRN quantity [stated 2026-10-08 QA Team].
+- Route Settlement: Edit link = not settled, blank = settled; ignore colours [stated 2026-10-08 QA Team].
+- ZERO_TAX_ORDER_EXEMPTION (Y: zero-tax invoices deliverable, N: not) [stated 2026-10-08 QA Team]; CASHMEMO_EDIT (see above).
+- Previous-day check: PJP working date = current date and closing date = N-1 [stated 2026-10-08 QA Team].

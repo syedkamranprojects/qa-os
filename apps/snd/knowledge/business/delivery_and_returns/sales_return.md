@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [cashmemo_reschedule_and_status, goods_issue_note]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Sales Return: how it works (S&D / DCODE)
 
@@ -17,10 +17,13 @@ Updated: 2026-10-01 (consolidated with learning session 1 LEARN-G11-PK/20261001-
 Last updated: 2026-10-01. Source flows: atlas `00070001` (group 11 seq 34 Sales Return), `00700001` (seq 36 Sales Return View), `00730001` (seq 37 Sales Return View Approval), `00710001` (seq 38 Sales Return Status Change). Not yet replayed live. (superseded 2026-10-01: all four walked live; return **COL26000000713** against cash memo COL26000002003, 2 CS of 62740537, reason No Cash, forwarded, approved and picked [observed 2026-10-01 G11-1]) Goods Return Note (seq 48-49) is in the inbound-stock pages.
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A sales return records goods an outlet gives back after delivery (rejected, damaged, wrong, price dispute). It reverses part of a delivered cash memo: the returned quantities and amount are authorised by a checker and later picked up and received into the warehouse. [inferred from document types and names; confirmed 2026-10-01: created only from a delivered cash memo, approved by the Checker, picked by the Maker, and the returned quantity came back into warehouse stock on the Goods Return Note [observed 2026-10-01 G11-1]]
 - G11-2/2b: confirmed on a second day (return **COL26000000714** against COL26000002009, 2 CS of 62740537, reason No Cash); after the pick Transaction Inquiry lists it as a Sales Return with Demand Channel "Partial Return" and status Picked [observed 2026-10-05 G11-2, G11-2b].
+- QA team 2026-10-08 (Q-SR2, Q-GRN2): a **Sales Return** is generated against a **previously dated invoice** (with reference to the old cash memo); it can return **Sound, Damaged and Expired** stock; the returned quantity is valued at product sale price x returned quantity (UOM) with the applicable discount (amount-based or free-product scheme) and tax defined in the Batch Setup; one product or the complete invoice may be returned [stated 2026-10-08 QA Team].
+- QA team 2026-10-08: a **Fresh Return** follows the same calculation; the only difference is that it uses the **current document date** (modification of current-order quantities) [stated 2026-10-08 QA Team]; it is used in **Bangladesh**, not in Pakistan [stated 2026-10-08 QA Team].
 
 ## 2. Actors and roles
 Maker: `Auto_Multi_Orga` creates (seq 34) and views/forwards (36). Checker: `Auto_Tssm` approves (37, switch point). Back to `Auto_Multi_Orga` for the status change (38) [atlas]. Workflow `SalesReturnApproval` (event `SR`) [db: wkf_wf_weo_wrkflw_event_orga]; a separate `SRWithoutReferenceApproval` exists for returns without a cash memo [db].
@@ -117,6 +120,8 @@ G11-3 walk (2026-10-06, return COL26000000715) [observed 2026-10-06 G11-3]:
 - QA lead rule: always type the Forward comment and verify the textarea holds it before Save (an empty box was sent once on 10-05) [stated 2026-10-05 QA lead].
 - G11-3: Invoice Qty = the delivered quantity after all edits (3 CS) [observed 2026-10-06 G11-3]. A "Partial / Full" choice is shown at the bottom of the Detail [observed 2026-10-06 G11-3].
 - G11-3: Sales Return Status Change auto-fills the previous day's GIN (507) but still lists today's return [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (Q-SR2, middle invoice): for a **partial return** the system generates a **middle invoice / cash memo** for the remaining quantity, recalculates price, discount/scheme and tax on it, and the Sales Return carries the **difference between the original invoice and the middle invoice** [stated 2026-10-08 QA Team]. This explains the reversals on non-returned lines (slab promotions re-priced on the remaining basket) [observed 2026-10-05, 2026-10-06]; supersedes the [inferred] rule wording.
+- QA team 2026-10-08 (Q-SR1, partly): credit notes are adjusted at outlet level, applied where the invoice net amount > the credit note amount [stated 2026-10-08 QA Team]; still not observed for returns 713 / 714 / 715.
 
 ## 9. Messages
 `Validation successfully`; `Save successfully`; `Forwarded successfully` (8 times on the detail screen); `Return quantity should not greater than ordered quantity.`; `Please Enter the Comments` [atlas toast history, all recorded by the framework, none observed live yet].
@@ -143,6 +148,10 @@ Positive: return 1 CS of one line, validate, save, forward, approve, status chan
   - Trap: typing a digit into a grid cell holding 0 can give "02"; clear the cell first.
   - Trap: the return is not netted at settlement; a test expecting Adjusted Credit Note = 29,077 fails today (Q-SR1).
 - G11-3 trap: return expected Tax/Net depend on the source order's delivered quantity after all edits (3 CS on 10-06 -> Tax 4,409.61 / Net 29,066); the workbook values are stale (FRAMEWORK_DRIFT.md) [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Expected values of a partial return = original invoice - middle invoice (recompute price, scheme and tax on the remaining quantity); never pro-rata, never 0 on non-returned lines.
+  - Stock types: cases for Sound, Damaged and Expired returns are valid (Lost was not named).
+  - PK runs: no Fresh Return; BD runs: Fresh Return uses the current document date.
 
 ## 12. Open questions (batched for the BA; each with a default)
 Q: Is the return limited to quantity ordered or quantity delivered? | Default: delivered | Evidence: message says "ordered quantity". PARTLY 2026-10-01: Invoice Quantity shown = the delivered/edited quantity (4 CS); the over-return refusal was not tried [observed 2026-10-01 G11-1].
@@ -160,9 +169,14 @@ Q: Does a non-Sound return stock type (Damaged/Expired/Lost) post to the matchin
 - Q43 (discount reversal) RE-ANSWERED 2026-10-05: not purely proportional; the slab promotions are re-priced on the remaining basket (lines 2-5 reversals) [observed values; rule inferred].
 - Q-SR2: Is it intended that a part return re-prices the order's slab promotions on the non-returned lines (credit includes discount reversals on lines that were not returned)? | Default: yes, promotions are recomputed on the remaining basket | Class: C | Evidence: COL26000000714 Detail lines 2-5 [observed 2026-10-05 G11-2b].
 - Q-SR1, Q-SR2 evidence 2026-10-06: return 715 not netted at settlement; re-priced reversals on 0-quantity lines [observed 2026-10-06 G11-3]. Both stay open.
+- **Q-SR2 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: yes, intended: a partial return creates a middle invoice for the remaining quantity and re-prices price, discount/scheme and tax; the return = original - middle invoice. Fresh Return uses the same logic with the current date.
+- **Q-GRN2 / non-Sound return ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: Sales Returns with reference to an old cash memo can be processed for all stock types (Sound, Damaged, Expired); that the GRN then carries the same stock type is the default, not yet observed.
+- Q-SR1 PARTLY ANSWERED 2026-10-08 [stated 2026-10-08 QA Team]: credit notes adjusted at outlet level where invoice net > credit note; Fresh Return BD only; not all scenarios appear for every PJP. Still open: returns 713 / 714 / 715 were never netted (three days) | Class: B.
 
 ## 13. Sources
 `framework_atlas/flows/00070001.md`, `00700001.md`, `00730001.md`, `00710001.md`, `group_11.md`; DB: snd_pr_dot_documenttype, snd_pr_dos_documentstatus, glb_pr_rnt_reason_type, wkf_wf_weo_wrkflw_event_orga, snd_tr_cmm_cashmemo_master. No SR table of its own exists (CM-02 lives in the cash memo tables).
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 34, 36, 37, 38, seq 39-46 (Balance Amount), seq 48-50 (GRN), seq 51 (Route Settlement); `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 12 and 15, §8 Q-SR1.
 - G11-2 / G11-2b: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 34, 36, 37, 38, 48, 51); learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 51, 53, 69, 71).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 34, 36, 37, 38, 69, 71).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (Q-SR1, Q-SR2, Q-GRN2).

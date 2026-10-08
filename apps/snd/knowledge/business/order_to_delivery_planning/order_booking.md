@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [dispatch_advice, stock_validation_flows, stock_inquiry_and_balances]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Order Booking: how it works (S&D / DCODE)
 
@@ -17,6 +17,7 @@ Updated: 2026-10-01 (G11-1 consolidation)
 Last updated: 2026-10-01. Source flows: 00010001 (group 11 seq 10; also groups 1, 52).
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 Order Booking captures a retail outlet's demand for products (an order) on behalf of a distributor, usually entered by an Order Booker or Spot Seller [inferred from the field "Order Booker/Spot Seller"]. The order is stored as a cash memo document and is later picked, issued on a Goods Issue Note and delivered [db: order is the cash memo master `snd_tr_cmm_cashmemo_master`, status "Ordered"]. In the Daily Cycle it comes after the stock has been received (Dispatch Advice, approval, stock validation) and before Stock Allocation, Transaction Inquiry, editing/cancellation, Delivery Date Change and the GIN. [observed: group 11 chain]
@@ -152,6 +153,9 @@ Details in order_lifecycle_and_statuses.md.
 - G11-2: confirmed on a second day: tax-exempt outlets 05/06 give Tax 0; header Net rounded to the rupee; basket-dependent discount; reservation at save [observed 2026-10-05 G11-2].
 - G11-2: ATP can include reservations of old Pending documents carried into the day (Allocated 63 of GIN 505), so ATP < Opening + In [observed 2026-10-05 G11-2].
 - G11-3: tax-exempt outlet 05 Tax 0 again; outlets 06/07 swapped (Q-TX1) [observed 2026-10-06 G11-3]. Do not assert tax for 06/07 from the outlet label alone.
+- QA team 2026-10-08 (rule 8): the system **recalculates the invoice tax from the outlet's tax attributes**: Registered / Non-Registered, Tax Filer, Advance Tax Exempted, Tax Exempted [stated 2026-10-08 QA Team]. (Explains the outlet 06 / 07 swap after their master data changed, Q-TX1.)
+- QA team 2026-10-08 (rule 9): ORGA parameter **ZERO_TAX_ORDER_EXEMPTION** decides whether zero-tax orders / invoices can be **delivered**: **Y** = allowed, **N** = delivery not allowed [stated 2026-10-08 QA Team]. (Refines the 2026-10-06 rule "a non-exempt outlet's zero-tax invoice cannot be delivered": the block applies when the parameter is N; how it interacts with the outlet's Tax Exempted flag was not stated.)
+- QA team 2026-10-08 (Q16): an order quantity above the available stock is **accepted**; allocation takes only the available quantity; with no stock the order stays unallocated with Cash Memo status Order [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 - "Validation successfully" (validate); "Order Save successfully" (save; framework key ORD_BOOK_SAVE_ASSR). [observed] Both re-observed on 6 orders. [observed 2026-10-01 G11-1]
@@ -188,6 +192,10 @@ Reads: stock from Dispatch Advice (same calendar day; stock balances are keyed b
   - Trap: ATP starts below Opening + In when an old Pending document still holds stock (325 = 308 + 80 - 63); derive expected ATP from Stock Inquiry Closing, not from the DA quantity.
 - G11-3 (2026-10-06 ruling [stated 2026-10-06 QA Team Lead]): a booked zero-tax order of a NON-exempt outlet (like 2017, outlet 07) will be refused at delivery; book with the outlet's correct tax master data, or expect the block. 2017 was cancelled at seq 16, so the block was not seen.
 - G11-3 trap: outlet tax behaviour can change between runs (06/07 swapped on 10-06); expected tax per order must come from the outlet's current tax profile, re-checked each run [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 additions [stated 2026-10-08 QA Team]:
+  - Tax: derive the expected tax from the outlet's four tax attributes (Registered, Tax Filer, Advance Tax Exempted, Tax Exempted) as they are on the run day, not from the outlet label.
+  - Zero-tax delivery: record ZERO_TAX_ORDER_EXEMPTION of the environment first; N -> a zero-tax invoice cannot be delivered; Y -> it can.
+  - Boundary (Q16): qty = available -> FULL; available + 1 -> saved, partially allocated.
 
 ## 12. Open questions (batched for the BA)
 - Q: Is quantity above ATP blocked, warned, or accepted as a backorder? | Default: blocked | Evidence: never tried.
@@ -198,9 +206,12 @@ Reads: stock from Dispatch Advice (same calendar day; stock balances are keyed b
 - Q-OB1: Who or what generated the day's opening balances during 2026-10-01 (they were 0 in the morning, rebuilt from the previous day by 16:40)? This decides the ATP an order sees. | Default: unknown (someone may have clicked Generate Opening Balances) | Class: B | Evidence: session report §8; stock_inquiry_and_balances. **-> ANSWERED 2026-10-05**: openings are created by the first movement of the day (DA approval) = previous Closing + still-Allocated (see stock_inquiry_and_balances.md, OPEN_QUESTIONS.md).
 - G11-2: Q (delivery date rule) gets a third data point (10-05 booking -> 10-11); still [inferred]. ANSWERED 2026-10-05 (Q-OB1): the day's openings come from the first movement (DA approval) = previous Closing + still-Allocated; ATP = Closing (see stock_inquiry_and_balances.md).
 - Q-TX1 (new 2026-10-06): Why did outlets 1000000006 and 1000000007 swap tax behaviour between 2026-10-05 and 2026-10-06 (07 now Tax 0, 06 now 16,505.36), while their labels still show the old profiles: outlet flags changed (change-track approval?) or a tax-rule change? | Default: treat the current behaviour as the expectation; re-check per run | Class: C (QA lead) | Evidence: orders 2017 and 2019, seq 10 and seq 14 [observed 2026-10-06 G11-3]. **-> ANSWERED 2026-10-06** [stated 2026-10-06 QA Team Lead]: master-data modification of the outlets and the tax promotion (not a defect). Related rule: a zero-tax invoice of an outlet that is NOT tax-exempt cannot be delivered; a tax-exempt outlet's zero-tax invoice is allowed (see cashmemo_reschedule_and_status.md). Delivery date rule: fourth data point (10-06 -> 10-12) [observed].
+- **Q16 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: quantity above available stock is accepted; only the available quantity is allocated; none available -> unallocated, status Order.
 
 ## 13. Sources
 learning_block2a.json (L14), learning_block3b.json (S3), LIVE_FINDINGS.md; framework_atlas/flows/00010001.md/.json; group_11.md; framework_flows/TC-OB-01_executed.md, ob_orders.json; DB `snd_tr_cmm_cashmemo_master`, `snd_pr_dot_documenttype`, `snd_pr_dos_documentstatus` (org 010104); step_labels (qaos_steps.py labels "Order Booking").
 - Live learning session G11-1 (2026-10-01, cnr1dev1, distributor 15108843): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 10 (also seq 16, 29, 31, 33 for the later fate of the orders); `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 3, 8, 9 and §8.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 10).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 10, 14).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 8, 9; Q16).

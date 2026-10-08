@@ -1,6 +1,6 @@
 # Live learning checklist (class B questions), ordered by the Daily Cycle
 
-Updated: 2026-10-06 (G11-3 consolidation: L34, L35, L39 dropped as answered by the QA Team Lead (Q-OB2, Q-OE4, Q-DJ1); Q-TI1 and Q-TX1 answered too; new check L40); 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-08 (QA team written answers: L16, L17, L22, L31, L32, L36 settled by stated answers; new L42-L44; see section "Status after the QA team written answers"); 2026-10-06 (G11-3 consolidation: L34, L35, L39 dropped as answered by the QA Team Lead (Q-OB2, Q-OE4, Q-DJ1); Q-TI1 and Q-TX1 answered too; new check L40); 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
 
 Built from [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) class B (33 questions at the start; 24 still open plus 1 new after live blocks 1-3b). Environment cnr1dev1; Maker = Auto_Multi_Orga, Checker = Auto_Tssm. Logins are triggered by the QA member (Claude never types passwords); every test run starts from a fresh login. Steps use the standard vocabulary [Actor] Verb Object. Record: the exact message text, the ids/labels seen, row counts, and a Stock Inquiry before/after snapshot (same row, same filters).
 
@@ -91,6 +91,29 @@ New checks from 2026-10-06 (G11-3):
 |---|---|---|---|---|---|
 | L40 | [Maker] Navigate to Stock Inquiry; Choose yesterday's date; read Closing of the cycle products; Choose today's date before the first movement / after it; compare Opening with yesterday's Closing | Auto_Multi_Orga | Opening = previous Closing (carry-over job ran) or 0 (environment issue, report it) | no (RO) | pre-check from the Q-OB2 ruling |
 | L41 | [Maker] Book (or find) a zero-tax order of a NON-exempt outlet; put it on a GIN and try Cashmemo Status Delivered | Auto_Multi_Orga / Auto_Tssm | where the delivery is blocked and the exact message | D | Q-TX1 rule (stated, not yet observed) |
+## Status after the QA team written answers (2026-10-08)
+
+Source: [learning_sessions/2026-10-08_QA_Team_Review_answers.md](learning_sessions/2026-10-08_QA_Team_Review_answers.md). A stated answer closes the question; the walk item stays optional only to capture the exact message or value. [x] = settled, [~] = partly, [ ] = still open.
+
+| Id | Tick | Result 2026-10-08 [stated 2026-10-08 QA Team] |
+|---|---|---|
+| L16 | [x] | Q53 answered: no workflow on the DSR adjustment (observed direct save 10-06 agrees) |
+| L17 | [x] | Q29 answered: delivery date cannot be earlier than the order date; optional: capture the message |
+| L22 | [x] | Q16 / Q27 answered: > available -> only the available qty allocated; none -> unallocated, status Order; optional: capture Allocation Status of a partial order |
+| L31 | [x] | Q48 answered: Payable - Received = DSR Cash Shortage; optional: observe it when a case reduces cash Received |
+| L32 | [x] | Q58 answered: stock moves on approval |
+| L36 | [x] | Q-DS3 answered: a Complete route with Un Posted slips is a defect (LIVE_FINDINGS D-G11-2b-1); no walk needed |
+| L28 (Q42) | [~] | Q58 (stock moves on approval) and the GRN evidence suggest the return moves stock only via the GRN; snapshot between return approval and GRN still not taken |
+| L38 | [~] | Q-RS4: check = working date today and closing date N-1 per PJP; zero-activity detail open |
+| L41 | [~] | rule refined: record ZERO_TAX_ORDER_EXEMPTION first (N blocks, Y allows) |
+
+New checks from the 2026-10-08 answers:
+
+| Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
+|---|---|---|---|---|---|
+| L42 | Ask the QA team (or read the ORGA parameter screen) for CASHMEMO_EDIT of org 010104; then [Maker] edit an order on an approved GIN (reduce 1 CS, reason); read the GIN detail Actual quantity and Stock Inquiry Out / Allocated / Closing before and after; later read the GRN Suggested | Auto_Multi_Orga | whether the approved GIN quantity and Out drop at the edit save, or the cut returns on the GRN (as on 3 walks) | S | Q-OE5 (contradiction 28) |
+| L43 | [Maker] Navigate to the Profile / user setup screen (read-only); read the role code and Authorized flag of Auto_Multi_Orga, Auto_Tssm and KPO_mp; [Maker] open a Pending DA he forwarded and read whether Forward (approve) is enabled | Auto_Multi_Orga | role codes vs 0001 / 0002; why self-approval of DA 570 was possible | no (RO) | Q-RL1 (contradiction 31) |
+| L44 | Optional, only with the QA Team Lead's go-ahead: before the GRN of the day is approved, [Maker] Navigate to Route Settlement; Click Edit on the route | Auto_Multi_Orga | whether "Stock Mismatch" appears (exact text) | no (blocked) | rule 19 (stated) |
 
 ## Block 1: read-only, any day (RO)
 

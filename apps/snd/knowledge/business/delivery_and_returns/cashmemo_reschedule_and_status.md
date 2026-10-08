@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [goods_issue_note, delivery_date_change, order_editing_cancellation]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Cashmemo Reschedule and Cashmemo Status: how it works (S&D / DCODE)
 
@@ -17,6 +17,7 @@ Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEAR
 Last updated: 2026-10-01. Source flows: atlas `01040001` (group 11 seq 32), `00030001` (seq 33); also seq 29 `00840001` Order Editing After GIN and seq 31 `00850001` Order Cancellation After GIN. None of these has been replayed live yet (the GIN approval blocks the chain). (superseded 2026-10-01: all four were walked live on 2026-10-01 after GIN 506 was approved: COL26000002006 rescheduled to 2026-10-02, COL26000002003/2004/2005 delivered, 2003 edited and 2007 cancelled after the GIN [observed 2026-10-01 G11-1])
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A cash memo (document type `CM-01` "Sales", the confirmed order that is the delivery document) is delivered by the DSR. After the GIN, either the DSR could not deliver on the planned day (Cashmemo Reschedule moves it to another delivery date with a reason) or he reports the outcome of the day (Cashmemo Status records cash memos as delivered / not delivered). [inferred from names, execution statuses and screens; confirmed 2026-10-01: Reschedule moves the cash memo to a new delivery date with a reason and takes it off the GIN (status Reattempt); Cashmemo Status marks the ticked cash memos Delivered/Invoiced with the actual delivery time [observed 2026-10-01 G11-1]]
@@ -97,7 +98,9 @@ Status chain observed 2026-10-01: Confirmed -> Ready to dispatch/Packed (GIN app
 - G11-2: Reschedule and Status list only cash memos still on the GIN (2013 cancelled after the GIN and 2012 rescheduled were absent from Status); confirmed on a second day [observed 2026-10-05 G11-2].
 - G11-3: set the new Delivery Date before ticking the row on Cashmemo Reschedule [observed 2026-10-06 G11-3].
 - G11-3: Cashmemo Status picks the GIN from the PJP (latest GIN auto-filled: 508, later 509) [observed 2026-10-06 G11-3].
-- G11-3: **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown].
+- G11-3: **Zero-tax rule** [stated 2026-10-06 QA Team Lead]: a zero-tax invoice of an outlet that is **NOT tax-exempt cannot be delivered** (the application stops the delivery); a zero-tax invoice of a **tax-exempt** outlet is allowed. Not exercised on 2026-10-06: the zero-tax order of non-exempt outlet 07 (COL26000002017) was cancelled at seq 16 [observed]; the exact blocking screen and message are [unknown]. (refined 2026-10-08: the delivery of zero-tax orders/invoices is controlled by ORGA parameter **ZERO_TAX_ORDER_EXEMPTION**: Y = delivery allowed, N = not allowed [stated 2026-10-08 QA Team])
+- QA team 2026-10-08 (rule 4, confirmed): a Cashmemo Reschedule unallocates the order [stated 2026-10-08 QA Team].
+- QA team 2026-10-08 (rule 9): ZERO_TAX_ORDER_EXEMPTION (Y allows delivering zero-tax invoices, N blocks it) [stated 2026-10-08 QA Team].
 
 ## 9. Messages
 `Updated successfully`; `Please Select Any Record`; reschedule success text [unknown]; one empty toast on Cashmemo Status [atlas].
@@ -137,9 +140,12 @@ Q: Are the duplicate reschedule reasons (Law & Order Issue x5, Shop Closed x2, T
 Q: Does the rescheduled cash memo (Reattempt, delivery 2026-10-02) get picked up by the next day's GIN without a Delivery Date Change? | Default: yes, it is offered on the GIN of its new delivery date | Class: B | Evidence: not walked (needs a second day).
 - G11-2: the rescheduled COL26000002012 (delivery 2026-10-06) was not followed to the next day; the next-day pickup question stays open (B).
 - Q-TX1 ANSWERED 2026-10-06 [stated 2026-10-06 QA Team Lead]: outlet 06/07 tax swap = master-data modification of outlets and tax promotion; the zero-tax delivery rule above follows from it. Open detail: where exactly the block fires (GIN, Cashmemo Status) and its message [unknown], class B.
+- Zero-tax delivery rule refined 2026-10-08 [stated 2026-10-08 QA Team]: parameter ZERO_TAX_ORDER_EXEMPTION; record its value before the negative case (LIVE_LEARNING_CHECKLIST L41).
 
 ## 13. Sources
 `framework_atlas/flows/01040001.md`, `00030001.md`, `00840001.md`, `00850001.md`, `group_11.md`; DB: snd_pr_dos_documentstatus, glb_pr_exs_execution_status, snd_tr_cmm_cashmemo_master, snd_tr_gnm_gingrn_refinfo.
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 29, 31, 32, 33, "Transaction Inquiry status check after seq 31-33", seq 48, seq 51; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 7 and 10, §6 items 3 and 5.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 29, 31, 32, 33).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 32, 33; 2012 delivery at seq 51).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 4, 9).

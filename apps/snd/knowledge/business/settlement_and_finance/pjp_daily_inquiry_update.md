@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [route_settlement, deposit_slips]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # PJP Daily Inquiry Update: closing the DSR's journey (S&D / DCODE)
@@ -18,11 +18,13 @@ Updated: 2026-10-01 (live blocks 1-3b)
 Last updated: 2026-10-01. Source flow: 00930001 (seq 57). No live replay. (superseded 2026-10-05: walked live in G11-2b; this is THE DAY CLOSE.)
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A PJP (permanent journey plan) is a DSR's route; each working day gets a "daily" PJP record. This screen lets a back-office user correct the daily record: journey status, DSR file status and end time, typically to close the day after settlement. [inferred]
 - **G11-2b: this is the day close** [observed 2026-10-05 G11-2b]: setting Mark Status "End Of Day" and DSR Files Status "Complete" on the delivery PJP's row for the Working Date closes that route's day (Current Status becomes E). The QA team member closed the earlier un-closed days (09-30, 10-01) this way: the 10-01 row of 02112 reads Current Status E / End Of Day / Complete [observed 2026-10-05 G11-2b; stated 2026-10-05 QA lead]. It follows Route Settlement (on 10-05 the route was Complete before the close) [observed order].
 - G11-3: the day close was done again for 2026-10-06 after settlement and DSR adjustment (settlement -> DSR adjustment -> day close) [observed 2026-10-06 G11-3]. The 10-05 close let 10-06 be settled without "Following previous days not closed!" [observed 2026-10-06 G11-3; causal link inferred].
+- QA team 2026-10-08 (rule 21): confirmed that the day close = PJP Daily Inquiry Update (End Of Day + Complete -> Current Status E) after settlement and DSR adjustment; **this option is used for manual working from the Back Office** [stated 2026-10-08 QA Team] (in production the day is driven by the DSR's mobile sync and the settlement [inferred from rule 12]).
 
 ## 2. Actors and roles
 Auto_Multi_Orga (same session) [db].
@@ -90,6 +92,7 @@ Positive: mark a PJP completed with end date today. Negative: end date before st
   - Trap: the day close is a shared-environment change: closing days on cnr1dev1 affects other testers; get the QA lead's go-ahead.
   - Trap: the workbook (sheet PJP Daily2: PJP 2112, DSR ITB0189, End Of Day, Complete, End Date = time) sets an End Date; the QA member's close left it empty and still worked.
 - G11-3 additions: Positive (next day) is now partly evidenced: day D=10-05 closed, D+1=10-06 settled with no previous-day error [observed 2026-10-06 G11-3]. Trap: close only after settlement and the DSR adjustment of the day.
+- QA team 2026-10-08: the previous-day check of Route Settlement verifies PJP working date = current date and closing date = N-1 [stated 2026-10-08 QA Team]; the close here is what makes N-1 closed.
 
 ## 12. Open questions
 Q: Allowed Mark Status / DSR Files Status values? | Default: End of Day; process / complete | Evidence: db-declared 2026-10-01 (PARTLY answered, Q55); live Edit-mode read pending.
@@ -104,3 +107,5 @@ Q: Does marking complete block further collection for that day? | Default: yes |
 framework_atlas/flows/00930001; screens_db/DYL_BG1022.json; group_11.md; DB table list (snd_en_pjp_pjphead_daily).
 - G11-2b: learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md (seq 56 workbook hint, seq 57).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 57).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 18, 21).

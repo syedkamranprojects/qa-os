@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, delivery_date_change, dispatch_advice]
 sources: [legacy-framework-replay, app-db, live-walk]
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 # Goods Issue Note (GIN): how it works (S&D / DCODE)
 
@@ -17,6 +17,7 @@ Updated: 2026-10-01 (live blocks 1-3b; consolidated with learning session 1 LEAR
 Last updated: 2026-10-01. Source flows: atlas `00050001` (group 11 seq 20), `00780001` (seq 23), `02810001` (seq 24). Walked end to end live on 2026-10-01 (GIN **506**) [observed 2026-10-01 G11-1].
 Updated 2026-10-05: consolidated with learning sessions G11-2 (seq 1-50, 2026-10-05 morning) and G11-2b (seq 51-71, same day); evidence learning_sessions/2026-10-05_G11-PK_session2_log.md, 2026-10-05_G11-PK_session2_report.md, 2026-10-05_G11-PK_session2b_resume_log.md. Tag [stated 2026-10-05 QA lead] = ruling given in chat by the QA lead.
 Updated 2026-10-06: consolidated with learning session G11-3 (full seq 1-71 in one calendar day WITH the QA Team Lead); evidence learning_sessions/2026-10-06_G11-PK_session3_log.md. Tag [stated 2026-10-06 QA Team Lead] = ruling given in chat by the QA Team Lead.
+Updated 2026-10-08: merged the QA team's written answers to the 2026-10-06 review (learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx); evidence learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). Tag [stated 2026-10-08 QA Team] = written answer of the QA team. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 ## 1. Purpose
 A GIN is the document by which the distributor's Maker (stock controller) issues stock out of the warehouse to a delivery man (DSR) for the cash memos (orders) he will deliver that day. It turns allocated orders into a load list: the cash memos of one PJP/DSR are picked, the SKU totals are summed, and the stock leaves the warehouse once the checker approves. [inferred from names and observed screens; confirmed 2026-10-01: Detail = per-SKU sum of the selected cash memos, approval moves the quantities to Out [observed 2026-10-01 G11-1] (was [inferred])]. Position in the Daily Cycle: after Stock Allocation / Delivery Date Change (seq 12-19), before delivery (Cashmemo Status seq 33), returns (seq 34-38) and settlement; quantities not delivered come back on the Goods Return Note (seq 48).
@@ -31,6 +32,7 @@ A GIN is the document by which the distributor's Maker (stock controller) issues
 - Hand-off note: the Checker must log in in the browser window that the automation controls; a login in another window leaves the automated window on the Maker [observed 2026-10-01 G11-1].
 - G11-2: Maker Auto_Multi_Orga created and forwarded GIN 507; Checker Auto_Tssm approved it with one Forward [observed 2026-10-05 G11-2].
 - G11-3: Maker Auto_Multi_Orga saved and forwarded GIN 508 and 509; Checker Auto_Tssm approved each with one Forward [observed 2026-10-06 G11-3].
+- QA team 2026-10-08 (BA2, roles and workflow) [stated 2026-10-08 QA Team]: the application roles are **0001 NG User** (Distributor User: Back Office, creates and submits transactions and setup changes; Authorized flag N in Profile), **0002 TSSM** (Authorizer: reviews and approves what 0001 submits), **0003 DSR/PJP** (Mobile User, Authorized N), **0004 Warehouse User** (mobile: Dispatch Advice, inventory management, verification, GIN, GRN, inventory audit; Authorized N) and **9999 HQ (Global)** (setup and activities without approval; bypasses the standard workflow). In R1 a **two-level approval** (submit, approve) is configured for transactions and setup screens; each setup and transaction has a predefined workflow that names the role codes of its Submit and Approve stages. So maker / checker separation is enforced **by role through the workflow**, not by comparing user names. Open detail (Q-RL1): KPO_mp approved its own DA 570 and the org 010104 GIN workflow names role 0005 for both Verify and Approve [observed / db], which does not match the 0001 / 0002 picture.
 
 ## 3. Documents and master data
 - Document type `GN-01` "Goods Issue Note" (group GN), statuses 01 Authorized, 02 Un-Authorized, 03 Cancelled [db: snd_pr_dot_documenttype, snd_pr_dos_documentstatus]. Header table `snd_tr_gnm_gingrn_master` (shared with the Goods Return Note `GR-01`), lines `snd_tr_gnm_gingrn_detail`, links to cash memos in `snd_tr_gnm_gingrn_refinfo` (refdoctype `CM-01`) [db].
@@ -146,9 +148,12 @@ ANSWERED 2026-10-01 (Q37, partly): only the Checker can Reject or Terminate, onl
 Q: Should editing or cancelling an order on an approved GIN be blocked or warned? | Default: allowed (as observed); report as a business control question | Class: C | Evidence: seq 29/31 succeeded without a warning 2026-10-01.
 Q: Is the 0.67 kg weight for 35 CS of 62740537 a master-data error? | Default: yes, data issue, do not assert weight | Class: C | Evidence: GIN 506 Detail.
 - G11-2: Q (date used by the approval stock check) still not separable (GIN Date = Delivery Date = stock date = today again).
+- **BA2 ANSWERED 2026-10-08** [stated 2026-10-08 QA Team]: separation of duty is by role and workflow (0001 NG User submits, Authorized N; 0002 TSSM approves; two-level approval in R1; 9999 HQ bypasses the workflow). New Q-RL1 (class B): which role codes the cnr1dev1 users hold and why KPO_mp could approve his own DA 570.
 
 ## 13. Sources
 `framework_atlas/flows/00050001.md`, `00780001.md`, `02810001.md`, `group_11.md`; `apps/snd/knowledge/ui.md` section "Verified in the group 11 replay"; `framework_flows/STEP_SHEET_DRAFT_next.md`; learning_block1.json, learning_block3a.json (live 2026-10-01), LIVE_FINDINGS.md L05, L10, C3; DB wkf_wf_weo_wrkflw_event_orga, act_re_procdef (StockUpdateGIN v53), srol roles; DB tables snd_tr_gnm_gingrn_master/detail/refinfo, snd_pr_dot_documenttype, snd_pr_dos_documentstatus, snd_pr_trn_trans_nature, glb_pr_sgt_suggested_types, glb_pr_exs_execution_status, wkf_wf_weo_wrkflw_event_orga, wkf_wf_wfs_workflow_status, snd_tr_ssb_salestock_balance. Note: transactional rows exist only for org 0101 in snd-schema (143k authorized GINs); org 010104 has the same document types and statuses.
 Learning session 1 (2026-10-01): `learning_sessions/2026-10-01_G11-PK_session1_log.md` seq 20, 23, 24, Transaction Inquiry after GIN approval, seq 29/31, seq 48-50; `learning_sessions/2026-10-01_G11-PK_session1_report.md` §3 rules 5-7, §5, §6, §7.
 - G11-2: learning_sessions/2026-10-05_G11-PK_session2_log.md (seq 20, 23, 24).
 - G11-3: learning_sessions/2026-10-06_G11-PK_session3_log.md (seq 20, 23, 24; GIN 509 at seq 51).
+
+- QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (BA2).

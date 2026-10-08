@@ -28,6 +28,13 @@ Area summary:
     - SAN 96 (Stock Adjustment Admin, -50 CS) Maker save + Forward, Checker one-step approval; Out +50 on approval.
     - Cheque Status lists only Posted cheque slips, statuses "Clear", only action Bounce ("Realized" does not exist); DSR Adjustment Amount screen read (Shortage / Adjusted / Balance per PJP), nothing saved.
     - Open: 10-01 route Complete but its slips Un Posted (Q-DS3); Total Order 13 (Q-RS3); return still not netted (Q-SR1).
+13. **2026-10-08 QA team written answers** [stated 2026-10-08 QA Team] (learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx)):
+    - Collection process: DSR collects in the Delivery App -> end-of-day mobile sync -> system auto-creates Unposted Cash/Cheque Deposit Slips -> Route Settlement with the accountant -> slips Posted. The Back Office Deposit Slip screen is the manual path (group 11).
+    - Route Settlement: final settlement of the DSR by the accountant; ignore row colours (Edit link = not settled, blank = settled); settlement amount not editable except adjustment fields (fuel / challan); Received < Payable -> DSR Cash Shortage, never below zero; cheques fixed; stock shortage = sale price x qty (UOM) + tax %; GIN qty must match GRN qty else "Stock Mismatch"; previous-day check = working date today and closing date N-1.
+    - A settled route must have all its slips Posted: the 10-01 route 02112 (Complete, slips 1131-1136 Un Posted) is defect D-G11-2b-1.
+    - Cheques: Cleared/Realized immediately at posting in PK/BD ("Clear"); Bounced reverses the payment and leaves the amount outstanding at outlet level.
+    - DSR adjustment has no workflow; GRN approval auto-creates the stock-shortage DSR adjustment; day close on PJP Daily Inquiry Update is for manual Back Office working.
+    - Open: Q-DS4 (outlet totals) under clarification; Q-SR1 partly (returns still not netted).
 
 Order of pages and walk state:
 
