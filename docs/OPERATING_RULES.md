@@ -17,6 +17,7 @@ Last updated: 2026-10-07 (release v0.5.0).
 
 ## Knowledge-gap gate (QA lead, 2026-10-08)
 - Before executing an AI flow or generating scripts, check the knowledge is there. If not, ask the user. **Short/ad-hoc** gap (a value, a field meaning, a message, one rule): ask, record as [stated], continue the run. **Long-term** gap (untrained screen, module or process): ask for a training session and do NOT execute the story/flow until trained. Never guess, never borrow from old framework data.
+- **Promotion area (2026-10-08): partially trained, more information will follow when needed.** If an AI execution or request touches promotions / budgets and the knowledge is not there, ask the user at that moment (pending questions: `apps/snd/knowledge/business/learning_sessions/2026-10-08_Promotions_questions_for_trainer.md`); record answers as [stated]. Never assert promotion amounts or budget effects that are only [code] or [inferred].
 - **Training only up to execution:** test cases, steps AND test data come from training (test data catalog per market); the app is opened only to execute the approved steps. Live state (stock, documents of the day) is checked by precondition steps during execution.
 
 ## QA-environment strict mode (QA lead, 2026-10-08)

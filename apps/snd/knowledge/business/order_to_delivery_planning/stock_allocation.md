@@ -102,6 +102,8 @@ G11-3 walk (2026-10-06) [observed 2026-10-06 G11-3]:
 - QA team 2026-10-08 (Q16 / Q27, allocation logic) [stated 2026-10-08 QA Team]: the system checks the booked quantity against the available stock: <= available -> allocated in full; > available -> the available quantity only (partial); none available -> unallocated, Cash Memo status **Order**.
 - QA team 2026-10-08 (rule 2): after an Order Editing save the system automatically allocates the available stock against the modified order [stated 2026-10-08 QA Team].
 - QA team 2026-10-08 (rule 4, confirmed): a Cashmemo Reschedule unallocates the order [stated 2026-10-08 QA Team].
+- Promotions training 2026-10-07 (F17, F19): a **free-goods** promotion checks the free SKU's stock; when it is out of stock the order is saved but the **free goods are not allocated** [stated 2026-10-07 Syed Zulfiqar]; see [promotions_and_budget.md](../promotions_and_budget/promotions_and_budget.md) (Q-PR9). Not yet observed.
+- Code study 2026-10-08 (promotion service, not observed): the promotion service has **no stock check** and never reads the order status; free goods (and their quantity budget) are calculated on the same save event as discounts, so the free-SKU stock rule, if it holds, is enforced by the S&D order / allocation side (contradiction 37) [code UL-R1-BD@51e7e815 SnDRepositoryFiller.java:408] [code UL-R1-BD@51e7e815 BusinessResolver.java:40-60]. <!--i-->
 
 ## 9. Messages
 "Are you sure you want to proceed?" (confirm alert); "Process completed successfully" (allocation, key Stock_Allocation_ASSR); "stock not found." (unallocation; framework key Unallocated_ASSR expects something else, [unknown] what). [observed]

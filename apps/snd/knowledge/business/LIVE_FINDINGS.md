@@ -251,12 +251,12 @@ Headline findings (observed 2026-10-06 unless tagged):
 ## QA team written answers to the 2026-10-06 review (received 2026-10-08)
 Source: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx). No new walk; this block records the findings the answers create. Tag [stated 2026-10-08 QA Team].
 
-### D-G11-2b-1 DEFECT: route 02112 for 2026-10-01 is Complete but its deposit slips were never posted
+### D-G11-2b-1 ~~DEFECT: route 02112 for 2026-10-01 is Complete but its deposit slips were never posted~~ **WITHDRAWN 2026-10-08 (follow-up 2): abnormal env data, not a defect**
 - Observed 2026-10-05 (G11-2b): Route Settlement, Route Status Complete, shows 02112 for 2026-10-01 as Complete (values as G11-1: Sale Value 311,238, Payable = Received 224,131, Cash Shortage 0); the Deposit Slip grid still shows that day's slips **1131-1136 Un Posted** (1133 still Deposit 1,000 / Adjusted 600). The 09-29 slips (1125-1130) are Posted.
 - Observed 2026-10-06 (G11-3): after the 10-06 settlement the Outstanding Cash memos tab still shows COL26000002004 / COL26000002005 with Un Posted 101,161 / 119,370 (their 10-01 slips 1131 / 1132): the 10-01 receivables were never adjusted.
 - Contrast: the settlements of 2026-10-05 and 2026-10-06 posted all their slips (1137-1142, 1143-1148) [observed].
 - Ruling [stated 2026-10-08 QA Team] (Q-DS3): "This should not be possible. Once the route is settled, all associated deposit slips must be posted, and their amounts must be adjusted against the respective invoices/cash memos. If this does not happen, it should be considered a defect."
-- Unknown: how the 10-01 route was completed (done by a QA team member on 10-05, action not seen). Action: report to the QA team / development with this evidence; ask whether the 10-01 route was completed through a path other than the row Save. Regression check: after every settlement assert that every slip of the route/date is Posted.
+- Unknown: how the 10-01 route was completed (done by a QA team member on 10-05, action not seen). Action: report to the QA team / development with this evidence; ask whether the 10-01 route was completed through a path other than the row Save. Regression check: after every settlement assert that every slip of the route/date is Posted. (superseded 2026-10-08 follow-up 2: withdrawn, "Irrelevant question - abnormal data" [stated 2026-10-08 QA Team (follow-up 2)]; nothing to report to development. The Q-DS3 rule stands, so the regression check is kept. Carry-over: the 10-01 leftovers (slips 1131-1136 Un Posted, invoices COL26000002004 / 2005 open) stay on cnr1dev1 and still inflate the outlet 04 / 05 outstanding totals; never use them as fixtures or as evidence of expected values.)
 
 ### Q-OE5 CONTRADICTION: edit after GIN approval vs stock (stated GIN reduction, observed none) (resolved 2026-10-08 by the follow-up: no stock movement)
 - Stated [stated 2026-10-08 QA Team] (rule 3, Q-OE3): with ORGA parameter CASHMEMO_EDIT (CM_Edit) = Y an approved cash memo may be edited (quantity reduction, reason required) and on Save the system reduces the corresponding quantity in the approved GIN.
@@ -285,4 +285,17 @@ Source: learning_sessions/2026-10-08_QA_Team_followup_answers.md. No new walk. T
 
 ### Q-SV1 CLOSED: stock assertions are per-transaction movements
 - Every stock transaction must show in Stock Inquiry in its column and in the balance: Dispatch Advice -> IN; Return Document -> OUT; GIN -> OUT; GRN -> IN; SAN -> addition / deduction (SAN Admin, Warehouse Transfer) [stated 2026-10-08 QA Team (follow-up)]. Stock checks assert the delta of each transaction, not fixed daily totals.
-- Open: which document "Return Document -> OUT" means (purchase return to the company?); sales returns were observed coming back as IN via the GRN on three days [observed] -> new Q-SV2.
+- Open: which document "Return Document -> OUT" means (purchase return to the company?); sales returns were observed coming back as IN via the GRN on three days [observed] -> new Q-SV2. (answered 2026-10-08 follow-up 2: a purchase return to the company, posts Out; see the block below.)
+
+## QA team answers to the 2026-10-08 second follow-up (received 2026-10-08)
+Source: learning_sessions/2026-10-08_QA_Team_followup2_answers.md. No new walk. Tag [stated 2026-10-08 QA Team (follow-up 2)].
+
+### Q-SV2 CLOSED: "Return Document -> OUT" is a purchase return to the company
+- QA team: "Purchase return to the company" [stated 2026-10-08 QA Team (follow-up 2)]. Stock goes from the distributor back to the company and posts Out in Stock Inquiry.
+- It is not the sales return: sales returns come back In through the GRN (returns 713-715 / GRNs 246-248 [observed]).
+- The menu option name was not given: LIVE_LEARNING_CHECKLIST L45 keeps only the read-only menu search (before/after Stock Inquiry snapshot only if the QA Team Lead approves).
+
+### D-G11-2b-1 WITHDRAWN: the 10-01 route 02112 state is abnormal env data
+- QA team: "Irrelevant question - abnormal data" [stated 2026-10-08 QA Team (follow-up 2)]. The 10-01 state (route Complete, slips 1131-1136 Un Posted, invoices COL26000002004 / 2005 open) is not a defect to report.
+- The Q-DS3 rule stands: a settled route must have all its slips Posted and adjusted. Keep the check "after Route Settlement every slip of that route/date is Posted".
+- Carry-over: the 10-01 leftovers (slips 1131-1136 Un Posted, invoices COL26000002004 / 2005 open) stay on cnr1dev1 and still inflate the outlet 04 / 05 outstanding totals; never use them as fixtures or as evidence of expected values.

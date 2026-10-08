@@ -38,6 +38,14 @@ When a quick or story run hits a **short** knowledge gap (knowledge-gap gate in 
 ### D. Q&A / quiz
 - Walk `OPEN_QUESTIONS.md` with the trainer (class C first), or let a senior QA quiz Claude: Claude predicts the result from the pages, executes or looks it up, and records predicted vs actual. A wrong prediction is a knowledge gap: fix the page and log it.
 
+### E. Source code (read-only study of the application's code)
+When the trainer points to a repository (e.g. a microservice):
+1. Get read access to the folder; never change, build, run, checkout or fetch. List branches by last commit, but choose the branch by **region / customer** (the one deployed to the training env, e.g. `UL-R1-BD` for R1 cnr1dev1), not by date; record branch + commit. Read from a `git archive <branch>` export in the scratchpad so the working copy is untouched.
+2. Read only the area being trained (types/enums, the apply/calculate path, validations and their message texts, jobs, endpoints, tables, feature flags). Parallel read-only readers are fine; each writes a study file with `[code <branch>@<commit> <path>:<line>]` evidence and says "unclear" instead of guessing.
+3. File the study files under `apps/<app>/knowledge/sources/code/<repo>/` with a README (branch, commit, version, env), then consolidate into the pages with the `[code]` tag (`docs/LEARNING_STANDARD.md` §3.4). Code facts never override `[stated]`: every disagreement becomes a contradiction for the trainer. Open questions settled by code are marked "answered by code - confirm live".
+4. **Code facts stay internal** (QA lead rule, 2026-10-08: never tell the QA team or trainers that knowledge came from reading source code). Write every code-derived fact on its own line (bullet or table row, first cell "(internal)" when split from a mixed row) ending with the marker ` <!--i-->`; `tools/build_release.py` drops marked lines from the shared package and refuses to build if a `[code` tag is left unmarked. Emails, documents and questions for trainers phrase code findings as plain business questions, never naming the code.
+5. Code is strongest for exact message texts (assertion candidates), boundaries, feature flags and likely defects (list them in §11 Test design hints); behaviour decided by a calling service stays `unclear` until seen live.
+
 ## 1b. Messages are first-class facts
 Every toast, browser alert, in-page popup/modal and inline validation the app shows during training is recorded on the option's page (section "Messages") with: **type** (toast success/error, alert, popup, inline), **exact text**, **what triggers it** (button/step, condition), the **buttons** offered and which one continues the flow. Documents and verbal explanations that mention messages are recorded the same way, tagged. These become the assertions of every generated script (see `framework-conventions`), so a missing or paraphrased message is a gap: ask the trainer or observe it live.
 

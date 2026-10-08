@@ -31,6 +31,9 @@ Sources: G11 learning sessions 1-3 (2026-10-01/05/06), quick runs 2026-10-07/08.
 | 1000000008 | taxed 10-01/05/06, Tax 0 on 10-07 | G11, quick 10-07 | [observed] |
 | 1000000011 | taxed | G11 | [observed] |
 | 1000000012 - 1000000020 | not yet used | - | [observed 2026-10-08 outlet list] |
+| 1000000012 | taxed; booked COL26000002029 (Automation2 5 %) | G12 walk 10-08 | [observed 2026-10-08] |
+| 1000000013 | **Tax 0 on all 5 SKUs** on 10-08; booked COL26000002030 (Automation2 10 %) | G12 walk 10-08 | [observed 2026-10-08] |
+| 1000000014, 15, 17, 18, 19, 20 | 17 booked COL26000002028 and 19 COL26000002027 (quick runs 10-08); 14, 15, 18, 20 planned only | quick 10-08 | [observed 2026-10-08] |
 | 1000000016 | booked OK (COL26000002026) | quick 10-08 | [observed 2026-10-08] |
 | C0124183423/26/33/39, C0124186615/22, C0154186884..C0154186971 (several), C0154187365 | not used; "Automation QA TEST" / "Aautomation_Outlet" | - | [observed 2026-10-08 outlet list] |
 | 1000000001 - 1000000003 | **not offered** on this PJP | - | [observed 2026-10-01 G11-1] |
@@ -50,3 +53,8 @@ Stock for these comes from a same-day Dispatch Advice (vendor UPL WH); openings 
 - Other SKUs / product groups usable for orders (only the 5 above are trained).
 - Which other PJPs, outlets and sections may be used (only 02111 + Automation_Testing_Section trained).
 - Banks/branches and cheque data for deposit slips beyond Bank Al-Habib Limited / DHA Branch and National Bank of Pakistanss.
+
+## Promotions usable on cnr1dev1 (PK)
+| Promotion | Rule | Source |
+|---|---|---|
+| Automation2 (BONUS2, active to 2029-11-29, distributor 15108843) | >= 5 CS of 62740537 / 20050310 / 62690363 / 20050308 / 69997598 together: 1-10 CS -> 5 %, 11+ CS -> 10 % of gross (flat on all lines) | [observed 2026-10-08 G12 walk] |
