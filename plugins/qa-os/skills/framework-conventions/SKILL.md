@@ -60,5 +60,6 @@ Consequence: every generated flow needs an observed live recording behind it, as
 - Company and Distributor come from row 1 of one sheet, so they are the same for every user in a group.
 - Stock is auto-allocated at order save on this environment; the framework's manual Stock Allocation / Unallocation flows can disagree with that (see `apps/snd/knowledge/ui.md`).
 
-## 7. Using the atlas
+## 7. Using the atlas (reading existing flows only - NOT for generating new ones)
+**When generating from a QA OS recording, do not use the atlas or existing flows for names, ids or events** (QA lead rule, 2026-10-08): the recording is the only source; the live DB is read only for table structure, required columns, valid event pairs and free ids. The atlas is for understanding or reviewing existing legacy flows (e.g. FRAMEWORK_DRIFT analysis, training walks the trainer asked for).
 Find a flow with `python apps/snd/tools/build_atlas.py --find "<text>"`; read `flows/<id>.md`, then the JSON for exact ids. Attach the trace key `<group>:<seq>:<flow>:<screen>:e<event serial>` to every executed step. A screen or field missing from the atlas is an **authoring gap** to report, not something to invent.

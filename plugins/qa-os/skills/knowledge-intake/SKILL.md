@@ -32,6 +32,9 @@ Follow `docs/LEARNING_STANDARD.md` §5.2/§6 and `docs/OPERATING_RULES.md`:
 - **Logins:** Claude never types user ids or passwords. Claude logs out, the trainer types credentials, Claude presses Login only when asked, then selects company and distributor.
 - Business facts only (no element ids); log every step's message and effect in `session_log.md`; when stuck, stop and ask the trainer.
 
+### C2. Quick training during a run (short / ad-hoc knowledge)
+When a quick or story run hits a **short** knowledge gap (knowledge-gap gate in `quick-script` / `qa-orchestrator`), the user's answer in chat is quick training: record it as `[stated <date> <name>]` in the run's `decisions.json`; if it is reusable business knowledge, also add it to the option's business page (method B rules) and list it in the run report. No separate session is needed. **Long-term** gaps always go through a normal training session (methods A-D) before the run continues.
+
 ### D. Q&A / quiz
 - Walk `OPEN_QUESTIONS.md` with the trainer (class C first), or let a senior QA quiz Claude: Claude predicts the result from the pages, executes or looks it up, and records predicted vs actual. A wrong prediction is a knowledge gap: fix the page and log it.
 

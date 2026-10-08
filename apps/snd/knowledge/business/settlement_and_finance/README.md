@@ -1,6 +1,7 @@
 # Settlement and finance (group 11 seq 39-60, 68-71)
 
 Last updated: 2026-10-06 (consolidated with learning session G11-3, `learning_sessions/2026-10-06_G11-PK_session3_log.md`: slips 1143-1148; **Route Settlement performed by Claude** (new blocker "Un-Deliver Order exists for today delivery!" resolved by delivering the 10-05 Reattempt order on GIN 509); seq 55 checked without Bounce (Q-CS1 answered); seq 56 saved 400 (Total Shortage +400, a DSR shortage, Q-DJ1 answered); day closed (E); SAN 97; duplicate cheque numbers allowed (Q-DS2 first half); Outstanding Outlet doubled totals = display defect (Q-DS4); two collection modes: per invoice (Outstanding Cash memos) or per outlet with FIFO auto-adjustment to the oldest invoice (Outstanding Outlet), intended (Q-DS5); the day close clears the per-PJP previous-day check, route rows yellow = not closed / green = closed (Q-RS1 fully answered); slips are not blocked before settlement, Save reconciles, posts and adjusts (Q-DS2 fully answered)). Before: 2026-10-05 (consolidated with learning sessions G11-2 and G11-2b, `learning_sessions/2026-10-05_G11-PK_session2_log.md`, `learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md`: seq 39-60 and 68-71 walked; seq 55 and 56 bypassed by the QA lead). Earlier: 2026-10-01 (G11-1, stopped at seq 51).
+Updated 2026-10-08 (follow-up): merged the QA team's answers to the 2026-10-08 follow-up (Q-DS4, Q-SV1, CASHMEMO_EDIT / Q-OE5); evidence learning_sessions/2026-10-08_QA_Team_followup_answers.md. Tag [stated 2026-10-08 QA Team (follow-up)]. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 Area summary:
 1. After delivery and returns, the DSR banks collections: six deposit-slip variants (cash, cheque, multi-cheque, unposted) reduce cash-memo balances. (superseded 2026-10-01: all six walked live (slips 1131-1136); allocating a slip does NOT reduce the balance at once. Balances move only at "posting", presumably at Route Settlement. Until then the allocations show as "Un Posted Amount" on the cash memo [observed 2026-10-01 G11-1].)
@@ -34,7 +35,10 @@ Area summary:
     - A settled route must have all its slips Posted: the 10-01 route 02112 (Complete, slips 1131-1136 Un Posted) is defect D-G11-2b-1.
     - Cheques: Cleared/Realized immediately at posting in PK/BD ("Clear"); Bounced reverses the payment and leaves the amount outstanding at outlet level.
     - DSR adjustment has no workflow; GRN approval auto-creates the stock-shortage DSR adjustment; day close on PJP Daily Inquiry Update is for manual Back Office working.
-    - Open: Q-DS4 (outlet totals) under clarification; Q-SR1 partly (returns still not netted).
+    - Open: Q-DS4 (outlet totals) under clarification; Q-SR1 partly (returns still not netted). (superseded 2026-10-08: Q-DS4 closed by the follow-up, see item 14.)
+14. **2026-10-08 QA team follow-up answers** [stated 2026-10-08 QA Team (follow-up)] (learning_sessions/2026-10-08_QA_Team_followup_answers.md):
+    - Outstanding Outlet totals are NOT a display defect: outlet 05 202,322 = 2004 (10-01) + 2016 (10-06); outlet 04 257,570 = 2015 + 2009 + 2003; the older invoices were on page 2. The outlet total = sum of ALL open invoices of the outlet across days; a genuinely duplicated amount would be a potential bug. Q-DS4 closed; D-G11-3-1 withdrawn.
+    - Open in this area: Q-SR1 partly (returns still not netted).
 
 Order of pages and walk state:
 

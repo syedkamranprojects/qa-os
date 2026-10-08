@@ -1,6 +1,6 @@
 # Live learning checklist (class B questions), ordered by the Daily Cycle
 
-Updated: 2026-10-08 (QA team written answers: L16, L17, L22, L31, L32, L36 settled by stated answers; new L42-L44; see section "Status after the QA team written answers"); 2026-10-06 (G11-3 consolidation: L34, L35, L39 dropped as answered by the QA Team Lead (Q-OB2, Q-OE4, Q-DJ1); Q-TI1 and Q-TX1 answered too; new check L40); 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
+Updated: 2026-10-08 (QA team follow-up answers: L42 settled (Q-OE5 answered: no stock movement at an after-GIN edit; only the optional parameter read remains); new L45 (Q-SV2); see "Status after the QA team follow-up answers"); 2026-10-08 (QA team written answers: L16, L17, L22, L31, L32, L36 settled by stated answers; new L42-L44; see section "Status after the QA team written answers"); 2026-10-06 (G11-3 consolidation: L34, L35, L39 dropped as answered by the QA Team Lead (Q-OB2, Q-OE4, Q-DJ1); Q-TI1 and Q-TX1 answered too; new check L40); 2026-10-05 (G11-2 / G11-2b consolidation, see section "Status after G11-2 / G11-2b"); 2026-10-01 (live blocks 1-3b)
 
 Built from [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) class B (33 questions at the start; 24 still open plus 1 new after live blocks 1-3b). Environment cnr1dev1; Maker = Auto_Multi_Orga, Checker = Auto_Tssm. Logins are triggered by the QA member (Claude never types passwords); every test run starts from a fresh login. Steps use the standard vocabulary [Actor] Verb Object. Record: the exact message text, the ids/labels seen, row counts, and a Stock Inquiry before/after snapshot (same row, same filters).
 
@@ -111,9 +111,21 @@ New checks from the 2026-10-08 answers:
 
 | Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
 |---|---|---|---|---|---|
-| L42 | Ask the QA team (or read the ORGA parameter screen) for CASHMEMO_EDIT of org 010104; then [Maker] edit an order on an approved GIN (reduce 1 CS, reason); read the GIN detail Actual quantity and Stock Inquiry Out / Allocated / Closing before and after; later read the GRN Suggested | Auto_Multi_Orga | whether the approved GIN quantity and Out drop at the edit save, or the cut returns on the GRN (as on 3 walks) | S | Q-OE5 (contradiction 28) |
+| L42 | Ask the QA team (or read the ORGA parameter screen) for CASHMEMO_EDIT of org 010104; then [Maker] edit an order on an approved GIN (reduce 1 CS, reason); read the GIN detail Actual quantity and Stock Inquiry Out / Allocated / Closing before and after; later read the GRN Suggested | Auto_Multi_Orga | whether the approved GIN quantity and Out drop at the edit save, or the cut returns on the GRN (as on 3 walks) | S | Q-OE5 (contradiction 28) (settled 2026-10-08 follow-up: no stock movement at the edit; only the optional parameter read remains) |
 | L43 | [Maker] Navigate to the Profile / user setup screen (read-only); read the role code and Authorized flag of Auto_Multi_Orga, Auto_Tssm and KPO_mp; [Maker] open a Pending DA he forwarded and read whether Forward (approve) is enabled | Auto_Multi_Orga | role codes vs 0001 / 0002; why self-approval of DA 570 was possible | no (RO) | Q-RL1 (contradiction 31) |
 | L44 | Optional, only with the QA Team Lead's go-ahead: before the GRN of the day is approved, [Maker] Navigate to Route Settlement; Click Edit on the route | Auto_Multi_Orga | whether "Stock Mismatch" appears (exact text) | no (blocked) | rule 19 (stated) |
+
+Status after the QA team follow-up answers (2026-10-08) [stated 2026-10-08 QA Team (follow-up)], source [learning_sessions/2026-10-08_QA_Team_followup_answers.md](learning_sessions/2026-10-08_QA_Team_followup_answers.md):
+
+| Id | Tick | Result |
+|---|---|---|
+| L42 | [x] | Q-OE5 answered: no stock movement when a cash memo is edited after the GIN (matches 3 walks; contradiction 28 resolved). Optional only: record the CASHMEMO_EDIT value of org 010104; no stock observation needed |
+
+New check from the follow-up:
+
+| Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
+|---|---|---|---|---|---|
+| L45 | Ask the QA team which document "Return Document" is; then [Maker] Navigate to the menu search and look for a purchase return / return to company option (read-only); if one exists and the QA Team Lead agrees, take a Stock Inquiry snapshot before and after its approval | Auto_Multi_Orga | the option name, document type, and whether its approval posts Out (not In) for the returned quantity | no (RO) unless the QA Team Lead approves a document (then S) | Q-SV2 |
 
 ## Block 1: read-only, any day (RO)
 

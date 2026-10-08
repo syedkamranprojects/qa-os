@@ -1,6 +1,7 @@
 # Document lifecycle: the cross-cutting approval pattern (S&D / DCODE)
 
 Updated: 2026-10-01 (live blocks 1-3b); 2026-10-01 G11-1 consolidation (section 0); 2026-10-05 G11-2/2b consolidation (section 0b); 2026-10-06 G11-3 consolidation (section 0c); 2026-10-08 QA team written answers (section 0d)
+Updated 2026-10-08 (follow-up): merged the QA team's answers to the 2026-10-08 follow-up (Q-DS4, Q-SV1, CASHMEMO_EDIT / Q-OE5); evidence learning_sessions/2026-10-08_QA_Team_followup_answers.md. Tag [stated 2026-10-08 QA Team (follow-up)]. Earlier statements are kept; replaced ones carry "(superseded 2026-10-08: ...)".
 
 Consolidated 2026-10-01 from the area pages. Tags as in the pages: [observed], [db], [inferred], [unknown].
 
@@ -41,7 +42,8 @@ Evidence: [learning_sessions/2026-10-08_QA_Team_Review_answers.md](learning_sess
 - **Deposit slips (production)**: auto-created Unposted from the DSR's mobile sync -> Posted when Route Settlement completes; the Back Office screen is the manual path. A settled route with Un Posted slips is a defect (Q-DS3, D-G11-2b-1).
 - **Route**: settled state = Edit link gone (blank); colours are to be ignored (rule 17).
 - **Cheques**: Cleared/Realized at posting (PK/BD) -> Bounced (Bounced Cheque option) reverses the invoice payment, outstanding at outlet level (BA11).
-- **Cash memo after the GIN**: editable only when ORGA parameter CASHMEMO_EDIT = Y (quantity reduction, reason); Save reduces the approved GIN quantity (stated; not seen on three walks, Q-OE5).
+- **Cash memo after the GIN**: editable only when ORGA parameter CASHMEMO_EDIT = Y (quantity reduction, reason); Save reduces the approved GIN quantity (stated; not seen on three walks, Q-OE5). (superseded 2026-10-08: no stock movement when a cash memo is edited after the GIN is completed [stated 2026-10-08 QA Team (follow-up)]; the cut returns via the GRN; Q-OE5 closed.)
+- **Stock movement per transaction** [stated 2026-10-08 QA Team (follow-up)]: each stock transaction must be reflected in Stock Inquiry in its own column and in the balance: Dispatch Advice -> In; Return Document -> Out (which document: Q-SV2); GIN -> Out; GRN -> In; SAN -> addition / deduction (Stock Adjustment Admin, Warehouse Transfer).
 - **Allocation** at Order / Cash Memo / Invoice creation: full, partial (available only) or none (unallocated, status Order) (Q16 / Q27).
 
 ## 1. The common pattern

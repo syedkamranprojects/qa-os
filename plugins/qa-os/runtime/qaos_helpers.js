@@ -1,5 +1,5 @@
 /* QA OS page helpers: one file, injected into the app page through the browser MCP (execute_script).
- * Install (once per login):  localStorage.qaos_src = String.raw`<this file>`; eval(localStorage.qaos_src)
+ * Install (once per login):  localStorage.qaos_src = <the full text of this file>; eval(localStorage.qaos_src)   (no backticks in this file: it is often passed inside a template string)
  * After a page reload:       eval(localStorage.qaos_src)   (the login session keeps localStorage; a new login clears it)
  * Every action is appended to window.qaos.log (mirrored in localStorage.qaos_log) so the recorder
  * (framework/tools/qaos_record.py) can turn a run into flow_spec.json. UI steps must run one at a time.
@@ -102,4 +102,107 @@
   Q.headers = () => [...document.querySelectorAll('.dx-header-row td, .dx-header-row th')].map(txt).filter(Boolean);
   Q.note = (msg, extra) => rec(Object.assign({ act: 'note', msg }, extra || {}));
   Q.dump = () => JSON.stringify(Q.log);
+
+  /* ---- Passive watcher (2026-10-08) ------------------------------------------------------------
+   * Real Selenium typing/clicks bypass the helper functions above, so recordings had to be rebuilt by
+   * hand. The watcher observes the page itself and logs what the executor DISCOVERS: screens, elements
+   * (label, id, type), tabs (label + tab id), grid cells (column, row), dropdown options, and every
+   * message (toast / popup / alert). Entries carry src:'watch'. Helper functions set Q._quiet while they
+   * act, so their own entries are not logged twice. Installed by Q.watch() (idempotent; re-run after a reload).
+   */
+  const sel = e => { if (!e || !e.tagName) return '';
+    if (e.id) return '#' + e.id;
+    const n = e.getAttribute && (e.getAttribute('name') || e.getAttribute('formcontrolname'));
+    if (n) return e.tagName.toLowerCase() + '[name="' + n + '"]';
+    const t = txt(e); if (t && t.length < 60 && !e.children.length) return '//' + e.tagName.toLowerCase() + '[normalize-space(.)="' + t + '"]';
+    return e.tagName.toLowerCase() + (e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\s+/).slice(0, 2).join('.') : ''); };
+  const labelOf = el => {
+    // grid cell -> column header text
+    const td = el.closest && el.closest('td[aria-colindex]');
+    if (td) { const grid = td.closest('.dx-datagrid, .dx-gridbase-container') || document; const ci = +td.getAttribute('aria-colindex');
+      const rows = [...grid.querySelectorAll('.dx-header-row')];
+      const parts = rows.map(r => { const c = [...r.querySelectorAll('td[aria-colindex]')].find(h => { const s0 = +h.getAttribute('aria-colindex'); const span = +(h.getAttribute('colspan') || 1); return ci >= s0 && ci < s0 + span; }); return c ? txt(c) : ''; }).filter(Boolean);
+      const lbl = [...new Set(parts)].join(' ').replace(/\s+/g, ' ').trim();
+      return lbl || ('column ' + ci); }
+    if (el.id) { const l = document.querySelector('label[for="' + el.id + '"]'); if (l) return txt(l); }
+    // form field -> nearest visible label to the left/above inside the same row/column block
+    let cont = el.closest('[class*=col-], .form-group, .dx-field, tr, li') || el.parentElement;
+    for (let i = 0; i < 4 && cont; i++, cont = cont.parentElement) {
+      const l = cont.querySelector('label'); if (l && vis(l) && txt(l)) return txt(l).replace(/\s*\*$/, '');
+      const p = cont.previousElementSibling; if (p && p.querySelector) { const pl = p.querySelector('label') || (p.tagName === 'LABEL' ? p : null); if (pl && txt(pl)) return txt(pl).replace(/\s*\*$/, ''); }
+    }
+    return el.getAttribute && (el.getAttribute('placeholder') || el.getAttribute('aria-label')) || '';
+  };
+  const widgetOf = el => { const w = el.closest && el.closest('dx-select-box, dx-autocomplete, dx-lookup, dx-date-box, dx-number-box, dx-text-box, dx-text-area, dx-check-box, .dx-selectbox, .dx-autocomplete, .dx-datebox, .dx-numberbox, .dx-textbox, .dx-checkbox');
+    if (!w) return el.tagName ? el.tagName.toLowerCase() + (el.type ? ':' + el.type : '') : '';
+    const c = (w.className || '') + ' ' + w.tagName.toLowerCase();
+    return /select|lookup/.test(c) ? 'dropdown' : /autocomplete/.test(c) ? 'type-ahead' : /date/.test(c) ? 'date' : /number/.test(c) ? 'number' : /check/.test(c) ? 'checkbox' : 'text'; };
+  const cellInfo = el => { const td = el.closest && el.closest('td[aria-colindex]'); if (!td) return null; const tr = td.closest('tr');
+    const grid = td.closest('.dx-datagrid'); const gid = grid && (grid.id || (grid.closest('[id]') || {}).id) || '';
+    return { grid: gid, column: labelOf(el), colindex: td.getAttribute('aria-colindex'), rowindex: tr ? tr.getAttribute('aria-rowindex') : null, cellId: td.id || '' }; };
+  const screen = () => ({ url: location.pathname + location.search, title: (document.querySelector('.page-title, h1, h2, .breadcrumb') || {}).innerText || '', crumb: Q.crumb() });
+  let lastScreen = '';
+  const noteScreen = () => { const s = screen(); const k = s.url + '|' + s.crumb; if (k !== lastScreen) { lastScreen = k; rec(Object.assign({ act: 'screen', src: 'watch' }, s)); } };
+  Q.watch = () => {
+    if (window.__qaosWatch) return 'watcher already on';
+    window.__qaosWatch = true; noteScreen();
+    const focusVal = new WeakMap();
+    let lastInput = null, lastInputAt = 0;
+    document.addEventListener('focusin', e => { const t = e.target; if (t && /INPUT|TEXTAREA/.test(t.tagName)) { focusVal.set(t, t.value); lastInput = t; lastInputAt = Date.now(); } }, true);
+    // a dropdown/type-ahead field opened by a click (no focus) also counts as the field in use
+    document.addEventListener('mousedown', e => { const w = e.target && e.target.closest && e.target.closest('.dx-dropdowneditor, .dx-selectbox, .dx-autocomplete, dx-select-box, dx-autocomplete'); if (w) { const i = w.querySelector('input.dx-texteditor-input, input:not([type=hidden])'); if (i) { lastInput = i; lastInputAt = Date.now(); } } }, true);
+    // typed values: logged when the field loses focus with a changed value
+    // typed values. DevExtreme grid editors are re-rendered and cleared on commit, so the value and the cell
+    // context are captured from 'input' events while typing and flushed once (focusout, Tab/Enter, or the next click).
+    const pending = new Map();
+    document.addEventListener('input', e => { const t = e.target; if (Q._quiet || !t || !/INPUT|TEXTAREA/.test(t.tagName) || t.type === 'hidden') return;
+      if (focusVal.get(t) === ' picked') return;
+      pending.set(t, { act: cellInfo(t) ? 'cell' : 'text', src: 'watch', label: labelOf(t), id: t.id || '', locator: sel(t), widget: widgetOf(t), value: t.value, ctx: cellInfo(t) }); }, true);
+    const flush = t => { const p = pending.get(t); if (!p) return; pending.delete(t);
+      if (focusVal.has(t) && focusVal.get(t) === p.value) return;
+      noteScreen(); const ctx = p.ctx; delete p.ctx; rec(Object.assign(p, ctx || {})); };
+    Q._flushAll = () => [...pending.keys()].forEach(flush);
+    document.addEventListener('focusout', e => { if (!Q._quiet) flush(e.target); }, true);
+    document.addEventListener('keydown', e => { if (!Q._quiet && (e.key === 'Tab' || e.key === 'Enter')) flush(e.target); }, true);
+    // clicks: buttons, links, tabs, dropdown options, checkboxes, grid row links
+    document.addEventListener('click', e => { if (Q._quiet) return; Q._flushAll(); const raw = e.target; if (!raw || !raw.closest) return; noteScreen();
+      const opt = raw.closest('.dx-list-item, [role=option]');
+      if (opt) { const ae = document.activeElement && /INPUT/.test(document.activeElement.tagName) ? document.activeElement : null; const owner = ae || (lastInput && Date.now() - lastInputAt < 30000 ? lastInput : null);
+        if (owner) focusVal.set(owner, ' picked');  // the field's later focusout is the same choice, not a typed value
+        return rec({ act: 'option', src: 'watch', value: txt(opt), label: owner ? labelOf(owner) : '', id: owner ? owner.id : '', locator: owner ? sel(owner) : '', widget: owner ? widgetOf(owner) : '', grid: owner && cellInfo(owner) ? cellInfo(owner).grid : undefined }); }
+      // sidebar menu entry (navigation): record its id and visible text so the flow's menu navigation is captured
+      const menu = raw.closest('a.sub-menu-links, li.menu-child-node, [id^="DYL_"], li[id][class*=menu]');
+      if (menu && !raw.closest('.dx-datagrid')) { const li = menu.closest('li[id]') || menu;
+        return rec({ act: 'nav_click', src: 'watch', value: txt(menu), id: li.id || menu.id || '', locator: sel(li.id ? li : menu), search: (document.querySelector('input[name=filterText]') || {}).value || '' }); }
+      const tab = raw.closest('[role=tab], .dx-tab, .nav-link, .nav-tabs a, .nav-tabs li');
+      if (tab) { const a = tab.querySelector && tab.querySelector('a') || tab;
+        return rec({ act: 'tab', src: 'watch', value: txt(tab), id: tab.id || a.id || '', locator: sel(tab.id ? tab : a), controls: tab.getAttribute('aria-controls') || a.getAttribute('href') || '' }); }
+      const chk = raw.closest('.dx-checkbox, .dx-select-checkbox, input[type=checkbox]');
+      if (chk) { const cell = cellInfo(chk); return rec(Object.assign({ act: 'check', src: 'watch', id: chk.id || '', locator: sel(chk), label: labelOf(chk) }, cell || {})); }
+      const b = raw.closest('button, a, dx-button, .dx-button, [role=button], .dx-link');
+      if (b) { const cell = cellInfo(b); return rec(Object.assign({ act: 'click', src: 'watch', target: txt(b) || b.id, id: b.id || '', text: txt(b), locator: sel(b), kind: '0004' }, cell ? { grid: cell.grid, rowindex: cell.rowindex } : {})); }
+    }, true);
+    // toasts and in-page popups/modals
+    const seen = new Set();
+    new MutationObserver(() => {
+      document.querySelectorAll('.dx-toast-message, .toast-message').forEach(x => { const t = txt(x); if (t && !seen.has('T' + t + Math.floor(Date.now() / 3000))) { seen.add('T' + t + Math.floor(Date.now() / 3000));
+        const box = x.closest('.dx-toast-content, .toast'); rec({ act: 'toast', src: 'watch', messages: [t], type: box ? (box.className.match(/dx-toast-(success|error|warning|info)/) || [])[1] || '' : '' }); } });
+      document.querySelectorAll('.modal.show .modal-content, .modal[style*="display: block"] .modal-content, .dx-popup-wrapper .dx-overlay-content').forEach(m => { if (!vis(m)) return;
+        if (m.querySelector('.dx-list, .dx-scrollview, .dx-calendar, .dx-treeview, .dx-datagrid') || m.closest('.dx-dropdowneditor-overlay, .dx-selectbox-popup-wrapper, .dx-dropdownlist-popup-wrapper')) return;  // option lists / pickers, not messages
+        if (!m.querySelector('.modal-title, .dx-popup-title, .modal-header, button, .dx-button')) return;
+        const t = txt(m).replace(/\s+/g, ' ').slice(0, 300); if (!t || seen.has('P' + t)) return; seen.add('P' + t);
+        const title = txt(m.querySelector('.modal-title, .dx-popup-title, .modal-header') || {}).replace(/\s+/g, ' ');
+        const body = m.querySelector('.modal-body, .dx-popup-content'); const msgEl = body || m;
+        rec({ act: 'popup', src: 'watch', title, text: txt(msgEl).replace(/\s+/g, ' ').slice(0, 300), locator: sel(msgEl), buttons: [...m.querySelectorAll('button, .dx-button, a.btn')].filter(vis).map(x => ({ text: txt(x), id: x.id || '', locator: sel(x) })) }); });
+    }).observe(document.body, { childList: true, subtree: true });
+    // browser dialogs: log the text, then behave exactly as before
+    ['alert', 'confirm', 'prompt'].forEach(k => { const orig = window[k]; if (orig.__qaos) return;
+      const w = function (msg) { rec({ act: 'alert', src: 'watch', dialog: k, text: String(msg) }); const r = orig.apply(window, arguments); if (k !== 'alert') rec({ act: 'alert_result', src: 'watch', dialog: k, result: r }); return r; };
+      w.__qaos = true; window[k] = w; });
+    return 'watcher on';
+  };
+  // helper actions are already logged by themselves: keep the watcher quiet while they run
+  ['text', 'pick', 'click', 'clickCapture', 'tab', 'open'].forEach(k => { const f = Q[k]; if (!f || f.__q) return;
+    Q[k] = async function () { Q._quiet = true; try { return await f.apply(Q, arguments); } finally { Q._quiet = false; } }; Q[k].__q = true; });
+  Q.watch();
 })();

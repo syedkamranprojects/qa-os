@@ -42,7 +42,8 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - **Typing.** Text and product type-ahead need key events (the Selenium send-keys tool, then Tab/Enter). Setting `value` in the DOM does not reach the app's model (a date typed that way was ignored). Do not use the tool's clear option: it causes stale elements; send the full text instead.
 - **Comments popups** need a blur (Tab) before Save, or the app answers "Please add comments".
 - **Visible only.** Ids repeat across hidden views (`saveBtn`, `Cancel`); scope to visible elements. Prefer visible text over an id when an id is duplicated.
-- **Screen state traps.** Switching Header/Detail before Save discards unsaved lines; "Add" resets the form. Follow the safe order in the app pack (header, then lines, then save).
+- **Screen state traps.** Switching Header/Detail before Save discards unsaved lines; "Add" resets the form. Follow the order of the step sheet (header, then lines, then save); do not look up the app pack during execution.
+- **Execution uses only the step sheet and one data row** (QA lead rule, 2026-10-08): no business pages, session logs, training hints or framework flows/ids. Discover screens, elements, ids, tabs and messages live and note them (section 5).
 - **Dates.** Use today's date unless the sheet says otherwise; the framework's workbook dates are examples, not requirements.
 
 ## 4. When something goes wrong

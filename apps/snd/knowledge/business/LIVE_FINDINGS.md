@@ -236,9 +236,9 @@ Headline findings (observed 2026-10-06 unless tagged):
 - **Tax**: outlets 06 and 07 swapped tax behaviour vs 10-05 (2017 outlet 07 Tax 0, 2019 outlet 06 Tax 16,505.36); Q-TX1.
 - Stock mechanics confirmed a third day: GIN approval Allocated -> Out; GRN approval In +; SAN approval Out +. 62740537 end of day: Opening 0 / In 97 / Out 89 / Allocated 0 / Closing 8.
 
-### D-G11-3-1 DEFECT (display): doubled totals on the Deposit Slip "Outstanding Outlet" tab
-- Observed 2026-10-06 (seq 42): outlet 1000000005 Net / Balance / Un Posted **202,322** although its only open memo (COL26000002016) is 101,161; outlet 1000000004 Net **257,570** vs its open memos 2015 76,156 + 2009 90,707 = 166,863 (difference 90,707 = 2009 counted twice); outlets 07 and 11 correct.
-- Ruling [stated 2026-10-06 QA Team Lead]: a **display defect** (Q-DS4 answered). Do not assert outlet-level totals; use the Outstanding Cash memos tab or Transaction Inquiry for amounts. The multi-cheque allocation itself saved correctly ("Payment Adjusted Successfully", outlet Deposit Amount 1,000).
+### D-G11-3-1 ~~DEFECT (display): doubled totals on the Deposit Slip "Outstanding Outlet" tab~~ **WITHDRAWN 2026-10-08: not a defect, older open invoices were on page 2**
+- Observed 2026-10-06 (seq 42): outlet 1000000005 Net / Balance / Un Posted **202,322** although its only open memo (COL26000002016) is 101,161; outlet 1000000004 Net **257,570** vs its open memos 2015 76,156 + 2009 90,707 = 166,863 (difference 90,707 = 2009 counted twice); outlets 07 and 11 correct. (superseded 2026-10-08: the "only open memo" reading was wrong: only page 1 of the Outstanding Cash memos grid was read. Outlet 05 had TWO open invoices of 101,161 (COL26000002004 of 10-01, whose slip 1131 never posted, D-G11-2b-1, and COL26000002016 of 10-06) = 202,322; outlet 04 = 2015 76,156 + 2009 90,707 + 2003 90,707 (10-01) = 257,570. Both totals are correct [stated 2026-10-08 QA Team (follow-up); re-check of the 10-06 evidence].)
+- Ruling [stated 2026-10-06 QA Team Lead]: a **display defect** (Q-DS4 answered). Do not assert outlet-level totals; use the Outstanding Cash memos tab or Transaction Inquiry for amounts. The multi-cheque allocation itself saved correctly ("Payment Adjusted Successfully", outlet Deposit Amount 1,000). (superseded 2026-10-08: withdrawn 2026-10-08: not a defect, older open invoices were on page 2. The Outstanding Outlet total = sum of ALL open invoices of the outlet across days and may be asserted that way; a genuinely duplicated amount would be a potential bug [stated 2026-10-08 QA Team (follow-up)].)
 
 ### E-G11-3-1 ENVIRONMENT ISSUE: stock carry-over job did not run on cnr1dev1 (2026-10-05 -> 2026-10-06)
 - Observed: 62740537 at Auto Main Warehouse closed **259 CS** on 2026-10-05 (seq 60, after SAN 96) but the first movement of 2026-10-06 (DA 1360 approval) created only the 5 received rows with **Opening 0** (seq 9); the 63 CS old allocation of GIN 505 was not shown either. Same pattern on the 2026-10-01 morning.
@@ -258,16 +258,31 @@ Source: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers
 - Ruling [stated 2026-10-08 QA Team] (Q-DS3): "This should not be possible. Once the route is settled, all associated deposit slips must be posted, and their amounts must be adjusted against the respective invoices/cash memos. If this does not happen, it should be considered a defect."
 - Unknown: how the 10-01 route was completed (done by a QA team member on 10-05, action not seen). Action: report to the QA team / development with this evidence; ask whether the 10-01 route was completed through a path other than the row Save. Regression check: after every settlement assert that every slip of the route/date is Posted.
 
-### Q-OE5 CONTRADICTION: edit after GIN approval vs stock (stated GIN reduction, observed none)
+### Q-OE5 CONTRADICTION: edit after GIN approval vs stock (stated GIN reduction, observed none) (resolved 2026-10-08 by the follow-up: no stock movement)
 - Stated [stated 2026-10-08 QA Team] (rule 3, Q-OE3): with ORGA parameter CASHMEMO_EDIT (CM_Edit) = Y an approved cash memo may be edited (quantity reduction, reason required) and on Save the system reduces the corresponding quantity in the approved GIN.
 - Observed on three walks: COL26000002003 (10-01, 7 -> 4 CS), COL26000002009 (10-05, 7 -> 4 CS), COL26000002015 (10-06, 4 -> 3 CS) edited after GIN approval: Stock Inquiry Out / Allocated / Closing unchanged and the cut quantity came back on the GRN Suggested quantity (19 / 19 / 17 CS).
-- Open (Q-OE5, class B): read CASHMEMO_EDIT on cnr1dev1 and re-observe the GIN detail and stock after an after-GIN edit (LIVE_LEARNING_CHECKLIST L42).
+- Open (Q-OE5, class B): read CASHMEMO_EDIT on cnr1dev1 and re-observe the GIN detail and stock after an after-GIN edit (LIVE_LEARNING_CHECKLIST L42). (superseded 2026-10-08: CLOSED by the follow-up answer: no stock movement at an after-GIN edit, the observation is the rule [stated 2026-10-08 QA Team (follow-up)]; L42 now only records the parameter value, optional.)
 
-### Q-DS4 UNDER CLARIFICATION: Outstanding Outlet doubled totals (D-G11-3-1)
-- The QA team answered N to "doubled totals = display defect" but the comment talks about Transaction Inquiry (offset fully adjusted, net not impacted, current logic correct) [stated 2026-10-08 QA Team]. Follow-up sent 2026-10-08. D-G11-3-1 and the rule "never assert outlet-level totals" stay until clarified.
+### Q-DS4 UNDER CLARIFICATION: Outstanding Outlet doubled totals (D-G11-3-1) (closed 2026-10-08 by the follow-up: not a defect)
+- The QA team answered N to "doubled totals = display defect" but the comment talks about Transaction Inquiry (offset fully adjusted, net not impacted, current logic correct) [stated 2026-10-08 QA Team]. Follow-up sent 2026-10-08. D-G11-3-1 and the rule "never assert outlet-level totals" stay until clarified. (superseded 2026-10-08: CLOSED by the follow-up answer: the totals are correct, D-G11-3-1 withdrawn; see the follow-up block below.)
 
 ### New stated messages and rules (not yet observed)
 - "Stock Mismatch" at Route Settlement when today's GIN quantity does not match the GRN quantity [stated 2026-10-08 QA Team].
 - Route Settlement: Edit link = not settled, blank = settled; ignore colours [stated 2026-10-08 QA Team].
 - ZERO_TAX_ORDER_EXEMPTION (Y: zero-tax invoices deliverable, N: not) [stated 2026-10-08 QA Team]; CASHMEMO_EDIT (see above).
 - Previous-day check: PJP working date = current date and closing date = N-1 [stated 2026-10-08 QA Team].
+
+## QA team answers to the 2026-10-08 follow-up (received 2026-10-08)
+Source: learning_sessions/2026-10-08_QA_Team_followup_answers.md. No new walk. Tag [stated 2026-10-08 QA Team (follow-up)].
+
+### Q-DS4 CLOSED: Outstanding Outlet totals are correct; D-G11-3-1 withdrawn
+- QA team: a duplicated amount for an outlet on the Outstanding Outlet tab "could be considered a potential bug", but for outlet 05 the displayed amount is correct [stated 2026-10-08 QA Team (follow-up)].
+- Re-check of the 2026-10-06 evidence: outlet 05 = COL26000002004 (10-01, 101,161, slip 1131 never posted, D-G11-2b-1) + COL26000002016 (10-06, 101,161) = 202,322; outlet 04 = 2015 (76,156) + 2009 (90,707) + 2003 (90,707, 10-01) = 257,570. The older invoices were on page 2 of the Outstanding Cash memos grid. Lesson: read every page of a grid before calling a total wrong.
+- Rule: the Outstanding Outlet total = sum of ALL open invoices of the outlet across days; a genuinely duplicated amount would be a potential bug.
+
+### Q-OE5 CLOSED: no stock movement when a cash memo is edited after the GIN (contradiction 28 resolved)
+- QA team: "There should be no stock movement when editing a Cash Memo after the GIN process has been completed" [stated 2026-10-08 QA Team (follow-up)]. Matches the three walks above (2003, 2009, 2015: Stock Inquiry unchanged, the cut returned on the GRN). The written rule-3 statement "Save reduces the approved GIN quantity" is superseded.
+
+### Q-SV1 CLOSED: stock assertions are per-transaction movements
+- Every stock transaction must show in Stock Inquiry in its column and in the balance: Dispatch Advice -> IN; Return Document -> OUT; GIN -> OUT; GRN -> IN; SAN -> addition / deduction (SAN Admin, Warehouse Transfer) [stated 2026-10-08 QA Team (follow-up)]. Stock checks assert the delta of each transaction, not fixed daily totals.
+- Open: which document "Return Document -> OUT" means (purchase return to the company?); sales returns were observed coming back as IN via the GRN on three days [observed] -> new Q-SV2.

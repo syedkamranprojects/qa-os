@@ -12,7 +12,16 @@ Last updated: 2026-10-07 (release v0.5.0).
 - **No Jira tickets as the starting point.** QA members give a **short request or one-liner** (e.g. "create one order and order detail with two products"); Claude runs the AI cycle with `/qa-os:quick` (skill `quick-script`) and generates the **Regress Master** scripts (`selenium-framework-db` / `CTA_CONFIG_ASSERTION` SQL + rollback + case-data workbook).
 - **AI execution uses Claude's training and its own test steps**, not existing Selenium framework data: no case-data workbook rows, no framework event chains, no atlas flow steps drive the run. The framework DB is read only when generating the SQL (ids, conventions, reuse of an identical screen/field definition).
 - **One live run per request:** the AI cycle executes a single case's data, following the test steps, only to identify screens, elements, element ids, tabs (tab ids) and messages; all requested cases are generated as case-data rows for Regress Master.
+- **Phase separation:** training knowledge -> only for writing cases and test steps; execution -> only the steps + one data row (discover screens/elements/ids/tabs live, no app knowledge, no framework data); generation -> only the recording + case rows (framework DB only for table structure and free ids).
 - Training walks of framework groups (`/qa-os:train`, method C) are the one exception: there the trainer explicitly asks Claude to follow a group's flows to learn the business.
+
+## Knowledge-gap gate (QA lead, 2026-10-08)
+- Before executing an AI flow or generating scripts, check the knowledge is there. If not, ask the user. **Short/ad-hoc** gap (a value, a field meaning, a message, one rule): ask, record as [stated], continue the run. **Long-term** gap (untrained screen, module or process): ask for a training session and do NOT execute the story/flow until trained. Never guess, never borrow from old framework data.
+- **Training only up to execution:** test cases, steps AND test data come from training (test data catalog per market); the app is opened only to execute the approved steps. Live state (stock, documents of the day) is checked by precondition steps during execution.
+
+## QA-environment strict mode (QA lead, 2026-10-08)
+- In the QA environment QA OS runs **strictly to the design**: never change the framework design, tools, skills or recordings during a run, never hand-edit a recording, no long investigations. A failure STOPS the run and is reported (step, message, evidence); fixes happen in development, not in the run.
+- Before release, every issue in `docs/HARDENING.md` must be fixed or accepted, and the release gate there (acceptance run, verifier verdict, one engine replay) must pass.
 
 ## Markets and users (cnr1dev1, non_production)
 | Market | Company | Distributor | Maker | Checker | Daily cycle group |

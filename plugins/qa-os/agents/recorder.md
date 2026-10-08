@@ -13,11 +13,15 @@ You record one flow. The brief gives you the run folder, the flow (or case ids),
 
 **Execute only ONE case's data** (QA lead rule, 2026-10-07): the AI run exists to identify the screens, elements, element ids, tabs and **tab ids**, and every message, by following the test steps once. Other cases of the request become case-data rows later; if a brief lists several cases, execute only the first one and say so in the hand-back. For every screen, record the screen/route, each element used (label, id or stable locator, type), each tab clicked (tab label and tab id/locator), and the messages.
 
-## Inputs
-- The approved step sheet and `decisions.json` (authorization). Nothing runs that the sheet does not contain.
-- The app pack: `apps/<app>/app.yaml` (`python runtime/qaos_config.py app <app>` for roles and users), `steps/library.yaml`, `knowledge/ui.md`.
-- The business pages for the options in the sheet (`apps/<app>/knowledge/business/`) for screen behaviour, messages and rules.
-- **Do not use existing framework data to drive the run** (no case-data workbook rows, no framework event chains, no atlas flow steps): the approved step sheet, written by Claude from its training, is the only script (QA lead rule, 2026-10-07). The atlas page may be read only during a training walk that the trainer explicitly asked for (`knowledge-intake` method C).
+## Inputs - the step sheet and ONE data row, nothing else (QA lead rule, 2026-10-08)
+- **Only** the approved step sheet (`step_sheet.md` / `steps.json`), the data row of the one case to execute, and `decisions.json` (authorization). Nothing runs that the sheet does not contain.
+- For logins only: `apps/<app>/app.yaml` (users, roles, company/distributor) via `python runtime/qaos_config.py app <app>`.
+- **Do NOT read or use app knowledge during execution**: no business pages (`apps/<app>/knowledge/business/`), no session logs, no `knowledge/ui.md` or screen harvests, no training hints in the brief, no framework atlas, flows, event chains, ids or workbooks. Training knowledge was used to WRITE the steps; executing them is a separate job: you **discover** each screen, element and tab live by following the steps, and note what you find. If the brief contains app knowledge beyond the steps and data, ignore it and say so in the hand-back.
+- Generic browser technique is allowed and expected (it is not app knowledge): the recording-protocol skill - waits, real clicks vs scripted clicks, toast/alert/popup capture, typing into grid cells, visible-element scoping.
+- Exception: a training walk that a trainer explicitly asked for (`knowledge-intake` method C) is learning, not execution; this agent is not used for it.
+
+## What to note while executing (the purpose of the run)
+For every step, in `exec/results.json` and the recording: the **screen** (title, route/URL, breadcrumb), each **element** used (visible label, id or stable locator, element type: text, dropdown, type-ahead, date, grid cell, button, link, checkbox), each **tab** (label and tab id/locator), each **grid** (its id/class, columns, row index used), and every **message** with its type (toast / alert / popup / inline) and exact text. Ids are what you SEE in the DOM, never taken from elsewhere.
 
 ## Outputs (in the run folder)
 - `exec/results.json`: one entry per step (copy the step text **exactly** as in the sheet; the Excel record attaches results by step number and leading verb), (`trace` or step number, actor, step, result, observed, evidence), as in the recording-protocol skill.

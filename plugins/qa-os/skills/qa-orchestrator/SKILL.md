@@ -39,6 +39,16 @@ check the output, update `run.json`. Never load full case lists, screen catalogs
 4. **Unknown screen or unknown market difference?** `access_lookup.py screen "<name>"` shows route, menu path, roles per market; `features <org>` and `diff-features <orgA> <orgB>` show market configuration. The DB is ~83% current for screens; the live menu wins.
 5. **Environment authorization:** `allow:` actions in the intake block count only when the chosen environment has `non_production: true` in `app.yaml`. One-way actions (approve, forward, submit, delete) count only if named in `allow:`. Everything else that changes data or stock is skipped and marked unverified.
 
+## Knowledge-gap gate (QA lead rule, 2026-10-08) - before ANY AI execution or script generation
+Before executing an AI flow (recording) or generating scripts, check that the knowledge needed is present (business pages with `[observed]`/`[stated]` facts for every action, screen, rule, message and data choice). If something is missing, **ask the user** and classify the gap:
+| Gap | Examples | Action |
+|---|---|---|
+| **Short / ad-hoc** (answerable in chat in a few lines) | a value or data choice, which outlet type to use, the meaning of a field, an expected message, one business rule, which user/role | Ask with `AskUserQuestion` (or plainly); record the answer as `[stated <date> <name>]` in the run's `decisions.json` and, if reusable, in the business page (knowledge-intake method B); then **continue the run** |
+| **Long-term** (needs a training session) | an untrained screen, module or business process (e.g. incentive -> credit note chain), an unknown market setup, a chain of several untrained options | Say what is missing and ask for training (`/qa-os:train <app>`: explain, documents or a walk). **Do NOT execute the story/flow or generate scripts** until it is trained; the run stays paused at this gate |
+Never guess to fill a gap, and never take the missing knowledge from old framework flows or workbooks.
+
+Apply this gate at the end of analysis (before cases/steps are approved) and again before recording (Stage 4) and generation (Stage 5).
+
 ## Stage 1 - analyse (checkpoint C1)
 - Give story-analyst the run folder; run `qaos_run.py validate <run>`; then `stage <run> analyse done`.
 - Present scope + the ambiguities in one message. Ambiguities already answered by the intake block or `decisions.md` are not asked again.
@@ -56,7 +66,7 @@ A stage never starts until the gate before it is approved. **Approval** = the QA
 ## Stage 3 - step sheet (gate G3)
 - **Assisted mode (default, `qaos.yaml` -> `authoring.mode`).** Run the **`step-authoring` skill in the main session**: Claude drafts what the atlas and app pack support as *suggestions*, then asks the QA member for the next step one at a time (suggested options plus free text), rephrases free English into the predefined wording (`vocabulary/core.yaml`, checker `runtime/qaos_steps.py`), validates labels against the real screen, and asks for confirmation. The draft is `<run>/step_draft_<TCnn>.json`; the QA member's cheat sheet is `docs/QA_STEP_CHEAT_SHEET.md`. Subagents never ask the QA member questions.
 - **Excel round trip:** the QA member can finalize the steps in the Excel's *Test Steps* column. Import it with `runtime/qaos_import.py` (dry run, show problems, then `--apply --approved-by` after they confirm); execution always runs from the applied draft, never from an unchecked Excel. See the `step-authoring` skill.
-- step-author (skills `step-dsl`, `step-vocabulary`) turns the approved drafts into `steps.json` **and** `step_sheet.md` from `plugins/qa-os/skills/step-vocabulary/step_sheet_template.md`; in `auto` mode it also drafts the steps itself. For a replayed framework flow, the sheet is drafted from the atlas (`apps/<app>/knowledge/framework_atlas/`), not from memory.
+- step-author (skills `step-dsl`, `step-vocabulary`) turns the approved drafts into `steps.json` **and** `step_sheet.md` from `plugins/qa-os/skills/step-vocabulary/step_sheet_template.md`; in `auto` mode it also drafts the steps itself. Steps are drafted from Claude's trained business knowledge (`apps/<app>/knowledge/business/`), never from the framework atlas or existing framework flows (QA lead rule, 2026-10-08).
 - Each step is `clear` or `NEEDS INPUT`; questions are listed once at the end, each with a default. Present the sheet, collect the QA member's answers in one round, and wait for G3. **Nothing is recorded before G3.**
 - Readiness values: ready | needs-data | needs-verb | needs-learning | manual | deferred.
 
@@ -65,7 +75,7 @@ A stage never starts until the gate before it is approved. **Approval** = the QA
 - Ask before any step that changes data/stock unless the intake block already authorizes it (Q-RISK).
 
 ## Stage 4 - record (agent `recorder`, skill `recording-protocol`)
-- Delegate one flow at a time to the **recorder** agent with a short brief: run folder, flow or case ids, app, env, the approved sheet. It runs the flow through the browser MCP with one data row, stops at each switch point for the QA member's login, and writes `exec/results.json`, `recording_<flow>.json` (passing flows only) and `friction.md`.
+- Delegate to the **recorder** agent with a short brief: run folder, ONE case id, app, env, the approved sheet and that case's data row - nothing else (no app knowledge, no ids); it discovers screens, elements, ids, tabs and messages live. All other cases become case-data rows at generation. It runs the flow through the browser MCP with one data row, stops at each switch point for the QA member's login, and writes `exec/results.json`, `recording_<flow>.json` (passing flows only) and `friction.md`.
 - The recorder is the only agent with the browser. Relay each switch-point message to the QA member (who to log in as, role, company, distributor) and pass their "logged in" back. Check the counts it returns; do not re-run a step it reported blocked without a decision.
 - One calendar day: for a chain that creates stock or orders, the whole chain runs on the same day (see `recording-protocol`).
 

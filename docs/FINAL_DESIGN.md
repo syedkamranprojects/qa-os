@@ -1,114 +1,130 @@
-# QA OS final design (v2, 2026-09-30)
+# QA OS design (v3, 2026-10-08) — DRAFT for review
 
-This settles the design in `ARCHITECTURE.md` v1.0 and replaces its §6 (agents) and §12 (checkpoints). It keeps what worked in the 2026-09-24..29 runs and adds the useful parts of the "orchestrator + sub-agents + skills + persistent knowledge" pattern. API testing is out of scope.
+Replaces v2 (2026-09-30, kept in `docs/history/FINAL_DESIGN_v2_2026-09-30.md`). v3 writes down the rules the QA lead set on 2026-10-06..08 while QA OS was used for S&D training and the first quick runs. Status: **design and development**; the platform is evolving. Open issues to close before the QA-environment release are in `docs/HARDENING.md`.
 
-## 1. Why a v2: what went wrong in practice
-- **The agents and skills were designed, but none of them ever loaded.** The `qa-os` plugin is not registered in the workspace (`.claude/settings.json` has no `extraKnownMarketplaces` / `enabledPlugins`). The Agent tool only offers the built-in agent types, so every stage ran inline in the main session.
-  - That caused the context compactions, the lost instructions, and the rediscovery of the same UI quirks.
-- The steps were discovered by trial and error during recording (Order Editing), when they should have been approved before it.
-- Nothing proves the final product: no generated SQL has been validated or replayed by the legacy engine.
+## 1. Purpose
+QA OS turns a short QA request (a one-liner or a few lines; a Jira story is optional) into **scripts for Regress Master** — the legacy Selenium Regress framework, configured in `selenium-framework-db` (`CTA_CONFIG_ASSERTION`) — plus the **case data** (Excel) for N test cases. Regress Master then runs those cases (and later bulk data) **without AI**.
 
-## 2. Principles (final)
-1. **Thin orchestrator, specialist agents.** The main session holds the conversation and `run.json`. Each stage runs in its own agent context with its own skill and a **restricted tool list**. Files are the hand-off.
-2. **Standards live in skills, not in agent prompts.** You change a skill to change the quality bar, and several agents share one skill.
-3. **Gates, not autonomy.** Each stage ends at a gate, and the next stage never starts without explicit approval.
-   - **Approval** = "approved", "go ahead", "yes", "LGTM".
-   - **Anything else is feedback.** The stage is re-delegated with the original brief plus the feedback, never from a fresh start.
-4. **User intervention is minimised, not eliminated.** Budget per story: 2 approvals (cases, step sheet), the logins at switch points, and 1 review (SQL + workbook). Everything else is solved in software and logged in `friction.md`.
-5. **Record once, replay many.** The MCP recording uses one data row per flow. The legacy engine does all regression and bulk runs.
-6. **Knowledge compounds.** Every run promotes verified facts to the app pack. Facts are tagged, and only the tags matching the story are loaded.
-7. **Safe by construction.** Connectors are read-only. Claude never types credentials, never applies SQL, and only makes data-changing steps on `non_production` envs.
+Claude's knowledge of the application comes from **training** given by the QA team, never from vendor documentation (there is none) and never by copying the old framework flows.
 
-## 3. Pipeline and gates
+## 2. Principles
+1. **Training first.** Claude knows only what it was trained on (documents, explanation, live walks). Untrained areas are not executed.
+2. **Training only, up to execution.** Test cases, test steps and **test data** are written from trained knowledge only; the application is not opened and its database is not queried while writing them.
+3. **Ask, don't guess.** A missing piece of knowledge is a *knowledge gap*: a short gap is asked and the run continues; a long-term gap needs training and the run does not execute.
+4. **One live run.** The AI executes the flow **once, on a single case's data**, following the approved steps, only to discover screens, elements, ids, tabs and messages. All N requested cases become case-data rows.
+5. **The recording is the only source for scripts.** Screens, fields, ids, events and messages in the generated SQL come from what the run observed. The framework DB is read only for table structure, required columns, valid event types and free ids. Old flows are never copied or mirrored.
+6. **Every message is an assertion.** Toasts, popups and inline validations become checks; browser-alert texts are listed when the engine cannot assert them.
+7. **Gates, not autonomy.** Nothing executes without the user's approval of cases, steps and data; nothing is applied to a database by Claude.
+8. **Strict in QA, flexible in development.** In the QA environment a run follows this design exactly — no changes to tools, skills, design or recordings, no hand edits; a failure stops and reports. Fixes happen in development (`HARDENING.md`).
+9. **Safe by construction.** Read-only database connectors; Claude never types credentials (the QA member logs in); never applies SQL; data-changing steps only on non-production environments.
+10. **Shareable.** One plugin and app packs; no machine-specific paths; knowledge travels with the repository.
 
-| Stage | Agent | Output | Gate (who) |
-|---|---|---|---|
-| 0 Intake | orchestrator (`qaos_intake.py`) | `decisions.json`, `run.json` | asks only for fields missing from the story's QA-OS block |
-| 1 Analyse | story-analyst | `requirement.json` + ambiguities | **G1** BA/QA answers ambiguities (skipped if none) |
-| 2 Cases | test-designer | `cases.json` (max 10 core, rest backlog) + workbook | **G2** QA approves cases |
-| 3 Step sheet | step-author | `step_sheet.md` + `steps.json` in the business vocabulary, each step `clear` or `needs input` | **G3** QA approves the steps and answers the `needs input` items |
-| 4 Data | data-engineer | `data.json` (one row per flow, discovered from the DB) | none, unless seeding is needed |
-| 5 Record | recorder | `recording_*.json`, `friction.md`, locators | the only interventions are **logins at switch points** |
-| 6 Generate | framework-generator | `flow_spec.json`, `framework.sql`, rollback, case-data workbook | none (must pass the validator) |
-| 7 Verify | verifier | `review.md` (traceability + SQL validation) | **G4** framework owner reviews and applies |
-| 8 Report | reporter | execution report; Jira comment | **G5** QA confirms the ticket before posting |
-| Wrap-up | orchestrator (`qaos_promote.py`) | knowledge candidates | QA picks which to promote |
+## 3. The life cycle
 
-G3 is the step sheet you asked for after the Order Editing struggle. It moves the back-and-forth out of the recording.
+```mermaid
+flowchart LR
+  T[0 Training<br/>docs · explain · walks] --> K[(Knowledge<br/>business pages<br/>test data catalog)]
+  R[1 Request<br/>one-liner / story] --> G0{Knowledge-gap gate}
+  K --> G0
+  G0 -- long-term gap --> T
+  G0 -- short gap: ask user --> W
+  G0 -- covered --> W[2 Write cases, steps, data<br/>training only, no app]
+  W --> QG{3 Approval QG}
+  QG -- feedback --> W
+  QG -- approved --> X[4 Execute ONE case<br/>steps only, app opened]
+  X -- failure: stop + report --> STOP((stop))
+  X --> GEN[5 Generate scripts<br/>from the recording only]
+  GEN --> V[6 Verify<br/>independent, read-only]
+  V --> FO[7 Framework owner<br/>apply on test copy + replay]
+  FO --> RM[Regress Master runs<br/>N cases / bulk data]
+```
 
-## 4. Agents (final roster)
-
-| Agent | State | Skills | Tools (restricted) | Model |
+| Phase | Who | Uses | Never uses | Output |
 |---|---|---|---|---|
-| story-analyst | written | case-format, jira-conventions | Read/Write run folder, Atlassian MCP (read) | opus |
-| test-designer | written | case-format | Read/Write, Python | opus |
-| step-author | written | step-vocabulary, step-dsl | Read/Write, snd-schema (read), app pack | sonnet |
-| data-engineer | written | data-recipes | Read/Write, app DB (read) | sonnet |
-| **recorder** | **missing** (replaces "executor") | recording-protocol, step-vocabulary | Selenium MCP, Read/Write run folder. No DB and no SQL | sonnet |
-| **framework-generator** | **missing** (was "script-generator") | framework-conventions | selenium-framework-db (read), Python, Read/Write. No browser | sonnet |
-| **verifier** | **missing** | framework-conventions | Read-only + selenium-framework-db (read) | opus |
-| **reporter** | **missing** | report-template, jira-conventions | Read, Atlassian MCP (comment only, after G5) | sonnet |
-| app-cartographer | written | app-knowledge | app DB (read), Selenium MCP | sonnet |
-| bulk-data-factory | later | casedata-contract | app DB + framework-db (read), Python | sonnet |
+| **0 Training** | QA trainer + Claude (`/qa-os:train`, skill `knowledge-intake`) | trainer's documents, explanation, Q&A, live walks of framework groups (only when the trainer asks) | — | business pages, test data catalog, session logs |
+| **1 Request** | QA member | a one-liner or short text (`/qa-os:quick`), or a story (`/qa-os:run`) | — | run folder `runs/<KEY>/<time>/` |
+| **Knowledge-gap gate** | Claude | the knowledge base | guessing, old framework data | proceed / ask (short gap) / training needed (long-term gap) |
+| **2 Cases, steps, data** | Claude (main session) | **training only**: business pages, rules, messages, test data catalog | the app, the app DB, old framework flows/workbooks | `cases.json`, `step_sheet.md`, `data.json`, `decisions.json` |
+| **3 Approval (QG)** | QA member | the drafted plan | — | approved plan (one approval in quick mode; G1-G3 in story mode) |
+| **4 Execute one case** | **recorder** agent | **only** the approved steps + one data row; login hand-off to the QA member | business pages, training hints, framework data | `recording_<case>.json` (watcher log), `exec/results.json`, `friction.md` |
+| **5 Generate** | **framework-generator** agent | **only** the recording/results + the N case rows; framework DB for structure and free ids | existing flows, screens, fields, the atlas | `framework.sql`, rollback, case-data workbook, `review_note.md` |
+| **6 Verify** | **verifier** agent | everything, read-only | — | `review.md` with a verdict |
+| **7 Apply + replay** | framework owner (gate G4) | the generated files | — | flow in a test copy, then production configuration |
 
-Agents stay one level deep. Only the orchestrator spawns them.
-
-## 5. Skills (standards)
-
-| Skill | State | Holds |
+## 4. Knowledge
+| Store | Content | Filled by |
 |---|---|---|
-| qa-orchestrator | written (v0.3) | stage machine, gates, approval phrases, re-delegation rule |
-| step-dsl | written | DSL v1 primitives and the player |
-| step-vocabulary | **move** from `docs/STEP_VOCABULARY.md` + `apps/<app>/steps/library.yaml` | `[Actor] Verb Object` steps, switch points, maker/checker |
-| case-format | **missing** | case fields, 10-core cap, coverage heuristics, naming, team workbook |
-| recording-protocol | **missing** | login hand-off, helper re-injection, background script + polling, real clicks for tabs/checkboxes, toast capture, friction logging |
-| framework-conventions | **missing** | how a `CTA_CONFIG_ASSERTION` flow is built (menu group, screens, fields, events, custom events 0001-0014, group flow + login status), learned from group 11 |
-| report-template | **missing** | execution report layout, Jira comment format |
-| jira-conventions, data-recipes, app-knowledge, casedata-contract | missing / partial | as named |
+| `apps/<app>/knowledge/business/` | one page per menu option (purpose, actors, documents, screens, steps, effects, statuses, rules, **messages with their type**, test hints), glossary, document lifecycles, open questions, findings | training sessions (consolidated by Claude) |
+| `.../business/test_data/<market>.md` | **test data catalog**: users, company/distributor, routes (PJP, section, category), outlets with tax behaviour, SKUs with pack size, warehouses | training (observed in walks or stated by a trainer); short gaps answered in chat |
+| `.../business/OPEN_QUESTIONS.md`, `LIVE_FINDINGS.md`, `FRAMEWORK_DRIFT.md` | questions for the BA/QA, defects, differences between the app and the old framework | Claude, answered by the QA team |
+| `docs/STATUS.md`, `docs/OPERATING_RULES.md`, `docs/memory_export/` | resume point, standing rules, copies of Claude's memory | Claude |
 
-## 6. Knowledge (persistent, tagged)
-- Every file in `apps/<app>/knowledge/` gets front-matter: `tags` (screen ids, flow ids, doc types, market), `source` (db-declared / observed / stated), `updated`.
-- `knowledge/INDEX.json` is generated from the front-matter. At Stage 0 the orchestrator matches the story's screens and terms to the tags and passes **only the matching paths** to each agent.
-- Promotion (`qaos_promote.py`) stays dry-run by default. Only reusable rulings and verified behaviour are promoted.
+Every fact carries a tag: `[observed <date>]` (seen live), `[stated <date> <name>]` (trainer, document), `[db]`, `[inferred]` (not usable for assertions), `[unknown]`. Conflicting facts are kept side by side as open questions; nothing is silently overwritten.
 
-## 7. Tools and resources
+## 5. Training (phase 0)
+Methods, mixed freely: **documents** (inbox `apps/<app>/knowledge/sources/inbox/`), **explanation** in chat, **Q&A / quiz**, **live walk** of a framework group (the only time old framework flows are followed, and only on the trainer's request). Every session logs to `runs/TRAIN-<APP>-<MARKET>/…`, is consolidated into the pages and catalogs, and ends with a report and a STATUS resume point. A **short answer given during a run** is quick training: recorded as `[stated]` and added to the pages/catalog.
 
-| Need | Have | Missing |
+## 6. Knowledge-gap gate
+Applied before writing steps, before execution and before generation.
+- **Short / ad-hoc gap** (a value or data choice, a field meaning, an expected message, one rule, which user): ask → record as `[stated]` → continue.
+- **Long-term gap** (an untrained screen, module, process or market setup): ask for training → **do not execute, do not generate**.
+
+## 7. Writing cases, steps and data (phase 2)
+- Cases follow `case-format` (positive, negative, boundary…; the request decides how many). Expectations are **messages and document effects**; amounts are recorded, not asserted, unless the training defines how they are computed.
+- Steps follow the step vocabulary (`[Actor] Verb Object`, exact screen labels) and must be **complete on their own**: every choice the executor must make is written down (e.g. a dropdown that does not fill itself, "type the code then pick the single option").
+- **Live state is a precondition step**, not a lookup: e.g. *Navigate to Stock Inquiry; Verify Closing of <SKU> ≥ <qty>*. A setup step (e.g. a Dispatch Advice and its approval) is part of the plan only if the user approves it at QG.
+- One case is marked **executed live** (the one covering most of the flow); all cases get a data row.
+
+## 8. Execution (phase 4)
+- The **recorder** agent receives the approved steps and **one** data row. It injects the page helper with the **passive watcher**, which logs on its own: menu navigation, every typed value (with field label, id, type), dropdown/type-ahead choices, grid cells (grid id, column, row), tab clicks (tab id), button clicks, toasts (with type), popups (title, text, buttons) and browser alerts (text, answer), plus every screen change.
+- The QA member types every login; Claude selects company and distributor and presses Login only when asked.
+- **One** run; never one per case. A failure (blocked step, unexpected message) stops the run and is reported.
+
+## 9. Generation (phase 5) and verification (phase 6)
+- The converter (`framework/tools/qaos_record.py`) turns the watcher log into a flow spec; the generator writes the SQL with a pre-flight id check, one transaction, a rollback, and the case-data workbook for all N cases.
+- **Screen structure:** header screen with its detail and summary screens as **child screens**, so each case row runs header → lines → save → result. Grid lines are rows of the child sheet (PK `01-01`, `01-02` …). Repeated row buttons are one event.
+- **Message mapping:** toast → group assertion `0000/0014 TSTMSG,<sheet>`; popup → `ELEVAL` check on its message, then its button; inline validation → `ELEVLD`; browser alert → accept/dismiss event, text listed as *not asserted by the engine*. A stale repeat of an earlier toast is not asserted.
+- Conventions: `master_app_id` NULL, `created_by` = run tag, `modified_*` NULL, new repository ids per flow (e.g. `QUICK_ORDERNUMBER`).
+- The **verifier** checks traceability, the SQL against the live schema (read-only), the workbook, and the design rules of this document, and gives a verdict.
+
+## 10. Components
+| Kind | Name | Role |
 |---|---|---|
-| Story | Atlassian MCP | **SDMS project access** |
-| App metadata | snd-schema, gias-schema (read) | newer data dictionary (Van Sales tables) |
-| Framework metadata | selenium-framework-db (read) | **a test copy of CTA_CONFIG_ASSERTION where generated SQL can be applied and replayed** |
-| Browser | Selenium MCP + injected helper | **`qaos-browser` MCP** (below) |
-| People | QA lead | **named framework owner** (validates SQL), **BA contact** (rulings), **a test-user sheet per role and market** (maker/checker/stock controller) |
-| Governance | guardrail hook (Bash/Write/Edit) | SubagentStop schema check, URL allow-list, audit log (ARCHITECTURE §11.2) |
+| Commands | `/qa-os:train`, `/qa-os:quick`, `/qa-os:status`, `/qa-os:learn`; story mode `/qa-os:cases`, `/qa-os:steps`, `/qa-os:run`; `/qa-os:play` | entry points |
+| Skills | `knowledge-intake`, `quick-script`, `qa-orchestrator`, `case-format`, `step-vocabulary`, `step-authoring`, `step-dsl`, `recording-protocol`, `framework-conventions` | standards and procedures |
+| Agents | `recorder`, `framework-generator`, `verifier`; story mode `story-analyst`, `test-designer`, `step-author`, `data-engineer`; `app-cartographer` | phase workers with restricted tools |
+| Runtime | `plugins/qa-os/runtime/qaos_helpers.js` (page helper + passive watcher), `runtime/qaos_run.py`, `qaos_intake.py`, `qaos_steps.py`, `qaos_export.py` / `qaos_import.py`, `framework/tools/qaos_record.py`, `gen_framework_sql.py` | deterministic tools |
+| Connectors | Selenium MCP; read-only DB MCP (`snd-schema`, `selenium-framework-db`); Atlassian (optional) | access boundary |
 
-**`qaos-browser` MCP**: wraps the fixes we keep redoing by hand as stable tools:
-- `wait_for_login(user)`: pause until the QA lead has logged in, then verify the user shown.
-- `switch_user(role)`: log out and hand off to the QA lead.
-- `navigate(menu)` by sidebar search.
-- `fill`, `choose` (DevExtreme), `filter_grid`, `click_real`.
-- `capture_toast`, `accept_alert`.
-- Helper re-injection after every login.
+## 11. Environments and modes
+| Mode | Where | Allowed |
+|---|---|---|
+| Development | developer machine, cnr1dev1 | change tools/skills/design; fix issues; record findings in `HARDENING.md` |
+| Training | trainer's machine, cnr1dev1 | training sessions; data-changing walks on non-production envs |
+| **QA (strict)** | QA environment | runs exactly per this design; no changes, no hand edits; stop and report on failure |
 
-This removes the ~30 s script-timeout churn and makes recordings the same for every QA member.
+## 12. Release gate (development → QA)
+1. Every item in `docs/HARDENING.md` is fixed or accepted by the QA lead.
+2. **Acceptance run:** one quick request run end to end from a clean session, single-case execution, **no tool/skill/design change and no hand edit**, about 30 minutes from request to verified scripts (excluding logins).
+3. Verifier verdict: ready for framework-owner test-copy apply.
+4. **Engine replay** of the generated flow on a test copy passes for all N case rows, checked in the application.
+5. Release notes, guides and package updated; version bumped.
 
-## 8. Gap register (what is missing to reach the goal)
+## 13. Decisions log (2026-10-06 … 08)
+| Date | Decision |
+|---|---|
+| 10-07 | After training, requests are one-liners/short text; Jira optional. Output = Regress Master SQL + case data |
+| 10-07 | AI execution does not use existing Selenium framework data |
+| 10-07 | Every toast, alert and popup becomes an assertion |
+| 10-07 | One live run on a single case's data; N cases = N data rows |
+| 10-08 | Strict phase separation: training → cases/steps; execution → steps only; generation → recording only |
+| 10-08 | Test data from training only (test data catalog); no app/DB lookups before execution |
+| 10-08 | Knowledge-gap gate: short gap → ask and run; long-term gap → training, no execution |
+| 10-08 | QA environment = strict mode; fix and prove everything before release (`HARDENING.md`) |
+| 10-08 | `master_app_id` NULL; new repo ids per flow; new data instead of old workbook data |
 
-| # | Gap | Priority | Fix | Owner |
-|---|---|---|---|---|
-| 1 | ~~Plugin never registered~~ **DONE 2026-09-30** (plugin v0.2.0 enabled at project scope) | **P0** | add the marketplace + `enabledPlugins` to `.claude/settings.json`; restart; check the agents appear | Claude (needs your OK to edit settings) |
-| 2 | ~~recorder, framework-generator, verifier agents~~ **WRITTEN 2026-09-30** (needs a restart to load; first live use pending) | **P0** | write them from what worked in the group 11 replay | Claude |
-| 3 | ~~recording-protocol, framework-conventions, case-format, step-vocabulary skills~~ **WRITTEN 2026-09-30** | **P0** | extract from `framework_flows/*.md`, `friction.md`, `STEP_VOCABULARY.md` | Claude |
-| 4 | No proof the generated SQL runs in the legacy engine | **P0** | read-only SQL validator (ids, FKs, event chains vs group 11) + **one flow applied on a test copy and replayed** | Claude (validator), framework owner (apply + replay) |
-| 5 | ~~Step-sheet gate (G3) not in the orchestrator~~ **DONE 2026-09-30** (orchestrator v0.4, template in step-vocabulary) | **P0** | add the `step_sheet.md` template + G3 to qa-orchestrator | Claude |
-| 6 | Knowledge not tagged; whole packs are loaded | P1 | front-matter + `INDEX.json` + Stage 0 matching | Claude |
-| 7 | `qaos-browser` MCP | P1 | build it from `qaos_helpers.js` + recording-protocol | Claude |
-| 8 | Business steps are not compiled into DSL/recording | P1 | a compiler from `library.yaml` to DSL (`switch_user`, `filter_grid` primitives) | Claude |
-| 9 | Hooks from §11.2 (schema check at SubagentStop, URL allow-list, audit) | P1 | plugin `hooks/hooks.json` | Claude |
-| 10 | Jira SDMS access, BA contact, framework owner, per-role test-user sheet | P1 | organisation | QA lead |
-| 11 | reporter + Jira comment | P2 | agent + report-template | Claude |
-| 12 | bulk-data-factory | P2 | as ARCHITECTURE §13A | Claude |
-| 13 | GIAS app pack from the existing GIAS caches | P2 | move `.claude/element-cache/gias` into `apps/gias` | Claude |
-| 14 | KPO_mp password pasted in chat | hygiene | rotate | QA lead |
-
-**Definition of done for the platform:** a QA member installs the plugin, pastes a story with a QA-OS block, approves cases (G2) and the step sheet (G3), logs in at the switch points, and receives a validated `framework.sql` + workbook. The framework owner applies them, and the legacy engine replays them with no AI.
+## 14. Open design points (for review)
+- How a **long chain** (order → GIN → delivery → settlement) is requested and executed in one calendar day (one quick request per chain, or a "flow" request type).
+- **Bulk data** for Regress Master (bulk-data-factory) built on the test data catalog.
+- Whether the **QA environment's DB** can be connected read-only for the verifier (the base `snd-schema` has no PK transactional data).
+- Browser-alert assertions need an engine change (framework owner).
