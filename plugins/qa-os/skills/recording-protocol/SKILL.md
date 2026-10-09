@@ -14,8 +14,8 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 4. Read the app pack's settings with `python runtime/qaos_config.py app <app>`; roles and users come from there, never from memory.
 
 ## 1. Login and switch points (the only routine human step)
-- **Never type a user id or password.** Open the environment URL, then ask the QA member once, in one short sentence: "Log in as <user> (<role>), company <company>, distributor <code>; tell me when you're in."
-- **Company and Distributor are not secrets: pick them yourself** from `apps/<app>/app.yaml` (`environments.<env>.company`, `users.<user>.distributor`). The QA member types only the user id and password and presses Login, then tells you.
+- **Claude types the user ID, never the password** (QA lead, 2026-10-09: "enter at least User ID, I will enter password myself"). Open the environment URL, type the user ID of the role into the User ID field, then ask the QA member once: "User ID <user> is entered; please type the password." The 20 s login timer then presses Login when the password field is filled. Claude never types, reads or stores a password.
+- **Company and Distributor are not secrets: pick them yourself** from `apps/<app>/app.yaml` (`environments.<env>.company`, `users.<user>.distributor`). The QA member types only the password (Claude has typed the user ID; the timer or the QA member presses Login), then tells you.
 - After the QA member says they are in, **verify** who is logged in (the user name shown in the header) before any step. Mismatch: stop and say so.
 - A switch point is `Logout` then `Login as <role>`. Log out yourself (open the profile menu, click `li#logout`), then ask for the next login. Say what comes next in the same message.
 - A login clears the injected helper and localStorage. After every login: re-inject the helper (section 2).
@@ -76,7 +76,7 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - The log is converted later (framework-generator, `framework/tools/qaos_record_multi.py`) only after the flow passed. Start the watcher before the first step, so the sidebar menu click is logged (it becomes the flow navigation). A failed or blocked step is never turned into framework rows.
 
 ## 6. Never
-- Enter credentials, read the credentials file, or ask for a password in chat.
+- Enter a password, read the credentials file, or ask for a password in chat (typing the user ID is allowed).
 - Click "Generate Opening Balances" or any other stock-creating admin button that is not in the sheet.
 - Delete or edit data you did not create in this run.
 - Mark a step `pass` because nothing visibly failed. A pass needs an observed message or state.

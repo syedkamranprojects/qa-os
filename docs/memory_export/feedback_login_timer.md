@@ -10,3 +10,5 @@ When prompting the QA member for a login (S&D / QA OS runs and walks), start a b
 
 **How to apply:** every login hand-off (switch points in walks, quick runs). Related: [[feedback-always-enter-comments]] (login hand-off), [[feedback-minimise-user-intervention]].
 QA lead 2026-10-09: 20 seconds is enough.
+
+**Update 2026-10-09 (QA lead):** "Cant you just enter at least User ID, I will enter password myself" -> Claude types the **user ID** in the login page, the QA member types only the **password**; the 20 s timer presses Login once the password is filled. Claude never types or reads a password.
