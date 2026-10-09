@@ -1,4 +1,5 @@
 runs/
+inbox/
 __pycache__/
 *.pyc
 ~$*

@@ -27,7 +27,7 @@ environments:
       KPO_mp: {}                   # head-office user on the M&P distributor (not in group 11); no distributor selection after login; can approve its own documents; password key SD_PASSWORD_KPO_MP
       Automation: { distributor: "15108843" }        # Maker (QA lead, 2026-10-01); framework login serial 28 (group 11 seq 61/63/66, SAN Admin, inactive); login was rejected on 2026-09-29, re-check
       Auto_Multi_Orga: { distributor: "15108843" }   # 15108843-IBRAHIM TRADERS ("Auto KARACHI"); framework login serial 35
-      Auto_Tssm: { distributor: "15108843" }         # approve-only; cannot create documents; framework login serial 8
+      Auto_Tssm: { distributor: "15108843" }         # approve-only; cannot create documents; framework login serial 8; the TM user (PJP / outlet / DSR approver) [stated 2026-10-08 Syed Zulfiqar (F7 10-08)]
       Auto_Bangla: { distributor: "05108843", company: "010105" }   # BD Maker (user, 2026-10-07); see markets.BD.roles
       AutoBD_tssm: { distributor: "05108843", company: "010105" }   # BD Checker (user, 2026-10-07); see markets.BD.roles
       headquarter: {}                                # head-office user, framework login serial 30 (group 66 NG_Setup Flow_PK seq 32-34: Section Creation HQ, DSR Profile HQ, DSR Mapping HQ); added 2026-10-05 at the QA lead's request; company/distributor pages after login not yet observed (fill `distributor:` here once seen); not in snd-schema (access layer has only Unilever orgs)

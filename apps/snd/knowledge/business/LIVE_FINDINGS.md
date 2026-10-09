@@ -299,3 +299,19 @@ Source: learning_sessions/2026-10-08_QA_Team_followup2_answers.md. No new walk. 
 - QA team: "Irrelevant question - abnormal data" [stated 2026-10-08 QA Team (follow-up 2)]. The 10-01 state (route Complete, slips 1131-1136 Un Posted, invoices COL26000002004 / 2005 open) is not a defect to report.
 - The Q-DS3 rule stands: a settled route must have all its slips Posted and adjusted. Keep the check "after Route Settlement every slip of that route/date is Posted".
 - Carry-over: the 10-01 leftovers (slips 1131-1136 Un Posted, invoices COL26000002004 / 2005 open) stay on cnr1dev1 and still inflate the outlet 04 / 05 outstanding totals; never use them as fixtures or as evidence of expected values.
+
+## Group 66 (NG_Setup Flow_PK) learning walk (2026-10-05 seq 1-18, 2026-10-09 seq 19-36)
+Source: learning_sessions/2026-10-05_G66-PK_session1_log.md, learning_sessions/2026-10-09_G66-PK_session2_log.md; report learning_sessions/2026-10-09_G66-PK_session2_report.md. Trainer / QA lead Syed Kamran. Pages: master_data/ (pjp.md, outlet.md, dsr.md, section_and_mappings.md), delivery_and_returns/delivery_man_shuffling.md.
+
+### D-G66-2-1 DEFECT: Company Mapping > Distributor > Outlet sub-tab fails to load the available outlets
+- Where: cnr1dev1, 2026-10-09, user Auto_Multi_Orga, company Unilever Pakistan Limited, distributor 15108843; Company setup > Setup Mapping > Company Mapping, top tab Distributor, sub-tab Outlet [observed 2026-10-09].
+- What: the request that loads the available-outlet list answers HTTP 500 and the toast (error) "Action cannot be performed, something went wrong!" appears every time the sub-tab loads (two loads); the left grid stays "No data" while the right grid shows the mapped outlets 1000000001-05 [observed 2026-10-09].
+- Ruling: a defect [stated 2026-10-09 Syed Kamran]. Effect: outlet C0154187435 stays unmapped; the other Company Mapping sub-tabs work.
+
+### Other findings (business rules, not defects)
+- An order draws stock from its PJP's warehouse (Aslam PJP OB -> 0000000025-IBT Main warehouse: "Stock not available." until stock was received there) [observed 2026-10-09].
+- Master-data change requests (outlet document / operative info, DSR profile / document, PJP Change Request, Change Track PJP Config) are approved by the Checker / TM with one Forward on the Maker's own screen and apply at once; a new PJP is approved on the separate PJP Approval menu [observed 2026-10-05, 2026-10-09].
+- Statuses after a Forward show only after leaving the screen and re-opening it (a too-early read showed request 62 still In-Active) [observed 2026-10-09].
+- One login user per DSR; DSR cell numbers unique; CNIC 13-digit mask [observed 2026-10-05, 2026-10-09].
+- Mapping saves (Distributor / Company Mapping) show no toast [observed 2026-10-09].
+- Prospect Outlet Forward disabled on a back-office Draft outlet (Q-PO1) [observed 2026-10-05].

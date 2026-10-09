@@ -360,3 +360,15 @@ Register: `docs/HARDENING.md` (release gate = section D). Design: `docs/FINAL_DE
 # Note 2026-10-08 (end of day): agreed for 2026-10-09
 - Redesign `/qa-os:quick`: ad-hoc AI test execution; request = the case; steps internal (shown at approval); silent recording; ask "Regress Master scripts?" only after a pass. Update quick-script skill, commands/quick.md, OPERATING_RULES, user manual; bump plugin + update installed copy. (Memory: project_quick_mode_redesign.)
 - Also pending: Regress Master replay result of flow 06480001 (user shares 2026-10-09); trainer email on promotions; group 74 promotion walk (optional).
+
+---
+# Update: 2026-10-09 - second QA-member training zip merged (Claims, PJP, Outlet, trainer rulings) - questions ON HOLD
+- Zip `inbox/qa-os-snd-training-2.zip`: new session `runs/TRAIN-SND-GLOBAL/20261008-SyedZulfiqar/` (copy in learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_log.md): Claims digest D1-D9, PJP guide P1-P13, Outlet guide O1-O14, Jira evidence ([jira <KEY>] tag added to LEARNING_STANDARD §3.4), trainer rulings F1-F11 (10-08). Decks filed: sources/20261008_PJP updated R2.pptx, sources/20261008_outlet changes.pptx. Still not in the workspace: "Promotions and Budgets 2026_R2.pptx", "claim management manual_R2 Aug 2026.pptx".
+- Key rulings: Auto_Tssm is the TM user (PJP / outlet approver); PJP daily-route job runs daily; Excel-approved promotions reach DCODE via a daily integrator job; outlet tax changes apply to new orders only; credit limit Block/Warn at booking; Outlet Price overrides the price list; Discount Limit vs Cap parked.
+- **Trainer: all promotion, budget, claims and PJP questions are ON HOLD - do not re-ask until he returns to the topic.** The 2026-10-08 trainer email (14 questions) is therefore NOT to be sent as is.
+- Consolidation into the pages (claims.md, master_data/pjp.md + outlet.md, promotions page, OPEN_QUESTIONS, glossary, INDEX): see the session report learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_report.md.
+
+---
+# Update: 2026-10-09 - group 66 (NG_Setup Flow_PK) learning walk COMPLETE
+- Session 2 (trainer Syed Kamran) did seq 19-36 on cnr1dev1: runs/LEARN-G66-PK/20261009/session_log.md (status table at the end). Defect D-G66-2-1 (Company Mapping > Outlet sub-tab HTTP 500). Key rule: an order draws stock from its PJP's warehouse.
+- Next: consolidate both G66 sessions into master_data (pjp.md, outlet.md, new dsr / section / mapping facts) + FRAMEWORK_DRIFT (generated codes, CNIC mask, GPS/DDO read-only on DT, Default Delivery Days missing on HQ section, duplicate cell numbers); still pending: quick-mode redesign (agreed 2026-10-08), Regress Master replay result of flow 06480001.

@@ -7,8 +7,8 @@ framework_flows: []
 markets: [GLOBAL]
 roles: [Maker, Checker]
 depends_on: [order_booking, stock_allocation, order_editing_cancellation, sales_return, transaction_inquiry]
-sources: [sme, document, source-code]
-updated: 2026-10-08
+sources: [sme, document, source-code, story-history]
+updated: 2026-10-09
 ---
 
 # Promotions and Budget: how it works (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from one training session (2026-10-07, Syed Zulf
 **Source gap:** the pptx itself is **not in the workspace** (it is on the trainer's Desktop; planned file name `apps/snd/knowledge/sources/20261007_Promotions and Budgets 2026_R2.pptx`); slide numbers are taken from the 2026-10-08 write-up, which gives ranges only (6-31 Promotion Layout, 14 Target Discount, 34-41 Budget Setup, 42-50 off-invoice / claims) and no screenshots were viewed. Re-check slide references when the file is filed.
 **Code study added 2026-10-08 (method D, source code):** the promotion microservice MS_Promotion was read on branch UL-R1-BD @ 51e7e815 (version 1.1.109.0, R1 = PK + BD, cnr1dev1) and compared with UL-R2-COUNTRY @ 462cb561 (R2, cnr2dev3); studies in `../../sources/code/MS_Promotion/` (`R1_engine.md`, `R1_budget_api.md`, `R1_vs_R2.md`). Tag **[code UL-R1-BD@51e7e815 <file>:<line>]** (R2: **[code UL-R2-COUNTRY@462cb561 <file>]**); Java paths are relative to `PromotionBuilder/src/main/java/com/centegy/` and given here by file name only (the full path is in the study files); `res/` = `PromotionBuilder/src/main/resources/`. A [code] fact says **what the promotion service does**, not the business intent and not what the user sees: it is never [observed], it is asserted only as an expectation "to be confirmed live" (like [db]), and where it disagrees with a [stated] fact both are kept and a contradiction is filed (OPEN_QUESTIONS §5, rows 35-42). **Several behaviours are decided by the caller, not by this service:** the S&D order service decides which action sends `cashmemoEvent = S` (budget booked), when `/promotionAllocation/revert | adjust | compensate | adjustApproved` are called (cancel, return, approval), the stock and "Confirmed" checks of free goods, and what lines a return sends; the separate **target-service** owns Budget Setup and its upload validations. <!--i-->
 Source flows: none (not in framework group 11).
+Updated 2026-10-09: evidence of the 2026-10-08 training (Syed Zulfiqar) added next to the existing facts, never replacing them: rulings **F10 (10-08)** (integrator job runs daily) and **F11 (10-08)** (Discount Limit vs Cap parked), tag **[stated 2026-10-08 Syed Zulfiqar (F<n> 10-08)]** (the "(10-08)" suffix separates them from the F1-F23 of 2026-10-07); Jira SDMS tickets read 2026-10-08, tag **[jira <KEY>]** with region and status (expectations to be confirmed live; a New ticket is a bug or a wish, not current behaviour). Claims moved to their own page [claims.md](claims.md). Report: `../learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_report.md`.
 Last updated: 2026-10-08 (code study). <!--i-->
 
 ## 1. Purpose
@@ -38,6 +39,7 @@ Last updated: 2026-10-08 (code study). <!--i-->
 - **Budgets**: the Trade Category team sends budget files to the MIS team, who amend and upload them in Budget Setup; budgets are kept at region or distributor level [stated doc s.34-41].
 - **IO numbers**: CD Finance creates the IO code in the third-party system; MIS creates the same code in DCODE (IO Listing) [stated doc s.42-50].
 - **Off-invoice credit notes**: uploaded, reviewed and forwarded for **TM approval**; approved on Off-Invoice Credit Note Approval [stated doc s.42-50]. Which application role code (0001 / 0002 / 9999) maps to "TM" is [unknown] (Q-PR5 / Q-RL1 context).
+  - 2026-10-08: the **TM user on cnr1dev1 is Auto_Tssm** (approves PJPs and is the TM in the outlet flow) [stated 2026-10-08 Syed Zulfiqar (F7 10-08)]; whether he also approves off-invoice credit notes was not stated. The outlet ticket gives the TM role code 0008 [jira SDMS-12227] (PKBD R1, Assigned to QA) (contradiction 43, Q-RL1).
 - Order users (Maker) never touch promotions directly: the system applies them at order save [stated SZ (F16)] [observed 2026-10-01 G11-1, order side].
 
 ## 3. Documents and master data
@@ -45,6 +47,7 @@ Last updated: 2026-10-08 (code study). <!--i-->
 - **Resultant Type** values include BONUS and TRADEOFFER [stated doc s.6-31]; the orders show BONUS2 / TRADEOFFER [observed 2026-10-01 G11-1].
   - Code (R1): resultant types are **DB master data**, not code; there is no `TRADEOFFER` literal in the service. The nearest code concept is the **trade-off flag** `TrdOffFlg` (header field `tradeOff`), which decides whether earlier promotions' discounts are subtracted first (section 4.4a) [code UL-R1-BD@51e7e815 PromotionETLService.java:307]. Only SCHEME-type promotions (type 0001) are calculated on an order; sub-types SCHCHARGE 0005 and SCHTAX 0006 **add** to the amount, every other sub-type reduces it [code UL-R1-BD@51e7e815 PromotionHeader.java:70-74, 96-118] [code UL-R1-BD@51e7e815 PromotionExecutor.java:90-91]. A resultant line is either a **money discount** (tag REPO, typically code DISONGROSS "Discount on Gross") or a **free product** (tag PROD, value type F) [code UL-R1-BD@51e7e815 BusinessResolver.java:40-41] [code UL-R1-BD@51e7e815 BreakupResolver.java:64-68]. Value types: P percentage, F fixed or "X for every N", L formula [code UL-R1-BD@51e7e815 ResolvablePromotionItem.java:594-602]. <!--i-->
 - **Promotion budget**: created in Budget Setup with Catalog Id, Date From / To, Bottom Up, measurement, Is Active and an entity-level combination (Distributor, Organization, DSR, Outlet, PJP); two combinations exist by default: **Outlet only**, and **Organization + Distributor + Outlet** [stated doc s.34-41]. The Budget Setup grid carries Budget Code, Period Start / End Date, Allocated Budget, Utilized Budget, Balance, **Allocated / Utilized / Balance Budget QTY**, Ref. Promo Code, Ref. Promo Type, Final Allocation Date [db 2026-09-25 L4 BUDGET_LAYOUT] (the QTY columns suggest quantity budgets too: Q-PR4 [inferred]).
+  - Jira 2026-10-08: a budget can be **quantity-based** at ORGA level [jira SDMS-10146] (PK/BD). Promotions are **constrained** (Check Budget = Y, the budget is checked) or **unconstrained** (no budget check) [jira SDMS-11953] (region / status not given). To be confirmed live.
 - **Budget Hierarchy**: organisation > distributor > sub-element; the budget sits on the sub-element [stated doc s.6-31].
 
 ### Budget model in the code (R1, added 2026-10-08) <!--i-->
@@ -94,6 +97,7 @@ Branch diff UL-R1-BD @ 51e7e815 (1.1.109.0) vs UL-R2-COUNTRY @ 462cb561 (2.3.102
 | Excel upload | Uploaded into Current Promotion Approver | Yes, any user with the approval role | A **scheduled integrator job** brings it into DCODE after approval | [stated SZ (F8, F9, F10, F14, F15)] |
 | API integration (e.g. PRAT) | Third-party system | None | Becomes part of DCODE directly | [stated SZ (F9, F10, F13)] |
 After that, back office syncs the promotions to the mobile app as files, so back office and mobile apply the same schemes [stated doc s.?].
+- **Integrator schedule (2026-10-08):** the integrator job that brings Excel-approved promotions (Current Promotion Approver) into DCODE **runs daily**; an approved Excel promotion reaches orders after the next daily run [stated 2026-10-08 Syed Zulfiqar (F10 10-08)] (answers Q-PR3; no Jira ticket on the integrator schedule was found [jira search 2026-10-08]). Other jobs: PJP (daily route) job daily, claim job weekly or daily, target achievement job daily [stated 2026-10-08 Syed Zulfiqar (F8 10-08)].
 
 Code facts on the routes (R1, added 2026-10-08): <!--i-->
 - **Excel / integrator upload:** `GET /promotionSetup/upload?orgaCode=` reads the staging tables `PRM_PM_TSH_TEMP_SCHEME_HEAD` (+ `_TSQ` qualify, `_TSR` resultant, `_TSS` slab, `_TSG` group) for rows modified after the watermark in `PRM_PM_LUT_LAST_UPLOAD_TIME`; rejects a promotion without a Qualify row or without resultant and slab; builds the promotion (Claimable = Y, 100%; SCHCMCOUNT, CMCOUNT, DISCCAP = outlet capping, SlabUnit, TrdOffFlg); **deletes and re-inserts** an existing same-code promotion; staging active Y/A -> A, else I; writes `PTSH_PROCESS_STATUS` S/F and `PTSH_PROCESS_MESSAGE` back; answers Total / Success / Fail counts [code UL-R1-BD@51e7e815 PromotionSetupController.java:210-315] [code UL-R1-BD@51e7e815 PromotionETLService.java:299-379] [code UL-R1-BD@51e7e815 TempPromotionHeadService.java:31-53]. The endpoint is **pull-triggered: no integrator cron exists in this service** (`quartz.enabled=false`) [code UL-R1-BD@51e7e815 res/application-common.properties:76-77]; who calls it and when is outside this repository (Q-PR3 answered at service level, Q-PR16). No approval step exists in this service (contradiction 42). <!--i-->
@@ -111,6 +115,7 @@ Code facts on the routes (R1, added 2026-10-08): <!--i-->
 | Budget Setup | Target > Budget > Budget Setup | BUDGET_LAYOUT, /target | Create, allocate (Excel), edit promotion budgets | [stated doc s.34-41]; menu both envs [db 2026-09-25 menu] |
 | Transaction Inquiry | Transaction Inquiry (DYL_102014; write-up: Transaction > Order > Transaction History) | DYL_102014 | Total Offering tab: each promotion applied to an order, type and discount | [observed 2026-10-01 G11-1]; see transaction_inquiry.md |
 | Bulk Promo Allocation | Target > Target > Bulk Promo Allocation | BULK_PROMO_ALLOCATION, /target/promo-target-builder | Purpose not taught (Q-PR6); tabs ORGA, DIST, CHNLHIER | [db 2026-09-25 L4] |
+| Bulk Promo Allocation (Jira evidence 2026-10-08) | (as above) | (as above) | **= the budget allocation upload of Budget Setup**: "(PK) PROD - Budget Setup (Bulk Promo Allocation)"; "Adjust Promo Allocation"; duplicate distributor rows in the upload give a server error | [jira SDMS-9438] (PK prod) [jira SDMS-11264] [jira SDMS-10146] (PK/BD) [jira SDMS-10610] (PK prod); purpose still to confirm with the trainer / live (Q-PR6) |
 | Cash Memo Promotion Viewer | Configuration > System Configuration > Cash Memo Promotion Viewer | CASH_MEMO_PROMOTION_VIEWER, /dyl/layout | Purpose not taught (Q-PR6); a setup grid Code, Description, Abbreviation, Default, Status, Level Type, Level No | [db 2026-09-25 L4] |
 | IO Listing | Transaction > Claim > IO Listing | DYL_202028 (R1 menu); R2 menu shows "IO Master" DYL_202058 | Create the IO code | [stated doc s.42-50]; [db 2026-09-25 menu] |
 | Off-Invoice Credit Note | Transaction > Receivable > Off-Invoice Credit Note | OFF_INVOICE_CREDIT, /excel-upload/off-invoice-credit-excel-upload | Excel upload of off-invoice credit notes against an active IO | [stated doc s.42-50]; [db 2026-09-25 menu] |
@@ -210,6 +215,8 @@ A direct discount or range slabs; each a percentage or fixed value of Gross, or 
 | Discount Cap | Maximum a customer can get, e.g. 30% of 200,000 = 60,000 is capped at 50,000 | [stated doc s.6-31]; same setting as Discount Limit? Q-PR2 |
 | Repeat Limit | Maximum times the reward repeats, e.g. buy 6 get 1 free, at most 4 times | [stated doc s.6-31] |
 | Target Discount | Budget quota given to a distributor and split across DSRs; the promotion stops when it is used up; cancelled orders free the quota | [stated doc s.14] |
+| Discount Limit vs Discount Cap (2026-10-08) | **Not clear to the trainer either; parked.** Keep both as separate fields until a live run or a ticket shows a difference; do not assert either; raise it again only then. No Jira ticket distinguishes them | [stated 2026-10-08 Syed Zulfiqar (F11 10-08)]; [jira search 2026-10-08: none]; Q-PR2 parked |
+| Purchase Limit (Jira evidence 2026-10-08) | Applies **per invoice** (cash memo) and per slab unit | [jira SDMS-3027] (BD, Invalid) [jira SDMS-11686]; consistent with the manual's "per invoice" |
 
 Code (R1) on the limits [code UL-R1-BD@51e7e815 ResolvablePromotionItem.java:503-547, 586-588, 612-644, 816-818] [code UL-R1-BD@51e7e815 AllocationResolver.java:55-86] [code UL-R1-BD@51e7e815 PromotionETLService.java:302]: <!--i-->
 
@@ -291,6 +298,7 @@ F. Off-invoice credit note and claim [stated doc s.42-50]
 3. [Maker] Navigate to Credit Note; review; Click Forward (for TM approval).
 4. [Checker] Navigate to Off-Invoice Credit Note Approval; select rows; Click Approve All (status In-Active -> Active).
 5. [System] On the claim days (10th, 20th, 30th; "Claim Days" on the distributor) a scheduled job sends the claims to Atlas.
+- Claims in detail (conditions, Claim Inquiry, Adhoc Job Executor, schedule per market): [claims.md](claims.md) (2026-10-08 training; ON HOLD).
 
 ## 6. Outputs and effects
 How orders use the budget: taken at order save, given back on cancellation or return; a promotion never applies partly.
@@ -302,12 +310,16 @@ How orders use the budget: taken at order save, given back on cancellation or re
 | Order saved, free-goods promotion | Stock of the free SKU is checked; the promotion applies only once the order is **Confirmed**; the stock check and Confirmed condition apply only to stock-based (free-goods) promotions | [stated SZ (F17, F18)]; meaning of "Confirmed" here: Q-PR9 |
 | (code) Free goods in the promotion service | **No stock check and no order-status check**: `DocumentStatus` is copied in but never read; free goods are calculated and their **quantity budget** booked on the same S event as discounts. The only free-goods limits here are tied to the GIN state: after GIN approval / in process, a new free-product scheme gives 0 and the free quantity cannot exceed the original. If F17 / F19 hold, the S&D order service enforces them (contradiction 37) | [code UL-R1-BD@51e7e815 SnDRepositoryFiller.java:408, 418] [code UL-R1-BD@51e7e815 BusinessResolver.java:40-60] [code UL-R1-BD@51e7e815 BusinessQualifier.java:32-33, 66-87] | <!--i-->
 | Free SKU out of stock | Order is saved, but the free goods are **not allocated** | [stated SZ (F19)] |
+| Free goods and budget (Jira evidence 2026-10-08) | **Free goods DO use budget (quantity), but only for free SKUs actually given**: adding a free SKU back to budget on a partial return although it was never given (stock 0) was a bug; budget must not be utilised when the free SKU quantity is not allocated. To be confirmed live (Q-PR4) | [jira SDMS-10626] (PKBD R1, env CNR1DEV1, QA Verified) [jira SDMS-10863] (VN R2) |
 | Remaining budget less than the discount | Promotion is **not applied at all**; no partial discount up to the balance | [stated SZ (F21)] |
 | (code) Short balance | Budget fully used (balance <= 0): line value 0, not applied ("Allocation exhausted"). 0 < balance < requested: **not applied** ("Partial Allocation not configured") **unless the org flag `ALLOW_PARTIAL_BUDGET = Y`**, then **applied partially, capped at the balance**. Balance exactly = requested: applied in full [inferred from grant = min(requested, balance)]. F21 holds only while the flag is not Y (contradiction 36, Q-PR12) | [code UL-R1-BD@51e7e815 PromotionAllocationService.java:141-179] [code UL-R1-BD@51e7e815 PromotionBudget.java:274-286, 412-425] | <!--i-->
 | (code) Budget code configured but no budget row | Header budget: promotion line **not validated** ("Budget not found"), so not applied; count budgets silently skipped | [code UL-R1-BD@51e7e815 PromotionBudget.java:293-305] | <!--i-->
 | Order cancelled | Budget is given back | [stated SZ (F23)]; [stated doc s.14] agrees (cancelled orders free the quota) |
+| Order / invoice cancelled (Jira evidence 2026-10-08) | Open PK production bug: "the promo amount of a cancelled invoice was not reversed into its budget" - so the give-back is the intent (F23), but a PK cancellation may currently fail to give it back; a failing case is a known bug, not a new finding | [jira SDMS-11596] (PK R1, New) |
 | (code) Give-back calls | The engine never gives back by itself. S&D must call `PUT /promotionAllocation/revert?documentReference=&eventLog=` (reverses the document's whole latest booking per key, journal R, log suffix `-RVRT-ALC-PROMOTION`) or `/adjust` / `/adjustApproved` (reverse the last booking and re-book the **new value S&D supplies**, capped at the remaining balance; 0 reverses everything incl. count budgets) or `/compensate/{event}/{eventLog}`. **The service never computes a proportion**: a "proportional" give-back is computed by the caller (contradiction 38). Which S&D action calls which: Q-PR11 | [code UL-R1-BD@51e7e815 PromotionAllocationController.java:36-54] [code UL-R1-BD@51e7e815 PromotionAllocationService.java:236-254, 319-357] [code UL-R1-BD@51e7e815 PromotionAllocationRevertService.java:266-327] | <!--i-->
 | Order edited (quantity reduced, promotions re-applied) | Budget give-back for the lowered discount not stated | [unknown], Q-PR1 (edit re-applies promotions [observed 2026-10-01 G11-1], order_editing_cancellation.md) |
+| Order edited (Jira evidence 2026-10-08) | **Order edit gives budget back**: "Utilized budget is not getting reverted for the order edited through Order Editing" was a bug, fixed (Verified, Closed) -> the edit re-prices and re-books the budget. To be confirmed live (Q-PR1, L46) | [jira SDMS-5481] (R2, Verified / Closed) |
+| Fresh return without a promotion (Jira evidence 2026-10-08) | Using budget on a fresh return to which no promotion applied is a bug | [jira SDMS-10625] [jira SDMS-10663] (porting) |
 | (code) Order edited (`entryMode = E`) | **Full re-pricing**: before re-booking, the document's previous booking of the same promotion and budget is reversed (journal R), then the new value booked (A); a lower discount gives the difference back. A promotion that no longer qualifies has its booking reversed ("Reverting budgets"); one that qualifies with value 0 is reversed by the breakup step. Q-PR1 **answered by code - confirm live** (needs S&D to send entryMode E and the same documentReference) | [code UL-R1-BD@51e7e815 PromotionAllocationService.java:113-117] [code UL-R1-BD@51e7e815 AllocationAdjustable.java:42-51] [code UL-R1-BD@51e7e815 BreakupResolver.java:51-56] | <!--i-->
 | (code) Order edited after GIN approval (entry mode E, GIN state A) | Only promotions already on the order may qualify ("... promotion code not exists in provided promoCodeList"); new free-product schemes give 0; free quantity capped at the original | [code UL-R1-BD@51e7e815 BusinessQualifier.java:66-87] [code UL-R1-BD@51e7e815 BusinessResolver.java:40-60] | <!--i-->
 | Full return | Budget is given back in full (Utilized goes down) | [stated SZ (F20, F22)] |
@@ -315,6 +327,7 @@ How orders use the budget: taken at order save, given back on cancellation or re
 | (code) Return (cash memo type 999999999999, `cashmemoEvent = R`) | Only the promotion codes S&D passes in `promoCodes` are re-evaluated (loaded from the DB, not the cache); criteria, date / frequency and exclusivity checks are skipped; the engine recalculates on whatever lines S&D sends; **no budget is booked or reversed on the R event**; "CODE~0" nulls a free-product line ("Free product not allowed on return after discount ..."), "CODE~1" nulls a discount line. The give-back amount comes from S&D via `/adjust` or `/revert` (contradiction 33 code evidence) | [code UL-R1-BD@51e7e815 PromotionExecutor.java:80-87] [code UL-R1-BD@51e7e815 SectionQualifier.java:31-35] [code UL-R1-BD@51e7e815 PromotionBudget.java:382-410] [code UL-R1-BD@51e7e815 PostPromoResolver.java:44-66] | <!--i-->
 | (code) Error during calculation | `PROMOTION_PROMPT = N` (default): the failing promotion is skipped, others continue. `= Y`: budgets reverted (new document: all; edit: re-adjusted) and the error returned to S&D; the order log gets "Error-promotioncalculation" | [code UL-R1-BD@51e7e815 PromotionExecutor.java:74, 138-190] [code UL-R1-BD@51e7e815 PromotionSetupController.java:106-127] | <!--i-->
 | Excel-upload promotion approved | Reaches orders only after the next integrator job run | [stated SZ (F15)] |
+| Excel-upload promotion approved (2026-10-08) | The integrator job runs **daily**: the approved promotion reaches orders after the next daily run | [stated 2026-10-08 Syed Zulfiqar (F10 10-08)] |
 | Off-invoice credit note approved | Status In-Active -> Active; payout as credit note | [stated doc s.42-50] |
 
 How to check: budget use is read on **Current Promotion** (allocated / utilised) [stated SZ (F7, F11)] (Budget Setup also shows Utilized Budget and Balance [db 2026-09-25 L4]); on an order, Transaction Inquiry > **Total Offering** lists each promotion and its discount and their sum equals the header Discount [observed 2026-10-01, 2026-10-05, 2026-10-06 group 11 walks]. A before / after reading of Utilized is the only budget assertion; no budget effect has been observed yet.
@@ -343,6 +356,7 @@ Useful invariant: for one budget key, `PPAL_ACHIEVED_VALUE` = SUM(`PPAR_ACHIEVED
 | (new) | Save, then Apply (manual) | live in DCODE | setup user | [stated SZ (F12)] |
 | uploaded (Excel) | Approve on Current Promotion Approver | approved, waiting for the integrator job | user with the approval role | [stated SZ (F10, F14)] |
 | approved (Excel) | scheduled integrator job | part of DCODE | system | [stated SZ (F15)] |
+| approved (Excel) (2026-10-08) | next **daily** integrator job run | part of DCODE | system | [stated 2026-10-08 Syed Zulfiqar (F10 10-08)] |
 | (API / PRAT) | integration | part of DCODE | system | [stated SZ (F13)] |
 | promotion State | active / inactive / allocated | (values only; transitions unknown) | ? | [stated doc s.6-31]; transitions [unknown] |
 | (code) (new) | Save (`saveAsMap`) with Active flag | Active A or Inactive I; only A / Y promotions are loaded for orders, and the cache keeps those whose end date >= the previous day | setup user | [code UL-R1-BD@51e7e815 PromotionSetupRepository.java:26, 72-76] [code UL-R1-BD@51e7e815 PromotionDefinitionProvider.java:434-461]; no "allocated" state (contradiction 40) | <!--i-->
@@ -367,6 +381,7 @@ Promotion rules
   - Code: a new record with an existing code is refused: "Promotion Code {0} is already exists." [code UL-R1-BD@51e7e815 PromotionSetupService.java:1023-1025] (consistent). <!--i-->
 - Excel-upload promotions need approval; manual and API promotions do not [stated SZ (F10, F12, F13)].
   - Code: no approval step exists in the promotion service for any route (contradiction 42; the approval may live in another service, Q-PR16). <!--i-->
+- Jira evidence 2026-10-08 (expectations, to be confirmed live): a promotion is **constrained** (budget checked) or **unconstrained** (no budget check) [jira SDMS-11953]; free goods use the quantity budget only for free SKUs actually given [jira SDMS-10626] [jira SDMS-10863]; an order edit re-books the budget [jira SDMS-5481]; a PK cancellation not giving the budget back is an open bug [jira SDMS-11596] (PK R1, New); the purchase limit applies per invoice [jira SDMS-3027] [jira SDMS-11686]; duplicate distributor rows in the Bulk Promo Allocation (budget allocation) upload give a server error [jira SDMS-10610] (PK prod) [jira SDMS-11264].
 
 Promotion setup rules in the code (R1, added 2026-10-08; exact texts in section 9) [code UL-R1-BD@51e7e815 PromotionSetupService.java:1000-1131]: <!--i-->
 - New record with an existing code -> refused (duplicate code message). <!--i-->
@@ -425,6 +440,7 @@ Loyalty / voucher redemption texts (R1, `res/application-promotion.properties:67
 ## 10. Dependencies
 - Before: product hierarchy, outlets / DSRs / distributors (Criteria), a budget in Budget Setup when the promotion is budgeted, an active IO for off-invoice credit notes [stated doc s.6-31, s.34-41, s.42-50].
 - Excel-upload promotions depend on the **integrator job** having run after approval; it is normally scheduled, not started by hand [stated SZ (F15)]; schedule per env unknown (Q-PR3).
+- 2026-10-08: the integrator job **runs daily** [stated 2026-10-08 Syed Zulfiqar (F10 10-08)] (Q-PR3 answered by the trainer); a case on an Excel-approved promotion books its order on the day after the approval (after the daily run) [inferred from F10 (10-08)].
 - Free-goods promotions depend on stock of the free SKU for the day (stock_inquiry_and_balances.md, stock_allocation.md) [stated SZ (F17, F19)].
 - After: Order Booking, Order Editing / Cancellation, Sales Return, Transaction Inquiry (Total Offering) read the promotion; claims go to Atlas on the claim days [stated SZ; stated doc s.42-50].
 - Date rules: Start / End Date of the promotion and the CRON scheduler decide when it applies [stated doc s.6-31]; an ended promotion cannot be edited [stated doc s.34-41].
@@ -475,6 +491,9 @@ More boundaries: budget amount with 3-4 decimals (rounding 131.4566 / 131.443); 
 Traps (what a green run would not prove)
 - Total Offering summing to the header Discount (already a group 11 check) proves nothing about the budget; read Utilized before / after.
 - A promotion uploaded and approved does not reach orders until the integrator job runs; a case booked right after approval may wrongly fail (Q-PR3).
+- 2026-10-08: that job runs **daily** [stated 2026-10-08 Syed Zulfiqar (F10 10-08)], so wait for the next daily run before booking.
+- 2026-10-08: a PK cancellation may not give the budget back today (open bug [jira SDMS-11596], PK R1, New); a failing give-back on cancel is a known bug, report it with that key.
+- 2026-10-08: Discount Limit vs Discount Cap is parked [stated 2026-10-08 Syed Zulfiqar (F11 10-08)]: never assert either limit.
 - Active Promotions shows no budget figures; never use it for budget checks [stated SZ (F11)].
 - Partial returns re-price the remaining basket (middle invoice, Q-SR2), so the give-back may differ from a pro-rata of the returned line.
 - Pakistan configuration (Outlet entity only, normal sub type) is not a global rule; BD may differ.
@@ -497,6 +516,14 @@ Filed in OPEN_QUESTIONS.md (2026-10-08):
 - Q-PR8: Trainer name for the tags | Default: Syed Zulfiqar (taken from the account) | Class: A | Evidence: session log header.
 - Q-PR9: What does "Confirmed" mean for free goods (orders read Confirmed right after save when allocated; unallocated ones stay status Order)? | Default: Confirmed = allocated; free goods are allocated together with the order | Class: B | Evidence: F17; contradiction 3 (Confirmed = execution 02 at save) and Q16 / Q27 answers.
 - Q-PR10: On a partial return, does Utilized drop by the return's Total Offering (original minus middle invoice) or only by the returned lines' share? | Default: by the return's Total Offering (the middle-invoice difference) | Class: B | Evidence: F22 vs Q-SR2 answer; contradiction 33.
+
+Update 2026-10-09 (training 2026-10-08, Syed Zulfiqar + Jira):
+- Q-PR3 **answered by the trainer**: the integrator job runs daily [stated 2026-10-08 Syed Zulfiqar (F10 10-08)].
+- Q-PR2 **parked**: not clear to the trainer either; settle only when a live run or ticket shows a difference [stated 2026-10-08 Syed Zulfiqar (F11 10-08)].
+- Q-PR1 Jira evidence (still to confirm live, L46): an order edit re-books the budget [jira SDMS-5481] (R2, Verified / Closed).
+- Q-PR4 Jira evidence (still open, to confirm live): free goods use the quantity budget only for free SKUs actually given [jira SDMS-10626] (PKBD R1, QA Verified) [jira SDMS-10863] (VN R2); budgets can be quantity-based at ORGA level [jira SDMS-10146].
+- Q-PR6 Jira evidence (still open, to confirm live): Bulk Promo Allocation = the budget allocation upload of Budget Setup [jira SDMS-9438] [jira SDMS-11264] [jira SDMS-10146]; Cash Memo Promotion Viewer: no evidence.
+- Claims questions: Q-CL1..Q-CL6 (ON HOLD), see [claims.md](claims.md).
 
 Code study 2026-10-08 (details and evidence in OPEN_QUESTIONS.md sections 1b, 2f, 3, 5): <!--i-->
 - Q-PR1 **answered by code - confirm live**: an edit (entry mode E) fully re-prices; the old booking is reversed and the new value booked, so a lower discount gives the difference back (section 6). L46 stays as the live confirmation. <!--i-->
@@ -521,4 +548,5 @@ Code study 2026-10-08 (details and evidence in OPEN_QUESTIONS.md sections 1b, 2f
 - Menu harvest: `apps/snd/knowledge/env/cnr1dev1/menu.KPO_mp.json`, `apps/snd/knowledge/env/cnr2dev3/menu.KPO_slv.json` (2026-09-25).
 - L4 screen map (sweep cnr2dev3 2026-09-25): `apps/snd/knowledge/screens_observed/{DT_PROMOTION, CURRENT_PROMOTION_APPROVER, ACTIVE_PROMOTIONS, BULK_PROMO_ALLOCATION, CASH_MEMO_PROMOTION_VIEWER, BUDGET_LAYOUT, CREDIT_NOTE_APPROVAL, OFF_INVOICE_CREDIT}.json`.
 - Order-side evidence: `../order_to_delivery_planning/transaction_inquiry.md` (Total Offering, group 11 walks).
+- Training 2026-10-08 (Syed Zulfiqar): `../learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_log.md` (F8, F10, F11 (10-08); Jira evidence "Promotion / budget"); Jira SDMS tickets read 2026-10-08: SDMS-3027, 5481, 9438, 10146, 10610, 10625, 10626, 10663, 10863, 11264, 11596, 11686, 11953.
 - Source code (method D, 2026-10-08): MS_Promotion branch UL-R1-BD @ 51e7e815 (1.1.109.0) and UL-R2-COUNTRY @ 462cb561 (2.3.102.0), repository `scm/git/MS_Promotion`, read-only; studies `../../sources/code/MS_Promotion/README.md`, `R1_engine.md`, `R1_budget_api.md`, `R1_vs_R2.md`; report `../learning_sessions/2026-10-08_SND-GLOBAL_code_MS_Promotion_report.md`. <!--i-->

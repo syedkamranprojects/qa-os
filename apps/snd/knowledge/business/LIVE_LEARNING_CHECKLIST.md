@@ -156,6 +156,16 @@ Class B checks of the new GLOBAL area [promotions_and_budget/promotions_and_budg
 | L55 | (code study) Find an Include + Include OR promotion (read-only, PPMS_PROMOTION_JSON or Promotion Layout); with the QA Team Lead's go-ahead book an order with selection 1 above and selection 2 below its threshold; compare the Total Offering with both possible bases | Auto_Multi_Orga | discount base = both selections or the qualifying one | D | Q-PR14, contradiction 35 | <!--i-->
 | L56 | (code study) [Maker] Navigate to Company Setup > Promotion > Promotion Layout on cnr1dev1; Open an existing promotion read-only; record the buttons (Save, Apply, Save As New ...), the State / Status values offered and whether a started promotion's fields are frozen (only End Date and status editable) | Auto_Multi_Orga | what Apply is; whether "allocated" exists; freeze rule | no (RO) | Q-PR15, contradiction 40 | <!--i-->
 
+## Master data (new 2026-10-09, group 66 NG_Setup Flow_PK walk)
+
+Class B checks from the group 66 walk (2026-10-05 / 2026-10-09); pages [master_data/](master_data/README.md) and [delivery_and_returns/delivery_man_shuffling.md](delivery_and_returns/delivery_man_shuffling.md). Master-data changes alter group 11 data: QA Team Lead's go-ahead first.
+
+| Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
+|---|---|---|---|---|---|
+| L57 | [Checker] Navigate to Change Track Outlet Profile; Select request 74; read the enabled buttons (Forward / Reject) without pressing them | Auto_Tssm | whether the Checker approves outlet-profile requests on the same screen | no (RO) | Q-PO3 |
+| L58 | [Maker] Navigate to PJP Daily Inquiry; filter a PJP with outlets for today; Process (alert, accept); read Daily Route No, Journey Status, DSR File Status, Detail | Auto_Multi_Orga | what Process creates for a PJP with outlets | yes (QA Team Lead's go-ahead) | Q-PJ6 |
+| L59 | [Maker] After a Delivery Man Shuffling: open Order View of the shuffled order and the GIN cash-memo list of the destination DM PJP (no save) | Auto_Multi_Orga | the order's DM PJP / DSR after the shuffle | no (RO) | Q-DM1 |
+
 ## Block 1: read-only, any day (RO)
 
 | Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Risk | Depends on | Questions |

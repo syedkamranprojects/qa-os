@@ -20,6 +20,9 @@ This area is trained incrementally: the QA lead will give more information on th
 | Page | What it holds |
 |---|---|
 | [promotions_and_budget.md](promotions_and_budget.md) | All 13 sections: routes into DCODE, screens, Promotion Layout (header, scheduler, Exclusive / Super Exclusive, Qualify / Criteria / Resultant, limits), Budget Setup and its upload validations, order / budget effect table, off-invoice credit notes and claims, PK configuration, test design hints. |
+| [claims.md](claims.md) (added 2026-10-09) | Claims: Claim Inquiry (Claim Detail, Reference Info), Adhoc Job Executor, the four conditions (Delivered N-1, Claim Days, Claim + Claimable %, BONUS2 / TRADEOFFER), amount = Claimable % x Total Offering discount, Jupiter / Non-Jupiter claims (Jira), schedule per market (F8 / F9 (10-08)); open questions Q-CL1..Q-CL6 ON HOLD [stated 2026-10-08 doc:claim management manual_R2 Aug 2026.pptx] [stated 2026-10-08 Syed Zulfiqar]. |
+
+Update 2026-10-09: consolidation of the 2026-10-08 training (Syed Zulfiqar; claims deck, verbal rulings F1-F11 (10-08), Jira evidence); report [../learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_report.md](../learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_report.md). **Claims training is ON HOLD** (trainer's questions parked) - do not execute claim generation.
 
 ## Related pages (cross-references added 2026-10-08)
 - [../order_to_delivery_planning/order_booking.md](../order_to_delivery_planning/order_booking.md): budget taken at order save; free goods and stock; insufficient budget.
@@ -29,4 +32,5 @@ This area is trained incrementally: the QA lead will give more information on th
 - [../order_to_delivery_planning/transaction_inquiry.md](../order_to_delivery_planning/transaction_inquiry.md): Total Offering per promotion.
 
 ## Open questions
+Claims: Q-CL1 to Q-CL6 in [../OPEN_QUESTIONS.md](../OPEN_QUESTIONS.md) section 1c (ON HOLD, added 2026-10-09).
 Q-PR1 to Q-PR10 in [../OPEN_QUESTIONS.md](../OPEN_QUESTIONS.md) (classes A / B / C as filed there); contradictions 33 and 34 in its section 5.

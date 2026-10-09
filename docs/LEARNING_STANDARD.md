@@ -102,6 +102,7 @@ A generated `knowledge/INDEX.json` collects the front-matter. At Stage 0 the orc
 | `[stated]` | Said by an owner: user guide, spec, BA/QA ruling (with name and date) | Yes, unless observed behaviour contradicts it (then raise a defect or a question) |
 | `[db]` | Declared by the app DB or the legacy framework tables | As an expectation marked "to be confirmed live" |
 | `[code]` | Read in the application's source code: `[code <branch>@<commit> <path>:<line>]` (what that service does, not the business intent; callers may decide parts of the behaviour) | As an expectation marked "to be confirmed live"; a disagreement with `[stated]` is a contradiction for the trainer, never an override |
+| `[jira]` | Read in a Jira ticket: `[jira <KEY>]` (story, bug or CR; note its region and status) | As an expectation marked "to be confirmed live"; a ticket in status New / Open describes a wish or a bug, not current behaviour |
 | `[inferred]` | Concluded by Claude from names or structure | No; needs confirmation |
 | `[unknown]` | Not determined | No; must have an open question |
 

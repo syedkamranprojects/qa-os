@@ -13,12 +13,14 @@ Updated: 2026-10-06 (consolidated with learning session G11-3: GIN 508 + GIN 509
 9. Goods Return Note (seq 48-49), dispatch advice, order booking/allocation and settlement are other analysts' pages. The GRN brings back cancelled, rescheduled, cut and returned quantities (19 CS reconciled exactly on 2026-10-01); see `delivery_lifecycle.md` §6.
 10. Open questions: 5 + 4 + 5 + 4 = 18 (see section 12 of each page). (superseded 2026-10-01: GIN 8, Cashmemo 7, Sales Return 9, Lifecycle 7; many marked ANSWERED/PARTLY; new Q-SR1, Q-RS1, Q-DS1)
 11. Second day 2026-10-05 reproduced every rule and amount (GIN 507, Cashmemo Reschedule 2012 -> 10-06, Cashmemo Status 2009-2011, return 714 Net 29,077, GRN 19 CS). New: a partly returned cash memo stays Delivered/Invoiced, the return reads Picked with Demand Channel "Partial Return" and Invoice Ref = source invoice; a part return re-prices slab promotions on the other lines (Q-SR2); the return is still not netted after the route is settled (Q-SR1) [observed 2026-10-05 G11-2, G11-2b].
+12. 2026-10-09 (group 66 seq 36, NG_Setup Flow_PK): **Delivery Man Shuffling** moves a booked order from a source Delivery Man PJP to a destination DM PJP: source 8197298470-Aslam PJP DM listed order COL26000002031 (booked on OB PJP 7918624876), destination AUTO301258 picked, row ticked, Save -> "Saved Successfully"; the order then left the source's list [observed 2026-10-09]. Page delivery_man_shuffling.md.
 
 Page one-liners:
 - `goods_issue_note.md`: GIN create, forward, Checker approval; stock Allocated -> Out; walked live 2026-10-01 (GIN 506).
 - `cashmemo_reschedule_and_status.md`: reschedule (new date first, Reattempt, off the GIN) and delivery marking (Delivered/Invoiced); edit/cancel after GIN move no stock; walked live 2026-10-01.
 - `sales_return.md`: CM-02 return from a delivered cash memo, Maker forward / Checker approve ("Success"), Save Sale Pick; not netted from the receivable (Q-SR1); walked live 2026-10-01.
 - `delivery_lifecycle.md`: end-to-end status and stock chain incl. the Transaction Inquiry status table and the GRN 19 CS reconciliation; walked live 2026-10-01.
+- `delivery_man_shuffling.md` (2026-10-09): move a booked order from a source DM PJP to a destination DM PJP (Source PJP / Outlet / Destination PJP, tick, Save "Saved Successfully"); one run in group 66 seq 36; Q-DM1 (where the order shows afterwards).
 
 | What this area hands to the next area | To | Carrier |
 |---|---|---|

@@ -16,3 +16,5 @@ Learning walk of framework group 66 "NG_Setup Flow_PK" (master/setup data) on cn
 **How to apply:** before resuming read the session log status table; follow [[reference-group-users-query]] and each flow's event flow; stop and ask before approvals that change data group 11 depends on.
 
 Related: [[project-g11-session3-plan]], [[reference-snd-day-close]]
+
+**Session 2 (2026-10-09, trainer Syed Kamran): walk COMPLETE seq 19-36.** Log: qa-os/runs/LEARN-G66-PK/20261009/session_log.md (status table at the end). Defect D-G66-2-1 (Company Mapping > Outlet HTTP 500). Rules learned: order stock comes from the PJP's warehouse (Aslam PJP = IBT Main 0000000025, group 11 02111 = Auto Main); change-track approvals on the maker's screen, PJP has its own approval menu; statuses only after re-opening the screen; one login user per DSR; HQ section Active at once. Records: PJPs AUTO241009/AUTO241010, DSR AUTOH24109, section SEC000000068, DAs 1362/1363, order COL26000002031.
