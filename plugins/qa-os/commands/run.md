@@ -1,5 +1,5 @@
 ---
-description: Run the QA OS life cycle for a Jira story (currently stages analyse → cases → steps)
+description: Run the full QA OS life cycle for a Jira story - analyse, test cases, test steps and the team Excel (gates G2/G3), data, live recording, Regress Master scripts and verification
 argument-hint: <JIRA-KEY> [--app snd] [--env cnr2dev3] [--story <export file>]
 ---
 
