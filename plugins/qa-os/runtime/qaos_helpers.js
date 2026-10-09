@@ -158,6 +158,9 @@
     if (!w) return el.tagName ? el.tagName.toLowerCase() + (el.type ? ':' + el.type : '') : '';
     const c = (w.className || '') + ' ' + w.tagName.toLowerCase();
     return /select|lookup/.test(c) ? 'dropdown' : /autocomplete/.test(c) ? 'type-ahead' : /date/.test(c) ? 'date' : /number/.test(c) ? 'number' : /check/.test(c) ? 'checkbox' : 'text'; };
+  // tab / section ids used by the framework's screen mappings (pmgsm_navigation_path); same pattern as the converter's TAB_ID
+  const TAB_ID_RE = /^(?:Dem|Opr|Oth|addr)-\d+$|^tab(?:_group)?_\d+$/;
+  const tabIdHost = el => { for (let n = el, i = 0; n && n.nodeType === 1 && i < 6; n = n.parentElement, i++) { if (n.id && TAB_ID_RE.test(n.id)) return n; } return null; };
   const cellInfo = el => { const td = el.closest && el.closest('td[aria-colindex]'); if (!td) return null; const tr = td.closest('tr');
     const grid = td.closest('.dx-datagrid'); const gid = grid && (grid.id || (grid.closest('[id]') || {}).id) || '';
     return { grid: gid, column: labelOf(el), colindex: td.getAttribute('aria-colindex'), rowindex: tr ? tr.getAttribute('aria-rowindex') : null, cellId: td.id || '' }; };
@@ -197,6 +200,11 @@
     document.addEventListener('keydown', e => { if (!Q._quiet && (e.key === 'Tab' || e.key === 'Enter')) flush(e.target); }, true);
     // clicks: buttons, links, tabs, dropdown options, checkboxes, grid row links
     document.addEventListener('click', e => { if (Q._quiet) return; Q._flushAll(); const raw = e.target; if (!raw || !raw.closest) return; noteScreen();
+      // DCODE tabs / sections (A18): the tab id (Dem-1, Opr-1, Oth-1, addr-1, tab_4, tab_group_2 ...) sits on the clicked
+      // element or an ancestor (e.g. <div id="tab_4"><dx-button>Documents</dx-button></div>, or the Address item of the
+      // Demographics drop-down); the framework navigates screens by that id, so log it as a tab, before options/buttons
+      const tabHost = tabIdHost(raw);
+      if (tabHost) return rec({ act: 'tab', src: 'watch', value: txt(tabHost) || txt(raw), id: tabHost.id, locator: '#' + tabHost.id, via: tabHost === raw ? 'self' : 'ancestor-id' });
       const opt = raw.closest('.dx-list-item, [role=option]');
       if (opt) { const ae = document.activeElement && /INPUT/.test(document.activeElement.tagName) ? document.activeElement : null; const owner = ae || (lastInput && Date.now() - lastInputAt < 30000 ? lastInput : null);
         if (owner) focusVal.set(owner, '\u0000picked');  // the field's later focusout is the same choice, not a typed value

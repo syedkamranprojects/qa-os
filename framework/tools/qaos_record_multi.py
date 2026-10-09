@@ -59,6 +59,11 @@ def locate(entry, loc, label=None):
 TAB_ID = re.compile(r'^(?:Dem|Opr|Oth|addr)-\d+$|^tab(?:_group)?_\d+$')
 
 
+# DevExtreme generated ids (dx-<guid>) change on every page load: a click on one can never be replayed. The one seen in
+# practice is the Demographics / Address drop-down toggle, which the engine opens itself (#btn_1 before Dem-1 / Opr-1).
+GENERATED_ID = re.compile(r'^dx-[0-9a-f]{4,}', re.I)
+
+
 def as_tab(a):
     """The log entry, with a click on a known tab id treated as a tab click."""
     return dict(a, act='tab') if a.get('act') == 'click' and TAB_ID.match(a.get('id') or '') else a
@@ -81,7 +86,7 @@ def sheet_name(text):
 
 def build(log, meta, mg, flow_desc, filename, names):
     loc = meta.get('locators', {})
-    pages, gaps, not_asserted, sheets = [], [], [], []
+    pages, gaps, not_asserted, sheets, skipped = [], [], [], [], []
     cur, last_toast_t, last_click = None, None, None   # last_click: (page, serial, name, ref) across pages
     nav = next((a for a in log if a.get('act') == 'nav_click'), None)
 
@@ -166,6 +171,10 @@ def build(log, meta, mg, flow_desc, filename, names):
             p['key'] = p['path'] + '#' + tn[1]
             continue
         elif act in ('click', 'check'):
+            if GENERATED_ID.match(a.get('id') or ''):
+                skipped.append({'act': act, 'id': a.get('id'), 'text': a.get('text'),
+                                'reason': 'generated id (dx-...): not replayable; tab drop-downs are opened by the engine'})
+                continue
             by, fid = locate(a, loc)
             if not fid:
                 gaps.append(f"no id/locator for {act} '{a.get('text') or a.get('value')}'")
@@ -256,7 +265,8 @@ def build(log, meta, mg, flow_desc, filename, names):
                            'navigation': (nav or {}).get('id'), 'navigation_type': 'id',
                            'evidence': f"recorded sidebar click {(nav or {}).get('locator')}"},
             'flow': {'id': f'{mg}0001', 'description': flow_desc[:100], 'test_type': '2', 'filename': filename},
-            'screens': screens, 'assertion_sheets': sheets, 'not_asserted': not_asserted, 'gaps': gaps}
+            'screens': screens, 'assertion_sheets': sheets, 'not_asserted': not_asserted, 'gaps': gaps,
+            'skipped_clicks': skipped}
 
 
 def _recorded_values(log, meta):

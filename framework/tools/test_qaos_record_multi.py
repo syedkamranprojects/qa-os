@@ -141,6 +141,7 @@ class Converter(unittest.TestCase):
             {'act': 'text', 'label': 'DSR Code', 'id': 'dsrCode', 'locator': '#dsrCode', 'value': 'AUTO1', 't': 4},
             {'act': 'click', 'id': 'saveBtn', 'locator': '#saveBtn', 'text': 'Save', 't': 5},
             {'act': 'toast', 'messages': ['Saved successfully'], 't': 6},
+            {'act': 'click', 'id': 'dx-34ec4a40-7c17-1e45', 'text': '', 'locator': '#dx-34ec4a40-7c17-1e45', 't': 19999},  # drop-down toggle
             {'act': 'click', 'id': 'Opr-1', 'text': 'Address', 'locator': '#Opr-1', 't': 20000},   # logged as a plain click
             {'act': 'screen', 'url': url, 't': 20001},              # same page: no new screen from this entry
             {'act': 'text', 'label': 'Street/Road', 'id': 'street', 'locator': '#street', 'value': 'Saddar', 't': 20002},
@@ -162,6 +163,8 @@ class Converter(unittest.TestCase):
         self.assertEqual([s['parent'] for s in sc], [None, '099801', '099801'])
         self.assertEqual([[f['caption'] for f in s['fields']] for s in sc], [['DSR Code'], ['Street/Road'], ['Year Passed']])
         self.assertFalse(any('Tab' in e['desc'] for s in sc for e in s['events']))   # tab clicks are navigation, not events
+        self.assertEqual([x['id'] for x in spec['skipped_clicks']], ['dx-34ec4a40-7c17-1e45'])   # generated id dropped
+        self.assertFalse(any((e.get('field') or '').startswith('dx-') for s in sc for e in s['events']))
         self.assertEqual([x['expected_message'] for x in spec['assertion_sheets']], ['Saved successfully', 'Address saved'])
         cd = {x['sheet']: x['rows'] for x in spec['casedata']['sheets']}
         self.assertEqual([r[4:] for r in cd['Address']], [['Saddar'], ['Clifton']])
