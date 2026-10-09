@@ -116,8 +116,25 @@ class QuickOrderBooking(unittest.TestCase):
     def test_inserts_equal_agent_output(self):
         mine, ref = inserts(self.sql), inserts(self.ref_sql)
         self.assertEqual(sum(ref.values()), 29)
+        # the 10-08 reference predates the navigation-path rule (2026-10-09): its mgsm rows have no
+        # pmgsm_navigation_path; the generator now writes the menu entry id there - add it to the reference rows
+        nav = self.spec['menu_group']['navigation']
+        fixed = Counter()
+        for (t, row), n in ref.items():
+            if t == 'fct_pr_mgsm_menu_group_screen_mapping' and 'pmgsm_navigation_path' not in dict(row):
+                row = frozenset(set(row) | {('pmgsm_navigation_path', nav)})
+            fixed[(t, row)] += n
+        ref = fixed
         self.assertEqual(mine - ref, Counter(), 'rows only in the regenerated SQL')
         self.assertEqual(ref - mine, Counter(), 'rows only in the agent SQL')
+
+    def test_every_screen_mapping_has_a_navigation_path(self):
+        """QA lead 2026-10-09: generated flows ran, but the screen-mapping rows lacked NAVIGATION PATH."""
+        rows = [dict(r) for (t, r), _ in inserts(self.sql).items() if t == 'fct_pr_mgsm_menu_group_screen_mapping']
+        self.assertTrue(rows)
+        for r in rows:
+            self.assertEqual(r.get('pmgsm_navigation_path'), self.spec['menu_group']['navigation'])
+            self.assertNotIn('pmgsm_navigation_type', r)       # NULL type: the engine clicks nothing extra
 
     def test_audit_columns(self):
         for (t, row), _ in inserts(self.sql).items():

@@ -241,3 +241,7 @@ The config `KEEP_VALUE` sentinel skips the field. A `fieldId` of the form `a,b` 
    - no numeric formulas
    - dropdown cells never blank
 9. **Repos:** keep PKs aligned across a group's workbooks. Clear `RepoValues.csv` before a run.
+
+## Screen-mapping navigation path (checked 2026-10-09)
+`fct_pr_mgsm_menu_group_screen_mapping.pmgsm_navigation_path` + `pmgsm_navigation_type` are read for top-level screens (`DBExecution.getScreensByMenu`) and child screens (`getChildScreens`). Before a top-level screen runs on web, `Main.navigateOnTabs` waits for the loader and clicks the element named by the path, located per type: `linkText`, `id` or `xpath` (anything else, incl. NULL, clicks nothing). Paths containing `Dem-1` / `Opr-1` / `Oth-1` / `addr-1` first click `#btn_1` (header). So the path is the **tab / section the screen lives on**; for single-tab screens the convention is the menu entry id with type NULL (Order Booking 0001 / 0091: `ORDER_BOOKING`). The authoring tool's Screen Mapping tab shows and saves it but does not require it. QA OS generator writes it since 2026-10-09 (HARDENING C12).
+QA OS converter (2026-10-09, HARDENING C13): every recorded tab click starts a framework screen whose navigation is that tab (id -> `id`, text -> `linkText`, else `xpath`), following the Outlet / DSR / Distributor Profile mappings (first tab = root screen with its own tab id, later tabs = children).

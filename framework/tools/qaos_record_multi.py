@@ -21,6 +21,10 @@ caller only to choose a free menu-group id (--mg). Rules (HARDENING C1/C3/C4/C5/
    stale toast;
  * fields are defined with the ids seen on THAT page (ids that change after a navigation stay correct);
  * widgets: type-ahead -> 0006 auto-select, dropdown -> 0002, date -> 0003, text -> 0001;
+ * tabs: a recorded tab click starts a new framework screen on the same page (the first tab of a page becomes that
+   page's screen); the screen's navigation is the tab: id -> type id, else its text -> linkText, else its xpath. The
+   engine clicks it before the screen (Main.navigateOnTabs; convention of Outlet / DSR / Distributor Profile: Dem-1,
+   Opr-1, tab_4 ...). Screens without a tab get the menu entry as path, type NULL (gen_framework_sql.py);
  * grid lines: when the watcher logged 'row' snapshots (the row's editable cells read at the row-button click), they are
    the authoritative fields and line values; the keystroke-level 'cell' entries of that grid are ignored;
  * menu navigation from the recorded sidebar click (navigation_type id);
@@ -50,6 +54,27 @@ def locate(entry, loc, label=None):
     return None, None
 
 
+# DCODE tab / section ids seen in the framework's screen mappings (Outlet / DSR / Distributor Profile): a click on one of
+# them is a tab even if the watcher logged it as a plain click
+TAB_ID = re.compile(r'^(?:Dem|Opr|Oth|addr)-\d+$|^tab(?:_group)?_\d+$')
+
+
+def as_tab(a):
+    """The log entry, with a click on a known tab id treated as a tab click."""
+    return dict(a, act='tab') if a.get('act') == 'click' and TAB_ID.match(a.get('id') or '') else a
+
+
+def tab_nav(a):
+    """Navigation of a framework screen from a recorded tab click: (type, path) as the engine reads them."""
+    if a.get('id'):
+        return 'id', a['id']
+    text = (a.get('value') or a.get('text') or '').strip()
+    if text:
+        return 'linkText', text
+    lc = a.get('locator') or ''
+    return ('xpath', lc) if lc.startswith('//') or lc.startswith('(') else None
+
+
 def sheet_name(text):
     return re.sub(r'[^A-Z0-9]+', '_', (text or 'MSG').upper()).strip('_')[:20] + '_ASSR'
 
@@ -64,7 +89,8 @@ def build(log, meta, mg, flow_desc, filename, names):
         nonlocal cur
         path = (url or '/').split('?')[0]
         if cur is None or cur['path'] != path:
-            cur = {'path': path, 'url': url, 'fields': [], 'grid': False, 'seen': set(), 'last_click': None,
+            cur = {'path': path, 'key': path, 'url': url, 'nav': None, 'tab': None,
+                   'fields': [], 'grid': False, 'seen': set(), 'last_click': None,
                    'events': [{'serial': 1, 'desc': 'Load Data', 'type': '0000', 'event': '0001', 'ref': None,
                                'evidence': 'Load Data is always serial 1'}]}
             pages.append(cur)
@@ -78,6 +104,7 @@ def build(log, meta, mg, flow_desc, filename, names):
     nav_locs = set(meta.get('nav_locators') or NAV_LOCATORS)
     snap_grids = {a.get('grid') for a in log if a.get('act') == 'row'}
     for a in log:
+        a = as_tab(a)
         act = a.get('act')
         if act in ('nav_click', 'nav', 'note') or a.get('locator') in nav_locs:
             continue                                     # menu navigation: goes to menu_group, not a screen
@@ -121,7 +148,24 @@ def build(log, meta, mg, flow_desc, filename, names):
             kind = WIDGET.get(a.get('widget', ''), '0002' if act in ('option', 'pick') else '0001')
             p['fields'].append({'id': fid, 'caption': label, 'type': kind, 'locateby': by, 'colindex': a.get('colindex'),
                                 'grid': a.get('grid'), 'evidence': f"recorded {act} '{a.get('value', '')}' ({a.get('widget', '')})"})
-        elif act in ('click', 'tab', 'check'):
+        elif act == 'tab':
+            tn = tab_nav(a)
+            if not tn:
+                gaps.append(f"tab '{a.get('value') or a.get('text')}' without id, text or xpath")
+                continue
+            if p['nav'] == tn:
+                continue                                 # the tab already shown
+            fresh = not p['fields'] and len(p['events']) == 1 and not p['nav']
+            if not fresh:                                # a further tab of the same page: its own framework screen
+                cur = dict(p, fields=[], grid=False, seen=set(), last_click=None,
+                           events=[{'serial': 1, 'desc': 'Load Data', 'type': '0000', 'event': '0001', 'ref': None,
+                                    'evidence': 'Load Data is always serial 1'}])
+                pages.append(cur)
+                p = cur
+            p['nav'], p['tab'] = tn, (a.get('value') or a.get('text') or tn[1]).strip()
+            p['key'] = p['path'] + '#' + tn[1]
+            continue
+        elif act in ('click', 'check'):
             by, fid = locate(a, loc)
             if not fid:
                 gaps.append(f"no id/locator for {act} '{a.get('text') or a.get('value')}'")
@@ -137,7 +181,7 @@ def build(log, meta, mg, flow_desc, filename, names):
                 ev(p, desc=f'{name} Checkbox', type='0000', event='0015', locateby=by, field=fid, ref=ref,
                    evidence=f"recorded checkbox {a.get('locator') or fid}")
             else:
-                s = ev(p, desc=f"{name} {'Tab' if act == 'tab' else 'Button'}", type='0004', event='0002', locateby=by, field=fid,
+                s = ev(p, desc=f"{name} Button", type='0004', event='0002', locateby=by, field=fid,
                        ref=ref, evidence=f"recorded {act} on {a.get('locator') or fid}")
                 p['last_click'] = (s, name, ref)
                 last_click = (p, s, name, ref)
@@ -149,7 +193,7 @@ def build(log, meta, mg, flow_desc, filename, names):
                 gaps.append(f'toast {msg!r} without a click before it')
                 continue
             cp, serial, name, ref = last_click
-            mine = (cp['path'], serial)
+            mine = (cp['key'], serial)
             if any(s['click'] == mine for s in sheets):
                 continue                                 # second toast of the same click: already asserted
             if any(s['expected_message'] == msg for s in sheets):
@@ -165,7 +209,7 @@ def build(log, meta, mg, flow_desc, filename, names):
             if fid:
                 ev(p, desc=f"Popup check {a.get('title') or ''}".strip(), type='0000', event='0014', fixed=f'ELEVAL,{sh}',
                    locateby=by, field=fid, ref=child, evidence=f"popup: {a.get('text')!r}")
-                sheets.append({'sheet': sh, 'kind': 'ELEVAL', 'expected_message': a.get('text'), 'click': (p['path'], 'popup')})
+                sheets.append({'sheet': sh, 'kind': 'ELEVAL', 'expected_message': a.get('text'), 'click': (p['key'], 'popup')})
             else:
                 gaps.append(f"popup {a.get('text')!r} without a locator")
         elif act == 'alert':
@@ -190,6 +234,8 @@ def build(log, meta, mg, flow_desc, filename, names):
     screens, used = [], set()
     for i, p in enumerate(pages):
         auto = ' '.join(w.capitalize() for w in re.split(r'[-_/]+', p['path']) if w and w not in ('ngui', 'dyl', 'layout'))
+        if p.get('tab'):
+            auto = (auto + ' ' + p['tab']).strip()
         nm = (user_names[i] if i < len(user_names) else auto or f'Screen {i + 1}')[:31]
         while nm in used:
             nm = (nm[:27] + f' {i + 1}')[:31]
@@ -198,7 +244,8 @@ def build(log, meta, mg, flow_desc, filename, names):
         screens.append({'id': f'{mg}{i + 1:02d}', 'name': nm, 'type': 'Save', 'url': p['url'], 'seq': i + 1,
                         'parent': None if i == 0 else f'{mg}01',
                         'fields': [{k: v for k, v in f.items() if k not in ('colindex', 'grid')} for f in p['fields']],
-                        'events': p['events']})
+                        'events': p['events'], 'page_key': p['key'],
+                        **({'navigation_type': p['nav'][0], 'navigation_path': p['nav'][1]} if p.get('nav') else {})})
     if not nav or not nav.get('id'):
         gaps.append('no recorded sidebar menu click: menu navigation unknown (start the watcher before step 1 and re-record)')
     for s in sheets:
@@ -215,10 +262,18 @@ def build(log, meta, mg, flow_desc, filename, names):
 def _recorded_values(log, meta):
     """-> {(screen path, caption): [values in order]} and {screen path: [line dicts]} for grid fields."""
     nav_locs = set(meta.get('nav_locators') or NAV_LOCATORS)
-    flat, lines, path, snapped = {}, {}, None, set()
+    flat, lines, path, snapped, base = {}, {}, None, set(), None   # path = page key (URL path, '#tab' per tab screen)
     for a in log:
+        a = as_tab(a)
         if a.get('act') == 'screen':
-            path = (a.get('url') or '/').split('?')[0]
+            url = (a.get('url') or '/').split('?')[0]
+            if url != base:
+                base = path = url
+            continue
+        if a.get('act') == 'tab':
+            tn = tab_nav(a)
+            if tn and base is not None:
+                path = base + '#' + tn[1]
             continue
         if a.get('act') == 'row':
             if path not in snapped:
@@ -266,7 +321,7 @@ def casedata(spec, log, meta, rows, titles):
     if rec is None:
         spec['gaps'].append(f'case data: the recorded case {case_id!r} is not in the rows file; cannot bind fields')
         return
-    path_of = {s['id']: (s.get('url') or '/').split('?')[0] for s in spec['screens']}
+    path_of = {s['id']: s.get('page_key') or (s.get('url') or '/').split('?')[0] for s in spec['screens']}
     line_key = next((k for k, v in rec.items() if isinstance(v, list) and v and isinstance(v[0], dict)), None)
     out = []
     for sc in spec['screens']:

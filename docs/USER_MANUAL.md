@@ -10,7 +10,7 @@ Setup is in `docs/TRAINING_GUIDE.md` §1. Open the folder `<drive>:\qa-os` in Cl
 |---|---|---|
 | `/qa-os:status` | Shows recent runs and what Claude knows about each app | Start of the day, or to check progress |
 | `/qa-os:train` | Training session: teach Claude the business | **Now** (S&D training phase) |
-| `/qa-os:quick` | Short request or one line → Claude's own steps → live run → Regress Master SQL + Excel | **Main use after training** |
+| `/qa-os:quick` | Ad-hoc request in one line → live AI test run → test result (Regress Master scripts on request after a pass) | **Main use after training** |
 | `/qa-os:learn` | Refreshes screens, menus and field labels of an app | After a release changes screens |
 | `/qa-os:cases` | Jira story → requirement analysis → test cases + Excel | Only if a Jira story is available |
 | `/qa-os:steps` | Writes executable test steps for those cases | After cases are approved |
@@ -70,17 +70,18 @@ Claude merges everything into the knowledge pages, writes a session report, and 
 ## 3. `/qa-os:quick`: the main way to work after training (no ticket)
 
 ```
-/qa-os:quick snd "create one order and order detail with two products"
+/qa-os:quick snd "book an order for one outlet with two products"
 /qa-os:quick snd "BD: book an order for one outlet with three SKUs, then allocate it"
 ```
-You give a short request or one line; Claude does the rest:
-1. **Understands it from its training.** It maps your words to the business actions and screens it was trained on. If a screen hasn't been trained yet, it stops and asks you to train it first (`/qa-os:train`).
-2. **Writes its own test steps.** The steps, rules and expected messages come from what you taught it, not from the old Selenium framework workbooks or flows.
-3. **Picks today's data** from the database: an active outlet, and SKUs that are in stock.
-4. **You approve once.** Claude then executes the flow live a single time. You type the logins.
-5. **Generates the Regress Master scripts:** `framework.sql` (the new test flow, its screens, fields and events), a rollback script, and the Excel case data, all checked by the verifier.
+Quick mode is for **testing**: you give an ad-hoc request in one line, and Claude tests it live and tells you the result. Your request **is** the test case.
+1. **Confirms the run context first.** Market, environment, who is running it and which users log in: one short question, nothing assumed.
+2. **Plans the test from its training.** It maps your words to the business actions and screens it was trained on, and picks the data from the trained test data catalog (outlets, PJPs, SKUs). If something isn't trained, it asks you (a quick answer) or asks for a training session first (`/qa-os:train`).
+3. **You approve once.** Claude shows the steps it will follow, the data and what will be created in the environment.
+4. **Executes once, live.** You type the logins. Checks that depend on today (e.g. stock) run first.
+5. **Reports the result:** PASS / FAIL / BLOCKED, every message the app showed, the documents created and any defect found.
+6. **Scripts only if you want them.** After a **pass**, Claude asks: *"Do you want Regress Master scripts for this flow?"* Say yes and it generates `framework.sql` (the new test flow), a rollback script and the Excel case data (for the executed case, or with more data rows if you ask), checked by the verifier. Say no and you keep just the test result. The run is always recorded, so you can ask for the scripts later without running it again: *"generate scripts for QUICK-20261009-1430"*.
 
-*Example result:* "Executed: order COL2600000xxxx, 'Order Save successfully'. Generated: `framework.sql`, `framework_rollback.sql`, `NG_Dcode_QA_QUICK-20261007-1730.xlsx`. The framework owner applies the SQL on a test copy first."
+*Example result:* "PASS: order COL2600000xxxx, 'Validation successfully', 'Order Save successfully'. Do you want Regress Master scripts for this flow?"
 
 ---
 

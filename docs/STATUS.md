@@ -372,3 +372,8 @@ Register: `docs/HARDENING.md` (release gate = section D). Design: `docs/FINAL_DE
 # Update: 2026-10-09 - group 66 (NG_Setup Flow_PK) learning walk COMPLETE
 - Session 2 (trainer Syed Kamran) did seq 19-36 on cnr1dev1: runs/LEARN-G66-PK/20261009/session_log.md (status table at the end). Defect D-G66-2-1 (Company Mapping > Outlet sub-tab HTTP 500). Key rule: an order draws stock from its PJP's warehouse.
 - Next: consolidate both G66 sessions into master_data (pjp.md, outlet.md, new dsr / section / mapping facts) + FRAMEWORK_DRIFT (generated codes, CNIC mask, GPS/DDO read-only on DT, Default Delivery Days missing on HQ section, duplicate cell numbers); still pending: quick-mode redesign (agreed 2026-10-08), Regress Master replay result of flow 06480001.
+
+---
+# Update: 2026-10-09 - quick mode redesigned (plugin 0.5.2)
+- `/qa-os:quick` = ad-hoc AI test execution: the request is the test case (no case list unless asked); steps are an internal plan shown at the one approval; every run is recorded silently; the main output is `<run>/test_report.md` (PASS / FAIL / BLOCKED, messages, documents, defects); **only after a PASS** Claude asks whether Regress Master scripts are wanted (also possible later from the recording). Changed: quick-script skill, commands/quick.md, OPERATING_RULES, USER_MANUAL (md / html / pdf).
+- Next: try the new quick mode once live (it also serves as the clean-session acceptance run for v0.6.0); Regress Master replay result of flow 06480001 still pending; QA answers to the G66 review.

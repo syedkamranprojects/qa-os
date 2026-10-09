@@ -65,7 +65,7 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding-top:10px;font-si
   <tbody>
     <tr><td><code>/qa-os:status</code></td><td>Shows recent runs and what Claude knows about each app</td><td>Start of the day, or to check progress</td></tr>
     <tr><td><code>/qa-os:train</code></td><td>Training session: teach Claude the business</td><td><b>Now</b> (S&amp;D training phase)</td></tr>
-    <tr><td><code>/qa-os:quick</code></td><td>Short request or one line → Claude's own steps → live run → Regress Master SQL + Excel</td><td><b>Main use after training</b></td></tr>
+    <tr><td><code>/qa-os:quick</code></td><td>Ad-hoc request in one line → live AI test run → test result (Regress Master scripts on request after a pass)</td><td><b>Main use after training</b></td></tr>
     <tr><td><code>/qa-os:learn</code></td><td>Refreshes screens, menus and field labels of an app</td><td>After a release changes screens</td></tr>
     <tr><td><code>/qa-os:cases</code></td><td>Jira story → requirement analysis → test cases + Excel</td><td>Only if a Jira story is available</td></tr>
     <tr><td><code>/qa-os:steps</code></td><td>Writes executable test steps for those cases</td><td>After cases are approved</td></tr>
@@ -121,21 +121,24 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding-top:10px;font-si
 <p>Then send your work back: see the training guide, section 6.</p>
 
 <h2><span class="cmd">/qa-os:quick</span> The main way to work after training (no ticket)</h2>
-<pre>/qa-os:quick snd "create one order and order detail with two products"
+<pre>/qa-os:quick snd "book an order for one outlet with two products"
 /qa-os:quick snd "BD: book an order for one outlet with three SKUs, then allocate it"</pre>
-<p>You give a short request or one line; Claude does the rest:</p>
+<p>Quick mode is for <b>testing</b>: you give an ad-hoc request in one line, and Claude tests it live and tells you the result. Your request <b>is</b> the test case.</p>
 <ol>
-  <li><b>Understands it from its training.</b> It maps your words to the business actions and screens it was trained on. If a screen hasn't been trained yet, it stops and asks you to train it first (<code>/qa-os:train</code>).</li>
-  <li><b>Writes its own test steps.</b> The steps, rules and expected messages come from what you taught it, not from the old Selenium framework workbooks or flows.</li>
-  <li><b>Picks today's data</b> from the database: an active outlet, and SKUs that are in stock.</li>
-  <li><b>You approve once.</b> Claude then executes the flow live a single time. You type the logins.</li>
-  <li><b>Generates the Regress Master scripts:</b> <code>framework.sql</code> (the new test flow, its screens, fields and events), a rollback script, and the Excel case data, all checked by the verifier.</li>
+  <li><b>Confirms the run context first.</b> Market, environment, who is running it and which users log in: one short question, nothing assumed.</li>
+  <li><b>Plans the test from its training.</b> It maps your words to the business actions and screens it was trained on, and picks the data from the trained test data catalog (outlets, PJPs, SKUs). If something isn't trained, it asks you (a quick answer) or asks for a training session first (<code>/qa-os:train</code>).</li>
+  <li><b>You approve once.</b> Claude shows the steps it will follow, the data and what will be created in the environment.</li>
+  <li><b>Executes once, live.</b> You type the logins. Checks that depend on today (e.g. stock) run first.</li>
+  <li><b>Reports the result:</b> PASS / FAIL / BLOCKED, every message the app showed, the documents created and any defect found.</li>
+  <li><b>Scripts only if you want them.</b> After a <b>pass</b>, Claude asks whether you want Regress Master scripts for this flow. Yes: <code>framework.sql</code> (the new test flow), a rollback script and the Excel case data, checked by the verifier. No: you keep just the test result. The run is always recorded, so you can ask for the scripts later without running it again.</li>
 </ol>
 <div class="chat">
-  <div class="msg you"><b>You</b>/qa-os:quick snd "create one order and order detail with two products"</div>
-  <div class="msg cl"><b>Claude</b>From my training: Order Booking (Maker). Here are my steps and today's data (outlet 1000000004, SKUs 62740537 × 2 CS and 20050310 × 5 CS). Approve?</div>
+  <div class="msg you"><b>You</b>/qa-os:quick snd "book an order for one outlet with two products"</div>
+  <div class="msg cl"><b>Claude</b>Market PK, cnr1dev1, run by you, Maker Auto_Multi_Orga? … Here is my plan: Order Booking, outlet 1000000014, SKUs 20050310 × 2 CS and 62690363 × 1 CS. Approve?</div>
   <div class="msg you"><b>You</b>Approved.</div>
-  <div class="msg cl"><b>Claude</b>Executed: order COL2600000xxxx, "Order Save successfully". Generated framework.sql, framework_rollback.sql and the Excel case data. The framework owner applies the SQL on a test copy first.</div>
+  <div class="msg cl"><b>Claude</b>PASS: order COL2600000xxxx, "Validation successfully", "Order Save successfully". Do you want Regress Master scripts for this flow?</div>
+  <div class="msg you"><b>You</b>Yes, for this case.</div>
+  <div class="msg cl"><b>Claude</b>Generated framework.sql, framework_rollback.sql and the Excel case data (verified). The framework owner applies the SQL on a test copy first.</div>
 </div>
 
 <h2><span class="cmd">/qa-os:learn</span> Refresh screen knowledge</h2>

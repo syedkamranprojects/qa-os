@@ -81,3 +81,4 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - Delete or edit data you did not create in this run.
 - Mark a step `pass` because nothing visibly failed. A pass needs an observed message or state.
 - **Reading a status after an action (S&D change-track / approval screens):** the grid does not refresh by itself, and re-clicking the same menu item does not reload it. Go to another screen and back (or reload the page) before reading the new status; an approval read too early looks "not applied" (G66 seq 29 / 31, 2026-10-09).
+- **Login hand-off timer (QA lead, 2026-10-09):** after asking the QA member to log in, the main session starts a 20 s timer; when it fires it checks the page: credentials typed -> press Login; already logged in -> continue; fields empty -> ask again and wait. Claude never types credentials.

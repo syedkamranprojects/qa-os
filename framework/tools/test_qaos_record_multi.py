@@ -130,6 +130,48 @@ class Converter(unittest.TestCase):
         self.assertEqual(['Header', 'Lines', 'Summary'], [s['name'] for s in spec['screens']])
         self.assertTrue(M.same('01', 1) and M.same('62740537-RAFHAN', '62740537') and not M.same('6274', '62740537'))
 
+    def test_tabs_become_screens_with_navigation(self):
+        """A recorded tab click starts a framework screen whose navigation is the tab (convention of DSR / Outlet Profile:
+        first tab Dem-1 is the root, later tabs are children with their own ids; a tab without id -> linkText)."""
+        url = '/ngui/dsr-profile'
+        log = [
+            {'act': 'nav_click', 'id': 'DSR_PROFILE', 'locator': '#DSR_PROFILE', 'search': 'DSR Profile', 't': 1},
+            {'act': 'screen', 'url': url, 't': 2},
+            {'act': 'tab', 'id': 'Dem-1', 'value': 'Demographics', 'locator': '#Dem-1', 't': 3},
+            {'act': 'text', 'label': 'DSR Code', 'id': 'dsrCode', 'locator': '#dsrCode', 'value': 'AUTO1', 't': 4},
+            {'act': 'click', 'id': 'saveBtn', 'locator': '#saveBtn', 'text': 'Save', 't': 5},
+            {'act': 'toast', 'messages': ['Saved successfully'], 't': 6},
+            {'act': 'click', 'id': 'Opr-1', 'text': 'Address', 'locator': '#Opr-1', 't': 20000},   # logged as a plain click
+            {'act': 'screen', 'url': url, 't': 20001},              # same page: no new screen from this entry
+            {'act': 'text', 'label': 'Street/Road', 'id': 'street', 'locator': '#street', 'value': 'Saddar', 't': 20002},
+            {'act': 'click', 'id': 'saveAddr', 'locator': '#saveAddr', 'text': 'Save', 't': 20003},
+            {'act': 'toast', 'messages': ['Address saved'], 't': 20004},
+            {'act': 'tab', 'id': '', 'value': 'Qualification', 'locator': '//a[normalize-space(.)="Qualification"]', 't': 40000},
+            {'act': 'text', 'label': 'Year Passed', 'id': 'year', 'locator': '#year', 'value': '2012', 't': 40001},
+        ]
+        rows = [{'case': 'TC01', 'Code': 'AUTO1', 'Street': 'Saddar', 'Year': '2012'},
+                {'case': 'TC02', 'Code': 'AUTO2', 'Street': 'Clifton', 'Year': '2015'}]
+        meta = {'story': 'TEST-2', 'case': 'TC01'}
+        spec = M.build(log, meta, '0998', 'Tabs', 'NG_TABS', 'Demographics;Address;Qualification')
+        M.casedata(spec, log, meta, rows, {})
+        self.assertEqual(spec['gaps'], [])
+        sc = spec['screens']
+        self.assertEqual([s['name'] for s in sc], ['Demographics', 'Address', 'Qualification'])
+        self.assertEqual([(s.get('navigation_type'), s.get('navigation_path')) for s in sc],
+                         [('id', 'Dem-1'), ('id', 'Opr-1'), ('linkText', 'Qualification')])
+        self.assertEqual([s['parent'] for s in sc], [None, '099801', '099801'])
+        self.assertEqual([[f['caption'] for f in s['fields']] for s in sc], [['DSR Code'], ['Street/Road'], ['Year Passed']])
+        self.assertFalse(any('Tab' in e['desc'] for s in sc for e in s['events']))   # tab clicks are navigation, not events
+        self.assertEqual([x['expected_message'] for x in spec['assertion_sheets']], ['Saved successfully', 'Address saved'])
+        cd = {x['sheet']: x['rows'] for x in spec['casedata']['sheets']}
+        self.assertEqual([r[4:] for r in cd['Address']], [['Saddar'], ['Clifton']])
+        self.assertEqual([r[4:] for r in cd['Qualification']], [['2012'], ['2015']])
+        sys.path.insert(0, TOOLS)
+        import gen_framework_sql as G
+        sql, _, _ = G.build(spec)
+        self.assertIn("'Opr-1'", sql)
+        self.assertIn("'linkText'", sql)
+
     def test_run_info_in_sql_header(self):
         sys.path.insert(0, TOOLS)
         import gen_framework_sql as G

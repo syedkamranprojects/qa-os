@@ -163,7 +163,14 @@ def build(spec):
         stmts.append(f"-- screen {sc['id']} {sc['name']}" + (f" ({sc['url']})" if sc.get('url') else ''))
         stmts.append(insert('fct_pr_sc_screens', {'psc_screenid': sc['id'], 'psc_screenname': sc['name'], 'psc_screentype': sc.get('type', 'Save'),
                                                   'master_app_id': mapp, **audit}))
-        mgsm = {'pmg_menugroupid': mg['id'], 'psc_screenid': sc['id'], 'pmgsm_sequenceno': sc['seq'], 'pmgsm_status': 'Y'}
+        mgsm = {'pmg_menugroupid': mg['id'], 'psc_screenid': sc['id'], 'pmgsm_sequenceno': sc['seq'], 'pmgsm_status': 'Y',
+                # every screen row carries a navigation path (framework convention, QA lead 2026-10-09: flows ran but the
+                # missing path was reported): the screen's own tab/section locator when the recording has one (the engine
+                # clicks it before the screen when pmgsm_navigation_type is linkText / id / xpath - Main.navigateOnTabs),
+                # otherwise the menu entry id with type NULL, as in the existing Order Booking flows (menu groups 0001, 0091)
+                'pmgsm_navigation_path': sc.get('navigation_path') or mg['navigation']}
+        if sc.get('navigation_path') and sc.get('navigation_type'):
+            mgsm['pmgsm_navigation_type'] = sc['navigation_type']
         if sc.get('parent'):
             mgsm['pmgsm_parent_screenid'] = sc['parent']
         stmts.append(insert('fct_pr_mgsm_menu_group_screen_mapping', {**mgsm, **audit}))
