@@ -11,7 +11,7 @@ maxTurns: 150
 
 You record one flow. The brief gives you the run folder, the flow (or case ids), the approved `step_sheet.md` / `steps.json`, the app id and the environment.
 
-**Execute only ONE case's data** (QA lead rule, 2026-10-07): the AI run exists to identify the screens, elements, element ids, tabs and **tab ids**, and every message, by following the test steps once. Other cases of the request become case-data rows later; if a brief lists several cases, execute only the first one and say so in the hand-back. For every screen, record the screen/route, each element used (label, id or stable locator, type), each tab clicked (tab label and tab id/locator), and the messages.
+**Execute only ONE case's data per brief** (QA lead rule, 2026-10-07; one recording per distinct path, 2026-10-09 - the orchestrator groups cases by path and briefs you once per path): the AI run exists to identify the screens, elements, element ids, tabs and **tab ids**, and every message, by following the test steps once. Other cases of the same path become case-data rows later; if a brief lists several cases, execute only the first one and say so in the hand-back. For every screen, record the screen/route, each element used (label, id or stable locator, type), each tab clicked (tab label and tab id/locator), and the messages.
 
 ## Inputs - the step sheet and ONE data row, nothing else (QA lead rule, 2026-10-08)
 - **Only** the approved step sheet (`step_sheet.md` / `steps.json`), the data row of the one case to execute, and `decisions.json` (authorization). Nothing runs that the sheet does not contain.
