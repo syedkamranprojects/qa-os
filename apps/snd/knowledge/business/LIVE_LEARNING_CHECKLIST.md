@@ -162,9 +162,10 @@ Class B checks from the group 66 walk (2026-10-05 / 2026-10-09); pages [master_d
 
 | Id | Step (standard vocabulary) | User | Observe and record | Changes data? | Questions |
 |---|---|---|---|---|---|
-| L57 | [Checker] Navigate to Change Track Outlet Profile; Select request 74; read the enabled buttons (Forward / Reject) without pressing them | Auto_Tssm | whether the Checker approves outlet-profile requests on the same screen | no (RO) | Q-PO3 |
-| L58 | [Maker] Navigate to PJP Daily Inquiry; filter a PJP with outlets for today; Process (alert, accept); read Daily Route No, Journey Status, DSR File Status, Detail | Auto_Multi_Orga | what Process creates for a PJP with outlets | yes (QA Team Lead's go-ahead) | Q-PJ6 |
-| L59 | [Maker] After a Delivery Man Shuffling: open Order View of the shuffled order and the GIN cash-memo list of the destination DM PJP (no save) | Auto_Multi_Orga | the order's DM PJP / DSR after the shuffle | no (RO) | Q-DM1 |
+| L57 | [Checker] Navigate to Change Track Outlet Profile; Select request 74; read the enabled buttons (Forward / Reject) without pressing them | Auto_Tssm | whether the Checker approves outlet-profile requests on the same screen | no (RO) | Q-PO3 (**answered 2026-10-12**: change tracking applies only to approved outlets, single approval screen [stated 2026-10-12 QA team]; L57 no longer needed) |
+| L58 | [Maker] Navigate to PJP Daily Inquiry; filter a PJP with outlets for today; Process (alert, accept); read Daily Route No, Journey Status, DSR File Status, Detail | Auto_Multi_Orga | what Process creates for a PJP with outlets | yes (QA Team Lead's go-ahead) | Q-PJ6 (2026-10-12: integration job, refresh / re-login to see the effect [stated 2026-10-12 QA team]; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**) |
+| L59 | [Maker] After a Delivery Man Shuffling: open Order View of the shuffled order and the GIN cash-memo list of the destination DM PJP (no save) | Auto_Multi_Orga | the order's DM PJP / DSR after the shuffle | no (RO) | Q-DM1 (2026-10-12: screen behaviour is a known issue, Q-DM2; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**) |
+| L60 (new 2026-10-12) | [Maker] On an approved DT PJP: open PJP Creation DT and PJP Change Request; read whether GPS Restriction / GPS Radius / DDO Indicator are editable (no save) | Auto_Multi_Orga | the screen on which a DT user updates GPS / DDO after approval | no (RO) | Q-PJ7 (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**) |
 
 ## Block 1: read-only, any day (RO)
 

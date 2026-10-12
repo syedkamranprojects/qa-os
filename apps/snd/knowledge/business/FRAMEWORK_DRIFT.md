@@ -2,6 +2,7 @@
 
 For the framework owner. Created 2026-10-05 from the learning walks G11-1 (2026-10-01, seq 1-50) and G11-2 / G11-2b (2026-10-05, seq 1-71) on cnr1dev1, distributor 15108843. Updated 2026-10-06 with the full walk G11-3 (seq 1-71 WITH the QA Team Lead; evidence [learning_sessions/2026-10-06_G11-PK_session3_log.md](learning_sessions/2026-10-06_G11-PK_session3_log.md)): section 2b adds evidence to existing rows (rows themselves are kept unchanged), section 2c adds new rows 27-37. Every row is a place where the legacy framework rows (CTA_CONFIG_ASSERTION) or the case-data workbook (NG_Dcode_QA_OTC (Pak) and sheets named below) no longer match what the app does. In most rows the app is consistent and the expected value is stale; a run would fail (or pass by coincidence) for the wrong reason. Updated 2026-10-08 with the QA team's written answers (learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx)): section 2d (rows 38-43); no workbook was re-observed. Updated 2026-10-08 (follow-up) with the QA team's answers to the 2026-10-08 follow-up (learning_sessions/2026-10-08_QA_Team_followup_answers.md, tag [stated 2026-10-08 QA Team (follow-up)]): section 2e (rows 9-11 stock deltas confirmed, row 35 withdrawn, row 41 settled).
 Updated 2026-10-09: section 4 added (group 66 NG_Setup Flow_PK walk, 2026-10-05 and 2026-10-09, rows 44-62).
+Updated 2026-10-12: section 4b added (QA team answers to the group 66 review, [stated 2026-10-12 QA team]; nothing in the framework changed).
 
 Evidence files: [learning_sessions/2026-10-01_G11-PK_session1_report.md](learning_sessions/2026-10-01_G11-PK_session1_report.md) §7, [learning_sessions/2026-10-05_G11-PK_session2_log.md](learning_sessions/2026-10-05_G11-PK_session2_log.md), [learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md](learning_sessions/2026-10-05_G11-PK_session2b_resume_log.md). The pages named in the last column hold the business detail (section 11 traps).
 
@@ -135,3 +136,20 @@ From the group 66 learning walk on cnr1dev1, distributor 15108843: session 1 202
 | 60 | 21 | 00250001 | Change Track DSR third value | New Value3 = 0001 - Order Booker | no DSR Type field on the screen (only DSR Name, Status) | [observed 2026-10-09] | Remove the value | master_data/dsr.md |
 | 61 | 2 | 00970001 | Distributor Profile DT read-only values | Distributor 2411342, name Automation KARACHI QA, currency PKR | live 15108843 Auto KARACHI, USD (read-only); only Invoice Print Message and Fax are filled, so harmless | [observed 2026-10-05] | Align the workbook or leave (no effect) | - |
 | 62 | 23 | 01320001 | Comment spelling | "Auomation Approval" / "Automation Approval" | either accepted | [observed 2026-10-09] | Cosmetic | master_data/dsr.md |
+
+## 4b. Group 66 rows after the QA team answers (2026-10-12) [stated 2026-10-12 QA team]
+
+Notes on the rows of section 4; the rows themselves are kept. Report: [learning_sessions/2026-10-12_SND-PK_QA-Team_answers_report.md](learning_sessions/2026-10-12_SND-PK_QA-Team_answers_report.md).
+
+| Row | Change | Status |
+|---|---|---|
+| 47 | GPS Restriction / Radius / DDO read-only on DT at creation is right; they become editable for DT users once the PJP is approved [stated 2026-10-12 QA team]. Suggested fix stands (drop them from the DT creation flow); a DT update after approval would be a separate change-request step (Q-PJ7) | fix stands |
+| 48 | PJP code generation is configurable (manual or automatic) [stated 2026-10-12 QA team]; on cnr1dev1 / 15108843 it is manual, so the 10-character typed number stands; read the generated number back where automatic | fix stands |
+| 49 | Default Delivery Days: not on the current section screens; the Section Profile screen will be enhanced to take it [stated 2026-10-12 QA team] (planned change). Keep the field out of seq 32 until the enhancement ships | fix stands; watch tickets |
+| 52 | Outlet 1000000014 for seq 36 confirmed "OK" [stated 2026-10-12 QA team]; 01-03, 09, 10 are not shown because the daily PJP has not been executed [stated 2026-10-12 QA team] | fix confirmed |
+| 53 | Wording: the booking checks availability in the PJP's warehouse and temporarily allocates; it does not deduct stock [stated 2026-10-12 QA team]. The setup DA into the booking PJP's warehouse is still needed | fix stands |
+| 54 | Prospect Outlet Forward: still open (Q-PO1); QA: works when the required data is on the respective screens [stated 2026-10-12 QA team] | **deferred: raise when a ticket touches this area (QA lead 2026-10-12)** |
+| 56 | Change Track Outlet Profile approval: change tracking applies only to approved outlets [stated 2026-10-12 QA team] (Q-PO3 answered). Run seq 11 on an approved outlet if an approval row is added; on the Draft outlet no approval exists | answered |
+| 59 | D-G66-2-1 confirmed as a known issue [stated 2026-10-12 QA team]; defect open | **deferred: raise when a ticket touches this area (QA lead 2026-10-12)** |
+| new 63 | Seq 35 PJP Creation HQ: no approval step in the group. QA: HQ-screen changes need no approval [stated 2026-10-12 QA team]; observed: AUTO241010 stayed In-Active until the TM approved it [observed 2026-10-09]. Keep the extra TM approval in live runs until settled (contradiction 47, Q-PJ8) | **deferred: raise when a ticket touches this area (QA lead 2026-10-12)** |
+| new 64 | Seq 36 part 2 Delivery Man Shuffling: the QA team calls the screen's behaviour a known issue [stated 2026-10-12 QA team]; do not rely on its result as an assertion (Q-DM2, contradiction 48) | **deferred: raise when a ticket touches this area (QA lead 2026-10-12)** |

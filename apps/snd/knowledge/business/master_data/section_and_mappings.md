@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [outlet, dsr]
 sources: [live-walk, sme]
-updated: 2026-10-09
+updated: 2026-10-12
 ---
 
 # Sections, setup records and mappings: how it works (S&D / DCODE)
@@ -16,14 +16,15 @@ updated: 2026-10-09
 Status: DRAFT written by Claude from the group 66 (NG_Setup Flow_PK) learning walk on cnr1dev1, distributor 15108843 (15108843 Auto KARACHI / IBRAHIM TRADERS): session 1 on 2026-10-05 (seq 6-10) and session 2 on 2026-10-09 (seq 19, 20, 32, 34), trainer / QA lead Syed Kamran. Tags: **[observed <date>]** live; **[stated <date> Syed Kamran]** QA-lead decision; [inferred] Claude's conclusion. Earlier [stated] facts about Section / Selling Category from the PJP user guide stay in pjp.md. Rules: `docs/LEARNING_STANDARD.md` §3. Business facts only (no element ids).
 Source flows: group 66 seq 6 (00590001 Section), 7 (00720001 Section Approval), 8 (00940001 Selling Category), 9 (00570001 Warehouse Profile), 10 (00580001 Vehicle Profile), 19 (00960001 Distributor Mapping), 20 (00950001 Company Mapping), 32 (01250001 Section Creation HQ), 34 (02460001 DSR Mapping HQ).
 Last updated: 2026-10-09.
+2026-10-12: QA team written answers to the group 66 review merged with **[stated 2026-10-12 QA team]** (statements 8, 12, 13; Q-G66-4; D-G66-2-1); report `../learning_sessions/2026-10-12_SND-PK_QA-Team_answers_report.md`.
 
 ## 1. Purpose
-- These are the building blocks a PJP is made of: a **section** (group of outlets), a **selling category** (group of products), a **warehouse** (where the PJP's orders take stock from) and a **vehicle** (for the DSR) [observed 2026-10-05, 2026-10-09; stated 2026-10-08 doc:PJP updated R2.pptx s.4 in pjp.md].
+- These are the building blocks a PJP is made of: a **section** (group of outlets), a **selling category** (group of products), a **warehouse** (where the PJP's orders take stock from) (superseded 2026-10-12, wording: the warehouse in which the PJP's orders are checked for availability and get stock temporarily allocated; an order does not deduct stock [stated 2026-10-12 QA team]) and a **vehicle** (for the DSR) [observed 2026-10-05, 2026-10-09; stated 2026-10-08 doc:PJP updated R2.pptx s.4 in pjp.md].
 - **Mappings** connect them: Distributor Mapping says which DSRs, warehouses, vehicles, sections' outlets, selling categories per DSR and MIS-type products a distributor uses; Company Mapping says which outlets, selling categories, products and principals a distributor (and a selling category, a visit type) may use [observed 2026-10-09].
 
 ## 2. Actors and roles
 - **Section (DT)**: Maker creates and Forwards, Checker (Auto_Tssm) approves on Section Approval with one Forward [observed 2026-10-05].
-- **Section Creation HQ**: the HQ user (headquarter) creates the section Active at once, no Forward, no approval [observed 2026-10-09].
+- **Section Creation HQ**: the HQ user (headquarter) creates the section Active at once, no Forward, no approval [observed 2026-10-09]. Confirmed 2026-10-12 (statement 8; Q-G66-4): the HQ screen is intended for specific users and does not require approval [stated 2026-10-12 QA team]; users and roles were covered in the earlier training (role table: 9999 HQ Global works without approval [stated 2026-10-08 QA Team]).
 - Selling Category, Warehouse Profile, Vehicle Profile: Maker saves; no approval step in group 66 (Warehouse Profile Approval and Vehicle Profile Approval II options exist in the menu) [observed 2026-10-05].
 - Distributor Mapping and Company Mapping: Maker (Auto_Multi_Orga) saves, no approval; the HQ user uses the same Distributor Mapping screen for "DSR Mapping HQ" [observed 2026-10-09].
 
@@ -87,11 +88,11 @@ E. Company Mapping (seq 20)
 ## 8. Rules and validations
 - Section, selling category, warehouse and vehicle codes are generated; the code field is read-only on DT and HQ [observed 2026-10-05, 2026-10-09].
 - **Section DT vs Section Creation HQ**: DT has Detail / Allowable tabs, status read-only In-Active and needs Forward + Section Approval; HQ has no tabs, no Forward, status can be set Active directly [observed 2026-10-09].
-- Section Creation HQ has **no Default Delivery Days field** (the PJP guide lists Default delivery days on the section [stated 2026-10-08 doc:PJP updated R2.pptx s.18-19]); the DT Section form fields observed on 2026-10-05 did not include it either [observed 2026-10-05, 2026-10-09] -> contradiction 45 (OPEN_QUESTIONS.md).
-- An outlet may belong to many sections: Batch Save on Allowable saves and lists the other sections that already hold the outlet ("Outlet already mapped with ..."), it is not an error [observed 2026-10-05; informational reading inferred]; outlets in several sections are acceptable [stated 2026-10-09 Syed Kamran].
-- A **Draft outlet is not offered** for mapping: Section Allowable (2026-10-05) and Distributor Mapping Outlet tab (2026-10-09) showed no row for C0154187435 [observed 2026-10-05, 2026-10-09] (Q-PO2).
+- Section Creation HQ has **no Default Delivery Days field** (the PJP guide lists Default delivery days on the section [stated 2026-10-08 doc:PJP updated R2.pptx s.18-19]); the DT Section form fields observed on 2026-10-05 did not include it either [observed 2026-10-05, 2026-10-09] -> contradiction 45 (OPEN_QUESTIONS.md). 2026-10-12: the **Section Profile** screen will be enhanced so that users enter the delivery days directly on the profile screen instead of the HQ screen [stated 2026-10-12 QA team]: a **planned change** (not in the current release); watch for it in future tickets. Contradiction 45 partly resolved.
+- An outlet may belong to many sections: Batch Save on Allowable saves and lists the other sections that already hold the outlet ("Outlet already mapped with ..."), it is not an error [observed 2026-10-05; informational reading inferred]; outlets in several sections are acceptable [stated 2026-10-09 Syed Kamran]. Confirmed 2026-10-12 (statement 13): there is currently **no validation** preventing the same outlet from being enrolled in several sections [stated 2026-10-12 QA team].
+- A **Draft outlet is not offered** for mapping: Section Allowable (2026-10-05) and Distributor Mapping Outlet tab (2026-10-09) showed no row for C0154187435 [observed 2026-10-05, 2026-10-09] (Q-PO2). Confirmed 2026-10-12 [stated 2026-10-12 QA team] (statement 14; Q-PO2 answered).
 - **Mapping tick rule: the end state counts** - the workbook's checkbox ticks mean "these items mapped"; rows already mapped stay mapped and only unticked rows are ticked (ticking an already-mapped row again would un-map it) [stated 2026-10-09 Syed Kamran; toggle behaviour observed 2026-10-09].
-- **Mapping saves show no toast** on Distributor Mapping and Company Mapping; success is seen only in the grids and the Save button greying out [observed 2026-10-09].
+- **Mapping saves show no toast** on Distributor Mapping and Company Mapping; success is seen only in the grids and the Save button greying out [observed 2026-10-09]. Confirmed 2026-10-12 together with the end-state tick rule (statement 12, Y) [stated 2026-10-12 QA team].
 - The available grids filter by "contains" on the code (filter "01" matched 01 Warehouse Type) [observed 2026-10-09].
 - Vehicle: Limit Multi Trip is disabled while Allow Multiple Trips = No; Owner CNIC is a 13-digit mask [observed 2026-10-05].
 
@@ -107,7 +108,7 @@ E. Company Mapping (seq 20)
 
 ## 10. Dependencies
 - Before: approved outlets (a Draft outlet is not offered), DSRs (dsr.md), products, principals.
-- After: PJP Creation DT / HQ (section, selling category, warehouse on the PJP; pjp.md); Order Booking (Section and Selling Category on the header; stock taken from the PJP's warehouse, order_booking.md).
+- After: PJP Creation DT / HQ (section, selling category, warehouse on the PJP; pjp.md); Order Booking (Section and Selling Category on the header; stock taken from the PJP's warehouse, order_booking.md). (superseded 2026-10-12, wording: availability checked and stock temporarily allocated in the PJP's warehouse, not deducted [stated 2026-10-12 QA team])
 
 ## 11. Test design hints
 | # | Case | Expected | Tag |
@@ -122,8 +123,8 @@ Traps: never "click checkbox 1-3" blindly on a mapping grid: already-mapped rows
 
 ## 12. Open questions
 - Q-PO2 (class A, OPEN_QUESTIONS.md section 4): a Draft outlet is not offered for section / distributor mapping | Default: outlets are offered only after approval.
-- Contradiction 45 (Default delivery days on the section form) in OPEN_QUESTIONS.md section 5.
-- Defect **D-G66-2-1**: Company Mapping > Distributor > Outlet sub-tab, available list returns HTTP 500 and "Action cannot be performed, something went wrong!" (cnr1dev1, 2026-10-09, Auto_Multi_Orga, distributor 15108843, two loads) [observed 2026-10-09; ruled a defect stated 2026-10-09 Syed Kamran].
+- Contradiction 45 (Default delivery days on the section form) in OPEN_QUESTIONS.md section 5. 2026-10-12: partly resolved: planned Section Profile enhancement [stated 2026-10-12 QA team].
+- Defect **D-G66-2-1**: Company Mapping > Distributor > Outlet sub-tab, available list returns HTTP 500 and "Action cannot be performed, something went wrong!" (cnr1dev1, 2026-10-09, Auto_Multi_Orga, distributor 15108843, two loads) [observed 2026-10-09; ruled a defect stated 2026-10-09 Syed Kamran]. 2026-10-12: the QA team confirms it is a **known issue** that requires investigation and resolution [stated 2026-10-12 QA team]; the defect stays **open** (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**: re-test the Outlet sub-tab when a ticket touches Company Mapping).
 
 ## 13. Sources
 - `../learning_sessions/2026-10-05_G66-PK_session1_log.md` (seq 6-10); `../learning_sessions/2026-10-09_G66-PK_session2_log.md` (seq 19, 20, 32, 34, decisions); report `../learning_sessions/2026-10-09_G66-PK_session2_report.md`.

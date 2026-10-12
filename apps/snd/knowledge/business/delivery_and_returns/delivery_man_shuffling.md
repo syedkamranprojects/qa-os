@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker]
 depends_on: [order_booking, pjp]
 sources: [live-walk, sme]
-updated: 2026-10-09
+updated: 2026-10-12
 ---
 
 # Delivery Man Shuffling: how it works (S&D / DCODE)
@@ -16,6 +16,7 @@ updated: 2026-10-09
 Status: DRAFT written by Claude from the group 66 (NG_Setup Flow_PK) learning walk, seq 36, on cnr1dev1 on 2026-10-09 (trainer / QA lead Syed Kamran). One run only. Tags: **[observed 2026-10-09]** live; **[stated 2026-10-09 Syed Kamran]** QA-lead decision; [inferred] Claude's conclusion. Rules: `docs/LEARNING_STANDARD.md` §3.
 Source flows: group 66 seq 36 (02260001 Delivery Man Shuffling: Part 1 Order Booking, Part 2 Delivery Man Shuffling).
 Last updated: 2026-10-09.
+**2026-10-12 KNOWN ISSUE:** the QA team answered **N** to our summary of this screen (review statement 16) with "a known issue that requires investigation and resolution" [stated 2026-10-12 QA team]. The behaviour below stays recorded as **observed** but is **not a business rule**: do not assert it as expected behaviour. The correct behaviour was not given: Q-DM2 (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**); contradiction 48.
 
 ## 1. Purpose
 - Moves a booked order (cash memo) from a **source Delivery Man PJP** to a **destination Delivery Man PJP**, i.e. hands the delivery to another delivery man before the goods are issued [observed 2026-10-09; purpose inferred from the screen].
@@ -39,7 +40,7 @@ Last updated: 2026-10-09.
 3. [Maker] Choose Outlet 1000000014; Choose Destination PJP AUTO301258-Auto_test; tick the order row; Click Save -> toast **"Saved Successfully"**; the grid empties [observed 2026-10-09] (66:36:02260001 part 2).
 
 ## 6. Outputs and effects
-- After re-opening, the source DM PJP 8197298470 lists **0 orders**: the order left the source's list [observed 2026-10-09].
+- After re-opening, the source DM PJP 8197298470 lists **0 orders**: the order left the source's list [observed 2026-10-09]. (2026-10-12: known issue per the QA team [stated 2026-10-12 QA team]; expected result unknown, Q-DM2.)
 - AUTO301258 is not offered as a Source PJP, so the order could not be read back under the destination on this screen [observed 2026-10-09]. The order's PJP / DSR in Order View after the shuffle was not checked (Q-DM1).
 
 ## 7. Statuses and transitions
@@ -59,19 +60,20 @@ Last updated: 2026-10-09.
 | toast success | "Saved Successfully" (capital S) | Save with a ticked order | [observed 2026-10-09] |
 
 ## 10. Dependencies
-- Before: an order booked on an OB PJP linked to the source DM PJP; stock in the OB PJP's warehouse for the order (an order draws stock from its PJP's warehouse, order_booking.md) [observed 2026-10-09].
+- Before: an order booked on an OB PJP linked to the source DM PJP; stock in the OB PJP's warehouse for the order (an order draws stock from its PJP's warehouse, order_booking.md) [observed 2026-10-09]. (superseded 2026-10-12, wording: the order does not draw / deduct stock; availability is checked and the quantity temporarily allocated in that warehouse [stated 2026-10-12 QA team])
 - After: GIN on the destination DM PJP [inferred, not walked].
 
 ## 11. Test design hints
 | # | Case | Expected | Tag |
 |---|---|---|---|
-| 1 | Shuffle one order from the source DM PJP to another DM PJP | "Saved Successfully"; the order leaves the source's list | [observed 2026-10-09] |
+| 1 | Shuffle one order from the source DM PJP to another DM PJP | "Saved Successfully"; the order leaves the source's list | [observed 2026-10-09] | (2026-10-12: known issue [stated 2026-10-12 QA team]; not an expected result until Q-DM2 is answered)
 | 2 | Then read the order on Order View / a GIN of the destination | order now on the destination (to confirm) | [inferred] |
 
 Traps: the workbook order outlet 1000000001 is not offered on Aslam PJP OB / Automation_Testing_Section; 1000000014 was used [stated 2026-10-09 Syed Kamran]. The workbook product had no stock in the PJP's warehouse (setup DAs 1362 / 1363 were needed).
 
 ## 12. Open questions
-- Q-DM1 (class B, OPEN_QUESTIONS.md section 3): after the shuffle, which DM PJP / DSR does the order show (Order View, GIN of the destination)? | Default: the destination PJP.
+- Q-DM1 (class B, OPEN_QUESTIONS.md section 3): after the shuffle, which DM PJP / DSR does the order show (Order View, GIN of the destination)? | Default: the destination PJP. **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**.
+- Q-DM2 (new 2026-10-12, class C, 1b): the QA team calls the observed Delivery Man Shuffling behaviour a known issue [stated 2026-10-12 QA team]: what is the correct behaviour (which part is wrong: the source list, the save, the order's PJP afterwards)? | Default: treat the screen as unreliable; no shuffling assertion beyond the observed toast | **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**. Contradiction 48.
 
 ## 13. Sources
 - `../learning_sessions/2026-10-09_G66-PK_session2_log.md` (seq 36, setup DAs 1362 / 1363, run 3); report `../learning_sessions/2026-10-09_G66-PK_session2_report.md`.

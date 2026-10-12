@@ -20,7 +20,7 @@
 <!-- the selector's popup list: items carry duplicated nested tab ids -->
 <div class="dx-dropdownbutton-popup-wrapper pop"><div class="dx-overlay-content"><div class="dx-list">
   <div class="dx-list-item"><div id="tab_3x" class="dx-list-item-content"><span id="tab_9">Demographics</span></div></div>
-  <div class="dx-list-item"><div class="dx-list-item-content"><span id="tab_9">Address</span></div></div>
+  <div class="dx-list-item" role="option" id="Opr-1"><div class="dx-list-item-content">Address</div></div>
 </div></div></div>
 
 <!-- sub tab -->
@@ -38,6 +38,10 @@
 <cent-button id="forwardPopUpSaveBtn"><div class="dx-button dx-widget" role="button" id="dx-11112222-3333-4444-5555-666677778888"><span>Save</span></div></cent-button>
 
 <div id="toastArea"></div>
+<script>
+  // live DCODE (2026-10-12): DevExtreme swaps a menu item's id (Opr-1) for a generated one between mouse-down and click
+  document.getElementById('Opr-1').addEventListener('mouseup', function () { this.id = 'dx-2e0811e6-9781-2f2c-d4b1-3b7d9d41e1eb'; });
+</script>
 <script>
   // a toast that DevExtreme re-renders: two message nodes with the same text, then a later one that stays visible
   document.getElementById('forwardPopUpSaveBtn').addEventListener('click', function () {

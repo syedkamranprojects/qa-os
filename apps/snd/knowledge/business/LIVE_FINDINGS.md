@@ -315,3 +315,14 @@ Source: learning_sessions/2026-10-05_G66-PK_session1_log.md, learning_sessions/2
 - One login user per DSR; DSR cell numbers unique; CNIC 13-digit mask [observed 2026-10-05, 2026-10-09].
 - Mapping saves (Distributor / Company Mapping) show no toast [observed 2026-10-09].
 - Prospect Outlet Forward disabled on a back-office Draft outlet (Q-PO1) [observed 2026-10-05].
+
+## QA team answers to the group 66 review (2026-10-12, no live walk) [stated 2026-10-12 QA team]
+
+- **D-G66-2-1** (Company Mapping > Distributor > Outlet sub-tab, HTTP 500): confirmed by the QA team as a **known issue that requires investigation and resolution**; defect stays **open**; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**.
+- **Delivery Man Shuffling** (group 66 seq 36 part 2, observed 2026-10-09 above): the QA team answered N, "a known issue that requires investigation and resolution"; the observation stays as recorded, but it is not a business rule (Q-DM2, contradiction 48; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).
+- "An order draws stock from its PJP's warehouse" (above): wording superseded 2026-10-12: the order does not deduct stock; it checks availability for delivery and temporarily allocates the quantity, in the booking PJP's warehouse (the warehouse observation stands).
+- "Statuses after a Forward show only after leaving the screen and re-opening it" (above): confirmed: refreshing the screen shows the latest status.
+- "Master-data change requests are approved ... on the Maker's own screen; a new PJP on the separate PJP Approval menu" (above): confirmed: change tracking has a single approval screen; setup approvals may be separate or the same screen depending on the setup.
+- "One login user per DSR; DSR cell numbers unique; CNIC 13-digit mask" (above): confirmed; these validations exist because the Delivery App and the Warehouse App use the data.
+- "Mapping saves show no toast" (above): confirmed.
+- "Prospect Outlet Forward disabled" (above): still unexplained (Q-PO1, **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).

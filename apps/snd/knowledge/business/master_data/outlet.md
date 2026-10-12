@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [pjp]
 sources: [document, sme, story-history, live-walk]
-updated: 2026-10-09
+updated: 2026-10-12
 ---
 
 # Outlet master: how it works (S&D / DCODE)
@@ -18,11 +18,13 @@ Source file: `apps/snd/knowledge/sources/20261008_outlet changes.pptx`.
 Source flows: group 66 seq 13-16 (change track of outlet 1000000001, 2026-10-05) [observed 2026-10-05 G66 walk; log runs/LEARN-G66-PK/20261005/session_log.md, not shipped].
 Last updated: 2026-10-09.
 **2026-10-09 (group 66 live walk consolidated):** facts from group 66 (NG_Setup Flow_PK) session 1 (2026-10-05, seq 3, 4, 11, 13-16) and session 2 (2026-10-09, seq 19, 20, 36) on cnr1dev1, distributor 15108843, trainer / QA lead Syed Kamran, are added below with **[observed <date>]** and **[stated <date> Syed Kamran]**; evidence `../learning_sessions/2026-10-05_G66-PK_session1_log.md`, `../learning_sessions/2026-10-09_G66-PK_session2_log.md`.
+**2026-10-12 (QA team written answers to the group 66 review):** answers tagged **[stated 2026-10-12 QA team]** (statements 13-15, Q-PO1, Q-G66-1, Q-G66-2, Q-G66-7); report `../learning_sessions/2026-10-12_SND-PK_QA-Team_answers_report.md`. Q-PO2 and Q-PO3 answered; Q-PO1 stays open (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).
 
 ## 1. Purpose
 - The outlet (retail customer) master holds who the distributor sells to: demographics, operative / tax information, classification, documents, bank, contacts and credit limit [stated 2026-10-08 doc:outlet changes.pptx s.3-12].
 - Outlets can be created by company / global users or by distributors; a distributor-created outlet needs approval by a company user to become active [stated 2026-10-08 doc:outlet changes.pptx s.3].
 - Place in the business: master data before the Daily Cycle. Order Booking offers the outlets of the PJP's section (43 outlets on 02111 / Automation_Testing_Section) [observed 2026-10-08, test_data/PK.md]; the outlet's tax flags decide the order's tax (Q-TX1, below).
+- **Prospect (prospective) outlet** [stated 2026-10-12 QA team]: a newly identified outlet found by an **Order Booker or Merchandiser during market visits**; the user enters its profile, demographic and operational details; once submitted it appears on the **Prospect Outlet** screen for further processing and approval (Q-PO1 answer; what enables Forward there is still open).
 
 ## 2. Actors and roles
 - **Approval only for DT users:** outlet approval is required only when a **DT (distributor) user** creates or changes the outlet; an outlet created / changed by a company user needs no approval [stated 2026-10-08 Syed Zulfiqar (F1 10-08)].
@@ -33,7 +35,7 @@ Last updated: 2026-10-09.
 - Note on role codes: SDMS-12227 numbers the roles differently from the QA team's table (there 0001 = NG User / DT back office, 9999 = HQ) [stated 2026-10-08 QA Team]; role codes may be configured per org [inferred] (contradiction 43).
 - Group 66 (2026-10-05): the change-track requests seq 13-16 were made by the Maker and approved with Auto_Tssm [observed 2026-10-05 G66 walk; stated 2026-10-05 QA lead].
 - Change-track approvals: the Checker (Auto_Tssm) opens the **same menu option** as the Maker (e.g. Change Track Outlet Document) and approves with one Forward [observed 2026-10-05].
-- Prospect Outlet: as Auto_Multi_Orga and as Automation (the framework's seq 1-4 user) **Forward and Reject stayed disabled** on the Draft outlet C0154187435; what enables Forward is open (Q-PO1) [observed 2026-10-05].
+- Prospect Outlet: as Auto_Multi_Orga and as Automation (the framework's seq 1-4 user) **Forward and Reject stayed disabled** on the Draft outlet C0154187435; what enables Forward is open (Q-PO1) [observed 2026-10-05]. 2026-10-12: asked whether seq 1-4 must run as Automation, the QA team answered that the function works provided the **required data is available on the respective screens** [stated 2026-10-12 QA team] (no user named; Forward was disabled for Automation too [observed 2026-10-05], so the missing piece is more likely data than the user [inferred]); kept in Q-PO1, **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**.
 
 ## 3. Documents and master data
 - **Outlet**: Outlet Code (auto-generated), Long / Short Name, Channel Hierarchy, Outlet Type, Geographical Hierarchy, tax flags, classification, credit limit (section 4) [stated 2026-10-08 doc:outlet changes.pptx s.6-12]. PK test outlets on 02111: 1000000004 - 1000000011 used in group 11, 1000000001 - 1000000003 not offered on that PJP [observed, test_data/PK.md].
@@ -43,7 +45,7 @@ Last updated: 2026-10-09.
 - Dates (R1 Jira): Completion Date = first activation date-time; Activation Date = first creation date-time [jira SDMS-12227] (PKBD R1, Assigned to QA). (The guide lists Activation Date as mandatory on Demographics [stated 2026-10-08 doc:outlet changes.pptx s.6-7].)
 - Live (group 66): a new back-office outlet gets a generated **Outlet Code C0154187435** (prefix C015...) and workflow status **Draft**, outlet Status In-Active [observed 2026-10-05]. Change request numbers observed: Change Track Outlet Profile **74** (on C0154187435), Change Track Outlet Document **47** and Change Track Outlet Operative Info **50** (both on 1000000001) [observed 2026-10-05].
 - **Outlet 1000000001 (Aautomation_Outlet_01) was changed on 2026-10-05** by group 66: NTN document 8798 -> **1111112222333330001** (request 47; document status still UN-Authorized), and Operative Info Tax Registered Unregistered -> **Registered**, Tax Payer Yes -> **No**, plus new tiers / attributes (CA2T1, CA302, CA402, CA1001, CA1202, CA801) (request 50) [observed 2026-10-05]; approved as the workbook says, accepting the tax change on outlet 01 [stated 2026-10-05 Syed Kamran]. Group 11 tax expectations for outlet 01 may differ from earlier sessions.
-- **Outlets offered for booking:** on Aslam PJP OB 7918624876 / Automation_Testing_Section the Order Booking outlet list offered 1000000004-08, 1000000011-20 and some C01... outlets, but **not 1000000001, 02, 03, 09, 10** [observed 2026-10-09]; group 11 found 01-03 not offered on 02111 [observed 2026-10-01 G11-1, test_data/PK.md]. Outlet 1000000014 was used instead [stated 2026-10-09 Syed Kamran].
+- **Outlets offered for booking:** on Aslam PJP OB 7918624876 / Automation_Testing_Section the Order Booking outlet list offered 1000000004-08, 1000000011-20 and some C01... outlets, but **not 1000000001, 02, 03, 09, 10** [observed 2026-10-09]; group 11 found 01-03 not offered on 02111 [observed 2026-10-01 G11-1, test_data/PK.md]. Outlet 1000000014 was used instead [stated 2026-10-09 Syed Kamran]. 2026-10-12: confirmed "OK" for 1000000014 (Q-G66-7) [stated 2026-10-12 QA team]; the QA team's reason for 01-03, 09, 10 not being shown: **the daily PJP has not been executed, so its data is not displayed** [stated 2026-10-12 QA team] (statement 15; see pjp.md section 8).
 
 ## 4. Inputs: screens and fields
 | Screen / tab | Fields | Tag |
@@ -100,7 +102,7 @@ D. Live, group 66 (back-office outlet, prospect, change tracks)
 1. [Maker] Navigate to Outlet Profile (already in new mode); fill Demographics; Click Save -> "Saved successfully", Outlet Code generated (C0154187435), WF **Draft** [observed 2026-10-05] (66:3:00530001).
 2. [Maker] Operative Info, Address (Company tab) -> Save -> "Saved successfully"; Documents, Bank, Contact Person, Credit Limit rows -> row Save -> "Record Saved Successfully!" [observed 2026-10-05]. The flow has no Forward event: the outlet **stays Draft / In-Active** [db: event flow; observed 2026-10-05].
 3. [Maker] Navigate to Prospect Outlet; filter the outlet; change Outlet Type (Local Modern Trade -> Modern Trade); Click Update -> "Updated successfully"; Operative Info Update -> "Updated successfully"; **Forward is disabled** (also as Automation) -> seq 4 Forward and seq 5 Prospect Outlet Approval not done (Q-PO1) [observed 2026-10-05; skip stated 2026-10-05 Syed Kamran] (66:4:00380002).
-4. [Maker] Change Track Outlet Profile: pick the outlet; enter New Values; Click Save -> "Saved successfully", request 74; select it; Forward; comment; Save -> "Forwarded successfully" [observed 2026-10-05] (66:11:00240001). Group 66 has no approval row for this request (Q-PO3).
+4. [Maker] Change Track Outlet Profile: pick the outlet; enter New Values; Click Save -> "Saved successfully", request 74; select it; Forward; comment; Save -> "Forwarded successfully" [observed 2026-10-05] (66:11:00240001). Group 66 has no approval row for this request (Q-PO3). Q-PO3 answered 2026-10-12: change tracking applies only to approved outlets [stated 2026-10-12 QA team]; for an approved outlet the change request is approved on the single change-tracking approval screen (statement 2) [stated 2026-10-12 QA team].
 5. [Maker] Change Track Outlet Document on 1000000001: filter Document Type NTN; select the row; New Value NTN / new number; Save -> "Saved successfully", request 47; Forward -> "Forwarded successfully" [observed 2026-10-05] (66:13:01340001).
 6. [Checker] Same menu option; first click on the request selects it, the second opens it; Forward; comment; Save -> "Forwarded successfully"; afterwards request Active and the document number replaced (one Checker step) [observed 2026-10-05] (66:14:02200001).
 7. [Maker] Change Track Outlet Operative Info on 1000000001: New Values; Save -> "Saved successfully", request 50; Forward -> "Forwarded successfully" [observed 2026-10-05] (66:15:01330001).
@@ -113,7 +115,7 @@ D. Live, group 66 (back-office outlet, prospect, change tracks)
 - Outlet Status Process -> outlet inactive [stated 2026-10-08 doc:outlet changes.pptx s.19].
 - After activation (R1 Jira): a DT user may edit only 4 fields (phone, contact person, credit limit amount, credit limit days); TM view only [jira SDMS-12227] (PKBD R1, Assigned to QA).
 - Live: an approved Change Track Outlet Document request replaces the document number at once (request 47 Active; NTN 1111112222333330001, document status still UN-Authorized) [observed 2026-10-05]; an approved Operative Info request changes the tax flags at once (outlet 01 Registered / Tax Payer No) [observed 2026-10-05].
-- Live: a **Draft outlet is not usable downstream**: not offered on Section Allowable, Distributor Mapping > Outlet, Change Track Outlet Document [observed 2026-10-05, 2026-10-09] (Q-PO2); the earlier framework runs left about 16 "Automation QA TEST" outlets of 15108843 in Draft [observed 2026-10-05].
+- Live: a **Draft outlet is not usable downstream**: not offered on Section Allowable, Distributor Mapping > Outlet, Change Track Outlet Document [observed 2026-10-05, 2026-10-09] (Q-PO2); the earlier framework runs left about 16 "Automation QA TEST" outlets of 15108843 in Draft [observed 2026-10-05]. Confirmed 2026-10-12 (statement 14) [stated 2026-10-12 QA team]; Q-PO2 answered. QA comment: the Company Mapping screen maps (approved) outlets to distributors for further processing and use [stated 2026-10-12 QA team].
 
 ## 7. Statuses and transitions
 | From | Action | To | By | Tag |
@@ -140,9 +142,9 @@ D. Live, group 66 (back-office outlet, prospect, change tracks)
 - Duplicate check: Outlet Approval II shows a "similar outlets" pop-up [stated 2026-10-08 doc:outlet changes.pptx s.13].
 - After activation a DT user may edit only phone, contact person, credit limit amount and days [jira SDMS-12227].
 - Live rules (group 66):
-  - A Draft outlet can be change-tracked on Change Track Outlet Profile, but is not listed on Change Track Outlet Document [observed 2026-10-05].
+  - A Draft outlet can be change-tracked on Change Track Outlet Profile, but is not listed on Change Track Outlet Document [observed 2026-10-05]. 2026-10-12: **change tracking applies only to approved outlets** [stated 2026-10-12 QA team] (Q-G66-2; Q-PO3 answered: a Draft outlet's change request needs no approval because change tracking does not apply to it). That Change Track Outlet Profile nevertheless listed the Draft outlet and accepted request 74 [observed 2026-10-05] is contradiction 49 (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).
   - Prospect Outlet lists only prospects (back-office drafts / mobile prospects), not regular approved outlets [observed 2026-10-05].
-  - Prospect Outlet Forward is disabled for a back-office Draft outlet whose "Identified by" is empty (outlets that reached Draft / Pending have it filled); cause unknown (image in Gallery? mobile prospects only? role?) [observed 2026-10-05; hypotheses inferred] (Q-PO1).
+  - Prospect Outlet Forward is disabled for a back-office Draft outlet whose "Identified by" is empty (outlets that reached Draft / Pending have it filled); cause unknown (image in Gallery? mobile prospects only? role?) [observed 2026-10-05; hypotheses inferred] (Q-PO1). 2026-10-12: by the QA team's definition a prospect is identified by an Order Booker / Merchandiser in the market and submitted from there [stated 2026-10-12 QA team], which supports the "mobile prospects only" hypothesis [inferred]; not confirmed, Q-PO1 stays open (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).
   - On change-track approval screens the first click on a request selects it, the second opens it [observed 2026-10-05].
   - Channel option text is "C10002 - Others" (161 channel options) [observed 2026-10-05].
 
@@ -188,6 +190,7 @@ Traps: outlets 1000000001 - 1000000011 are shared group 11 fixtures whose tax fl
 ## 12. Open questions
 No new question filed for the outlet page. Related: Q-RL1 (role codes, F7 (10-08) evidence) and contradiction 43 (TM role 0008 vs 0002) in OPEN_QUESTIONS.md; Q-TX1 (answered 2026-10-06). Still to observe live (no question needed): the menu paths, the credit-limit Block / Warn message texts, and whether Outlet Profile TM exists on cnr1dev1.
 2026-10-09 (group 66 walk), new in OPEN_QUESTIONS.md: **Q-PO1** (class C, 1b): what enables Forward on Prospect Outlet (image in Gallery, mobile-identified prospects only, a role, the seq 1-4 user Automation)? | Default: seq 4 Forward / seq 5 approval are not executable for a back-office Draft outlet; skip them. **Q-PO2** (class A): a Draft outlet is not offered for mapping / document change track | Default: only approved outlets are offered. **Q-PO3** (class B): who approves a Change Track Outlet Profile request (request 74, group 66 has no approval row)? | Default: the Checker on the same screen, as for the other change tracks.
+2026-10-12 (QA team answers): **Q-PO2 answered** (only approved outlets are offered: statement 14 confirmed); **Q-PO3 answered** (change tracking only for approved outlets; single approval screen). **Q-PO1 stays open**: the answer defined a prospect outlet but did not say what enables Forward; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**. New: contradiction 49 (Change Track Outlet Profile accepted a request on a Draft outlet).
 
 ## 13. Sources
 - Session log: `../learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_log.md` (Outlet document O1-O14, Jira "Outlet", F1-F7 (10-08)); report `../learning_sessions/2026-10-08_SND-GLOBAL_SyedZulfiqar_report.md`.

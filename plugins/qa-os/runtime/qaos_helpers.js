@@ -200,6 +200,13 @@
     document.addEventListener('mousedown', e => { const w = e.target && e.target.closest && e.target.closest('.dx-dropdowneditor, .dx-selectbox, .dx-autocomplete, .dx-tagbox, dx-select-box, dx-autocomplete, dx-tag-box'); if (w) { const i = w.querySelector('input.dx-texteditor-input, input:not([type=hidden])'); if (i) { lastInput = i; lastInputAt = Date.now(); } } }, true);
     // A20: the last button clicked (not a field), so an option from a menu it opened is not taken for a field value
     let lastBtn = null;
+    // A20 (live 2026-10-12): DevExtreme replaces a menu item's id (Opr-1) with a generated one between mouse-down and click,
+    // so the item's ids are read at mouse-down and used by the click handler
+    let downItem = null;
+    const itemIds = opt => { const up = []; for (let n = opt, i = 0; n && i < 3 && !(n.classList && n.classList.contains('dx-overlay-content')); n = n.parentElement, i++) up.push(n);
+      return [...up, ...opt.querySelectorAll('[id]')].map(n => n.id).filter(goodId); };
+    document.addEventListener('mousedown', e => { const o = e.target && e.target.closest && e.target.closest('.dx-list-item, [role=option], .dx-menu-item');
+      downItem = o ? { text: txt(o), ids: itemIds(o), at: Date.now() } : null; }, true);
     // typed values: logged when the field loses focus with a changed value
     // typed values. DevExtreme grid editors are re-rendered and cleared on commit, so the value and the cell
     // context are captured from 'input' events while typing and flushed once (focusout, Tab/Enter, or the next click).
@@ -232,7 +239,7 @@
         const btnLast = lastBtn && now - lastBtn.at < 15000 && (!lastInput || lastBtn.at > lastInputAt);
         // A20: an option from a menu opened by a button (Demographics / Address selector) is a menu choice, never a field value
         if (opt.closest('.dx-dropdownbutton-popup-wrapper, .dx-menu, .dx-context-menu') || (btnLast && !ae && !fieldList)) {
-          const ids = [opt, ...opt.querySelectorAll('[id]')].map(n => n.id).filter(goodId);
+          const ids = downItem && now - downItem.at < 3000 && downItem.text === txt(opt) ? downItem.ids : itemIds(opt);
           const tabId = ids.find(i => TAB_ID_RE.test(i)) || ''; const own = ids.find(i => !TAB_ID_RE.test(i)) || '';
           const dup = tabId ? document.querySelectorAll('[id="' + tabId + '"]').length > 1 : false;
           if (lastBtn && lastBtn.entry.act === 'click') { lastBtn.entry.act = 'menu_open'; try { localStorage.qaos_log = JSON.stringify(Q.log); } catch (x) {} }
@@ -262,9 +269,10 @@
         return rec(Object.assign({ act: 'row_select', src: 'watch', grid: ci.grid || '', rowindex: dr.getAttribute('aria-rowindex'), column: td ? labelOf(td) : '', value: td ? txt(td) : '', clicks: e.detail || 1 },
           rid ? { id: rid, locator: '#' + rid } : {}, rowKey(dr))); }
       if (b && cellInfo(b)) Q._rowSnap(b);
-      if (b) { const cell = cellInfo(b); const h = stableHost(b); const id = h ? h.id : '';
+      let inner = null; if (b && !goodId(b.id)) { for (let n = raw; n && n !== b; n = n.parentElement) { if (goodId(n.id)) { inner = n; break; } } }
+      if (b) { const cell = cellInfo(b); const h = inner || stableHost(b); const id = h ? h.id : '';
         const entry = rec(Object.assign({ act: 'click', src: 'watch', target: txt(b) || id || b.id, id, text: txt(b), locator: h ? '#' + h.id : sel(b), kind: '0004' },
-          b.id && !goodId(b.id) ? { generatedId: b.id } : {}, h && h !== b ? { idFrom: 'ancestor' } : {}, cell ? { grid: cell.grid, rowindex: cell.rowindex } : {}));
+          b.id && !goodId(b.id) ? { generatedId: b.id } : {}, h && h !== b ? { idFrom: inner ? 'inner' : 'ancestor' } : {}, cell ? { grid: cell.grid, rowindex: cell.rowindex } : {}));
         lastBtn = { at: Date.now(), entry }; return entry; }
     }, true);
     // A20: double click on a grid row (opens the record on some screens)
