@@ -15,6 +15,8 @@ different account, no shared memory — still finds its footing automatically. S
 `RELEASE_NOTES.md` for what the platform does and `DEPLOY.md` for one-time setup
 (MCP connectors, credentials, plugin registration) before anything here will work.
 
+Check which installation this is with `python runtime/qaos_config.py mode` (dev = QA OS team's working copy with `qaos.dev.yaml`; qa = the QA team's release). In a qa installation, design or tool gaps are noted in `feedback/design_gaps.md`, not fixed (see docs/OPERATING_RULES.md).
+
 Standing preferences and run rules of the QA lead (account-independent): read `docs/OPERATING_RULES.md` (copies of the assistant memory notes are in `docs/memory_export/`). Latest resume point: end of `docs/STATUS.md`.
 
 **Current phase (v0.5.0): S&D training.** When someone wants to teach you the business (documents, verbal explanation, Q&A, or "run group 11 / 66 / 61"), use the `knowledge-intake` skill (`/qa-os:train snd`); the trainer's guide is `docs/TRAINING_GUIDE.md`. After training the normal entry is a short request or one-liner via `/qa-os:quick` (no Jira ticket): execute from your own training and steps, never from existing framework workbooks or event chains, and generate the Regress Master SQL. Never type credentials; never apply SQL.

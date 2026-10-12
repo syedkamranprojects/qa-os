@@ -5,6 +5,7 @@
   python runtime/qaos_config.py role snd cnr1dev1 Checker  # role -> user (+ distributor), never a password
   python runtime/qaos_config.py market snd PK              # market -> framework group / app id / env
   python runtime/qaos_config.py validate                   # check qaos.yaml and every app pack; exit 1 on errors
+  python runtime/qaos_config.py mode                       # which installation this is: dev (QA OS team) or qa (QA team release)
 
 Import: from qaos_config import global_cfg, app_cfg, role_user, market
 Values never include passwords; those are read only by qaos_player.credentials().
@@ -63,6 +64,41 @@ def env_url(cfg, env):
     """URL of an environment; GIAS-style packs give `url_env` (an environment variable) instead of a literal URL."""
     e = cfg['environments'][env]
     return e.get('url') or os.environ.get(e.get('url_env', ''), '')
+
+
+DEV_MARKER = 'qaos.dev.yaml'      # exists ONLY in the dev working copy: gitignored, never packaged (tools/build_release.py)
+RELEASE_INFO = 'release.json'     # written into the QA-team release zip by tools/build_release.py
+
+
+def plugin_version():
+    import json
+    try:
+        with open(os.path.join(QA_OS, 'plugins', 'qa-os', '.claude-plugin', 'plugin.json'), encoding='utf-8') as f:
+            return json.load(f).get('version')
+    except OSError:
+        return None
+
+
+def installation():
+    """Which QA OS installation this is (QA lead, 2026-10-12):
+    dev = the QA OS team's working copy (qaos.dev.yaml present); qa = the QA team's release (no marker; release.json
+    tells the version). No marker always means qa, so a missing or deleted file never turns a QA install into dev."""
+    import json
+    contact = ((global_cfg().get('installation') or {}).get('design_contact')) or ''
+    dev = os.path.join(QA_OS, DEV_MARKER)
+    if os.path.exists(dev):
+        with open(dev, encoding='utf-8') as f:
+            d = yaml.safe_load(f) or {}
+        return {'mode': 'dev', 'version': plugin_version(), 'owner': d.get('owner'), 'design_contact': d.get('design_contact') or contact,
+                'source': DEV_MARKER}
+    rel = os.path.join(QA_OS, RELEASE_INFO)
+    if os.path.exists(rel):
+        with open(rel, encoding='utf-8') as f:
+            r = json.load(f)
+        return {'mode': 'qa', 'version': r.get('version'), 'built': r.get('built'), 'built_by': r.get('built_by'),
+                'design_contact': r.get('design_contact') or contact, 'source': RELEASE_INFO}
+    return {'mode': 'qa', 'version': plugin_version(), 'design_contact': contact,
+            'source': f'no {DEV_MARKER} and no {RELEASE_INFO}: treated as a QA install'}
 
 
 def validate():
@@ -127,6 +163,11 @@ if __name__ == '__main__':
         print(role_user(c, a[2], a[3]), 'all users:', role_users(c, a[2], a[3]))
     elif a[0] == 'market':
         print(yaml.safe_dump(market(app_cfg(a[1]), a[2]), sort_keys=False, allow_unicode=True))
+    elif a[0] == 'mode':
+        i = installation()
+        print(f"QA OS installation: {i['mode'].upper()}  (version {i.get('version')}; from {i['source']})")
+        if i['mode'] == 'qa':
+            print(f"  design / tool gaps are noted in feedback/design_gaps.md, not fixed; design contact: {i.get('design_contact')}")
     elif a[0] == 'validate':
         sys.exit(0 if validate() else 1)
     else:

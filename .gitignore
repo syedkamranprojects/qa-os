@@ -21,3 +21,6 @@ _test_edit_*.xlsx
 
 # release packages
 dist/
+
+# dev-installation marker: exists only on the QA OS team's machines (runtime/qaos_config.py mode)
+qaos.dev.yaml

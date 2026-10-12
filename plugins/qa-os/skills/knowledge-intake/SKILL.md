@@ -12,6 +12,8 @@ Training feeds the **business knowledge** of an app pack: `apps/<app>/knowledge/
 2. Ask the trainer, in one question call: their **name** (for `[stated <date> <name>]`), the **market/region** (S&D: PK, BD = R1; see `apps/<app>/app.yaml` `markets`), the **environment**, and the **method(s)** for today (below).
 3. Create the session folder `runs/TRAIN-<APP>-<MARKET>/<yyyymmdd>-<trainer>/` with `session_log.md` (header: date, trainer, market, env, methods, users). Append to it as you go; never rewrite it.
 
+**Installation (dev / qa), QA lead 2026-10-12.** At the start, run `python runtime/qaos_config.py mode`. **dev** = the QA OS team's working copy (file `qaos.dev.yaml`); **qa** = the QA team's release (no marker; `release.json`). Training is never restricted: QA members train the system in both. Training, analysis, cases, steps, runs and scripts work the same in both. In a **qa** installation Claude does **not** change QA OS tools, skills, hooks, design documents or recordings: when it notices a design or tool gap, it notes it in `feedback/design_gaps.md` (date, QA member, run, where, what, suggestion) and tells the QA member to check with the design contact first (`qaos.yaml` > `installation.design_contact`). In a **dev** installation such gaps go to `docs/HARDENING.md` and are fixed.
+
 ## 1. Methods (the trainer may mix them in one session)
 
 ### A. Documents (user guide, instruction manual, SOP, training deck, spreadsheet)

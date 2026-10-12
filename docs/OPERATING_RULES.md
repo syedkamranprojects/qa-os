@@ -66,3 +66,9 @@ Setup flow PK: group 66 (NG_Setup Flow_PK); its user per row comes from the grou
 
 ## Open items (as of 2026-10-07)
 47 open questions (`OPEN_QUESTIONS.md`; Q-RS4 and BA14 may be closed on the QA lead's confirmation). QA team review of `learning_sessions/2026-10-06_G11-PK_QA_Team_Review.docx` pending. Group 66 paused after seq 18. Bulk-data-factory approach agreed, not started (4 decisions pending). Generated framework SQL never replayed in the legacy engine.
+
+## Installations: dev and qa (QA lead, 2026-10-12)
+- `python runtime/qaos_config.py mode` tells which installation is running. **dev** = the QA OS team's working copy, identified by the file `qaos.dev.yaml` (gitignored, never packaged). **qa** = the QA team's release zip from `tools/build_release.py` (no marker, `release.json` with version and build date). No marker always means qa.
+- No operation is restricted yet. QA members train the system freely.
+- In a qa installation, design or tool gaps are **noted, not fixed**, in `feedback/design_gaps.md`, and the QA member is asked to check with the design contact (Syed Kamran) first. The file comes back with the training work; the QA OS team moves rows to `docs/HARDENING.md`.
+- Every run records the installation (run.json `installation`), and the generated SQL header prints it (`-- QA OS: v<version> (<mode> installation)`).

@@ -29,6 +29,8 @@ SKIP_PATH = [re.compile(p) for p in (
     r'^tools/build_release\.py$',          # the packaging tool itself stays internal
     r'(^|/)\.claude/settings\.local\.json$',
     r'(^|/)credentials\.json$',
+    r'^qaos\.dev\.yaml$',                  # the dev-installation marker never goes to the QA team
+    r'^release\.json$',                     # rewritten for every package below
 )]
 
 # ordered replacements applied to every shared text file (internal references are rewritten INSIDE the line;
@@ -182,6 +184,17 @@ def main():
     if left:
         shutil.rmtree(stage, ignore_errors=True)
         sys.exit('REFUSED: internal references remain:\n' + '\n'.join(left[:40]))
+    if os.path.exists(os.path.join(stage, 'qa-os', 'qaos.dev.yaml')):
+        shutil.rmtree(stage, ignore_errors=True)
+        sys.exit('REFUSED: the dev marker qaos.dev.yaml would be packaged')
+    # installation identity of the package: no dev marker + release.json = a QA installation (runtime/qaos_config.py mode)
+    import datetime, json
+    sys.path.insert(0, os.path.join(ROOT, 'runtime'))
+    from qaos_config import installation
+    me = installation()
+    json.dump({'mode': 'qa', 'version': version, 'built': datetime.datetime.now().isoformat(timespec='seconds'),
+               'built_by': me.get('owner'), 'design_contact': me.get('design_contact')},
+              open(os.path.join(stage, 'qa-os', 'release.json'), 'w', encoding='utf-8'), indent=1)
     os.makedirs(out_dir, exist_ok=True)
     zp = os.path.join(out_dir, f'qa-os-v{version}.zip')
     with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED) as z:

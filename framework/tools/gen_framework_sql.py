@@ -144,7 +144,8 @@ def run_info_block(ri):
             ('Environment', f"{ri.get('env')} {ri.get('url') or ''}".strip() if ri.get('env') else None),
             ('Run by', ri.get('run_by')), ('Users', users or None), ('Allowed actions', ', '.join(ri.get('allow') or []) or None),
             ('AI execution', f"case {ri.get('executed_case')} only ({ri.get('recording')}); {ri.get('cases')} case(s) as case-data rows" if ri.get('executed_case') else None),
-            ('Context confirmed', ri.get('confirmed'))]
+            ('Context confirmed', ri.get('confirmed')),
+            ('QA OS', f"v{(ri.get('installation') or {}).get('version')} ({(ri.get('installation') or {}).get('mode')} installation)" if ri.get('installation') else None)]
     return ''.join(f'-- {k + ":":<18} {clean(v)}\n' for k, v in rows if v)
 
 

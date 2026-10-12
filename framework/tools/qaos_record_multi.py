@@ -476,7 +476,7 @@ if __name__ == '__main__':
         rq = json.load(open(req, encoding='utf-8')) if os.path.exists(req) else {}
         spec['run_info'] = dict(rj.get('context') or {}, key=rj.get('key'), app=rj.get('app'),
                                 request=next((r['text'] for r in rq.get('rules', []) if r.get('id') == 'R1'), None),
-                                executed_case=meta.get('case'), recording=os.path.basename(sys.argv[1]),
+                                executed_case=meta.get('case'), recording=os.path.basename(sys.argv[1]), installation=rj.get('installation'),
                                 cases=len(json.load(open(arg('--rows'), encoding='utf-8'))) if arg('--rows') else None)
     json.dump(spec, open(sys.argv[2], 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
     print(f"{len(spec['screens'])} screens: " + '; '.join(

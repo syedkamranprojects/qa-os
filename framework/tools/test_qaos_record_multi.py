@@ -264,12 +264,13 @@ class Converter(unittest.TestCase):
         ri = {'key': 'QUICK-1', 'request': 'Create an order\nwith 2 lines', 'market': 'PK', 'market_name': 'Unilever Pakistan',
               'org': '010104', 'framework_app_id': '8', 'group': '11', 'env': 'cnr1dev1', 'run_by': 'QA Member',
               'users': {'Maker': {'user': 'Auto_Multi_Orga', 'company': 'C', 'distributor': '15108843'}},
-              'executed_case': 'TC02', 'recording': 'recording_TC02.json', 'cases': 2}
+              'executed_case': 'TC02', 'recording': 'recording_TC02.json', 'cases': 2,
+              'installation': {'mode': 'qa', 'version': '0.6.0'}}
         spec = dict(self.spec, run_info=ri)
         sql, rb, _ = G.build(spec)
         head = sql.split('BEGIN;')[0]
         for text in ('-- Run by:            QA Member', 'Create an order with 2 lines', 'Market:            PK - Unilever Pakistan',
-                     'Maker Auto_Multi_Orga', 'case TC02 only'):
+                     'Maker Auto_Multi_Orga', 'case TC02 only', 'QA OS:             v0.6.0 (qa installation)'):
             self.assertIn(text, head)
         self.assertIn('-- Run by:', rb.split('BEGIN;')[0])
         self.assertTrue(all(l.startswith('--') for l in head.strip().splitlines()))   # comments only, no SQL injected

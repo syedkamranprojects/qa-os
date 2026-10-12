@@ -17,6 +17,7 @@ from jsonschema import Draft202012Validator
 
 sys.stdout.reconfigure(encoding='utf-8')
 QA_OS = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from qaos_config import installation   # dev / qa installation identity (runtime/qaos_config.py mode)
 SCHEMAS = os.path.join(QA_OS, 'plugins', 'qa-os', 'schemas')
 STAGES = ['analyse', 'cases', 'steps', 'data', 'execute', 'scripts', 'bulk', 'verify', 'report']
 OUTPUTS = {'analyse': ('requirement.json', 'requirement'), 'cases': ('cases.json', 'cases'), 'steps': ('steps.json', 'steps')}
@@ -81,6 +82,7 @@ def init(a):
         shutil.copy(a.story, os.path.join(run, 'inputs', os.path.basename(a.story)))
     save(os.path.join(run, 'run.json'), {
         'key': a.key, 'app': a.app, 'env': a.env, 'created': now(), 'user': os.environ.get('USERNAME'),
+        'installation': {k: v for k, v in installation().items() if k in ('mode', 'version')},
         'stages': {s: {'state': 'pending'} for s in STAGES}})
     if a.request:                                         # quick run: the one-liner IS the requirement (R1)
         screens = [x.strip() for x in (a.screens or '').split(';') if x.strip()]

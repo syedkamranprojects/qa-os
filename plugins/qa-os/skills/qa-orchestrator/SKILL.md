@@ -15,6 +15,8 @@ check the output, update `run.json`. Never load full case lists, screen catalogs
 - **MCP execution is a one-time recording per flow**, one data row, to capture ids, paths and messages. The legacy engine runs all cases and data variations.
 - Log every obstacle in `friction.md` and fix it in software (helper, app pack), not with a question.
 
+**Installation (dev / qa), QA lead 2026-10-12.** At the start, run `python runtime/qaos_config.py mode`. **dev** = the QA OS team's working copy (file `qaos.dev.yaml`); **qa** = the QA team's release (no marker; `release.json`). Training, analysis, cases, steps, runs and scripts work the same in both. In a **qa** installation Claude does **not** change QA OS tools, skills, hooks, design documents or recordings: when it notices a design or tool gap, it notes it in `feedback/design_gaps.md` (date, QA member, run, where, what, suggestion) and tells the QA member to check with the design contact first (`qaos.yaml` > `installation.design_contact`). In a **dev** installation such gaps go to `docs/HARDENING.md` and are fixed.
+
 ## Stage 0 - intake and account selection (before analysis)
 1. `python runtime/qaos_run.py init <KEY> --app <app> --env <env> [--story <file>]` (env may be a placeholder until step 3).
 2. **Parse the story's intake block** (`--- QA-OS --- ... --- /QA-OS ---`, see QUESTION_BANK.md) and write `decisions.json`:
