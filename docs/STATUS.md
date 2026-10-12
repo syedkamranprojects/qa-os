@@ -377,3 +377,9 @@ Register: `docs/HARDENING.md` (release gate = section D). Design: `docs/FINAL_DE
 # Update: 2026-10-09 - quick mode redesigned (plugin 0.5.2)
 - `/qa-os:quick` = ad-hoc AI test execution: the request is the test case (no case list unless asked); steps are an internal plan shown at the one approval; every run is recorded silently; the main output is `<run>/test_report.md` (PASS / FAIL / BLOCKED, messages, documents, defects); **only after a PASS** Claude asks whether Regress Master scripts are wanted (also possible later from the recording). Changed: quick-script skill, commands/quick.md, OPERATING_RULES, USER_MANUAL (md / html / pdf).
 - Next: try the new quick mode once live (it also serves as the clean-session acceptance run for v0.6.0); Regress Master replay result of flow 06480001 still pending; QA answers to the G66 review.
+
+---
+# Update: 2026-10-12 - recording tool gaps A20 fixed (plugin 0.5.5)
+- Since 10-09 (see git log): SDMS-6084 (PK, Off Days dropdown, Distributor Profile HQ) analysed, 9 core cases + 10 backlog, step sheet approved, grouped into 5 paths (`runs/SDMS-6084/20261009-1753/paths.json`); TC04 recording BLOCKED at Update ("Required" on Report To*, distributor 15108843). **On hold** until the QA team answers the G66 Setup review; the Report To question has not been shared with QA yet. Rule change: record one case per distinct path (OPERATING_RULES).
+- 2026-10-12: watcher A20 fixed (menu choices / toggles, stable wrapper ids, grid row clicks, mask fillers, toast de-duplication) and the converter reads the new entries (menu choice -> tab navigation, row clicks -> gap for the framework owner). Proven on `framework/tools/fixtures/watcher_a20_mock.html` + 20 unit tests; live proof pending.
+- Next: live proof of A20 on the next DSR Profile run (fresh full run Maker + Checker, new DSR code / user / cell numbers) -> then scripts; SDMS-6084 waits for QA.

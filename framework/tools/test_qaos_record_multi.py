@@ -175,6 +175,89 @@ class Converter(unittest.TestCase):
         self.assertIn("'Opr-1'", sql)
         self.assertIn("'linkText'", sql)
 
+    def test_menu_choices_and_grid_rows(self):
+        """A20: the tab menu toggle is skipped (the engine opens it), a menu choice with a Dem/Opr/Oth/addr id becomes the
+        next screen's navigation, one without such an id is a gap for the framework owner, and a grid row click is a gap
+        (no engine event mapped yet) instead of being dropped silently."""
+        url = '/ngui/dyl/layout'
+        log = [
+            {'act': 'nav_click', 'id': 'DYL_DT1002', 'locator': '#DYL_DT1002', 'search': 'DSR Profile - DT', 't': 1},
+            {'act': 'screen', 'url': url, 't': 2},
+            {'act': 'row_select', 'grid': 'dataGrid', 'rowindex': '1', 'column': 'DSR Code', 'value': 'AUTO1',
+             'keyColumn': 'DSR Code', 'key': 'AUTO1', 't': 3},
+            {'act': 'row_select', 'grid': 'dataGrid', 'rowindex': '1', 'column': 'DSR Code', 'value': 'AUTO1',
+             'keyColumn': 'DSR Code', 'key': 'AUTO1', 't': 4},                                   # second click: one gap
+            {'act': 'tab', 'id': 'Dem-1', 'value': 'Demographics', 'locator': '#Dem-1', 't': 5},
+            {'act': 'text', 'label': 'DSR Name', 'id': 'dsrName', 'locator': '#dsrName', 'value': 'Auto DSR', 't': 6},
+            {'act': 'menu_open', 'id': 'btn_1', 'text': '', 'locator': '#btn_1', 't': 7},
+            {'act': 'menu_option', 'value': 'Address', 'id': '', 'tabId': 'addr-1', 'menu': 'btn_1', 't': 8},
+            {'act': 'text', 'label': 'Street/Road', 'id': 'street', 'locator': '#street', 'value': 'Saddar', 't': 9},
+            {'act': 'menu_open', 'id': 'btn_1', 'text': '', 'locator': '#btn_1', 't': 10},
+            {'act': 'menu_option', 'value': 'Bank', 'id': '', 'tabId': '', 'dupTabId': 'tab_3', 'menu': 'btn_1', 't': 11},
+            {'act': 'text', 'label': 'Account No', 'id': 'acct', 'locator': '#acct', 'value': '123', 't': 12},
+        ]
+        rows = [{'case': 'TC01', 'Name': 'Auto DSR', 'Street': 'Saddar', 'Acct': '123'}]
+        meta = {'story': 'TEST-3', 'case': 'TC01'}
+        spec = M.build(log, meta, '0997', 'Menu', 'NG_MENU', 'Demographics;Address;Bank')
+        sc = spec['screens']
+        self.assertEqual([(s.get('navigation_type'), s.get('navigation_path')) for s in sc],
+                         [('id', 'Dem-1'), ('id', 'addr-1'), ('linkText', 'Bank')])
+        self.assertEqual([x['id'] for x in spec['skipped_clicks']], ['btn_1', 'btn_1'])   # toggles: opened by the engine
+        self.assertFalse(any(e.get('field') == 'btn_1' for s in sc for e in s['events']))
+        row_gaps = [g for g in spec['gaps'] if g.startswith('grid row')]
+        self.assertEqual(len(row_gaps), 1)
+        self.assertIn("'AUTO1'", row_gaps[0])
+        menu_gaps = [g for g in spec['gaps'] if 'tab menu choice' in g]
+        self.assertEqual(len(menu_gaps), 1)
+        self.assertIn("'Bank'", menu_gaps[0])
+
+    def test_row_filter_events(self):
+        """Framework row-filter pattern (e.g. Prospect_Outlet_Approval_R2): Filter checkbox (0004/0002) -> Search Text on
+        rowfilter_<col> (0001/0001) -> Waiting 3 -> Grid Click row_1_<field>. The filter value is REPO when it was
+        remembered earlier in the flow, EXCEL when it binds to one data key, FIXED otherwise (QA lead, 2026-10-12)."""
+        def screen_log(url, fid, val, t):
+            return [{'act': 'screen', 'url': url, 't': t},
+                    {'act': 'check', 'id': 'gridFilterCheckbox', 'locator': '#gridFilterCheckbox', 'label': 'Show filter row', 't': t + 1},
+                    {'act': 'cell', 'label': 'DSR Code', 'id': fid, 'locator': '#' + fid, 'value': val, 'grid': 'dataGrid', 't': t + 2},
+                    {'act': 'cell', 'label': 'DSR Code', 'id': fid, 'locator': '#' + fid, 'value': val, 'grid': 'dataGrid', 't': t + 3},
+                    {'act': 'row_select', 'grid': 'dataGrid', 'id': 'row_0_dsr_code', 'keyColumn': 'DSR Code', 'key': val, 't': t + 4},
+                    {'act': 'row_select', 'grid': 'dataGrid', 'id': 'row_0_dsr_code', 'keyColumn': 'DSR Code', 'key': val, 't': t + 5},
+                    {'act': 'click', 'id': 'forward', 'locator': '#forward', 'text': 'Forward', 't': t + 6}]
+        log = ([{'act': 'nav_click', 'id': 'DYL_X', 'locator': '#DYL_X', 'search': 'X', 't': 1},
+                {'act': 'screen', 'url': '/ngui/create', 't': 2},
+                {'act': 'text', 'label': 'DSR Name', 'id': 'dsrName', 'locator': '#dsrName', 'value': 'Auto DSR', 't': 3},
+                {'act': 'remember', 'name': 'REPO_DSRCODE', 'label': 'DSR Code', 'id': 'dsrCode', 'locator': '#dsrCode', 'value': 'AUTO1', 't': 4}]
+               + screen_log('/ngui/approve', 'rowfilter_A', 'AUTO1', 10)        # remembered earlier -> REPO
+               + screen_log('/ngui/inquiry', 'rowfilter_B', 'AUTO2', 30)        # a data key -> EXCEL
+               + screen_log('/ngui/report', 'rowfilter_C', 'ACTIVE', 50))       # no data key -> FIXED
+        rows = [{'case': 'TC01', 'Name': 'Auto DSR', 'Other': 'AUTO2'}, {'case': 'TC02', 'Name': 'DSR 2', 'Other': 'AUTO9'}]
+        meta = {'story': 'TEST-4', 'case': 'TC01'}
+        spec = M.build(log, meta, '0996', 'Filter', 'NG_FILTER', 'Create;Approve;Inquiry;Report')
+        M.casedata(spec, log, meta, rows, {})
+        sc = {s['name']: s for s in spec['screens']}
+        flow = [(e['desc'], e['type'] + '/' + e['event'], e.get('field'), e.get('fixed'), e.get('fixedvalue_type'))
+                for e in sc['Approve']['events'][1:]]
+        self.assertEqual(flow, [('Filter', '0004/0002', 'gridFilterCheckbox', None, None),
+                                ('Search Text DSR Code', '0001/0001', 'rowfilter_A', 'REPO_DSRCODE', 'REPO'),
+                                ('Waiting', '0000/0006', None, '3', None),
+                                ('Grid Click', '0004/0002', 'row_1_dsr_code', None, None),       # row_1 = first row, clicked once
+                                ('Forward Button', '0004/0002', 'forward', None, None)])
+        self.assertEqual(sc['Approve']['fields'], [])                                    # a filter value is not a field
+        inq = next(e for e in sc['Inquiry']['events'] if e.get('field') == 'rowfilter_B')
+        self.assertEqual((inq['fixed'], inq['fixedvalue_type']), ('DSR Code', 'EXCEL'))
+        rep = next(e for e in sc['Report']['events'] if e.get('field') == 'rowfilter_C')
+        self.assertEqual((rep['fixed'], rep['fixedvalue_type']), ('ACTIVE', 'FIXED'))
+        cd = {x['sheet']: x for x in spec['casedata']['sheets']}
+        self.assertEqual(cd['Inquiry']['columns'][-1], 'DSR Code')
+        self.assertEqual([r[-1] for r in cd['Inquiry']['rows']], ['AUTO2', 'AUTO9'])
+        self.assertNotIn('DSR Code', cd['Approve']['columns'])
+        self.assertFalse(any(g.startswith('grid row') for g in spec['gaps']))
+        sys.path.insert(0, TOOLS)
+        import gen_framework_sql as G
+        sql, _, _ = G.build(spec)
+        for text in ("'row_1_dsr_code'", "'REPO_DSRCODE'", "'EXCEL'", "'FIXED'"):
+            self.assertIn(text, sql)
+
     def test_run_info_in_sql_header(self):
         sys.path.insert(0, TOOLS)
         import gen_framework_sql as G

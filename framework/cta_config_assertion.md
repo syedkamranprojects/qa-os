@@ -80,6 +80,8 @@ The `fct_pr_cmpt_component_type` / `fct_pr_ce_component_event` tables are empty;
 | `0000/0002` | Verification | — |
 | `0000/0016`–`0019` | Mobile: calendar, swipe, condition, fixed combo | — |
 
+**Selecting a record in a grid (web, QA lead 2026-10-12):** row filter, never a raw row click. `0004/0002` on `gridFilterCheckbox` ("Filter") -> `0001/0001` on `rowfilter_<column>` ("Search Text") with `psef_fixedvalue_type` **REPO** (`psef_fixed_value` = repository name, e.g. `REPO_OutletCode`), **EXCEL** (`psef_fixed_value` = column header in the screen's case-data sheet) or **FIXED** (the literal) -> `0000/0006` wait `3` -> `0004/0002` on `row_1_<field>` ("Grid Click", the first row; 715 live events use `row_1_`). Example: screen 024101 Prospect_Outlet_Approval_R2.
+
 Only `psef_status = 'Y'` rows run; the engine filters `IN ('Y','A')`, and `A` is unused.
 
 ## 5. Case-data workbook (bulk data), read by `util/reader/ExcelReader.java`

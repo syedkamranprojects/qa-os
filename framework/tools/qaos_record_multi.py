@@ -63,9 +63,22 @@ TAB_ID = re.compile(r'^(?:Dem|Opr|Oth|addr)-\d+$|^tab(?:_group)?_\d+$')
 # practice is the Demographics / Address drop-down toggle, which the engine opens itself (#btn_1 before Dem-1 / Opr-1).
 GENERATED_ID = re.compile(r'^dx-[0-9a-f]{4,}', re.I)
 
+# Row filter pattern of the framework (Prospect_Outlet_Approval_R2, Return Advice ...): click #gridFilterCheckbox, fill
+# rowfilter_<column> (value from REPO / EXCEL / FIXED), wait 3 s, click the first row's cell row_1_<field>.
+ROW_FILTER = re.compile(r'^rowfilter_')
+ROW_CELL = re.compile(r'^row_\d+_(.+)$')
+FILTER_CHECKBOX = 'gridFilterCheckbox'
+
+# tab ids the engine reaches through the tab menu (Main.navigateOnTabs clicks #btn_1 first for these)
+ENGINE_MENU_TAB = re.compile(r'^(?:Dem|Opr|Oth|addr)-\d+$')
+
 
 def as_tab(a):
-    """The log entry, with a click on a known tab id treated as a tab click."""
+    """The log entry, with a click on a known tab id treated as a tab click. A choice in a tab menu (the Demographics /
+    Address selector, logged as menu_option since A20) is the tab of the next framework screen: its own tab id when it
+    has a unique one, else its text."""
+    if a.get('act') == 'menu_option':
+        return dict(a, act='tab', id=a.get('tabId') or a.get('id') or '', menu_choice=True)
     return dict(a, act='tab') if a.get('act') == 'click' and TAB_ID.match(a.get('id') or '') else a
 
 
@@ -108,6 +121,7 @@ def build(log, meta, mg, flow_desc, filename, names):
 
     nav_locs = set(meta.get('nav_locators') or NAV_LOCATORS)
     snap_grids = {a.get('grid') for a in log if a.get('act') == 'row'}
+    remembered = []                                      # (value, repository name) of 'remember' entries so far
     for a in log:
         a = as_tab(a)
         act = a.get('act')
@@ -133,6 +147,24 @@ def build(log, meta, mg, flow_desc, filename, names):
                                     'colindex': c.get('colindex'), 'grid': a.get('grid'),
                                     'evidence': f"row snapshot at {a.get('button')}: '{c.get('value')}' ({c.get('widget', '')})"})
             continue
+        if act == 'remember' and a.get('value') not in (None, ''):
+            remembered.append((str(a['value']), a.get('name')))
+        if act in ('cell', 'text') and ROW_FILTER.match(a.get('id') or ''):
+            k = ('filter', p['key'], a['id'])
+            if k in p['seen']:
+                continue                                 # the same filter value logged again (focus/Tab)
+            p['seen'].add(k)
+            val = str(a.get('value') or '')
+            repo = next((n for v, n in reversed(remembered) if same(val, v)), None)
+            column = (a.get('label') or a.get('column') or a['id'][len('rowfilter_'):]).strip()
+            if repo:
+                ev(p, desc=f'Search Text {column}', type='0001', event='0001', locateby='id', field=a['id'], fixed=repo,
+                   fixedvalue_type='REPO', ref=child, evidence=f"row filter {a['id']} = {val!r}: the value remembered earlier as {repo}")
+            else:                                        # FIXED until the case data binds it to a data key (-> EXCEL)
+                ev(p, desc=f'Search Text {column}', type='0001', event='0001', locateby='id', field=a['id'], fixed=val,
+                   fixedvalue_type='FIXED', ref=child, filter_column=column, filter_value=val,
+                   evidence=f"row filter {a['id']} = {val!r}")
+            continue
         if a.get('grid') and a.get('grid') in snap_grids and act in ('cell', 'option'):
             continue                                     # the row snapshots carry this grid's fields and values
         if act in ('text', 'pick', 'date', 'option', 'cell'):
@@ -155,6 +187,9 @@ def build(log, meta, mg, flow_desc, filename, names):
                                 'grid': a.get('grid'), 'evidence': f"recorded {act} '{a.get('value', '')}' ({a.get('widget', '')})"})
         elif act == 'tab':
             tn = tab_nav(a)
+            if a.get('menu_choice') and not (tn and tn[0] == 'id' and ENGINE_MENU_TAB.match(tn[1])):
+                gaps.append(f"tab menu choice '{a.get('value')}' has no Dem/Opr/Oth/addr id (the engine opens the menu #btn_1 only "
+                            f"for those): navigation {tn} must be confirmed by the framework owner")
             if not tn:
                 gaps.append(f"tab '{a.get('value') or a.get('text')}' without id, text or xpath")
                 continue
@@ -169,6 +204,27 @@ def build(log, meta, mg, flow_desc, filename, names):
                 p = cur
             p['nav'], p['tab'] = tn, (a.get('value') or a.get('text') or tn[1]).strip()
             p['key'] = p['path'] + '#' + tn[1]
+            continue
+        elif act == 'menu_open':
+            skipped.append({'act': act, 'id': a.get('id'), 'text': a.get('text'),
+                            'reason': 'tab menu toggle: the engine opens it itself before the menu choice (#btn_1)'})
+            continue
+        elif act in ('row_select', 'row_open') and ROW_CELL.match(a.get('id') or ''):
+            fid = 'row_1_' + ROW_CELL.match(a['id']).group(1)   # the first row after filtering (framework convention)
+            if any(e.get('field') == fid for e in p['events']):
+                continue                                 # second click on the same row: one Grid Click
+            if p['events'][-1].get('desc', '').startswith('Search Text'):
+                ev(p, desc='Waiting', type='0000', event='0006', fixed='3', ref=child, evidence='let the filtered grid refresh before the row click')
+            ev(p, desc='Grid Click', type='0004', event='0002', locateby='id', field=fid, ref=child,
+               evidence=f"recorded row click on {a.get('id')} ({a.get('keyColumn')} = {a.get('key')!r})")
+            continue
+        elif act in ('row_select', 'row_open'):
+            k = ('row', p['key'], a.get('grid'), a.get('key'))
+            if k not in p['seen']:
+                p['seen'].add(k)
+                gaps.append(f"grid row {'double ' if act == 'row_open' else ''}click on {a.get('grid') or 'a grid'} row "
+                            f"{a.get('keyColumn')} = {a.get('key')!r}: no engine event mapped yet; confirm how the framework "
+                            f"selects/opens this record (filter row + which event)")
             continue
         elif act in ('click', 'check'):
             if GENERATED_ID.match(a.get('id') or ''):
@@ -186,7 +242,10 @@ def build(log, meta, mg, flow_desc, filename, names):
             if last_toast_t and a.get('t') and a['t'] - last_toast_t < 10000:
                 ev(p, desc=f'Wait before {name}', type='0000', event='0006', fixed='5', ref=ref,
                    evidence='a toast was shown just before; let it clear (the engine reads the first toast)')
-            if act == 'check':
+            if act == 'check' and fid == FILTER_CHECKBOX:     # the framework clicks the filter-row checkbox as a button
+                ev(p, desc='Filter', type='0004', event='0002', locateby=by, field=fid, ref=ref,
+                   evidence=f"recorded checkbox {a.get('locator') or fid} (Show filter row)")
+            elif act == 'check':
                 ev(p, desc=f'{name} Checkbox', type='0000', event='0015', locateby=by, field=fid, ref=ref,
                    evidence=f"recorded checkbox {a.get('locator') or fid}")
             else:
@@ -294,6 +353,8 @@ def _recorded_values(log, meta):
             continue
         if a.get('act') not in ('text', 'pick', 'date', 'option', 'cell') or a.get('locator') in nav_locs:
             continue
+        if ROW_FILTER.match(a.get('id') or ''):
+            continue                                     # a row filter value is an event value, not a field (see build)
         label = a.get('label') or a.get('column')
         if not label:
             continue
@@ -354,15 +415,28 @@ def casedata(spec, log, meta, rows, titles):
         if bad:
             spec['gaps'].append(f"case data sheet {sc['name']!r} left header-only: " + '; '.join(bad))
             continue
-        cols, data = SCREEN_COLS + caps, []
+        # row filter values: EXCEL column when the recorded value binds to exactly one data key, else they stay FIXED
+        filt = []
+        for e in sc['events']:
+            if e.get('fixedvalue_type') != 'FIXED' or 'filter_value' not in e:
+                continue
+            keys = [k for k, v in rec.items() if k != 'case' and not isinstance(v, (list, dict)) and same(e['filter_value'], v)]
+            if len(keys) == 1:
+                col = e['filter_column'] if e['filter_column'] not in caps else e['filter_column'] + ' Filter'
+                e.update(fixed=col, fixedvalue_type='EXCEL', evidence=e['evidence'] + f' -> case data column {col!r} (data key {keys[0]})')
+                filt.append((col, keys[0]))
+        caps_all = caps + [c for c, _ in filt]
+        binding.update({c: k for c, k in filt})
+        cols, data = SCREEN_COLS + caps_all, []
         is_lines = bool(grid_lines) and caps
         for i, r in enumerate(rows, 1):
             title = f"{r.get('case')} {titles.get(r.get('case'), '')}".strip()
             if is_lines:
                 for j, ln in enumerate(r.get(line_key) or [], 1):
-                    data.append([f'{i:02d}-{j:02d}', f'{r.get("case")} line {j}', 'TN', 'N'] + [str(ln.get(binding[c], '')) for c in caps])
+                    data.append([f'{i:02d}-{j:02d}', f'{r.get("case")} line {j}', 'TN', 'N'] + [str(ln.get(binding[c], '')) for c in caps]
+                                + [str(r.get(k, '')) for _, k in filt])
             else:
-                data.append([f'{i:02d}', title, 'TN', 'N'] + [str(r.get(binding[c], '')) for c in caps])
+                data.append([f'{i:02d}', title, 'TN', 'N'] + [str(r.get(binding[c], '')) for c in caps_all])
         out.append({'sheet': sc['name'], 'columns': cols, 'rows': data})
     for s in spec['assertion_sheets']:
         out.append({'sheet': s['sheet'], 'columns': ['PK', 'CASE_TYPE', 'EXPECTED_MESSAGE'],

@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>QA OS watcher A20 mock</title>
+<style>body{font:14px sans-serif;margin:20px} .pop{border:1px solid #999;padding:4px;margin:6px 0;width:220px} td{border:1px solid #ccc;padding:4px} .hidden{display:none}</style>
+</head><body>
+<!-- Mimics the DCODE DSR Profile shapes seen on 2026-10-09 (A20). No app code; structure only. -->
+<div class="breadcrumb">Home > Distributor Setup > DSR Profile > DSR Profile - DT</div>
+
+<!-- grid: list of records (row filter, row select / open) -->
+<div class="dx-checkbox" id="gridFilterCheckbox" role="checkbox">Show filter row</div>
+<div id="dataGrid" class="dx-datagrid"><table>
+  <tr class="dx-header-row"><td aria-colindex="1" id="dx-col-1">DSR Code</td><td aria-colindex="2" id="dx-col-2">DSR Name</td></tr>
+  <tr class="dx-row-filter"><td aria-colindex="1"><input id="rowfilter_TXT__epp2_busent_phs_lvl2_code" type="text"></td><td aria-colindex="2"></td></tr>
+  <tr class="dx-data-row" aria-rowindex="1"><td aria-colindex="1" aria-describedby="dx-col-1"><div id="row_1_dsr_code">AUTO091013</div></td><td aria-colindex="2" aria-describedby="dx-col-2">Auto_DSR_QT</td></tr>
+</table></div>
+
+<!-- tab bar: Demographics label (tab_2) + an icon-only toggle (tab_3 > dx-button with a generated id) -->
+<div id="tab_2"><div class="dx-button" role="button"><span>Demographics</span></div></div>
+<div id="tab_3"><div class="dx-button" role="button" id="dx-38a9172b-caea-3037-782d-c837220f47bf"><i class="dx-icon">&#9660;</i></div></div>
+
+<!-- the selector's popup list: items carry duplicated nested tab ids -->
+<div class="dx-dropdownbutton-popup-wrapper pop"><div class="dx-overlay-content"><div class="dx-list">
+  <div class="dx-list-item"><div id="tab_3x" class="dx-list-item-content"><span id="tab_9">Demographics</span></div></div>
+  <div class="dx-list-item"><div class="dx-list-item-content"><span id="tab_9">Address</span></div></div>
+</div></div></div>
+
+<!-- sub tab -->
+<div id="tab_group_2" class="dx-button" role="button">Residence</div>
+
+<!-- plain fields -->
+<div class="col-6"><label>Premises Number</label></div><div class="col-6"><input id="txt__eadr_desc" type="text"></div>
+<div class="col-6"><label>Cell Phone 1</label></div><div class="col-6"><div class="dx-textbox dx-texteditor-masked"><input id="txt__eadr_phone1" class="dx-texteditor-input" type="text"></div></div>
+
+<!-- a real field drop-down (City) with its own list -->
+<div class="col-6"><label>City</label></div><div class="col-6"><div class="dx-selectbox dx-dropdowneditor"><input id="DDL__pccy_ctrycty_code" class="dx-texteditor-input" type="text" readonly></div></div>
+<div class="dx-selectbox-popup-wrapper dx-dropdowneditor-overlay pop"><div class="dx-overlay-content"><div class="dx-list"><div class="dx-list-item">Karachi</div></div></div></div>
+
+<!-- popup Save: stable id on the cent-button wrapper, generated id on the dx-button -->
+<cent-button id="forwardPopUpSaveBtn"><div class="dx-button dx-widget" role="button" id="dx-11112222-3333-4444-5555-666677778888"><span>Save</span></div></cent-button>
+
+<div id="toastArea"></div>
+<script>
+  // a toast that DevExtreme re-renders: two message nodes with the same text, then a later one that stays visible
+  document.getElementById('forwardPopUpSaveBtn').addEventListener('click', function () {
+    var a = document.getElementById('toastArea');
+    var mk = function () { var d = document.createElement('div'); d.className = 'dx-toast-content dx-toast-success'; d.innerHTML = '<div class="dx-toast-message">Forwarded successfully</div>'; a.appendChild(d); return d; };
+    mk(); setTimeout(function () { a.innerHTML = ''; mk(); }, 300);
+  });
+</script>
+</body></html>
