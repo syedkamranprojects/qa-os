@@ -326,3 +326,33 @@ Source: learning_sessions/2026-10-05_G66-PK_session1_log.md, learning_sessions/2
 - "One login user per DSR; DSR cell numbers unique; CNIC 13-digit mask" (above): confirmed; these validations exist because the Delivery App and the Warehouse App use the data.
 - "Mapping saves show no toast" (above): confirmed.
 - "Prospect Outlet Forward disabled" (above): still unexplained (Q-PO1, **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).
+
+## Live training session with the QA team (2026-10-13, PK cnr1dev1, distributor 15108843; paused, resumes 2026-10-14)
+
+Source: learning_sessions/2026-10-13_SND-PK_QA-Team_live_log.md; report learning_sessions/2026-10-13_SND-PK_QA-Team_live_report.md. Trainers Syed Kamran (QA lead), Feroz Hussain, Muhammad Fahad. Users Automation, Auto_Multi_Orga (Maker), Auto_Tssm (TSSM). Pages: master_data/ (outlet.md, pjp.md, dsr.md, section_and_mappings.md).
+
+### D-TRAIN-1013-1 KNOWN ISSUE: Prospect Outlet Approval Forward fails
+- Where: cnr1dev1, 2026-10-13, user Automation, Prospect Outlet Approval, outlet C0154187445 (Pending for approval) [observed 2026-10-13].
+- What: Forward -> Comments "Automation Approval" -> Save -> toast (error) "Action cannot be performed, something went wrong!"; popup stays open; outlet stays Pending for approval [observed 2026-10-13].
+- Ruling: a **known issue**; the QA team reported it to the dev team on 2026-10-13 [stated 2026-10-13 Syed Kamran]. Re-test after the fix.
+
+### D-TRAIN-1013-2 POSSIBLE DEFECT: Change Track Outlet Profile lists In-Active outlets
+- Rule (correction): the screen shows the **Active** outlet list; change tracking applies to Active outlets [stated 2026-10-13 QA team].
+- Observed (read-only, Auto_Multi_Orga): filter "C015418744" lists C0154187441/442/443/444 (In-Active, Draft) and C0154187445 / C0154187446 (In-Active, Pending for approval) [observed 2026-10-13]; on 2026-10-05 request 74 was even created on the Draft outlet C0154187435 [observed 2026-10-05].
+- Status: **possible defect, QA team to confirm** (contradiction 49). No request created.
+
+### Answered live (business rules)
+- **Q-PJ8**: approval follows the creating user's level: a DT user's PJP (also on PJP Creation HQ) needs TSSM approval on PJP Approval; an HQ user's record needs none [stated 2026-10-13 QA team]; proven: AUTO241013 In-Active -> Active after Auto_Tssm's Forward [observed 2026-10-13].
+- **Q-PJ7**: on an Active PJP, GPS Restriction / Radius / DDO stay read-only on PJP Creation DT; they are changed on PJP Change Request (request 63) and the TSSM approves on the same screen; the PJP then shows GPS Yes / 1 / Delivery Optimization [observed 2026-10-13].
+- **Q-PJ6**: PJP Daily Inquiry Process creates the daily route for the working date (Daily Route No 1) and loads the outlets due that day (1000000001-03, sequence 1-3); visible only after a full page reload [observed 2026-10-13].
+- Numbering (manual vs generated codes) is a technical DB configuration per client / screen, not a QA subject [stated 2026-10-13 QA team].
+
+### Other findings (business rules, not defects)
+- One DSR per PJP: "DSR AUTO241134 already Exists in Other PJP(s): AUTO241009" [observed 2026-10-13; stated 2026-10-13 QA team].
+- A DSR is offered on PJP Creation only after Distributor Mapping > Distributor > DSR (mapping save shows no message) [observed 2026-10-13].
+- DSR Forward needs a Residence address and a CNIC document ("NIC No cannot be empty"); User ID may be empty; Qualification / Experience / Device not needed [observed 2026-10-13].
+- Prospect Outlet Forward needs the user's right / role (granted to Automation 2026-10-13 [stated 2026-10-13 QA team]) and a Company address ("Company address cannot be empty."); Address is stored with Save (Update gives no message); a successful Forward -> "Forwarded successfully", Pending for approval [observed 2026-10-13]. Why Forward is enabled on C0154187445 but not on C0154187442 / 444 is still open (Q-PO1).
+- Outlet Profile has no Forward button; mandatory Demographics and Operative Info fields recorded in outlet.md [observed 2026-10-13].
+
+### Environment notes (not business)
+- The gateway answered "Access Denied" twice during heavy activity (also the SSO page), and the session ended (401) once after the rights change; re-login needed [observed 2026-10-13]. Friction items for HARDENING are in the session log.

@@ -8,7 +8,7 @@ markets: [PK]
 roles: [Maker, Checker]
 depends_on: [outlet, dsr]
 sources: [live-walk, sme]
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 
 # Sections, setup records and mappings: how it works (S&D / DCODE)
@@ -17,6 +17,7 @@ Status: DRAFT written by Claude from the group 66 (NG_Setup Flow_PK) learning wa
 Source flows: group 66 seq 6 (00590001 Section), 7 (00720001 Section Approval), 8 (00940001 Selling Category), 9 (00570001 Warehouse Profile), 10 (00580001 Vehicle Profile), 19 (00960001 Distributor Mapping), 20 (00950001 Company Mapping), 32 (01250001 Section Creation HQ), 34 (02460001 DSR Mapping HQ).
 Last updated: 2026-10-09.
 2026-10-12: QA team written answers to the group 66 review merged with **[stated 2026-10-12 QA team]** (statements 8, 12, 13; Q-G66-4; D-G66-2-1); report `../learning_sessions/2026-10-12_SND-PK_QA-Team_answers_report.md`.
+2026-10-13: live training session with the QA team: Distributor Mapping DSR sub-tab used for the new DSR AUTO101013 and shown to be required for PJP Creation; Q-PJ8 answer (approval by creating user's level) also covers Section Profile; tags **[observed 2026-10-13]** / **[stated 2026-10-13 QA team]**; log `../learning_sessions/2026-10-13_SND-PK_QA-Team_live_log.md`, report `../learning_sessions/2026-10-13_SND-PK_QA-Team_live_report.md`.
 
 ## 1. Purpose
 - These are the building blocks a PJP is made of: a **section** (group of outlets), a **selling category** (group of products), a **warehouse** (where the PJP's orders take stock from) (superseded 2026-10-12, wording: the warehouse in which the PJP's orders are checked for availability and get stock temporarily allocated; an order does not deduct stock [stated 2026-10-12 QA team]) and a **vehicle** (for the DSR) [observed 2026-10-05, 2026-10-09; stated 2026-10-08 doc:PJP updated R2.pptx s.4 in pjp.md].
@@ -24,7 +25,7 @@ Last updated: 2026-10-09.
 
 ## 2. Actors and roles
 - **Section (DT)**: Maker creates and Forwards, Checker (Auto_Tssm) approves on Section Approval with one Forward [observed 2026-10-05].
-- **Section Creation HQ**: the HQ user (headquarter) creates the section Active at once, no Forward, no approval [observed 2026-10-09]. Confirmed 2026-10-12 (statement 8; Q-G66-4): the HQ screen is intended for specific users and does not require approval [stated 2026-10-12 QA team]; users and roles were covered in the earlier training (role table: 9999 HQ Global works without approval [stated 2026-10-08 QA Team]).
+- **Section Creation HQ**: the HQ user (headquarter) creates the section Active at once, no Forward, no approval [observed 2026-10-09]. Confirmed 2026-10-12 (statement 8; Q-G66-4): the HQ screen is intended for specific users and does not require approval [stated 2026-10-12 QA team]; users and roles were covered in the earlier training (role table: 9999 HQ Global works without approval [stated 2026-10-08 QA Team]). 2026-10-13: only records created by a **DT user** (Outlet Profile, Section Profile, PJP) need TSSM approval; approval follows the creating user's level, not the screen name [stated 2026-10-13 QA team] (pjp.md section 2).
 - Selling Category, Warehouse Profile, Vehicle Profile: Maker saves; no approval step in group 66 (Warehouse Profile Approval and Vehicle Profile Approval II options exist in the menu) [observed 2026-10-05].
 - Distributor Mapping and Company Mapping: Maker (Auto_Multi_Orga) saves, no approval; the HQ user uses the same Distributor Mapping screen for "DSR Mapping HQ" [observed 2026-10-09].
 
@@ -65,6 +66,7 @@ C. Selling Category, Warehouse, Vehicle (seq 8-10)
 D. Distributor Mapping (seq 19; HQ seq 34)
 1. [Maker] Navigate to Distributor Mapping; select the distributor row; on each sub-tab tick the items in the available grid and Click Save: Distributor -> DSR (AUTO241134), Warehouse (C0000000216), Vehicle (999713523); DSR tab -> the DSR -> Selling Category (Hair Care, Skincare, Beverages); Section tab -> SEC000000067 -> Outlet (1000000002, 1000000003; 01 already mapped); MIS Type -> 01 Warehouse Type -> Product (10519 KNORR PERI-PERI SAUCE 6X2L) [observed 2026-10-09] (66:19:00960001).
 2. [HQ user] Same screen: distributor -> DSR sub-tab -> the HQ DSR (AUTOH24109) -> Save [observed 2026-10-09] (66:34:02460001).
+3. [Maker] (Auto_Multi_Orga, 2026-10-13) Same screen: Distributor tab -> row 15108843 Auto KARACHI -> **DSR** sub-tab; show the filter row of the available grid (each grid has its own filter toggle); filter the DSR code AUTO101013 -> 1 row (Auto_DSR_PJP); tick it; Save -> **no message**, Save greys out [observed 2026-10-13]. Right after, the DSR was offered on PJP Creation DT [observed 2026-10-13].
 
 E. Company Mapping (seq 20)
 1. [Maker] Navigate to Company Mapping; Distributor tab, distributor 15108843: Selling Category (SEC000000035), Product (20061857), Principal (0001 Sunsilk4) ticked + Save; Outlet sub-tab blocked by **D-G66-2-1** (below) [observed 2026-10-09] (66:20:00950001).
@@ -94,6 +96,7 @@ E. Company Mapping (seq 20)
 - **Mapping tick rule: the end state counts** - the workbook's checkbox ticks mean "these items mapped"; rows already mapped stay mapped and only unticked rows are ticked (ticking an already-mapped row again would un-map it) [stated 2026-10-09 Syed Kamran; toggle behaviour observed 2026-10-09].
 - **Mapping saves show no toast** on Distributor Mapping and Company Mapping; success is seen only in the grids and the Save button greying out [observed 2026-10-09]. Confirmed 2026-10-12 together with the end-state tick rule (statement 12, Y) [stated 2026-10-12 QA team].
 - The available grids filter by "contains" on the code (filter "01" matched 01 Warehouse Type) [observed 2026-10-09].
+- **Distributor Mapping > Distributor > DSR sub-tab is required before PJP Creation**: a DSR (even approved and Active) is offered in the PJP Creation DSR list only once it is mapped to the distributor here [observed 2026-10-13] (pjp.md section 8, dsr.md). The mapping save shows no message, as on 2026-10-09 [observed 2026-10-13].
 - Vehicle: Limit Multi Trip is disabled while Allow Multiple Trips = No; Owner CNIC is a 13-digit mask [observed 2026-10-05].
 
 ## 9. Messages
@@ -118,13 +121,17 @@ E. Company Mapping (seq 20)
 | 3 | Allowable Batch Save of an outlet already in other sections | saved, informational list of sections | [observed 2026-10-05] |
 | 4 | Distributor Mapping tick + Save | row appears in the mapped grid; assert the grid, not a toast | [observed 2026-10-09] |
 | 5 | Company Mapping > Outlet sub-tab | currently fails (D-G66-2-1); a re-test after a fix should list available outlets | [observed 2026-10-09] |
+| 6 | New approved DSR: PJP Creation DSR list before and after Distributor Mapping > DSR | offered only after the mapping | [observed 2026-10-13] |
 
 Traps: never "click checkbox 1-3" blindly on a mapping grid: already-mapped rows get un-mapped; assert the end state. Mapping screens give no message to assert. Generated codes change every run.
 
 ## 12. Open questions
 - Q-PO2 (class A, OPEN_QUESTIONS.md section 4): a Draft outlet is not offered for section / distributor mapping | Default: outlets are offered only after approval.
 - Contradiction 45 (Default delivery days on the section form) in OPEN_QUESTIONS.md section 5. 2026-10-12: partly resolved: planned Section Profile enhancement [stated 2026-10-12 QA team].
-- Defect **D-G66-2-1**: Company Mapping > Distributor > Outlet sub-tab, available list returns HTTP 500 and "Action cannot be performed, something went wrong!" (cnr1dev1, 2026-10-09, Auto_Multi_Orga, distributor 15108843, two loads) [observed 2026-10-09; ruled a defect stated 2026-10-09 Syed Kamran]. 2026-10-12: the QA team confirms it is a **known issue** that requires investigation and resolution [stated 2026-10-12 QA team]; the defect stays **open** (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**: re-test the Outlet sub-tab when a ticket touches Company Mapping).
+- Defect **D-G66-2-1**: Company Mapping > Distributor > Outlet sub-tab, available list returns HTTP 500 and "Action cannot be performed, something went wrong!" (cnr1dev1, 2026-10-09, Auto_Multi_Orga, distributor 15108843, two loads) [observed 2026-10-09; ruled a defect stated 2026-10-09 Syed Kamran]. 2026-10-12: the QA team confirms it is a **known issue** that requires investigation and resolution [stated 2026-10-12 QA team]; the defect stays **open** (**deferred: raise when a ticket touches this area (QA lead 2026-10-12)**: re-test the Outlet sub-tab when a ticket touches Company Mapping). 2026-10-13: on the live-session list as #9 (fix date), not reached on 2026-10-13; next session 2026-10-14.
+- Framework decision pending (2026-10-13): group 66 step 35 (PJP Creation HQ, run as Auto_Multi_Orga = a DT user) produces a PJP that needs TSSM approval (Q-PJ8 answered): either run step 35 as headquarter or add a PJP Approval step (FRAMEWORK_DRIFT.md section 4c). Not a business question.
+- Section Profile delivery days (contradiction 45, planned change): on the live-session list as #8, not reached on 2026-10-13.
 
 ## 13. Sources
 - `../learning_sessions/2026-10-05_G66-PK_session1_log.md` (seq 6-10); `../learning_sessions/2026-10-09_G66-PK_session2_log.md` (seq 19, 20, 32, 34, decisions); report `../learning_sessions/2026-10-09_G66-PK_session2_report.md`.
+- Live training session 2026-10-13 (Distributor Mapping DSR sub-tab for AUTO101013): `../learning_sessions/2026-10-13_SND-PK_QA-Team_live_log.md`, report `../learning_sessions/2026-10-13_SND-PK_QA-Team_live_report.md`.
