@@ -303,7 +303,7 @@ Source: learning_sessions/2026-10-08_QA_Team_followup2_answers.md. No new walk. 
 ## Group 66 (NG_Setup Flow_PK) learning walk (2026-10-05 seq 1-18, 2026-10-09 seq 19-36)
 Source: learning_sessions/2026-10-05_G66-PK_session1_log.md, learning_sessions/2026-10-09_G66-PK_session2_log.md; report learning_sessions/2026-10-09_G66-PK_session2_report.md. Trainer / QA lead Syed Kamran. Pages: master_data/ (pjp.md, outlet.md, dsr.md, section_and_mappings.md), delivery_and_returns/delivery_man_shuffling.md.
 
-### D-G66-2-1 DEFECT: Company Mapping > Distributor > Outlet sub-tab fails to load the available outlets
+### D-G66-2-1 DEFECT: Company Mapping > Distributor > Outlet sub-tab fails to load the available outlets (**FIXED / CLOSED 2026-10-14**, see the 2026-10-14 block)
 - Where: cnr1dev1, 2026-10-09, user Auto_Multi_Orga, company Unilever Pakistan Limited, distributor 15108843; Company setup > Setup Mapping > Company Mapping, top tab Distributor, sub-tab Outlet [observed 2026-10-09].
 - What: the request that loads the available-outlet list answers HTTP 500 and the toast (error) "Action cannot be performed, something went wrong!" appears every time the sub-tab loads (two loads); the left grid stays "No data" while the right grid shows the mapped outlets 1000000001-05 [observed 2026-10-09].
 - Ruling: a defect [stated 2026-10-09 Syed Kamran]. Effect: outlet C0154187435 stays unmapped; the other Company Mapping sub-tabs work.
@@ -318,7 +318,7 @@ Source: learning_sessions/2026-10-05_G66-PK_session1_log.md, learning_sessions/2
 
 ## QA team answers to the group 66 review (2026-10-12, no live walk) [stated 2026-10-12 QA team]
 
-- **D-G66-2-1** (Company Mapping > Distributor > Outlet sub-tab, HTTP 500): confirmed by the QA team as a **known issue that requires investigation and resolution**; defect stays **open**; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**.
+- **D-G66-2-1** (Company Mapping > Distributor > Outlet sub-tab, HTTP 500): confirmed by the QA team as a **known issue that requires investigation and resolution**; defect stays **open**; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**. (superseded 2026-10-14: **fixed / closed**, re-tested live, see the 2026-10-14 block.)
 - **Delivery Man Shuffling** (group 66 seq 36 part 2, observed 2026-10-09 above): the QA team answered N, "a known issue that requires investigation and resolution"; the observation stays as recorded, but it is not a business rule (Q-DM2, contradiction 48; **deferred: raise when a ticket touches this area (QA lead 2026-10-12)**).
 - "An order draws stock from its PJP's warehouse" (above): wording superseded 2026-10-12: the order does not deduct stock; it checks availability for delivery and temporarily allocates the quantity, in the booking PJP's warehouse (the warehouse observation stands).
 - "Statuses after a Forward show only after leaving the screen and re-opening it" (above): confirmed: refreshing the screen shows the latest status.
@@ -336,10 +336,11 @@ Source: learning_sessions/2026-10-13_SND-PK_QA-Team_live_log.md; report learning
 - What: Forward -> Comments "Automation Approval" -> Save -> toast (error) "Action cannot be performed, something went wrong!"; popup stays open; outlet stays Pending for approval [observed 2026-10-13].
 - Ruling: a **known issue**; the QA team reported it to the dev team on 2026-10-13 [stated 2026-10-13 Syed Kamran]. Re-test after the fix.
 
-### D-TRAIN-1013-2 POSSIBLE DEFECT: Change Track Outlet Profile lists In-Active outlets
+### D-TRAIN-1013-2 WITHDRAWN (not a defect, 2026-10-14): Change Track Outlet Profile lists In-Active outlets
+- **Resolution [stated 2026-10-14 QA team]: expected** - an outlet is available on Change Track Outlet Profile as soon as it is created in Draft state. The Active / approved-only understanding is withdrawn.
 - Rule (correction): the screen shows the **Active** outlet list; change tracking applies to Active outlets [stated 2026-10-13 QA team].
 - Observed (read-only, Auto_Multi_Orga): filter "C015418744" lists C0154187441/442/443/444 (In-Active, Draft) and C0154187445 / C0154187446 (In-Active, Pending for approval) [observed 2026-10-13]; on 2026-10-05 request 74 was even created on the Draft outlet C0154187435 [observed 2026-10-05].
-- Status: **possible defect, QA team to confirm** (contradiction 49). No request created.
+- Status: **possible defect, QA team to confirm** (contradiction 49). No request created. (superseded 2026-10-14: withdrawn, not a defect; contradiction 49 resolved [stated 2026-10-14 QA team].)
 
 ### Answered live (business rules)
 - **Q-PJ8**: approval follows the creating user's level: a DT user's PJP (also on PJP Creation HQ) needs TSSM approval on PJP Approval; an HQ user's record needs none [stated 2026-10-13 QA team]; proven: AUTO241013 In-Active -> Active after Auto_Tssm's Forward [observed 2026-10-13].
@@ -356,3 +357,29 @@ Source: learning_sessions/2026-10-13_SND-PK_QA-Team_live_log.md; report learning
 
 ### Environment notes (not business)
 - The gateway answered "Access Denied" twice during heavy activity (also the SSO page), and the session ended (401) once after the rights change; re-login needed [observed 2026-10-13]. Friction items for HARDENING are in the session log.
+
+## Live training session with the QA team, continued (2026-10-14, PK cnr1dev1, distributor 15108843; COMPLETE for the group 66 open list)
+Trainers Syed Kamran (QA lead), Feroz Hussain, Muhammad Fahad; methods B + live demonstration / read-only checks. Log [learning_sessions/2026-10-14_SND-PK_QA-Team_live_log.md](learning_sessions/2026-10-14_SND-PK_QA-Team_live_log.md), report [learning_sessions/2026-10-14_SND-PK_QA-Team_live_report.md](learning_sessions/2026-10-14_SND-PK_QA-Team_live_report.md).
+
+### D-G66-2-1 FIXED / CLOSED: Company Mapping > Distributor > Outlet sub-tab loads
+- Where: cnr1dev1, 2026-10-14, Auto_Multi_Orga, Company Mapping (DYL_102013003) > Distributor tab > 15108843 Auto KARACHI > sub-tab Outlet [observed 2026-10-14].
+- What: **no error toast**; the available-outlets grid loads (555,906 rows) and the mapped grid (131 rows) [observed 2026-10-14]. The QA team had said it now works [stated 2026-10-14 QA team].
+- Effect: group 66 seq 20 outlet mapping is no longer blocked (FRAMEWORK_DRIFT.md 4d).
+
+### Read-only check: no section delivery-days field on cnr1dev1
+- Section (DYL_102003015, DT): Code / Description / Abbreviation / Status / Origin Date; Section Setup (/ngui/sectionsetup, Distributor Setup > Journey Plan > Section Setup): Section Code / Description / Abbreviation / Status / Origin Date; **no delivery-days field on either** [observed 2026-10-14].
+- QA team: delivery days are not an HQ feature; the business manages them on the Section Profile screen; the team will update Claude later [stated 2026-10-14 QA team]. Contradiction 45 / Q-PJ2 stay parked (waiting for the enhancement).
+
+### Answered (business rules)
+- **R1 role codes**: 0001 / 0005 = DT user (submit only); 0002 / 0008 = approval user; 0014 = HQ user (HQ screens only, no approval) [stated 2026-10-14 QA team]. **Workflow-diagram rule**: a user can act on a document only when a role is assigned to the user and the same role is in that document's workflow diagram (Submit / Approve) [stated 2026-10-14 QA team]. Contradiction 43 resolved; 31 partly.
+- **Q-PO1**: Prospect Outlet Forward is enabled for a user whose role is in the prospect-outlet workflow diagram; C0154187445 was created by such a user ('Yes you are right') [stated 2026-10-14 QA team]; plus the Company address rule [observed 2026-10-13].
+- **Q-DM1 / Q-DM2**: Delivery Man Shuffling works as observed on 2026-10-09; the order then belongs to the destination DM PJP / delivery man (COL26000002031 8197298470 -> AUTO301258); the only defect is the on-load 'PJP not found' / "Required parameter 'pjpNo' is not present." message (known issue) [stated 2026-10-14 QA team]. Contradiction 48 resolved.
+- **#6**: Draft outlets on Change Track Outlet Profile are expected; D-TRAIN-1013-2 withdrawn; contradiction 49 resolved [stated 2026-10-14 QA team].
+- **Framework decision**: group 66 step 35 PJP Creation HQ runs as headquarter (HQ role 0014), Active at once, no approval step [stated 2026-10-14 Syed Kamran].
+
+### Defect status after 2026-10-14
+- D-TRAIN-1013-1 (Prospect Outlet Approval Forward error): **open**, known issue, reported to dev by the QA team.
+- D-TRAIN-1013-2: **withdrawn** (not a defect).
+- D-G66-2-1: **closed** (fixed, re-tested 2026-10-14).
+- Delivery Man Shuffling on-load 'PJP not found' message: known issue (no defect id; never asserted).
+

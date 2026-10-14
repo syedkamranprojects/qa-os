@@ -8,12 +8,12 @@ The QA team answered our 2026-10-09 Setup flow review on 2026-10-12. The answers
 
 | Id | Area (screens) | Question | What we know so far |
 |---|---|---|---|
-| Q-PO1 | Outlet: Prospect Outlet, Prospect Outlet Approval | (reworded 2026-10-13) What enabled **Forward** on the QA team's prospect outlet C0154187445 but not on our C0154187442 / C0154187444, created after Automation's rights change with the same workbook data? | 2026-10-13: Forward needs the user's right / role (granted to Automation by the QA team) and the Forward Save needs a Company address ("Company address cannot be empty."). Status In-Active + Draft and "Identified by" are not enough. Approval Forward fails: known issue D-TRAIN-1013-1 (reported to dev). On the 2026-10-14 list (#1). |
-| Q-DM1 | Delivery: Delivery Man Shuffling | After a shuffle, which DM PJP / DSR does the order show? | - (on the 2026-10-14 list, #7) |
-| Q-DM2 | Delivery: Delivery Man Shuffling | QA calls the shuffling behaviour a **known issue**: what is the correct behaviour? | Observed behaviour kept, marked as a known issue (contradiction 48). On the 2026-10-14 list (#7). |
-| D-G66-2-1 | Company Mapping > Distributor > Outlet | Known issue (HTTP 500). Re-test when fixed. | QA confirmed it is a known issue. Fix date on the 2026-10-14 list (#9). |
-| C-49 | Outlet: Change Track Outlet Profile | (updated 2026-10-13) QA correction: the screen lists **Active** outlets. Live 2026-10-13 it lists In-Active (Draft, Pending for approval) outlets too: is that a defect? | Possible defect **D-TRAIN-1013-2**, QA team to confirm. Request 74 on Draft C0154187435 (2026-10-05) fits the same behaviour. |
-| C-45 | Section: Section Profile / Section Creation HQ | **Planned change:** delivery days will be entered on the Section Profile screen. Check whether it has been delivered when a section ticket comes. | QA, 2026-10-12. On the 2026-10-14 list (#8). |
+
+**Update 2026-10-14:** the live session continued and completed the list. Removed 2026-10-14 (answered or closed, OPEN_QUESTIONS.md section 2k; log `2026-10-14_SND-PK_QA-Team_live_log.md`, report `2026-10-14_SND-PK_QA-Team_live_report.md`): **Q-PO1** (Forward needs a user whose role is in the prospect-outlet workflow diagram; C0154187445 was made by such a user; plus Company address) [stated 2026-10-14 QA team], **Q-DM1** (the order belongs to the destination DM PJP / delivery man) and **Q-DM2** (behaviour correct; only the on-load 'PJP not found' / "Required parameter 'pjpNo' is not present." message is a known issue) [stated 2026-10-14 QA team], **D-G66-2-1** (fixed: Company Mapping > Outlet sub-tab loads, re-tested live) [observed 2026-10-14]. Kept: **C-45** (waiting for the QA team's update on the section delivery-days enhancement) and the SDMS-6084 section below.
+
+Removed 2026-10-14: C-45 (section delivery-days field is not part of R1; skip it in R1 scenarios [stated 2026-10-14 QA team]).
+
+Removed 2026-10-14: C-49 (Draft outlets are listed on Change Track Outlet Profile by design; D-TRAIN-1013-2 withdrawn) [stated 2026-10-14 QA team].
 
 Removed 2026-10-13 (answered in the live session, OPEN_QUESTIONS.md 2j): Q-PJ6 (Process creates the daily route + outlets due that day), Q-PJ7 (GPS / DDO via PJP Change Request, TSSM approval on the same screen), Q-PJ8 (approval follows the creating user's level).
 

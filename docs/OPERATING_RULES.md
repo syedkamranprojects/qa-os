@@ -72,3 +72,6 @@ Setup flow PK: group 66 (NG_Setup Flow_PK); its user per row comes from the grou
 - No operation is restricted yet. QA members train the system freely.
 - In a qa installation, design or tool gaps are **noted, not fixed**, in `feedback/design_gaps.md`, and the QA member is asked to check with the design contact (Syed Kamran) first. The file comes back with the training work; the QA OS team moves rows to `docs/HARDENING.md`.
 - Every run records the installation (run.json `installation`), and the generated SQL header prints it (`-- QA OS: v<version> (<mode> installation)`).
+
+## Field region scope (QA lead, 2026-10-14)
+- When a framework workbook or flow expects a field the live screen does not have, first check whether the field is in scope for the region (R1 = Pakistan + Bangladesh) before calling it missing or planned. Out-of-scope fields are recorded with their region and skipped in scenarios. Known: section delivery days are not R1.

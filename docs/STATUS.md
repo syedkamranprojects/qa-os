@@ -396,3 +396,10 @@ Register: `docs/HARDENING.md` (release gate = section D). Design: `docs/FINAL_DE
 - **Resume 2026-10-14 10:30 with:** #1 Q-PO1 remaining point (what enabled Forward on the team's C0154187445), #6 confirm D-TRAIN-1013-2, #7 Delivery Man Shuffling (Q-DM1/Q-DM2), #8 Section Profile delivery days, #9 D-G66-2-1 fix date; framework decision for group 66 step 35 (headquarter vs PJP Approval step).
 - Records left on cnr1dev1: outlets C0154187441/442/444 (Draft), C0154187445 (team's, pending - approval error), DSR AUTO101013 (Active, mapped), PJP AUTO241013 (Active, GPS Yes / radius 1 / DDO, request 63, daily route 1 for 10-13). HARDENING A21 = recording-tool lessons of the day.
 - Other paused work: SDMS-5372 at checkpoint C1 (8 defaults to accept); SDMS-6084 waits for QA's Report To answer; SDMS-6550 waits for user-management training; screen-scan design note awaits 4 decisions.
+
+---
+# Update: 2026-10-14 - live training with the QA team COMPLETE (group 66 open points)
+- Trainers Syed Kamran, Feroz Hussain, Muhammad Fahad; PK / cnr1dev1. Log + report: `apps/snd/knowledge/business/learning_sessions/2026-10-14_SND-PK_QA-Team_live_log.md` / `_live_report.md`.
+- Answered: Q-PO1 (Prospect Outlet Forward needs the user's role in the prospect-outlet workflow diagram + Company address), Q-DM1/Q-DM2 (Delivery Man Shuffling correct; only the on-load "PJP not found" message is a known issue). Roles R1: 0001/0005 DT submit, 0002/0008 approval, 0014 HQ (no approval); **a user acts only when his role is in the document's workflow diagram**. Change Track Outlet Profile lists Draft outlets by design (D-TRAIN-1013-2 withdrawn). D-G66-2-1 fixed (closed). Section delivery-days field is **not in R1** (skip in scenarios). Framework: group 66 step 35 runs as headquarter. Open questions 59 -> 56; open defects 1 (D-TRAIN-1013-1, reported to dev).
+- Parked list now holds only the SDMS-6084 Report To question.
+- Next candidates: SDMS-5372 (paused at checkpoint C1, 8 defaults), SDMS-6084 (Report To answer from QA), screen-scan design decisions, SDMS-6550 (needs user-management screen training).
