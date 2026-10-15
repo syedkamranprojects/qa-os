@@ -46,7 +46,7 @@ class AppPack:
         self.screens = {}
         sdir = os.path.join(self.dir, 'screens')
         for fn in os.listdir(sdir) if os.path.isdir(sdir) else []:
-            if fn.endswith('.json'):
+            if fn.endswith('.json') and not fn.startswith('_'):          # _index.json is the screen list, not a screen
                 s = json.load(open(os.path.join(sdir, fn), encoding='utf-8'))
                 self.screens[s['option_id']] = s
 

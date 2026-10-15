@@ -52,15 +52,18 @@ def _labels_of(d):
         bl = node.get('buttons')
         for x in (bl if isinstance(bl, list) else (bl or {}).keys() if isinstance(bl, dict) else []):
             b.add((x.get('text') or x.get('title')) if isinstance(x, dict) else x)
-        for gr in node.get('grids') or []:
-            for h in (gr.get('headers') or []) if isinstance(gr, dict) else []:
+        grs = node.get('grids') or []
+        grs = list(grs.values()) if isinstance(grs, dict) else grs                    # v4 screen files: {caption: {columns, ...}}
+        for gr in grs:
+            for h in ((gr.get('headers') or gr.get('columns') or []) if isinstance(gr, dict) else []):
+                h = (h.get('caption') or h.get('label')) if isinstance(h, dict) else h
                 h = ' '.join(str(y) for y in h) if isinstance(h, (list, tuple)) else h      # two-level headers: 'Group Sub'
                 if h and not str(h).startswith('('):
                     g.add(h)
     take(d)
     for x in d.get('tabs') or []:
         if isinstance(x, dict):
-            t.add(x.get('name') or x.get('text'))
+            t.add(x.get('name') or x.get('text') or x.get('label'))
             take(x)
         else:
             t.add(x)

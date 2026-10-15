@@ -1,0 +1,223 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202053",
+ "title": "Cashmemo Reschedule",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Cashmemo Reschedule"
+  ],
+  "option_id": "DYL_202053",
+  "search_text": "Cashmemo Reschedule",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=202053",
+ "layout_code": "202053",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "202053001",
+   "tab": null,
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 3
+  },
+  {
+   "page": "202053002",
+   "tab": null,
+   "desc": null,
+   "table": "(select",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Order Date": {
+   "element": "DT__ORDERDATE",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "DT__ORDERDATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+   },
+   "locator": {
+    "id": "DT__ORDERDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Delivery Date": {
+   "element": "DELIVERYDATE",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "DELIVERYDATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+   },
+   "locator": {
+    "id": "DELIVERYDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "PJP Number": {
+   "element": "DDL__EPJPPJPNODAILY",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_PJPNO_DAILY",
+   "list_source": "PJPNUMORDCHNG3",
+   "default": "AutoPJGIN2~Auto GIN PJP DM",
+   "config_id": "selectbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+   },
+   "locator": {
+    "id": "DDL__EPJPPJPNODAILY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Process": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202053.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202053.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save changes": {
+   "element": "BatchSaveBtn",
+   "locator": {
+    "id": "BatchSaveBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Discard changes": {
+   "element": "BatchRevertBtn",
+   "locator": {
+    "id": "BatchRevertBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Cashmemo No",
+    "Outlet Name",
+    "Document Status",
+    "Status",
+    "Document Date",
+    "Amount FCY",
+    "Section",
+    "PJP Number",
+    "PJP Delivery No",
+    "Delivery Date",
+    "Demand Channel",
+    "GIN No",
+    "Reschedule Reason"
+   ],
+   "edit_mode": "batch",
+   "selection": "multiple",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/delivery_and_returns/cashmemo_reschedule_and_status.md",
+ "business_pages_also": [
+  "knowledge/business/delivery_and_returns/delivery_lifecycle.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202053.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_202053.json",
+   "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_RESCHEDULE.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

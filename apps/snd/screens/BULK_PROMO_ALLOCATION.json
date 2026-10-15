@@ -1,0 +1,44 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "BULK_PROMO_ALLOCATION",
+ "title": "Bulk Promo Allocation",
+ "menu": {
+  "path": [
+   "Target",
+   "Target",
+   "Bulk Promo Allocation"
+  ],
+  "option_id": "BULK_PROMO_ALLOCATION",
+  "search_text": "Bulk Promo Allocation",
+  "top_id": "NG08",
+  "app_option": null
+ },
+ "route": "/target/promo-target-builder",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {},
+ "grids": {},
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/BULK_PROMO_ALLOCATION.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

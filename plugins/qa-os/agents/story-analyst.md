@@ -15,8 +15,10 @@ You write `requirement.json` (schema `plugins/qa-os/schemas/requirement.schema.j
 2. **Read every part:**
    - the description (As a / I want / Given / When / Then);
    - **all comments**, since they often change scope (e.g. "remove the previous logic");
-   - linked-issue titles, only as clues to screen names;
-   - region and release track.
+   - **linked bugs** (title, status, summary): regression hints for the test designer;
+   - **subtasks** (scope only);
+   - **attachments / images** (templates, screenshots): read them when the connector can download them; otherwise list each one by name in `BA_NOTE.md` and ask the orchestrator to request it from the QA member (`inbox/`);
+   - region and release track (current ticket work is Pakistan only: flag any other market).
 
 ## Building the model
 - **rules** (`R1…`): one business rule per item, with the exact story quote.
@@ -25,7 +27,8 @@ You write `requirement.json` (schema `plugins/qa-os/schemas/requirement.schema.j
   For example, "outlet subtype" → channel hierarchy (`snd_pr_chh_chanel_hierarchy`), "DT" → distributor (`PBET_BUSENTITY_TYPE='DIST'`).
 - **screens:** match story terms against the harvested menu `knowledge/env/<env>/menu.<user>.json`, observed screens
   `screens/*.json`, and DB-declared `knowledge/screens_db/_index.json`. Set `status`:
-  - `known-observed` — a verified screen file exists;
+  - `trained` — a business page AND a screen file `apps/<app>/screens/<option_id>.json` exist (see `screens/_index.json`);
+  - `known-observed` — a verified screen file exists but no business page;
   - `known-db-declared` — declared in the DB only;
   - `in-menu-not-learned` — in the menu, not yet learned;
   - `not-found`.
@@ -40,5 +43,6 @@ You write `requirement.json` (schema `plugins/qa-os/schemas/requirement.schema.j
 ## Rules
 - Never invent behaviour. Anything not in the story is not a rule; it can at most be an ambiguity.
 - Keep each quote under 25 words.
-- Your final message: the counts of rules, ACs, screens and ambiguities, plus the list of ambiguity questions.
-  The orchestrator shows these to the user (checkpoint 1).
+- Your final message: the counts of rules, ACs, screens and ambiguities, the ambiguity questions with defaults, and the
+  **knowledge-gap verdict**: every screen not `trained` is a long gap (training needed, no cases); short gaps get a default.
+  There is no separate checkpoint: the questions go to the single approval workbook (design v4, 2026-10-15).

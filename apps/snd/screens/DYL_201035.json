@@ -1,0 +1,120 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201035",
+ "title": "Outlet Price",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Price",
+   "Outlet Price"
+  ],
+  "option_id": "DYL_201035",
+  "search_text": "Outlet Price",
+  "top_id": "NG02",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201035",
+ "layout_code": "201035",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "201035002",
+   "tab": null,
+   "desc": null,
+   "table": "snd_en_pp1_prf_bsen_phs_lvl1",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 1
+  },
+  {
+   "page": "201035001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_PR_PRM_MOB_PRICES",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Outlet Code": {
+   "element": "DDL__epp1_busent_code_phs_lvl1Parent",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1",
+   "list_source": "OUTLCODEDESC",
+   "config_id": "selectbox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201035.json"
+   },
+   "locator": {
+    "id": "DDL__epp1_busent_code_phs_lvl1Parent"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Sr #",
+    "Principle Code",
+    "Product Code",
+    "Batch",
+    "Outlet Code",
+    "Unit Code",
+    "Price",
+    "Tax",
+    "Tax Price",
+    "Discount Type",
+    "Discount Value",
+    "GST %",
+    "Effective Date",
+    "Additional GST %",
+    "Retail",
+    "Tax%Breakup1",
+    "Tax%Breakup2"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201035.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/outlet.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201035.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201035.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

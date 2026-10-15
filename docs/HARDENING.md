@@ -65,3 +65,10 @@ Status: **FIXED** (done and tested) · **FIXED-UNPROVEN** (code changed, not yet
 3. The verifier verdict is "ready for framework-owner test-copy apply".
 4. **One engine replay** of the generated flow on a test copy of CTA_CONFIG_ASSERTION passes for all N case rows (checked in the app, not only by the engine's green status).
 5. Release notes, guides and the zip rebuilt; version bumped.
+
+## A22 (open, 2026-10-15) v4 pre-run check tuning
+- Allow a `type` (free text) event on a tagbox for negative cases (SDMS-6084 TC02/TC18 flagged needs-knowledge).
+- Grid captions differ per screen ("Distributor DT List" on Distributor Profile DT): step authors must take grid names from the screen file.
+- The check matches labels by the longest screen label named in the sentence; unusual wording becomes needs-knowledge (by design, no guessing).
+- `qaos_steps.py` / `qaos_export.py` still produce the older separate step workbook (assisted authoring path); align with the v4 approval workbook.
+- Design guard catches redirects, file commands and inline code writes from shells; other shell write paths may pass.

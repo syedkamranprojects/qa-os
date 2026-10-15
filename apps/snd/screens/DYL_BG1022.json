@@ -1,0 +1,251 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_BG1022",
+ "title": "PJP Daily Inquiry Update",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Journey Plan",
+   "PJP Daily Inquiry Update"
+  ],
+  "option_id": "DYL_BG1022",
+  "search_text": "PJP Daily Inquiry Update",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=BG1022",
+ "layout_code": "BG1022",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_PJP_DAILY_INQUIRY_UPDATE.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "BG1022001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 1
+  },
+  {
+   "page": "BG1022002",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD_DAILY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Working Date": {
+   "element": "DT_epjpworkingdateParent",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_WORKING_DATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_PJP_DAILY_INQUIRY_UPDATE.json"
+   },
+   "locator": {
+    "id": "DT_epjpworkingdateParent"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "16": {
+   "element": "pagination-element-16",
+   "locator": {
+    "id": "pagination-element-16"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1022.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization Code",
+    "Type",
+    "PJP Number",
+    "Distributor Code",
+    "DSR",
+    "Serial No",
+    "Current Status",
+    "Mark Status",
+    "DSR Files Status",
+    "Working Date",
+    "Start Date",
+    "End Date",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_PJP_DAILY_INQUIRY_UPDATE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]",
+   "pager": "pagination-element-1, pagination-element-2"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Custom pager (div ids pagination-element-N) rather than DevExtreme pager; menu path is under Distributor Setup > Journey Plan, not Transaction.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_PJP_DAILY_INQUIRY_UPDATE.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "Mark Status and DSR Files Status are blank in the grid and become dropdowns only in row Edit mode.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L09)",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/pjp_daily_inquiry_update.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_BG1022.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_BG1022.json",
+   "apps/snd/knowledge/screens_observed/LIVE_PJP_DAILY_INQUIRY_UPDATE.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-08"
+}

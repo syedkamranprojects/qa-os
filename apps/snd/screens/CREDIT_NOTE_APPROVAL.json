@@ -1,0 +1,82 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CREDIT_NOTE_APPROVAL",
+ "title": "Off-Invoice Credit Note Approval",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "Off-Invoice Credit Note Approval"
+  ],
+  "option_id": "CREDIT_NOTE_APPROVAL",
+  "search_text": "Off-Invoice Credit Note Approval",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/credit-note/credit-note-approval",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {
+  "Forward All": {
+   "element": "approveAll",
+   "locator": {
+    "id": "approveAll"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CREDIT_NOTE_APPROVAL.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Off-Invoice Credit Note Approval": {
+   "columns": [
+    "Document No.",
+    "IO Number",
+    "IO Description",
+    "Payout Month",
+    "Payout Year",
+    "Distributor",
+    "Customer",
+    "PJP code",
+    "Credit Note Amount",
+    "Credit Note Expiry Date"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CREDIT_NOTE_APPROVAL.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CREDIT_NOTE_APPROVAL.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

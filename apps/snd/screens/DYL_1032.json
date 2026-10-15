@@ -1,0 +1,1147 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_1032",
+ "title": "Vehicle Profile",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Vehicle Profile",
+   "Vehicle Profile"
+  ],
+  "option_id": "DYL_1032",
+  "search_text": "Vehicle Profile",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=1032",
+ "layout_code": "1032",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "101032001",
+   "tab": null,
+   "desc": "Vehicle Profile - Grid",
+   "table": "SND_PR_VCH_VEHICLE",
+   "is_child": false,
+   "grids": [
+    "Vehicle"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "101032002",
+   "tab": null,
+   "desc": "Vehicle Profile - Form",
+   "table": "SND_PR_VCH_VEHICLE",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 40
+  }
+ ],
+ "fields": {
+  "Code": {
+   "element": "Code",
+   "widget": "text",
+   "required": false,
+   "readonly": true,
+   "data_field": "PVCH_VEHICLE_CODE",
+   "max_length": 4,
+   "config_id": "textbox22",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "Code"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Description": {
+   "element": "Description",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_DESC",
+   "max_length": 32,
+   "regex": "^[a-zA-Z0-9 ]{4}$",
+   "config_id": "textbox50",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "Description"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Abbreviation": {
+   "element": "TXT__PVCHABRV",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_ABRV",
+   "max_length": 10,
+   "config_id": "textbox51",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHABRV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Default": {
+   "element": "DDL__PVCHDEFAULT",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_DEFAULT",
+   "config_id": "selectbox14",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHDEFAULT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Status": {
+   "element": "DDL__PVCHACTIVE",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_ACTIVE",
+   "default": "A",
+   "config_id": "selectbox15",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHACTIVE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Model Name": {
+   "element": "DDL__PVHMVECHMAKE",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVHM_VECH_MAKE",
+   "list_source": "PVHM",
+   "config_id": "selectbox16",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVHMVECHMAKE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Vehicle Color": {
+   "element": "DDL__PVHCVECHCOLOR",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVHC_VECH_COLOR",
+   "list_source": "PVHC",
+   "config_id": "selectbox17",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVHCVECHCOLOR"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Model Description": {
+   "element": "TXT__PVCHNATURE",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_NATURE",
+   "default": "1ton",
+   "config_id": "selectbox18",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHNATURE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Registration Number": {
+   "element": "TXT__PVCHREGISTRATIONNO",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_REGISTRATION_NO",
+   "max_length": 20,
+   "regex": "^[\\u0E00-\\u0E7F\\u1780-\\u17FFA-Za-z0-9\\s-]+$",
+   "config_id": "textbox52",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHREGISTRATIONNO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Model ID": {
+   "element": "TXT__PVCHMODEL",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_MODEL",
+   "max_length": 32,
+   "regex": "^[a-zA-Z0-9_-]{4}$",
+   "config_id": "textbox53",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMODEL"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Chassis Number": {
+   "element": "TXT__PVCHCHASISNO",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_CHASIS_NO",
+   "max_length": 128,
+   "config_id": "textbox54",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHCHASISNO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Engine Number": {
+   "element": "TXT__PVCHENGINENO",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_ENGINE_NO",
+   "max_length": 15,
+   "config_id": "textbox55",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHENGINENO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Manufacturing Year": {
+   "element": "TXT__PVCHMANUFACTURINGYEAR",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MANUFACTURING_YEAR",
+   "max_length": 10,
+   "regex": "^[0-9]",
+   "config_id": "textbox56",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMANUFACTURINGYEAR"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Owner CNIC": {
+   "element": "TXT__PVCHOWNERCNIC",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_OWNER_CNIC",
+   "max_length": 70,
+   "config_id": "textbox57",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHOWNERCNIC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Owner Name": {
+   "element": "TXT__PVCHOWNERNAME",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_OWNER_NAME",
+   "max_length": 40,
+   "regex": "^[a-zA-Z0-9 ]{4}$",
+   "config_id": "textbox58",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHOWNERNAME"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Fuel Type": {
+   "element": "DDL__PVCHFUELTYPE",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_FUEL_TYPE",
+   "default": "PT",
+   "config_id": "selectbox24",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHFUELTYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Meter Reading Type": {
+   "element": "DDL__PVCHMETERREADINGTYPE",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_METER_READING_TYPE",
+   "config_id": "selectbox21",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHMETERREADINGTYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Dimensions (L,W,H) Cubic Meters": {
+   "element": "TXT__PVCH_DIMENSION",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_DIMENSION",
+   "max_length": 50,
+   "regex": "^[\\d,\\.]+$",
+   "config_id": "textbox59",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCH_DIMENSION"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Unloading Side": {
+   "element": "DDL__PVCH_DOOR_POSITION",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_DOOR_POSITION",
+   "default": "REAR",
+   "config_id": "selectbox23",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCH_DOOR_POSITION"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Average Rate": {
+   "element": "TXT__PVCHAVERAGERATE",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_AVERAGE_RATE",
+   "max_length": 5,
+   "default": "1",
+   "config_id": "textbox60",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHAVERAGERATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Mileage": {
+   "element": "TXT__PVCHAPPROVEDMILEAGE",
+   "widget": "number",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_APPROVED_MILEAGE",
+   "max_length": 5,
+   "default": "1",
+   "config_id": "textbox61",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHAPPROVEDMILEAGE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Min Volume": {
+   "element": "TXT__PVCHCAPACITY",
+   "widget": "number",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_CAPACITY",
+   "default": "1",
+   "config_id": "textbox75",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHCAPACITY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Max Volume": {
+   "element": "TXT__PVCHVOLUME",
+   "widget": "number",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_VOLUME",
+   "default": "1",
+   "config_id": "textbox76",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHVOLUME"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Vehicle Type": {
+   "element": "DDL__PVHTVEHICLETYPE",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVHT_VEHICLE_TYPE",
+   "list_source": "PVHT",
+   "config_id": "selectbox25",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVHTVEHICLETYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Allow Multiple Trips": {
+   "element": "TXT__PVCHMULTITRIPALLOW",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_MULTI_TRIP_ALLOW",
+   "default": "N",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMULTITRIPALLOW"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Fleet Type": {
+   "element": "DDL__PVCHFLEETTYPE",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_FLEET_TYPE",
+   "config_id": "selectbox27",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHFLEETTYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Deep Freezer": {
+   "element": "DDL__PVCHDEEPFREEZ",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_DEEP_FREEZ",
+   "default": "N",
+   "config_id": "selectbox28",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHDEEPFREEZ"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Cold Chain": {
+   "element": "DDL__PVCHCOLDCHAIN",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_COLD_CHAIN",
+   "default": "N",
+   "config_id": "selectbox29",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "DDL__PVCHCOLDCHAIN"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "User Count": {
+   "element": "TXT__PVCHUSERCOUNT",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_USER_COUNT",
+   "default": "1",
+   "config_id": "textbox77",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHUSERCOUNT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Unit of Volume": {
+   "element": "TXT__PVCHUNITOFVOLUME",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_UNIT_OF_VOLUME",
+   "default": "MC",
+   "config_id": "selectbox30",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHUNITOFVOLUME"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Unit of Weight": {
+   "element": "TXT__PVCHUNITOFWEIGHT",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_UNIT_OF_WEIGHT",
+   "default": "KG",
+   "config_id": "selectbox31",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHUNITOFWEIGHT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Min Weight": {
+   "element": "TXT__PVCHMINWEIGHT",
+   "widget": "number",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_MIN_WEIGHT",
+   "default": "1",
+   "config_id": "textbox79",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMINWEIGHT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Max Weight": {
+   "element": "TXT__PVCHMAXWEIGHT",
+   "widget": "number",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_MAX_WEIGHT",
+   "default": "1",
+   "config_id": "textbox78",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMAXWEIGHT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Min GSV": {
+   "element": "TXT__PVCHMINRESOURCECAPACITY",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MIN_RESOURCE_CAPACITY",
+   "default": "10",
+   "config_id": "textbox85",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMINRESOURCECAPACITY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Max GSV": {
+   "element": "TXT__PVCHMAXRESOURCECAPACITY",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MAX_RESOURCE_CAPACITY",
+   "default": "10",
+   "config_id": "textbox86",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCHMAXRESOURCECAPACITY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Limit Multi Trip": {
+   "element": "TXT__PVCH_LIMIT_MULTI_TRIP",
+   "widget": "number",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVCH_LIMIT_MULTI_TRIP",
+   "default": "0",
+   "config_id": "textbox93",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCH_LIMIT_MULTI_TRIP"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Min NIV": {
+   "element": "TXT__PVCH_MIN_NIV",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MIN_NIV",
+   "default": "10",
+   "config_id": "textbox88",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCH_MIN_NIV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Max NIV": {
+   "element": "TXT__PVCH_MAX_NIV",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MAX_NIV",
+   "default": "10",
+   "config_id": "textbox89",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCH_MAX_NIV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Min TIV": {
+   "element": "TXT__PVCH_MIN_TIV",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MIN_TIV",
+   "default": "10",
+   "config_id": "textbox90",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCH_MIN_TIV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Max TIV": {
+   "element": "TXT__PVCH_MAX_TIV",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_MAX_TIV",
+   "default": "10",
+   "config_id": "textbox91",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "locator": {
+    "id": "TXT__PVCH_MAX_TIV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_1032.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "save"
+   }
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "21": {
+   "element": "pagination-element-21",
+   "locator": {
+    "id": "pagination-element-21"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Vehicle": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Model Name",
+    "Vehicle Color",
+    "Model Description",
+    "Registration Number",
+    "Model ID",
+    "Chassis Number",
+    "Engine Number",
+    "Manufacturing Year",
+    "Owner CNIC",
+    "Owner Name",
+    "Fuel Type",
+    "Meter Reading Type",
+    "Dimensions (L,W,H) Cubic Meters",
+    "Unloading Side",
+    "Mileage",
+    "Level Type",
+    "Level No",
+    "Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_1032.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/vehicle_bulk_upload.md",
+ "business_pages_also": [
+  "knowledge/business/master_data/section_and_mappings.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_1032.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_1032.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

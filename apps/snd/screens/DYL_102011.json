@@ -1,0 +1,693 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_102011",
+ "title": "PJP Creation",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Journey Plan",
+   "PJP Creation"
+  ],
+  "option_id": "DYL_102011",
+  "search_text": "PJP Creation",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=102011",
+ "layout_code": "102011",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102011002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102011.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "102011001",
+   "tab": null,
+   "desc": "PJP Creation - DIstributor Wise - Grid",
+   "table": "SND_EN_PJP_PJPHEAD",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102011002",
+   "tab": "Header",
+   "desc": "PJP Creation - DIstributor Wise - Form",
+   "table": "SND_EN_PJP_PJPHEAD",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 17
+  }
+ ],
+ "fields": {
+  "PJP Number": {
+   "element": "txt__epjppjpno",
+   "widget": "text",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPJP_PJPNO",
+   "max_length": 10,
+   "regex": "^[A-Za-z0-9_-]{4}$",
+   "config_id": "textbox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "txt__epjppjpno"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "PJP Description": {
+   "element": "Description",
+   "widget": "text",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPJP_DESC",
+   "max_length": 100,
+   "regex": "^[^~\"^`,']*$",
+   "config_id": "textbox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "Description"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "DSR": {
+   "element": "DDL__EPP2BUSENTCODEPHSLVL2F",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP2_BUSENT_CODE_PHS_LVL2_F",
+   "list_source": "DIST2DSR",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2BUSENTCODEPHSLVL2F"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Warehouse": {
+   "element": "DDL__EPP1BUSENTCODEPHSLVL1B",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1_B",
+   "list_source": "DIST2WRHS",
+   "config_id": "selectbox8",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__EPP1BUSENTCODEPHSLVL1B"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Working Date": {
+   "element": "DT__EPJPWORKINGDATE",
+   "widget": "date",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_WORKING_DATE",
+   "config_id": "datebox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DT__EPJPWORKINGDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Closing Date": {
+   "element": "DT__EPJPCLOSINGDATE",
+   "widget": "date",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_CLOSING_DATE",
+   "config_id": "datebox6",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DT__EPJPCLOSINGDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Default": {
+   "element": "DDL__epjp_default",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_DEFAULT",
+   "config_id": "selectbox25",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__epjp_default"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Status": {
+   "element": "DDL__epjp_status",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_STATUS",
+   "default": "N",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__epjp_status"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Level Type": {
+   "element": "TXT__epjp_leveltype",
+   "widget": "text",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_LEVELTYPE",
+   "config_id": "textbox18",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "TXT__epjp_leveltype"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Level No": {
+   "element": "TXT__epjp_level_no",
+   "widget": "number",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_LEVEL_NO",
+   "config_id": "textbox19",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "TXT__epjp_level_no"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Enable NFC": {
+   "element": "DDL__EPJP_ENABLE_NFC_FUNC",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_ENABLE_NFC_FUNC",
+   "default": "N",
+   "config_id": "selectbox27",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__EPJP_ENABLE_NFC_FUNC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Mandatory NFC": {
+   "element": "TXT__EPJP_MANDATORY_NFC_SCAN",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_MANDATORY_NFC_SCAN",
+   "default": "N",
+   "config_id": "selectbox28",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "TXT__EPJP_MANDATORY_NFC_SCAN"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "GPS Restriction": {
+   "element": "TXT__EPJP_GPS_RESTRICTION",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPJP_GPS_RESTRICTION",
+   "default": "N",
+   "config_id": "selectbox29",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "TXT__EPJP_GPS_RESTRICTION"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "GPS Radius(Meters)": {
+   "element": "TXT__EPJP_GPS_RADIUS",
+   "widget": "number",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPJP_GPS_RADIUS",
+   "regex": "^(?=.*\\d)(?!.*\\d{7}).{1}$",
+   "config_id": "textbox20",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "TXT__EPJP_GPS_RADIUS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "DDO Indicator": {
+   "element": "DDL__EPJPPLANNEDBY",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_PLANNED_BY",
+   "default": "DO",
+   "config_id": "selectbox30",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__EPJPPLANNEDBY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Virtual PJP": {
+   "element": "TXT__epjp_virtual_pjp",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_VIRTUAL_PJP",
+   "default": "N",
+   "config_id": "selectbox31",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "TXT__epjp_virtual_pjp"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Sales Route Type": {
+   "element": "DDL__EPJP_SALES_ROUTE_TYPE",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_SALES_ROUTE_TYPE",
+   "list_source": "GPSSRT",
+   "config_id": "selectbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "locator": {
+    "id": "DDL__EPJP_SALES_ROUTE_TYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102011.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "save"
+   }
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "74": {
+   "element": "pagination-element-74",
+   "locator": {
+    "id": "pagination-element-74"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Business Entity Type 1 Code",
+    "Distributor",
+    "PJP Number",
+    "PJP Description",
+    "DSR Orga Code",
+    "Business Entity Type 2 Code",
+    "DSR",
+    "Bank",
+    "Branch",
+    "Working Date",
+    "Closing Date",
+    "Warehouse",
+    "DSR Type",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Enable NFC",
+    "Mandatory NFC",
+    "GPS Restriction",
+    "GPS Radius(Meters)",
+    "Virtual PJP",
+    "Identifier",
+    "Sales Route Type"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102011.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/pjp.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_102011.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_102011.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

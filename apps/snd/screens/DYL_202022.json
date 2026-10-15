@@ -1,0 +1,248 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202022",
+ "title": "Order Cancellation",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Order Cancellation"
+  ],
+  "option_id": "DYL_202022",
+  "search_text": "Order Cancellation",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=202022",
+ "layout_code": "202022",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "202022001",
+   "tab": null,
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 4
+  }
+ ],
+ "fields": {
+  "PJP": {
+   "element": "PJPNO",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PJPNO",
+   "list_source": "OBPJP",
+   "default": "02111 - AutomationOB1",
+   "config_id": "selectbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "locator": {
+    "id": "PJPNO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Section": {
+   "element": "SECTION",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "SECTION",
+   "list_source": "PJPDTSECT",
+   "default": "101010101101 - Automation_Testing_Section",
+   "config_id": "selectbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "locator": {
+    "id": "SECTION"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date From": {
+   "element": "datefrom",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "DATEFROM",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "locator": {
+    "id": "datefrom"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date To": {
+   "element": "dateto",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "DATEFROM",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "locator": {
+    "id": "dateto"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Outlet Name": {
+   "element": "OUTLET",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "locator": {
+    "id": "OUTLET"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Cancel All": {
+   "element": "cancelBtn",
+   "locator": {
+    "id": "cancelBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Refresh": {
+   "element": "refreshBtn",
+   "locator": {
+    "id": "refreshBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "Order Cancellation": {
+   "columns": [
+    "Document No.",
+    "Document Date",
+    "Delivery Date",
+    "Net Amount",
+    "Outlet Name",
+    "Demand Channel",
+    "Cancellation Reason"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast",
+   "text": "Required parameter 'toDate' is not present.",
+   "when": "after Refresh with a typed Date To",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "knowledge/business/LIVE_FINDINGS.md (L07)"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Cancellation Reason column is per-row (editor) in the grid.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "A typed Date To is not always committed (Refresh then answers \"Required parameter 'toDate' is not present.\"); pick the date from the calendar popup.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L07)",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/order_to_delivery_planning/order_editing_cancellation.md",
+ "business_pages_also": [
+  "knowledge/business/order_to_delivery_planning/order_lifecycle_and_statuses.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202022.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_202022.json",
+   "apps/snd/knowledge/screens_observed/LIVE_ORDER_CANCELLATION.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-08"
+}

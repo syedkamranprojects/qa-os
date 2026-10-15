@@ -1,4 +1,5 @@
 {
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
  "option_id": "ORDER_BOOKING",
  "title": "Order Booking",
  "menu": {
@@ -6,70 +7,190 @@
    "Transaction",
    "Order Booking"
   ],
-  "top_id": "NG09",
   "option_id": "ORDER_BOOKING",
-  "search_text": "Order Booking"
+  "search_text": "Order Booking",
+  "top_id": "NG09",
+  "app_option": null
  },
  "route": "/order-booking",
- "kind": "hand-coded",
- "provenance": {
-  "source": "observed",
-  "env": "cnr1dev1",
-  "user": "KPO_mp",
-  "date": "2026-09-25",
-  "note": "landing state only (header stage); later stages not yet learned",
-  "also_observed": "cnr2dev3 as KPO_slv, distributor 50000451, 2026-09-25: same fields; dsrType offers only Order Booker and Spot Seller; document date shown as dd-MM-yyyy"
- },
- "breadcrumb": [
-  "Home",
-  "Transaction",
-  "Order Booking"
- ],
- "stage": "Order Booking - Header",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
  "fields": {
+  "ProductDesc": {
+   "element": "product",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC04.json"
+   },
+   "locator": {
+    "id": "product"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "OrderCS": {
+   "element": "quantity1_0",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC04.json"
+   },
+   "locator": {
+    "id": "quantity1_0"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "OrderPC": {
+   "element": "quantity3_0",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC04.json"
+   },
+   "locator": {
+    "id": "quantity3_0"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "Document No": {
+   "element": "documentNo",
+   "widget": "unknown",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json"
+   },
+   "locator": {
+    "id": "documentNo"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08"
+   ]
+  },
   "Order Booker/Spot Seller": {
+   "element": "dsrType",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
    "locator": {
     "id": "dsrType"
    },
-   "widget": "select",
    "required": false,
-   "options": [
+   "default": "Order Booker",
+   "options_seen": [
     "Spot Seller",
     "Order Booker",
     "Van Sales"
    ],
-   "default": "Order Booker"
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
   },
   "PJP": {
+   "element": "PJPNO",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
    "locator": {
     "id": "PJPNO"
    },
-   "widget": "select",
-   "options_note": "PJP codes of the environment, formatted '<code>-<name>'"
+   "note": "PJP codes of the environment, formatted '<code>-<name>'",
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
   },
   "Selling Category": {
+   "element": "SELLCAT",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
    "locator": {
     "id": "SELLCAT"
    },
-   "widget": "select",
    "depends_on": "PJP",
-   "note": "empty until a PJP is chosen"
+   "note": "empty until a PJP is chosen",
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
   },
   "Section": {
+   "element": "SECTION",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
    "locator": {
     "id": "SECTION"
    },
-   "widget": "select",
    "depends_on": "PJP",
-   "note": "empty until a PJP is chosen"
+   "note": "empty until a PJP is chosen",
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
   },
   "Outlet Name": {
+   "element": "OUTLET",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
    "locator": {
     "id": "OUTLET"
    },
-   "widget": "select",
    "depends_on": "PJP",
-   "note": "empty until a PJP is chosen"
+   "note": "empty until a PJP is chosen",
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Comments": {
+   "element": "commentInput",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
+   "locator": {
+    "id": "commentInput"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
   },
   "Document Date": {
    "locator": {
@@ -78,41 +199,403 @@
    "widget": "date",
    "readonly": "always",
    "default": "today",
-   "format": "yyyy-MM-dd"
-  },
-  "Comments": {
-   "locator": {
-    "id": "commentInput"
+   "format": "yyyy-MM-dd",
+   "element": "docDate",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/ORDER_BOOKING.json"
    },
-   "widget": "text"
+   "seen_in": [
+    "observed:cnr1dev1:2026-09-25"
+   ]
   },
   "Reference Number": {
    "locator": {
     "id": "refNumberInput"
    },
-   "widget": "text"
+   "widget": "text",
+   "element": "refNumberInput",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/ORDER_BOOKING.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-09-25"
+   ]
   }
  },
  "buttons": {
+  "orderDetail": {
+   "element": "orderDetail",
+   "locator": {
+    "id": "orderDetail"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "validateBtn": {
+   "element": "validateBtn",
+   "locator": {
+    "id": "validateBtn"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "saveBtn": {
+   "element": "saveBtn",
+   "locator": {
+    "id": "saveBtn"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
   "Order Detail": {
    "locator": {
     "id": "orderDetail"
    },
-   "note": "appears only after an outlet is chosen; leads to the order lines stage"
+   "note": "appears only after an outlet is chosen; leads to the order lines stage",
+   "element": "orderDetail",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/ORDER_BOOKING.json"
+   }
   }
  },
- "observations": [
-  "The header stage shows no visible Next/Save button at landing; five icon buttons have no text (learn after choosing an outlet).",
-  "Document Date is read-only and fixed to today, so orders cannot be dated before/after a policy period from this screen (matters for TC46-48).",
-  "On cnr2dev3 as KPO_ph the dropdown data does not appear; on cnr1dev1 as KPO_mp it does.",
-  "cnr2dev3/KPO_slv: distributors offered 50000451-SATHENSOPIN, 50000598-SUPAMITR LV, 50000599-SUPAMITR LV. With 50000451 the PJP dropdown is populated (e.g. PJP14, RiazOB, 200311, 99999, RizwanOB, 110002), so Order Booking works there; with KPO_ph's distributors it does not.",
-  "cnr2dev3/KPO_slv/50000451 (2026-09-25 run 165111): PJP14-PJP14 -> Selling Category HPC -> Section14 -> Outlet 'C0000012520-ป้าA1' works; then the 'Order Detail' button (id orderDetail) appears. Document Date shows 25-09-2026 (dd-MM-yyyy) and is read-only."
+ "grids": {
+  "Order Booking": {
+   "columns": [],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC04.json"
+   },
+   "row_buttons": {
+    "Save": "rowEditBtn_Save_N"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "gridContainer": {
+   "element": "gridContainer",
+   "columns": [
+    "Product Desc",
+    "Order CS",
+    "Order PC",
+    "Gross Amount",
+    "Product Desc CS",
+    "Order"
+   ],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
+   "cells": {
+    "Product Desc": {
+     "element": "product",
+     "widget": "autocomplete",
+     "cell_id_pattern": "row_N_product_desc"
+    },
+    "Order CS": {
+     "element": "quantity1_0",
+     "widget": "number",
+     "cell_id_pattern": "row_N_cs"
+    },
+    "Order PC": {
+     "element": "quantity3_0",
+     "widget": "number",
+     "cell_id_pattern": "row_N_pc"
+    },
+    "Gross Amount": {
+     "element": "grossAmount_0",
+     "widget": "number",
+     "cell_id_pattern": "row_N_gross_amount"
+    },
+    "Product Desc CS": {
+     "element": "product",
+     "widget": "autocomplete",
+     "cell_id_pattern": "row_N_product_desc"
+    },
+    "Order": {
+     "element": "quantity3_0",
+     "widget": "number",
+     "cell_id_pattern": "row_N_pc"
+    }
+   },
+   "row_buttons": {
+    "Save": "rowEditBtn_Save_N"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast-error",
+   "text": "Stock not available.",
+   "when": "after picking a product without stock",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "knowledge/business/LIVE_FINDINGS.md (L14, S3)"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Validation successfully",
+   "when": "after validateBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC02.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Order Save successfully",
+   "when": "after saveBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC02.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Validation successfully",
+   "when": "after Validation",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/recording_TC04.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Order Save successfully",
+   "when": "after Save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/recording_TC04.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Validation successfully",
+   "when": "after Save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-OB/20261008-1120/attempt2_superseded/recording_TC04.json"
+   }
+  }
  ],
+ "lessons": [
+  {
+   "text": "The header stage shows no visible Next/Save button at landing; five icon buttons have no text (learn after choosing an outlet).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "Document Date is read-only and fixed to today, so orders cannot be dated before/after a policy period from this screen (matters for TC46-48).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "On cnr2dev3 as KPO_ph the dropdown data does not appear; on cnr1dev1 as KPO_mp it does.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "cnr2dev3/KPO_slv: distributors offered 50000451-SATHENSOPIN, 50000598-SUPAMITR LV, 50000599-SUPAMITR LV. With 50000451 the PJP dropdown is populated (e.g. PJP14, RiazOB, 200311, 99999, RizwanOB, 110002), so Order Booking works there; with KPO_ph's distributors it does not.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "cnr2dev3/KPO_slv/50000451 (2026-09-25 run 165111): PJP14-PJP14 -> Selling Category HPC -> Section14 -> Outlet 'C0000012520-ป้าA1' works; then the 'Order Detail' button (id orderDetail) appears. Document Date shows 25-09-2026 (dd-MM-yyyy) and is read-only.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "landing state only (header stage); later stages not yet learned",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "cnr2dev3 as KPO_slv, distributor 50000451, 2026-09-25: same fields; dsrType offers only Order Booker and Spot Seller; document date shown as dd-MM-yyyy",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/ORDER_BOOKING.json",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "Hand-coded Angular screen (not dyl layout); no top-level Save/Update buttons are rendered until detail rows exist; ids are camelCase not DDL__/TXT__.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_ORDER_BOOKING.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "Element ids change after Order Detail is clicked: PJPNO -> PJP, SELLCAT -> sellingCategory, SECTION -> Section, commentInput -> Comments, refNumberInput -> referenceNumber.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261008-OB/20261008-1120/friction.md",
+   "date": "2026-10-08"
+  },
+  {
+   "text": "Outlet Name: type the outlet code, then pick the single filtered option at once. Typed text is discarded on blur if no option was picked, and a plain click in the long list can select the wrong row.",
+   "kind": "screen",
+   "field": "Outlet Name",
+   "source": "runs/QUICK-20261008-OB/20261008-1120/friction.md",
+   "date": "2026-10-08"
+  },
+  {
+   "text": "Order lines grid number cells (Order CS #quantity1_0, Order PC #quantity3_0): real click, select the cell content, type the digits, Tab (Tab goes CS -> PC; DZ is skipped and not editable). Clear-and-type goes stale because the row re-renders.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261008-OB/20261008-1120/friction.md",
+   "date": "2026-10-08"
+  },
+  {
+   "text": "After Order Detail an empty edit row opens at the top; after each row Save the next edit row opens with the same ids (rowindex 1, #product, #quantity1_0, #rowEditBtn_Save_0) and saved rows move below with rowEditBtn_Edit_N / rowEditBtn_Delete_N.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261009-1305/20261009-1305/friction.md",
+   "date": "2026-10-09"
+  },
+  {
+   "text": "Product (#product) is a type-ahead: type with real key events, wait for the list, then real-click the .dx-list-item. A product without stock answers 'Stock not available.' and clears the row.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261007-OB/20261007-1749/friction.md",
+   "date": "2026-10-07"
+  },
+  {
+   "text": "The final Save (saveBtn) appears only after Validation (validateBtn); saving shows 'Validation successfully' and then 'Order Save successfully'.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261008-OB/20261008-1120/friction.md",
+   "date": "2026-10-08"
+  },
+  {
+   "text": "Order Detail is a button (#orderDetail) that appears only after an Outlet is chosen; it is not a tab. New Order (#newOrder) asks 'Are You sure you want to cancel the order' (Yes = #continue resets the header, No = #reject).",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L14)",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "Order Number is the input #documentNo; the summary amounts (Gross Amount, Discount, Tax, Net Amount) are plain text lines without ids.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261007-OB/20261007-1749/friction.md",
+   "date": "2026-10-07"
+  }
+ ],
+ "differences": [],
+ "breadcrumb": [
+  "Home",
+  "Transaction",
+  "Order Booking"
+ ],
+ "stage": "Order Booking - Header",
  "flow": [
   "choose PJP",
   "choose Selling Category",
   "choose Section",
   "choose Outlet Name",
   "click Order Detail  (lines stage: to be learned)"
- ]
+ ],
+ "business_page": "knowledge/business/order_to_delivery_planning/order_booking.md",
+ "business_pages_also": [
+  "knowledge/business/delivery_and_returns/delivery_man_shuffling.md",
+  "knowledge/business/order_to_delivery_planning/order_lifecycle_and_statuses.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "group 66 walk",
+   "run QUICK-20261007-OB",
+   "run QUICK-20261008-1429",
+   "run QUICK-20261008-OB",
+   "run QUICK-20261009-1305",
+   "live read-only look",
+   "curated live look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/LIVE_ORDER_BOOKING.json",
+   "apps/snd/knowledge/screens_observed/ORDER_BOOKING.json"
+  ],
+  "recorded": [
+   "runs/QUICK-20261007-OB/20261007-1749/recording_TC02.json",
+   "runs/QUICK-20261007-OB/20261007-1749/recording_TC03.json",
+   "runs/QUICK-20261007-OB/20261007-1749/recording_TC04.json",
+   "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json",
+   "runs/QUICK-20261008-1429/20261008-1429/recording_TC04.json",
+   "runs/QUICK-20261008-OB/20261008-1120/attempt1_blocked/recording_TC04.json",
+   "runs/QUICK-20261008-OB/20261008-1120/attempt1_blocked/recording_TC04_partial.json",
+   "runs/QUICK-20261008-OB/20261008-1120/attempt2_superseded/recording_TC04.json",
+   "runs/QUICK-20261008-OB/20261008-1120/recording_TC04.json",
+   "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-14"
 }

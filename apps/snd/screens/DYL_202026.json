@@ -1,0 +1,288 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202026",
+ "title": "Loss Approval",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Loss Approval"
+  ],
+  "option_id": "DYL_202026",
+  "search_text": "Loss Approval",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=202026",
+ "layout_code": "202026",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Loss Approval Master",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "202026002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202026.json"
+   }
+  },
+  {
+   "label": "Loss Approval Detail",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "202026003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202026.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "202026001",
+   "tab": null,
+   "desc": null,
+   "table": "snd_tr_stm_stock_recvmaster",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "202026002",
+   "tab": "Loss Approval Master",
+   "desc": null,
+   "table": "snd_tr_stm_stock_recvmaster",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 4
+  },
+  {
+   "page": "202026003",
+   "tab": "Loss Approval Detail",
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_RECVDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Serial No": {
+   "element": "TXT__tsrmsrno",
+   "widget": "text",
+   "tab": "Loss Approval Master",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSRM_SRNO",
+   "config_id": "textbox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "locator": {
+    "id": "TXT__tsrmsrno"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document No": {
+   "element": "TXT__tstmdocno",
+   "widget": "text",
+   "tab": "Loss Approval Master",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_DOCNO",
+   "max_length": 70,
+   "config_id": "textbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "locator": {
+    "id": "TXT__tstmdocno"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Type": {
+   "element": "DDL__pdot_docmtype",
+   "widget": "display",
+   "tab": "Loss Approval Master",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDOT_DOCMTYPE",
+   "list_source": "PDOT",
+   "default": "NTN",
+   "config_id": "selectbox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "locator": {
+    "id": "DDL__pdot_docmtype"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Status": {
+   "element": "TXT__TSRMSTATUS",
+   "widget": "text",
+   "tab": "Loss Approval Master",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSRM_STATUS",
+   "config_id": "selectbox6",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "locator": {
+    "id": "TXT__TSRMSTATUS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Sub Serial No",
+    "Principle Code",
+    "Product",
+    "SKU Type",
+    "Document No",
+    "Document Type",
+    "Busentity Type",
+    "Dispatch CS",
+    "@Session(Orga Code)dispatch SH",
+    "Dispatch PC",
+    "Received CS",
+    "@Session(Orga Code)Received DZ",
+    "Received PC",
+    "Loss CS",
+    "@Session(Orga Code)loss SH",
+    "Loss PC",
+    "Organization",
+    "Distributor Code",
+    "Distributor Name",
+    "Status",
+    "Dispatch DZ",
+    "Received DZ",
+    "Loss DZ"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Maker (Auto_Multi_Orga) can open this screen and see 364 loss documents; Forward/Reject are disabled until a row is selected (not tested).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "The grid row filter stays set when the screen is reopened; the grid is not sorted by serial; the breadcrumb can show stale tab names.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L12, C2)",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/inbound_stock/da_loss_approval.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-06",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202026.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_202026.json",
+   "apps/snd/knowledge/screens_observed/LIVE_LOSS_APPROVAL.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-06"
+}

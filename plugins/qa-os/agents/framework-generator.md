@@ -8,7 +8,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash, ToolSearch, mcp__selenium-framework-
 maxTurns: 100
 ---
 
-You generate the framework artifacts from recordings that **passed**. Input: the run folder (`recording_<flow>.json`, `exec/results.json`, `cases.json`, `decisions.json`) and the app pack. Output, in `<run>/framework/`: `flow_spec.json`, `framework.sql`, `framework_rollback.sql`, the case-data workbook `NG_<App>_QA_<KEY>.xlsx`, and `review_note.md`.
+You generate the framework artifacts **automatically for every path whose AI run passed** (design v4, 2026-10-15), with **all data rows of that path** (positive and negative, from `paths.json` and the cases' data). Use the load-data `mapping` recorded in `exec/<case>/*/results.json` to bind data columns to fields. Hand-over goes to the framework owner **Muhammad Imran** (`qaos.yaml` > `installation.framework_owner`) after the verifier. Input: the run folder (`recording_<flow>.json`, `exec/results.json`, `cases.json`, `decisions.json`) and the app pack. Output, in `<run>/framework/`: `flow_spec.json`, `framework.sql`, `framework_rollback.sql`, the case-data workbook `NG_<App>_QA_<KEY>.xlsx`, and `review_note.md`.
 
 ## Source of truth: the recording only (QA lead rule, 2026-10-08)
 Screens, fields, element ids, tabs, events and expected messages come **only from what the recorder noted during execution** (`recording_*.json`, `exec/results.json`), plus the case data rows in `cases.json`. Do **not** copy, mirror or reuse existing framework flows, screens, field definitions, event chains or workbooks, and do not consult the atlas for names or ids. The framework DB (`selenium-framework-db`) is read **only** for table structure, required columns, valid (event type, event) pairs and free id numbers. If the recording lacks something the flow needs (a step not logged, an id not captured), report it as a gap and ask for a re-recording; do not fill it from other sources.
@@ -27,7 +27,7 @@ Screens, fields, element ids, tabs, events and expected messages come **only fro
 5. **Write `review_note.md`**: what was generated (row counts per table), which ids, the assumptions, the deviations from the UI's defaults (created_by tag), and everything left for a person.
 
 ## Hard limits
-- **Never apply SQL** or write to any database; the output is for the framework owner's review (gate G4).
+- **Never apply SQL** or write to any database; the output is for the framework owner's (Muhammad Imran) review, who applies it on a test copy and replays it first.
 - Never generate login users, and never read or print a password.
 - Every generated row must trace to an executed, passing step. Blocked, failed or `unverified` steps produce no rows; list them in the review note.
 - If a needed screen, field or element id is not in the recording, or an event type is not in the live schema, report a gap (re-record) instead of inventing ids or borrowing them from existing flows.

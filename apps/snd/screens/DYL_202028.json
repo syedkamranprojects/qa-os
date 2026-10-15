@@ -1,0 +1,241 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202028",
+ "title": "IO Listing",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "IO Listing"
+  ],
+  "option_id": "DYL_202028",
+  "search_text": "IO Listing",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/content-master/mobility/io-Listing",
+ "page_param": "layoutCode=202028",
+ "layout_code": "202028",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "202028001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_ICT_IO_CLAIM_TYPE_MAP",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "202028002",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_ICT_IO_CLAIM_TYPE_MAP",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 6
+  }
+ ],
+ "fields": {
+  "IO Number": {
+   "element": "TXT__EICT_IO_NO",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "EICT_IO_NO",
+   "max_length": 12,
+   "config_id": "textbox1",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Claim Type": {
+   "element": "DDL__EICT_CLAIM_TYPE",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "EICT_CLAIM_TYPE",
+   "list_source": "PDOT",
+   "config_id": "selectbox1",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Master Channel": {
+   "element": "DDL__PCHH_CHNLHIER_CODE",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "PCHH_CHNLHIER_CODE",
+   "list_source": "PANC",
+   "config_id": "selectbox2",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Start Date": {
+   "element": "DT__EICTSTARTDATE",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "EICT_START_DATE",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "End Date": {
+   "element": "DT__EICTENDDATE",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "EICT_END_DATE",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Status": {
+   "element": "DDL__EICTSTATUS",
+   "widget": "select",
+   "required": true,
+   "readonly": false,
+   "data_field": "EICT_STATUS",
+   "list_source": "AIA",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Update": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Delete": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "IO Number",
+    "Claim Type",
+    "Master Channel",
+    "Create Date",
+    "Start Date",
+    "End Date",
+    "Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202028.json"
+   }
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202028.json",
+  "observed": [],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

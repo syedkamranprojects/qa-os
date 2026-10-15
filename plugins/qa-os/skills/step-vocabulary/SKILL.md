@@ -1,6 +1,6 @@
 ---
 name: step-vocabulary
-description: The standard QA OS step language ([Actor] Verb Object), the step sheet QA approves at gate G3 (each step marked clear or needs-input, with trace keys), and how business steps expand into executable primitives. Use when writing, reviewing or executing a step sheet.
+description: The standard QA OS step language ([Actor] Verb Object), the step sheet QA approves at the single approval (each step marked clear or needs-input, with trace keys), and how business steps expand into executable primitives. Use when writing, reviewing or executing a step sheet.
 ---
 
 # Step vocabulary and the step sheet
@@ -16,7 +16,7 @@ Full vocabulary: `docs/STEP_VOCABULARY.md`. Per-app definitions (parameters, exp
 - `Expect:` lines hold the app's real message text. If the text was never observed, write `Expect: message (text to be recorded)`; never guess it.
 - A step not in the vocabulary is written `Do: <sentence>` and treated as manual until it is added to the library.
 
-## The step sheet (gate G3)
+## The step sheet (single approval)
 The step sheet is what the QA member reviews and approves **before** any recording. It removes trial and error during the run. Template: `step_sheet_template.md` in this skill's folder. Every step carries:
 | Field | Meaning |
 |---|---|

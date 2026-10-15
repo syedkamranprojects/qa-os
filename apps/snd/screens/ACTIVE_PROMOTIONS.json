@@ -1,0 +1,65 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "ACTIVE_PROMOTIONS",
+ "title": "Active Promotions",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Promotion",
+   "Active Promotions"
+  ],
+  "option_id": "ACTIVE_PROMOTIONS",
+  "search_text": "Active Promotions",
+  "top_id": "NG02",
+  "app_option": null
+ },
+ "route": "/scheme-builder/active-promotions",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {},
+ "grids": {
+  "Active Promotions": {
+   "columns": [
+    "Promo Code",
+    "Promo Description",
+    "Alternate Description",
+    "Start Date",
+    "End Date",
+    "Status",
+    "State",
+    "Ref. Promo Code",
+    "Ref. Promo Type"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/ACTIVE_PROMOTIONS.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/ACTIVE_PROMOTIONS.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

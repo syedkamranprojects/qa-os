@@ -1,0 +1,1055 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201068",
+ "title": "Dispatch Advice",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Primary Sale",
+   "Dispatch Advice"
+  ],
+  "option_id": "DYL_201068",
+  "search_text": "Dispatch Advice",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201068",
+ "layout_code": "201068",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Header Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201068001",
+    "201068002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   }
+  },
+  {
+   "label": "Dispatch Detail",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201068004"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "201068001",
+   "tab": "Header Info",
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_MASTER",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201068002",
+   "tab": "Header Info",
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_MASTER",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 24
+  },
+  {
+   "page": "201068004",
+   "tab": "Dispatch Detail",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 5
+  }
+ ],
+ "fields": {
+  "Document No": {
+   "element": "documentNo",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_DOCNO",
+   "default": "(selected doc)",
+   "config_id": "textbox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "documentNo"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Date": {
+   "element": "DT__TSTMDOCDATE",
+   "widget": "date",
+   "tab": "Header Info",
+   "required": true,
+   "readonly": true,
+   "data_field": "TSTM_DOCDATE",
+   "default": "(selected doc)",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "DT__TSTMDOCDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Warehouse": {
+   "element": "DDL__epp1_busent_code_phs_lvl1_b",
+   "widget": "select",
+   "tab": "Header Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1_B",
+   "list_source": "DIST2WRHS",
+   "default": "0000000025-IBT Main warehouse",
+   "config_id": "selectbox4",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__epp1_busent_code_phs_lvl1_b"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01",
+    "recorded:cnr1dev1:2026-09-30"
+   ]
+  },
+  "Vendor Code": {
+   "element": "DDL__PVNDVENDCODE",
+   "widget": "select",
+   "tab": "Header Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "PVND_VENDCODE",
+   "list_source": "PVND",
+   "default": "UPL WH",
+   "config_id": "selectbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "DDL__PVNDVENDCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "SO Number": {
+   "element": "TXT__tstm_sales_order_no",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_SALES_ORDER_NO",
+   "max_length": 50,
+   "config_id": "textbox8",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_sales_order_no"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01",
+    "recorded:cnr1dev1:2026-09-30"
+   ]
+  },
+  "Shipment No": {
+   "element": "TXT__tstm_shipment_no",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_SHIPMENT_NO",
+   "max_length": 50,
+   "config_id": "textbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_shipment_no"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Deliver No": {
+   "element": "TXT__tstm_delivery_no",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_DELIVERY_NO",
+   "max_length": 50,
+   "config_id": "textbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_delivery_no"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Invoice Due Date": {
+   "element": "DT__tstm_invoice_due_date",
+   "widget": "date",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_INVOICE_DUE_DATE",
+   "default": "today",
+   "config_id": "datebox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "DT__tstm_invoice_due_date"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Tax Invoice Number": {
+   "element": "TXT__tstm_taxinvoice_no",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_TAXINVOICE_NO",
+   "max_length": 50,
+   "config_id": "textbox11",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_taxinvoice_no"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Recieved Date": {
+   "element": "TXT__TSTMRECEIVEDDATE",
+   "widget": "date",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_RECEIVED_DATE",
+   "config_id": "datebox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__TSTMRECEIVEDDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Comments": {
+   "element": "TXT__TSTMCOMMENTS",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_COMMENTS",
+   "max_length": 50,
+   "config_id": "textbox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__TSTMCOMMENTS"
+   },
+   "alt_elements": [
+    "comments"
+   ],
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01",
+    "recorded:cnr1dev1:2026-09-30"
+   ]
+  },
+  "Tax": {
+   "element": "TXT__tstm_tax_amt_bcy",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_TAX_AMT_BCY",
+   "config_id": "textbox12",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_tax_amt_bcy"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Discount": {
+   "element": "TXT__tstm_dsc_amt_bcy",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_DSC_AMT_BCY",
+   "config_id": "textbox13",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_dsc_amt_bcy"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Net Amount": {
+   "element": "TXT__tstm_net_amt_bcy",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_NET_AMT_BCY",
+   "config_id": "textbox15",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_net_amt_bcy"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reference Date": {
+   "element": "DDT__origin_date",
+   "widget": "date",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "ORIGIN_DATE",
+   "default": "today",
+   "config_id": "datebox6",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "DDT__origin_date"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reference No": {
+   "element": "TXT__tstm_ref_1",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_REF_1",
+   "max_length": 100,
+   "config_id": "textbox16",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_ref_1"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "DA Type": {
+   "element": "documentType",
+   "widget": "select",
+   "tab": "Header Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "PDOT_DOCMTYPE",
+   "list_source": "PDOT",
+   "default": "Dispatch Advice",
+   "config_id": "selectbox15",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "documentType"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Status": {
+   "element": "DDL__pdos_docmstatus",
+   "widget": "display",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDOS_DOCMSTATUS",
+   "list_source": "PDOS",
+   "default": "Un-Authorized",
+   "config_id": "selectbox16",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "DDL__pdos_docmstatus"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Truck No": {
+   "element": "TXT__pvch_vehicle_regno",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_VEHICLE_REGNO",
+   "max_length": 50,
+   "config_id": "textbox17",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__pvch_vehicle_regno"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Stock Arrival": {
+   "element": "TXT__tstm_stock_arrival_datetime",
+   "widget": "date",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_STOCK_ARRIVAL_DATETIME",
+   "default": "now (yyyy-MM-dd - HH:mm:ss)",
+   "config_id": "datebox8",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_stock_arrival_datetime"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "VAT Challan Number": {
+   "element": "TXT__tstm_vat_challan_no_1",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_VAT_CHALLAN_NO_1",
+   "max_length": 50,
+   "config_id": "textbox18",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_vat_challan_no_1"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Status": {
+   "element": "DDL__TSTM_STATUS",
+   "widget": "display",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_STATUS",
+   "default": "I",
+   "config_id": "selectbox17",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "DDL__TSTM_STATUS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Approval Status": {
+   "element": "TXT__WF_STATUS",
+   "widget": "display",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "WF_STATUS",
+   "list_source": "WORKFLOW_STATUS",
+   "default": "01",
+   "config_id": "selectbox18",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__WF_STATUS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Invoice Number": {
+   "element": "TXT__tstm_invoice_no",
+   "widget": "text",
+   "tab": "Header Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_INVOICE_NO",
+   "max_length": 50,
+   "config_id": "textbox20",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "locator": {
+    "id": "TXT__tstm_invoice_no"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "DA No": {
+   "element": "documentNo",
+   "widget": "text",
+   "tab": "Dispatch Detail",
+   "required": true,
+   "readonly": true,
+   "data_field": "TSTM_DOCNO",
+   "config_id": "textbox15",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "DA Date": {
+   "element": "DT__TSTMDOCDATE",
+   "widget": "date",
+   "tab": "Dispatch Detail",
+   "required": true,
+   "readonly": true,
+   "data_field": "TSTM_DOCDATE",
+   "config_id": "datebox5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "buttons": {
+  "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker_attempt2.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01",
+    "recorded:cnr1dev1:2026-09-30"
+   ],
+   "locator": {
+    "id": "save"
+   },
+   "risk": "changes-data"
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "risk": "changes-data",
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Delete": {
+   "element": "delete",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "delete"
+   },
+   "risk": "changes-data"
+  },
+  "View Approval Log": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201068.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01",
+    "recorded:cnr1dev1:2026-09-30"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01",
+    "recorded:cnr1dev1:2026-09-30"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "forwardPopUpSaveBtn (popup)": {
+   "element": "forwardPopUpSaveBtn",
+   "locator": {
+    "id": "forwardPopUpSaveBtn"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker_attempt2.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-09-30"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Document No",
+    "Document Date",
+    "Distributor Name",
+    "DA Type",
+    "Return to Distributor",
+    "Warehouse",
+    "Vendor Code",
+    "SO Number",
+    "Shipment No",
+    "Deliver No",
+    "Invoice Due Date",
+    "Tax Invoice Number",
+    "Invoice Number",
+    "Recieved Date",
+    "Comments",
+    "Tax",
+    "Discount",
+    "Net Amount",
+    "Status",
+    "Approval Status",
+    "Document Status",
+    "Reference Date",
+    "Reference No",
+    "Date",
+    "# Product Stock Type Batch Purchase Price / PC Dispatch Loss Received Gross Amount Discount Tax Amount Net Amount Picked By",
+    "CS DZ PC CS DZ PC"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Dispatch Advice grid 2": {
+   "columns": [],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker_attempt2.json"
+   },
+   "row_buttons": {
+    "Save": "rowEditBtn_Save_N"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast",
+   "text": "Detail is not available",
+   "when": "after Forward of a DA without lines",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/friction.md (R1)"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "The lost quantity does not equal the sum of dispatch and received quantities",
+   "when": "after row Save when the quantity was typed before the row finished loading",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "knowledge/business/LIVE_FINDINGS.md (cycle step 1)"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Saved successfully",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Detail is not available",
+   "when": "after forwardPopUpSaveBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Saved Successfully!",
+   "when": "after rowEditBtn_Save_0",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker_attempt2.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Forwarded successfully",
+   "when": "after forwardPopUpSaveBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-30",
+    "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker_attempt2.json"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Add, Save and Forward exist only on the Header Info tab. Switching back to Header Info after saving a line resets the header to a blank new form; reopen the DA from the grid (filter on Document No) before Forward.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/PILOT-DA-GIN/20260930-1615/friction.md (A2-2)",
+   "date": "2026-09-30"
+  },
+  {
+   "text": "Add a line with a real click on the grid toolbar .dx-datagrid-addrow-button. Row inputs: prodCode_0 (type-ahead: real keys, then a real click on the option), quantity1_0 (CS); row save rowEditBtn_Save_0. Stock type and batch fill automatically: type the quantity only after they have filled.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/PILOT-DA-GIN/20260930-1615/friction.md (A2-1); knowledge/business/LIVE_FINDINGS.md (cycle step 1)",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "The Forward popup Save is the dx-button inside div#forwardPopUpSaveBtn; the #save inside it duplicates the id of the main Save.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/PILOT-DA-GIN/20260930-1615/friction.md (R4)",
+   "date": "2026-09-30"
+  },
+  {
+   "text": "The grid row filter (gridFilterCheckbox + Document No) stays set after approval and after reopening the screen; check aria-checked before toggling it.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/PILOT-DA-GIN/20260930-1615/friction.md (A2-6)",
+   "date": "2026-09-30"
+  },
+  {
+   "text": "After Add the form resets with Warehouse, Vendor Code and DA Type empty; Save with DA Type empty does nothing (no toast, only an inline invalid mark).",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L11)",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "Loss entry: the '+' in the Loss cell (row in edit mode) opens a modal; its row save is rowEditBtn_Modal_Save_0; closing the modal with the x discards the loss.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L12)",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "Grid row Save/Edit links must be scrolled into view before a click (otherwise 'element not interactable').",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (L12)",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "The form Status stays 'Draft' after Forward until a reload; read the Approval Status from the grid instead.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/PILOT-DA-GIN/20260930-1615/friction.md (A2-4)",
+   "date": "2026-09-30"
+  }
+ ],
+ "differences": [
+  {
+   "what": "field 'Comments' element (same label, other control)",
+   "config": "TXT__TSTMCOMMENTS",
+   "live": "comments",
+   "env": "cnr1dev1",
+   "date": "2026-09-30",
+   "ref": "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json",
+   "status": "open",
+   "note": "Matched by label only: a popup/grid control with the same caption, or a renamed id. The configured element is kept; the live id is in alt_elements."
+  }
+ ],
+ "business_page": "knowledge/business/inbound_stock/dispatch_advice.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "run PILOT-DA-GIN",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201068.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/LIVE_DISPATCH_ADVICE.json"
+  ],
+  "recorded": [
+   "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_checker.json",
+   "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker.json",
+   "runs/PILOT-DA-GIN/20260930-1615/recording_TC01_maker_attempt2.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-08"
+}

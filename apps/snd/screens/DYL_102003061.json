@@ -1,0 +1,801 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_102003061",
+ "title": "DSR Approval",
+ "menu": {
+  "path": [
+   "Approval",
+   "Master Data Approval",
+   "DSR Approval"
+  ],
+  "option_id": "DYL_102003061",
+  "search_text": "DSR Approval",
+  "top_id": "NG01",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=102003061",
+ "layout_code": "102003061",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Demographics",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003064"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  {
+   "label": "Address",
+   "element": null,
+   "sub_tabs": [
+    "BUSI",
+    "COMP",
+    "RESD"
+   ],
+   "pages": [
+    "102003069_padt_address_type_COMP",
+    "102003069_padt_address_type_BUSI",
+    "102003069_padt_address_type_RESD"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  {
+   "label": "Documents",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003065"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  {
+   "label": "Qualification",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003066"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  {
+   "label": "Previous Experience",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003067"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  {
+   "label": "Device",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003068"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "102003061",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003064",
+   "tab": "Demographics",
+   "desc": null,
+   "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 15
+  },
+  {
+   "page": "102003069_padt_address_type_COMP",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003069_padt_address_type_BUSI",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003069_padt_address_type_RESD",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003065",
+   "tab": "Documents",
+   "desc": null,
+   "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003066",
+   "tab": "Qualification",
+   "desc": null,
+   "table": "GLB_EN_QLF_QUALIFICATION",
+   "is_child": true,
+   "grids": [
+    "Qualification"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003067",
+   "tab": "Previous Experience",
+   "desc": null,
+   "table": "GLB_EN_PEX_PASTEXPERIENCE",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003068",
+   "tab": "Device",
+   "desc": null,
+   "table": "GLB_EN_DEV_DEVICEINFO",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "DSR Code": {
+   "element": "TXT__epp2_busent_phs_lvl2_code",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP2_BUSENT_PHS_LVL2_CODE",
+   "max_length": 10,
+   "regex": "^[a-zA-Z0-9]{3}$",
+   "config_id": "textbox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "TXT__epp2_busent_phs_lvl2_code"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "DSR Name": {
+   "element": "TXT__EPP2DESC",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPP2_DESC",
+   "max_length": 100,
+   "config_id": "textbox13",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "TXT__EPP2DESC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "DSR Type": {
+   "element": "DDL__pdst_dsr_type",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDST_DSR_TYPE",
+   "list_source": "PDST",
+   "config_id": "selectbox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__pdst_dsr_type"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Employee No": {
+   "element": "TXT__EPP2REFERENCE2",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP2_REFERENCE_2",
+   "max_length": 100,
+   "config_id": "textbox14",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "TXT__EPP2REFERENCE2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Sales Hierarchy": {
+   "element": "DDL__PSLHSALESHIERCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PSLH_SALESHIER_CODE",
+   "list_source": "PSLH",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__PSLHSALESHIERCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Date of Appointment": {
+   "element": "DT__EPP2_REF_DATE_2",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP2_REF_DATE_2",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DT__EPP2_REF_DATE_2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Report To": {
+   "element": "DDL__EPP2_REPORT_TO",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REPORT_TO",
+   "list_source": "EPP2RPT",
+   "config_id": "selectbox8",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_REPORT_TO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Counter Sales": {
+   "element": "DDL__EPP2_REF_VAL_1",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REF_VAL_1",
+   "config_id": "selectbox28",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_REF_VAL_1"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Status": {
+   "element": "DDL__EPP2ACTIVE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_ACTIVE",
+   "config_id": "selectbox23",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2ACTIVE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Working Nature": {
+   "element": "DDL__EPP2_REF_VAL_2",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REF_VAL_2",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_REF_VAL_2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Vehicle": {
+   "element": "DDL__PVCH_VEHICLE_CODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_VEHICLE_CODE",
+   "list_source": "PVCH",
+   "config_id": "selectbox27",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__PVCH_VEHICLE_CODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Route Starting": {
+   "element": "TXT__EPP2REFVAL10",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REF_VAL_10",
+   "config_id": "selectbox35",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "TXT__EPP2REFVAL10"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "User ID": {
+   "element": "DDL__ssus_usercode",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "SSUS_USERCODE",
+   "list_source": "SSUS",
+   "config_id": "selectbox34",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__ssus_usercode"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Designation": {
+   "element": "DDL__PDSG_DESIGNATION",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDSG_DESIGNATION",
+   "list_source": "PDSG",
+   "config_id": "selectbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__PDSG_DESIGNATION"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Incentive Eligibility": {
+   "element": "DDL__EPP2_INCENTIVE_ELIGIBLE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_INCENTIVE_ELIGIBLE",
+   "default": "N",
+   "config_id": "selectbox11",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_INCENTIVE_ELIGIBLE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "40": {
+   "element": "pagination-element-40",
+   "locator": {
+    "id": "pagination-element-40"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_checker.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Sr No",
+    "Device Type",
+    "Device Name",
+    "Make",
+    "Model",
+    "Serial No",
+    "IMEI No",
+    "Period From",
+    "Period To"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  "Qualification": {
+   "columns": [
+    "Sr No",
+    "Qualification Type",
+    "Qualification Detail",
+    "Year Passed",
+    "Institution",
+    "Default"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003061.json"
+   }
+  },
+  "DSR Approval grid 3": {
+   "element": "dataGrid",
+   "caption": "DSR List",
+   "columns": [
+    "Distributor Code",
+    "Distributor",
+    "DSR Type",
+    "DSR Code",
+    "DSR Name",
+    "Employee No",
+    "Status"
+   ],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_checker.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]",
+   "cells": {
+    "DSR Code": {
+     "element": "rowfilter_TXT__epp2_busent_phs_lvl2_code",
+     "widget": "text"
+    }
+   },
+   "filter_elements": [
+    "gridFilterCheckbox"
+   ]
+  },
+  "DSR List": {
+   "caption": "DSR List",
+   "columns": [],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_checker.json"
+   },
+   "filter_elements": [
+    "gridFilterCheckbox"
+   ],
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast-success",
+   "text": "Forwarded successfully",
+   "when": "after Forward",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_checker.json"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "The Forward popup Save has its stable id #forwardPopUpSaveBtn on the parent cent-button (the watcher logs the inner button without id). After approval the DSR leaves the DSR Approval list.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261009-1630/20261009-1630/friction.md (checker part)",
+   "date": "2026-10-09"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/dsr.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-13",
+  "how": [
+   "business page",
+   "group 66 walk",
+   "run QUICK-20261009-1630"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_102003061.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_102003061.json"
+  ],
+  "recorded": [
+   "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_checker.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-13"
+}

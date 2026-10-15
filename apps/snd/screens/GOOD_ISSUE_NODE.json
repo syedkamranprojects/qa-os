@@ -1,0 +1,488 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "GOOD_ISSUE_NODE",
+ "title": "Goods Issue Note",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Goods Issue Note"
+  ],
+  "option_id": "GOOD_ISSUE_NODE",
+  "search_text": "Goods Issue Note",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/good-issue-notes/GIN",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   }
+  },
+  {
+   "label": "Cash Memo Selection",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   }
+  },
+  {
+   "label": "Detail",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   }
+  }
+ ],
+ "fields": {
+  "GIN No.": {
+   "element": "ginNum",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "ginNum"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "GIN Date": {
+   "element": "ginDate",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "ginDate"
+   },
+   "tab": "Header",
+   "default": "today (2026-10-01)",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Delivery Man PJP": {
+   "element": "deliveryManPjp",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "deliveryManPjp"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Delivery Man DSR": {
+   "element": "deliveryManDsr",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "deliveryManDsr"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Warehouse": {
+   "element": "warehouse",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "warehouse"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Vehicle": {
+   "element": "vehicle",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "vehicle"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Suggested Type": {
+   "element": "suggestedType",
+   "widget": "unknown",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "suggestedType"
+   },
+   "tab": "Header",
+   "default": "Cashmemo List",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Status": {
+   "element": "status",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "status"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Delivery Date": {
+   "element": "deliveryDate",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "deliveryDate"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Approval Status": {
+   "element": "appStatus",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "locator": {
+    "id": "appStatus"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "11": {
+   "element": "pagination-element-11",
+   "locator": {
+    "id": "pagination-element-11"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "Add",
+   "locator": {
+    "id": "Add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Terminate": {
+   "element": "terminate",
+   "locator": {
+    "id": "terminate"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "De-linking": {
+   "element": "delete",
+   "locator": {
+    "id": "delete"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Save All": {
+   "element": "saveallBtn",
+   "locator": {
+    "id": "saveallBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "Goods Issue Note": {
+   "columns": [
+    "GIN No.",
+    "GIN Date",
+    "Warehouse",
+    "Delivery Man",
+    "Vehicle",
+    "Approval Status",
+    "Status",
+    "SR Document No.",
+    "Suggested Type",
+    "Doc. Date",
+    "Doc No",
+    "Outlet Name",
+    "DSR Name",
+    "Order Type",
+    "Order Booker PJP",
+    "Delivery Man PJP",
+    "Section",
+    "SKU Nature SKU Description Stock Type SKU Code Batch Current Stock Suggest Actual Gross Amount Weight (Kg) Loss Reason",
+    "CS DZ PC Actual CS Actual DZ Actual PC"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Forward stayed disabled for a Maker on a Pending for approval GIN (probably checker-only).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "The Detail tab (tab_3) is disabled for a few seconds after a GIN is opened. Switching back to the Header tab blanks the header (GIN number empty) and Forward exists only on the Header tab: forward on a freshly reopened GIN without switching tabs.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (cycle step 2)",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/delivery_and_returns/goods_issue_note.md",
+ "business_pages_also": [
+  "knowledge/business/delivery_and_returns/delivery_lifecycle.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/GOOD_ISSUE_NODE.json",
+   "apps/snd/knowledge/screens_observed/LIVE_GOODS_ISSUE_NOTE.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-08"
+}

@@ -1,0 +1,42 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "ADHOC_JOB_EXECUTOR2",
+ "title": "Adhoc Job Executor",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Process",
+   "Adhoc Job Executor"
+  ],
+  "option_id": "ADHOC_JOB_EXECUTOR2",
+  "search_text": "Adhoc Job Executor",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/integrator/adhoc-job-executor",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {},
+ "grids": {},
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/claims.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

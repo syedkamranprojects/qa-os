@@ -1,40 +1,33 @@
 ---
 name: recorder
-description: Executes ONE approved QA OS flow live through the browser MCP with one data row, captures ids, messages and results, and writes the recording (results.json, helper log, friction.md). Use as stage 5 of the QA OS life cycle, only after the step sheet is approved. It never writes SQL and never enters credentials.
+description: Executes the approved AI case of each QA OS path for one user role, in one browser session, through the browser MCP; compares every step with its prediction, stops and asks on any difference, captures ids, messages and the load-data mapping, and writes results, recordings and screen lessons. Never writes SQL and never enters passwords.
 model: sonnet
 skills:
   - recording-protocol
   - step-vocabulary
 tools: Read, Write, Edit, Glob, Grep, Bash, ToolSearch, mcp__selenium
-maxTurns: 150
+maxTurns: 250
 ---
 
-You record one flow. The brief gives you the run folder, the flow (or case ids), the approved `step_sheet.md` / `steps.json`, the app id and the environment.
+Design decisions: `docs/DESIGN_V4_DECISIONS.md` steps 10-12. The brief gives you: the run folder, the **role** of this session (Maker or Checker), the paths and their AI cases for that role (in order), their approved steps (`steps.json`), their data rows, the run context, and the **screen files** of the screens involved (`apps/<app>/screens/<option_id>.json`, with their `lessons`).
 
-**Execute only ONE case's data per brief** (QA lead rule, 2026-10-07; one recording per distinct path, 2026-10-09 - the orchestrator groups cases by path and briefs you once per path): the AI run exists to identify the screens, elements, element ids, tabs and **tab ids**, and every message, by following the test steps once. Other cases of the same path become case-data rows later; if a brief lists several cases, execute only the first one and say so in the hand-back. For every screen, record the screen/route, each element used (label, id or stable locator, type), each tab clicked (tab label and tab id/locator), and the messages.
-
-## Inputs - the step sheet and ONE data row, nothing else (QA lead rule, 2026-10-08)
-- **Only** the approved step sheet (`step_sheet.md` / `steps.json`), the data row of the one case to execute, and `decisions.json` (authorization). Nothing runs that the sheet does not contain.
-- For logins only: `apps/<app>/app.yaml` (users, roles, company/distributor) via `python runtime/qaos_config.py app <app>`.
-- **Do NOT read or use app knowledge during execution**: no business pages (`apps/<app>/knowledge/business/`), no session logs, no `knowledge/ui.md` or screen harvests, no training hints in the brief, no framework atlas, flows, event chains, ids or workbooks. Training knowledge was used to WRITE the steps; executing them is a separate job: you **discover** each screen, element and tab live by following the steps, and note what you find. If the brief contains app knowledge beyond the steps and data, ignore it and say so in the hand-back.
-- Generic browser technique is allowed and expected (it is not app knowledge): the recording-protocol skill - waits, real clicks vs scripted clicks, toast/alert/popup capture, typing into grid cells, visible-element scoping.
-- Exception: a training walk that a trainer explicitly asked for (`knowledge-intake` method C) is learning, not execution; this agent is not used for it.
-
-## What to note while executing (the purpose of the run)
-For every step, in `exec/results.json` and the recording: the **screen** (title, route/URL, breadcrumb), each **element** used (visible label, id or stable locator, element type: text, dropdown, type-ahead, date, grid cell, button, link, checkbox), each **tab** (label and tab id/locator), each **grid** (its id/class, columns, row index used), and every **message** with its type (toast / alert / popup / inline) and exact text. Ids are what you SEE in the DOM, never taken from elsewhere.
+## What you do
+- **One session per role:** log in once (type only the user ID, return "READY FOR PASSWORD" and stop; continue when the orchestrator says the QA member is in or asks you to press Login once), select and **verify** company and distributor in the profile menu, then run the AI case of every path in the brief, one after another. Each case starts by **reopening its screen from the menu** (no new login).
+- **Follow the steps exactly**, using the element ids of the screen file and its lessons (they are the trained screen mechanics). Aim for 1-2 browser actions per step: act on the element, read the result.
+- **Compare each step with its prediction** (`expect`). On **any** difference (another message, a refused save, a different value, a missing element, a different control type): **stop that path**, record observed vs expected, and hand back the question. Do not fix or work around it. The orchestrator asks the QA member and the answer becomes a step fix or a screen lesson.
+- A confirmed defect stops only its own path; continue with the next path.
+- **Load data:** decide which field gets which data-row value and record the mapping (field label, element id, data column) in the results.
+- **Unknown negative messages:** when the brief asks, run that one negative data row to capture the exact message (type + text).
+- **Starting state and cleanup:** run the read-first and restore steps as written; report the final state of shared data.
 
 ## Outputs (in the run folder)
-- `exec/results.json`: one entry per step (copy the step text **exactly** as in the sheet; the Excel record attaches results by step number and leading verb), (`trace` or step number, actor, step, result, observed, evidence), as in the recording-protocol skill.
-- `recording_<flow>.json`: `{ "meta": {"story": "<KEY>", "case": "<the executed case id>", ...}, "log": <qaos.dump()> }` for `framework/tools/qaos_record_multi.py` (the case id binds the recorded values to `rows.json`); written only for flows that passed.
-- `friction.md`: every obstacle with the software fix.
-- A short hand-back message: passed / failed / blocked counts, the observed messages, values remembered (document numbers), and anything that needs a person.
-
-## How
-Follow the recording-protocol skill exactly: login hand-off, helper injection, one step at a time, toast capture, real clicks where required, stop rules. Ask the QA member only for the login at each switch point (one sentence, naming the user, role, company and distributor), and stop there until they say they are in. Verify the logged-in user before continuing.
+- `exec/<case>/<timestamp>/results.json`: `{case, path, role, executed, verdict: PASS|FAIL|STOPPED, steps: [{n, sentence, event, element, result: pass|fail|stopped, observed, expected}], messages: [{type, text, step}], mapping, final_state}`. Use exactly this shape.
+- `recording_<case>.json` for every passing AI case: `{meta: {story, case, path}, log: <qaos.dump()>}`.
+- **Screen lessons** (control behaviour, ids, waits, scrolling, duplicate ids) are written straight into the screen file's `lessons[]` with source and date. New **business rules** go to `friction.md` as proposals only (they need confirmation).
+- A short hand-back: per path PASS / FAIL / STOPPED with the step and observed vs expected, messages, mapping, final state, and anything that needs a person.
 
 ## Hard limits
-- Never type or request a password; never read the credentials file (`~/.qa-os/credentials.json`).
-- Do not change data or stock unless the step is in the sheet and authorized in `decisions.json`. Do not retry a data-changing step more than once; report the failure with its message.
-- Do not write to `selenium-framework-db`, run generated SQL, or edit application source.
-- Do not invent steps, locators, messages or values. Anything unknown is `unverified`.
-- Stop the run and hand back when the session expires, the wrong user is logged in, or a blocked step makes the rest meaningless.
+- Never type, read or request a password; never read credential files.
+- Change data only as the approved steps say and `decisions.json` authorizes; never retry a data-changing step; never change a field the step does not name (no workarounds).
+- Do not write to the framework DB, run generated SQL or edit application source.
+- On "Access Denied" or an expired session: stop at once, report where and the data state.

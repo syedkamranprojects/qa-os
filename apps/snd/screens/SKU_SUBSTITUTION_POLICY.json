@@ -1,4 +1,5 @@
 {
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
  "option_id": "SKU_SUBSTITUTION_POLICY",
  "title": "SKU Substitution Policy",
  "menu": {
@@ -6,117 +7,229 @@
    "Transaction",
    "SKU Substitution Policy"
   ],
-  "top_id": "NG09",
   "option_id": "SKU_SUBSTITUTION_POLICY",
-  "search_text": "SKU Substitution Policy"
+  "search_text": "SKU Substitution Policy",
+  "top_id": "NG09",
+  "app_option": null
  },
  "route": "/content-master/mobility/sku-substitution-policy",
- "kind": "hand-coded",
- "provenance": {
-  "source": "observed",
-  "env": "cnr2dev3",
-  "user": "KPO_ph",
-  "date": "2026-09-25"
- },
- "breadcrumb": [
-  "Home",
-  "Transaction",
-  "SKU Substitution Policy"
- ],
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
  "fields": {
   "Policy code": {
+   "element": "code",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "code"
    },
-   "widget": "text",
    "required": false,
    "readonly": "always",
-   "notes": "auto-generated PL0000000nn"
+   "note": "auto-generated PL0000000nn",
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Description": {
+   "element": "name",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "name"
    },
-   "widget": "text",
    "required": true,
    "validation": {
     "max_length": 100,
     "special_characters": "not allowed (a hyphen was rejected)",
     "message": "Maximum length 100 & Special Characters are also not allowed",
     "provenance": "observed 2026-09-25, TC07"
-   }
+   },
+   "max_length": 100,
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Type": {
+   "element": "type",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "type"
    },
-   "widget": "select",
    "required": true,
-   "options": [
+   "default": "3 – Based on DT + Channel",
+   "options_seen": [
     "3 – Based on DT + Channel"
    ],
-   "default": "3 – Based on DT + Channel"
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Start Date": {
+   "element": "fromDate",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "fromDate"
    },
-   "widget": "date",
    "required": true,
-   "default": "today"
+   "default": "today",
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "End Date": {
+   "element": "dataTo",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "dataTo"
    },
-   "widget": "date",
    "required": true,
-   "default": "today"
+   "default": "today",
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Status": {
+   "element": "status",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "status"
    },
-   "widget": "select",
    "required": true,
-   "options": [
+   "default": "Active",
+   "options_seen": [
     "Active",
     "In-Active"
    ],
-   "default": "Active"
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Abbreviation": {
+   "element": "abbreviation",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "locator": {
     "id": "abbreviation"
    },
-   "widget": "text",
-   "required": true
+   "required": true,
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   }
  },
  "buttons": {
   "Add": {
+   "element": "add",
    "locator": {
     "id": "add"
-   }
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Save": {
+   "element": "save",
    "locator": {
     "id": "save"
-   }
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
   },
   "Update": {
+   "element": "update",
    "locator": {
     "id": "update"
-   }
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
   },
   "Download Excel": {
    "locator": {
     "xpath": "//button[normalize-space()='Download Excel']"
+   },
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/SKU_SUBSTITUTION_POLICY.json"
    }
   },
   "Upload Excel": {
    "locator": {
     "xpath": "//button[normalize-space()='Upload Excel']"
+   },
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/SKU_SUBSTITUTION_POLICY.json"
    }
   }
  },
@@ -131,9 +244,75 @@
     "Abbreviation",
     "Status"
    ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+   },
    "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[2]"
   }
  },
+ "messages": [
+  {
+   "type": "message",
+   "text": "Saved successfully",
+   "when": "save success",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "observed 2026-09-25, TC07 (Save of a new policy)"
+   }
+  },
+  {
+   "type": "message",
+   "text": "Maximum length 100 & Special Characters are also not allowed",
+   "when": "description invalid",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "observed 2026-09-25, TC07/TC53"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Expired policy PL000000050 (end 2026-08-05) is still listed in the grid on 2026-09-25; story wording is ambiguous.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/SKU_SUBSTITUTION_POLICY.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "Selecting expired PL000000050 makes ALL fields editable and Update enabled (2026-09-25, SDMS-10351 TC41) — story R11 says only future policies can be updated; defect candidate.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/SKU_SUBSTITUTION_POLICY.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "Description rejects special characters (hyphen tested) and is limited to 100 chars; the message is shown on hover of the red field icon. Save is then blocked with no toast.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/SKU_SUBSTITUTION_POLICY.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "Creating a policy (Save) shows 'Saved successfully'; the new row appears in the grid without a page reload. Created by SDMS-10351 TC07 on 2026-09-25: description 'QAOS TC07 auto sub exclusion', abbreviation QAOS07, 2026-10-05 to 2026-10-15.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/SKU_SUBSTITUTION_POLICY.json (curated observations)",
+   "date": "2026-09-25"
+  }
+ ],
+ "differences": [],
+ "breadcrumb": [
+  "Home",
+  "Transaction",
+  "SKU Substitution Policy"
+ ],
  "modes": {
   "new": {
    "enabled": [
@@ -172,20 +351,21 @@
    "notes": "Type editable is possibly a defect (story: only End Date); Type has a single option"
   }
  },
- "observations": [
-  "Expired policy PL000000050 (end 2026-08-05) is still listed in the grid on 2026-09-25; story wording is ambiguous.",
-  "Selecting expired PL000000050 makes ALL fields editable and Update enabled (2026-09-25, SDMS-10351 TC41) — story R11 says only future policies can be updated; defect candidate.",
-  "Description rejects special characters (hyphen tested) and is limited to 100 chars; the message is shown on hover of the red field icon. Save is then blocked with no toast.",
-  "Creating a policy (Save) shows 'Saved successfully'; the new row appears in the grid without a page reload. Created by SDMS-10351 TC07 on 2026-09-25: description 'QAOS TC07 auto sub exclusion', abbreviation QAOS07, 2026-10-05 to 2026-10-15."
- ],
- "messages": {
-  "save_success": {
-   "text": "Saved successfully",
-   "provenance": "observed 2026-09-25, TC07 (Save of a new policy)"
-  },
-  "description_invalid": {
-   "text": "Maximum length 100 & Special Characters are also not allowed",
-   "provenance": "observed 2026-09-25, TC07/TC53"
-  }
- }
+ "business_page": null,
+ "trained": {
+  "status": true,
+  "date": "2026-09-25",
+  "how": [
+   "curated live look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/SKU_SUBSTITUTION_POLICY.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-09-25"
 }

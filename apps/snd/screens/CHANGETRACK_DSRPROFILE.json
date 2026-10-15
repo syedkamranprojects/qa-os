@@ -1,0 +1,191 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CHANGETRACK_DSRPROFILE",
+ "title": "Change Track DSR Profile",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "DSR Profile",
+   "Change Track DSR Profile"
+  ],
+  "option_id": "CHANGETRACK_DSRPROFILE",
+  "search_text": "Change Track DSR Profile",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/change-management",
+ "page_param": "pageCodeGrid=102003019&fieldComb=pbet_busentity_type&valueComb=DSRS&serialNoGrid=4&pageCodeForm=102003020&serialNoForm=2&label1=DSR Modification Request List&label2=List of DSR&label3=DSR Modification attribute",
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Hierarchy Type": {
+   "element": "TXT__PHLS_HIERARCHY_TYPE",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "locator": {
+    "id": "TXT__PHLS_HIERARCHY_TYPE"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Distributor Level": {
+   "element": "TXT__PHLS_DISTRIBUTOR_LEVEL",
+   "widget": "number",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "locator": {
+    "id": "TXT__PHLS_DISTRIBUTOR_LEVEL"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Warehouse Level": {
+   "element": "TXT__PHLS_WAREHOUSE_LEVEL",
+   "widget": "number",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "locator": {
+    "id": "TXT__PHLS_WAREHOUSE_LEVEL"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Outlet Level": {
+   "element": "TXT__PHLS_OUTLET_LEVEL",
+   "widget": "number",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "locator": {
+    "id": "TXT__PHLS_OUTLET_LEVEL"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "locator": {
+    "id": "save"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Update": {
+   "element": "update",
+   "locator": {
+    "id": "update"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Delete": {
+   "element": "delete",
+   "locator": {
+    "id": "delete"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Change Track DSR Profile": {
+   "columns": [
+    "Hierarchy Type",
+    "Distributor Level",
+    "Warehouse Level",
+    "Outlet Level"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/dsr.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-13",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CHANGETRACK_DSRPROFILE.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-13"
+}

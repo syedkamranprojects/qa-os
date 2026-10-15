@@ -1,0 +1,132 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CASHMEMO-STATUS",
+ "title": "Cashmemo Status",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Cashmemo Status"
+  ],
+  "option_id": "CASHMEMO-STATUS",
+  "search_text": "Cashmemo Status",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/order-booking/cashmemo-status",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "PJP Number": {
+   "element": "dsrType",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_STATUS.json"
+   },
+   "locator": {
+    "id": "dsrType"
+   },
+   "default": "AutoPJGIN2-Auto GIN PJP DM",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "GIN Number": {
+   "element": "ginno",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_STATUS.json"
+   },
+   "locator": {
+    "id": "ginno"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Save": {
+   "element": "saveallBtn",
+   "locator": {
+    "id": "saveallBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASHMEMO-STATUS.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Cashmemo Status": {
+   "columns": [
+    "Document No",
+    "Invoice Number",
+    "Outlet",
+    "Document Date",
+    "GIN Number",
+    "Delivery Date",
+    "Demand Channel",
+    "Document Status",
+    "Execution Status",
+    "Gross Amount",
+    "Tax",
+    "Net Amount"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASHMEMO-STATUS.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Hand-coded Angular screen under the order-booking module; no grid/buttons appear until a GIN Number is chosen (none available).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_STATUS.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/delivery_and_returns/cashmemo_reschedule_and_status.md",
+ "business_pages_also": [
+  "knowledge/business/delivery_and_returns/delivery_lifecycle.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CASHMEMO-STATUS.json",
+   "apps/snd/knowledge/screens_observed/LIVE_CASHMEMO_STATUS.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

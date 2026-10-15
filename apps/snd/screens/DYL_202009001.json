@@ -1,0 +1,573 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202009001",
+ "title": "Outlet Profile",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Outlet Profile",
+   "Outlet Profile"
+  ],
+  "option_id": "DYL_202009001",
+  "search_text": "Outlet Profile",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=202009001",
+ "layout_code": "202009001",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Demographics",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003002_PBET_BUSENTITY_TYPE_OUTL"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Operative Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003010_pbet_busentity_type_OUTL"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Address",
+   "element": null,
+   "sub_tabs": [
+    "BUSI",
+    "COMP",
+    "RESD"
+   ],
+   "pages": [
+    "102003039_padt_address_type_COMP",
+    "102003039_padt_address_type_BUSI",
+    "102003039_padt_address_type_RESD"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Documents",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003041_pbet_busentity_type_OUTL"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Bank",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003042_pbet_busentity_type_OUTL"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Contact Person Details",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003040"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Credit Limit",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003058"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  {
+   "label": "Segment",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "BG1013012"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "102003001_PBET_BUSENTITY_TYPE_OUTL",
+   "tab": null,
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003002_PBET_BUSENTITY_TYPE_OUTL",
+   "tab": "Demographics",
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003010_pbet_busentity_type_OUTL",
+   "tab": "Operative Info",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003039_padt_address_type_COMP",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003039_padt_address_type_BUSI",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003039_padt_address_type_RESD",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003041_pbet_busentity_type_OUTL",
+   "tab": "Documents",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003042_pbet_busentity_type_OUTL",
+   "tab": "Bank",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003040",
+   "tab": "Contact Person Details",
+   "desc": "Entity Profile 1  Outlet Contact Person Grid",
+   "table": "GLB_EN_COD_CONTACTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003058",
+   "tab": "Credit Limit",
+   "desc": "Entity Profile 1 Outlet - Credit Limit",
+   "table": "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "BG1013012",
+   "tab": "Segment",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Outlet Long Name": {
+   "element": "TXT__EPP1DESC",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1DESC"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Previous Outlet Code": {
+   "element": "TXT__EPP1PREVCODE",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1PREVCODE"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Area Type": {
+   "element": "DT__EPP1REFDATE1",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "locator": {
+    "id": "DT__EPP1REFDATE1"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Sub Distributor": {
+   "element": "TXT__EPP1SUBDISTRIBUTOR",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1SUBDISTRIBUTOR"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Prospect ID": {
+   "element": "TXT__EPP1_PROSPECT_ID",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_PROSPECT_ID"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "1180": {
+   "element": "pagination-element-1180",
+   "locator": {
+    "id": "pagination-element-1180"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "locator": {
+    "id": "save"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Update": {
+   "element": "update",
+   "locator": {
+    "id": "update"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Translation": {
+   "element": "crossBtn",
+   "locator": {
+    "id": "crossBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Segment Code",
+    "Segment Description",
+    "Segment Type",
+    "Start Date",
+    "End Date",
+    "Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202009001.json"
+   }
+  },
+  "Outlet Profile  grid 2": {
+   "columns": [
+    "Outlet Code",
+    "Outlet Name",
+    "Outlet Short Name",
+    "Outlet Status",
+    "Approval Status",
+    "Distributor"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/outlet.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202009001.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_202009001.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

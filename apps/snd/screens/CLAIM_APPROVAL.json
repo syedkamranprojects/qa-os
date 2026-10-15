@@ -1,0 +1,112 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CLAIM_APPROVAL",
+ "title": "Claim Approval",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "Claim Approval"
+  ],
+  "option_id": "CLAIM_APPROVAL",
+  "search_text": "Claim Approval",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "content-master/mobility/claim-approval",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Claim Type": {
+   "element": "productType",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CLAIM_APPROVAL.json"
+   },
+   "locator": {
+    "id": "productType"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CLAIM_APPROVAL.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Terminate": {
+   "element": "terminate",
+   "locator": {
+    "id": "terminate"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CLAIM_APPROVAL.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Claim Approval": {
+   "columns": [
+    "Document No",
+    "Document Type",
+    "Principal",
+    "Warehouse",
+    "Reason Type",
+    "Date From",
+    "Date To",
+    "Document Date"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CLAIM_APPROVAL.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/claims.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CLAIM_APPROVAL.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

@@ -1,0 +1,172 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DSR_ADJUSTMENT_AMOUNT",
+ "title": "DSR Adjustment Amount",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "DSR Adjustment Amount"
+  ],
+  "option_id": "DSR_ADJUSTMENT_AMOUNT",
+  "search_text": "DSR Adjustment Amount",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/content-master/mobility/dsr-adjustment-amount-wise",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Document Date": {
+   "element": "documentDate",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "locator": {
+    "id": "documentDate"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Amount": {
+   "element": "balanceAmt",
+   "widget": "number",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "locator": {
+    "id": "balanceAmt"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Comments": {
+   "element": "Comments",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "locator": {
+    "id": "Comments"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Save": {
+   "element": "SavePopUp",
+   "locator": {
+    "id": "SavePopUp"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "DSR Adjustment Amount": {
+   "columns": [
+    "PJP Code",
+    "PJP Description",
+    "Total Shortage Amount",
+    "Total Adjusted Amount",
+    "Balance Amount"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/dsr_adjustment.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DSR_ADJUSTMENT_AMOUNT.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

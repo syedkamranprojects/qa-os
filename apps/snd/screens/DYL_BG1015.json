@@ -1,0 +1,197 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_BG1015",
+ "title": "Stock Inquiry II",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Stock Inquiry II"
+  ],
+  "option_id": "DYL_BG1015",
+  "search_text": "Stock Inquiry II",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=BG1015",
+ "layout_code": "BG1015",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "BG1015002",
+   "tab": null,
+   "desc": null,
+   "table": "snd_tr_ssb_salestock_balance",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 2
+  },
+  {
+   "page": "BG1015001",
+   "tab": null,
+   "desc": null,
+   "table": "(select",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Period Type": {
+   "element": "DDL__pptp_period_type",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PPTP_PERIOD_TYPE",
+   "list_source": "PPTP",
+   "config_id": "selectbox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1015.json"
+   },
+   "locator": {
+    "id": "DDL__pptp_period_type"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Balance Date": {
+   "element": "DDT__tssb_balance_date",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSSB_BALANCE_DATE",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1015.json"
+   },
+   "locator": {
+    "id": "DDT__tssb_balance_date"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "Generate Opening Balances": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_BG1015.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Stock Inquiry": {
+   "element": "showInquiryRefresh",
+   "locator": {
+    "id": "showInquiryRefresh"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1015.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Balance Date",
+    "Principle Code",
+    "Category",
+    "Brand",
+    "Product Code",
+    "Product Name",
+    "Warehouse",
+    "Batch",
+    "Stock Type",
+    "Moving Avg Price",
+    "Opening Stock Value",
+    "Closing Stock Value",
+    "Opening CS",
+    "@Session(Orga Code)~Opening DZ",
+    "Opening PC",
+    "In CS",
+    "@Session(Orga Code)~In DZ",
+    "In PC",
+    "Out CS",
+    "@Session(Orga Code)~Out DZ",
+    "Out PC",
+    "Allocated CS",
+    "@Session(Orga Code)~Allocated DZ",
+    "Allocated PC",
+    "Closing CS",
+    "@Session(Orga Code)~Closing Balance DZ",
+    "Closing PC",
+    "ATP CS",
+    "@Session(Orga Code)~ATPDZ",
+    "ATP PC",
+    "In Transit CS",
+    "@Session(Orga Code)~In Transit DZ",
+    "In Transit PC",
+    "Opening SH",
+    "In SH",
+    "Out SH",
+    "Allocated SH",
+    "Closing SH",
+    "ATP SH",
+    "In Transit SH",
+    "Re Attempt CS",
+    "Re Attempt SH",
+    "Re Attempt PC"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1015.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/end_of_day_validations.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-06",
+  "how": [
+   "business page",
+   "group 11 walk"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_BG1015.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_BG1015.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-06"
+}

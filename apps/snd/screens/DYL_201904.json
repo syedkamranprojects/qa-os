@@ -1,0 +1,231 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201904",
+ "title": "Order Stock Allocation",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Order Stock Allocation"
+  ],
+  "option_id": "DYL_201904",
+  "search_text": "Order Stock Allocation",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201904",
+ "layout_code": "201904",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Unallocated",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201904002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201904.json"
+   }
+  },
+  {
+   "label": "Allocated",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201904003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201904.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "201904001",
+   "tab": null,
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_master",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 2
+  },
+  {
+   "page": "201904002",
+   "tab": "Unallocated",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201904003",
+   "tab": "Allocated",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Order Date": {
+   "element": "docDate",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "DOCDATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_STOCK_ALLOCATION.json"
+   },
+   "locator": {
+    "id": "docDate"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "PJP Number": {
+   "element": "pjpNum",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PJPNUM",
+   "list_source": "PJP_OSA",
+   "default": "02111~AutomationOB1",
+   "config_id": "selectbox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_STOCK_ALLOCATION.json"
+   },
+   "locator": {
+    "id": "pjpNum"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Allocation": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201904.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201904.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Unallocate": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201904.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Description",
+    "Document No",
+    "Seller",
+    "Document Type",
+    "Document Status",
+    "Currency",
+    "Outlet Code",
+    "Outlet Name",
+    "Document Date",
+    "Delivery Date",
+    "Net Amount",
+    "Section",
+    "Allocation Status",
+    "Demand Channel"
+   ],
+   "edit_mode": "batch",
+   "selection": "multiple",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_STOCK_ALLOCATION.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "PJP value format uses '~' separator here (code~name), unlike Transaction Inquiry ' - ' and Order Booking '-'.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_ORDER_STOCK_ALLOCATION.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/order_to_delivery_planning/stock_allocation.md",
+ "business_pages_also": [
+  "knowledge/business/order_to_delivery_planning/order_lifecycle_and_statuses.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201904.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201904.json",
+   "apps/snd/knowledge/screens_observed/LIVE_ORDER_STOCK_ALLOCATION.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

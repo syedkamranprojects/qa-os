@@ -43,7 +43,7 @@ Never guess to fill a gap, and never take the missing knowledge from old framewo
    Never assume these silently, even when there is an obvious default. Company and distributor are NOT asked: they follow from the market and user in `app.yaml`. An answer that does not match `app.yaml` is rejected by `qaos_run.py init` - ask again. The confirmed context is stored in `run.json` (`context`) and, if scripts are generated, printed in the header of `framework.sql` and `framework_rollback.sql`.
 2. Turn the request into **business actions** and **menu options** using the business pages (start at `INDEX.md`, glossary, the option's L3 page). E.g. "order and order detail with two products" -> Order Booking (header + 2 detail lines), Maker only.
 3. **Chains are allowed** when the request asks for them (e.g. "book an order, allocate it and make the GIN"): list the actions in business order, with the role per action and the switch points (Maker -> Checker). The whole chain runs on **one calendar day**; apply the carry-over checks in `docs/STATUS.md` and the run rules in `docs/OPERATING_RULES.md`.
-4. **Is every option trained?** Apply the knowledge-gap gate. Never improvise an untrained screen.
+4. **Is every option trained?** Apply the knowledge-gap gate. Never improvise an untrained screen. A screen is trained when it has a business page and a screen file (`apps/<app>/screens/`, design v4 2026-10-15); steps use the screen file's element ids, the execution uses one login per user role, and any difference from the prediction stops and is asked.
 
 ## Q1. Create the run
 1. Key `QUICK-<yyyymmdd>-<hhmm>`. Write the request to a story file (scratchpad):

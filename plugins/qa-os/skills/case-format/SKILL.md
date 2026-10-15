@@ -21,8 +21,8 @@ Contract: `plugins/qa-os/schemas/cases.schema.json` (`cases.json`). The team wor
 | `priority` | `P1`, `P2`, `P3` |
 
 ## The cap
-- **At most 10 core cases per story.** The rest go to a `Backlog` section (not executed now). Core cases are the P1 positives and the business effects that prove the story; the cut is documented in the run's decisions.
-- A story spanning several flows still stays at 10 core cases; big end-to-end stories reference the framework's group cycle instead of restating each flow (see the atlas).
+- **No fixed cap on core cases** (design v4, 2026-10-15): as many as the rules and ACs need; the QA member trims at approval. The `Backlog` section holds **one-line ideas only** (title + why), promoted to core only by the QA member.
+- Every core case belongs to exactly one path (`paths.json`); negatives on the same screens are data rows of that path.
 
 ## Coverage heuristics
 1. **Positive** for every "When" item and screen action (open, list, create, update, approve, download, upload).
@@ -37,4 +37,4 @@ Contract: `plugins/qa-os/schemas/cases.schema.json` (`cases.json`). The team wor
 - Base cases on the story and the app pack, not on example workbooks.
 - Use the app's own names (screen, field, status); note story-vs-app differences as known variances (`decisions.json`), not as failing cases.
 - A case that changes data or stock says on which environments it may run (`non_production` only).
-- Steps are written later, in the step vocabulary and approved at G3; a case never contains locators or waits.
+- Steps are written later in plain English with event columns and approved together with the cases (one approval); a case never contains locators or waits.

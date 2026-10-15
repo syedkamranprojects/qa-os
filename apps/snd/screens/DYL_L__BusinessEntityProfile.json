@@ -1,0 +1,1383 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_L__BusinessEntityProfile",
+ "title": "Distributor Profile HQ",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Distributor Profile",
+   "Distributor Profile HQ"
+  ],
+  "option_id": "DYL_L__BusinessEntityProfile",
+  "search_text": "Distributor Profile HQ",
+  "top_id": "NG02",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=L__BusinessEntityProfile",
+ "layout_code": "L__BusinessEntityProfile",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Demographics",
+   "element": "tab_2",
+   "sub_tabs": [],
+   "pages": [
+    "202027002"
+   ],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "runs/SDMS-6084/20261009-1753/recording_TC19.json"
+   }
+  },
+  {
+   "label": "Operative Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003010_pbet_busentity_type_DIST"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  {
+   "label": "Other Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003032_pbet_busentity_type_DIST"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  {
+   "label": "Address",
+   "element": null,
+   "sub_tabs": [
+    "BUSI",
+    "COMP",
+    "RESD"
+   ],
+   "pages": [
+    "102003031_padt_address_type_COMP",
+    "102003031_padt_address_type_BUSI",
+    "102003031_padt_address_type_RESD"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  {
+   "label": "Document",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  {
+   "label": "Bank",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003004"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  {
+   "label": "Contact Person Details",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102003006"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  {
+   "label": "Geo Hierarchy",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "BG1014011"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "202027001",
+   "tab": null,
+   "desc": "Distributor Profile HQ - Grid",
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "is_child": false,
+   "grids": [
+    "Distributor Code"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "202027002",
+   "tab": "Demographics",
+   "desc": "Distributor Profile HQ - Form",
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 34
+  },
+  {
+   "page": "102003010_pbet_busentity_type_DIST",
+   "tab": "Operative Info",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003032_pbet_busentity_type_DIST",
+   "tab": "Other Info",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003031_padt_address_type_COMP",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003031_padt_address_type_BUSI",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003031_padt_address_type_RESD",
+   "tab": "Address",
+   "desc": null,
+   "table": null,
+   "is_child": true,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102003003",
+   "tab": "Document",
+   "desc": "Entity Profile 1 Distributor Document Grid",
+   "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid2"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003004",
+   "tab": "Bank",
+   "desc": "Entity Profile 1 Bank / Branch Grid",
+   "table": "GLB_EN_BAC_BANKACCOUNT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102003006",
+   "tab": "Contact Person Details",
+   "desc": "Entity Profile 1 Distributor Contact Person Grid",
+   "table": "GLB_EN_COD_CONTACTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "BG1014011",
+   "tab": "Geo Hierarchy",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Distributor": {
+   "element": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "max_length": 100,
+   "config_id": "FTXT__EPP1BUSENTPHSLVL1CODE",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1BUSENTPHSLVL1CODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Name": {
+   "element": "TXT__EPP1DESC",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPP1_DESC",
+   "max_length": 100,
+   "config_id": "FTXT__EPP1DESC",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1DESC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Reference ID": {
+   "element": "TXT__EPP1REFERENCE1",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REFERENCE_1",
+   "max_length": 100,
+   "config_id": "FTXT__EPP1REFERENCE1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1REFERENCE1"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Active": {
+   "element": "DDL__EPP1ACTIVE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_ACTIVE",
+   "default": "Y",
+   "config_id": "selectbox15",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__EPP1ACTIVE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "MIS Type": {
+   "element": "DDL__PBEMBUSENTITYMISTYPE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "PBEM_BUSENTITY_MISTYPE",
+   "list_source": "PBEM",
+   "config_id": "selectbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__PBEMBUSENTITYMISTYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Location": {
+   "element": "DDL__PLOC_LOCACODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PLOC_LOCACODE",
+   "list_source": "PLOC",
+   "config_id": "selectbox23",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__PLOC_LOCACODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Appointment Date": {
+   "element": "DT__EPP1APPOINTDATE",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_APPOINT_DATE",
+   "config_id": "datebox8",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DT__EPP1APPOINTDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Currency": {
+   "element": "DDL__PCURCURRCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PCUR_CURRCODE",
+   "list_source": "PCUR",
+   "config_id": "selectbox7",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__PCURCURRCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Financial Entity": {
+   "element": "DDL__PFETFINENTCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PFET_FINENT_CODE",
+   "list_source": "PFET",
+   "config_id": "selectbox24",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__PFETFINENTCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Corporate Code": {
+   "element": "DDL__EPP1CORPCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_CORP_CODE",
+   "list_source": "EPP1CORPCODE",
+   "config_id": "selectbox25",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__EPP1CORPCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Registration No": {
+   "element": "TXT__EPP1REFERENCE3",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REFERENCE_3",
+   "config_id": "textbox18",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1REFERENCE3"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Registration Date": {
+   "element": "DT__EPP1REFDATE1",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REF_DATE_1",
+   "config_id": "datebox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DT__EPP1REFDATE1"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Incorporation Date": {
+   "element": "DT__EPP1REFDATE2",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REF_DATE_2",
+   "config_id": "datebox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DT__EPP1REFDATE2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Coordinates Latitude": {
+   "element": "TXT__EPP1CORLATITUDE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_COR_LATITUDE",
+   "regex": "^\\d+(\\.\\d+)?$",
+   "config_id": "textbox19",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1CORLATITUDE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Coordinates Longitude": {
+   "element": "TXT__EPP1CORLONGITUDE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_COR_LONGITUDE",
+   "regex": "^\\d+(\\.\\d+)?$",
+   "config_id": "textbox20",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1CORLONGITUDE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Spending Time": {
+   "element": "TXT__EPP1SPENDINGTIME",
+   "widget": "number",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_SPENDING_TIME",
+   "config_id": "textbox17",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1SPENDINGTIME"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Number Generation Prefix": {
+   "element": "TXT__EPP1_NUMBER_GEN_PREFIX",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_NUMBER_GEN_PREFIX",
+   "max_length": 3,
+   "config_id": "textbox21",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_NUMBER_GEN_PREFIX"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Sub Distributor": {
+   "element": "TXT__EPP1SUBDISTRIBUTOR",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_SUB_DISTRIBUTOR",
+   "config_id": "selectbox30",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1SUBDISTRIBUTOR"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Report To": {
+   "element": "TXT__EPP1REPORTTO",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_REPORT_TO",
+   "list_source": "BUSENT",
+   "config_id": "selectbox31",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1REPORTTO"
+   },
+   "disable_rule": "Disabled and not required while Sub Distributor = No; enabled when Sub Distributor = Yes (the distributor then reports to a parent distributor).",
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Starting Latitude": {
+   "element": "TXT__EPP1REFERENCE4",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REFERENCE_4",
+   "max_length": 100,
+   "regex": "^\\d+(\\.\\d+)?$",
+   "config_id": "textbox23",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1REFERENCE4"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Starting Longitude": {
+   "element": "TXT__EPP1REFERENCE5",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REFERENCE_5",
+   "max_length": 100,
+   "regex": "^\\d+(\\.\\d+)?$",
+   "config_id": "textbox24",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1REFERENCE5"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Ending latitude": {
+   "element": "TXT__epp1_reference_6",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REFERENCE_6",
+   "max_length": 100,
+   "regex": "^\\d+(\\.\\d+)?$",
+   "config_id": "textbox30",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__epp1_reference_6"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Ending Longitude": {
+   "element": "TXT__epp1_reference_7",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REFERENCE_7",
+   "max_length": 100,
+   "regex": "^\\d+(\\.\\d+)?$",
+   "config_id": "textbox31",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__epp1_reference_7"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Off Days": {
+   "element": "DDL__epp1_offdays",
+   "widget": "tagbox",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_OFFDAYS",
+   "max_length": 100,
+   "config_id": "textbox22",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "runs/SDMS-6084/20261009-1753/recording_TC10.json"
+   },
+   "locator": {
+    "id": "DDL__epp1_offdays"
+   },
+   "env_elements": {
+    "cnr2dev3": "TXT__epp1_offdays",
+    "cnr1dev1": "DDL__epp1_offdays"
+   },
+   "options_seen": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+   ],
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-15"
+   ]
+  },
+  "Auto Inventory Allocation": {
+   "element": "DDL__EPP1_AUTO_INVENTORY_ALLOC",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_AUTO_INVENTORY_ALLOC",
+   "config_id": "selectbox35",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__EPP1_AUTO_INVENTORY_ALLOC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Threshold Time For Delivery Date": {
+   "element": "TT__EPP1_THRSHLD_TIME_DELV_DATE",
+   "widget": "time",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_THRSHLD_TIME_DELV_DATE",
+   "config_id": "datebox12",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TT__EPP1_THRSHLD_TIME_DELV_DATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Delivery Days After Threshold Time": {
+   "element": "TXT__EPP1_DELV_DAYS_THRSHLD_TIME",
+   "widget": "number",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_DELV_DAYS_THRSHLD_TIME",
+   "config_id": "textbox28",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_DELV_DAYS_THRSHLD_TIME"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "GIN Creation Time": {
+   "element": "TT__EPP1_GIN_INITIATION_TIME",
+   "widget": "time",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_GIN_INITIATION_TIME",
+   "config_id": "datebox13",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TT__EPP1_GIN_INITIATION_TIME"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Invoice Print Message": {
+   "element": "TXT__EPP1_Message",
+   "widget": "textarea",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_MESSAGE",
+   "config_id": "textarea1",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "runs/SDMS-6084/20261009-1753/recording_TC08.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_Message"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-15"
+   ]
+  },
+  "Manual Order Creation": {
+   "element": "DDL__EPP1_MANUAL_ORDER",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_MANUAL_ORDER",
+   "list_source": "DEFAULTYN",
+   "default": "N",
+   "config_id": "selectbox34",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "DDL__EPP1_MANUAL_ORDER"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "MDSP%": {
+   "element": "TXT__EPP1_MDSP",
+   "widget": "number",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_MDSP",
+   "config_id": "textbox15",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_MDSP"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "MCDP%": {
+   "element": "TXT__EPP1_MCDP",
+   "widget": "number",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_MCDP",
+   "config_id": "textbox16",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_MCDP"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Sold To": {
+   "element": "TXT__epp1_outlet_corporate",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP1_OUTLET_CORPORATE",
+   "max_length": 100,
+   "config_id": "textbox17",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__epp1_outlet_corporate"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Charge To": {
+   "element": "TXT__epp1_outlet_billto",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP1_OUTLET_BILLTO",
+   "max_length": 100,
+   "config_id": "textbox18",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__epp1_outlet_billto"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Parent Reference code": {
+   "element": "TXT__EPP1_PARENT_REF_CODE",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "locator": {
+    "id": "TXT__EPP1_PARENT_REF_CODE"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "save"
+   }
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "runs/SDMS-6084/20261009-1753/recording_TC19.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-15"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Translation": {
+   "element": "crossBtn",
+   "locator": {
+    "id": "crossBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid2": {
+   "columns": [
+    "Sr No",
+    "Document Type",
+    "Document Number",
+    "Issue Date",
+    "Expiry Date",
+    "Document Status",
+    "Reference No",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  "grid1": {
+   "columns": [
+    "Geo Hierarchy",
+    "Description"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json"
+   }
+  },
+  "Distributor List": {
+   "element": "dataGrid",
+   "caption": "Distributor List",
+   "columns": [
+    "Distributor",
+    "Name",
+    "Reference ID",
+    "Working Date",
+    "MIS Type",
+    "Closing Date",
+    "Geo Hierarchy",
+    "Day Off",
+    "Location",
+    "Appointment Date",
+    "Active",
+    "Ranking",
+    "Place of Appointment",
+    "Org Ranking",
+    "Currency",
+    "Channel Hierarchy",
+    "Financial Entity",
+    "Corporate Code",
+    "Registration No",
+    "Registration Date",
+    "Incorporation Date",
+    "Coordinates Latitude",
+    "Coordinates Longitude",
+    "Level Type",
+    "Level No",
+    "Organization",
+    "Spending Time",
+    "Number Generation Prefix",
+    "Invoice Print Message",
+    "Manual Order Creation",
+    "Ending latitude",
+    "Ending Longitude",
+    "GIN Creation Time",
+    "MDSP%",
+    "MCDP%"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "runs/SDMS-6084/20261009-1753/recording_TC19.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]",
+   "row_id_pattern": "row_N_distributor",
+   "key_column": "Distributor"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast-success",
+   "text": "Updated successfully",
+   "when": "after Update",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-14",
+    "ref": "runs/SDMS-6084/20261009-1753/recording_TC04.json"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Off Days is a DevExtreme tag box (multi-select) on cnr1dev1: input id DDL__epp1_offdays, placeholder 'Select...', options Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday in that order; no 'Select all', no checkboxes.",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/live_look.md",
+   "date": "2026-10-09"
+  },
+  {
+   "text": "Off Days list closes after every pick: for each day, real-click the input to reopen the list, wait for the visible .dx-list-item, then real-click it. Hidden list items are not interactable.",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md",
+   "date": "2026-10-09"
+  },
+  {
+   "text": "Off Days: choosing a day that is already selected removes it (the pick toggles the tag off).",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (P4 run)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "Off Days tags are not inside #DDL__epp1_offdays (that id is the tag box input): read them from the parent tag box, document.getElementById('DDL__epp1_offdays').closest('.dx-tagbox').querySelectorAll('.dx-tag').",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (P1 run)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "Off Days cross-out: real click on the .dx-tag-remove-button of the tag, e.g. //div[contains(@class,'dx-tag-content') and normalize-space()='Friday']/*[contains(@class,'dx-tag-remove-button')]. The watcher logs it as a click on div.dx-tag with a generated id; never replay that id.",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (P2 rerun)",
+   "date": "2026-10-15"
+  },
+  {
+   "text": "Off Days are saved in the order they were selected.",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "knowledge/business/LIVE_FINDINGS.md (SDMS-6084 block)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "To read the Off Days options without changing data: open the list, read the .dx-list-item texts only, press Escape, then check there are still no new tags. Never click list items in a read-only case.",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (TC01)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "window.jQuery is not available on this screen: read the tag box from the DOM (.dx-tag, input value), not through a dxTagBox instance.",
+   "kind": "screen",
+   "field": "Off Days",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (recheck)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "Update: the clickable inner #updateBtn sits below the fold (about 1300 px down); a real click scrolls to it. The watcher logs the wrapper #update.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (P6 run)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "Tab Demographics is #tab_2, but tab ids tab_1..tab_5 occur twice on the page (cent-tab wrapper and nested dx-button-content), so the same id can point at another tab: locate the tab by its text or with a class qualifier.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/SDMS-6084/20261009-1753/exec/TC01/20261014-live/friction.md",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "Report To (TXT__EPP1REPORTTO) is disabled on load when Sub Distributor = No (disabled=true, aria-disabled=true) and is shown red (invalid) until the first Update.",
+   "kind": "screen",
+   "field": "Report To",
+   "source": "runs/SDMS-6084/20261009-1753/friction.md; knowledge/business/LIVE_FINDINGS.md",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "Clicking the same menu item again does not reset the screen (unsaved tags stay, the sidebar stays open over the grid). To reopen cleanly, reload the page and navigate again from the menu (a reload lands on Home).",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (P4 run)",
+   "date": "2026-10-14"
+  },
+  {
+   "text": "The Distributor List grid shows only the distributor chosen at login. The code on the distributor selector is not always an HQ distributor code (some selections show 0 rows).",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/SDMS-6084/20261009-1753/friction.md (P8 run)",
+   "date": "2026-10-15"
+  }
+ ],
+ "differences": [
+  {
+   "what": "field 'Off Days' element",
+   "config": "TXT__epp1_offdays",
+   "live": "DDL__epp1_offdays",
+   "env": "cnr1dev1",
+   "date": "2026-10-15",
+   "ref": "runs/SDMS-6084/20261009-1753/recording_TC10.json",
+   "status": "open"
+  },
+  {
+   "what": "field 'Off Days' widget",
+   "config": "text",
+   "live": "tagbox",
+   "env": "cnr1dev1",
+   "date": "2026-10-15",
+   "ref": "runs/SDMS-6084/20261009-1753/recording_TC10.json",
+   "status": "open"
+  }
+ ],
+ "business_page": null,
+ "trained": {
+  "status": true,
+  "date": "2026-10-15",
+  "how": [
+   "run SDMS-6084"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_L__BusinessEntityProfile.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_L__BusinessEntityProfile.json"
+  ],
+  "recorded": [
+   "runs/SDMS-6084/20261009-1753/recording_TC04.json",
+   "runs/SDMS-6084/20261009-1753/recording_TC05.json",
+   "runs/SDMS-6084/20261009-1753/recording_TC08.json",
+   "runs/SDMS-6084/20261009-1753/recording_TC09.json",
+   "runs/SDMS-6084/20261009-1753/recording_TC10.json",
+   "runs/SDMS-6084/20261009-1753/recording_TC15.json",
+   "runs/SDMS-6084/20261009-1753/recording_TC19.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json",
+   "runs/SDMS-6084/20261009-1753/live_look.md",
+   "stated 2026-10-14 Syed Kamran (knowledge/business/LIVE_FINDINGS.md, SDMS-6084 block)"
+  ]
+ },
+ "updated": "2026-10-15"
+}

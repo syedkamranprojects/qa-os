@@ -1,0 +1,2059 @@
+{
+ "app": "snd",
+ "schema": "plugins/qa-os/schemas/screen.schema.json",
+ "note": "One screen file per trained screen (business page, group 11/66 walk, or a run recording). Built by tools/build_screen_file.py --all-trained.",
+ "env_filter": null,
+ "updated": "2026-10-15",
+ "count": 78,
+ "screens": [
+  {
+   "option_id": "ACTIVE_PROMOTIONS",
+   "title": "Active Promotions",
+   "path": "Company setup > Promotion > Active Promotions",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "ACTIVE_PROMOTIONS.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "ADHOC_JOB_EXECUTOR2",
+   "title": "Adhoc Job Executor",
+   "path": "Transaction > Process > Adhoc Job Executor",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/claims.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "ADHOC_JOB_EXECUTOR2.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 0,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "BUDGET_LAYOUT",
+   "title": "Budget Setup",
+   "path": "Target > Budget > Budget Setup",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "BUDGET_LAYOUT.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 9,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "BULK_PROMO_ALLOCATION",
+   "title": "Bulk Promo Allocation",
+   "path": "Target > Target > Bulk Promo Allocation",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "BULK_PROMO_ALLOCATION.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 0,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "CASHMEMO-STATUS",
+   "title": "Cashmemo Status",
+   "path": "Transaction > Order > Cashmemo Status",
+   "kind": "static",
+   "business_page": "knowledge/business/delivery_and_returns/cashmemo_reschedule_and_status.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "CASHMEMO-STATUS.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 1,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "CASH_MEMO_PROMOTION_VIEWER",
+   "title": "Cash Memo Promotion Viewer",
+   "path": "Configuration > System Configuration > Cash Memo Promotion Viewer",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "CASH_MEMO_PROMOTION_VIEWER.json",
+   "n_fields": 7,
+   "n_live_fields": 7,
+   "n_buttons": 4,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no config in screens_db"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "CHANGETRACK_DSRPROFILE",
+   "title": "Change Track DSR Profile",
+   "path": "Distributor Setup > DSR Profile > Change Track DSR Profile",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/dsr.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_DSRPROFILE.json",
+   "n_fields": 4,
+   "n_live_fields": 4,
+   "n_buttons": 4,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-13"
+  },
+  {
+   "option_id": "CHANGETRACK_DSR_DOC",
+   "title": "Change Track DSR Document",
+   "path": "Distributor Setup > Outlet Profile > Change Track DSR Document",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/dsr.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_DSR_DOC.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 6,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-13"
+  },
+  {
+   "option_id": "CHANGETRACK_OUTLPROFILE",
+   "title": "Change Track Outlet Profile",
+   "path": "Distributor Setup > Outlet Profile > Change Track Outlet Profile",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_OUTLPROFILE.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 7,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "CHANGETRACK_OUTL_DOC",
+   "title": "Change Track Outlet Document",
+   "path": "Distributor Setup > Outlet Profile > Change Track Outlet Document",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_OUTL_DOC.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 6,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "CHANGETRACK_OUTL_OPINFO",
+   "title": "Change Track Outlet Operative Info",
+   "path": "Distributor Setup > Outlet Profile > Change Track Outlet Operative Info",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_OUTL_OPINFO.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 6,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "CHANGETRACK_PJP",
+   "title": "PJP Change Request",
+   "path": "Distributor Setup > Journey Plan > PJP Change Request",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_PJP.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 6,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "CHANGETRACK_PJP_CONFIG",
+   "title": "Change Track PJP Config",
+   "path": "Distributor Setup > Journey Plan > Change Track PJP Config",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "CHANGETRACK_PJP_CONFIG.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 10,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "CLAIM_APPROVAL",
+   "title": "Claim Approval",
+   "path": "Transaction > Claim > Claim Approval",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/claims.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "CLAIM_APPROVAL.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 2,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "CLAIM_PERIOD",
+   "title": "Distributor Claim Period",
+   "path": "Transaction > Claim > Distributor Claim Period",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/claims.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "CLAIM_PERIOD.json",
+   "n_fields": 4,
+   "n_live_fields": 4,
+   "n_buttons": 5,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 1,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "1 open config-vs-live difference(s)"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "CREDIT_NOTE_APPROVAL",
+   "title": "Off-Invoice Credit Note Approval",
+   "path": "Transaction > Receivable > Off-Invoice Credit Note Approval",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "CREDIT_NOTE_APPROVAL.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 1,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "CURRENT_PROMOTION_APPROVER",
+   "title": "Current Promotion Approver",
+   "path": "Company setup > Promotion > Current Promotion Approver",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "CURRENT_PROMOTION_APPROVER.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "DELIVERY_MAN_SHUFFLING",
+   "title": "Delivery Man Shuffling",
+   "path": "Transaction > Order > Delivery Man Shuffling",
+   "kind": "static",
+   "business_page": "knowledge/business/delivery_and_returns/delivery_man_shuffling.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DELIVERY_MAN_SHUFFLING.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DSR_ADJUSTMENT_AMOUNT",
+   "title": "DSR Adjustment Amount",
+   "path": "Transaction > Receivable > DSR Adjustment Amount",
+   "kind": "static",
+   "business_page": "knowledge/business/settlement_and_finance/dsr_adjustment.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk"
+   ],
+   "file": "DSR_ADJUSTMENT_AMOUNT.json",
+   "n_fields": 3,
+   "n_live_fields": 3,
+   "n_buttons": 4,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DT_PROMOTION",
+   "title": "Current Promotion",
+   "path": "Company setup > Promotion > Current Promotion",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DT_PROMOTION.json",
+   "n_fields": 8,
+   "n_live_fields": 8,
+   "n_buttons": 10,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "DYL_102003003",
+   "title": "Warehouse Profile",
+   "path": "Warehouse Profile",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/section_and_mappings.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102003003.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 8,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102003015",
+   "title": "Section",
+   "path": "Setup/Configuration > PJP > Section",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/section_and_mappings.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102003015.json",
+   "n_fields": 6,
+   "n_live_fields": 6,
+   "n_buttons": 12,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102003061",
+   "title": "DSR Approval",
+   "path": "Approval > Master Data Approval > DSR Approval",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/dsr.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk",
+    "run QUICK-20261009-1630"
+   ],
+   "file": "DYL_102003061.json",
+   "n_fields": 15,
+   "n_live_fields": 15,
+   "n_buttons": 8,
+   "n_grids": 4,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-13"
+  },
+  {
+   "option_id": "DYL_102003079",
+   "title": "Outlet Status",
+   "path": "Approval > Master Data Approval > Outlet Status",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_102003079.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 7,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102003081",
+   "title": "Prospect Outlet",
+   "path": "Distributor Setup > Outlet Profile > Prospect Outlet",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102003081.json",
+   "n_fields": 82,
+   "n_live_fields": 31,
+   "n_buttons": 13,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 1,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "51 of 82 fields without a live id",
+    "1 open config-vs-live difference(s)"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102003090",
+   "title": "Outlet Profile View",
+   "path": "Distributor Setup > Outlet Profile > Outlet Profile View",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_102003090.json",
+   "n_fields": 83,
+   "n_live_fields": 30,
+   "n_buttons": 6,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "53 of 83 fields without a live id"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102003100",
+   "title": "Prospect Outlet Approval",
+   "path": "Distributor Setup > Outlet Profile > Prospect Outlet Approval",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102003100.json",
+   "n_fields": 83,
+   "n_live_fields": 32,
+   "n_buttons": 4,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "51 of 83 fields without a live id"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102005",
+   "title": "Selling Category",
+   "path": "Company setup > General > Selling Category",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/section_and_mappings.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102005.json",
+   "n_fields": 6,
+   "n_live_fields": 6,
+   "n_buttons": 3,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102011",
+   "title": "PJP Creation",
+   "path": "Distributor Setup > Journey Plan > PJP Creation",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_102011.json",
+   "n_fields": 17,
+   "n_live_fields": 17,
+   "n_buttons": 12,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102011004",
+   "title": "PJP Approval",
+   "path": "Approval > Master Data Approval > PJP Approval",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102011004.json",
+   "n_fields": 16,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db"
+   ],
+   "gaps": [
+    "no live ids yet"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102013002",
+   "title": "Distributor Mapping",
+   "path": "Distributor Setup > Setup Mapping > Distributor Mapping",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/dsr.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102013002.json",
+   "n_fields": 21,
+   "n_live_fields": 0,
+   "n_buttons": 2,
+   "n_grids": 4,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "stated"
+   ],
+   "gaps": [
+    "21 of 21 fields without a live id"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102013003",
+   "title": "Company Mapping",
+   "path": "Company setup > Setup Mapping > Company Mapping",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/section_and_mappings.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_102013003.json",
+   "n_fields": 24,
+   "n_live_fields": 0,
+   "n_buttons": 2,
+   "n_grids": 4,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "stated"
+   ],
+   "gaps": [
+    "24 of 24 fields without a live id"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_102014",
+   "title": "Transaction Inquiry",
+   "path": "Transaction > Order > Transaction Inquiry",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/order_to_delivery_planning/transaction_inquiry.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look",
+    "curated live look"
+   ],
+   "file": "DYL_102014.json",
+   "n_fields": 12,
+   "n_live_fields": 9,
+   "n_buttons": 3,
+   "n_grids": 2,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "3 of 12 fields without a live id"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "DYL_1032",
+   "title": "Vehicle Profile",
+   "path": "Distributor Setup > Vehicle Profile > Vehicle Profile",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/vehicle_bulk_upload.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_1032.json",
+   "n_fields": 40,
+   "n_live_fields": 40,
+   "n_buttons": 10,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_201035",
+   "title": "Outlet Price",
+   "path": "Company setup > Price > Outlet Price",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_201035.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_201045",
+   "title": "Stock Adjustment SAN",
+   "path": "Transaction > Stock > Stock Adjustment SAN",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/settlement_and_finance/otc_stock_out_and_san.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_201045.json",
+   "n_fields": 9,
+   "n_live_fields": 8,
+   "n_buttons": 13,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "1 of 9 fields without a live id"
+   ],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_201068",
+   "title": "Dispatch Advice",
+   "path": "Transaction > Primary Sale > Dispatch Advice",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/inbound_stock/dispatch_advice.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "run PILOT-DA-GIN",
+    "live read-only look"
+   ],
+   "file": "DYL_201068.json",
+   "n_fields": 26,
+   "n_live_fields": 24,
+   "n_buttons": 10,
+   "n_grids": 2,
+   "n_lessons": 8,
+   "n_differences": 1,
+   "sources": [
+    "db",
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [
+    "2 of 26 fields without a live id",
+    "1 open config-vs-live difference(s)"
+   ],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_201080",
+   "title": "Delivery Date Change",
+   "path": "Transaction > Order > Delivery Date Change",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/order_to_delivery_planning/delivery_date_change.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_201080.json",
+   "n_fields": 3,
+   "n_live_fields": 3,
+   "n_buttons": 4,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_201089006",
+   "title": "Analysis Classification - Outlet",
+   "path": "Company setup > Analysis Classification > Analysis Classification - Outlet",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_201089006.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_201097005",
+   "title": "Claim Inquiry",
+   "path": "Transaction > Claim > Claim Inquiry",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/promotions_and_budget/claims.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_201097005.json",
+   "n_fields": 3,
+   "n_live_fields": 3,
+   "n_buttons": 1,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "DYL_201801",
+   "title": "Sales Return",
+   "path": "Transaction > Sales Return > Sales Return",
+   "kind": "static",
+   "business_page": "knowledge/business/delivery_and_returns/sales_return.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_201801.json",
+   "n_fields": 7,
+   "n_live_fields": 7,
+   "n_buttons": 2,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_201802",
+   "title": "Deposit Slip",
+   "path": "Transaction > Receivable > Deposit Slip",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/settlement_and_finance/deposit_slips.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_201802.json",
+   "n_fields": 8,
+   "n_live_fields": 8,
+   "n_buttons": 15,
+   "n_grids": 2,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_201904",
+   "title": "Order Stock Allocation",
+   "path": "Transaction > Order > Order Stock Allocation",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/order_to_delivery_planning/stock_allocation.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_201904.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 3,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_202009001",
+   "title": "Outlet Profile",
+   "path": "Distributor Setup > Outlet Profile > Outlet Profile",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_202009001.json",
+   "n_fields": 5,
+   "n_live_fields": 5,
+   "n_buttons": 12,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_202020",
+   "title": "Cheque Status",
+   "path": "Transaction > Receivable > Cheque Status",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/settlement_and_finance/cheque_status.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_202020.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 3,
+   "n_grids": 2,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "no fields known"
+   ],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_202022",
+   "title": "Order Cancellation",
+   "path": "Transaction > Order > Order Cancellation",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/order_to_delivery_planning/order_editing_cancellation.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_202022.json",
+   "n_fields": 5,
+   "n_live_fields": 5,
+   "n_buttons": 2,
+   "n_grids": 1,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_202026",
+   "title": "Loss Approval",
+   "path": "Transaction > Loss Approval",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/inbound_stock/da_loss_approval.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_202026.json",
+   "n_fields": 4,
+   "n_live_fields": 4,
+   "n_buttons": 2,
+   "n_grids": 1,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-06"
+  },
+  {
+   "option_id": "DYL_202028",
+   "title": "IO Listing",
+   "path": "Transaction > Claim > IO Listing",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_202028.json",
+   "n_fields": 6,
+   "n_live_fields": 0,
+   "n_buttons": 4,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db"
+   ],
+   "gaps": [
+    "no live ids yet"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "DYL_202037",
+   "title": "PJP Daily Inquiry",
+   "path": "Distributor Setup > Journey Plan > PJP Daily Inquiry",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_202037.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 8,
+   "n_grids": 2,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_202044",
+   "title": "DSR Profile HQ",
+   "path": "Distributor Setup > DSR Profile > DSR Profile HQ",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/dsr.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk",
+    "run VAN-SALES-E2E"
+   ],
+   "file": "DYL_202044.json",
+   "n_fields": 30,
+   "n_live_fields": 15,
+   "n_buttons": 13,
+   "n_grids": 3,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "recorded"
+   ],
+   "gaps": [
+    "15 of 30 fields without a live id"
+   ],
+   "updated": "2026-10-13"
+  },
+  {
+   "option_id": "DYL_202045",
+   "title": "PJP Creation HQ",
+   "path": "Distributor Setup > Journey Plan > PJP Creation HQ",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk",
+    "run VAN-SALES-E2E"
+   ],
+   "file": "DYL_202045.json",
+   "n_fields": 17,
+   "n_live_fields": 17,
+   "n_buttons": 12,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "recorded"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_202046",
+   "title": "Section Creation HQ",
+   "path": "Setup/Configuration > PJP > Section Creation HQ",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/section_and_mappings.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_202046.json",
+   "n_fields": 6,
+   "n_live_fields": 6,
+   "n_buttons": 12,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 1,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [
+    "1 open config-vs-live difference(s)"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_202053",
+   "title": "Cashmemo Reschedule",
+   "path": "Transaction > Order > Cashmemo Reschedule",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/delivery_and_returns/cashmemo_reschedule_and_status.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_202053.json",
+   "n_fields": 3,
+   "n_live_fields": 3,
+   "n_buttons": 4,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_BG1002",
+   "title": "Section Approval",
+   "path": "Setup/Configuration > PJP > Section Approval",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/section_and_mappings.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_BG1002.json",
+   "n_fields": 6,
+   "n_live_fields": 6,
+   "n_buttons": 12,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_BG1015",
+   "title": "Stock Inquiry II",
+   "path": "Transaction > Stock > Stock Inquiry II",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/settlement_and_finance/end_of_day_validations.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk"
+   ],
+   "file": "DYL_BG1015.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 2,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-06"
+  },
+  {
+   "option_id": "DYL_BG1022",
+   "title": "PJP Daily Inquiry Update",
+   "path": "Distributor Setup > Journey Plan > PJP Daily Inquiry Update",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/settlement_and_finance/pjp_daily_inquiry_update.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "DYL_BG1022.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 7,
+   "n_grids": 1,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "DYL_DT1001",
+   "title": "Distributor Profile DT",
+   "path": "Company setup > Distributor Profile > Distributor Profile DT",
+   "kind": "dynamic",
+   "business_page": null,
+   "trained": true,
+   "trained_how": [
+    "group 66 walk",
+    "run SDMS-6084"
+   ],
+   "file": "DYL_DT1001.json",
+   "n_fields": 71,
+   "n_live_fields": 35,
+   "n_buttons": 1,
+   "n_grids": 3,
+   "n_lessons": 3,
+   "n_differences": 3,
+   "sources": [
+    "db",
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [
+    "no business page",
+    "36 of 71 fields without a live id",
+    "3 open config-vs-live difference(s)"
+   ],
+   "updated": "2026-10-15"
+  },
+  {
+   "option_id": "DYL_DT1002",
+   "title": "DSR Profile - DT",
+   "path": "Distributor Setup > DSR Profile > DSR Profile - DT",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/dsr.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk",
+    "run QUICK-20261009-1630"
+   ],
+   "file": "DYL_DT1002.json",
+   "n_fields": 30,
+   "n_live_fields": 30,
+   "n_buttons": 13,
+   "n_grids": 4,
+   "n_lessons": 4,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-13"
+  },
+  {
+   "option_id": "DYL_DT1003",
+   "title": "PJP Creation DT",
+   "path": "Distributor Setup > Journey Plan > PJP Creation DT",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 66 walk"
+   ],
+   "file": "DYL_DT1003.json",
+   "n_fields": 17,
+   "n_live_fields": 0,
+   "n_buttons": 3,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db"
+   ],
+   "gaps": [
+    "no live ids yet"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_L__BusinessEntityProfile",
+   "title": "Distributor Profile HQ",
+   "path": "Company setup > Distributor Profile > Distributor Profile HQ",
+   "kind": "dynamic",
+   "business_page": null,
+   "trained": true,
+   "trained_how": [
+    "run SDMS-6084"
+   ],
+   "file": "DYL_L__BusinessEntityProfile.json",
+   "n_fields": 35,
+   "n_live_fields": 35,
+   "n_buttons": 5,
+   "n_grids": 3,
+   "n_lessons": 13,
+   "n_differences": 2,
+   "sources": [
+    "db",
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [
+    "no business page",
+    "2 open config-vs-live difference(s)"
+   ],
+   "updated": "2026-10-15"
+  },
+  {
+   "option_id": "DYL_TM1003",
+   "title": "PJP Creation TM",
+   "path": "Distributor Setup > Journey Plan > PJP Creation TM",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_TM1003.json",
+   "n_fields": 17,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db"
+   ],
+   "gaps": [
+    "no live ids yet"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "DYL_TM1004",
+   "title": "Outlet Profile TM",
+   "path": "Distributor Setup > Outlet Profile > Outlet Profile TM",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "DYL_TM1004.json",
+   "n_fields": 61,
+   "n_live_fields": 0,
+   "n_buttons": 1,
+   "n_grids": 3,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "db"
+   ],
+   "gaps": [
+    "no live ids yet"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "EXCEL_UPLOAD",
+   "title": "Outlet Change Track Excel",
+   "path": "Distributor Setup > Outlet Profile > Outlet Change Track Excel",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "EXCEL_UPLOAD.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 2,
+   "n_grids": 0,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "GOODS_RETURN_NOTES",
+   "title": "Goods Return Notes",
+   "path": "Transaction > Stock > Goods Return Notes",
+   "kind": "static",
+   "business_page": "knowledge/business/inbound_stock/goods_return_note.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "GOODS_RETURN_NOTES.json",
+   "n_fields": 10,
+   "n_live_fields": 10,
+   "n_buttons": 5,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "GOOD_ISSUE_NODE",
+   "title": "Goods Issue Note",
+   "path": "Transaction > Stock > Goods Issue Note",
+   "kind": "static",
+   "business_page": "knowledge/business/delivery_and_returns/goods_issue_note.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "GOOD_ISSUE_NODE.json",
+   "n_fields": 10,
+   "n_live_fields": 10,
+   "n_buttons": 12,
+   "n_grids": 1,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "INCENTIVE_SCHEME_BUILDER",
+   "title": "Promotion Layout",
+   "path": "Company setup > Promotion > Promotion Layout",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "INCENTIVE_SCHEME_BUILDER.json",
+   "n_fields": 1,
+   "n_live_fields": 1,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "OFF_INVOICE_CREDIT",
+   "title": "Off-Invoice Credit Note",
+   "path": "Transaction > Receivable > Off-Invoice Credit Note",
+   "kind": "static",
+   "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "OFF_INVOICE_CREDIT.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 0,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "ORDER_BOOKING",
+   "title": "Order Booking",
+   "path": "Transaction > Order Booking",
+   "kind": "static",
+   "business_page": "knowledge/business/order_to_delivery_planning/order_booking.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "group 66 walk",
+    "run QUICK-20261007-OB",
+    "run QUICK-20261008-1429",
+    "run QUICK-20261008-OB",
+    "run QUICK-20261009-1305",
+    "live read-only look",
+    "curated live look"
+   ],
+   "file": "ORDER_BOOKING.json",
+   "n_fields": 12,
+   "n_live_fields": 12,
+   "n_buttons": 4,
+   "n_grids": 2,
+   "n_lessons": 16,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "ORDER_EDITING",
+   "title": "Order Editing",
+   "path": "Transaction > Order > Order Editing",
+   "kind": "static",
+   "business_page": "knowledge/business/order_to_delivery_planning/order_editing_cancellation.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "run QUICK-20261008-1429",
+    "run QUICK-20261008-OB",
+    "run QUICK-20261009-1305",
+    "live read-only look"
+   ],
+   "file": "ORDER_EDITING.json",
+   "n_fields": 8,
+   "n_live_fields": 8,
+   "n_buttons": 1,
+   "n_grids": 2,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "recorded"
+   ],
+   "gaps": [],
+   "updated": "2026-10-09"
+  },
+  {
+   "option_id": "OUTLET_CREATION_UPLOAD",
+   "title": "Outlet Creation Upload",
+   "path": "Distributor Setup > Outlet Profile > Outlet Creation Upload",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/outlet.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "OUTLET_CREATION_UPLOAD.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 0,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "ROUTE_SETTLEMENT",
+   "title": "Route Settlement",
+   "path": "Transaction > Receivable > Route Settlement",
+   "kind": "static",
+   "business_page": "knowledge/business/settlement_and_finance/route_settlement.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "run VAN-SALES-E2E",
+    "live read-only look"
+   ],
+   "file": "ROUTE_SETTLEMENT.json",
+   "n_fields": 7,
+   "n_live_fields": 7,
+   "n_buttons": 0,
+   "n_grids": 2,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "SALESRETURN-STATUSCHANGE",
+   "title": "Sales Return Status Change",
+   "path": "Transaction > Sales Return > Sales Return Status Change",
+   "kind": "static",
+   "business_page": "knowledge/business/delivery_and_returns/sales_return.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "SALESRETURN-STATUSCHANGE.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 0,
+   "n_grids": 1,
+   "n_lessons": 1,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "SALESRETURNVIEW",
+   "title": "Sales Return View",
+   "path": "Transaction > Sales Return > Sales Return View",
+   "kind": "static",
+   "business_page": "knowledge/business/delivery_and_returns/sales_return.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "live read-only look"
+   ],
+   "file": "SALESRETURNVIEW.json",
+   "n_fields": 3,
+   "n_live_fields": 3,
+   "n_buttons": 1,
+   "n_grids": 1,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "SECTION_BULK_UPLOAD",
+   "title": "Section Bulk Upload",
+   "path": "Distributor Setup > Journey Plan > Section Bulk Upload",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/pjp.md",
+   "trained": true,
+   "trained_how": [
+    "business page"
+   ],
+   "file": "SECTION_BULK_UPLOAD.json",
+   "n_fields": 0,
+   "n_live_fields": 0,
+   "n_buttons": 0,
+   "n_grids": 0,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no live ids yet",
+    "no fields known"
+   ],
+   "updated": "2026-10-14"
+  },
+  {
+   "option_id": "SKU_SUBSTITUTION_POLICY",
+   "title": "SKU Substitution Policy",
+   "path": "Transaction > SKU Substitution Policy",
+   "kind": "static",
+   "business_page": null,
+   "trained": true,
+   "trained_how": [
+    "curated live look"
+   ],
+   "file": "SKU_SUBSTITUTION_POLICY.json",
+   "n_fields": 7,
+   "n_live_fields": 7,
+   "n_buttons": 5,
+   "n_grids": 1,
+   "n_lessons": 4,
+   "n_differences": 0,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "no business page"
+   ],
+   "updated": "2026-09-25"
+  },
+  {
+   "option_id": "STOCKINQUIRY",
+   "title": "Stock Inquiry",
+   "path": "Transaction > Stock > Stock Inquiry",
+   "kind": "dynamic",
+   "business_page": "knowledge/business/inbound_stock/stock_inquiry_and_balances.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "group 11 walk",
+    "run QUICK-20261007-OB",
+    "run QUICK-20261008-1429",
+    "run QUICK-20261008-OB",
+    "live read-only look"
+   ],
+   "file": "STOCKINQUIRY.json",
+   "n_fields": 13,
+   "n_live_fields": 13,
+   "n_buttons": 5,
+   "n_grids": 2,
+   "n_lessons": 2,
+   "n_differences": 0,
+   "sources": [
+    "db",
+    "observed",
+    "recorded",
+    "stated"
+   ],
+   "gaps": [],
+   "updated": "2026-10-08"
+  },
+  {
+   "option_id": "STOCK_REQUISITION",
+   "title": "Van Sale Stock Request",
+   "path": "Transaction > Stock > Van Sale Stock Request",
+   "kind": "static",
+   "business_page": null,
+   "trained": true,
+   "trained_how": [
+    "run VAN-SALES-E2E"
+   ],
+   "file": "STOCK_REQUISITION.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 3,
+   "n_grids": 2,
+   "n_lessons": 0,
+   "n_differences": 0,
+   "sources": [
+    "observed",
+    "recorded"
+   ],
+   "gaps": [
+    "no business page"
+   ],
+   "updated": "2026-09-28"
+  },
+  {
+   "option_id": "VEHICLE_MASTER_MODIFICATION",
+   "title": "Vehicle Master Bulk Upload",
+   "path": "Distributor Setup > Vehicle Profile > Vehicle Master Bulk Upload",
+   "kind": "static",
+   "business_page": "knowledge/business/master_data/vehicle_bulk_upload.md",
+   "trained": true,
+   "trained_how": [
+    "business page",
+    "live look"
+   ],
+   "file": "VEHICLE_MASTER_MODIFICATION.json",
+   "n_fields": 2,
+   "n_live_fields": 2,
+   "n_buttons": 2,
+   "n_grids": 0,
+   "n_lessons": 4,
+   "n_differences": 1,
+   "sources": [
+    "observed"
+   ],
+   "gaps": [
+    "Creation screen not in headquarter menu on cnr1dev1 (no screen file)",
+    "distributor 15108843 not offered in the Distributor list"
+   ],
+   "updated": "2026-10-15"
+  }
+ ],
+ "unresolved_business_page_screens": [
+  {
+   "page": "knowledge/business/master_data/vehicle_bulk_upload.md",
+   "name": "Vehicle Master Bulk Upload Creation",
+   "note": "not in headquarter menu on cnr1dev1 (2026-10-15 live look); only Vehicle Master Bulk Upload (VEHICLE_MASTER_MODIFICATION) exists"
+  }
+ ]
+}

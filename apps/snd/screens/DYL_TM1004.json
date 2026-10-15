@@ -1,0 +1,1495 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_TM1004",
+ "title": "Outlet Profile TM",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Outlet Profile",
+   "Outlet Profile TM"
+  ],
+  "option_id": "DYL_TM1004",
+  "search_text": "Outlet Profile TM",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=TM1004",
+ "layout_code": "TM1004",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Demographics",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  {
+   "label": "Operative Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  {
+   "label": "Address",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004009",
+    "TM1004010",
+    "TM1004011"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  {
+   "label": "Document",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004005"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  {
+   "label": "Bank",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004006"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  {
+   "label": "Contact Person Details",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004007"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  {
+   "label": "Credit Limit",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1004008"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "TM1004001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "is_child": false,
+   "grids": [
+    "Outlet Profile"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004002",
+   "tab": "Demographics",
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 31
+  },
+  {
+   "page": "TM1004003",
+   "tab": "Operative Info",
+   "desc": null,
+   "table": "snd_en_op1_oth_bsen_phs_lvl1",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 30
+  },
+  {
+   "page": "TM1004009",
+   "tab": "Address",
+   "desc": null,
+   "table": "glb_en_adr_address",
+   "is_child": true,
+   "grids": [
+    "grid2"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004010",
+   "tab": "Address",
+   "desc": null,
+   "table": "glb_en_adr_address",
+   "is_child": true,
+   "grids": [
+    "grid2"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004011",
+   "tab": "Address",
+   "desc": null,
+   "table": "glb_en_adr_address",
+   "is_child": true,
+   "grids": [
+    "grid2"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004005",
+   "tab": "Document",
+   "desc": null,
+   "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004006",
+   "tab": "Bank",
+   "desc": null,
+   "table": "GLB_EN_BAC_BANKACCOUNT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004007",
+   "tab": "Contact Person Details",
+   "desc": null,
+   "table": "GLB_EN_COD_CONTACTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1004008",
+   "tab": "Credit Limit",
+   "desc": null,
+   "table": "SND_EN_FP1_FVC_COMB_PHS_LVL1",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Outlet Code": {
+   "element": "TXT__EPP1BUSENTPHSLVL1CODE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_PHS_LVL1_CODE",
+   "config_id": "FTXT__EPP1BUSENTPHSLVL1CODE",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Outlet Short Name": {
+   "element": "TXT__EPP1ABRV",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_ABRV",
+   "max_length": 25,
+   "config_id": "FTXT__EPP1DESC",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Outlet Long Name": {
+   "element": "TXT__EPP1DESC",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_DESC",
+   "max_length": 100,
+   "config_id": "textbox3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Outlet Type": {
+   "element": "DDL__PBEMBUSENTITYMISTYPE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PBEM_BUSENTITY_MISTYPE",
+   "list_source": "PBEM",
+   "config_id": "selectbox6",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Previous Outlet Code": {
+   "element": "TXT__EPP1PREVCODE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP1_PREV_CODE",
+   "max_length": 50,
+   "config_id": "textbox33",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Currency": {
+   "element": "DDL__PCUR_CURRCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PCUR_CURRCODE",
+   "list_source": "PCUR",
+   "config_id": "selectbox32",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Channel Hierarchy": {
+   "element": "DDL__PCHHCHNLHIERCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "PCHH_CHNLHIER_CODE",
+   "list_source": "OUTLPCHH1",
+   "config_id": "FDDL__PCHHCHNLHIERCODE",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Geographical Hierarchy": {
+   "element": "DDL__PGEOGEOGHIERCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "PGEO_GEOGHIER_CODE",
+   "list_source": "PGEOU",
+   "config_id": "selectbox10",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Outlet Rank": {
+   "element": "DDL__PBERBUSENTITYRANKING",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PBER_BUSENTITY_RANKING",
+   "list_source": "PBER",
+   "config_id": "selectbox11",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Company Rank": {
+   "element": "DDL__PBEOBUSENTITYORGRANKING",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PBEO_BUSENTITY_ORGRANKING",
+   "list_source": "PBEO",
+   "config_id": "selectbox12",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Coordinates Latitude": {
+   "element": "TXT__EPP1CORLATITUDE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPP1_COR_LATITUDE",
+   "max_length": 50,
+   "config_id": "textbox11",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Coordinates Longitude": {
+   "element": "TXT__EPP1CORLONGITUDE",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPP1_COR_LONGITUDE",
+   "max_length": 50,
+   "config_id": "textbox12",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Area Type": {
+   "element": "DDL__PLSMLIFESTYLECODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "PLSM_LIFESTYLE_CODE",
+   "list_source": "PLSM",
+   "config_id": "selectbox14",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Identified On": {
+   "element": "DT__EPP1REFDATE1",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP1_REF_DATE_1",
+   "config_id": "datebox3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Identified by": {
+   "element": "TXT__EPP1REFERENCE1",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP1_REFERENCE_1",
+   "max_length": 100,
+   "config_id": "textbox16",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Status": {
+   "element": "DDL__EPP1ACTIVE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_ACTIVE",
+   "default": "I",
+   "config_id": "selectbox13",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Corporate Code": {
+   "element": "DDL__epp1_corp_code",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_CORP_CODE",
+   "list_source": "EPP1CORPCODE",
+   "config_id": "selectbox15",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Bill to Code": {
+   "element": "DDL__epp1_outlet_billto",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_OUTLET_BILLTO",
+   "list_source": "EPP1BILLTO",
+   "config_id": "selectbox16",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Analysis 1": {
+   "element": "DDL__PANCANALYSISEPP1A",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PANC_ANALYSIS_EPP1_A",
+   "list_source": "PANC",
+   "config_id": "selectbox17",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Analysis 2": {
+   "element": "DDL__PANCANALYSISEPP1B",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PANC_ANALYSIS_EPP1_B",
+   "list_source": "PANC",
+   "config_id": "selectbox18",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Analysis 3": {
+   "element": "DDL__PANCANALYSISEPP1C",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PANC_ANALYSIS_EPP1_C",
+   "list_source": "PANC",
+   "config_id": "selectbox19",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Is B2B": {
+   "element": "TXT__EPP1REFVAL3",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REF_VAL_3",
+   "config_id": "selectbox25",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Activation Date": {
+   "element": "TXT__EPP1REFDATE2",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_REF_DATE_2",
+   "config_id": "datebox4",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Sub Distributor": {
+   "element": "TXT__EPP1SUBDISTRIBUTOR",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_SUB_DISTRIBUTOR",
+   "config_id": "selectbox24",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Sub Distributor Code": {
+   "element": "TXT__EPP1REPORTTO",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_REPORT_TO",
+   "list_source": "BUSENT",
+   "config_id": "selectbox22",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Manual Order Creation": {
+   "element": "DDL__EPP1_MANUAL_ORDER",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_MANUAL_ORDER",
+   "default": "N",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Requested Section": {
+   "element": "DDL__EPL1_BUSENT_LOG_LVL1_CODE_REQ",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_BUSENT_LOG_LVL1_CODE_REQ",
+   "list_source": "EPL",
+   "config_id": "selectbox31",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Prospect ID": {
+   "element": "TXT__EPP1_PROSPECT_ID",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPP1_PROSPECT_ID",
+   "max_length": 20,
+   "config_id": "textbox34",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Completion Date": {
+   "element": "DT__wf_completion_date",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "WF_COMPLETION_DATE",
+   "config_id": "datebox5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Approval Status": {
+   "element": "TXT__WF_STATUS",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": true,
+   "data_field": "WF_STATUS",
+   "config_id": "textbox35",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Payment Mode": {
+   "element": "DDL__PPYM_PAYMMODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PPYM_PAYMMODE",
+   "list_source": "PPYMOUTL",
+   "config_id": "selectbox19",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "PerfectStore": {
+   "element": "TXT__EOP1REFERENCE5",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_5",
+   "list_source": "PANC",
+   "config_id": "selectbox14",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Perfect Store Creation Date": {
+   "element": "dt__eop1_ref_date_1",
+   "widget": "date",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REF_DATE_1",
+   "config_id": "datebox3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "SMSNotification": {
+   "element": "TXT__EOP1_REF_VAL_7",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REF_VAL_7",
+   "config_id": "selectbox23",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "WHT FLAG": {
+   "element": "TXT__EOP1_REF_VAL_9",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REF_VAL_9",
+   "config_id": "selectbox24",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Post dated Cheque": {
+   "element": "TXT__EOP1_REF_NUM_5",
+   "widget": "number",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REF_NUM_5",
+   "config_id": "textbox30",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "B2B Phone": {
+   "element": "TXT__EOP1_B2B_PHONE",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_B2B_PHONE",
+   "max_length": 20,
+   "config_id": "textbox33",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "B2B Email": {
+   "element": "TXT__EOP1_B2B_EMAIL",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_B2B_EMAIL",
+   "max_length": 30,
+   "regex": "^[^@]+@[^@]+\\.[^@]+$",
+   "config_id": "textbox34",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Barcode": {
+   "element": "txt__eop1_reference_1",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_1",
+   "max_length": 100,
+   "config_id": "textbox19",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Barcode Scanning": {
+   "element": "sw__eop1_ref_val_2",
+   "widget": "switch",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REF_VAL_2",
+   "config_id": "switch2",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Preferred Ordering Time From": {
+   "element": "TXT__EOP1REFERENCE15",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_15",
+   "max_length": 100,
+   "config_id": "textbox20",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Preferred Ordering Time To": {
+   "element": "TXT__EOP1REFERENCE16",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_16",
+   "max_length": 100,
+   "config_id": "textbox21",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Preferred Delivery Time From": {
+   "element": "TXT__EOP1REFERENCE17",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_17",
+   "max_length": 100,
+   "config_id": "textbox22",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Preferred Delivery Time To": {
+   "element": "TXT__EOP1REFERENCE18",
+   "widget": "text",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_18",
+   "max_length": 100,
+   "config_id": "textbox23",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Tax Exemption": {
+   "element": "DDL__EOP1_REF_VAL_4",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REF_VAL_4",
+   "config_id": "selectbox30",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Auto Cheque Realization": {
+   "element": "SW__EOP1REFVAL5",
+   "widget": "switch",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": true,
+   "data_field": "EOP1_REF_VAL_5",
+   "config_id": "switch5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Restrict Un-Mapped Bank": {
+   "element": "SW__EOP1REFVAL6",
+   "widget": "switch",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": true,
+   "data_field": "EOP1_REF_VAL_6",
+   "config_id": "switch7",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Tax Registered": {
+   "element": "DDL__EOP1_REF_VAL_8",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REF_VAL_8",
+   "config_id": "selectbox10",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Tax Payer": {
+   "element": "TXT__EOP1REFVAL3",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REF_VAL_3",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Advance Tax Exemption": {
+   "element": "TXT__EOP1_ADVANCE_TAX_EXEMPTION",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_ADVANCE_TAX_EXEMPTION",
+   "config_id": "selectbox27",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Tiers": {
+   "element": "TXT__EOP1REFERENCE2",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_2",
+   "list_source": "PANC",
+   "config_id": "selectbox11",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Perfect Village": {
+   "element": "TXT__EOP1REFERENCE3",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_3",
+   "list_source": "PANC",
+   "config_id": "selectbox12",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Channel TTS": {
+   "element": "TXT__EOP1REFERENCE4",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_4",
+   "list_source": "PANC",
+   "config_id": "selectbox13",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Perfect Store Compliance": {
+   "element": "TXT__EOP1REFERENCE6",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_6",
+   "list_source": "PANC",
+   "config_id": "selectbox15",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Point of Consumption": {
+   "element": "TXT__EOP1REFERENCE9",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_9",
+   "list_source": "PANC",
+   "config_id": "selectbox16",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Loyalty Programs": {
+   "element": "TXT__EOP1REFERENCE10",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_10",
+   "list_source": "PANC",
+   "config_id": "selectbox17",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Chain Outlets": {
+   "element": "TXT__EOP1REFERENCE11",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_11",
+   "list_source": "PANC",
+   "config_id": "selectbox18",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Customer Attribute 12": {
+   "element": "TXT__EOP1REFERENCE12",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_12",
+   "list_source": "PANC",
+   "config_id": "selectbox19",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Outlet Programs": {
+   "element": "TXT__EOP1REFERENCE14",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": false,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_14",
+   "list_source": "PANC",
+   "config_id": "selectbox20",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "OutletClassification": {
+   "element": "DDL__EOP1_REFERENCE_7",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_7",
+   "list_source": "PANC",
+   "config_id": "selectbox31",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Outlet Range": {
+   "element": "DDL__EOP1_REFERENCE_8",
+   "widget": "select",
+   "tab": "Operative Info",
+   "required": true,
+   "readonly": false,
+   "data_field": "EOP1_REFERENCE_8",
+   "list_source": "PANC",
+   "config_id": "selectbox32",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "buttons": {
+  "Update": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "grids": {
+  "Outlet Profile": {
+   "columns": [
+    "Outlet Code",
+    "Outlet Short Name",
+    "Outlet Name",
+    "Outlet Type",
+    "Channel Hierarchy",
+    "Geographical Hierarchy",
+    "Outlet Rank",
+    "Company Rank",
+    "Coordinates Latitude",
+    "Coordinates Longitude",
+    "Area Type",
+    "Identified On",
+    "Identified by",
+    "Outlet Status",
+    "Organization",
+    "Currency",
+    "Corporate Code",
+    "Bill to Code",
+    "Manual Order Creation",
+    "Requested Section",
+    "Completion Date",
+    "Approval Status",
+    "Next Role",
+    "Payment Mode"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  "grid2": {
+   "columns": [
+    "Serial No",
+    "Address",
+    "Street/Road",
+    "Area/Market Name",
+    "Reference Global",
+    "City",
+    "Province",
+    "Region",
+    "Locality",
+    "Landline 1",
+    "Landline 2",
+    "Cell Phone 1",
+    "Cell Phone 2",
+    "Fax",
+    "Email 1",
+    "Email 2",
+    "ZIP Code",
+    "Postal Code",
+    "Opening Time",
+    "Closing Time",
+    "Estimate Delivery Date",
+    "Active"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  },
+  "grid1": {
+   "columns": [
+    "Sr #",
+    "Credit Amount Limit",
+    "Amount Action",
+    "Day Limit",
+    "Day Action"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1004.json"
+   }
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/outlet.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_TM1004.json",
+  "observed": [],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

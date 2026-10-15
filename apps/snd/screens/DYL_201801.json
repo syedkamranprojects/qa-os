@@ -1,0 +1,271 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201801",
+ "title": "Sales Return",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Sales Return",
+   "Sales Return"
+  ],
+  "option_id": "DYL_201801",
+  "search_text": "Sales Return",
+  "top_id": "NG09",
+  "app_option": "SALESRETURN"
+ },
+ "route": "/content-master/mobility/sales-return",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   }
+  },
+  {
+   "label": "Detail",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   }
+  },
+  {
+   "label": "Cashmemo",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   }
+  }
+ ],
+ "fields": {
+  "Document No": {
+   "element": "documentNo",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "documentNo"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Date": {
+   "element": "documentDate",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "documentDate"
+   },
+   "tab": "Header",
+   "default": "today (2026-10-01)",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "PJP Number": {
+   "element": "pjpNo",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "pjpNo"
+   },
+   "tab": "Header",
+   "default": "AutoPJGIN2-Auto GIN PJP DM",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date From": {
+   "element": "dateFrom",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "dateFrom"
+   },
+   "tab": "Header",
+   "default": "today",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date To": {
+   "element": "dateTo",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "dateTo"
+   },
+   "tab": "Header",
+   "default": "today",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Outlet Name": {
+   "element": "outletCode",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "outletCode"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "SKU": {
+   "element": "SKU",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "locator": {
+    "id": "SKU"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Add": {
+   "element": "addBtn",
+   "locator": {
+    "id": "addBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Save": {
+   "element": "saveBtn",
+   "locator": {
+    "id": "saveBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "Sales Return": {
+   "columns": [
+    "Order number",
+    "Invoice Number",
+    "Document Date",
+    "Delivery Date",
+    "Outlet Code",
+    "Gross Amount",
+    "Markup",
+    "Discount Amount",
+    "Tax",
+    "Net Amount",
+    "Received Amount",
+    "Balance Amount",
+    "Demand Channel",
+    "Document No"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Sidebar has two links named 'Sales Return' (one at top of the Sales Return folder = this screen, one near the bottom = Fresh Sales Return module path); identical form layout to Fresh Sales Return, different route.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/delivery_and_returns/sales_return.md",
+ "business_pages_also": [
+  "knowledge/business/delivery_and_returns/delivery_lifecycle.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201801.json",
+   "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

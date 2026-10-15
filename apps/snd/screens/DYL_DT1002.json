@@ -1,0 +1,1533 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_DT1002",
+ "title": "DSR Profile - DT",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "DSR Profile",
+   "DSR Profile - DT"
+  ],
+  "option_id": "DYL_DT1002",
+  "search_text": "DSR Profile - DT",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=DT1002",
+ "layout_code": "DT1002",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Demographics",
+   "element": "tab_2",
+   "sub_tabs": [],
+   "pages": [
+    "DT1002002"
+   ],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   }
+  },
+  {
+   "label": "Address",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "DT1002007",
+    "DT1002008",
+    "DT1002009"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   }
+  },
+  {
+   "label": "Documents",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "DT1002003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   }
+  },
+  {
+   "label": "Qualification",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "DT1002004"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   }
+  },
+  {
+   "label": "Previous Experience",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "DT1002005"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   }
+  },
+  {
+   "label": "Device",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "DT1002006"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   }
+  },
+  {
+   "label": "Residence",
+   "element": "tab_group_2",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "DT1002001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "DT1002002",
+   "tab": "Demographics",
+   "desc": null,
+   "table": "SND_EN_PP2_PRF_BSEN_PHS_LVL2",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 15
+  },
+  {
+   "page": "DT1002007",
+   "tab": "Address",
+   "desc": null,
+   "table": "glb_en_adr_address",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 15
+  },
+  {
+   "page": "DT1002008",
+   "tab": "Address",
+   "desc": null,
+   "table": "glb_en_adr_address",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 15
+  },
+  {
+   "page": "DT1002009",
+   "tab": "Address",
+   "desc": null,
+   "table": "glb_en_adr_address",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 15
+  },
+  {
+   "page": "DT1002003",
+   "tab": "Documents",
+   "desc": null,
+   "table": "GLB_EN_DOC_DOCUMENTDETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "DT1002004",
+   "tab": "Qualification",
+   "desc": null,
+   "table": "GLB_EN_QLF_QUALIFICATION",
+   "is_child": true,
+   "grids": [
+    "Qualification"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "DT1002005",
+   "tab": "Previous Experience",
+   "desc": null,
+   "table": "glb_en_pex_pastexperience",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "DT1002006",
+   "tab": "Device",
+   "desc": null,
+   "table": "glb_en_dev_deviceinfo",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "DSR Code": {
+   "element": "TXT__epp2_busent_phs_lvl2_code",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP2_BUSENT_PHS_LVL2_CODE",
+   "max_length": 11,
+   "regex": "^[a-zA-Z0-9]{3}$",
+   "config_id": "textbox1",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "TXT__epp2_busent_phs_lvl2_code"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "DSR Name": {
+   "element": "TXT__EPP2DESC",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP2_DESC",
+   "max_length": 100,
+   "regex": "^[^~?^`,']*$",
+   "config_id": "textbox13",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "TXT__EPP2DESC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "DSR Type": {
+   "element": "DDL__pdst_dsr_type",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "PDST_DSR_TYPE",
+   "list_source": "PDST",
+   "config_id": "selectbox2",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__pdst_dsr_type"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Employee No": {
+   "element": "TXT__EPP2REFERENCE2",
+   "widget": "text",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REFERENCE_2",
+   "max_length": 100,
+   "config_id": "textbox14",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "TXT__EPP2REFERENCE2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Sales Hierarchy": {
+   "element": "DDL__PSLHSALESHIERCODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PSLH_SALESHIER_CODE",
+   "list_source": "PSLH",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__PSLHSALESHIERCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Date of Appointment": {
+   "element": "DT__EPP2_REF_DATE_2",
+   "widget": "date",
+   "tab": "Demographics",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP2_REF_DATE_2",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "locator": {
+    "id": "DT__EPP2_REF_DATE_2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Report To": {
+   "element": "DDL__EPP2_REPORT_TO",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REPORT_TO",
+   "list_source": "EPP2RPT",
+   "config_id": "selectbox8",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_REPORT_TO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Counter Sales": {
+   "element": "DDL__EPP2_REF_VAL_1",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REF_VAL_1",
+   "config_id": "selectbox28",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_REF_VAL_1"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Status": {
+   "element": "DDL__EPP2ACTIVE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_ACTIVE",
+   "default": "I",
+   "config_id": "selectbox23",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2ACTIVE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Working Nature": {
+   "element": "DDL__EPP2_REF_VAL_2",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REF_VAL_2",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_REF_VAL_2"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Vehicle": {
+   "element": "DDL__PVCH_VEHICLE_CODE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PVCH_VEHICLE_CODE",
+   "list_source": "PVCH",
+   "config_id": "selectbox27",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__PVCH_VEHICLE_CODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Route Starting": {
+   "element": "TXT__EPP2REFVAL10",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_REF_VAL_10",
+   "config_id": "selectbox36",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "TXT__EPP2REFVAL10"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "User ID": {
+   "element": "DDL__ssus_usercode",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "SSUS_USERCODE",
+   "list_source": "SSUS",
+   "config_id": "selectbox34",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__ssus_usercode"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Designation": {
+   "element": "DDL__PDSG_DESIGNATION",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDSG_DESIGNATION",
+   "list_source": "PDSG",
+   "config_id": "selectbox38",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__PDSG_DESIGNATION"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Incentive Eligibility": {
+   "element": "DDL__EPP2_INCENTIVE_ELIGIBLE",
+   "widget": "select",
+   "tab": "Demographics",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP2_INCENTIVE_ELIGIBLE",
+   "config_id": "selectbox39",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   },
+   "locator": {
+    "id": "DDL__EPP2_INCENTIVE_ELIGIBLE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Premises Number": {
+   "element": "txt__eadr_desc",
+   "widget": "text",
+   "tab": "Address",
+   "required": true,
+   "readonly": false,
+   "data_field": "EADR_DESC",
+   "max_length": 100,
+   "config_id": "textbox31",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_desc"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Street/Road": {
+   "element": "txt__eadr_desc_2",
+   "widget": "text",
+   "tab": "Address",
+   "required": true,
+   "readonly": false,
+   "data_field": "EADR_DESC_2",
+   "max_length": 100,
+   "config_id": "textbox48",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_desc_2"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Area/Market Name": {
+   "element": "txt__eadr_desc_3",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_DESC_3",
+   "max_length": 100,
+   "config_id": "textbox33",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_desc_3"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Reference": {
+   "element": "TXT__EADRABRV",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_ABRV",
+   "max_length": 25,
+   "config_id": "textbox49",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "TXT__EADRABRV"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "City": {
+   "element": "DDL__pccy_ctrycty_code",
+   "widget": "select",
+   "tab": "Address",
+   "required": true,
+   "readonly": false,
+   "data_field": "PCCY_CTRYCTY_CODE",
+   "list_source": "PCCY2",
+   "config_id": "selectbox7",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "DDL__pccy_ctrycty_code"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Region": {
+   "element": "DDL__PRGNREGIONCODE",
+   "widget": "select",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "PRGN_REGION_CODE",
+   "list_source": "PRGN",
+   "config_id": "selectbox12",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "DDL__PRGNREGIONCODE"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Landline 1": {
+   "element": "txt__eadr_mobile1",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_MOBILE1",
+   "max_length": 15,
+   "regex": "^\\+?[0-9-]{7,15}$",
+   "config_id": "textbox58",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_mobile1"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Landline 2": {
+   "element": "txt__eadr_mobile2",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_MOBILE2",
+   "max_length": 15,
+   "regex": "^\\+?[0-9-]{7,15}$",
+   "config_id": "textbox60",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_mobile2"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Cell Phone 1": {
+   "element": "txt__eadr_phone1",
+   "widget": "text",
+   "tab": "Address",
+   "required": true,
+   "readonly": false,
+   "data_field": "EADR_PHONE1",
+   "max_length": 15,
+   "regex": "^\\+?[0-9-]{7,15}$",
+   "config_id": "textbox61",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_phone1"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Cell Phone 2": {
+   "element": "txt__eadr_phone2",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_PHONE2",
+   "max_length": 15,
+   "regex": "^\\+?[0-9-]{7,15}$",
+   "config_id": "textbox62",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_phone2"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Fax": {
+   "element": "txt__eadr_fax",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_FAX",
+   "max_length": 20,
+   "regex": "^[0-9]",
+   "config_id": "textbox63",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_fax"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Email 1": {
+   "element": "txt__eadr_email1",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_EMAIL1",
+   "max_length": 30,
+   "regex": "^[^@]+@[^@]+\\.[^@]+$",
+   "config_id": "textbox64",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_email1"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Email 2": {
+   "element": "txt__eadr_email2",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_EMAIL2",
+   "max_length": 30,
+   "regex": "^[^@]+@[^@]+\\.[^@]+$",
+   "config_id": "textbox65",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "txt__eadr_email2"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "ZIP Code": {
+   "element": "TXT__EADRZIPCODE",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_ZIPCODE",
+   "max_length": 30,
+   "config_id": "textbox66",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "TXT__EADRZIPCODE"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Postal Code": {
+   "element": "TXT__EADRPOSTALCODE",
+   "widget": "text",
+   "tab": "Address",
+   "required": false,
+   "readonly": false,
+   "data_field": "EADR_POSTAL_CODE",
+   "max_length": 30,
+   "config_id": "textbox67",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "locator": {
+    "id": "TXT__EADRPOSTALCODE"
+   },
+   "seen_in": [
+    "db",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ],
+   "locator": {
+    "id": "save"
+   }
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "112": {
+   "element": "pagination-element-112",
+   "locator": {
+    "id": "pagination-element-112"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Translation": {
+   "element": "crossBtn",
+   "locator": {
+    "id": "crossBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25",
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "element": "dataGrid",
+   "caption": "DSR List",
+   "columns": [
+    "Sr No",
+    "Device Type",
+    "Device Name",
+    "Make",
+    "Model",
+    "Serial No",
+    "IMEI No",
+    "Period From",
+    "Period To",
+    "Document Type",
+    "Document Number",
+    "Issue Date",
+    "Expiry Date",
+    "Document Status",
+    "Reference No",
+    "Qualification Type",
+    "Qualification Detail",
+    "Year Passed",
+    "Institution",
+    "Organization",
+    "Address",
+    "Phone",
+    "Cell Phone",
+    "DSR Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "cells": {
+    "Document Type": {
+     "element": "DDL__PDOTDOCMTYPE_0",
+     "widget": "select"
+    },
+    "Document Number": {
+     "element": "TXT__EDOCDESC_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_document_number"
+    },
+    "Issue Date": {
+     "element": "DT__EDOCISSUEDATE_0",
+     "widget": "date",
+     "cell_id_pattern": "row_N_issue_date"
+    },
+    "Expiry Date": {
+     "element": "DT__EDOCEXPIRYDATE_0",
+     "widget": "date",
+     "cell_id_pattern": "row_N_expiry_date"
+    },
+    "Document Status": {
+     "element": "DDL__PDOSDOCMSTATUS_1_0",
+     "widget": "select",
+     "cell_id_pattern": "row_N_document_status"
+    },
+    "Reference No": {
+     "element": "TXT__EDOCREFERENCENO_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_reference_no"
+    },
+    "Sr No": {
+     "element": "TXT__EDEV_SRNO_0",
+     "widget": "number"
+    },
+    "Qualification Type": {
+     "element": "TXT__PQLNQUALIFICATION_0",
+     "widget": "select",
+     "cell_id_pattern": "row_N_qualification_type"
+    },
+    "Qualification Detail": {
+     "element": "TXT__EQLFDESC_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_qualification_detail"
+    },
+    "Year Passed": {
+     "element": "TXT__EQLFREFERENCE1_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_year_passed"
+    },
+    "Institution": {
+     "element": "TXT__EQLFREFERENCE2_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_institution"
+    },
+    "Organization": {
+     "element": "TXT__EPEXDESC_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_organization"
+    },
+    "Address": {
+     "element": "TXT__EPEXREFERENCE1_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_address"
+    },
+    "Phone": {
+     "element": "txt__epex_reference_2_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_phone"
+    },
+    "Cell Phone": {
+     "element": "txt__epex_reference_3_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_cell_phone_"
+    },
+    "Period From": {
+     "element": "DT__EDEV_REF_DATE_1_0",
+     "widget": "date",
+     "cell_id_pattern": "row_N_period_from"
+    },
+    "Period To": {
+     "element": "DT__EDEV_REF_DATE_2_0",
+     "widget": "date",
+     "cell_id_pattern": "row_N_period_to"
+    },
+    "Device Type": {
+     "element": "DDL__PDVTDEVICETYPE_0",
+     "widget": "select",
+     "cell_id_pattern": "row_N_device_type"
+    },
+    "Device Name": {
+     "element": "TXT__EDEVDESC_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_device_name"
+    },
+    "Make": {
+     "element": "TXT__EDEV_REFERENCE_1_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_make"
+    },
+    "Model": {
+     "element": "TXT__EDEV_REFERENCE_2_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_model"
+    },
+    "Serial No": {
+     "element": "TXT__EDEVREFERENCE3_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_serial_no"
+    },
+    "IMEI No": {
+     "element": "TXT__EDEVREFERENCE4_0",
+     "widget": "text",
+     "cell_id_pattern": "row_N_imei_no"
+    },
+    "DSR Code": {
+     "element": "rowfilter_TXT__epp2_busent_phs_lvl2_code",
+     "widget": "text"
+    }
+   },
+   "row_buttons": {
+    "Save": "rowEditBtn_Save_N"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Qualification": {
+   "columns": [
+    "Sr No",
+    "Qualification Type",
+    "Qualification Detail",
+    "Year Passed",
+    "Institution",
+    "Default"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_DT1002.json"
+   }
+  },
+  "DSR Profile - DT grid 3": {
+   "columns": [
+    "DSR Code",
+    "DSR Name",
+    "DSR Type",
+    "Employee No",
+    "Status"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "DSR List": {
+   "caption": "DSR List",
+   "columns": [],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   },
+   "filter_elements": [
+    "gridFilterCheckbox"
+   ],
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast-success",
+   "text": "Saved successfully",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...0006 - Warehouse0003 - Spot Seller0001 - Order Booker0009 - Van Sales0002 - Delivery ManLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...NSMRSMASMTSMDSRTerritory Sales ManagerCountry HeadLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...NoYesLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...UpcountryLocalLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...DistributorWarehouseLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...ManagerSupervisorLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...DemographicsAddressLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Pull down to refresh...Release to refresh...Refreshing...EastNorthSouthWestLoading...",
+   "when": "after save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Record Saved Successfully!",
+   "when": "after Save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast-error",
+   "text": "Residence Address cannot be empty",
+   "when": "after Forward",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Saved successfully",
+   "when": "after Save",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   }
+  },
+  {
+   "type": "toast-success",
+   "text": "Forwarded successfully",
+   "when": "after Forward",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Tab ids tab_1..tab_5 are duplicated (cent-tab wrapper and nested dx-button-content); the watcher reports tab_2 for Demographics.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261009-1630/20261009-1630/friction.md",
+   "date": "2026-10-09"
+  },
+  {
+   "text": "Masked Cell Phone inputs read back with a trailing mask underscore (e.g. '60624091013_'); strip mask characters before comparing.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261009-1630/20261009-1630/friction.md",
+   "date": "2026-10-09"
+  },
+  {
+   "text": "The row-open control #btn_1 carries its id on the icon element: click it by id btn_1 (a css '#btn_1 .dx-icon-spindown' click times out).",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261009-1630/20261009-1630/friction.md",
+   "date": "2026-10-09"
+  },
+  {
+   "text": "After Forward the grid still shows In-Active (also after reload) until the Checker approves; reopen the screen to read a new status.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261009-1630/20261009-1630/friction.md",
+   "date": "2026-10-09"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/dsr.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-13",
+  "how": [
+   "business page",
+   "group 66 walk",
+   "run QUICK-20261009-1630"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_DT1002.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_DT1002.json"
+  ],
+  "recorded": [
+   "runs/QUICK-20261009-1630/20261009-1630/attempt1_paused/recording_TC01_maker.json",
+   "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_checker.json",
+   "runs/QUICK-20261009-1630/20261009-1630/recording_TC01_maker_resume.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-13"
+}

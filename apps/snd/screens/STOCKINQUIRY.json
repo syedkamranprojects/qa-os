@@ -1,0 +1,497 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "STOCKINQUIRY",
+ "title": "Stock Inquiry",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Stock Inquiry"
+  ],
+  "option_id": "STOCKINQUIRY",
+  "search_text": "Stock Inquiry",
+  "top_id": "NG09",
+  "app_option": "DYL_201069"
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201069",
+ "layout_code": "201069",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "201069002",
+   "tab": null,
+   "desc": null,
+   "table": "snd_tr_ssb_salestock_balance",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 2
+  },
+  {
+   "page": "201069001",
+   "tab": null,
+   "desc": null,
+   "table": "(select",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Period Type": {
+   "element": "DDL__pptp_period_type",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PPTP_PERIOD_TYPE",
+   "list_source": "PPTP",
+   "default": "DAILY",
+   "config_id": "selectbox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+   },
+   "locator": {
+    "id": "DDL__pptp_period_type"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Balance Date": {
+   "element": "DDT__tssb_balance_date",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSSB_BALANCE_DATE",
+   "default": "today (2026-10-01 on fresh open; 2026-09-30 was seen on an earlier session state)",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+   },
+   "locator": {
+    "id": "DDT__tssb_balance_date"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Category": {
+   "element": "categoryFilter",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+   },
+   "locator": {
+    "id": "categoryFilter"
+   },
+   "default": "All",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Brand": {
+   "element": "brandFilter",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+   },
+   "locator": {
+    "id": "brandFilter"
+   },
+   "default": "All",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Outlet Name": {
+   "element": "OUTLET",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "locator": {
+    "id": "OUTLET"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "Comments": {
+   "element": "commentInput",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "locator": {
+    "id": "commentInput"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "ProductDesc": {
+   "element": "product",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "locator": {
+    "id": "product"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "OrderCS": {
+   "element": "quantity1_0",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "locator": {
+    "id": "quantity1_0"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "OrderPC": {
+   "element": "quantity3_0",
+   "widget": "text",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "locator": {
+    "id": "quantity3_0"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "Order Booker/Spot Seller": {
+   "element": "dsrType",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json"
+   },
+   "locator": {
+    "id": "dsrType"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08"
+   ]
+  },
+  "PJP": {
+   "element": "PJPNO",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json"
+   },
+   "locator": {
+    "id": "PJPNO"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08"
+   ]
+  },
+  "Selling Category": {
+   "element": "SELLCAT",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json"
+   },
+   "locator": {
+    "id": "SELLCAT"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08"
+   ]
+  },
+  "Section": {
+   "element": "SECTION",
+   "widget": "select",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json"
+   },
+   "locator": {
+    "id": "SECTION"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08"
+   ]
+  }
+ },
+ "buttons": {
+  "Generate Opening Balances": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201069.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Show Inquiry": {
+   "element": "showInquiryRefresh",
+   "locator": {
+    "id": "showInquiryRefresh"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Order Detail": {
+   "element": "orderDetail",
+   "locator": {
+    "id": "orderDetail"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "Validation": {
+   "element": "validateBtn",
+   "locator": {
+    "id": "validateBtn"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  },
+  "Save": {
+   "element": "saveBtn",
+   "locator": {
+    "id": "saveBtn"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-07"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Balance Date",
+    "Principle Code",
+    "Category",
+    "Brand",
+    "Product Code",
+    "Product Name",
+    "Warehouse",
+    "Batch",
+    "Stock Type",
+    "Moving Avg Price",
+    "Opening CS",
+    "@Session(Orga Code)~Opening SH",
+    "Opening PC",
+    "In CS",
+    "@Session(Orga Code)~In SH",
+    "In PC",
+    "Out CS",
+    "@Session(Orga Code)~Out SH",
+    "Out PC",
+    "Allocated CS",
+    "@Session(Orga Code)~Allocated SH",
+    "Allocated PC",
+    "Closing CS",
+    "@Session(Orga Code)~Closing Balance SH",
+    "Closing PC",
+    "Opening DZ",
+    "In DZ",
+    "Out DZ",
+    "Allocated DZ",
+    "Closing DZ"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+   },
+   "filter_elements": [
+    "Allocated CS",
+    "Allocated DZ",
+    "Allocated PC",
+    "Batch",
+    "Brand",
+    "Category",
+    "Closing CS",
+    "Closing DZ",
+    "Closing PC",
+    "In CS",
+    "In DZ",
+    "In PC",
+    "Opening CS",
+    "Opening DZ",
+    "Opening PC",
+    "Out CS",
+    "Out DZ",
+    "Out PC",
+    "Product Name",
+    "Stock Type",
+    "Warehouse"
+   ],
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Stock Inquiry grid 2": {
+   "columns": [],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   },
+   "row_buttons": {
+    "Save": "rowEditBtn_Save_N"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast",
+   "text": "Validation successfully",
+   "when": "after validateBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   }
+  },
+  {
+   "type": "toast",
+   "text": "Order Save successfully",
+   "when": "after saveBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-07",
+    "ref": "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Show Inquiry shows a transient 'Refreshing...Loading' pull-to-refresh toast; no error text",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "The result grid is paged (15 rows per page) and the products of interest can be on later pages: use the pager or a product filter. Type Balance Date with real key events and Enter.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261008-1429/20261008-1429/friction.md; knowledge/business/LIVE_FINDINGS.md (L01)",
+   "date": "2026-10-08"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/inbound_stock/stock_inquiry_and_balances.md",
+ "business_pages_also": [
+  "knowledge/business/inbound_stock/stock_validation_flows.md",
+  "knowledge/business/settlement_and_finance/end_of_day_validations.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "run QUICK-20261007-OB",
+   "run QUICK-20261008-1429",
+   "run QUICK-20261008-OB",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201069.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/LIVE_STOCK_INQUIRY.json"
+  ],
+  "recorded": [
+   "runs/QUICK-20261007-OB/20261007-1749/recording_TC01.json",
+   "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json",
+   "runs/QUICK-20261008-OB/20261008-1120/recording_TC04.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-08"
+}

@@ -1,0 +1,194 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_102003079",
+ "title": "Outlet Status",
+ "menu": {
+  "path": [
+   "Approval",
+   "Master Data Approval",
+   "Outlet Status"
+  ],
+  "option_id": "DYL_102003079",
+  "search_text": "Outlet Status",
+  "top_id": "NG01",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=102003079",
+ "layout_code": "102003079",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "102003079",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "is_child": false,
+   "grids": [
+    "Outlet Profile"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {},
+ "buttons": {
+  "Process": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102003079.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "731": {
+   "element": "pagination-element-731",
+   "locator": {
+    "id": "pagination-element-731"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Outlet Profile": {
+   "columns": [
+    "Distributor Code",
+    "Distributor",
+    "Outlet Code",
+    "Outlet Short Name",
+    "Outlet Name",
+    "Outlet Type",
+    "Channel Hierarchy",
+    "Geographical Hierarchy",
+    "Outlet Rank",
+    "Company Rank",
+    "Coordinates Latitude",
+    "Coordinates Longitude",
+    "Area Type",
+    "Identified On",
+    "Identified by",
+    "Status",
+    "Organization",
+    "Currency",
+    "Corporate Code",
+    "Bill to Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/outlet.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_102003079.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_102003079.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

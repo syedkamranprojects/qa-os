@@ -1,0 +1,168 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CHANGETRACK_DSR_DOC",
+ "title": "Change Track DSR Document",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Outlet Profile",
+   "Change Track DSR Document"
+  ],
+  "option_id": "CHANGETRACK_DSR_DOC",
+  "search_text": "Change Track DSR Document",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/change-management/dsr-document",
+ "page_param": "pageCodeGrid=102003035&fieldComb=pbet_busentity_type&valueComb=DSRS&serialNoGrid=1&pageCodeForm=202044010&serialNoForm=1&label1=DSR-Doc Modification Request List&label2=List of DSR&label3=Document Modification attribute",
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "94": {
+   "element": "pagination-element-94",
+   "locator": {
+    "id": "pagination-element-94"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Change Track DSR Document": {
+   "columns": [
+    "Request No",
+    "Description",
+    "Distributor",
+    "Status",
+    "Request Date"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Change Track DSR Document grid 2": {
+   "columns": [
+    "DSR Code",
+    "DSR Name",
+    "DSR Type",
+    "Status"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/dsr.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-13",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CHANGETRACK_DSR_DOC.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-13"
+}

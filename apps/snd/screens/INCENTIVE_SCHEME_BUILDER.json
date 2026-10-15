@@ -1,0 +1,90 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "INCENTIVE_SCHEME_BUILDER",
+ "title": "Promotion Layout",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Promotion",
+   "Promotion Layout"
+  ],
+  "option_id": "INCENTIVE_SCHEME_BUILDER",
+  "search_text": "Promotion Layout",
+  "top_id": "NG02",
+  "app_option": null
+ },
+ "route": "/scheme-builder/promotion-list",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Date": {
+   "element": "DDT__lvsl_visit_date",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/INCENTIVE_SCHEME_BUILDER.json"
+   },
+   "locator": {
+    "id": "DDT__lvsl_visit_date"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {},
+ "grids": {
+  "Promotion Layout": {
+   "columns": [
+    "Distributor",
+    "Warehouse",
+    "DSR",
+    "Outlet",
+    "Visit Status",
+    "Date",
+    "PJP Number"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/INCENTIVE_SCHEME_BUILDER.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "The header is an editable grid: click the cell, then type into the generated input (code_0, description_0, startDate_0, endDate_0, entityType_0, subType_0); dropdown lists open only on a second click on the input. 'Scheme' is a plain button without id, not a tab. The promotion list has no search box and is paged.",
+   "kind": "screen",
+   "field": null,
+   "source": "runs/QUICK-20261008-1739/20261008-1739/friction.md",
+   "date": "2026-10-08"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/INCENTIVE_SCHEME_BUILDER.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-09"
+}

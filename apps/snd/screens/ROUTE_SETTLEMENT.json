@@ -1,0 +1,228 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "ROUTE_SETTLEMENT",
+ "title": "Route Settlement",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "Route Settlement"
+  ],
+  "option_id": "ROUTE_SETTLEMENT",
+  "search_text": "Route Settlement",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/content-master/route-settlement",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Date": {
+   "element": "Date",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "Date"
+   },
+   "default": "today (2026-10-01)",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "PJP Number": {
+   "element": "pjpno",
+   "widget": "tagbox",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "pjpno"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Select All": {
+   "element": "selectAll",
+   "widget": "checkbox",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "selectAll"
+   },
+   "default": "unchecked",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Route Status": {
+   "element": "filterType",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "filterType"
+   },
+   "default": "All",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Total Payable Amount": {
+   "element": "Total_Payable_Amount",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "Total_Payable_Amount"
+   },
+   "default": "0",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Total Received Amount": {
+   "element": "Total_Received_Amount",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "Total_Received_Amount"
+   },
+   "default": "0",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Total Cash Shortage": {
+   "element": "Total_Cash_Shortage",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "locator": {
+    "id": "Total_Cash_Shortage"
+   },
+   "default": "0",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {},
+ "grids": {
+  "Route Settlement": {
+   "columns": [
+    "PJP Delivery Man Code",
+    "Delivery Man",
+    "Total Order",
+    "Delivered Orders",
+    "Undelivered Orders",
+    "Sale Value",
+    "Adjusted Credit Note Amount",
+    "Fresh Return Value",
+    "Total Cash Collected",
+    "Total Cheque Collect",
+    "Collection Type",
+    "Payable Amount",
+    "Received Amount",
+    "Cash Shortage",
+    "Previous",
+    "Today",
+    "Total"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/ROUTE_SETTLEMENT.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Route Settlement grid 2": {
+   "columns": [
+    "PJP Delivery Man Code Delivery Man Total Order Delivered Orders Undelivered Orders Sale Value Adjusted Credit Note Amount Fresh Return Value Total Cash Collected Total Cheque Collect Collection Type Payable Amount Received Amount Cash Shortage",
+    "Previous Today Total Previous Today Total"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Page auto-loads with today's date; no Save/Settle button is visible until a row is put in edit mode.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json",
+   "date": "2026-10-01"
+  },
+  {
+   "text": "A row with an Edit link is not settled; a row without it is settled. Ignore the row colours.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (stated 2026-10-08 QA team)",
+   "date": "2026-10-08"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/route_settlement.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "run VAN-SALES-E2E",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/LIVE_ROUTE_SETTLEMENT.json",
+   "apps/snd/knowledge/screens_observed/ROUTE_SETTLEMENT.json"
+  ],
+  "recorded": [
+   "runs/VAN-SALES-E2E/20260928-1012/framework/recording_readonly_checks.json"
+  ],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-08"
+}

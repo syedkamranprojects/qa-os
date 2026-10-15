@@ -11,10 +11,11 @@ apps:
 
 installation:                      # dev = QA OS team's working copy (file qaos.dev.yaml, never shipped); qa = QA team's release
   design_contact: "Syed Kamran"    # QA members check design / tool gaps with this person first (QA lead, 2026-10-12)
+  framework_owner: "Muhammad Imran"   # applies the generated Regress Master SQL and runs the first replay (v4 decision 14.2)
   design_gaps_file: feedback/design_gaps.md   # in a qa installation, gaps are noted here and sent back with the training work
 
 limits:
-  max_core_cases_per_story: 10     # rest goes to the backlog (QA lead rule)
+  max_core_cases_per_story: null   # v4 decision 4.1: no fixed cap - as many as the rules/ACs need; the QA member trims at approval
   one_data_row_per_case: true      # MCP recording uses a single row; bulk rows are for the legacy engine
   subagent_depth: 1                # only the orchestrator spawns agents
 

@@ -1,0 +1,241 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CASH_MEMO_PROMOTION_VIEWER",
+ "title": "Cash Memo Promotion Viewer",
+ "menu": {
+  "path": [
+   "Configuration",
+   "System Configuration",
+   "Cash Memo Promotion Viewer"
+  ],
+  "option_id": "CASH_MEMO_PROMOTION_VIEWER",
+  "search_text": "Cash Memo Promotion Viewer",
+  "top_id": "NG03",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "dynamic",
+ "tabs": [],
+ "fields": {
+  "Code": {
+   "element": "txt__pidn_identifier_type",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "txt__pidn_identifier_type"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Description": {
+   "element": "txt__pidn_desc",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "txt__pidn_desc"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Abbreviation": {
+   "element": "txt__pidn_abrv",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "txt__pidn_abrv"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Default": {
+   "element": "ddl__pidn_default",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "ddl__pidn_default"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Status": {
+   "element": "ddl__pidn_active",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "ddl__pidn_active"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Level Type": {
+   "element": "txt__pidn_leveltype",
+   "widget": "text",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "txt__pidn_leveltype"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Level No": {
+   "element": "txt__pidn_level_no",
+   "widget": "number",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "locator": {
+    "id": "txt__pidn_level_no"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "locator": {
+    "id": "save"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Update": {
+   "element": "update",
+   "locator": {
+    "id": "update"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Delete": {
+   "element": "delete",
+   "locator": {
+    "id": "delete"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Cash Memo Promotion Viewer": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CASH_MEMO_PROMOTION_VIEWER.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

@@ -1,5 +1,7 @@
 # QA OS operating rules (standing preferences of the QA lead)
 
+> **Design v4 (2026-10-15) wins over older rules below.** Full list: `docs/DESIGN_V4_DECISIONS.md`. In short: run context asked every time; any QA member may start a run; analysis questions go into ONE approval (by the QA member who runs it) with cases, paths and plain-English steps (+ event columns); no cap on core cases, backlog = one-line ideas; every trained screen has a screen file (`apps/<app>/screens/`) made during training; untrained screen = long gap; data checked at design, created through the app if needed, each case reads its starting state, shared master data restored; **AI executes one case per path**, negatives are data rows (unknown messages captured once); **one login per user role** (Maker work first, one switch to the Checker), each case reopens its screen; any difference from the prediction stops the path and is asked; a defect stops only its path; scripts automatically for every passing path, verifier before hand-over, framework owner **Muhammad Imran** applies and replays; report = workbook + one-page summary + Jira-ready defect drafts; QA members edit business knowledge directly, QA OS design changes are refused in the QA installation (contact Syed Kamran).
+
 This file exists so a Claude session on a different account or machine, with no personal memory, behaves the same way. The assistant's original memory notes are copied verbatim into `docs/memory_export/` (index: `MEMORY.md` there); read the ones that match the task. Never put credentials in the repo.
 Last updated: 2026-10-07 (release v0.5.0).
 
@@ -49,7 +51,7 @@ Setup flow PK: group 66 (NG_Setup Flow_PK); its user per row comes from the grou
 - After a full cycle, a Senior QA may run a knowledge check: Claude predicts first, executes, compares.
 
 ## Login and browser hand-off
-- Claude NEVER types user ids or passwords. The trainer types them in the Selenium-controlled Chrome; Claude presses Login only when asked.
+- Claude types only the **user ID**; the QA member/trainer types the **password** (never typed, read or requested by Claude). Claude presses Login only when asked. One login per user role for the whole run (design v4).
 - Claude logs the current user out itself (user menu top right -> Logout) and, after login, selects Company and Distributor (per the market table) and presses Proceed (a real click).
 - If the session expires, close the Selenium session and start a new browser. Close the Selenium browser after a final logout.
 
@@ -69,7 +71,7 @@ Setup flow PK: group 66 (NG_Setup Flow_PK); its user per row comes from the grou
 
 ## Installations: dev and qa (QA lead, 2026-10-12)
 - `python runtime/qaos_config.py mode` tells which installation is running. **dev** = the QA OS team's working copy, identified by the file `qaos.dev.yaml` (gitignored, never packaged). **qa** = the QA team's release zip from `tools/build_release.py` (no marker, `release.json` with version and build date). No marker always means qa.
-- No operation is restricted yet. QA members train the system freely.
+- QA members train the system and **change business knowledge directly** (tagged with name and date; conflicts with existing `[stated]` facts are flagged, not overwritten). **QA OS design changes are refused** in a qa installation (skills, agents, tools, schemas, rules, design docs): Claude stops and asks them to contact the QA OS administrator (Syed Kamran); a plugin hook (`plugins/qa-os/hooks/design_guard.js`) blocks such writes (design v4, 2026-10-15).
 - In a qa installation, design or tool gaps are **noted, not fixed**, in `feedback/design_gaps.md`, and the QA member is asked to check with the design contact (Syed Kamran) first. The file comes back with the training work; the QA OS team moves rows to `docs/HARDENING.md`.
 - Every run records the installation (run.json `installation`), and the generated SQL header prints it (`-- QA OS: v<version> (<mode> installation)`).
 

@@ -1,0 +1,180 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "STOCK_REQUISITION",
+ "title": "Van Sale Stock Request",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Van Sale Stock Request"
+  ],
+  "option_id": "STOCK_REQUISITION",
+  "search_text": "Van Sale Stock Request",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/stock-requisition/SR",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [
+  {
+   "label": "Detail",
+   "element": null,
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-28",
+    "ref": "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+   }
+  }
+ ],
+ "fields": {
+  "PJP": {
+   "element": "pjp",
+   "widget": "unknown",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-28",
+    "ref": "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+   },
+   "locator": {
+    "id": "pjp"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-09-28"
+   ]
+  },
+  "Product": {
+   "element": "product",
+   "widget": "unknown",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-28",
+    "ref": "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+   },
+   "locator": {
+    "id": "product"
+   },
+   "tab": "Detail",
+   "seen_in": [
+    "recorded:cnr1dev1:2026-09-28"
+   ]
+  }
+ },
+ "buttons": {
+  "Add": {
+   "element": "Add",
+   "locator": {
+    "id": "Add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/STOCK_REQUISITION.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Submit": {
+   "element": "Cancel",
+   "locator": {
+    "id": "Cancel"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/STOCK_REQUISITION.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Save": {
+   "element": "saveBtn",
+   "locator": {
+    "id": "saveBtn"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-28",
+    "ref": "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-09-28"
+   ]
+  }
+ },
+ "grids": {
+  "Van Sale Stock Request": {
+   "columns": [
+    "Request No",
+    "Document Date",
+    "Request Date",
+    "Approval Status",
+    "PJP Description",
+    "DSR Description"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/STOCK_REQUISITION.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Van Sale Stock Request grid 2": {
+   "columns": [],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-28",
+    "ref": "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+   },
+   "row_buttons": {
+    "Save": "rowEditBtn_Save_N"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast",
+   "text": "Save successfully",
+   "when": "after saveBtn",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-09-28",
+    "ref": "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+   }
+  }
+ ],
+ "lessons": [],
+ "differences": [],
+ "business_page": null,
+ "trained": {
+  "status": true,
+  "date": "2026-09-28",
+  "how": [
+   "run VAN-SALES-E2E"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/STOCK_REQUISITION.json"
+  ],
+  "recorded": [
+   "runs/VAN-SALES-E2E/20260928-1012/framework/recording_create_request.json"
+  ],
+  "stated": []
+ },
+ "updated": "2026-09-28"
+}

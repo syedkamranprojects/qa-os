@@ -1,0 +1,437 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_TM1003",
+ "title": "PJP Creation TM",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Journey Plan",
+   "PJP Creation TM"
+  ],
+  "option_id": "DYL_TM1003",
+  "search_text": "PJP Creation TM",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=TM1003",
+ "layout_code": "TM1003",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "TM1003002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "TM1003001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "TM1003002",
+   "tab": "Header",
+   "desc": null,
+   "table": "SND_EN_PJP_PJPHEAD",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 17
+  }
+ ],
+ "fields": {
+  "PJP Number": {
+   "element": "txt__epjppjpno",
+   "widget": "text",
+   "tab": "Header",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPJP_PJPNO",
+   "max_length": 10,
+   "regex": "^[a-zA-Z0-9]{4}$",
+   "config_id": "textbox3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "PJP Description": {
+   "element": "Description",
+   "widget": "text",
+   "tab": "Header",
+   "required": true,
+   "readonly": true,
+   "data_field": "EPJP_DESC",
+   "max_length": 100,
+   "regex": "^[^~?^`,']*$",
+   "config_id": "textbox2",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "DSR": {
+   "element": "DDL__EPP2BUSENTCODEPHSLVL2F",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP2_BUSENT_CODE_PHS_LVL2_F",
+   "list_source": "DIST2DSR",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Warehouse": {
+   "element": "DDL__EPP1BUSENTCODEPHSLVL1B",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1_B",
+   "list_source": "DIST2WRHS",
+   "config_id": "selectbox8",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Working Date": {
+   "element": "DT__EPJPWORKINGDATE",
+   "widget": "date",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_WORKING_DATE",
+   "config_id": "datebox4",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Closing Date": {
+   "element": "DT__EPJPCLOSINGDATE",
+   "widget": "date",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_CLOSING_DATE",
+   "config_id": "datebox6",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Default": {
+   "element": "DDL__epjp_default",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_DEFAULT",
+   "config_id": "selectbox25",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Status": {
+   "element": "DDL__epjp_status",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_STATUS",
+   "default": "N",
+   "config_id": "selectbox26",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Level Type": {
+   "element": "TXT__epjp_leveltype",
+   "widget": "text",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_LEVELTYPE",
+   "config_id": "textbox18",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Level No": {
+   "element": "TXT__epjp_level_no",
+   "widget": "number",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_LEVEL_NO",
+   "config_id": "textbox19",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Enable NFC": {
+   "element": "DDL__EPJP_ENABLE_NFC_FUNC",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_ENABLE_NFC_FUNC",
+   "default": "N",
+   "config_id": "selectbox27",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Mandatory NFC": {
+   "element": "TXT__EPJP_MANDATORY_NFC_SCAN",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_MANDATORY_NFC_SCAN",
+   "default": "N",
+   "config_id": "selectbox28",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "GPS Restriction": {
+   "element": "TXT__EPJP_GPS_RESTRICTION",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_GPS_RESTRICTION",
+   "default": "N",
+   "config_id": "selectbox29",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "GPS Radius(Meters)": {
+   "element": "TXT__EPJP_GPS_RADIUS",
+   "widget": "number",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPJP_GPS_RADIUS",
+   "config_id": "textbox20",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "DDO Indicator": {
+   "element": "DDL__EPJPPLANNEDBY",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_PLANNED_BY",
+   "default": "N",
+   "config_id": "selectbox30",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Virtual PJP": {
+   "element": "TXT__epjp_virtual_pjp",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_VIRTUAL_PJP",
+   "default": "N",
+   "config_id": "selectbox31",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Sales Route Type": {
+   "element": "DDL__EPJP_SALES_ROUTE_TYPE",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_SALES_ROUTE_TYPE",
+   "list_source": "GPSSRT",
+   "config_id": "selectbox17",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "buttons": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Organization",
+    "Business Entity Type 1 Code",
+    "Distributor",
+    "PJP Number",
+    "PJP Description",
+    "DSR Orga Code",
+    "Business Entity Type 2 Code",
+    "DSR",
+    "Bank",
+    "Branch",
+    "Working Date",
+    "Closing Date",
+    "Warehouse",
+    "DSR Type",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Enable NFC",
+    "Mandatory NFC",
+    "GPS Restriction",
+    "GPS Radius(Meters)",
+    "Virtual PJP",
+    "Identifier",
+    "Sales Route Type"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_TM1003.json"
+   }
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/pjp.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_TM1003.json",
+  "observed": [],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

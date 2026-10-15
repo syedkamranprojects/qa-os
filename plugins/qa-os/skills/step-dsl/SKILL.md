@@ -43,7 +43,7 @@ and the exact text is recorded in `messages/` for QA to tighten into `message_co
 
 ## Rules
 - Use on-screen **labels**, never raw ids. If a label isn't in the app pack, ask app-cartographer to learn the screen first.
-- Every case logs out at the end. Every case starts with a fresh login; don't chain cases.
+- Sessions are per role (design v4): a case does not log in/out itself; it starts by reopening its screen and reading its starting state. Don't chain cases' data.
 - Don't write steps that confirm Save/Update/Delete/Upload in *learning* flows. In test flows, those
   steps are the point of the test, and they run only against the dev/QA env in `app.yaml`.
 

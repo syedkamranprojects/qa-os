@@ -1,6 +1,6 @@
 ---
 name: step-authoring
-description: The assisted step-authoring dialogue - Claude drafts what it can, then asks the QA member for the next step one at a time with suggested options plus free text, rephrases the answer into the predefined wording, checks the labels against the real screen, and asks for confirmation. Use in the main session whenever test steps are being written or completed with a QA member (gate G3).
+description: The assisted step-authoring dialogue - Claude drafts what it can, then asks the QA member for the next step one at a time with suggested options plus free text, rephrases the answer into the predefined wording, checks the labels against the real screen, and asks for confirmation. Use in the main session whenever test steps are being written or completed with a QA member (single approval).
 ---
 
 # Assisted step authoring (the "next step" dialogue)
@@ -26,7 +26,7 @@ Tools (deterministic): `python runtime/qaos_steps.py` - `check`, `labels`, `sugg
 5. **After an action that needs a check** (`Create`, `Add line`, `Save`, `Forward`, `Approve`, `Reject`, `Click <Button>`): ask "What should the screen show?" with options: the message text if known from the atlas/app pack, "Record the message when it first appears" (`Verify message (text to be recorded)`), a status check (`Verify status of <Document> is <status>`). Add the answer as a Verify step.
 6. **Switch points.** When the actor changes, add `Logout` then `Login as <Role>` automatically and say so.
 7. **Repeat** until "The flow is complete", then `lint <draft>`: fix problems first, mention warnings once.
-8. **Finish the case:** show the final table (`render`), list anything `unverified` (labels with no screen knowledge) and the risk column, and ask for **approval** of the step sheet (gate G3, phrases in `qaos.yaml`). Anything else is feedback: change the draft and ask again.
+8. **Finish the case:** show the final table (`render`), list anything `unverified` (labels with no screen knowledge) and the risk column, and ask for **approval** of the step sheet (the single approval, phrases in `qaos.yaml`). Anything else is feedback: change the draft and ask again.
 
 ## Rephrasing rules (free English -> predefined wording)
 - One sentence from the QA member may be several steps: split it, and confirm them together as a numbered list.

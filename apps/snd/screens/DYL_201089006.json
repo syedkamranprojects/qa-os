@@ -1,0 +1,457 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201089006",
+ "title": "Analysis Classification - Outlet",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Analysis Classification",
+   "Analysis Classification - Outlet"
+  ],
+  "option_id": "DYL_201089006",
+  "search_text": "Analysis Classification - Outlet",
+  "top_id": "NG02",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201089006",
+ "layout_code": "201089006",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Classification A",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089010"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Classification B",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089011"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Classification C",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089012"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Banner",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089025"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "TradeFormat",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089026"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "SpiderWeb",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089027"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "PerfectStore",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089028"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Perfect Store Compliance",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089029"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Other Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089030"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Customer Class",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089031"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Chain Outlets",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089032"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Master Account Group",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089033"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Outlet Programs",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089034"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "OutletClassification",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089035"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  },
+  {
+   "label": "Outlet Range",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201089036"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201089006.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "201089009",
+   "tab": null,
+   "desc": null,
+   "table": "GLB_PR_ANT_ANLS_TYPE",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089010",
+   "tab": "Classification A",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089011",
+   "tab": "Classification B",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089012",
+   "tab": "Classification C",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089025",
+   "tab": "Banner",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089026",
+   "tab": "TradeFormat",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089027",
+   "tab": "SpiderWeb",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089028",
+   "tab": "PerfectStore",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089029",
+   "tab": "Perfect Store Compliance ",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089030",
+   "tab": "Other Info",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089031",
+   "tab": "Customer Class",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089032",
+   "tab": "Chain Outlets",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089033",
+   "tab": "Master Account Group",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089034",
+   "tab": "Outlet Programs",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089035",
+   "tab": "OutletClassification",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201089036",
+   "tab": "Outlet Range",
+   "desc": null,
+   "table": "GLB_PR_ANC_ANLS_CLASIFY",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {},
+ "buttons": {},
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Analysis Category",
+    "Analysis Type",
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Default",
+    "Active",
+    "Level No",
+    "Level Type",
+    "Organization Code"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201089006.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/outlet.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201089006.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201089006.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

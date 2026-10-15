@@ -1,0 +1,243 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201097005",
+ "title": "Claim Inquiry",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Claim",
+   "Claim Inquiry"
+  ],
+  "option_id": "DYL_201097005",
+  "search_text": "Claim Inquiry",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201097005",
+ "layout_code": "201097005",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Claim Detail",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201097006"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201097005.json"
+   }
+  },
+  {
+   "label": "Reference Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201097007"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201097005.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "201097010",
+   "tab": null,
+   "desc": null,
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 3
+  },
+  {
+   "page": "201097005",
+   "tab": null,
+   "desc": "Claim Inquiry - Grid",
+   "table": "SND_TR_CLM_CLAIM_MASTER",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201097006",
+   "tab": "Claim Detail",
+   "desc": null,
+   "table": "SND_TR_CLD_CLAIM_DETAIL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201097007",
+   "tab": "Reference Info",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Document Type": {
+   "element": "DDL__PDOTDOCMTYPEPARENT",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDOT_DOCMTYPE",
+   "list_source": "PDOT",
+   "config_id": "selectbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201097005.json"
+   },
+   "locator": {
+    "id": "DDL__PDOTDOCMTYPEPARENT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Document Date From": {
+   "element": "DT__TCMMDOCMDATEFROMPARENT",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "TCLM_DOC_DATE",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201097005.json"
+   },
+   "locator": {
+    "id": "DT__TCMMDOCMDATEFROMPARENT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Document Date To": {
+   "element": "DT__TCMMDOCMDATETOPARENT",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "TCLM_DOC_DATE",
+   "config_id": "datebox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201097005.json"
+   },
+   "locator": {
+    "id": "DT__TCMMDOCMDATETOPARENT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201097005.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Distributor Code",
+    "Promo Code",
+    "Promo Description",
+    "Ref Promo Code",
+    "Invoice No",
+    "Reference Document Type",
+    "Reference Document No",
+    "Outlet Code",
+    "Outlet Description",
+    "Claim Amount"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201097005.json"
+   }
+  },
+  "Claim Inquiry grid 2": {
+   "columns": [
+    "Document No",
+    "Claim Number",
+    "Claim Reference Number",
+    "Credit Note Number",
+    "Document Type",
+    "Document Status",
+    "Claim Amount",
+    "Claim Start Date",
+    "Claim End Date",
+    "Document Date",
+    "Status",
+    "Last Execution Date",
+    "Project Code"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201097005.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/claims.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201097005.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201097005.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

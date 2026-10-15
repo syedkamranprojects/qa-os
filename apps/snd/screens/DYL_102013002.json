@@ -1,0 +1,744 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_102013002",
+ "title": "Distributor Mapping",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Setup Mapping",
+   "Distributor Mapping"
+  ],
+  "option_id": "DYL_102013002",
+  "search_text": "Distributor Mapping",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=102013002",
+ "layout_code": "102013002",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Distributor",
+   "element": null,
+   "sub_tabs": [
+    "DIST"
+   ],
+   "pages": [
+    "102013001_PBET_BUSENTITY_TYPE_DIST",
+    "102013006",
+    "102013015",
+    "102013027"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   }
+  },
+  {
+   "label": "Outlet",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102013031",
+    "102013012",
+    "102013013",
+    "102013014"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   }
+  },
+  {
+   "label": "DSR",
+   "element": null,
+   "sub_tabs": [
+    "DSRS"
+   ],
+   "pages": [
+    "102013002_PBET_BUSENTITY_TYPE_DSRS",
+    "102013007"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   }
+  },
+  {
+   "label": "Section",
+   "element": null,
+   "sub_tabs": [
+    "SECT"
+   ],
+   "pages": [
+    "102013003_PBET_BUSENTITY_TYPE_SECT",
+    "102013032"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   }
+  },
+  {
+   "label": "MIS Type",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102013010",
+    "102013011"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "102013001_PBET_BUSENTITY_TYPE_DIST",
+   "tab": "Distributor",
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102013006",
+   "tab": "Distributor",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 6
+  },
+  {
+   "page": "102013015",
+   "tab": "Distributor",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 6
+  },
+  {
+   "page": "102013027",
+   "tab": "Distributor",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 5
+  },
+  {
+   "page": "102013031",
+   "tab": "Outlet",
+   "desc": null,
+   "table": "SND_EN_PP1_PRF_BSEN_PHS_LVL1",
+   "is_child": false,
+   "grids": [
+    "Distributor Code"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102013012",
+   "tab": "Outlet",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 7
+  },
+  {
+   "page": "102013013",
+   "tab": "Outlet",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 7
+  },
+  {
+   "page": "102013014",
+   "tab": "Outlet",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 7
+  },
+  {
+   "page": "102013002_PBET_BUSENTITY_TYPE_DSRS",
+   "tab": "DSR",
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102013007",
+   "tab": "DSR",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 7
+  },
+  {
+   "page": "102013003_PBET_BUSENTITY_TYPE_SECT",
+   "tab": "Section",
+   "desc": null,
+   "table": null,
+   "is_child": false,
+   "grids": [],
+   "n_fields": 0
+  },
+  {
+   "page": "102013032",
+   "tab": "Section",
+   "desc": null,
+   "table": "GLB_PR_AEE_ALLOW_ENTTOENTITY",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 6
+  },
+  {
+   "page": "102013010",
+   "tab": "MIS Type",
+   "desc": null,
+   "table": "glb_pr_bem_busentity_mistype",
+   "is_child": false,
+   "grids": [
+    "Business Entity MIS Type Code"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102013011",
+   "tab": "MIS Type",
+   "desc": null,
+   "table": "glb_pr_aee_allow_enttoentity",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 6
+  }
+ ],
+ "fields": {
+  "Code": {
+   "element": "PAEE_SOURCE_CODE",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": true,
+   "readonly": false,
+   "data_field": "PAEE_SOURCE_CODE",
+   "config_id": "column7",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Description": {
+   "element": "EPP2_DESC",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP2_DESC",
+   "config_id": "column5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Business Entity Type Code": {
+   "element": "PBET_BUSENTITY_TYPE",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": true,
+   "readonly": false,
+   "data_field": "PBET_BUSENTITY_TYPE",
+   "config_id": "column3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Organization/Company Code": {
+   "element": "porg_orgacode",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": false,
+   "readonly": false,
+   "data_field": "PORG_ORGACODE",
+   "config_id": "column9",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Allowable Type": {
+   "element": "PAEE_ALLOWABLE_TYPE",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": true,
+   "readonly": false,
+   "data_field": "PAEE_ALLOWABLE_TYPE",
+   "config_id": "column6",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Type": {
+   "element": "PAEE_SOURCE_TYPE",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": true,
+   "readonly": false,
+   "data_field": "PAEE_SOURCE_TYPE",
+   "config_id": "column8",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Description [Distributor]": {
+   "element": "EPP1_DESC",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_DESC",
+   "config_id": "column5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Organization/Company Code [Distributor]": {
+   "element": "PORG_ORGACODE",
+   "widget": "grid_column",
+   "tab": "Distributor",
+   "required": false,
+   "readonly": false,
+   "data_field": "PORG_ORGACODE",
+   "config_id": "column3",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Code [Outlet]": {
+   "element": "PAEE_ALLOWABLE_CODE",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": false,
+   "readonly": false,
+   "data_field": "PAEE_ALLOWABLE_CODE",
+   "config_id": "column9",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Index #": {
+   "element": "PAEE_INDEX_NUMBER",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": false,
+   "readonly": false,
+   "data_field": "PAEE_INDEX_NUMBER",
+   "config_id": "column15",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Description [Outlet]": {
+   "element": "PPA1_DESC",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": false,
+   "readonly": false,
+   "data_field": "PPA1_DESC",
+   "config_id": "column10",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Source Code": {
+   "element": "PAEE_SOURCE_CODE",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": false,
+   "readonly": false,
+   "data_field": "PAEE_SOURCE_CODE",
+   "config_id": "column12",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Organization": {
+   "element": "porg_orgacode",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": false,
+   "readonly": false,
+   "data_field": "PORG_ORGACODE",
+   "config_id": "column12",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Allowable Type [Outlet]": {
+   "element": "paee_allowable_type",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": true,
+   "readonly": false,
+   "data_field": "PAEE_ALLOWABLE_TYPE",
+   "config_id": "column5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Source Code [Outlet]": {
+   "element": "paee_source_code",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": true,
+   "readonly": false,
+   "data_field": "PAEE_SOURCE_CODE",
+   "config_id": "column6",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Source Type": {
+   "element": "paee_source_type",
+   "widget": "grid_column",
+   "tab": "Outlet",
+   "required": true,
+   "readonly": false,
+   "data_field": "PAEE_SOURCE_TYPE",
+   "config_id": "column7",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Code [DSR]": {
+   "element": "PAEE_ALLOWABLE_CODE",
+   "widget": "grid_column",
+   "tab": "DSR",
+   "required": false,
+   "readonly": false,
+   "data_field": "PAEE_ALLOWABLE_CODE",
+   "config_id": "column4",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Description [DSR]": {
+   "element": "EPL1_DESC",
+   "widget": "grid_column",
+   "tab": "DSR",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_DESC",
+   "config_id": "column5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Description [Section]": {
+   "element": "EPP1_DESC",
+   "widget": "grid_column",
+   "tab": "Section",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_DESC",
+   "config_id": "column5",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Organization/Company Code [Section]": {
+   "element": "PORG_ORGACODE",
+   "widget": "grid_column",
+   "tab": "Section",
+   "required": false,
+   "readonly": false,
+   "data_field": "PORG_ORGACODE",
+   "config_id": "column12",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Description [MIS Type]": {
+   "element": "PPRD_DESC",
+   "widget": "grid_column",
+   "tab": "MIS Type",
+   "required": false,
+   "readonly": false,
+   "data_field": "PPRD_DESC",
+   "config_id": "column4",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "buttons": {
+  "Save changes": {
+   "element": "BatchSaveBtn",
+   "locator": {
+    "id": "BatchSaveBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102013002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Discard changes": {
+   "element": "BatchRevertBtn",
+   "locator": {
+    "id": "BatchRevertBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102013002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "Distributor Code": {
+   "columns": [
+    "Code",
+    "Description",
+    "Location",
+    "Level Type",
+    "Level No",
+    "Organization"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102013002.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Business Entity MIS Type Code": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102013002.json"
+   }
+  },
+  "Distributor Mapping grid 3": {
+   "columns": [
+    "Selected"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102013002.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Distributor Mapping grid 4": {
+   "columns": [],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102013002.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Mapping saves show no toast; verify the mapped grid instead.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (group 66 walk)",
+   "date": "2026-10-09"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/dsr.md",
+ "business_pages_also": [
+  "knowledge/business/master_data/pjp.md",
+  "knowledge/business/master_data/section_and_mappings.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_102013002.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_102013002.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-14"
+}

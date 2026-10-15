@@ -1,0 +1,44 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "SECTION_BULK_UPLOAD",
+ "title": "Section Bulk Upload",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Journey Plan",
+   "Section Bulk Upload"
+  ],
+  "option_id": "SECTION_BULK_UPLOAD",
+  "search_text": "Section Bulk Upload",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/excel-upload/section-bulk",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {},
+ "grids": {},
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/pjp.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/SECTION_BULK_UPLOAD.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

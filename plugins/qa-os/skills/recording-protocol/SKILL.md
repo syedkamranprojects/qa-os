@@ -3,12 +3,12 @@ name: recording-protocol
 description: How to record one flow through the browser MCP for QA OS - login hand-off, helper injection, one-step-at-a-time execution, toast capture, real clicks, stop rules, trace keys and the recording file. Use whenever a flow is executed live to capture ids, messages and locators.
 ---
 
-# Recording protocol (browser MCP, one flow, one data row)
+# Recording protocol (browser MCP, AI case of each path, one session per role)
 
-A recording is a **one-time proof run**, not regression. It captures what the legacy engine needs: element ids, the order of actions, the exact messages, and the business result. The engine replays everything else, with no AI.
+Design v4 (2026-10-15): one recorder runs the AI case of every path of one role in **one browser session** (one login; each case starts by reopening its screen). A recording is a **one-time proof run**, not regression. It captures what the legacy engine needs: element ids, the order of actions, the exact messages, and the business result. The engine replays everything else, with no AI.
 
 ## 0. Before you start
-1. Read the approved step sheet (`step_sheet.md` / `steps.json`) and the app pack (`apps/<app>/app.yaml`, `steps/library.yaml`, `knowledge/ui.md`). Every step comes from the sheet; **never invent a step.**
+1. Read the approved steps (`steps.json`), the **screen files** of the screens involved (`apps/<app>/screens/<option_id>.json`: element ids, widgets and `lessons[]`) and `apps/<app>/app.yaml`. Every step comes from the approved steps; **never invent a step.** Use the screen file's element ids directly (1-2 browser actions per step).
 2. Check authorization in `decisions.json`: data- or stock-changing steps run only when the environment is `non_production: true` and the action is allowed by the story's `allow:`. One-way actions (approve, forward, submit, delete, authorize) need naming. Anything not authorized is skipped and marked `unverified`, not asked mid-run.
 3. **One calendar day.** A cycle that creates stock, orders and a GIN must finish before midnight; the app keys stock balances by date (a run that crossed midnight failed with "No stock balance found"). If the run will span days, say so at the start.
 4. Read the app pack's settings with `python runtime/qaos_config.py app <app>`; roles and users come from there, never from memory.
@@ -22,7 +22,7 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 
 ## 2. The helper (inject once per login)
 `plugins/qa-os/runtime/qaos_helpers.js` gives `window.qaos` with `open`, `pick`, `text`, `click`, `clickCapture`, `tab`, `options`, `read`, `rows`, `headers`, `crumb`, `session`, `note`, `remember`, and the **passive watcher** (`watch`, on by default), which logs real Selenium typing and clicks, menu navigation, grid cells (with column captions), tabs, tab-menu choices (`menu_open` / `menu_option`), grid row clicks (`row_select` / `row_open` with the row key), toasts (once each), popups and alerts by itself. Buttons are logged with their stable id (a wrapper id when the button itself has only a generated `dx-` id); masked values without the `_` fillers.
-- **Inject the built file, as an argument** (no pasting into the script text, no escaping): read `plugins/qa-os/runtime/qaos_helpers.min.js` (built by `python plugins/qa-os/runtime/build_helper.py`; rebuild after any change to the source) and call execute_script with
+- **Inject once per login, as an argument** (no pasting into the script text, no escaping): read `plugins/qa-os/runtime/qaos_helpers.min.js` (built by `python plugins/qa-os/runtime/build_helper.py`; rebuild after any change to the source) and call execute_script with
   `script: "localStorage.qaos_src = arguments[0]; eval(arguments[0]); qaos.reset(); return qaos.watch();"` and `args: ["<file text>"]`.
   Do this **before the first step** (so the menu navigation is logged). If a helper was already injected on this page earlier (a previous attempt, a precondition check, an older build), **reload the page first** (`location.reload()`, the login survives): an existing watcher keeps its old listeners and `watch()` only answers "already on". After a full page reload: `eval(localStorage.qaos_src); return qaos.watch();` (the log survives in localStorage; do NOT reset again).
 - **Never hand-edit the log.** If the watcher misses something, write it to `exec/results.json` and `friction.md`; the recording stays exactly as logged.
@@ -50,7 +50,7 @@ A recording is a **one-time proof run**, not regression. It captures what the le
 - **Comments popups** need a blur (Tab) before Save, or the app answers "Please add comments".
 - **Visible only.** Ids repeat across hidden views (`saveBtn`, `Cancel`); scope to visible elements. Prefer visible text over an id when an id is duplicated.
 - **Screen state traps.** Switching Header/Detail before Save discards unsaved lines; "Add" resets the form. Follow the order of the step sheet (header, then lines, then save); do not look up the app pack during execution.
-- **Execution uses only the step sheet and one data row** (QA lead rule, 2026-10-08): no business pages, session logs, training hints or framework flows/ids. Discover screens, elements, ids, tabs and messages live and note them (section 5).
+- **Execution uses the approved steps, their data rows and the screen files** (design v4, 2026-10-15; replaces the 2026-10-08 rule): no business pages, session logs, training hints or framework flows/ids. Compare every step with its `expect`; **any difference stops that path** and goes back as a question (no workaround). Screen-level lessons you learn are added to the screen file's `lessons[]`.
 - **Dates.** Use today's date unless the sheet says otherwise; the framework's workbook dates are examples, not requirements.
 
 ## 4. When something goes wrong

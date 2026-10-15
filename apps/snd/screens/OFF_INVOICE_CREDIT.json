@@ -1,0 +1,44 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "OFF_INVOICE_CREDIT",
+ "title": "Off-Invoice Credit Note",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "Off-Invoice Credit Note"
+  ],
+  "option_id": "OFF_INVOICE_CREDIT",
+  "search_text": "Off-Invoice Credit Note",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/excel-upload/off-invoice-credit-excel-upload",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {},
+ "grids": {},
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/OFF_INVOICE_CREDIT.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

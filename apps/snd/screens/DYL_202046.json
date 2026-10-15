@@ -1,0 +1,428 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202046",
+ "title": "Section Creation HQ",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "PJP",
+   "Section Creation HQ"
+  ],
+  "option_id": "DYL_202046",
+  "search_text": "Section Creation HQ",
+  "top_id": "0002",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=202046",
+ "layout_code": "202046",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "202046001",
+   "tab": null,
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "202046002",
+   "tab": null,
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 6
+  }
+ ],
+ "fields": {
+  "Code": {
+   "element": "TXT__ENTITYCODE",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPL1_BUSENT_LOG_LVL1_CODE",
+   "max_length": 12,
+   "regex": "^[a-zA-Z0-9]{12}$",
+   "config_id": "textbox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "locator": {
+    "id": "TXT__ENTITYCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Description": {
+   "element": "TXT__EPL1DESC",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPL1_DESC",
+   "max_length": 100,
+   "config_id": "textbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "locator": {
+    "id": "TXT__EPL1DESC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Abbreviation": {
+   "element": "TXT__EPL1ABRV",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_ABRV",
+   "max_length": 25,
+   "config_id": "textbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "locator": {
+    "id": "TXT__EPL1ABRV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Status": {
+   "element": "DDL__EPL1ACTIVE",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_ACTIVE",
+   "default": "N",
+   "config_id": "selectbox7",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "locator": {
+    "id": "DDL__EPL1ACTIVE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Origin Date": {
+   "element": "DT__EPL1ORIGINDATE",
+   "widget": "date",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPL1_ORIGIN_DATE",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "locator": {
+    "id": "DT__EPL1ORIGINDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Default Delivery Days": {
+   "element": "TXT__EPL1_REF_NUM_5",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_REF_NUM_5",
+   "default": "0",
+   "config_id": "textbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "locator": {
+    "id": "TXT__EPL1_REF_NUM_5"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202046.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "save"
+   }
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Delete": {
+   "element": "delete",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ],
+   "locator": {
+    "id": "delete"
+   }
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "164": {
+   "element": "pagination-element-164",
+   "locator": {
+    "id": "pagination-element-164"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Translation": {
+   "element": "crossBtn",
+   "locator": {
+    "id": "crossBtn"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Distributor",
+    "Default",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Origin Date",
+    "Type",
+    "Ranking",
+    "Org Ranking",
+    "Life Style (LSM)",
+    "Line Per Call (LPC)",
+    "Entry Mode",
+    "Business Entity Type Code",
+    "Organization",
+    "Date",
+    "Default Delivery Days"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202046.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [
+  {
+   "what": "menu title",
+   "config": "Section Creation HQ - Layout",
+   "live": "Section Creation HQ",
+   "env": null,
+   "date": null,
+   "ref": "knowledge/env/*/menu.*.json",
+   "status": "open"
+  }
+ ],
+ "business_page": "knowledge/business/master_data/section_and_mappings.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202046.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_202046.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

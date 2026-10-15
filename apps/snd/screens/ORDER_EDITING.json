@@ -1,0 +1,272 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "ORDER_EDITING",
+ "title": "Order Editing",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Order Editing"
+  ],
+  "option_id": "ORDER_EDITING",
+  "search_text": "Order Editing",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/order-editing",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "PJP": {
+   "element": "pjpNumber",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "pjpNumber"
+   },
+   "default": "AUTO241602~Auto917248",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Selling Category": {
+   "element": "SELLCAT",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "SELLCAT"
+   },
+   "default": "001SC0000000-Selling Category 001",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Section": {
+   "element": "section",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "section"
+   },
+   "default": "101010101101-Automation_Testing_Section",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Outlet Name": {
+   "element": "outletCode",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "outletCode"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date From": {
+   "element": "dateFrom",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "dateFrom"
+   },
+   "default": "today (2026-10-01)",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date To": {
+   "element": "dateTo",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "dateTo"
+   },
+   "default": "today (2026-10-01)",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "SKU": {
+   "element": "sku",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "locator": {
+    "id": "sku"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document No": {
+   "element": "documentNo",
+   "widget": "unknown",
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-09",
+    "ref": "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+   },
+   "locator": {
+    "id": "documentNo"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-09"
+   ]
+  }
+ },
+ "buttons": {
+  "New Order": {
+   "element": "newOrder",
+   "locator": {
+    "id": "newOrder"
+   },
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-OB/20261008-1120/recording_TC04.json"
+   },
+   "seen_in": [
+    "recorded:cnr1dev1:2026-10-08"
+   ]
+  }
+ },
+ "grids": {
+  "Order Editing": {
+   "columns": [
+    "Document No",
+    "Document Date",
+    "Delivery Date",
+    "Outlet",
+    "Gross Amount",
+    "Discount",
+    "Tax",
+    "Net Amount",
+    "Received Amount",
+    "Balance Amount",
+    "Demand Channel"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "gridContainer": {
+   "element": "gridContainer",
+   "columns": [
+    "Product Desc"
+   ],
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json"
+   },
+   "cells": {
+    "Product Desc": {
+     "element": "product",
+     "widget": "autocomplete",
+     "cell_id_pattern": "row_N_product_desc"
+    }
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [
+  {
+   "type": "toast-success",
+   "text": "Order Save successfully",
+   "when": null,
+   "provenance": {
+    "source": "recorded",
+    "env": "cnr1dev1",
+    "date": "2026-10-08",
+    "ref": "runs/QUICK-20261008-1429/20261008-1429/recording_TC04.json"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Header step is titled 'Order Editing Header'; no buttons are rendered in the header (hand-coded Angular screen); search presumably auto-loads on field change. Defaults PJP/Selling Category/Section are pre-filled, unlike Order Booking.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/order_to_delivery_planning/order_editing_cancellation.md",
+ "business_pages_also": [
+  "knowledge/business/order_to_delivery_planning/order_lifecycle_and_statuses.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "run QUICK-20261008-1429",
+   "run QUICK-20261008-OB",
+   "run QUICK-20261009-1305",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/LIVE_ORDER_EDITING.json",
+   "apps/snd/knowledge/screens_observed/ORDER_EDITING.json"
+  ],
+  "recorded": [
+   "runs/QUICK-20261008-1429/20261008-1429/attempt1_old_watcher/recording_TC04.json",
+   "runs/QUICK-20261008-1429/20261008-1429/recording_TC04.json",
+   "runs/QUICK-20261008-OB/20261008-1120/attempt2_superseded/recording_TC04.json",
+   "runs/QUICK-20261008-OB/20261008-1120/recording_TC04.json",
+   "runs/QUICK-20261009-1305/20261009-1305/recording_TC01.json"
+  ],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

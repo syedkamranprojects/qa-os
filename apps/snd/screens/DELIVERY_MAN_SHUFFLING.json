@@ -1,0 +1,89 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DELIVERY_MAN_SHUFFLING",
+ "title": "Delivery Man Shuffling",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Order",
+   "Delivery Man Shuffling"
+  ],
+  "option_id": "DELIVERY_MAN_SHUFFLING",
+  "search_text": "Delivery Man Shuffling",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/content-master/mobility/delivery-man-shuffling",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Outlet": {
+   "element": "OutletCode",
+   "widget": "tagbox",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DELIVERY_MAN_SHUFFLING.json"
+   },
+   "locator": {
+    "id": "OutletCode"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {},
+ "grids": {
+  "Delivery Man Shuffling": {
+   "columns": [
+    "Document No",
+    "Document Date",
+    "PJP",
+    "Outlet",
+    "Cashmemo Type",
+    "Net Amount"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DELIVERY_MAN_SHUFFLING.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "On load the screen shows \"Required parameter 'pjpNo' is not present.\" ('PJP not found'): a known issue, never assert it.",
+   "kind": "screen",
+   "field": null,
+   "source": "knowledge/business/LIVE_FINDINGS.md (stated 2026-10-14 QA team)",
+   "date": "2026-10-14"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/delivery_and_returns/delivery_man_shuffling.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DELIVERY_MAN_SHUFFLING.json"
+  ],
+  "recorded": [],
+  "stated": [
+   "apps/snd/tools/screen_lessons_backfill.json"
+  ]
+ },
+ "updated": "2026-10-14"
+}

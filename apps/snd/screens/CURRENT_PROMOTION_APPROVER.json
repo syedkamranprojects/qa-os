@@ -1,0 +1,63 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "CURRENT_PROMOTION_APPROVER",
+ "title": "Current Promotion Approver",
+ "menu": {
+  "path": [
+   "Company setup",
+   "Promotion",
+   "Current Promotion Approver"
+  ],
+  "option_id": "CURRENT_PROMOTION_APPROVER",
+  "search_text": "Current Promotion Approver",
+  "top_id": "NG02",
+  "app_option": null
+ },
+ "route": "/dtPromotion/current-promotion-approver",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {},
+ "buttons": {},
+ "grids": {
+  "Current Promotion Approver": {
+   "columns": [
+    "Code",
+    "Description",
+    "Alternate Description",
+    "Start Date",
+    "End Date",
+    "Reference Code",
+    "Status"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/CURRENT_PROMOTION_APPROVER.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/CURRENT_PROMOTION_APPROVER.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
+}

@@ -403,3 +403,21 @@ Register: `docs/HARDENING.md` (release gate = section D). Design: `docs/FINAL_DE
 - Answered: Q-PO1 (Prospect Outlet Forward needs the user's role in the prospect-outlet workflow diagram + Company address), Q-DM1/Q-DM2 (Delivery Man Shuffling correct; only the on-load "PJP not found" message is a known issue). Roles R1: 0001/0005 DT submit, 0002/0008 approval, 0014 HQ (no approval); **a user acts only when his role is in the document's workflow diagram**. Change Track Outlet Profile lists Draft outlets by design (D-TRAIN-1013-2 withdrawn). D-G66-2-1 fixed (closed). Section delivery-days field is **not in R1** (skip in scenarios). Framework: group 66 step 35 runs as headquarter. Open questions 59 -> 56; open defects 1 (D-TRAIN-1013-1, reported to dev).
 - Parked list now holds only the SDMS-6084 Report To question.
 - Next candidates: SDMS-5372 (paused at checkpoint C1, 8 defaults), SDMS-6084 (Report To answer from QA), screen-scan design decisions, SDMS-6550 (needs user-management screen training).
+
+## 2026-10-15 - design v4 implemented (resume point)
+- **Why:** the SDMS-6084 full run (16 pass, TC11 blocked, TC12/13 skipped; D-6084-1 not reproduced) took ~55 min agent time, ~850 browser actions and 9 logins. The QA lead reviewed the design step by step: decisions in `docs/DESIGN_V4_DECISIONS.md`, plan in `docs/V4_IMPLEMENTATION_PLAN.md`. Framework owner: **Muhammad Imran**.
+- **Built:**
+  - **W1 screen files:** 77 screen files `apps/snd/screens/<option_id>.json` (schema `plugins/qa-os/schemas/screen.schema.json`, builder `apps/snd/tools/build_screen_file.py`, index `_index.json` with gaps, 49 backfilled screen lessons). Gaps: 18 trained screens have no fields, 7 are config-only (no live ids), and several have partial live ids. Vehicle Master Bulk Upload Creation/Modification match no menu entry yet.
+  - **W2:**
+    - steps schema (`sentence` + event columns);
+    - `qaos_run.py` (no cap, paths.json validation, `check` = pre-run check);
+    - `qaos_workbook.py` (one approval workbook + `summary.md` with Jira-ready defect drafts);
+    - `qaos_import.py` (re-import with diff);
+    - design guard hook `plugins/qa-os/hooks/` (qa installation refuses design changes);
+    - `qaos.yaml` framework_owner.
+  - **W3:** skills, agents, run command and OPERATING_RULES rewritten for v4.
+  - Tests: `runtime/test_qaos_v4.py`, `apps/snd/tools/test_build_screen_file.py`, `framework/tools/test_qaos_record_multi.py` and `plugins/qa-os/hooks/test_design_guard.js` all pass.
+- **Check on SDMS-6084:** ready 11, needs-data 2, needs-knowledge 6.
+  - Expected: TC10/TC11 data, TC12/TC13 Order Booking fields.
+  - Tuning: typing into the Off Days tag box (negative cases TC02/TC18) needs a `type` event allowed on a tagbox; the DT grid is captioned "Distributor DT List" live, not "Distributor List" (TC09/TC19 step wording).
+- **Next:** SDMS-5997 as the first v4 run (Vehicle Master Bulk Upload screens need screen files first = training top-up / read-only look as headquarter).

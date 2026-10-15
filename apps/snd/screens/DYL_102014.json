@@ -1,4 +1,5 @@
 {
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
  "option_id": "DYL_102014",
  "title": "Transaction Inquiry",
  "menu": {
@@ -7,31 +8,281 @@
    "Order",
    "Transaction Inquiry"
   ],
-  "top_id": "NG09",
   "option_id": "DYL_102014",
-  "search_text": "Transaction Inquiry"
+  "search_text": "Transaction Inquiry",
+  "top_id": "NG09",
+  "app_option": null
  },
  "route": "/dyl/layout",
+ "page_param": "layoutCode=102014",
+ "layout_code": "102014",
  "kind": "dynamic",
- "provenance": {
-  "source": "observed",
-  "env": "cnr1dev1",
-  "user": "KPO_mp",
-  "date": "2026-09-25"
- },
- "breadcrumb": [
-  "Home",
-  "Transaction",
-  "Order",
-  "Transaction Inquiry"
+ "tabs": [
+  {
+   "label": "Detail",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Product Wise Discount",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Product Wise Free Quantity",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014010"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Total Offering",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014007"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Total Tax",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014008"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Credit Note Adjustments",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014009"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Additional Charges",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014012"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Cashmemo Additional Info",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102014011"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  },
+  {
+   "label": "Emptybottle",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "102015001"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "102014004",
+   "tab": null,
+   "desc": null,
+   "table": "snd_pr_dos_documentstatus",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 7
+  },
+  {
+   "page": "102014001",
+   "tab": null,
+   "desc": null,
+   "table": "(select",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014002",
+   "tab": "Detail",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014003",
+   "tab": "Product Wise Discount",
+   "desc": null,
+   "table": "SND_TR_CMM_CASHMEMO_OFFRITEM",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014010",
+   "tab": "Product Wise Free Quantity",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014007",
+   "tab": "Total Offering",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014008",
+   "tab": "Total Tax",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014009",
+   "tab": "Credit Note Adjustments",
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_payment",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014012",
+   "tab": "Additional Charges",
+   "desc": "Additional Charges",
+   "table": "(SELECT",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "102014011",
+   "tab": "Cashmemo Additional Info",
+   "desc": null,
+   "table": "SND_TR_CAI_CMM_ADITIONL_INFO",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 3
+  },
+  {
+   "page": "102015001",
+   "tab": "Emptybottle",
+   "desc": null,
+   "table": "snd_tr_cmm_cashmemo_master",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
  ],
  "fields": {
   "Document Type": {
+   "element": "DDL__PDOTDOCMTYPEPARENT",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PDOT_DOCMTYPE",
+   "list_source": "PDOT",
+   "default": "Demand Captured from Tele order",
+   "config_id": "selectbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
    "locator": {
     "id": "DDL__PDOTDOCMTYPEPARENT"
    },
-   "widget": "select",
-   "default": "Demand Captured from Tele order",
    "options_seen": [
     "Demand Captured from Tele order",
     "OFF INVOICE CREDIT NOTE",
@@ -41,14 +292,201 @@
     "Sales",
     "Sales Return",
     "Fresh Sales Return"
+   ],
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
    ]
   },
   "Document Status": {
+   "element": "DDL__PDOSDOCMSTATUSPARENT",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PEXS_EXECUTION_STATUS",
+   "list_source": "PEXS",
+   "default": "All",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
    "locator": {
     "id": "DDL__PDOSDOCMSTATUSPARENT"
    },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "PJP Number": {
+   "element": "DDL__EPJPPJPNODAILY",
    "widget": "select",
-   "default": "All"
+   "required": false,
+   "readonly": false,
+   "data_field": "EPJP_PJPNO_DAILY",
+   "list_source": "PJPDM",
+   "default": "All",
+   "config_id": "selectbox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
+   "locator": {
+    "id": "DDL__EPJPPJPNODAILY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Date From": {
+   "element": "DT__TCMMDOCMDATEFROMPARENT",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "TCMM_DOCM_DATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
+   "locator": {
+    "id": "DT__TCMMDOCMDATEFROMPARENT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Date To": {
+   "element": "DT__TCMMDOCMDATETOPARENT",
+   "widget": "date",
+   "required": false,
+   "readonly": false,
+   "data_field": "TCMM_DOCM_DATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
+   "locator": {
+    "id": "DT__TCMMDOCMDATETOPARENT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "SKU": {
+   "element": "DDL_PRODUCT",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "PPRD_PRODCODE",
+   "list_source": "CMTI",
+   "default": "All",
+   "config_id": "selectbox6",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
+   "locator": {
+    "id": "DDL_PRODUCT"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date Type": {
+   "element": "DDL__DATETYPE",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "DATE_TYPE",
+   "list_source": "",
+   "default": "OD",
+   "config_id": "selectbox7",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_102014.json"
+   },
+   "locator": {
+    "id": "DDL__DATETYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Name": {
+   "element": "name",
+   "widget": "text",
+   "tab": "Cashmemo Additional Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "MAX(CASE WHEN TCAI_FIELD_COMB = 'CUSTOMERNAME' THEN TCAI_VALUE_COMB ELSE NULL END)",
+   "config_id": "textbox1",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Address": {
+   "element": "address",
+   "widget": "text",
+   "tab": "Cashmemo Additional Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "MAX(CASE WHEN TCAI_FIELD_COMB = 'ADDRESS' THEN TCAI_VALUE_COMB ELSE NULL END)",
+   "config_id": "textbox2",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Mobile Number": {
+   "element": "mobile_number",
+   "widget": "text",
+   "tab": "Cashmemo Additional Info",
+   "required": false,
+   "readonly": true,
+   "data_field": "MAX(CASE WHEN TCAI_FIELD_COMB = 'MOBILENUMBER' THEN TCAI_VALUE_COMB ELSE NULL END)",
+   "config_id": "textbox4",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_102014.json"
+   },
+   "seen_in": [
+    "db"
+   ]
   },
   "PJP": {
    "locator": {
@@ -56,32 +494,48 @@
    },
    "widget": "select",
    "default": "All",
-   "options_note": "'All' or '<pjp no> - <name>'"
-  },
-  "Document Date From": {
-   "locator": {
-    "id": "DT__TCMMDOCMDATEFROMPARENT"
+   "element": "DDL__EPJPPJPNODAILY",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/DYL_102014.json"
    },
-   "widget": "date",
-   "default": "today"
-  },
-  "Document Date To": {
-   "locator": {
-    "id": "DT__TCMMDOCMDATETOPARENT"
-   },
-   "widget": "date",
-   "default": "today"
+   "note": "'All' or '<pjp no> - <name>'",
+   "seen_in": [
+    "observed:cnr1dev1:2026-09-25"
+   ]
   },
   "Product": {
    "locator": {
     "id": "DDL_PRODUCT"
    },
    "widget": "select",
-   "default": "All"
+   "default": "All",
+   "element": "DDL_PRODUCT",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/DYL_102014.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-09-25"
+   ]
   }
  },
  "buttons": {
   "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/DYL_102014.json"
+   },
+   "seen_in": [
+    "db"
+   ],
    "locator": {
     "xpath": "//*[self::button or @role='button'][normalize-space()='Refresh']"
    }
@@ -90,15 +544,92 @@
    "locator": {
     "xpath": "//*[self::button or @role='button'][normalize-space()='Detail']"
    },
-   "note": "disabled until a row is selected"
+   "note": "disabled until a row is selected",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/DYL_102014.json"
+   }
   },
   "Export all data to Excel": {
    "locator": {
     "xpath": "//*[@title='Export all data to Excel' or normalize-space()='Export all data to Excel']"
+   },
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/DYL_102014.json"
    }
   }
  },
  "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Product Code",
+    "Product Description",
+    "Batch",
+    "Stock Type",
+    "Trade Price / Unit",
+    "Delivered CS",
+    "Delivered DZ",
+    "Delivered PC",
+    "Gross Amount",
+    "Discount",
+    "Tax",
+    "Net Amount",
+    "Allocated CS",
+    "Allocated DZ",
+    "Allocated PC",
+    "Ordered CS",
+    "Ordered DZ",
+    "Ordered PC",
+    "Organization",
+    "Document Type",
+    "Document No",
+    "Comments",
+    "Outlet Code",
+    "Outlet Long Name",
+    "OB PJP / DM PJP",
+    "Order Booker/Delivery Man",
+    "Section Code",
+    "Section Name",
+    "PJP Number",
+    "Order Time",
+    "Document Date",
+    "Delivery Date",
+    "Actual Delivery Date",
+    "Markup",
+    "Discount Amount",
+    "NIV",
+    "Tax Amount",
+    "Received Amount",
+    "Document Status",
+    "Execution Status",
+    "Demand Channel",
+    "DDT Ref No",
+    "GIN No",
+    "Invoice Ref. No.",
+    "Invoice No",
+    "Invoice Date",
+    "Sold To",
+    "E-Invoice URL",
+    "Offset Amount"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
   "Transaction Inquiry": {
    "columns": [
     "Document No",
@@ -121,11 +652,63 @@
     "GIN No",
     "Invoice Ref. No."
    ],
-   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-09-25",
+    "ref": "apps/snd/screens/DYL_102014.json"
+   }
   }
  },
- "observations": [
-  "Orders/sales are listed here after choosing Document Type and a date range and clicking Refresh; 'Detail' opens the order lines (the place to check whether an ordered SKU was substituted).",
-  "Disabled until a row is selected: Detail, Product Wise Discount, Product Wise Free Quantity, Total Offering, Total Tax, Credit Note Adjustments."
- ]
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Orders/sales are listed here after choosing Document Type and a date range and clicking Refresh; 'Detail' opens the order lines (the place to check whether an ordered SKU was substituted).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/DYL_102014.json (curated observations)",
+   "date": "2026-09-25"
+  },
+  {
+   "text": "Disabled until a row is selected: Detail, Product Wise Discount, Product Wise Free Quantity, Total Offering, Total Tax, Credit Note Adjustments.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/screens/DYL_102014.json (curated observations)",
+   "date": "2026-09-25"
+  }
+ ],
+ "differences": [],
+ "breadcrumb": [
+  "Home",
+  "Transaction",
+  "Order",
+  "Transaction Inquiry"
+ ],
+ "business_page": "knowledge/business/order_to_delivery_planning/transaction_inquiry.md",
+ "business_pages_also": [
+  "knowledge/business/order_to_delivery_planning/order_lifecycle_and_statuses.md",
+  "knowledge/business/promotions_and_budget/promotions_and_budget.md",
+  "knowledge/business/settlement_and_finance/end_of_day_validations.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-09",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look",
+   "curated live look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_102014.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_102014.json",
+   "apps/snd/knowledge/screens_observed/LIVE_TRANSACTION_INQUIRY.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-09"
 }

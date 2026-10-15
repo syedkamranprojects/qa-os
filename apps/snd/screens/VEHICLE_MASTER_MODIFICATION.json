@@ -1,0 +1,174 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "VEHICLE_MASTER_MODIFICATION",
+ "title": "Vehicle Master Bulk Upload",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Vehicle Profile",
+   "Vehicle Master Bulk Upload"
+  ],
+  "option_id": "VEHICLE_MASTER_MODIFICATION",
+  "search_text": "Vehicle Master Bulk Upload",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/excel-upload/vehicle-master-modification",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Geo Hierarchy Code": {
+   "element": "geoCode",
+   "locator": {
+    "id": "geoCode"
+   },
+   "widget": "select",
+   "required": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "SDMS-5997 live look, headquarter"
+   },
+   "options_seen": [
+    "001001-GT/MT",
+    "001002-UFS",
+    "001003-Ice Cream",
+    "001004-EKT/BEV",
+    "001222-test",
+    "N01001-Province",
+    "N02N02-Province",
+    "M01M02-Southern Pak",
+    "701701-Leo 002"
+   ],
+   "default": "Select...",
+   "note": "dx-select-box; no '*' marker shown on the label (mandatory per business page). Click #geoCode, then the dx-list-item-content. Entries are code-name, not only geo level 2 names."
+  },
+  "Distributor": {
+   "element": "distCode",
+   "locator": {
+    "id": "distCode"
+   },
+   "widget": "tagbox",
+   "required": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "SDMS-5997 live look, headquarter"
+   },
+   "depends_on": "Geo Hierarchy Code",
+   "options_seen": [
+    "Auto KARACHI"
+   ],
+   "default": "Select...",
+   "note": "dx-tag-box (multi-select, class fixed-height-tagbox). Lists by distributor NAME only (no code). For HQ on org 010104 / distributor 15108843 the list showed only 'Auto KARACHI'; 15108843-IBRAHIM TRADERS never appeared under any of the 9 geos (list loads slowly: wait ~2 s after picking a geo)."
+  }
+ },
+ "buttons": {
+  "Download Excel": {
+   "element": "downloadExcel",
+   "locator": {
+    "id": "downloadExcel"
+   },
+   "risk": "read-only",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "SDMS-5997 live look, headquarter"
+   },
+   "note": "Enabled before any filter is chosen. With geo + distributor chosen: downloads VehicleMasterModification.xlsx (4 KB, header row only) and shows toast 'File downloaded successfully'."
+  },
+  "Upload Excel": {
+   "element": "fileInput",
+   "locator": {
+    "id": "fileInput"
+   },
+   "risk": "changes-data",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "SDMS-5997 live look, headquarter"
+   },
+   "note": "Button (not an input) id fileInput; enabled before any filter is chosen. NOT pressed in the read-only look."
+  }
+ },
+ "grids": {},
+ "messages": [
+  {
+   "type": "toast-success",
+   "text": "File downloaded successfully",
+   "when": "after Download Excel with geo + distributor selected",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-15",
+    "ref": "SDMS-5997 live look, headquarter"
+   }
+  }
+ ],
+ "lessons": [
+  {
+   "text": "Direct URL /ngui/excel-upload/vehicle-master-modification redirects to /ngui/content-master/menu; open the screen from the menu (hamburger #menurollin > Search Here > li#VEHICLE_MASTER_MODIFICATION).",
+   "kind": "screen",
+   "source": "SDMS-5997 live look",
+   "date": "2026-10-15"
+  },
+  {
+   "text": "Headquarter menu shows ONE vehicle bulk option, 'Vehicle Master Bulk Upload' (li#VEHICLE_MASTER_MODIFICATION, route vehicle-master-modification). i18n has vehicle_master_creation = 'Vehicle Master Creation' but no such menu entry for headquarter on cnr1dev1.",
+   "kind": "screen",
+   "source": "SDMS-5997 live look",
+   "date": "2026-10-15"
+  },
+  {
+   "text": "Template 'Excel Template' sheet, ONE row (headers only), 39 columns, 17 marked '*': Distributor Code*, Description*, Status*, Model Name*, Registration Number*, Model ID*, Vehicle Dimensions (L,W,H) Cubic Meters*, Allow multi trips*, Vehicle Model Description (...)*, Mileage*, Fleet Type (CAPTIVE/THIRD_PARTY/ADHOC)*, Unit of Volume (METERS_CUBIC)*, Min Volume*, Max Volume*, Unit of Weight (KG)*, Min Weight*, Max Weight*. Other columns: Code, Vehicle Color, Chassis Number, Engine Number, Manufacturing Year, Owner NID, Owner Name, Meter Reading Type, Fuel Type, Vehicle Type, Unloading Side (REAR/TOP/LEFT/RIGHT), Deep Freezer (Y/N), Cold Chain: (Y/N), User Count, Average Rate, Limit Multi Trip, Min/Max GSV, Min/Max NIV, Min/Max TIV. No data validations, no hidden lists, no data rows: allowed values exist only in header text.",
+   "kind": "screen",
+   "source": "SDMS-5997 live look",
+   "date": "2026-10-15"
+  },
+  {
+   "text": "Both filters visible; neither label carries a '*'. Download Excel and Upload Excel are enabled with no filter selected.",
+   "kind": "screen",
+   "source": "SDMS-5997 live look",
+   "date": "2026-10-15"
+  }
+ ],
+ "differences": [
+  {
+   "what": "Business page/story expect a Creation and a Modification screen; headquarter on cnr1dev1 sees only 'Vehicle Master Bulk Upload'. The downloaded file is named VehicleMasterModification.xlsx and is empty (no existing vehicles).",
+   "env": "cnr1dev1",
+   "date": "2026-10-15",
+   "ref": "SDMS-5997",
+   "status": "open",
+   "note": "Whether this one screen serves both creation and modification, or Creation is a separate option not granted to role 0014, needs a person."
+  }
+ ],
+ "business_page": "knowledge/business/master_data/vehicle_bulk_upload.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-15",
+  "how": [
+   "business page",
+   "live look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "live look cnr1dev1 headquarter 2026-10-15"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-15",
+ "breadcrumb": [
+  "Home",
+  "Distributor Setup",
+  "Vehicle Profile",
+  "Vehicle Master Bulk Upload"
+ ]
+}

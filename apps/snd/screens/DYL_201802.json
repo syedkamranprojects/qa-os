@@ -1,0 +1,618 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201802",
+ "title": "Deposit Slip",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "Deposit Slip"
+  ],
+  "option_id": "DYL_201802",
+  "search_text": "Deposit Slip",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201802",
+ "layout_code": "201802",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201801004",
+    "201801005",
+    "201801002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201802.json"
+   }
+  },
+  {
+   "label": "Outstanding Cash memos",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   }
+  },
+  {
+   "label": "Outstanding Outlet",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   }
+  },
+  {
+   "label": "Deposit Slip Detail",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "201801004",
+   "tab": "Header",
+   "desc": null,
+   "table": "(SELECT",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201801005",
+   "tab": "Header",
+   "desc": null,
+   "table": "snd_tr_dsl_deposit_slip",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 8
+  },
+  {
+   "page": "201801002",
+   "tab": "Header",
+   "desc": null,
+   "table": "SND_TR_DSD_DEPOSIT_SLIP_DTL",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {
+  "Deposit Slip": {
+   "element": "TXT__TDSLDEPOSITSLIPSRNO",
+   "widget": "display",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "TDSL_DEPOSIT_SLIP_SRNO",
+   "config_id": "textbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "TXT__TDSLDEPOSITSLIPSRNO"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "PJP-DSR": {
+   "element": "DDL__EPJPPJPNODAILY",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPJP_PJPNO_DAILY",
+   "list_source": "PJPDD",
+   "default": "02111 - AutomationOB1",
+   "config_id": "selectbox3",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "DDL__EPJPPJPNODAILY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Date": {
+   "element": "DT__TDSLDEPOSITSLIPDATE",
+   "widget": "date",
+   "tab": "Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "TDSL_DEPOSIT_SLIP_DATE",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "DT__TDSLDEPOSITSLIPDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Type": {
+   "element": "DDL__TDSLINSTRUMENTTYPE",
+   "widget": "select",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "TDSL_INSTRUMENT_TYPE",
+   "list_source": "PPYM",
+   "config_id": "selectbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "DDL__TDSLINSTRUMENTTYPE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Status": {
+   "element": "DDL__tdsl_status",
+   "widget": "display",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "TDSL_STATUS",
+   "default": "I",
+   "config_id": "selectbox8",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "DDL__tdsl_status"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Bank": {
+   "element": "DDL__PBNKBANKCODE",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "PBNK_BANK_CODE",
+   "list_source": "PBNK",
+   "default": "demo",
+   "config_id": "selectbox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "DDL__PBNKBANKCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Bank Branch": {
+   "element": "DDL__PBNBBNBRCODE",
+   "widget": "select",
+   "tab": "Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "PBNB_BNBR_CODE",
+   "list_source": "PBNB",
+   "config_id": "selectbox6",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "DDL__PBNBBNBRCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Deposit Amount": {
+   "element": "TXT__TDSLAMOUNTFCY",
+   "widget": "text",
+   "tab": "Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "TDSL_AMOUNT_FCY",
+   "regex": "^(?!0+(\\.0+)?$)\\d+(\\.\\d+)?$",
+   "config_id": "textbox12",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "locator": {
+    "id": "TXT__TDSLAMOUNTFCY"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Refresh": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201802.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201802.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "save"
+   },
+   "risk": "changes-data"
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "risk": "changes-data",
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Delete": {
+   "element": "delete",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "delete"
+   },
+   "risk": "changes-data"
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "21": {
+   "element": "pagination-element-21",
+   "locator": {
+    "id": "pagination-element-21"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Save All": {
+   "element": "saveAll",
+   "locator": {
+    "id": "saveAll"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Document Type",
+    "Order Number",
+    "Deposit Amount",
+    "Currency",
+    "Organization",
+    "Cheque No",
+    "Cheque Date",
+    "Cheque Status",
+    "Cheque Status Date",
+    "Invoice Number",
+    "Remarks",
+    "PJP",
+    "Outlet Code",
+    "Outlet Desc",
+    "GIN",
+    "Sold To",
+    "Bank Name",
+    "Net Amount",
+    "Received Amount",
+    "Balance",
+    "Un Posted Amount",
+    "Deposit Slip",
+    "PJP-DSR",
+    "Deposit Date",
+    "Type",
+    "Bank",
+    "Bank Branch",
+    "Status",
+    "Adjusted Amount",
+    "Document No"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Deposit Slip grid 2": {
+   "columns": [
+    "Deposit Slip",
+    "PJP-DSR",
+    "Deposit Date",
+    "Type",
+    "Bank",
+    "Bank Branch",
+    "Status",
+    "Deposit Amount",
+    "Adjusted Amount"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201802.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Save is enabled on open (new-mode) while Add is disabled; Bank defaults to 'demo' (a test bank not in the first 15 options).",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/deposit_slips.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201802.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201802.json",
+   "apps/snd/knowledge/screens_observed/LIVE_DEPOSIT_SLIP.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

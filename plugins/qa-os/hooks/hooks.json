@@ -1,0 +1,17 @@
+{
+  "description": "QA OS design guard (decision 17.1): in a QA installation, changes to the QA OS design (plugins, runtime, tools, schemas, design docs, rules) are blocked and noted in feedback/design_gaps.md; business knowledge, runs, inbox and feedback stay writable. Does nothing in the dev installation.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/design_guard.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

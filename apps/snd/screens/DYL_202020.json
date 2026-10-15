@@ -1,0 +1,162 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_202020",
+ "title": "Cheque Status",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Receivable",
+   "Cheque Status"
+  ],
+  "option_id": "DYL_202020",
+  "search_text": "Cheque Status",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=202020",
+ "layout_code": "202020",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "202020001",
+   "tab": null,
+   "desc": null,
+   "table": "SND_TR_DSL_DEPOSIT_SLIP",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "202020003",
+   "tab": null,
+   "desc": "Cheque Status - Detail 2",
+   "table": "(select",
+   "is_child": true,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  }
+ ],
+ "fields": {},
+ "buttons": {
+  "Bounce": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_202020.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202020.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_202020.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Serial No",
+    "Currency",
+    "Organization",
+    "Cheque No",
+    "Cheque Date",
+    "Amount",
+    "Cheque Status",
+    "Cheque Status Date"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CHEQUE_STATUS.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  },
+  "Cheque Status grid 2": {
+   "columns": [
+    "Deposit Slip",
+    "PJP-DSR",
+    "Current Date",
+    "Bank",
+    "Bank Branch",
+    "Status",
+    "Amount"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_CHEQUE_STATUS.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "No filter fields; master-detail layout. Bounce is enabled with no row selected.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_CHEQUE_STATUS.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/cheque_status.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_202020.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_202020.json",
+   "apps/snd/knowledge/screens_observed/LIVE_CHEQUE_STATUS.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

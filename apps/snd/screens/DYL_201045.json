@@ -1,0 +1,549 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_201045",
+ "title": "Stock Adjustment SAN",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Stock Adjustment SAN"
+  ],
+  "option_id": "DYL_201045",
+  "search_text": "Stock Adjustment SAN",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=201045",
+ "layout_code": "201045",
+ "kind": "dynamic",
+ "tabs": [
+  {
+   "label": "SAN Header",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201045001",
+    "201045002"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201045.json"
+   }
+  },
+  {
+   "label": "SAN Detail",
+   "element": null,
+   "sub_tabs": [],
+   "pages": [
+    "201045003"
+   ],
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201045.json"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "page": "201045001",
+   "tab": "SAN Header",
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_MASTER",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "201045002",
+   "tab": "SAN Header",
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_MASTER",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 8
+  },
+  {
+   "page": "201045003",
+   "tab": "SAN Detail",
+   "desc": null,
+   "table": "SND_TR_STM_STOCK_MASTER",
+   "is_child": true,
+   "grids": [],
+   "n_fields": 6
+  }
+ ],
+ "fields": {
+  "Document No": {
+   "element": "documentNo",
+   "widget": "display",
+   "tab": "SAN Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_DOCNO",
+   "config_id": "textbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "documentNo"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Document Date": {
+   "element": "DT__TSTMDOCDATE",
+   "widget": "date",
+   "tab": "SAN Header",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_DOCDATE",
+   "default": "today (2026-10-01)",
+   "config_id": "datebox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "DT__TSTMDOCDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "SAN Type": {
+   "element": "documentType",
+   "widget": "select",
+   "tab": "SAN Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "PDOT_DOCMTYPE",
+   "list_source": "PDOT",
+   "default": "Warehouse To Warehouse Transfer",
+   "config_id": "selectbox13",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "documentType"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "From Warehouse": {
+   "element": "DDL__epp1_busent_code_phs_lvl1_b",
+   "widget": "select",
+   "tab": "SAN Header",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1_B",
+   "list_source": "DIST2WRHS",
+   "default": "0000000025-IBT Main warehouse",
+   "config_id": "selectbox12",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "DDL__epp1_busent_code_phs_lvl1_b"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "To Warehouse": {
+   "element": "DDL__epp1_busent_code_phs_lvl1_e",
+   "widget": "select",
+   "tab": "SAN Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPP1_BUSENT_CODE_PHS_LVL1_E",
+   "list_source": "FRMWHRSTOWRHS",
+   "default": "C0000000055-Auto Main Warehouse",
+   "config_id": "selectbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "DDL__epp1_busent_code_phs_lvl1_e"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Comments": {
+   "element": "TXT__TSTMCOMMENTS",
+   "widget": "text",
+   "tab": "SAN Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_COMMENTS",
+   "config_id": "textbox6",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "TXT__TSTMCOMMENTS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Status": {
+   "element": "DDL__TSTM_STATUS",
+   "widget": "display",
+   "tab": "SAN Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "TSTM_STATUS",
+   "default": "I",
+   "config_id": "selectbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "DDL__TSTM_STATUS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Approval Status": {
+   "element": "TXT__WF_STATUS",
+   "widget": "display",
+   "tab": "SAN Header",
+   "required": false,
+   "readonly": false,
+   "data_field": "WF_STATUS",
+   "list_source": "WORKFLOW_STATUS",
+   "default": "01",
+   "config_id": "selectbox5",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "locator": {
+    "id": "TXT__WF_STATUS"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "SAN Date": {
+   "element": "DT__TSTMDOCDATE",
+   "widget": "date",
+   "tab": "SAN Detail",
+   "required": false,
+   "readonly": true,
+   "data_field": "TSTM_DOCDATE",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201045.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  }
+ },
+ "buttons": {
+  "New": {
+   "element": null,
+   "provenance": {
+    "source": "db",
+    "env": null,
+    "date": null,
+    "ref": "apps/snd/knowledge/screens_db/DYL_201045.json"
+   },
+   "seen_in": [
+    "db"
+   ]
+  },
+  "Save": {
+   "element": "save",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "save"
+   },
+   "risk": "changes-data"
+  },
+  "Update": {
+   "element": "update",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "update"
+   },
+   "risk": "changes-data",
+   "alt_elements": [
+    "updateBtn"
+   ],
+   "note": "#update is the wrapper; the clickable inner element is #updateBtn"
+  },
+  "Delete": {
+   "element": "delete",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr1dev1:2026-10-01"
+   ],
+   "locator": {
+    "id": "delete"
+   },
+   "risk": "changes-data"
+  },
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201045.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201045.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201045.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201045.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201045.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "39": {
+   "element": "pagination-element-39",
+   "locator": {
+    "id": "pagination-element-39"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_201045.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Add": {
+   "element": "add",
+   "locator": {
+    "id": "add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Document No",
+    "Document Date",
+    "SAN Type",
+    "From Warehouse",
+    "To Warehouse",
+    "Status",
+    "Approval Status",
+    "Comments",
+    "Document Status"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Harvested as the closest match for the missing 'OTC Stock Out' / Opening / Closing Stock options (SAN Type includes Stock Adjustment Entry/Admin and Physical Stock Reconciliation). Not requested by name.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/settlement_and_finance/otc_stock_out_and_san.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_201045.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_201045.json",
+   "apps/snd/knowledge/screens_observed/LIVE_STOCK_ADJUSTMENT_SAN.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

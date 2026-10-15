@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qa-os/screen.schema.json",
+  "title": "QA OS screen file (apps/<app>/screens/<option_id>.json): one trained screen - menu, layout, fields with live element ids, buttons, grids, messages, screen-level lessons and config-vs-live differences",
+  "description": "Built by apps/<app>/tools/build_screen_file.py from the config tables (screens_db), live sweeps (screens_observed) and run recordings. Live (recorded) ids win over config; each difference is listed in differences[]. lessons[], messages[] and differences[] statuses added by hand or by the recorder are kept on every rebuild. The player reads fields/buttons/grids by label; a field without `locator` has not been seen live and the player refuses it.",
+  "type": "object",
+  "required": ["option_id", "title", "menu", "kind", "fields", "buttons", "tabs", "grids", "messages", "lessons", "differences", "trained", "updated"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string"},
+    "option_id": {"type": "string", "description": "Menu option id = id of the menu entry in the sidebar (li#<option_id>), e.g. DYL_L__BusinessEntityProfile, ORDER_BOOKING"},
+    "title": {"type": "string"},
+    "menu": {
+      "type": "object",
+      "required": ["path", "option_id", "search_text"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "option_id": {"type": "string"},
+        "search_text": {"type": "string", "description": "Text typed into the sidebar 'Search Here' box"},
+        "top_id": {"type": ["string", "null"], "description": "Top-level menu group id (from the harvested live menu)"},
+        "app_option": {"type": ["string", "null"]}
+      }
+    },
+    "route": {"type": ["string", "null"], "description": "In-app route without the /ngui prefix"},
+    "page_param": {"type": ["string", "null"]},
+    "layout_code": {"type": ["string", "null"], "description": "Dynamic layout code (layoutCode=...) or null for a static (hand-coded) screen"},
+    "kind": {"enum": ["dynamic", "static"]},
+    "tabs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "additionalProperties": false,
+        "properties": {
+          "label": {"type": "string"},
+          "element": {"type": ["string", "null"], "description": "Live DOM id of the clickable tab (without #)"},
+          "sub_tabs": {"type": "array", "items": {"type": "string"}},
+          "pages": {"type": "array", "items": {"type": "string"}, "description": "Config page codes behind the tab"},
+          "note": {"type": "string"},
+          "provenance": {"$ref": "#/$defs/provenance"}
+        }
+      }
+    },
+    "panels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "page": {"type": ["string", "null"]},
+          "tab": {"type": ["string", "null"]},
+          "desc": {"type": ["string", "null"]},
+          "table": {"type": ["string", "null"]},
+          "is_child": {"type": ["boolean", "null"]},
+          "grids": {"type": "array", "items": {"type": "string"}},
+          "n_fields": {"type": ["integer", "null"]}
+        }
+      }
+    },
+    "fields": {
+      "type": "object",
+      "description": "Keyed by the on-screen label (what step authors write)",
+      "additionalProperties": {"$ref": "#/$defs/field"}
+    },
+    "buttons": {
+      "type": "object",
+      "description": "Keyed by the on-screen button label",
+      "additionalProperties": {"$ref": "#/$defs/button"}
+    },
+    "grids": {
+      "type": "object",
+      "description": "Keyed by grid name (on-screen caption when known)",
+      "additionalProperties": {"$ref": "#/$defs/grid"}
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "type": {"enum": ["toast", "toast-success", "toast-error", "toast-warning", "toast-info", "inline", "alert", "confirm", "popup", "message"]},
+          "text": {"type": "string"},
+          "when": {"type": ["string", "null"]},
+          "provenance": {"$ref": "#/$defs/provenance"}
+        }
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "text": {"type": "string"},
+          "kind": {"const": "screen"},
+          "field": {"type": ["string", "null"]},
+          "source": {"type": ["string", "null"], "description": "Run/session/file the lesson came from"},
+          "date": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "differences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["what", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "what": {"type": "string"},
+          "config": {},
+          "live": {},
+          "env": {"type": ["string", "null"]},
+          "date": {"type": ["string", "null"]},
+          "ref": {"type": ["string", "null"]},
+          "status": {"enum": ["open", "reported", "accepted", "defect", "closed"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "business_page": {"type": ["string", "null"], "description": "Path relative to the app pack, e.g. knowledge/business/master_data/pjp.md"},
+    "business_pages_also": {"type": "array", "items": {"type": "string"}},
+    "trained": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"type": "boolean"},
+        "date": {"type": ["string", "null"]},
+        "how": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "db": {"type": ["string", "null"]},
+        "observed": {"type": "array", "items": {"type": "string"}},
+        "recorded": {"type": "array", "items": {"type": "string"}},
+        "stated": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "breadcrumb": {"type": "array", "items": {"type": "string"}},
+    "stage": {"type": "string"},
+    "modes": {"type": "object"},
+    "flow": {"type": "array", "items": {"type": "string"}},
+    "updated": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "required": ["source"],
+      "additionalProperties": false,
+      "properties": {
+        "source": {"enum": ["db", "observed", "recorded", "stated"]},
+        "env": {"type": ["string", "null"]},
+        "date": {"type": ["string", "null"]},
+        "ref": {"type": ["string", "null"]}
+      }
+    },
+    "locator": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false,
+      "properties": {"id": {"type": "string"}, "xpath": {"type": "string"}, "css": {"type": "string"}}
+    },
+    "widget": {"enum": ["text", "textarea", "number", "masked", "select", "tagbox", "autocomplete", "lookup", "date", "time", "checkbox", "switch", "radio", "grid_column", "display", "file", "unknown"]},
+    "field": {
+      "type": "object",
+      "required": ["element", "widget", "provenance"],
+      "additionalProperties": false,
+      "properties": {
+        "element": {"type": ["string", "null"], "description": "Live DOM id (without #); for a db-only field the configured control name, which is the expected DOM id"},
+        "locator": {"$ref": "#/$defs/locator", "description": "Present only when the element was seen live (observed or recorded); the player uses it"},
+        "alt_elements": {"type": "array", "items": {"type": "string"}},
+        "env_elements": {"type": "object", "additionalProperties": {"type": "string"}, "description": "Element id per environment when they differ"},
+        "widget": {"$ref": "#/$defs/widget"},
+        "tab": {"type": ["string", "null"]},
+        "required": {"type": ["boolean", "null"]},
+        "readonly": {"type": ["boolean", "string", "null"]},
+        "data_field": {"type": ["string", "null"], "description": "Backing table column"},
+        "list_source": {"type": ["string", "null"], "description": "Data list id that feeds the dropdown"},
+        "max_length": {"type": ["integer", "null"]},
+        "default": {},
+        "regex": {"type": ["string", "null"]},
+        "config_id": {"type": ["string", "null"], "description": "Designer control id in the config tables (e.g. selectbox31); not a DOM id"},
+        "disable_rule": {"type": ["string", "null"]},
+        "options_seen": {"type": "array", "items": {"type": "string"}},
+        "depends_on": {"type": ["string", "null"]},
+        "note": {"type": "string"},
+        "validation": {"type": "object"},
+        "format": {"type": "string"},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "seen_in": {"type": "array", "items": {"type": "string"}, "description": "source:env:date of every source that showed this field"}
+      }
+    },
+    "button": {
+      "type": "object",
+      "required": ["element", "provenance"],
+      "additionalProperties": false,
+      "properties": {
+        "element": {"type": ["string", "null"]},
+        "locator": {"$ref": "#/$defs/locator"},
+        "alt_elements": {"type": "array", "items": {"type": "string"}},
+        "risk": {"enum": ["changes-data", "read-only", "unknown"]},
+        "note": {"type": "string"},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "seen_in": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "grid": {
+      "type": "object",
+      "required": ["columns", "provenance"],
+      "additionalProperties": false,
+      "properties": {
+        "element": {"type": ["string", "null"], "description": "Live DOM id of the grid container"},
+        "caption": {"type": ["string", "null"]},
+        "columns": {"type": "array", "items": {"type": "string"}},
+        "row_id_pattern": {"type": ["string", "null"], "description": "Cell id pattern of the key column, e.g. row_N_distributor"},
+        "key_column": {"type": ["string", "null"]},
+        "cells": {
+          "type": "object",
+          "description": "Editable cells by column: editor element, widget and cell id pattern",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "element": {"type": ["string", "null"]},
+              "widget": {"$ref": "#/$defs/widget"},
+              "cell_id_pattern": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "row_buttons": {"type": "object", "additionalProperties": {"type": "string"}, "description": "Row action -> id pattern, e.g. Save -> rowEditBtn_Save_N"},
+        "filter_elements": {"type": "array", "items": {"type": "string"}},
+        "pager": {"type": ["string", "null"]},
+        "row_by_first_cell": {"type": "string"},
+        "edit_mode": {"type": ["string", "null"]},
+        "selection": {"type": ["string", "null"]},
+        "provenance": {"$ref": "#/$defs/provenance"}
+      }
+    }
+  }
+}

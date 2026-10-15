@@ -1,0 +1,340 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "GOODS_RETURN_NOTES",
+ "title": "Goods Return Notes",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Stock",
+   "Goods Return Notes"
+  ],
+  "option_id": "GOODS_RETURN_NOTES",
+  "search_text": "Goods Return Notes",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/goods-return-notes/GRN",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [
+  {
+   "label": "GRN",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   }
+  },
+  {
+   "label": "Detail",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   }
+  }
+ ],
+ "fields": {
+  "GRN No.": {
+   "element": "grnNum",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "grnNum"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "GRN Date": {
+   "element": "grnDate",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "grnDate"
+   },
+   "tab": "GRN",
+   "default": "today (2026-10-01)",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Delivery Man PJP": {
+   "element": "deliveryManPjp",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "deliveryManPjp"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Delivery Man DSR": {
+   "element": "deliveryManDsr",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "deliveryManDsr"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Warehouse": {
+   "element": "warehouse",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "warehouse"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Vehicle": {
+   "element": "vehicle",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "vehicle"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Status": {
+   "element": "status",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "status"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Working Date": {
+   "element": "workingDate",
+   "widget": "date",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "workingDate"
+   },
+   "tab": "GRN",
+   "default": "today",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "GIN Number": {
+   "element": "ginNos",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "ginNos"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Approval Status": {
+   "element": "appStatus",
+   "widget": "display",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "locator": {
+    "id": "appStatus"
+   },
+   "tab": "GRN",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {
+  "Add": {
+   "element": "Add",
+   "locator": {
+    "id": "Add"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Terminate": {
+   "element": "terminate",
+   "locator": {
+    "id": "terminate"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/GOODS_RETURN_NOTES.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Save All": {
+   "element": "saveAll",
+   "locator": {
+    "id": "saveAll"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "risk": "changes-data",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "grids": {
+  "Goods Return Notes": {
+   "columns": [
+    "GRN No.",
+    "GRN Date",
+    "Delivery Man PJP",
+    "Warehouse",
+    "Approval Status",
+    "Status",
+    "Product Description Batch Stock Type Suggested Actual Rate",
+    "CS DZ PC CS DZ PC"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/inbound_stock/goods_return_note.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/GOODS_RETURN_NOTES.json",
+   "apps/snd/knowledge/screens_observed/LIVE_GOODS_RETURN_NOTE.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

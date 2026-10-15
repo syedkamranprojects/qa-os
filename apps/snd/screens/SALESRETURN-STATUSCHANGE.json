@@ -1,0 +1,137 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "SALESRETURN-STATUSCHANGE",
+ "title": "Sales Return Status Change",
+ "menu": {
+  "path": [
+   "Transaction",
+   "Sales Return",
+   "Sales Return Status Change"
+  ],
+  "option_id": "SALESRETURN-STATUSCHANGE",
+  "search_text": "Sales Return Status Change",
+  "top_id": "NG09",
+  "app_option": null
+ },
+ "route": "/sales-return-statusChange",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [
+  {
+   "label": "Header",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json"
+   }
+  },
+  {
+   "label": "Detail",
+   "element": null,
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json"
+   }
+  }
+ ],
+ "fields": {
+  "PJP Number": {
+   "element": "pjpNo",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json"
+   },
+   "locator": {
+    "id": "pjpNo"
+   },
+   "tab": "Header",
+   "default": "AutoPJGIN2-Auto GIN PJP DM",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  },
+  "Gin Number": {
+   "element": "ginNumber",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json"
+   },
+   "locator": {
+    "id": "ginNumber"
+   },
+   "tab": "Header",
+   "seen_in": [
+    "observed:cnr1dev1:2026-10-01"
+   ]
+  }
+ },
+ "buttons": {},
+ "grids": {
+  "Sales Return Status Change": {
+   "columns": [
+    "Document No.",
+    "Principle Invoice",
+    "Document Date",
+    "Delivery Date",
+    "Outlet Code",
+    "Gross Amount",
+    "Markup",
+    "Discount Amount",
+    "Tax",
+    "Net Amount"
+   ],
+   "provenance": {
+    "source": "observed",
+    "env": "cnr1dev1",
+    "date": "2026-10-01",
+    "ref": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [
+  {
+   "text": "Gin Number list not expanded (depends on PJP/GIN availability). No Save/Forward button visible at header stage.",
+   "kind": "screen",
+   "field": null,
+   "source": "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json",
+   "date": "2026-10-01"
+  }
+ ],
+ "differences": [],
+ "business_page": "knowledge/business/delivery_and_returns/sales_return.md",
+ "business_pages_also": [
+  "knowledge/business/delivery_and_returns/delivery_lifecycle.md"
+ ],
+ "trained": {
+  "status": true,
+  "date": "2026-10-08",
+  "how": [
+   "business page",
+   "group 11 walk",
+   "live read-only look"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/LIVE_SALES_RETURN_STATUS_CHANGE.json",
+   "apps/snd/knowledge/screens_observed/SALESRETURN-STATUSCHANGE.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-08"
+}

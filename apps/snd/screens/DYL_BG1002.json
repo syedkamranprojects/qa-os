@@ -1,0 +1,408 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "DYL_BG1002",
+ "title": "Section Approval",
+ "menu": {
+  "path": [
+   "Setup/Configuration",
+   "PJP",
+   "Section Approval"
+  ],
+  "option_id": "DYL_BG1002",
+  "search_text": "Section Approval",
+  "top_id": "0002",
+  "app_option": null
+ },
+ "route": "/dyl/layout",
+ "page_param": "layoutCode=BG1002",
+ "layout_code": "BG1002",
+ "kind": "dynamic",
+ "tabs": [],
+ "panels": [
+  {
+   "page": "BG1002001",
+   "tab": null,
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "is_child": false,
+   "grids": [
+    "grid1"
+   ],
+   "n_fields": 0
+  },
+  {
+   "page": "BG1002002",
+   "tab": null,
+   "desc": null,
+   "table": "snd_en_pl1_prf_bsen_log_lvl1",
+   "is_child": false,
+   "grids": [],
+   "n_fields": 6
+  }
+ ],
+ "fields": {
+  "Code": {
+   "element": "TXT__ENTITYCODE",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPL1_BUSENT_LOG_LVL1_CODE",
+   "config_id": "textbox2",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "locator": {
+    "id": "TXT__ENTITYCODE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Description": {
+   "element": "TXT__EPL1DESC",
+   "widget": "text",
+   "required": true,
+   "readonly": false,
+   "data_field": "EPL1_DESC",
+   "max_length": 100,
+   "config_id": "textbox10",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "locator": {
+    "id": "TXT__EPL1DESC"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Abbreviation": {
+   "element": "TXT__EPL1ABRV",
+   "widget": "text",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_ABRV",
+   "max_length": 25,
+   "config_id": "textbox9",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "locator": {
+    "id": "TXT__EPL1ABRV"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Status": {
+   "element": "DDL__EPL1ACTIVE",
+   "widget": "select",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_ACTIVE",
+   "config_id": "selectbox7",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "locator": {
+    "id": "DDL__EPL1ACTIVE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Origin Date": {
+   "element": "DT__EPL1ORIGINDATE",
+   "widget": "date",
+   "required": false,
+   "readonly": true,
+   "data_field": "EPL1_ORIGIN_DATE",
+   "config_id": "datebox1",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "locator": {
+    "id": "DT__EPL1ORIGINDATE"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Default Delivery Days": {
+   "element": "TXT__EPL1_REF_NUM_5",
+   "widget": "number",
+   "required": false,
+   "readonly": false,
+   "data_field": "EPL1_REF_NUM_5",
+   "config_id": "textbox4",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "locator": {
+    "id": "TXT__EPL1_REF_NUM_5"
+   },
+   "seen_in": [
+    "db",
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "1": {
+   "element": "pagination-element-1",
+   "locator": {
+    "id": "pagination-element-1"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "2": {
+   "element": "pagination-element-2",
+   "locator": {
+    "id": "pagination-element-2"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "3": {
+   "element": "pagination-element-3",
+   "locator": {
+    "id": "pagination-element-3"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "4": {
+   "element": "pagination-element-4",
+   "locator": {
+    "id": "pagination-element-4"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "5": {
+   "element": "pagination-element-5",
+   "locator": {
+    "id": "pagination-element-5"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "6": {
+   "element": "pagination-element-6",
+   "locator": {
+    "id": "pagination-element-6"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "7": {
+   "element": "pagination-element-7",
+   "locator": {
+    "id": "pagination-element-7"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "8": {
+   "element": "pagination-element-8",
+   "locator": {
+    "id": "pagination-element-8"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "9": {
+   "element": "pagination-element-9",
+   "locator": {
+    "id": "pagination-element-9"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "10": {
+   "element": "pagination-element-10",
+   "locator": {
+    "id": "pagination-element-10"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Forward": {
+   "element": "forward",
+   "locator": {
+    "id": "forward"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Reject": {
+   "element": "reject",
+   "locator": {
+    "id": "reject"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {
+  "grid1": {
+   "columns": [
+    "Code",
+    "Description",
+    "Abbreviation",
+    "Distributor",
+    "Status",
+    "Level Type",
+    "Level No",
+    "Origin Date",
+    "Type",
+    "Ranking",
+    "Org Ranking",
+    "Life Style (LSM)",
+    "Line Per Call (LPC)",
+    "Entry Mode",
+    "Business Entity Type Code",
+    "Organization",
+    "Default Delivery Days"
+   ],
+   "edit_mode": "row",
+   "selection": "single",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+   },
+   "row_by_first_cell": "//tr[contains(@class,'dx-data-row')][td[normalize-space(.)='{value}']]/td[1]"
+  }
+ },
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/section_and_mappings.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page",
+   "group 66 walk"
+  ]
+ },
+ "sources": {
+  "db": "apps/snd/knowledge/screens_db/DYL_BG1002.json",
+  "observed": [
+   "apps/snd/knowledge/screens_observed/DYL_BG1002.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}

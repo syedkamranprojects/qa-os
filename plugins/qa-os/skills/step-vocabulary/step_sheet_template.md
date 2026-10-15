@@ -1,5 +1,5 @@
 # Step sheet: <KEY or flow name>   (run <folder>)
-Status: DRAFT for gate G3      App: <app>   Env: <env>   Market: <PK>   Date: <yyyy-mm-dd>
+Status: DRAFT for the single approval      App: <app>   Env: <env>   Market: <PK>   Date: <yyyy-mm-dd>
 Actors: Maker = <user>, Checker = <user>, ...      One-day chain: <yes/no>      Authorization (from decisions.json): <allow list>
 
 ## Steps

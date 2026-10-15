@@ -1,0 +1,92 @@
+{
+ "$schema": "../../../plugins/qa-os/schemas/screen.schema.json",
+ "option_id": "EXCEL_UPLOAD",
+ "title": "Outlet Change Track Excel",
+ "menu": {
+  "path": [
+   "Distributor Setup",
+   "Outlet Profile",
+   "Outlet Change Track Excel"
+  ],
+  "option_id": "EXCEL_UPLOAD",
+  "search_text": "Outlet Change Track Excel",
+  "top_id": "NG04",
+  "app_option": null
+ },
+ "route": "/content-master/mobility/outlet-excel-view",
+ "page_param": null,
+ "layout_code": null,
+ "kind": "static",
+ "tabs": [],
+ "fields": {
+  "Outlet Channel": {
+   "element": "OutletChannel",
+   "widget": "select",
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/EXCEL_UPLOAD.json"
+   },
+   "locator": {
+    "id": "OutletChannel"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "buttons": {
+  "Download Excel": {
+   "element": "downloadExcel",
+   "locator": {
+    "id": "downloadExcel"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/EXCEL_UPLOAD.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  },
+  "Upload Excel": {
+   "element": "fileInput",
+   "locator": {
+    "id": "fileInput"
+   },
+   "provenance": {
+    "source": "observed",
+    "env": "cnr2dev3",
+    "date": "2026-09-25",
+    "ref": "apps/snd/knowledge/screens_observed/EXCEL_UPLOAD.json"
+   },
+   "seen_in": [
+    "observed:cnr2dev3:2026-09-25"
+   ]
+  }
+ },
+ "grids": {},
+ "messages": [],
+ "lessons": [],
+ "differences": [],
+ "business_page": "knowledge/business/master_data/outlet.md",
+ "trained": {
+  "status": true,
+  "date": "2026-10-14",
+  "how": [
+   "business page"
+  ]
+ },
+ "sources": {
+  "db": null,
+  "observed": [
+   "apps/snd/knowledge/screens_observed/EXCEL_UPLOAD.json"
+  ],
+  "recorded": [],
+  "stated": []
+ },
+ "updated": "2026-10-14"
+}
