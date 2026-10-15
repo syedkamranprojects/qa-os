@@ -383,3 +383,8 @@ Trainers Syed Kamran (QA lead), Feroz Hussain, Muhammad Fahad; methods B + live 
 - D-G66-2-1: **closed** (fixed, re-tested 2026-10-14).
 - Delivery Man Shuffling on-load 'PJP not found' message: known issue (no defect id; never asserted).
 
+## SDMS-6084 run: Report To on Distributor Profile HQ (2026-10-14)
+- **Rule** [stated 2026-10-14 Syed Kamran]: when **Sub Distributor = N**, the **Report To** field is not needed (it only applies to a sub distributor).
+- **D-6084-1 (open, to report to the QA team / dev)**: on Distributor Profile HQ, PK cnr1dev1, distributor 15108843 (Sub Distributor = No), Update is refused with the inline message "Required" on Report To \* [observed 2026-10-09, TC04]. Expected: Update succeeds without Report To. Impact: no change to this distributor's profile can be saved (blocks SDMS-6084 save cases TC04-TC09).
+- **Rule** [stated 2026-10-14 Syed Kamran]: setting **Sub Distributor = Y** enables the **Report To** field (the distributor then reports to a parent distributor); with Sub Distributor = N, Report To is not used. D-6084-1 check: with Sub Distributor = No, Report To must be disabled/not required; if it is still validated as "Required" on Update, that is the defect. Never switch Sub Distributor to Y as a test workaround.
+- **D-6084-1 update 2026-10-14** [observed]: not reproduced - Update on 15108843 succeeded 7 times (no change, and with Off Days changed), toast "Updated successfully"; Report To stays disabled (red before the first Update, cleared after). Status: not reproduced; ask QA whether it was fixed since 2026-10-09. Off Days saved order = selection order.

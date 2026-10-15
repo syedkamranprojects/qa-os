@@ -24,10 +24,41 @@ req, cases, steps = load('requirement.json'), load('cases.json'), load('steps.js
 # newest LIVE result per case (exec/<case>/<stamp>/result.json), used for Actual Result / Status / Evidence
 live = {}
 for case_dir in (os.listdir(os.path.join(run, 'exec')) if os.path.isdir(os.path.join(run, 'exec')) else []):
-    stamps = sorted(s for s in os.listdir(os.path.join(run, 'exec', case_dir)) if not s.endswith('-dry'))
+    cdir = os.path.join(run, 'exec', case_dir)
+    if not os.path.isdir(cdir):                      # stray files (e.g. exec/results.json) are not case folders
+        continue
+    # a live attempt holds result.json (player) or results.json (recorder); newest by modification time
+    stamps = [s for s in os.listdir(cdir) if not s.endswith('-dry') and os.path.isdir(os.path.join(cdir, s))
+              and any(os.path.exists(os.path.join(cdir, s, f)) for f in ('result.json', 'results.json'))]
     if stamps:
-        p = os.path.join(run, 'exec', case_dir, stamps[-1])
-        live[case_dir] = (json.load(open(os.path.join(p, 'result.json'), encoding='utf-8')), os.path.relpath(p, run))
+        p = os.path.join(cdir, max(stamps, key=lambda s: os.path.getmtime(os.path.join(cdir, s))))
+        f = os.path.join(p, 'result.json') if os.path.exists(os.path.join(p, 'result.json')) else os.path.join(p, 'results.json')
+        res = json.load(open(f, encoding='utf-8'))
+        live[case_dir] = (res, os.path.relpath(p, run))
+
+
+def norm_result(res):
+    """Player result.json and recorder results.json differ in shape: map both to verdict pass / fail / needs-data and
+    steps [{n, do, status, detail}]. A QA-lead revised verdict (verdict_revised) wins."""
+    raw = ((res.get('verdict_revised') or {}).get('verdict') or res.get('verdict') or res.get('overall')
+           or res.get('result') or '')
+    low = str(raw).lower()
+    if low in ('pass', 'fail', 'needs-data', 'needs-verb'):
+        verdict = low
+    elif low.startswith('pass'):
+        verdict = 'pass'
+    elif 'not runnable' in low or 'needs' in low or 'missing' in low or 'no legacy' in low or 'blocked' in low:
+        verdict = 'needs-data'
+    else:
+        verdict = 'fail'
+    steps = []
+    for i, s in enumerate(res.get('steps') or [], 1):
+        st = str(s.get('status') or s.get('result') or '').lower()
+        steps.append({'n': s.get('n') or s.get('step') or i, 'do': s.get('do') or s.get('text') or '',
+                      'status': 'pass' if st.startswith('pass') or (verdict == 'pass' and not st.startswith('fail')) else st,
+                      'detail': s.get('detail') or s.get('observed') or s.get('text') or ''})
+    return {'verdict': verdict, 'steps': steps, 'finished': res.get('finished') or res.get('executed') or '',
+            'summary': str(raw)[:300]}
 
 
 def actual(cid):
@@ -35,12 +66,15 @@ def actual(cid):
         note = 'Deferred: file-upload automation is postponed; run manually or via the agreed alternative.'
         if cid in live:
             res, rel = live[cid]
-            note += f" (An earlier automated run is not counted: verdict {res['verdict']}.)"
+            note += f" (An earlier automated run is not counted: verdict {norm_result(res)['verdict']}.)"
         return note, 'Not Executed', None
     if cid not in live:
         return None, 'Not Executed', None
     res, rel = live[cid]
+    res = norm_result(res)
     bad = [s for s in res['steps'] if s['status'] != 'pass']
+    if res['verdict'] != 'pass' and not bad:
+        bad = [{'n': '-', 'do': '-', 'detail': res.get('summary') or 'see the run folder'}]
     shots = [f for f in os.listdir(os.path.join(run, rel)) if f.endswith('.png')]
     if res['verdict'] == 'pass':
         text = f"All {len(res['steps'])} steps passed ({res['finished']})."

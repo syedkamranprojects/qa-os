@@ -17,6 +17,5 @@ Removed 2026-10-14: C-49 (Draft outlets are listed on Change Track Outlet Profil
 
 Removed 2026-10-13 (answered in the live session, OPEN_QUESTIONS.md 2j): Q-PJ6 (Process creates the daily route + outlets due that day), Q-PJ7 (GPS / DDO via PJP Change Request, TSSM approval on the same screen), Q-PJ8 (approval follows the creating user's level).
 
-## Separate: current ticket SDMS-6084 (not parked)
-SDMS-6084 (Off Days on Distributor Profile HQ) was on hold until these answers arrived. Its own question is still open and belongs to that ticket's run:
-- On Distributor Profile HQ, **Update** is refused with "Required" on **Report To \*** for distributor 15108843 (Sub Distributor = No). Is Report To meant to be mandatory here (possible defect), or should the test use a Report To value or another distributor?
+## Separate: current ticket SDMS-6084 (not parked) - ANSWERED 2026-10-14
+Report To is not needed when Sub Distributor = N [stated 2026-10-14 Syed Kamran]; the "Required" on Report To for 15108843 is defect D-6084-1 (LIVE_FINDINGS.md, OPEN_QUESTIONS.md 2l). Nothing left in this list.
