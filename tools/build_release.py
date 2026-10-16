@@ -26,11 +26,14 @@ SKIP_PATH = [re.compile(p) for p in (
     r'^apps/[^/]+/knowledge/sources/code(/|$)',
     r'learning_sessions/[^/]*code[^/]*_report\.md$',
     r'^docs/memory_export/reference_ms_promotion_repo\.md$',
+    r'^docs/memory_export/feedback_never_mention_source_code\.md$',   # internal rule about internal sources: dev only
     r'^tools/build_release\.py$',          # the packaging tool itself stays internal
     r'(^|/)\.claude/settings\.local\.json$',
     r'(^|/)credentials\.json$',
     r'^qaos\.dev\.yaml$',                  # the dev-installation marker never goes to the QA team
     r'^release\.json$',                     # rewritten for every package below
+    r'\.from_qa$',                          # unmerged QA patch copies (runtime/qaos_patch.py apply)
+    r'^feedback/patches/',                  # QA patches and their apply logs stay in the dev copy
 )]
 
 # ordered replacements applied to every shared text file (internal references are rewritten INSIDE the line;
@@ -191,9 +194,21 @@ def main():
     import datetime, json
     sys.path.insert(0, os.path.join(ROOT, 'runtime'))
     from qaos_config import installation
+    from qaos_patch import wanted as patch_area, sha as sha256      # runtime/qaos_patch.py: the patch areas
     me = installation()
+    # sha256 of every shipped file in the patch areas (knowledge, screens, feedback, docs/STATUS.md): a QA patch export
+    # uses them to tell what the QA team changed after this release; apply / import-local use them to detect both-sides edits
+    base = os.path.join(stage, 'qa-os')
+    hashes = {}
+    for dp, _, fns in os.walk(base):
+        for fn in fns:
+            r = os.path.relpath(os.path.join(dp, fn), base).replace(os.sep, '/')
+            if patch_area(r):
+                with open(os.path.join(dp, fn), 'rb') as fh:
+                    hashes[r] = sha256(fh.read())
     json.dump({'mode': 'qa', 'version': version, 'built': datetime.datetime.now().isoformat(timespec='seconds'),
-               'built_by': me.get('owner'), 'design_contact': me.get('design_contact')},
+               'built_by': me.get('owner'), 'design_contact': me.get('design_contact'),
+               'qaos_owner': me.get('qaos_owner'), 'trainers': me.get('trainers') or [], 'files': hashes},
               open(os.path.join(stage, 'qa-os', 'release.json'), 'w', encoding='utf-8'), indent=1)
     os.makedirs(out_dir, exist_ok=True)
     zp = os.path.join(out_dir, f'qa-os-v{version}.zip')

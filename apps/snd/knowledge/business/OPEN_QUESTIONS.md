@@ -638,3 +638,9 @@ Q-PO1..Q-PO3 (2026-10-09) = prospect / outlet questions of the group 66 walk (ma
 ### 2l. Answered 2026-10-14 (SDMS-6084 review)
 - **SDMS-6084 Report To**: when Sub Distributor = N, Report To is not needed; the "Required" on Report To for 15108843 is defect **D-6084-1** (LIVE_FINDINGS.md) [stated 2026-10-14 Syed Kamran].
 - Sub Distributor = Y enables Report To; = N, Report To not used [stated 2026-10-14 Syed Kamran].
+
+### 2m. Answered 2026-10-15 (SDMS-12084, QA team document)
+- **Order Editing vs Order Editing HQ:** the standard screen has no B2B cash memo editing; the HQ screen edits Back Office and B2B cash memos. B2B = incoming transaction type from mobile/interface; not creatable in the back office (backend / Postman, provided by QA on request). Both screens list only unallocated orders with today's delivery date. Access is by role permissions (Role Configuration screen). DT = Auto_Multi_Orga, HQ = headquarter. Details: `order_to_delivery_planning/order_editing_cancellation.md` [stated 2026-10-15 QA team].
+- **Still open:**
+  - (a) Is a B2B cash memo hidden on the standard Order Editing, or listed but blocked? To be observed live.
+  - (b) A B2B test order for 15108843: QA provides it on request.

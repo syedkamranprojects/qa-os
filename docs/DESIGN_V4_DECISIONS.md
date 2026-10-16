@@ -58,6 +58,10 @@ Key finding: DCODE screens are configuration-driven. `dyp_dp_pgl_pagelayout` (la
 | 15.1 Verification | **Before handing over scripts:** verifier checks trace and SQL before anyone applies them | 2026-10-15 |
 | 16.1 Learning loop | Covered by 0.2 (screen lessons automatic; business rules need confirmation) | 2026-10-15 |
 | 17.1 QA installation | QA members may change **business knowledge**. Any attempt to change the QA OS design (skills, agents, tools, schemas, rules) is **stopped**: Claude refuses and asks them to contact the QA OS administrator (Syed Kamran); the request is noted in feedback/design_gaps.md | 2026-10-15 |
+| 18.1 Ownership (email 2026-10-16) | From 2026-10-19 QA OS is owned by **Muhammad Fahad**; Syed Kamran moves to GIS and stays design contact with limited availability | 2026-10-16 |
+| 18.2 Fahad's machine | **Always a QA installation** (release zip, no git); he trains and maintains it locally | 2026-10-16 |
+| 18.3 Trainers | **Only Muhammad Fahad, Feroz Hussain and Syed Zulfiqar** may train QA OS (`qaos.yaml` installation.trainers; `qaos_config.py trainer`); replaces 0.1 "QA members directly" | 2026-10-16 |
+| 18.4 Design changes | Not made on the QA machine; the owner sends a **patch** (`runtime/qaos_patch.py export`) to Syed Kamran, who applies it in the dev copy and sends a new release; local training is kept (`import-local`) | 2026-10-16 |
 
 ## Open items
 - Name of the framework owner (14.2).

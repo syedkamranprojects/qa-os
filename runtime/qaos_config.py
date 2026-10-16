@@ -84,21 +84,30 @@ def installation():
     dev = the QA OS team's working copy (qaos.dev.yaml present); qa = the QA team's release (no marker; release.json
     tells the version). No marker always means qa, so a missing or deleted file never turns a QA install into dev."""
     import json
-    contact = ((global_cfg().get('installation') or {}).get('design_contact')) or ''
+    inst = global_cfg().get('installation') or {}
+    contact = inst.get('design_contact') or ''
     dev = os.path.join(QA_OS, DEV_MARKER)
     if os.path.exists(dev):
         with open(dev, encoding='utf-8') as f:
             d = yaml.safe_load(f) or {}
         return {'mode': 'dev', 'version': plugin_version(), 'owner': d.get('owner'), 'design_contact': d.get('design_contact') or contact,
-                'source': DEV_MARKER}
+                'qaos_owner': inst.get('owner'), 'trainers': inst.get('trainers') or [], 'source': DEV_MARKER}
     rel = os.path.join(QA_OS, RELEASE_INFO)
     if os.path.exists(rel):
         with open(rel, encoding='utf-8') as f:
             r = json.load(f)
         return {'mode': 'qa', 'version': r.get('version'), 'built': r.get('built'), 'built_by': r.get('built_by'),
-                'design_contact': r.get('design_contact') or contact, 'source': RELEASE_INFO}
-    return {'mode': 'qa', 'version': plugin_version(), 'design_contact': contact,
-            'source': f'no {DEV_MARKER} and no {RELEASE_INFO}: treated as a QA install'}
+                'design_contact': r.get('design_contact') or contact, 'qaos_owner': r.get('qaos_owner') or inst.get('owner'),
+                'trainers': r.get('trainers') or inst.get('trainers') or [], 'source': RELEASE_INFO}
+    return {'mode': 'qa', 'version': plugin_version(), 'design_contact': contact, 'qaos_owner': inst.get('owner'),
+            'trainers': inst.get('trainers') or [], 'source': f'no {DEV_MARKER} and no {RELEASE_INFO}: treated as a QA install'}
+
+
+def trainer_allowed(name):
+    """Only the named trainers may train QA OS (QA lead, 2026-10-16). Case- and space-insensitive name match."""
+    norm = lambda s: ' '.join(str(s or '').lower().split())
+    allowed = installation().get('trainers') or []
+    return (not allowed) or norm(name) in {norm(x) for x in allowed}
 
 
 def validate():
@@ -166,8 +175,14 @@ if __name__ == '__main__':
     elif a[0] == 'mode':
         i = installation()
         print(f"QA OS installation: {i['mode'].upper()}  (version {i.get('version')}; from {i['source']})")
+        print(f"  QA OS owner: {i.get('qaos_owner')}; trainers: {', '.join(i.get('trainers') or []) or '(anyone)'}")
         if i['mode'] == 'qa':
-            print(f"  design / tool gaps are noted in feedback/design_gaps.md, not fixed; design contact: {i.get('design_contact')}")
+            print(f"  design / tool gaps are noted in feedback/design_gaps.md, not fixed; important changes go as a patch "
+                  f"(python runtime/qaos_patch.py export --note \"...\") to {i.get('design_contact')}")
+    elif a[0] == 'trainer':                       # python runtime/qaos_config.py trainer "<name>"  -> exit 0 allowed / 1 refused
+        ok = trainer_allowed(' '.join(a[1:]))
+        print('allowed' if ok else f"NOT a QA OS trainer. Only these people may train QA OS: {', '.join(installation().get('trainers') or [])}")
+        sys.exit(0 if ok else 1)
     elif a[0] == 'validate':
         sys.exit(0 if validate() else 1)
     else:

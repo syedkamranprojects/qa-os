@@ -26,7 +26,7 @@
 - [S&D day close](reference_snd_day_close.md) — close a day = PJP Daily Inquiry Update End Of Day + Complete (Current Status E); settlement posts slips, cheques Clear; seq 55/56 bypassed by QA lead.
 - [G11 session 3 plan](project_g11_session3_plan.md) — next: full seq 1-71 run on this machine with the QA Team Lead (run sheet in learning_sessions), then prepare for QA env; check permission mode first.
 - [Group users query](reference_group_users_query.md) — QA lead query for user per group row (never select plu_password); group 66 seq 1-4 = Automation, atlas mislabels it.
-- [G66 setup walk](project_learn_g66_setup.md) — NG_Setup Flow_PK learning walk paused after seq 18 (2026-10-05); resume seq 19 as Auto_Multi_Orga; outlet 01 tax flags changed.
+- [G66 setup walk](project_learn_g66_setup.md) — NG_Setup Flow_PK learning walk COMPLETE (seq 1-18 on 10-05, 19-36 on 10-09); defect D-G66-2-1; order stock comes from the PJP's warehouse.
 - [G11 session 3 done](project_g11_session3_done.md) — 2026-10-06 full seq 1-71 with QA lead; Reattempt-order settlement unblock rule; Q-DS2/Q-CS1 answered; 2018 will block 10-07 settlement.
 - [Bulk-data-factory plan](project_bulk_data_factory_plan.md) — 2026-10-06 approach agreed: start with Order Booking (+Detail +_ASSR) group 11 PK from framework DB + snd-schema; 4 decisions pending.
 - [QA OS web app concept (parked)](project_qaos_web_app_concept.md) — Jira+AI cases/steps+gated execution web app on qa-os; start only after training + one final output with QA team; concept in qa-os/docs/WEB_APP_CONCEPT.md.
@@ -34,7 +34,22 @@
 - [S&D regions](reference_snd_regions.md) — R1 = Pakistan + Bangladesh (PKBD); BD tickets are in scope with PK training; BD org 010105.
 - [S&D BD users](reference_snd_bd_users.md) — BD Maker Auto_Bangla, Checker AutoBD_tssm, company 010105, distributor 05108843.
 - [Quick mode](project_qaos_quick_mode.md) — /qa-os:quick built 2026-10-07: one-liner without ticket -> 1 case, 1 approval, 1 recording -> case-data rows (existing flow) or new SQL; intake keeps named Auto_* users; not tried live yet.
-- [Post-training workflow](feedback_post_training_workflow.md) — after training: one-liner requests (no Jira) via /qa-os:quick; AI cycle runs ONE case only (to find screens/elements/ids/tab ids); N cases = N data rows; never existing framework data; output Regress Master SQL.
+- [Post-training workflow](feedback_post_training_workflow.md) — after training: one-liner requests (no Jira) via /qa-os:quick; group cases by path, record ONE case per path (same path = data rows); never existing framework data; output Regress Master SQL.
 - [Messages as assertions](feedback_messages_as_assertions.md) — capture toast/alert/popup/inline (type+exact text) in training & recordings; all become assertions; engine cannot assert alert text (flag it).
 - [QA-env strict mode](feedback_qa_env_strict_mode.md) — in QA env run strictly to design (no live tool/design changes, no hand edits, stop+report); fix everything first via docs/HARDENING.md + release gate.
 - [Knowledge-gap gate](feedback_knowledge_gap_gate.md) — before AI execution/script generation: short gap -> ask + record + run; long-term gap -> ask for training, do not execute.
+- [Run context first](feedback_run_context_first.md) — before any QA OS flow, confirm market/env/run-by/Maker-Checker users; stored in run.json and printed in the SQL header.
+- [MS_Promotion repo](reference_ms_promotion_repo.md) — promotion microservice C:\MyWork\MS_Promotion; branch per region (UL-R1-BD = PK/BD cnr1dev1); training method E (source code), read via git archive.
+- [Promotions training](project_promotions_partial_training.md) — Promotion Layout structure + Automation2 slab (flat 5%/10% on gross before tax) + free goods learned live; creating/editing promotions NOT trained (don't execute); ask when needed.
+- [Never mention source code](feedback_never_mention_source_code.md) — code-derived facts stay internal (<!--i--> marker); shared packages only via tools/build_release.py; emails phrase code findings as business questions.
+- [Quick mode redesign (done 2026-10-09)](project_quick_mode_redesign.md) — quick = ad-hoc AI test run; request is the case; steps internal; test report; Regress Master scripts only on request after a pass.
+- [Login timer](feedback_login_timer.md) — Claude types the user ID, QA member types the password; 20 s timer, then press Login if the password is filled / continue if logged in / re-prompt if empty.
+- [Pakistan tickets only](feedback_pakistan_tickets_only.md) — current ticket work is PK only (R1 but Pakistan); BD CRs like SDMS-4912 are aborted; check the market at Stage 0.
+- [SDMS-6084 status](project_sdms6084_on_hold.md) — full run done 2026-10-15: 16 pass, TC11 blocked (no legacy data), TC12/13 skipped; D-6084-1 not reproduced; scripts only on request.
+- [Steps are the prediction](feedback_steps_are_the_prediction.md) — AI execution confirms knowledge-predicted steps; a same-session read-only scan may check/bind but never silently rewrite them; no headless.
+- [Parked questions](feedback_parked_questions.md) — non-blocking gaps are parked, not sent; raise with QA only when a ticket touches the area (list in learning_sessions/2026-10-12_G66-PK_parked_questions.md).
+- [QA OS installations](project_qaos_installations.md) — dev = qaos.dev.yaml (never shipped), qa = release zip with release.json; no restrictions yet; qa notes design gaps in feedback/design_gaps.md for Syed Kamran.
+- [Live training 2026-10-13/14](project_live_training_1013.md) — group 66 open points COMPLETE; R1 roles 0001/0005 submit, 0002/0008 approve, 0014 HQ; user acts only if role is in the workflow diagram; delivery days not in R1.
+- [Field region scope](feedback_field_region_scope.md) — a field the screen lacks but the workbook expects: first ask if it is in R1 scope; section delivery days = not R1, skip.
+- [QA OS design v4](project_qaos_design_v4.md) — 2026-10-15 decisions + IMPLEMENTED (screen files, check, one approval workbook, design guard); framework owner Muhammad Imran; next SDMS-5997.
+- [QA OS handover to Fahad](project_qaos_handover_fahad.md) — from 2026-10-19 Fahad owns QA OS on a QA install (no git); trainers Fahad/Feroz/Syed Zulfiqar only; design changes come as patches to Syed Kamran.

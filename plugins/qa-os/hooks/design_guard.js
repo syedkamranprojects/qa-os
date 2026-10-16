@@ -107,7 +107,7 @@ function note(root, tool, rels, input) {
   const who = process.env.USERNAME || process.env.USER || '';
   const esc = (s) => String(s).replace(/\|/g, '\\|').replace(/\s+/g, ' ').slice(0, 200);
   const line = `| ${stamp} | ${esc(who)} | ${esc(input.session_id ? `session ${input.session_id}` : '-')} | design guard (${esc(tool)}) | `
-    + `Blocked a change to QA OS design: ${esc(rels.join(', '))} | Contact the QA OS administrator | open |\n`;
+    + `Blocked a change to QA OS design: ${esc(rels.join(', '))} | Owner to decide; patch to the design contact if needed | open |\n`;
   try {
     fs.mkdirSync(path.dirname(p), { recursive: true });
     let pre = '';
@@ -119,12 +119,17 @@ function note(root, tool, rels, input) {
   } catch (e) { /* the block itself still happens */ }
 }
 
-function contact(root) {
+function info(root) {
   try {
-    return JSON.parse(fs.readFileSync(path.join(root, RELEASE_INFO), 'utf8')).design_contact || 'Syed Kamran';
+    const r = JSON.parse(fs.readFileSync(path.join(root, RELEASE_INFO), 'utf8'));
+    return { owner: r.qaos_owner || 'Muhammad Fahad', contact: r.design_contact || 'Syed Kamran' };
   } catch (e) {
-    return 'Syed Kamran';
+    return { owner: 'Muhammad Fahad', contact: 'Syed Kamran' };
   }
+}
+
+function contact(root) {
+  return info(root).contact;
 }
 
 function decide(input) {
@@ -141,7 +146,9 @@ function decide(input) {
   const roots = Object.keys(blocked);
   if (!roots.length) return null;
   for (const r of roots) note(r, input.tool_name, [...new Set(blocked[r])], input);
-  return `QA OS design changes are not allowed in the QA installation. Please contact the QA OS administrator (${contact(roots[0])}). `
+  const who = info(roots[0]);
+  return `QA OS design changes are not allowed in the QA installation. Please contact the QA OS owner (${who.owner}); `
+    + `important changes are sent as a patch to ${who.contact} (python runtime/qaos_patch.py export --note "<what is needed>"). `
     + 'The request is noted in feedback/design_gaps.md.'
     + ` (blocked: ${[...new Set(roots.flatMap((r) => blocked[r]))].join(', ')})`;
 }

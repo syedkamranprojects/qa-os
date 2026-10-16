@@ -211,3 +211,20 @@ atlas flows 00020001, 00040001, 00840001, 00850001, 03190001, 03740001; group_11
 
 - QA team written answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_Review_answers.md (verbatim answers; filled docx apps/snd/knowledge/sources/20261008_2026-10-06_G11-PK_QA_Team_Review_answered.docx) (rules 1-3; Q-OE3).
 - QA team follow-up answers 2026-10-08: learning_sessions/2026-10-08_QA_Team_followup_answers.md (CASHMEMO_EDIT: no stock movement at an after-GIN edit; Q-OE5 closed).
+
+## Order Editing vs Order Editing HQ, B2B cash memos (SDMS-12084, QA team answers 2026-10-15)
+Source: `learning_sessions/2026-10-15_SDMS-12084_QA_Team_Questions_answered.docx` [stated 2026-10-15 QA team].
+- **Two screens, for Pakistan and Bangladesh:** **Order Editing** (the standard screen) and **Order Editing HQ** (a new feature for PK and BD). The HQ screen has the same basic functionality as Order Editing, plus it shows and modifies **both cash memo types**:
+  - **Back Office cash memo:** created manually through Order Booking in the back office;
+  - **B2B cash memo:** generated from orders received through the mobile application or an external interface.
+- **Order Editing** (standard) does not allow editing a cash memo whose type is **B2B**. Not yet observed: whether such a cash memo is hidden or listed but blocked (confirm live).
+- **Identifying B2B:**
+  - the cash memo is B2B by its **incoming transaction type** (mobile / interface);
+  - the outlet-level flag "B2B enroll" categorizes the outlet;
+  - receiving an outlet through the interface does not by itself make it B2B or non-B2B.
+  - The **back office cannot create B2B orders**; for testing, one is created from the backend or by submitting a payload through Postman, and the QA team provides it on request.
+- **Display rule, both screens:** only **unallocated** orders with **today's delivery date** are listed for editing.
+- **Same editing actions:** quantity reduction with reason, validation and save.
+- **Access:** controlled by **user-role permissions**, which administrators grant per screen on the **Role Configuration** screen. HQ users with the permission see both screens; DT users do not see Order Editing HQ. The two screens keep their own functionality whichever role opens them.
+- **Users for testing:** DT user = **Auto_Multi_Orga** (role 0001/0005); HQ user = **headquarter** (role 0014).
+- **Mapping to the story (QA OS reading, to confirm live):** the story's "Order Editing DT" (non-B2B only) corresponds to the standard **Order Editing**; the story's "existing Order Editing for HQ" (B2B + non-B2B) corresponds to **Order Editing HQ**.

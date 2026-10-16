@@ -15,7 +15,7 @@ for (const d of ['plugins/qa-os/skills', 'runtime', 'tools', 'framework/tools', 
   fs.mkdirSync(path.join(root, d), { recursive: true });
 }
 fs.writeFileSync(path.join(root, 'qaos.yaml'), 'version: 1\n');
-fs.writeFileSync(path.join(root, 'release.json'), JSON.stringify({ mode: 'qa', version: '0.6.0', design_contact: 'Syed Kamran' }));
+fs.writeFileSync(path.join(root, 'release.json'), JSON.stringify({ mode: 'qa', version: '0.6.0', design_contact: 'Syed Kamran', qaos_owner: 'Muhammad Fahad' }));
 fs.writeFileSync(path.join(root, 'feedback', 'design_gaps.md'), '| Date | QA member |\n|---|---|\n');
 const gaps = () => fs.readFileSync(path.join(root, 'feedback', 'design_gaps.md'), 'utf8');
 
@@ -34,7 +34,7 @@ function expect(code, tool, input, label) {
 
 // ---- QA installation: design paths blocked
 let r = expect(2, 'Write', { file_path: P('runtime', 'qaos_run.py') }, 'runtime');
-assert.ok(r.err.startsWith('QA OS design changes are not allowed in the QA installation. Please contact the QA OS administrator (Syed Kamran). The request is noted in feedback/design_gaps.md.'));
+assert.ok(r.err.startsWith('QA OS design changes are not allowed in the QA installation. Please contact the QA OS owner (Muhammad Fahad); important changes are sent as a patch to Syed Kamran'));
 assert.ok(/design guard \(Write\) \| Blocked a change to QA OS design: runtime\/qaos_run\.py/.test(gaps()), 'noted in design_gaps.md');
 expect(2, 'Edit', { file_path: P('plugins', 'qa-os', 'skills', 'x.md') }, 'plugins');
 expect(2, 'Edit', { file_path: P('tools', 'build_release.py') }, 'tools');

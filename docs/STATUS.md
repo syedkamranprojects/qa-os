@@ -421,3 +421,12 @@ Register: `docs/HARDENING.md` (release gate = section D). Design: `docs/FINAL_DE
   - Expected: TC10/TC11 data, TC12/TC13 Order Booking fields.
   - Tuning: typing into the Off Days tag box (negative cases TC02/TC18) needs a `type` event allowed on a tagbox; the DT grid is captioned "Distributor DT List" live, not "Distributor List" (TC09/TC19 step wording).
 - **Next:** SDMS-5997 as the first v4 run (Vehicle Master Bulk Upload screens need screen files first = training top-up / read-only look as headquarter).
+
+## 2026-10-16 - handover to Muhammad Fahad (resume point)
+- **From 2026-10-19 QA OS is owned by Muhammad Fahad;** Syed Kamran moves to GIS (design contact, limited availability). Read **`docs/HANDOVER.md` first**.
+- **Fahad's machine:** always a **QA installation** (release zip, no git). **Trainers:** only Muhammad Fahad, Feroz Hussain, Syed Zulfiqar (`qaos.yaml` installation.trainers, `python runtime/qaos_config.py trainer "<name>"`). **Design changes:** sent as a patch (`python runtime/qaos_patch.py export --note "..."`) to Syed Kamran, who returns a new release.
+- **Tickets:**
+  - SDMS-12084: QA answers merged into `order_editing_cancellation.md` (Order Editing = back-office cash memos only; Order Editing HQ = back-office + B2B; B2B created by backend/Postman on request). Next: get a B2B cash memo from QA, a read-only look at both screens, then `/qa-os:run SDMS-12084`.
+  - SDMS-5997: parked (3 questions).
+  - SDMS-6550: needs training on the User screens.
+  - SDMS-6084: done.
